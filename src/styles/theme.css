@@ -1,66 +1,87 @@
 /*
-  theme.css — Tony Ciencia brand overrides.
+  theme.css — Tony Ciencia · European Startup Edition
+  Dark-first design with amber accent, inspired by Linear / Vercel / Stripe.
   Unlayered so always wins over Base.astro @layer base defaults.
 */
 
 :root {
-	/* Tony Ciencia brand accent */
+	/* Tony Ciencia brand accent — Amber */
 	--color-accent: #c8922a;
-	--color-accent-hover: #ab7517;
+	--color-accent-hover: #e0a832;
+	--color-accent-muted: rgba(200, 146, 42, 0.15);
 	--color-accent-ring: color-mix(in srgb, #c8922a 25%, transparent);
 
-	/* Backgrounds — light mode */
-	--color-bg: #fdf6e3;
-	--color-bg-subtle: #f5eedc;
-	--color-surface: #e8dfc8;
-	--color-border: #dfd5be;
-	--color-border-subtle: #e8dfc8;
+	/* ─── Light Mode ─────────────────────────────── */
+	--color-bg: #fafaf9;
+	--color-bg-subtle: #f5f4f0;
+	--color-surface: #eeedea;
+	--color-border: #e0dfdb;
+	--color-border-subtle: #eae9e5;
 
-	/* Text — light mode */
 	--color-text: #1a1a1a;
-	--color-text-secondary: #4a4a4a;
-	--color-muted: #808080;
+	--color-text-secondary: #52524e;
+	--color-muted: #8a8a86;
 
 	/* Brand gradients */
-	--tc-gradient: linear-gradient(135deg, #f0b84f 0%, #c8922a 100%);
-	--tc-gradient-subtle: linear-gradient(135deg, rgba(200, 146, 42, 0.15) 0%, rgba(240, 184, 79, 0.15) 100%);
+	--tc-gradient: linear-gradient(135deg, #e0a832 0%, #c8922a 50%, #b07a1e 100%);
+	--tc-gradient-subtle: linear-gradient(135deg, rgba(200, 146, 42, 0.08) 0%, rgba(224, 168, 50, 0.04) 100%);
 	--tc-gradient-dark: linear-gradient(135deg, #ab7517 0%, #8f5c09 100%);
+	--tc-gradient-text: linear-gradient(135deg, #f0c96e 0%, #c8922a 100%);
 
-	/* Border radius — más redondeado para look moderno */
+	/* Radii — rounded pill aesthetic */
 	--radius: 8px;
-	--radius-lg: 12px;
-	--radius-xl: 16px;
+	--radius-lg: 14px;
+	--radius-xl: 20px;
+	--radius-pill: 100px;
 
 	/* Wider layout */
 	--wide-width: 1200px;
 	--content-width: 720px;
+
+	/* Glass effect */
+	--glass-bg: color-mix(in srgb, var(--color-bg) 72%, transparent);
+	--glass-border: color-mix(in srgb, var(--color-border) 60%, transparent);
+	--glass-blur: 16px;
 }
 
-/* Dark mode — Tony Ciencia navy palette */
+/* ─── Dark Mode (system pref) ─────────────────── */
 @media (prefers-color-scheme: dark) {
 	:root:not(.light) {
-		--color-bg: #1c1a17;
-		--color-bg-subtle: #24211d;
-		--color-surface: #2e2b26;
-		--color-border: #423d33;
-		--color-border-subtle: #332f28;
-		--color-text: #f0e6d2;
-		--color-text-secondary: #c2b59b;
-		--color-muted: #8c826e;
-		--color-accent: #c8922a;
-		--color-accent-hover: #f0b84f;
+		--color-bg: #09090b;
+		--color-bg-subtle: #111113;
+		--color-surface: #18181b;
+		--color-border: #27272a;
+		--color-border-subtle: #1e1e21;
+
+		--color-text: #fafaf9;
+		--color-text-secondary: #a1a1a0;
+		--color-muted: #636362;
+
+		--color-accent: #e0a832;
+		--color-accent-hover: #f0c96e;
+		--color-accent-muted: rgba(224, 168, 50, 0.12);
+
+		--glass-bg: rgba(9, 9, 11, 0.72);
+		--glass-border: rgba(39, 39, 42, 0.5);
 	}
 }
 
+/* ─── Dark Mode (explicit class) ──────────────── */
 :root.dark {
-	--color-bg: #1c1a17;
-	--color-bg-subtle: #24211d;
-	--color-surface: #2e2b26;
-	--color-border: #423d33;
-	--color-border-subtle: #332f28;
-	--color-text: #f0e6d2;
-	--color-text-secondary: #c2b59b;
-	--color-muted: #8c826e;
-	--color-accent: #c8922a;
-	--color-accent-hover: #f0b84f;
+	--color-bg: #09090b;
+	--color-bg-subtle: #111113;
+	--color-surface: #18181b;
+	--color-border: #27272a;
+	--color-border-subtle: #1e1e21;
+
+	--color-text: #fafaf9;
+	--color-text-secondary: #a1a1a0;
+	--color-muted: #636362;
+
+	--color-accent: #e0a832;
+	--color-accent-hover: #f0c96e;
+	--color-accent-muted: rgba(224, 168, 50, 0.12);
+
+	--glass-bg: rgba(9, 9, 11, 0.72);
+	--glass-border: rgba(39, 39, 42, 0.5);
 }

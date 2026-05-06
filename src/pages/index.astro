@@ -280,11 +280,11 @@ function formatDate(date: Date | null | undefined) {
 </Base>
 
 <style>
-	/* ── HERO ─────────────────────────────────────────────────── */
+	/* ── HERO — European Startup ──────────────────────────── */
 	.hero {
 		position: relative;
 		overflow: hidden;
-		padding: clamp(5rem, 12vw, 9rem) var(--spacing-6) clamp(4rem, 8vw, 7rem);
+		padding: clamp(6rem, 14vw, 11rem) var(--spacing-6) clamp(5rem, 10vw, 9rem);
 		text-align: center;
 		background: var(--color-bg);
 	}
@@ -292,34 +292,42 @@ function formatDate(date: Date | null | undefined) {
 	.hero-inner {
 		position: relative;
 		z-index: 1;
-		max-width: 760px;
+		max-width: 800px;
 		margin: 0 auto;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		gap: var(--spacing-6);
+		gap: var(--spacing-8);
 	}
 
 	.hero-glow {
 		position: absolute;
 		inset: 0;
-		background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(200, 146, 42, 0.12), transparent),
-					radial-gradient(ellipse 60% 40% at 80% 60%, rgba(240, 184, 79, 0.08), transparent);
+		background:
+			radial-gradient(ellipse 60% 50% at 50% 0%, var(--color-accent-muted), transparent 70%),
+			radial-gradient(circle 300px at 20% 80%, rgba(200, 146, 42, 0.06), transparent),
+			radial-gradient(circle 250px at 85% 20%, rgba(224, 168, 50, 0.05), transparent);
 		pointer-events: none;
+		animation: glowPulse 8s ease-in-out infinite alternate;
+	}
+
+	@keyframes glowPulse {
+		0% { opacity: 0.7; }
+		100% { opacity: 1; }
 	}
 
 	.hero-badge {
 		display: inline-flex;
 		align-items: center;
 		gap: var(--spacing-2);
-		padding: 6px 14px;
-		background: var(--tc-gradient-subtle);
-		border: 1px solid color-mix(in srgb, var(--color-accent) 30%, transparent);
-		border-radius: 100px;
+		padding: 6px 16px;
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-pill);
 		font-size: var(--font-size-xs);
 		font-weight: 500;
 		color: var(--color-accent);
-		letter-spacing: 0.04em;
+		letter-spacing: 0.06em;
 		text-transform: uppercase;
 	}
 
@@ -333,154 +341,127 @@ function formatDate(date: Date | null | undefined) {
 
 	@keyframes pulse {
 		0%, 100% { opacity: 1; transform: scale(1); }
-		50% { opacity: 0.5; transform: scale(0.85); }
+		50% { opacity: 0.4; transform: scale(0.8); }
 	}
 
-	.hero-logo-wrap {
-		display: flex;
-		justify-content: center;
-	}
-
-	.hero-logo {
-		height: clamp(48px, 8vw, 72px);
-		width: auto;
-	}
+	.hero-logo-wrap { display: flex; justify-content: center; }
+	.hero-logo { height: clamp(44px, 7vw, 64px); width: auto; }
 
 	.hero-title {
-		font-size: clamp(2.25rem, 5vw, 3.75rem);
+		font-size: clamp(2.5rem, 6vw, 4.25rem);
 		font-weight: 700;
-		line-height: 1.12;
-		letter-spacing: -0.03em;
+		line-height: 1.08;
+		letter-spacing: -0.04em;
 		color: var(--color-text);
 		margin: 0;
 	}
 
 	.hero-title-gradient {
-		background: var(--tc-gradient);
+		background: var(--tc-gradient-text);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
 	}
 
 	.hero-subtitle {
-		font-size: clamp(1rem, 2vw, 1.2rem);
-		color: var(--color-text-secondary);
-		line-height: 1.65;
-		max-width: 560px;
+		font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+		color: var(--color-muted);
+		line-height: 1.7;
+		max-width: 540px;
 		margin: 0;
 	}
 
 	.hero-br { display: inline; }
 
-	.hero-actions {
-		display: flex;
-		gap: var(--spacing-4);
-		flex-wrap: wrap;
-		justify-content: center;
-	}
+	.hero-actions { display: flex; gap: var(--spacing-4); flex-wrap: wrap; justify-content: center; }
 
 	.hero-stats {
 		display: flex;
 		align-items: center;
-		gap: var(--spacing-8);
+		gap: var(--spacing-10);
 		flex-wrap: wrap;
 		justify-content: center;
-		padding-top: var(--spacing-4);
+		padding-top: var(--spacing-6);
+		border-top: 1px solid var(--color-border);
 	}
 
-	.hero-stat {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 2px;
-	}
+	.hero-stat { display: flex; flex-direction: column; align-items: center; gap: 4px; }
 
 	.stat-number {
-		font-size: var(--font-size-2xl);
+		font-size: var(--font-size-3xl);
 		font-weight: 700;
-		letter-spacing: -0.02em;
-		background: var(--tc-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
+		letter-spacing: -0.03em;
+		color: var(--color-text);
 	}
 
 	.stat-label {
 		font-size: var(--font-size-xs);
 		color: var(--color-muted);
-		letter-spacing: 0.02em;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
 	}
 
-	.stat-divider {
-		width: 1px;
-		height: 36px;
-		background: var(--color-border);
-	}
+	.stat-divider { width: 1px; height: 40px; background: var(--color-border); }
 
-	/* ── BUTTONS ─────────────────────────────────────────────── */
+	/* ── BUTTONS — Pill shaped ───────────────────────────── */
 	.btn-primary {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		padding: 13px 28px;
-		background: var(--tc-gradient);
-		color: white;
+		padding: 14px 32px;
+		background: var(--color-accent);
+		color: #fff;
 		font-weight: 600;
 		font-size: var(--font-size-base);
-		border-radius: var(--radius-lg);
+		border-radius: var(--radius-pill);
 		text-decoration: none;
-		transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+		transition: all 250ms ease;
 	}
 
 	.btn-primary:hover {
-		transform: translateY(-1px);
-		box-shadow: 0 8px 24px rgba(2, 116, 190, 0.35);
-		color: white;
+		transform: translateY(-2px);
+		box-shadow: 0 8px 30px rgba(200, 146, 42, 0.4);
+		color: #fff;
+		background: var(--color-accent-hover);
 	}
 
-	.btn-primary.btn-large {
-		padding: 16px 40px;
-		font-size: var(--font-size-lg);
-		border-radius: var(--radius-xl);
-	}
+	.btn-primary.btn-large { padding: 18px 44px; font-size: var(--font-size-lg); }
 
 	.btn-secondary {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		padding: 12px 27px;
+		padding: 13px 31px;
 		border: 1.5px solid var(--color-border);
 		color: var(--color-text);
 		font-weight: 500;
 		font-size: var(--font-size-base);
-		border-radius: var(--radius-lg);
+		border-radius: var(--radius-pill);
 		text-decoration: none;
-		transition: border-color var(--transition-fast), color var(--transition-fast);
+		transition: all 250ms ease;
 	}
 
 	.btn-secondary:hover {
 		border-color: var(--color-accent);
 		color: var(--color-accent);
+		background: var(--color-accent-muted);
 	}
 
-	/* ── SERVICES ────────────────────────────────────────────── */
+	/* ── SERVICES — Glass cards ──────────────────────────── */
 	.services-section {
 		background: var(--color-bg-subtle);
-		border-top: 1px solid var(--color-border-subtle);
-		border-bottom: 1px solid var(--color-border-subtle);
-		padding: clamp(4rem, 8vw, 7rem) var(--spacing-6);
+		border-top: 1px solid var(--color-border);
+		border-bottom: 1px solid var(--color-border);
+		padding: clamp(5rem, 10vw, 8rem) var(--spacing-6);
 	}
 
-	.section-container {
-		max-width: var(--wide-width);
-		margin: 0 auto;
-	}
+	.section-container { max-width: var(--wide-width); margin: 0 auto; }
 
 	.section-label {
 		font-size: var(--font-size-xs);
 		font-weight: 600;
 		text-transform: uppercase;
-		letter-spacing: 0.1em;
+		letter-spacing: 0.12em;
 		color: var(--color-accent);
 		margin-bottom: var(--spacing-4);
 	}
@@ -488,7 +469,7 @@ function formatDate(date: Date | null | undefined) {
 	.section-heading {
 		font-size: clamp(1.75rem, 3.5vw, 2.5rem);
 		font-weight: 700;
-		letter-spacing: -0.025em;
+		letter-spacing: -0.03em;
 		color: var(--color-text);
 		margin: 0 0 var(--spacing-4);
 		max-width: 560px;
@@ -496,8 +477,8 @@ function formatDate(date: Date | null | undefined) {
 
 	.section-sub {
 		font-size: var(--font-size-lg);
-		color: var(--color-text-secondary);
-		line-height: 1.65;
+		color: var(--color-muted);
+		line-height: 1.7;
 		max-width: 520px;
 		margin: 0 0 var(--spacing-12);
 	}
@@ -517,18 +498,18 @@ function formatDate(date: Date | null | undefined) {
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing-4);
-		transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+		transition: all 300ms ease;
 	}
 
 	.service-card:hover {
-		transform: translateY(-3px);
-		box-shadow: 0 12px 40px rgba(2, 116, 190, 0.1);
-		border-color: color-mix(in srgb, var(--color-accent) 30%, var(--color-border));
+		transform: translateY(-4px);
+		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+		border-color: var(--color-accent-muted);
 	}
 
 	.service-card--featured {
 		border-color: color-mix(in srgb, var(--color-accent) 40%, var(--color-border));
-		background: linear-gradient(160deg, var(--color-bg) 60%, color-mix(in srgb, var(--color-accent) 4%, var(--color-bg)));
+		background: linear-gradient(160deg, var(--color-bg) 60%, var(--color-accent-muted));
 	}
 
 	.service-icon {
@@ -537,8 +518,8 @@ function formatDate(date: Date | null | undefined) {
 		justify-content: center;
 		width: 48px;
 		height: 48px;
-		border-radius: 12px;
-		background: var(--tc-gradient-subtle);
+		border-radius: 14px;
+		background: var(--color-accent-muted);
 		color: var(--color-accent);
 		flex-shrink: 0;
 	}
@@ -547,12 +528,12 @@ function formatDate(date: Date | null | undefined) {
 		position: absolute;
 		top: var(--spacing-4);
 		right: var(--spacing-4);
-		padding: 3px 10px;
-		background: var(--tc-gradient);
-		color: white;
+		padding: 4px 12px;
+		background: var(--color-accent);
+		color: #fff;
 		font-size: var(--font-size-xs);
 		font-weight: 600;
-		border-radius: 100px;
+		border-radius: var(--radius-pill);
 		letter-spacing: 0.02em;
 	}
 
@@ -566,8 +547,8 @@ function formatDate(date: Date | null | undefined) {
 
 	.service-desc {
 		font-size: var(--font-size-base);
-		color: var(--color-text-secondary);
-		line-height: 1.65;
+		color: var(--color-muted);
+		line-height: 1.7;
 		margin: 0;
 		flex: 1;
 	}
@@ -577,18 +558,16 @@ function formatDate(date: Date | null | undefined) {
 		font-weight: 500;
 		color: var(--color-accent);
 		text-decoration: none;
-		transition: gap var(--transition-fast);
+		transition: color 200ms ease;
 	}
 
-	.service-link:hover {
-		color: var(--color-accent-hover);
-	}
+	.service-link:hover { color: var(--color-accent-hover); }
 
-	/* ── CTA SECTION ─────────────────────────────────────────── */
+	/* ── CTA — Premium ───────────────────────────────────── */
 	.cta-section {
 		position: relative;
 		overflow: hidden;
-		padding: clamp(4rem, 8vw, 6rem) var(--spacing-6);
+		padding: clamp(5rem, 10vw, 7rem) var(--spacing-6);
 		text-align: center;
 		background: var(--color-bg);
 	}
@@ -607,22 +586,22 @@ function formatDate(date: Date | null | undefined) {
 	.cta-glow {
 		position: absolute;
 		inset: 0;
-		background: radial-gradient(ellipse 70% 80% at 50% 100%, rgba(200, 146, 42, 0.1), transparent);
+		background: radial-gradient(ellipse 70% 80% at 50% 100%, var(--color-accent-muted), transparent);
 		pointer-events: none;
 	}
 
 	.cta-title {
 		font-size: clamp(1.75rem, 4vw, 2.75rem);
 		font-weight: 700;
-		letter-spacing: -0.025em;
+		letter-spacing: -0.03em;
 		color: var(--color-text);
 		margin: 0;
 	}
 
 	.cta-sub {
 		font-size: var(--font-size-lg);
-		color: var(--color-text-secondary);
-		line-height: 1.65;
+		color: var(--color-muted);
+		line-height: 1.7;
 		margin: 0;
 	}
 
