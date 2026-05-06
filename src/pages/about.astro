@@ -1,0 +1,394 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base
+	title="Sobre Nosotros — Tony Ciencia"
+	description="Somos Tony Ciencia: una empresa de tecnología y educación digital especializada en IA, automatización y apps para emprendedores."
+>
+	<!-- ═══ HERO ═══════════════════════════════════════════════ -->
+	<section class="about-hero">
+		<div class="about-hero-inner">
+			<div class="page-breadcrumb">
+				<a href="/">Tony Ciencia</a>
+				<span>→</span>
+				<span>Sobre Nosotros</span>
+			</div>
+			<h1 class="about-title">
+				Construimos tecnología<br />
+				<span class="title-gradient">que funciona de verdad</span>
+			</h1>
+			<p class="about-subtitle">
+				Tony Ciencia nació de la convicción de que la IA y la automatización
+				no son exclusivas de las grandes empresas. Cada emprendedor y negocio
+				merece acceder a estas herramientas — con el apoyo de alguien que ya
+				las ha probado y puesto en producción.
+			</p>
+		</div>
+	</section>
+
+	<!-- ═══ MISIÓN / VALORES ═══════════════════════════════════ -->
+	<section class="values-section">
+		<div class="values-inner">
+			<div class="values-grid">
+				<div class="value-card">
+					<div class="value-icon">
+						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+							<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+						</svg>
+					</div>
+					<h3 class="value-title">Resultados, no promesas</h3>
+					<p class="value-desc">
+						Solo recomendamos lo que hemos probado nosotros mismos. Si algo
+						no funciona en producción real, no lo enseñamos ni lo vendemos.
+					</p>
+				</div>
+				<div class="value-card">
+					<div class="value-icon">
+						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+							<circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+						</svg>
+					</div>
+					<h3 class="value-title">Velocidad con calidad</h3>
+					<p class="value-desc">
+						Construimos rápido porque usamos el stack correcto: Cloudflare
+						Workers, Astro y herramientas sin servidor que escalan sin fricción.
+					</p>
+				</div>
+				<div class="value-card">
+					<div class="value-icon">
+						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+						</svg>
+					</div>
+					<h3 class="value-title">Comunidad primero</h3>
+					<p class="value-desc">
+						Todo lo que construimos — cursos, herramientas, artículos — está
+						diseñado para que puedas aprender, aplicar y compartir con otros.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══ STACK TECNOLÓGICO ══════════════════════════════════ -->
+	<section class="stack-section">
+		<div class="stack-inner">
+			<div class="section-label">Nuestro stack</div>
+			<h2 class="stack-title">Tecnología que elegimos con criterio</h2>
+			<p class="stack-desc">
+				No usamos tecnología por moda. Usamos lo que tiene el mejor ratio
+				rendimiento / costo / mantenibilidad para negocios reales.
+			</p>
+			<div class="stack-grid">
+				<div class="stack-item">
+					<span class="stack-name">Cloudflare Workers</span>
+					<span class="stack-use">Compute en el edge, zero-ops</span>
+				</div>
+				<div class="stack-item">
+					<span class="stack-name">Astro + EmDash</span>
+					<span class="stack-use">Sitios rápidos con CMS propio</span>
+				</div>
+				<div class="stack-item">
+					<span class="stack-name">n8n + Zapier</span>
+					<span class="stack-use">Automatización de workflows</span>
+				</div>
+				<div class="stack-item">
+					<span class="stack-name">Cloudflare D1 + R2</span>
+					<span class="stack-use">Base de datos y storage global</span>
+				</div>
+				<div class="stack-item">
+					<span class="stack-name">YouTube Data API v3</span>
+					<span class="stack-use">Automatización de contenido</span>
+				</div>
+				<div class="stack-item">
+					<span class="stack-name">Zoho CRM + Campaigns</span>
+					<span class="stack-use">CRM y email marketing</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══ CTA ════════════════════════════════════════════════ -->
+	<section class="about-cta">
+		<div class="about-cta-inner">
+			<h2 class="about-cta-title">¿Trabajamos juntos?</h2>
+			<p class="about-cta-sub">
+				Si estás buscando automatizar tu negocio, aprender IA de forma práctica
+				o construir algo diferente — escríbenos.
+			</p>
+			<div class="about-cta-actions">
+				<a href="/contacto" class="btn-primary">Contactar ahora</a>
+				<a href="/servicios" class="btn-secondary">Ver servicios</a>
+			</div>
+		</div>
+	</section>
+</Base>
+
+<style>
+	.about-hero {
+		padding: clamp(4rem, 8vw, 7rem) var(--spacing-6) clamp(3rem, 6vw, 5rem);
+		background: var(--color-bg);
+		border-bottom: 1px solid var(--color-border-subtle);
+	}
+
+	.about-hero-inner {
+		max-width: var(--wide-width);
+		margin: 0 auto;
+	}
+
+	.page-breadcrumb {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-2);
+		font-size: var(--font-size-sm);
+		color: var(--color-muted);
+		margin-bottom: var(--spacing-6);
+	}
+
+	.page-breadcrumb a {
+		color: var(--color-muted);
+		text-decoration: none;
+		transition: color var(--transition-fast);
+	}
+
+	.page-breadcrumb a:hover { color: var(--color-accent); }
+
+	.about-title {
+		font-size: clamp(2.25rem, 5vw, 3.5rem);
+		font-weight: 700;
+		letter-spacing: -0.03em;
+		line-height: 1.12;
+		color: var(--color-text);
+		margin: 0 0 var(--spacing-6);
+	}
+
+	.title-gradient {
+		background: var(--tc-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.about-subtitle {
+		font-size: var(--font-size-lg);
+		color: var(--color-text-secondary);
+		line-height: 1.7;
+		max-width: 640px;
+		margin: 0;
+	}
+
+	/* ── VALUES ────────────────────────────────────────────── */
+	.values-section {
+		padding: clamp(4rem, 7vw, 6rem) var(--spacing-6);
+		background: var(--color-bg-subtle);
+		border-bottom: 1px solid var(--color-border-subtle);
+	}
+
+	.values-inner {
+		max-width: var(--wide-width);
+		margin: 0 auto;
+	}
+
+	.values-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: var(--spacing-6);
+	}
+
+	.value-card {
+		padding: var(--spacing-8);
+		background: var(--color-bg);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-xl);
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-4);
+		transition: transform var(--transition-base), box-shadow var(--transition-base);
+	}
+
+	.value-card:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 32px rgba(2, 116, 190, 0.08);
+	}
+
+	.value-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 44px;
+		height: 44px;
+		border-radius: 12px;
+		background: var(--tc-gradient-subtle);
+		color: var(--color-accent);
+	}
+
+	.value-title {
+		font-size: var(--font-size-xl);
+		font-weight: 600;
+		letter-spacing: -0.015em;
+		color: var(--color-text);
+		margin: 0;
+	}
+
+	.value-desc {
+		font-size: var(--font-size-base);
+		color: var(--color-text-secondary);
+		line-height: 1.65;
+		margin: 0;
+	}
+
+	/* ── STACK ─────────────────────────────────────────────── */
+	.stack-section {
+		padding: clamp(4rem, 7vw, 6rem) var(--spacing-6);
+	}
+
+	.stack-inner {
+		max-width: var(--wide-width);
+		margin: 0 auto;
+	}
+
+	.section-label {
+		font-size: var(--font-size-xs);
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: var(--color-accent);
+		margin-bottom: var(--spacing-4);
+	}
+
+	.stack-title {
+		font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+		font-weight: 700;
+		letter-spacing: -0.025em;
+		color: var(--color-text);
+		margin: 0 0 var(--spacing-4);
+		max-width: 500px;
+	}
+
+	.stack-desc {
+		font-size: var(--font-size-lg);
+		color: var(--color-text-secondary);
+		line-height: 1.65;
+		max-width: 520px;
+		margin: 0 0 var(--spacing-10);
+	}
+
+	.stack-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1px;
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-xl);
+		overflow: hidden;
+		background: var(--color-border);
+	}
+
+	.stack-item {
+		background: var(--color-bg);
+		padding: var(--spacing-6) var(--spacing-6);
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-2);
+	}
+
+	.stack-name {
+		font-size: var(--font-size-base);
+		font-weight: 600;
+		color: var(--color-text);
+	}
+
+	.stack-use {
+		font-size: var(--font-size-sm);
+		color: var(--color-muted);
+	}
+
+	/* ── CTA ───────────────────────────────────────────────── */
+	.about-cta {
+		padding: clamp(4rem, 8vw, 6rem) var(--spacing-6);
+		background: var(--color-bg-subtle);
+		border-top: 1px solid var(--color-border-subtle);
+		text-align: center;
+	}
+
+	.about-cta-inner {
+		max-width: 560px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: var(--spacing-5);
+	}
+
+	.about-cta-title {
+		font-size: clamp(1.75rem, 4vw, 2.5rem);
+		font-weight: 700;
+		letter-spacing: -0.025em;
+		color: var(--color-text);
+		margin: 0;
+	}
+
+	.about-cta-sub {
+		font-size: var(--font-size-lg);
+		color: var(--color-text-secondary);
+		line-height: 1.65;
+		margin: 0;
+	}
+
+	.about-cta-actions {
+		display: flex;
+		gap: var(--spacing-4);
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.btn-primary {
+		display: inline-flex;
+		align-items: center;
+		padding: 13px 28px;
+		background: var(--tc-gradient);
+		color: white;
+		font-weight: 600;
+		font-size: var(--font-size-base);
+		border-radius: var(--radius-lg);
+		text-decoration: none;
+		transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+	}
+
+	.btn-primary:hover {
+		transform: translateY(-1px);
+		box-shadow: 0 8px 24px rgba(2, 116, 190, 0.35);
+		color: white;
+	}
+
+	.btn-secondary {
+		display: inline-flex;
+		align-items: center;
+		padding: 12px 27px;
+		border: 1.5px solid var(--color-border);
+		color: var(--color-text);
+		font-weight: 500;
+		font-size: var(--font-size-base);
+		border-radius: var(--radius-lg);
+		text-decoration: none;
+		transition: border-color var(--transition-fast), color var(--transition-fast);
+	}
+
+	.btn-secondary:hover {
+		border-color: var(--color-accent);
+		color: var(--color-accent);
+	}
+
+	/* ── RESPONSIVE ──────────────────────────────────────── */
+	@media (max-width: 900px) {
+		.values-grid { grid-template-columns: 1fr; max-width: 480px; }
+		.stack-grid { grid-template-columns: repeat(2, 1fr); }
+	}
+
+	@media (max-width: 640px) {
+		.values-grid { max-width: none; }
+		.stack-grid { grid-template-columns: 1fr; }
+		.about-cta-actions { flex-direction: column; width: 100%; max-width: 300px; }
+		.btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+	}
+</style>

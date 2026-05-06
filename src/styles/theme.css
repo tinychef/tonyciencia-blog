@@ -1,0 +1,66 @@
+/*
+  theme.css — Tony Ciencia brand overrides.
+  Unlayered so always wins over Base.astro @layer base defaults.
+*/
+
+:root {
+	/* Tony Ciencia brand accent */
+	--color-accent: #c8922a;
+	--color-accent-hover: #ab7517;
+	--color-accent-ring: color-mix(in srgb, #c8922a 25%, transparent);
+
+	/* Backgrounds — light mode */
+	--color-bg: #fdf6e3;
+	--color-bg-subtle: #f5eedc;
+	--color-surface: #e8dfc8;
+	--color-border: #dfd5be;
+	--color-border-subtle: #e8dfc8;
+
+	/* Text — light mode */
+	--color-text: #1a1a1a;
+	--color-text-secondary: #4a4a4a;
+	--color-muted: #808080;
+
+	/* Brand gradients */
+	--tc-gradient: linear-gradient(135deg, #f0b84f 0%, #c8922a 100%);
+	--tc-gradient-subtle: linear-gradient(135deg, rgba(200, 146, 42, 0.15) 0%, rgba(240, 184, 79, 0.15) 100%);
+	--tc-gradient-dark: linear-gradient(135deg, #ab7517 0%, #8f5c09 100%);
+
+	/* Border radius — más redondeado para look moderno */
+	--radius: 8px;
+	--radius-lg: 12px;
+	--radius-xl: 16px;
+
+	/* Wider layout */
+	--wide-width: 1200px;
+	--content-width: 720px;
+}
+
+/* Dark mode — Tony Ciencia navy palette */
+@media (prefers-color-scheme: dark) {
+	:root:not(.light) {
+		--color-bg: #1c1a17;
+		--color-bg-subtle: #24211d;
+		--color-surface: #2e2b26;
+		--color-border: #423d33;
+		--color-border-subtle: #332f28;
+		--color-text: #f0e6d2;
+		--color-text-secondary: #c2b59b;
+		--color-muted: #8c826e;
+		--color-accent: #c8922a;
+		--color-accent-hover: #f0b84f;
+	}
+}
+
+:root.dark {
+	--color-bg: #1c1a17;
+	--color-bg-subtle: #24211d;
+	--color-surface: #2e2b26;
+	--color-border: #423d33;
+	--color-border-subtle: #332f28;
+	--color-text: #f0e6d2;
+	--color-text-secondary: #c2b59b;
+	--color-muted: #8c826e;
+	--color-accent: #c8922a;
+	--color-accent-hover: #f0b84f;
+}
