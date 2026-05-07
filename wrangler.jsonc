@@ -1,21 +1,22 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "my-emdash-site",
+	"name": "tonyciencia",
 	"main": "./src/worker.ts",
 	"compatibility_date": "2026-02-24",
 	"compatibility_flags": ["nodejs_compat"],
+	"assets": { "directory": "./dist" },
 	"d1_databases": [
 		{
 			"binding": "DB",
-			"database_name": "my-emdash-site",
-			// Run `wrangler d1 create my-emdash-site` and paste the real ID here for deploy
+			"database_name": "tonyciencia-db",
+			// Run `wrangler d1 create tonyciencia-db` and paste the real ID here for deploy
 			"database_id": "local",
 		},
 	],
 	"r2_buckets": [
 		{
 			"binding": "MEDIA",
-			"bucket_name": "my-emdash-media",
+			"bucket_name": "tonyciencia-media",
 		},
 	],
 	// Worker Loader for plugin sandboxing

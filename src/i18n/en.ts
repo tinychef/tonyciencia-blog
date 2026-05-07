@@ -1,0 +1,213 @@
+import type es from "./es";
+
+const en: typeof es = {
+	// Nav
+	"nav.home": "Home",
+	"nav.blog": "Blog",
+	"nav.services": "Services",
+	"nav.about": "About",
+	"nav.contact": "Contact",
+	"nav.search": "Search...",
+	"nav.admin": "Admin",
+
+	// Hero
+	// Hero
+	"hero.badge": "AI · Automation · Growth",
+	"hero.title.line1": "Intelligent Systems.",
+	"hero.title.line2": "Scale with AI.",
+	"hero.subtitle": "We build core solutions: Automation Services, Digital Courses, 1-on-1 Mentorships, and Custom SaaS.",
+	"hero.cta.primary": "View services",
+	"hero.cta.secondary": "Read the blog",
+	"hero.stat.students": "Students trained",
+	"hero.stat.workflows": "Workflows automated",
+	"hero.stat.results": "Client satisfaction",
+
+	// Services
+	// Services
+	"services.label": "Core Solutions",
+	"services.heading": "Technology that drives digital growth",
+	"services.sub": "Our proven experience of over 5 years in applied AI to solve specific problems.",
+	"services.automation.title": "Automation Services",
+	"services.automation.desc": "We connect tools and implement AI with n8n and Vertex AI to accelerate your growth.",
+	"services.automation.link": "Learn more →",
+	"services.courses.title": "Digital Courses & Training",
+	"services.courses.desc": "Master automation with n8n — From Zero to Expert. 1-on-1 mentorship to accelerate your growth.",
+	"services.courses.link": "View courses →",
+	"services.courses.badge": "Trusted by Innovators",
+	"services.apps.title": "Custom Apps & SaaS",
+	"services.apps.desc": "We develop full-stack applications with AI and automation for agencies and businesses.",
+	"services.apps.link": "View projects →",
+	
+	// Core Values & Testimonials
+	"core.values.title": "Why choose us",
+	"core.values.v1.title": "Pedagogy that Simplifies Technology",
+	"core.values.v2.title": "Proven Expertise in Automation & AI",
+	"core.values.v3.title": "Marketing-Oriented Digital Growth",
+	"core.values.v4.title": "5+ Years of Applied AI Experience",
+	"core.values.v5.title": "Legally Established & Trusted",
+	"testimonials.title": "What our students say",
+	"testimonials.t1.quote": "\"Before this course, I felt completely lost with automation. Antonio explains everything so clearly and simply that it becomes possible. Now I have my first workflows running.\"",
+	"testimonials.t1.author": "Antonio Jr.",
+	"testimonials.t1.role": "Student",
+	"testimonials.t2.quote": "\"What I value most is the patience and how Antonio breaks down complex concepts into simple language. Today I can build automations for my clients with confidence.\"",
+	"testimonials.t2.author": "Fernando P.",
+	"testimonials.t2.role": "CEO, Mind-AI",
+	"testimonials.t3.quote": "\"The difference between this course and others is that here you're not left on your own. Antonio is present, responsive and supportive. That closeness made all the difference.\"",
+	"testimonials.t3.author": "Ricardo M.",
+	"testimonials.t3.role": "CTO, Marketing",
+
+	// CTA
+	"cta.title": "Ready to automate your business?",
+	"cta.sub": "Schedule a free 30-minute call and we'll show you exactly which automations will have the most impact for you.",
+	"cta.button": "Talk to us",
+	"cta.social_proof": "Join +500 entrepreneurs already automating with AI",
+
+	// Blog
+	"blog.latest": "Latest articles",
+	"blog.viewAll": "View all",
+	"blog.readMore": "Read more",
+	"blog.minRead": "min read",
+	"blog.noPostsYet": "No articles yet",
+	"blog.noPostsDesc": "Create your first post from the admin panel.",
+	"blog.createPost": "Create article",
+	"blog.readInOther": "Leer en español",
+
+	// About Page
+	"about.title.line1": "We build technology",
+	"about.title.line2": "that actually works",
+	"about.subtitle": "Tony Ciencia was born from the conviction that AI and automation are not exclusive to large enterprises. Every entrepreneur and business deserves access to these tools — with the support of someone who has already tested them and put them into production.",
+	"about.values.results.title": "Results, not promises",
+	"about.values.results.desc": "We only recommend what we've tested ourselves. If something doesn't work in real production, we don't teach it or sell it.",
+	"about.values.speed.title": "Speed with quality",
+	"about.values.speed.desc": "We build fast because we use the right stack: Cloudflare Workers, Astro, and serverless tools that scale without friction.",
+	"about.values.community.title": "Community first",
+	"about.values.community.desc": "Everything we build — courses, tools, articles — is designed so you can learn, apply, and share with others.",
+	"about.stack.label": "Our stack",
+	"about.stack.title": "Technology we choose carefully",
+	"about.stack.desc": "We don't use tech because it's trendy. We use what has the best performance / cost / maintainability ratio for real businesses.",
+	"about.cta.title": "Should we work together?",
+	"about.cta.sub": "If you're looking to automate your business, learn AI practically, or build something different — write to us.",
+
+	// Contact Page
+	"contact.title.line1": "Let's talk about",
+	"contact.title.line2": "your project",
+	"contact.subtitle": "Tell us what you want to automate or build. We respond in less than 24 hours on business days.",
+	"contact.form.title": "Send us a message",
+	"contact.form.sub": "Describe your project or question. The more details, the better we can guide you in the first call.",
+	"contact.form.name": "Name",
+	"contact.form.namePlaceholder": "Your name",
+	"contact.form.email": "Email",
+	"contact.form.emailPlaceholder": "you@email.com",
+	"contact.form.subject": "What do you need?",
+	"contact.form.subjectPlaceholder": "Select an option",
+	"contact.form.subjectOpt1": "AI Automation",
+	"contact.form.subjectOpt2": "Courses and training",
+	"contact.form.subjectOpt3": "App development",
+	"contact.form.subjectOpt4": "Consulting",
+	"contact.form.subjectOpt5": "Other",
+	"contact.form.message": "Message",
+	"contact.form.messagePlaceholder": "Tell us about your project, what you want to automate, or any questions you have...",
+	"contact.form.submit": "Send message",
+	"contact.info.email": "Direct email",
+	"contact.info.time": "Response time",
+	"contact.info.timeVal": "Under 24h on business days",
+	"contact.info.call": "Free call",
+	"contact.info.callVal": "30 min to analyze your case without commitment",
+	"contact.faq.title": "Frequently asked questions",
+	"contact.faq.q1": "How much does automation cost?",
+	"contact.faq.a1": "It depends on the scope. After the free call, we'll send you a quote without commitment.",
+	"contact.faq.q2": "Do I need technical knowledge?",
+	"contact.faq.a2": "No. Our courses start from scratch and our automation services are turnkey.",
+	"contact.faq.q3": "Do you work with companies outside Spain?",
+	"contact.faq.a3": "Yes, we work 100% remotely with clients all over LATAM and Spain.",
+
+	// Services Page
+	"services.page.title.line1": "Technology that",
+	"services.page.title.line2": "generates results",
+	"services.page.subtitle": "Every service is designed for you to reclaim your time and multiply your impact — without needing a large tech team.",
+	"services.block1.tag": "Automation",
+	"services.block1.title": "AI Automation",
+	"services.block1.desc": "We connect your favorite tools — CRM, email, spreadsheets, databases — so they work together without manual intervention. We use n8n, Zapier, and custom APIs built on Cloudflare Workers.",
+	"services.block1.f1": "CRM integration with lead automation",
+	"services.block1.f2": "Automated email marketing pipelines",
+	"services.block1.f3": "Automated reporting with real-time data",
+	"services.block1.f4": "AI agents that reply and classify messages",
+	"services.block1.f5": "Sync between platforms (Zoho, HubSpot, Google Sheets)",
+	"services.block1.btn": "I want to automate my business →",
+	"services.block1.statVal": "−80%",
+	"services.block1.statLbl": "Time on repetitive tasks",
+	
+	"services.block2.tag": "Training",
+	"services.block2.title": "Courses & Digital Training",
+	"services.block2.desc": "Learn to build AI and automation systems from scratch, with practical training oriented towards real results. No empty theory — only what works in businesses like yours.",
+	"services.block2.f1": "Applied AI courses for business",
+	"services.block2.f2": "Automation workshop with n8n",
+	"services.block2.f3": "Training in Cloudflare Workers and edge computing",
+	"services.block2.f4": "Active community of practice",
+	"services.block2.f5": "Lifetime access + updates included",
+	"services.block2.btn": "View upcoming courses →",
+	"services.block2.statVal": "+500",
+	"services.block2.statLbl": "Students trained",
+	
+	"services.block3.tag": "Development",
+	"services.block3.title": "Custom Apps & Tools",
+	"services.block3.desc": "We build custom web applications on the Cloudflare edge — fast, secure, and scalable from day one. No owned servers, no operational complexity.",
+	"services.block3.f1": "Apps with Cloudflare Workers + D1 (SQLite at the edge)",
+	"services.block3.f2": "React interfaces with Astro for maximum performance",
+	"services.block3.f3": "Integrations with third-party APIs (Zoho, YouTube, PartnerStack)",
+	"services.block3.f4": "Analytics and reporting dashboards",
+	"services.block3.f5": "Affiliate and partner systems",
+	"services.block3.btn": "Tell me about your project →",
+	"services.block3.statVal": "< 50ms",
+	"services.block3.statLbl": "Global latency (edge)",
+	
+	"services.cta.title": "Where do we start?",
+	"services.cta.sub": "Book a free 30-minute call. No commitment, just to understand what can have the most impact in your case.",
+	"services.cta.btn": "Book free call",
+
+	// Footer
+	"footer.navigate": "Navigate",
+	"footer.connect": "Connect",
+	"footer.legal": "Legal",
+	"footer.rights": "All rights reserved.",
+	"footer.poweredBy": "Built with",
+	"footer.allPosts": "All posts",
+	"footer.rss": "RSS Feed",
+	"footer.company": "Company",
+	"footer.services": "Services",
+	"footer.resources": "Resources",
+	"footer.tagline": "AI · Automation · Growth",
+	"footer.newsletter.title": "Stay updated",
+	"footer.newsletter.desc": "Articles, workflows and resources on applied AI. No spam.",
+	"footer.newsletter.placeholder": "you@email.com",
+	"footer.newsletter.btn": "Subscribe",
+	"footer.social": "Follow us",
+	"footer.madewith": "Built with Astro + EmDash + Cloudflare",
+
+	// Marquee
+	"marquee.label": "Tools and platforms we use",
+
+	// Legal pages titles
+	"legal.affiliate.title": "Affiliate Disclaimer",
+	"legal.general.title": "General Disclaimer",
+
+	// Search
+	"search.title": "Search",
+	"search.placeholder": "Search articles...",
+
+	// 404
+	"404.title": "Page not found",
+	"404.message": "The page you're looking for doesn't exist.",
+	"404.goHome": "Go home",
+
+	// Cookie consent
+	"cookies.message": "This site uses technical cookies to improve your experience.",
+	"cookies.accept": "Accept",
+	"cookies.learnMore": "Learn more",
+
+	// Language
+	"lang.switch": "Español",
+	"lang.current": "EN",
+};
+
+export default en;

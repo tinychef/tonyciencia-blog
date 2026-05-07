@@ -15,6 +15,7 @@
   "dependencies": {
     "@astrojs/cloudflare": "^13.1.7",
     "@astrojs/react": "^5.0.0",
+    "@astrojs/sitemap": "^3.7.2",
     "@emdash-cms/cloudflare": "^0.4.0",
     "@emdash-cms/plugin-forms": "^0.1.1",
     "@emdash-cms/plugin-webhook-notifier": "^0.1.2",
@@ -35,7 +36,7 @@
     ]
   },
   "emdash": {
-    "label": "Blog",
+    "label": "Tony Ciencia",
     "seed": "seed/seed.json"
   }
 }

@@ -14,9 +14,14 @@ worker-configuration.d.ts
 uploads/
 data.db
 data.db-journal
+.emdash/
 .env
 .env.*
 !.env.example
+
+# Development artifacts
+INUTIL/
+.claude/
 
 # Logs
 npm-debug.log*

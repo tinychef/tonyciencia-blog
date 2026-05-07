@@ -1,0 +1,33 @@
+---
+import { getLangFromUrl, getAlternateLocale, getLocalePath, useTranslations } from "../i18n/locales";
+
+const locale = getLangFromUrl(Astro.url);
+const altLocale = getAlternateLocale(locale);
+const t = useTranslations(locale);
+const altPath = getLocalePath(Astro.url.pathname, altLocale);
+---
+
+<a href={altPath} class="lang-switch" aria-label={t("lang.switch")} title={t("lang.switch")}>
+	{locale === 'es' ? '🇺🇸' : '🇪🇸'}
+</a>
+
+<style>
+	.lang-switch {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 36px;
+		height: 36px;
+		font-size: 1.2rem;
+		text-decoration: none;
+		border: 1px solid var(--color-border);
+		border-radius: 50%;
+		background: var(--color-surface);
+		transition: all 200ms ease;
+	}
+
+	.lang-switch:hover {
+		border-color: var(--color-accent);
+		transform: scale(1.05);
+	}
+</style>

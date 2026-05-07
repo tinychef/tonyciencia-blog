@@ -1,0 +1,177 @@
+---
+import Base from "../../layouts/Base.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/locales";
+
+const locale = getLangFromUrl(Astro.url);
+const t = useTranslations(locale);
+
+const title = locale === "en" ? "Services — Tony Ciencia" : "Servicios — Tony Ciencia";
+const description = locale === "en" 
+	? "AI automation, digital courses, and custom app development to scale your business."
+	: "Automatización con IA, cursos digitales y desarrollo de apps a medida para escalar tu negocio.";
+---
+
+<Base title={title} description={description}>
+	<!-- ═══ PAGE HERO ═══════════════════════════════════════════ -->
+	<section class="page-hero">
+		<div class="page-hero-inner">
+			<div class="page-breadcrumb">
+				<a href={locale === "en" ? "/en" : "/"}>Tony Ciencia</a>
+				<span>→</span>
+				<span>{t("nav.services")}</span>
+			</div>
+			<h1 class="page-title">
+				{t("services.page.title.line1")}<br />
+				<span class="title-gradient">{t("services.page.title.line2")}</span>
+			</h1>
+			<p class="page-subtitle">{t("services.page.subtitle")}</p>
+		</div>
+	</section>
+
+	<!-- ═══ SERVICIO 1: AUTOMATIZACIÓN ══════════════════════════ -->
+	<section id="automatizacion" class="service-block">
+		<div class="service-block-inner">
+			<div class="service-block-text">
+				<div class="service-tag">{t("services.block1.tag")}</div>
+				<h2 class="service-block-title">{t("services.block1.title")}</h2>
+				<p class="service-block-desc">{t("services.block1.desc")}</p>
+				<ul class="service-feature-list">
+					<li>{t("services.block1.f1")}</li>
+					<li>{t("services.block1.f2")}</li>
+					<li>{t("services.block1.f3")}</li>
+					<li>{t("services.block1.f4")}</li>
+					<li>{t("services.block1.f5")}</li>
+				</ul>
+				<a href={locale === "en" ? "/en/contact" : "/contacto"} class="btn-primary">{t("services.block1.btn")}</a>
+			</div>
+			<div class="service-block-visual">
+				<div class="visual-card">
+					<div class="visual-icon">
+						<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 2a10 10 0 0 1 10 10"/>
+							<path d="M12 12 2.1 9.1"/>
+						</svg>
+					</div>
+					<div class="visual-metric">
+						<span class="metric-val">{t("services.block1.statVal")}</span>
+						<span class="metric-lbl">{t("services.block1.statLbl")}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══ SERVICIO 2: CURSOS ═══════════════════════════════════ -->
+	<section id="cursos" class="service-block service-block--alt">
+		<div class="service-block-inner service-block-inner--reverse">
+			<div class="service-block-text">
+				<div class="service-tag">{t("services.block2.tag")}</div>
+				<h2 class="service-block-title">{t("services.block2.title")}</h2>
+				<p class="service-block-desc">{t("services.block2.desc")}</p>
+				<ul class="service-feature-list">
+					<li>{t("services.block2.f1")}</li>
+					<li>{t("services.block2.f2")}</li>
+					<li>{t("services.block2.f3")}</li>
+					<li>{t("services.block2.f4")}</li>
+					<li>{t("services.block2.f5")}</li>
+				</ul>
+				<a href={locale === "en" ? "/en/contact" : "/contacto"} class="btn-primary">{t("services.block2.btn")}</a>
+			</div>
+			<div class="service-block-visual">
+				<div class="visual-card">
+					<div class="visual-icon">
+						<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+							<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+						</svg>
+					</div>
+					<div class="visual-metric">
+						<span class="metric-val">{t("services.block2.statVal")}</span>
+						<span class="metric-lbl">{t("services.block2.statLbl")}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══ SERVICIO 3: APPS ══════════════════════════════════════ -->
+	<section id="apps" class="service-block">
+		<div class="service-block-inner">
+			<div class="service-block-text">
+				<div class="service-tag">{t("services.block3.tag")}</div>
+				<h2 class="service-block-title">{t("services.block3.title")}</h2>
+				<p class="service-block-desc">{t("services.block3.desc")}</p>
+				<ul class="service-feature-list">
+					<li>{t("services.block3.f1")}</li>
+					<li>{t("services.block3.f2")}</li>
+					<li>{t("services.block3.f3")}</li>
+					<li>{t("services.block3.f4")}</li>
+					<li>{t("services.block3.f5")}</li>
+				</ul>
+				<a href={locale === "en" ? "/en/contact" : "/contacto"} class="btn-primary">{t("services.block3.btn")}</a>
+			</div>
+			<div class="service-block-visual">
+				<div class="visual-card">
+					<div class="visual-icon">
+						<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+							<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+						</svg>
+					</div>
+					<div class="visual-metric">
+						<span class="metric-val">{t("services.block3.statVal")}</span>
+						<span class="metric-lbl">{t("services.block3.statLbl")}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══ CTA FINAL ════════════════════════════════════════════ -->
+	<section class="page-cta">
+		<div class="page-cta-inner">
+			<h2 class="page-cta-title">{t("services.cta.title")}</h2>
+			<p class="page-cta-sub">{t("services.cta.sub")}</p>
+			<a href={locale === "en" ? "/en/contact" : "/contacto"} class="btn-primary btn-large">{t("services.cta.btn")}</a>
+		</div>
+	</section>
+</Base>
+
+<style>
+	.page-hero { padding: clamp(4rem, 8vw, 7rem) var(--spacing-6) clamp(3rem, 6vw, 5rem); background: var(--color-bg); border-bottom: 1px solid var(--color-border-subtle); }
+	.page-hero-inner { max-width: var(--wide-width); margin: 0 auto; }
+	.page-breadcrumb { display: flex; align-items: center; gap: var(--spacing-2); font-size: var(--font-size-sm); color: var(--color-muted); margin-bottom: var(--spacing-6); }
+	.page-breadcrumb a { color: var(--color-muted); text-decoration: none; transition: color var(--transition-fast); }
+	.page-breadcrumb a:hover { color: var(--color-accent); }
+	.page-title { font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.12; color: var(--color-text); margin: 0 0 var(--spacing-6); }
+	.title-gradient { background: var(--tc-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+	.page-subtitle { font-size: var(--font-size-lg); color: var(--color-text-secondary); line-height: 1.65; max-width: 560px; margin: 0; }
+	
+	.service-block { padding: clamp(4rem, 7vw, 6rem) var(--spacing-6); }
+	.service-block--alt { background: var(--color-bg-subtle); border-top: 1px solid var(--color-border-subtle); border-bottom: 1px solid var(--color-border-subtle); }
+	.service-block-inner { max-width: var(--wide-width); margin: 0 auto; display: grid; grid-template-columns: 1fr 380px; gap: var(--spacing-16); align-items: center; }
+	.service-block-inner--reverse { grid-template-columns: 380px 1fr; }
+	.service-block-inner--reverse .service-block-text { order: 2; }
+	.service-block-inner--reverse .service-block-visual { order: 1; }
+	.service-tag { display: inline-block; font-size: var(--font-size-xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-accent); margin-bottom: var(--spacing-4); }
+	.service-block-title { font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 700; letter-spacing: -0.025em; color: var(--color-text); margin: 0 0 var(--spacing-5); }
+	.service-block-desc { font-size: var(--font-size-lg); color: var(--color-text-secondary); line-height: 1.65; margin: 0 0 var(--spacing-6); }
+	.service-feature-list { list-style: none; padding: 0; margin: 0 0 var(--spacing-8); display: flex; flex-direction: column; gap: var(--spacing-3); }
+	.service-feature-list li { display: flex; align-items: flex-start; gap: var(--spacing-3); font-size: var(--font-size-base); color: var(--color-text-secondary); }
+	.service-feature-list li::before { content: "✓"; color: var(--color-accent); font-weight: 700; font-size: var(--font-size-sm); flex-shrink: 0; margin-top: 2px; }
+	
+	.visual-card { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: var(--spacing-12); display: flex; flex-direction: column; align-items: center; gap: var(--spacing-8); text-align: center; box-shadow: 0 4px 24px rgba(2, 116, 190, 0.06); }
+	.visual-icon { display: flex; align-items: center; justify-content: center; width: 72px; height: 72px; border-radius: 20px; background: var(--tc-gradient); color: white; }
+	.visual-metric { display: flex; flex-direction: column; gap: var(--spacing-2); }
+	.metric-val { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; letter-spacing: -0.03em; background: var(--tc-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+	.metric-lbl { font-size: var(--font-size-sm); color: var(--color-muted); }
+	
+	.btn-primary { display: inline-flex; align-items: center; padding: 13px 28px; background: var(--tc-gradient); color: white; font-weight: 600; font-size: var(--font-size-base); border-radius: var(--radius-lg); text-decoration: none; transition: transform var(--transition-fast), box-shadow var(--transition-fast); }
+	.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(2, 116, 190, 0.35); color: white; }
+	.btn-primary.btn-large { padding: 16px 40px; font-size: var(--font-size-lg); border-radius: var(--radius-xl); }
+	
+	.page-cta { padding: clamp(4rem, 8vw, 6rem) var(--spacing-6); text-align: center; background: var(--color-bg-subtle); border-top: 1px solid var(--color-border-subtle); }
+	.page-cta-inner { max-width: 560px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: var(--spacing-5); }
+	.page-cta-title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; letter-spacing: -0.025em; color: var(--color-text); margin: 0; }
+	.page-cta-sub { font-size: var(--font-size-lg); color: var(--color-text-secondary); line-height: 1.65; margin: 0; }
+	
+	@media (max-width: 900px) { .service-block-inner, .service-block-inner--reverse { grid-template-columns: 1fr; gap: var(--spacing-10); } .service-block-inner--reverse .service-block-text, .service-block-inner--reverse .service-block-visual { order: unset; } }
+</style>

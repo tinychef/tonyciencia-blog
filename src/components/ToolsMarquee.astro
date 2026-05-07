@@ -1,0 +1,279 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/locales";
+
+const locale = getLangFromUrl(Astro.url);
+const t = useTranslations(locale);
+
+interface Tool {
+  name: string;
+  tag: string;
+  url: string;
+  domain: string;
+}
+
+const trackLeft: Tool[] = [
+  { name: "Pipedrive",      tag: "CRM",           url: "https://aff.trypipedrive.com/vyzzvh7thge6",       domain: "pipedrive.com" },
+  { name: "Apollo.io",      tag: locale === "en" ? "Sales" : "Ventas",       url: "https://get.apollo.io/mzxfxk1o1ea5",          domain: "apollo.io" },
+  { name: "Brevo",          tag: "Email",          url: "https://get.brevo.com/p76y9av2p0t1",              domain: "brevo.com" },
+  { name: "Murf AI",        tag: locale === "en" ? "AI Voice" : "Voz IA",    url: "https://get.murf.ai/e5a3jr17jump",            domain: "murf.ai" },
+  { name: "Kit",            tag: locale === "en" ? "Creators" : "Creadores", url: "https://partners.kit.com/v78kkgp588z9-uw04r", domain: "kit.com" },
+  { name: "AdCreative.ai",  tag: locale === "en" ? "AI Ads" : "Ads IA",      url: "https://free-trial.adcreative.ai/3fn5zxosagaz", domain: "adcreative.ai" },
+  { name: "ElevenLabs",     tag: locale === "en" ? "AI Voice" : "Voz IA",    url: "https://try.elevenlabs.io/8w0jtxk54bd0",      domain: "elevenlabs.io" },
+  { name: "Gamma",          tag: locale === "en" ? "Slides" : "Presentaciones", url: "https://try.gamma.app/wupcgyzfekir",       domain: "gamma.app" },
+];
+
+const trackRight: Tool[] = [
+  { name: "monday.com",     tag: locale === "en" ? "Management" : "Gestión",     url: "https://try.monday.com/i32p0zf6vr81",         domain: "monday.com" },
+  { name: "Close CRM",      tag: "CRM",            url: "https://refer.close.com/bf9dumgltl5q",            domain: "close.com" },
+  { name: "Emergent",       tag: "IA",             url: "https://get.emergent.sh/qh22mu56q2fj",            domain: "emergent.sh" },
+  { name: "ActiveCampaign", tag: "Marketing",      url: "https://try.activecampaign.com/x53ed2y6qns9",     domain: "activecampaign.com" },
+  { name: "GetResponse",    tag: "Email",          url: "https://try.getresponsetoday.com/zxqczrj1idl8",  domain: "getresponse.com" },
+  { name: "ClickUp",        tag: locale === "en" ? "Productivity" : "Productividad", url: "https://try.web.clickup.com/vrgnpqnkkxr6", domain: "clickup.com" },
+  { name: "Wati.io",        tag: "WhatsApp",       url: "https://affiliates.wati.io/23d5qw8lx136",         domain: "wati.io" },
+  { name: "n8n",            tag: locale === "en" ? "Automation" : "Automatización", url: "https://n8n.partnerlinks.io/8qtvuqc23ra6", domain: "n8n.io" },
+];
+
+const faviconUrl = (domain: string) =>
+  `https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${domain}&size=64`;
+
+const ctaLabel = locale === "en" ? "Try it →" : "Pruébalo →";
+const sectionLabel = locale === "en" ? "Tools we recommend" : "Herramientas que recomendamos";
+---
+
+<section class="marquee-section" aria-label={sectionLabel}>
+  <p class="marquee-label">{sectionLabel}</p>
+
+  <!-- Track izquierda: va hacia la izquierda -->
+  <div class="marquee-wrapper" aria-hidden="true">
+    <div class="track track-left">
+      {[...trackLeft, ...trackLeft].map((tool, i) => (
+        <a
+          href={tool.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="tool-card"
+          aria-label={`${tool.name} — ${tool.tag}`}
+          aria-hidden={i >= trackLeft.length ? "true" : "false"}
+          tabindex={i >= trackLeft.length ? -1 : 0}
+        >
+          <div class="tool-logo">
+            <img
+              src={faviconUrl(tool.domain)}
+              alt={`${tool.name} logo`}
+              width="32"
+              height="32"
+              loading="lazy"
+              decoding="async"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="tool-info">
+            <span class="tool-name">{tool.name}</span>
+            <span class="tool-tag">{tool.tag}</span>
+          </div>
+          <span class="tool-cta">{ctaLabel}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <!-- Track derecha: va hacia la derecha (reverso) -->
+  <div class="marquee-wrapper" aria-hidden="true">
+    <div class="track track-right">
+      {[...trackRight, ...trackRight].map((tool, i) => (
+        <a
+          href={tool.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="tool-card"
+          aria-label={`${tool.name} — ${tool.tag}`}
+          aria-hidden={i >= trackRight.length ? "true" : "false"}
+          tabindex={i >= trackRight.length ? -1 : 0}
+        >
+          <div class="tool-logo">
+            <img
+              src={faviconUrl(tool.domain)}
+              alt={`${tool.name} logo`}
+              width="32"
+              height="32"
+              loading="lazy"
+              decoding="async"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="tool-info">
+            <span class="tool-name">{tool.name}</span>
+            <span class="tool-tag">{tool.tag}</span>
+          </div>
+          <span class="tool-cta">{ctaLabel}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .marquee-section {
+    padding: 2.5rem 0 2rem;
+    border-top: 1px solid var(--color-border-subtle);
+    border-bottom: 1px solid var(--color-border-subtle);
+    background: var(--color-bg-subtle);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .marquee-label {
+    text-align: center;
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-muted);
+    margin: 0 0 0.25rem;
+  }
+
+  .marquee-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 6%,
+      black 94%,
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 6%,
+      black 94%,
+      transparent 100%
+    );
+  }
+
+  .track {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0.75rem;
+    width: max-content;
+    min-width: 100%;
+    padding: 0.25rem 0;
+    flex-shrink: 0;
+  }
+
+  .track-left {
+    animation: scroll-left 35s linear infinite;
+  }
+
+  .track-right {
+    animation: scroll-right 38s linear infinite;
+  }
+
+  .marquee-wrapper:hover .track {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll-left {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  @keyframes scroll-right {
+    from { transform: translateX(-50%); }
+    to   { transform: translateX(0); }
+  }
+
+  .tool-card {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.5rem 1rem 0.5rem 0.625rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 50px;
+    text-decoration: none;
+    color: var(--color-text);
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+  }
+
+  .tool-card:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 2px 12px rgba(200, 146, 42, 0.15);
+    transform: translateY(-1px);
+  }
+
+  .tool-logo {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .tool-logo img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  .tool-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    line-height: 1;
+  }
+
+  .tool-name {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .tool-tag {
+    font-size: 0.6875rem;
+    color: var(--color-muted);
+    letter-spacing: 0.02em;
+  }
+
+  .tool-cta {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    margin-left: 0.25rem;
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .tool-card:hover .tool-cta {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .track-left,
+    .track-right {
+      animation: none;
+    }
+
+    .marquee-wrapper {
+      overflow-x: auto;
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+
+    .track {
+      min-width: unset;
+    }
+  }
+</style>

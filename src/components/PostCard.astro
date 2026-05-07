@@ -1,6 +1,7 @@
 ---
 import type { MediaValue, ContentBylineCredit } from "emdash";
 import { Image } from "emdash/ui";
+import { getLangFromUrl } from "../i18n/locales";
 
 interface Props {
 	title: string;
@@ -23,6 +24,9 @@ const {
 	tags,
 	bylines,
 } = Astro.props;
+
+const locale = getLangFromUrl(Astro.url);
+const tagPrefix = locale === "en" ? "/en/tag" : "/tag";
 
 const formattedDate = date
 	? date.toLocaleDateString("en-US", {
@@ -97,7 +101,7 @@ const formattedDate = date
 		tags && tags.length > 0 && (
 			<div class="card-tags">
 				{tags.slice(0, 2).map((tag) => (
-					<a href={`/tag/${tag.slug}`} class="card-tag">
+					<a href={`${tagPrefix}/${tag.slug}`} class="card-tag">
 						{tag.label}
 					</a>
 				))}

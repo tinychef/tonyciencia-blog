@@ -1,0 +1,981 @@
+---
+import { getEmDashCollection, getEntryTerms, getSiteSettings } from "emdash";
+import { Image } from "emdash/ui";
+import Base from "../../layouts/Base.astro";
+import PostCard from "../../components/PostCard.astro";
+import ToolsMarquee from "../../components/ToolsMarquee.astro";
+import { getReadingTime } from "../../utils/reading-time";
+import { resolveBlogSiteIdentity } from "../../utils/site-identity";
+import { getLangFromUrl, useTranslations } from "../../i18n/locales";
+
+const locale = getLangFromUrl(Astro.url);
+const t = useTranslations(locale);
+
+const { entries: allPosts, cacheHint } = await getEmDashCollection("posts");
+const { siteTitle, siteTagline } = resolveBlogSiteIdentity(await getSiteSettings());
+
+Astro.cache.set(cacheHint);
+
+// Filter by locale
+const posts = allPosts.filter((p) => p.data.locale === locale || (!p.data.locale && locale === "es"));
+
+const sortedPosts = posts.toSorted((a, b) => {
+	const dateA = a.data.publishedAt?.getTime() ?? 0;
+	const dateB = b.data.publishedAt?.getTime() ?? 0;
+	return dateB - dateA;
+});
+
+const featuredPost = sortedPosts.find((p) => p.data.featured_image);
+const featuredIndex = featuredPost ? sortedPosts.indexOf(featuredPost) : -1;
+const gridPosts = sortedPosts.filter((_, i) => i !== featuredIndex).slice(0, 6);
+const totalShown = (featuredPost ? 1 : 0) + gridPosts.length;
+const hasMorePosts = sortedPosts.length > totalShown;
+
+let featuredTags: Array<{ slug: string; label: string }> = [];
+const featuredBylines = featuredPost?.data.bylines ?? [];
+if (featuredPost) {
+	const tags = await getEntryTerms("posts", featuredPost.data.id, "tag");
+	featuredTags = tags.map((t) => ({ slug: t.slug, label: t.label }));
+}
+
+const gridPostsWithTags = await Promise.all(
+	gridPosts.map(async (post) => {
+		const tags = await getEntryTerms("posts", post.data.id, "tag");
+		const bylines = post.data.bylines ?? [];
+		return { post, tags: tags.map((t) => ({ slug: t.slug, label: t.label })), bylines };
+	})
+);
+
+function formatDate(date: Date | null | undefined) {
+	if (!date) return null;
+	const loc = locale === "en" ? "en-US" : "es-ES";
+	return date.toLocaleDateString(loc, { year: "numeric", month: "long", day: "numeric" });
+}
+
+// Adjust routes based on locale
+const servicesRoute = locale === "en" ? "/en/services" : "/servicios";
+const postsRoute = locale === "en" ? "/en/posts" : "/posts";
+const contactRoute = locale === "en" ? "/en/contact" : "/contacto";
+---
+
+<Base title={siteTitle} description={siteTagline}>
+	<!-- ═══ HERO ═══════════════════════════════════════════════════════ -->
+	<section class="hero">
+		<!-- Glow orbs (Framer/Raycast aesthetic) -->
+		<div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+		<div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+		<!-- Dot grid pattern -->
+		<div class="hero-dot-grid" aria-hidden="true"></div>
+
+		<div class="hero-inner">
+			<h1 class="hero-title">
+				{t("hero.title.line1")}<br />
+				<span class="hero-title-gradient">{t("hero.title.line2")}</span>
+			</h1>
+			<p class="hero-subtitle">
+				{t("hero.subtitle")}
+			</p>
+			<div class="hero-actions">
+				<a href={servicesRoute} class="btn-primary">{t("hero.cta.primary")}</a>
+				<a href={postsRoute} class="btn-secondary">{t("hero.cta.secondary")}</a>
+			</div>
+			<div class="hero-stats">
+				<div class="hero-stat">
+					<span class="stat-number">+500</span>
+					<span class="stat-label">{t("hero.stat.students")}</span>
+				</div>
+				<div class="stat-divider"></div>
+				<div class="hero-stat">
+					<span class="stat-number">50+</span>
+					<span class="stat-label">{t("hero.stat.workflows")}</span>
+				</div>
+				<div class="stat-divider"></div>
+				<div class="hero-stat">
+					<span class="stat-number">96%</span>
+					<span class="stat-label">{t("hero.stat.results")}</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══ TOOLS MARQUEE ══════════════════════════════════════════════ -->
+	<ToolsMarquee />
+
+	<!-- ═══ SERVICIOS ══════════════════════════════════════════════════ -->
+	<section class="services-section">
+		<div class="section-container">
+			<div class="section-header">
+				<span class="section-label">{t("services.label")}</span>
+				<h2 class="section-title">{t("services.heading")}</h2>
+				<p class="section-subtitle">
+					{t("services.sub")}
+				</p>
+			</div>
+			<div class="services-grid">
+				<div class="service-card">
+					<div class="service-icon">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 2a10 10 0 0 1 10 10"/>
+							<path d="M12 12 2.1 9.1"/>
+						</svg>
+					</div>
+					<h3 class="service-title">{t("services.automation.title")}</h3>
+					<p class="service-desc">{t("services.automation.desc")}</p>
+					<a href={`${servicesRoute}#automatizacion`} class="service-link">{t("services.automation.link")}</a>
+				</div>
+				<div class="service-card featured">
+					<div class="featured-badge">{t("services.courses.badge")}</div>
+					<div class="service-icon">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+							<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+						</svg>
+					</div>
+					<h3 class="service-title">{t("services.courses.title")}</h3>
+					<p class="service-desc">{t("services.courses.desc")}</p>
+					<a href={`${servicesRoute}#cursos`} class="service-link">{t("services.courses.link")}</a>
+				</div>
+				<div class="service-card">
+					<div class="service-icon">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+							<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+						</svg>
+					</div>
+					<h3 class="service-title">{t("services.apps.title")}</h3>
+					<p class="service-desc">{t("services.apps.desc")}</p>
+					<a href={`${servicesRoute}#apps`} class="service-link">{t("services.apps.link")}</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══ CORE VALUES ════════════════════════════════════════════════ -->
+	<section class="values-section">
+		<div class="section-container">
+			<div class="section-header">
+				<h2 class="section-title">{t("core.values.title")}</h2>
+			</div>
+			<div class="values-grid">
+				<!-- Pedagogía -->
+				<div class="value-item">
+					<div class="value-icon">
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+					</div>
+					<h3 class="value-title">{t("core.values.v1.title")}</h3>
+				</div>
+				<!-- Experiencia IA -->
+				<div class="value-item">
+					<div class="value-icon">
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8h.01M12 8h.01M17 8h.01"/></svg>
+					</div>
+					<h3 class="value-title">{t("core.values.v2.title")}</h3>
+				</div>
+				<!-- Marketing -->
+				<div class="value-item">
+					<div class="value-icon">
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+					</div>
+					<h3 class="value-title">{t("core.values.v3.title")}</h3>
+				</div>
+				<!-- 5 años -->
+				<div class="value-item">
+					<div class="value-icon">
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+					</div>
+					<h3 class="value-title">{t("core.values.v4.title")}</h3>
+				</div>
+				<!-- Confianza legal -->
+				<div class="value-item">
+					<div class="value-icon">
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+					</div>
+					<h3 class="value-title">{t("core.values.v5.title")}</h3>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══ TESTIMONIALS ═══════════════════════════════════════════════ -->
+	<section class="testimonials-section">
+		<div class="section-container">
+			<div class="section-header">
+				<h2 class="section-title">{t("testimonials.title")}</h2>
+			</div>
+			<div class="testimonials-grid">
+				<div class="testimonial-card">
+					<div class="testimonial-stars" aria-label="5 estrellas">★★★★★</div>
+					<p class="testimonial-quote">{t("testimonials.t1.quote")}</p>
+					<div class="testimonial-author">
+						<div class="author-avatar" aria-hidden="true">AJ</div>
+						<div class="author-info">
+							<span class="author-name">{t("testimonials.t1.author")}</span>
+							<span class="author-role">{t("testimonials.t1.role")}</span>
+						</div>
+					</div>
+				</div>
+				<div class="testimonial-card">
+					<div class="testimonial-stars" aria-label="5 estrellas">★★★★★</div>
+					<p class="testimonial-quote">{t("testimonials.t2.quote")}</p>
+					<div class="testimonial-author">
+						<div class="author-avatar" aria-hidden="true">FP</div>
+						<div class="author-info">
+							<span class="author-name">{t("testimonials.t2.author")}</span>
+							<span class="author-role">{t("testimonials.t2.role")}</span>
+						</div>
+					</div>
+				</div>
+				<div class="testimonial-card">
+					<div class="testimonial-stars" aria-label="5 estrellas">★★★★★</div>
+					<p class="testimonial-quote">{t("testimonials.t3.quote")}</p>
+					<div class="testimonial-author">
+						<div class="author-avatar" aria-hidden="true">RM</div>
+						<div class="author-info">
+							<span class="author-name">{t("testimonials.t3.author")}</span>
+							<span class="author-role">{t("testimonials.t3.role")}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══ BLOG PREVIEW ═══════════════════════════════════════════════ -->
+	<section class="blog-preview-section">
+		<div class="section-container">
+			<div class="section-header">
+				<h2 class="section-title">{t("blog.latest")}</h2>
+				{hasMorePosts && <a href={postsRoute} class="btn-outline">{t("blog.viewAll")} →</a>}
+			</div>
+
+			{posts.length === 0 ? (
+				<div class="empty-state">
+					<p>{t("blog.noPostsYet")}</p>
+					{process.env.NODE_ENV === "development" && (
+						<a href="/_emdash/admin/content/posts" class="btn-primary">
+							{t("blog.createPost")}
+						</a>
+					)}
+				</div>
+			) : (
+				<div class="blog-grid-layout">
+					{featuredPost && (
+						<article class="featured-post-card">
+							<a href={`${postsRoute}/${featuredPost.id}`} class="featured-post-link">
+								{featuredPost.data.featured_image ? (
+									<div class="featured-post-image">
+										<Image image={featuredPost.data.featured_image} />
+									</div>
+								) : (
+									<div class="featured-post-image-placeholder" />
+								)}
+								<div class="featured-post-content">
+									<div class="featured-post-meta">
+										{featuredBylines.length > 0 && (
+											<>
+												<div class="featured-bylines">
+													{featuredBylines.slice(0, 2).map((credit, index) => (
+														<>
+															{index > 0 && <span class="byline-sep">,</span>}
+															<span class="post-byline">
+																{credit.byline.avatarMediaId && (
+																	<img
+																		src={`/_emdash/api/media/file/${credit.byline.avatarMediaId}`}
+																		alt={credit.byline.displayName}
+																		class="post-byline-avatar"
+																	/>
+																)}
+																<span>{credit.byline.displayName}</span>
+															</span>
+														</>
+													))}
+												</div>
+												<span class="meta-dot" />
+											</>
+										)}
+										{featuredPost.data.publishedAt && (
+											<time>{formatDate(featuredPost.data.publishedAt)}</time>
+										)}
+										<span class="meta-dot" />
+										<span>{getReadingTime(featuredPost.data.content)} {t("blog.minRead")}</span>
+									</div>
+									<h3 class="featured-post-title">{featuredPost.data.title}</h3>
+									{featuredPost.data.excerpt && (
+										<p class="featured-post-excerpt">{featuredPost.data.excerpt}</p>
+									)}
+									{featuredTags.length > 0 && (
+										<div class="post-tags">
+											{featuredTags.slice(0, 3).map((tag) => (
+												<span class="post-tag">{tag.label}</span>
+											))}
+										</div>
+									)}
+								</div>
+							</a>
+						</article>
+					)}
+
+					<div class="grid-posts">
+						{gridPostsWithTags.map(({ post, tags }) => (
+							<PostCard
+								title={post.data.title}
+								excerpt={post.data.excerpt}
+								featuredImage={post.data.featured_image}
+								href={`${postsRoute}/${post.id}`}
+								date={post.data.publishedAt ?? undefined}
+								readingTime={getReadingTime(post.data.content)}
+								tags={tags}
+							/>
+						))}
+					</div>
+				</div>
+			)}
+		</div>
+	</section>
+
+	<!-- ═══ CTA FINAL ══════════════════════════════════════════════════ -->
+	<section class="cta-section">
+		<div class="cta-inner">
+			<p class="cta-social-proof">{t("cta.social_proof")}</p>
+			<h2 class="cta-title">{t("cta.title")}</h2>
+			<p class="cta-subtitle">
+				{t("cta.sub")}
+			</p>
+			<a href={contactRoute} class="btn-primary btn-large">{t("cta.button")}</a>
+		</div>
+	</section>
+</Base>
+
+<style>
+	/* ── HERO ─────────────────────────────────────────────── */
+	.hero {
+		position: relative;
+		padding: clamp(3rem, 8vw, 5rem) var(--spacing-6) clamp(4rem, 8vw, 7rem);
+		overflow: hidden;
+		background: var(--color-bg);
+		isolation: isolate;
+	}
+
+	/* Glow orbs — Framer/Raycast aesthetic */
+	.hero-orb {
+		position: absolute;
+		border-radius: 50%;
+		pointer-events: none;
+		z-index: 0;
+		filter: blur(100px);
+		opacity: 0.18;
+		animation: orb-float 8s ease-in-out infinite alternate;
+	}
+
+	.hero-orb-1 {
+		width: 600px;
+		height: 400px;
+		background: var(--color-accent);
+		top: -10%;
+		right: -5%;
+		animation-delay: 0s;
+		opacity: 0.15;
+	}
+
+	.hero-orb-2 {
+		width: 400px;
+		height: 300px;
+		background: var(--color-accent-hover);
+		bottom: 0;
+		left: -8%;
+		animation-delay: -4s;
+		opacity: 0.10;
+	}
+
+	@keyframes orb-float {
+		from { transform: translate(0, 0) scale(1); }
+		to { transform: translate(20px, -20px) scale(1.05); }
+	}
+
+	/* Dot grid pattern */
+	.hero-dot-grid {
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+		pointer-events: none;
+		background-image: radial-gradient(
+			circle,
+			var(--color-border) 1px,
+			transparent 1px
+		);
+		background-size: 28px 28px;
+		mask-image: radial-gradient(
+			ellipse 80% 60% at 50% 50%,
+			black 30%,
+			transparent 100%
+		);
+		opacity: 0.5;
+	}
+
+	.hero-inner {
+		max-width: 800px;
+		margin: 0 auto;
+		text-align: center;
+		position: relative;
+		z-index: 10;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.hero-badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		padding: 6px 14px;
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-pill);
+		font-size: var(--font-size-sm);
+		font-weight: 500;
+		color: var(--color-text-secondary);
+		margin-bottom: var(--spacing-8);
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+	}
+
+	.hero-badge-dot {
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background: var(--color-accent);
+		box-shadow: 0 0 8px var(--color-accent);
+	}
+
+	.hero-logo-wrap {
+		margin-bottom: var(--spacing-8);
+	}
+
+	.hero-logo {
+		height: 48px;
+		width: auto;
+		object-fit: contain;
+	}
+
+	.hero-title {
+		font-size: clamp(2.5rem, 6vw, 4.5rem);
+		font-weight: 800;
+		letter-spacing: -0.04em;
+		line-height: 1.1;
+		color: var(--color-text);
+		margin: 0 0 var(--spacing-6);
+	}
+
+	.hero-title-gradient {
+		background: var(--tc-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.hero-subtitle {
+		font-size: clamp(1.125rem, 2vw, 1.25rem);
+		line-height: 1.6;
+		color: var(--color-text-secondary);
+		margin: 0 0 var(--spacing-10);
+		max-width: 640px;
+	}
+
+	.hero-br {
+		display: none;
+	}
+
+	.hero-actions {
+		display: flex;
+		gap: var(--spacing-4);
+		justify-content: center;
+		margin-bottom: var(--spacing-16);
+	}
+
+	.hero-stats {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: var(--spacing-8);
+		padding-top: var(--spacing-10);
+		border-top: 1px solid var(--color-border-subtle);
+		width: 100%;
+		max-width: 600px;
+	}
+
+	.hero-stat {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-1);
+	}
+
+	.stat-number {
+		font-size: var(--font-size-2xl);
+		font-weight: 700;
+		color: var(--color-text);
+		letter-spacing: -0.02em;
+	}
+
+	.stat-label {
+		font-size: var(--font-size-sm);
+		color: var(--color-muted);
+	}
+
+	.stat-divider {
+		width: 1px;
+		height: 32px;
+		background: var(--color-border-subtle);
+	}
+
+	/* ── TESTIMONIAL AUTHOR ─────────────────────────────── */
+	.testimonial-stars {
+		color: var(--color-accent);
+		font-size: 0.9rem;
+		letter-spacing: 2px;
+		margin-bottom: 0.75rem;
+	}
+
+	.testimonial-author {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		margin-top: 1.25rem;
+		padding-top: 1.25rem;
+		border-top: 1px solid var(--color-border-subtle);
+	}
+
+	.author-avatar {
+		width: 36px;
+		height: 36px;
+		border-radius: 50%;
+		background: var(--tc-gradient);
+		color: white;
+		font-size: 0.7rem;
+		font-weight: 700;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		letter-spacing: 0;
+	}
+
+	.author-info {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+	}
+
+	.author-name {
+		font-size: var(--font-size-sm);
+		font-weight: 600;
+		color: var(--color-text);
+	}
+
+	.author-role {
+		font-size: var(--font-size-xs);
+		color: var(--color-muted);
+	}
+
+	/* ── CTA SOCIAL PROOF ───────────────────────────────── */
+	.cta-social-proof {
+		font-size: var(--font-size-sm);
+		font-weight: 500;
+		color: var(--color-accent);
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		margin: 0;
+	}
+
+	/* ── SERVICIOS ────────────────────────────────────────── */
+	.services-section {
+		padding: clamp(4rem, 8vw, 7rem) var(--spacing-6);
+		background: var(--color-bg-subtle);
+		border-top: 1px solid var(--color-border-subtle);
+		border-bottom: 1px solid var(--color-border-subtle);
+	}
+
+	.section-container {
+		max-width: var(--wide-width);
+		margin: 0 auto;
+	}
+
+	.section-header {
+		text-align: center;
+		max-width: 600px;
+		margin: 0 auto var(--spacing-16);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.section-label {
+		font-size: var(--font-size-xs);
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: var(--color-accent);
+		margin-bottom: var(--spacing-4);
+	}
+
+	.section-title {
+		font-size: clamp(2rem, 4vw, 2.75rem);
+		font-weight: 700;
+		letter-spacing: -0.03em;
+		color: var(--color-text);
+		margin: 0 0 var(--spacing-4);
+	}
+
+	.section-subtitle {
+		font-size: var(--font-size-lg);
+		color: var(--color-text-secondary);
+		line-height: 1.6;
+		margin: 0;
+	}
+
+	.services-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: var(--spacing-6);
+	}
+
+	.service-card {
+		position: relative;
+		padding: var(--spacing-8);
+		background: var(--color-bg);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-xl);
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		transition: transform var(--transition-base), box-shadow var(--transition-base);
+	}
+
+	.service-card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 12px 40px rgba(200, 146, 42, 0.12);
+	}
+
+	.service-card.featured {
+		border-color: var(--color-accent-muted);
+		box-shadow: 0 0 0 1px var(--color-accent-muted);
+	}
+
+	.featured-badge {
+		position: absolute;
+		top: -12px;
+		left: 32px;
+		background: var(--tc-gradient);
+		color: white;
+		font-size: 0.75rem;
+		font-weight: 600;
+		padding: 4px 12px;
+		border-radius: var(--radius-pill);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.service-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 48px;
+		height: 48px;
+		border-radius: 12px;
+		background: var(--tc-gradient-subtle);
+		color: var(--color-accent);
+		margin-bottom: var(--spacing-6);
+	}
+
+	.service-title {
+		font-size: var(--font-size-xl);
+		font-weight: 600;
+		letter-spacing: -0.01em;
+		color: var(--color-text);
+		margin: 0 0 var(--spacing-3);
+	}
+
+	.service-desc {
+		font-size: var(--font-size-base);
+		color: var(--color-text-secondary);
+		line-height: 1.6;
+		margin: 0 0 var(--spacing-8);
+		flex-grow: 1;
+	}
+
+	.service-link {
+		font-weight: 500;
+		color: var(--color-accent);
+		text-decoration: none;
+		display: inline-flex;
+		align-items: center;
+		transition: color var(--transition-fast);
+	}
+
+	.service-link:hover {
+		color: var(--color-accent-hover);
+	}
+
+	/* ── BLOG PREVIEW ─────────────────────────────────────── */
+	.blog-preview-section {
+		padding: clamp(4rem, 8vw, 7rem) var(--spacing-6);
+	}
+
+	.blog-preview-section .section-header {
+		flex-direction: row;
+		justify-content: space-between;
+		max-width: none;
+		margin-bottom: var(--spacing-10);
+	}
+
+	.blog-grid-layout {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--spacing-10);
+	}
+
+	.grid-posts {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: var(--spacing-8) var(--spacing-6);
+	}
+
+	/* Featured Post */
+	.featured-post-link {
+		display: grid;
+		grid-template-columns: 1.2fr 1fr;
+		gap: var(--spacing-10);
+		text-decoration: none;
+		color: inherit;
+		group: featured;
+	}
+
+	.featured-post-image {
+		border-radius: var(--radius-xl);
+		overflow: hidden;
+		aspect-ratio: 16/10;
+		background: var(--color-surface);
+	}
+
+	.featured-post-image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform var(--transition-slow);
+	}
+
+	.featured-post-image-placeholder {
+		width: 100%;
+		height: 100%;
+		border-radius: var(--radius-xl);
+		background: var(--color-surface);
+		aspect-ratio: 16/10;
+	}
+
+	.featured-post-link:hover .featured-post-image img {
+		transform: scale(1.03);
+	}
+
+	.featured-post-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.featured-post-meta {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: var(--spacing-3);
+		font-size: var(--font-size-sm);
+		color: var(--color-muted);
+		margin-bottom: var(--spacing-4);
+	}
+
+	.featured-bylines {
+		display: flex;
+		align-items: center;
+		gap: 4px;
+	}
+
+	.post-byline {
+		display: inline-flex;
+		align-items: center;
+		gap: var(--spacing-2);
+		font-weight: 500;
+		color: var(--color-text-secondary);
+	}
+
+	.post-byline-avatar {
+		width: 24px;
+		height: 24px;
+		border-radius: 50%;
+		object-fit: cover;
+	}
+
+	.byline-sep {
+		color: var(--color-muted);
+	}
+
+	.meta-dot {
+		width: 3px;
+		height: 3px;
+		border-radius: 50%;
+		background: var(--color-border);
+	}
+
+	.featured-post-title {
+		font-size: clamp(1.75rem, 3vw, 2.5rem);
+		font-weight: 700;
+		line-height: 1.2;
+		letter-spacing: -0.02em;
+		color: var(--color-text);
+		margin: 0 0 var(--spacing-4);
+		transition: color var(--transition-fast);
+	}
+
+	.featured-post-link:hover .featured-post-title {
+		color: var(--color-accent);
+	}
+
+	.featured-post-excerpt {
+		font-size: var(--font-size-lg);
+		color: var(--color-text-secondary);
+		line-height: 1.6;
+		margin: 0 0 var(--spacing-6);
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+
+	.post-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--spacing-2);
+	}
+
+	.post-tag {
+		padding: 4px 12px;
+		background: var(--color-surface);
+		border: 1px solid var(--color-border-subtle);
+		border-radius: var(--radius-pill);
+		font-size: var(--font-size-xs);
+		font-weight: 500;
+		color: var(--color-text-secondary);
+	}
+
+	/* ── CTA FINAL ────────────────────────────────────────── */
+	.cta-section {
+		padding: clamp(4rem, 8vw, 7rem) var(--spacing-6);
+		text-align: center;
+		background: var(--color-bg-subtle);
+		border-top: 1px solid var(--color-border-subtle);
+	}
+
+	.cta-inner {
+		max-width: 600px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: var(--spacing-6);
+	}
+
+	.cta-title {
+		font-size: clamp(2rem, 4vw, 3rem);
+		font-weight: 700;
+		letter-spacing: -0.03em;
+		color: var(--color-text);
+		margin: 0;
+	}
+
+	.cta-subtitle {
+		font-size: var(--font-size-lg);
+		color: var(--color-text-secondary);
+		line-height: 1.6;
+		margin: 0;
+	}
+
+	/* ── BUTTONS ──────────────────────────────────────────── */
+	.btn-primary {
+		display: inline-flex;
+		align-items: center;
+		padding: 12px 28px;
+		background: var(--tc-gradient);
+		color: white;
+		font-weight: 600;
+		border-radius: var(--radius-lg);
+		text-decoration: none;
+		transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+	}
+
+	.btn-primary:hover {
+		transform: translateY(-1px);
+		box-shadow: 0 8px 24px rgba(200, 146, 42, 0.35);
+		color: white;
+	}
+
+	.btn-primary.btn-large {
+		padding: 16px 40px;
+		font-size: var(--font-size-lg);
+		border-radius: var(--radius-xl);
+	}
+
+	.btn-secondary {
+		display: inline-flex;
+		align-items: center;
+		padding: 11px 27px;
+		border: 1.5px solid var(--color-border);
+		color: var(--color-text);
+		font-weight: 500;
+		border-radius: var(--radius-lg);
+		text-decoration: none;
+		transition: border-color var(--transition-fast), color var(--transition-fast);
+	}
+
+	.btn-secondary:hover {
+		border-color: var(--color-accent);
+		color: var(--color-accent);
+	}
+
+	.btn-outline {
+		display: inline-flex;
+		align-items: center;
+		font-weight: 500;
+		color: var(--color-text-secondary);
+		text-decoration: none;
+		transition: color var(--transition-fast);
+	}
+
+	.btn-outline:hover {
+		color: var(--color-accent);
+	}
+
+	.empty-state {
+		text-align: center;
+		padding: var(--spacing-16) 0;
+		color: var(--color-muted);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: var(--spacing-4);
+	}
+
+	/* ── RESPONSIVE ───────────────────────────────────────── */
+	@media (min-width: 641px) {
+		.hero-br { display: block; }
+	}
+
+	@media (max-width: 900px) {
+		.services-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+		.grid-posts { grid-template-columns: repeat(2, 1fr); }
+		.featured-post-link { grid-template-columns: 1fr; gap: var(--spacing-6); }
+		.featured-post-image { aspect-ratio: 16/9; }
+	}
+
+	@media (max-width: 640px) {
+		.hero-actions { flex-direction: column; width: 100%; max-width: 300px; }
+		.btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+		.hero-stats { flex-direction: column; gap: var(--spacing-4); padding-top: var(--spacing-8); border-top: none; }
+		.stat-divider { width: 40px; height: 1px; }
+		.blog-preview-section .section-header { flex-direction: column; align-items: flex-start; gap: var(--spacing-4); }
+		.grid-posts { grid-template-columns: 1fr; }
+	}
+</style>

@@ -1,0 +1,46 @@
+{
+  "summary": "n8n Payload Strategy for EmDash Bilingual Posts",
+  "description": "When inserting content via n8n into EmDash (either by writing directly to Cloudflare D1, or via the EmDash API / seed file), ensure you follow this structure to maintain the bilingual link.",
+  
+  "spanish_post": {
+    "collection": "posts",
+    "slug": "mi-nuevo-post",
+    "data": {
+      "title": "Mi Nuevo Post",
+      "excerpt": "Un resumen corto en español.",
+      "content": "Contenido completo en formato PortableText o HTML según se configure...",
+      "locale": "es",
+      "external_id": "n8n_wf_1234_es",
+      "source": "n8n"
+    },
+    "taxonomies": {
+      "category": ["tecnologia"],
+      "tag": ["ia", "automatizacion"]
+    }
+  },
+
+  "english_post": {
+    "collection": "posts",
+    "slug": "my-new-post",
+    "data": {
+      "title": "My New Post",
+      "excerpt": "A short summary in English.",
+      "content": "Full content in PortableText or HTML format...",
+      "locale": "en",
+      "translation_of": "mi-nuevo-post", 
+      "external_id": "n8n_wf_1234_en",
+      "source": "n8n"
+    },
+    "taxonomies": {
+      "category": ["technology"],
+      "tag": ["ai", "automation"]
+    }
+  },
+
+  "n8n_workflow_notes": [
+    "1. Ensure the Spanish post is created FIRST to secure the base slug.",
+    "2. The English post MUST have the 'translation_of' field set to the exactly same slug of the Spanish post.",
+    "3. Use 'external_id' for idempotent operations in n8n (so you don't duplicate records if the workflow runs twice).",
+    "4. Taxonomies (tags and categories) must match exactly what is defined in the seed.json taxonomy definitions."
+  ]
+}

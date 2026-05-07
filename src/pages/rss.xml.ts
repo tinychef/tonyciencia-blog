@@ -12,7 +12,10 @@ export const GET: APIRoute = async ({ site, url }) => {
 		limit: 20,
 	});
 
-	const items = posts
+	// Filter to Spanish posts only
+	const esPosts = posts.filter((p) => p.data.locale === "es" || !p.data.locale);
+
+	const items = esPosts
 		.map((post) => {
 			if (!post.data.publishedAt) return null;
 			const pubDate = post.data.publishedAt.toUTCString();
@@ -39,7 +42,7 @@ export const GET: APIRoute = async ({ site, url }) => {
     <description>${escapeXml(siteTagline)}</description>
     <link>${siteUrl}</link>
     <atom:link href="${siteUrl}/rss.xml" rel="self" type="application/rss+xml"/>
-    <language>en-us</language>
+    <language>es</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
 ${items}
   </channel>

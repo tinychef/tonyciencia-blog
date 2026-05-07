@@ -1,0 +1,40 @@
+---
+import Base from "../../../layouts/Base.astro";
+---
+<Base title="Legal Notice — Tony Ciencia" description="Legal notice for TonyCiencia.com — information about the site owner and general conditions of use.">
+  <article class="legal-page">
+    <div class="legal-inner">
+      <h1>Legal Notice</h1>
+
+      <h2>1. Owner Information</h2>
+      <p><strong>Company:</strong> Tony Ciencia LLC<br />
+      <strong>Address:</strong> 8206 Louisiana Blvd NE, Ste A #6812, Albuquerque, NM 87113, USA<br />
+      <strong>Email:</strong> <a href="mailto:contact@tonyciencia.com">contact@tonyciencia.com</a><br />
+      <strong>Website:</strong> https://tonyciencia.com</p>
+
+      <h2>2. Purpose</h2>
+      <p>TonyCiencia.com is an educational and informational website about artificial intelligence, automation and digital business growth. The information published does not constitute professional advice of any kind.</p>
+
+      <h2>3. Intellectual Property</h2>
+      <p>All site content (texts, images, design, logos, source code) is the property of Tony Ciencia LLC or used with due authorization. Total or partial reproduction without prior written consent is prohibited.</p>
+
+      <h2>4. Liability</h2>
+      <p>Tony Ciencia LLC is not responsible for possible errors or omissions in the content, nor for damages arising from the use of published information. Access to the site does not imply any commercial or professional relationship.</p>
+
+      <h2>5. Applicable Legislation</h2>
+      <p>This legal notice is governed by the laws of the State of New Mexico (USA). For users in the European Union, EU regulations will apply to the extent they are mandatory.</p>
+
+      <p class="legal-reviewed">Last reviewed: May 6, 2026</p>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .legal-page { padding: var(--spacing-16) var(--spacing-6); }
+  .legal-inner { max-width: var(--content-width); margin: 0 auto; }
+  .legal-inner h1 { font-size: var(--font-size-3xl); font-weight: 700; letter-spacing: -0.03em; margin-bottom: var(--spacing-8); }
+  .legal-inner h2 { font-size: var(--font-size-xl); font-weight: 600; margin-top: var(--spacing-10); margin-bottom: var(--spacing-4); }
+  .legal-inner p { color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--spacing-4); }
+  .legal-inner a { color: var(--color-accent); }
+  .legal-reviewed { margin-top: var(--spacing-12); font-size: var(--font-size-sm); color: var(--color-muted); border-top: 1px solid var(--color-border); padding-top: var(--spacing-4); }
+</style>

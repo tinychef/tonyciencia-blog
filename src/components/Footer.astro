@@ -1,0 +1,472 @@
+---
+import { getMenu } from "emdash";
+import { WidgetArea } from "emdash/ui";
+import LiveSearch from "emdash/ui/search";
+import LanguageSwitcher from "./LanguageSwitcher.astro";
+import { getLegalMenuName, useTranslations } from "../i18n/locales";
+
+interface Props {
+  locale: "es" | "en";
+  siteTitle: string;
+}
+
+const { locale, siteTitle } = Astro.props;
+const t = useTranslations(locale);
+
+const legalMenuData = await getMenu(getLegalMenuName(locale));
+
+const fallbackLegalEs = [
+  { label: "Política de Privacidad", url: "/legal/privacidad" },
+  { label: "Términos y Condiciones", url: "/legal/terminos" },
+  { label: "Política de Cookies", url: "/legal/cookies" },
+  { label: "Aviso Legal", url: "/legal/aviso-legal" },
+  { label: "Descargo de Afiliados", url: "/legal/afiliados" },
+  { label: "Descargo General", url: "/legal/descargo" },
+];
+
+const fallbackLegalEn = [
+  { label: "Privacy Policy", url: "/en/legal/privacy" },
+  { label: "Terms & Conditions", url: "/en/legal/terms" },
+  { label: "Cookie Policy", url: "/en/legal/cookies" },
+  { label: "Legal Notice", url: "/en/legal/disclaimer" },
+  { label: "Affiliate Disclaimer", url: "/en/legal/affiliate" },
+  { label: "General Disclaimer", url: "/en/legal/general-disclaimer" },
+];
+
+const legalLinks =
+  legalMenuData?.items && legalMenuData.items.length > 0
+    ? legalMenuData.items
+    : locale === "en"
+      ? fallbackLegalEn
+      : fallbackLegalEs;
+
+const companyLinks = locale === "en"
+  ? [
+      { label: "Home", url: "/en/" },
+      { label: "About", url: "/en/about" },
+      { label: "Blog", url: "/en/posts" },
+      { label: "Contact", url: "/en/contact" },
+    ]
+  : [
+      { label: "Inicio", url: "/" },
+      { label: "Sobre Nosotros", url: "/about" },
+      { label: "Blog", url: "/posts" },
+      { label: "Contacto", url: "/contacto" },
+    ];
+
+const serviceLinks = locale === "en"
+  ? [
+      { label: "AI Automation", url: "/en/services#automatizacion" },
+      { label: "Digital Courses", url: "/en/services#cursos" },
+      { label: "Custom Apps", url: "/en/services#apps" },
+      { label: "1-on-1 Mentorship", url: "https://wa.link/xkyqv8" },
+    ]
+  : [
+      { label: "Automatización IA", url: "/servicios#automatizacion" },
+      { label: "Cursos Digitales", url: "/servicios#cursos" },
+      { label: "Apps a Medida", url: "/servicios#apps" },
+      { label: "Mentoría 1 a 1", url: "https://wa.link/xkyqv8" },
+    ];
+
+const resourceLinks = locale === "en"
+  ? [
+      { label: "Blog", url: "/en/posts" },
+      { label: "RSS Feed", url: "/rss.xml" },
+      { label: "Search", url: "/en/search" },
+    ]
+  : [
+      { label: "Blog", url: "/posts" },
+      { label: "RSS Feed", url: "/rss.xml" },
+      { label: "Buscar", url: "/search" },
+    ];
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <!-- Top: Brand + Newsletter + Social -->
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href={locale === "en" ? "/en/" : "/"} class="footer-logo-link" aria-label={siteTitle}>
+          <img
+            src="/assets/logo-tonyciencia-full.webp"
+            alt={siteTitle}
+            class="footer-logo-img"
+            width="140"
+            height="32"
+            loading="lazy"
+          />
+        </a>
+        <p class="footer-tagline">{t("footer.tagline")}</p>
+        <!-- Social links -->
+        <div class="footer-social" aria-label={t("footer.social")}>
+          <a href="https://youtube.com/@tonyciencia" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+          <a href="https://instagram.com/tonyciencia" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+            </svg>
+          </a>
+          <a href="https://x.com/tonyciencia" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="X / Twitter">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="footer-newsletter">
+        <h3 class="newsletter-title">{t("footer.newsletter.title")}</h3>
+        <p class="newsletter-desc">{t("footer.newsletter.desc")}</p>
+        <div class="newsletter-form">
+          <input
+            type="email"
+            placeholder={t("footer.newsletter.placeholder")}
+            class="newsletter-input"
+            aria-label={t("footer.newsletter.placeholder")}
+          />
+          <button type="button" class="newsletter-btn">{t("footer.newsletter.btn")}</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Middle: 4 column navigation grid -->
+    <div class="footer-grid">
+      <!-- Empresa -->
+      <div class="footer-col">
+        <h4 class="footer-col-title">{t("footer.company")}</h4>
+        <ul class="footer-col-links">
+          {companyLinks.map((link) => (
+            <li><a href={link.url}>{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Servicios -->
+      <div class="footer-col">
+        <h4 class="footer-col-title">{t("footer.services")}</h4>
+        <ul class="footer-col-links">
+          {serviceLinks.map((link) => (
+            <li>
+              <a href={link.url} {...link.url.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {}}>
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div class="footer-col">
+        <h4 class="footer-col-title">{t("footer.legal")}</h4>
+        <ul class="footer-col-links">
+          {legalLinks.map((item) => (
+            <li><a href={item.url}>{item.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Recursos -->
+      <div class="footer-col">
+        <h4 class="footer-col-title">{t("footer.resources")}</h4>
+        <ul class="footer-col-links">
+          {resourceLinks.map((link) => (
+            <li><a href={link.url}>{link.label}</a></li>
+          ))}
+        </ul>
+        <div class="footer-widgets-section">
+          <WidgetArea name="footer" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        © {year} Tony Ciencia LLC · Albuquerque, NM, USA · {t("footer.rights")}
+      </p>
+      <div class="footer-controls">
+        <LanguageSwitcher />
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-bg-subtle);
+    border-top: 1px solid var(--color-border-subtle);
+    padding: 4rem 0 0;
+  }
+
+  .footer-inner {
+    max-width: var(--wide-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-6);
+  }
+
+  /* ── Top: Brand + Newsletter ── */
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--color-border-subtle);
+    margin-bottom: 3rem;
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .footer-logo-link {
+    display: inline-block;
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
+  }
+
+  .footer-logo-link:hover {
+    opacity: 1;
+  }
+
+  .footer-logo-img {
+    height: 28px;
+    width: auto;
+  }
+
+  .footer-tagline {
+    font-size: var(--font-size-sm);
+    color: var(--color-muted);
+    margin: 0;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-muted);
+    text-decoration: none;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  }
+
+  .social-link:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent-ring);
+    background: var(--color-accent-muted);
+  }
+
+  /* ── Newsletter ── */
+  .footer-newsletter {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .newsletter-title {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .newsletter-desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-muted);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+  }
+
+  .newsletter-input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-size: var(--font-size-sm);
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+
+  .newsletter-input::placeholder {
+    color: var(--color-muted);
+  }
+
+  .newsletter-input:focus {
+    border-color: var(--color-accent);
+  }
+
+  .newsletter-btn {
+    padding: 10px 18px;
+    background: var(--tc-gradient);
+    color: white;
+    border: none;
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .newsletter-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(200, 146, 42, 0.3);
+  }
+
+  /* ── 4-column Grid ── */
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--color-border-subtle);
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-col-title {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-secondary);
+    margin: 0 0 1rem;
+  }
+
+  .footer-col-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .footer-col-links a {
+    font-size: var(--font-size-sm);
+    color: var(--color-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    display: inline-block;
+  }
+
+  .footer-col-links a:hover {
+    color: var(--color-text);
+  }
+
+  .footer-widgets-section {
+    margin-top: 1rem;
+  }
+
+  .footer-widgets-section :global(.widget) {
+    color: var(--color-muted);
+    font-size: var(--font-size-sm);
+  }
+
+  .footer-widgets-section :global(.widget__title) {
+    display: none;
+  }
+
+  /* ── Bottom bar ── */
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 0 2rem;
+  }
+
+  .footer-copyright {
+    font-size: var(--font-size-xs);
+    color: var(--color-muted);
+    margin: 0;
+  }
+
+  .footer-controls {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .footer-madewith {
+    font-size: var(--font-size-xs);
+    color: var(--color-muted);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1024px) {
+    .footer-top {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .footer-top {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .newsletter-form {
+      flex-direction: column;
+    }
+
+    .newsletter-btn {
+      width: 100%;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .footer-controls {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-madewith {
+      display: none;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

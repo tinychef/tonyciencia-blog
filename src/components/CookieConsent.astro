@@ -1,0 +1,109 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/locales";
+
+const locale = getLangFromUrl(Astro.url);
+const t = useTranslations(locale);
+const cookiePolicyUrl = locale === "en" ? "/en/legal/cookies" : "/legal/cookies";
+---
+
+<div class="cookie-consent" id="cookie-consent" role="alert" aria-live="polite" hidden>
+	<div class="cookie-inner">
+		<p class="cookie-message">{t("cookies.message")}</p>
+		<div class="cookie-actions">
+			<a href={cookiePolicyUrl} class="cookie-link">{t("cookies.learnMore")}</a>
+			<button type="button" class="cookie-accept" id="cookie-accept-btn">
+				{t("cookies.accept")}
+			</button>
+		</div>
+	</div>
+</div>
+
+<script>
+	const banner = document.getElementById("cookie-consent");
+	const btn = document.getElementById("cookie-accept-btn");
+
+	if (banner && btn) {
+		// Show if no consent cookie
+		if (!document.cookie.includes("cookie_consent=")) {
+			banner.hidden = false;
+		}
+
+		btn.addEventListener("click", () => {
+			const secure = location.protocol === "https:" ? "; Secure" : "";
+			document.cookie = `cookie_consent=accepted; path=/; max-age=31536000; SameSite=Lax${secure}`;
+			banner.hidden = true;
+		});
+	}
+</script>
+
+<style>
+	.cookie-consent {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 200;
+		background: var(--glass-bg);
+		backdrop-filter: blur(var(--glass-blur));
+		-webkit-backdrop-filter: blur(var(--glass-blur));
+		border-top: 1px solid var(--glass-border);
+		padding: var(--spacing-4) var(--spacing-6);
+		animation: slideUp 400ms ease;
+	}
+
+	@keyframes slideUp {
+		from { transform: translateY(100%); opacity: 0; }
+		to { transform: translateY(0); opacity: 1; }
+	}
+
+	.cookie-inner {
+		max-width: var(--wide-width);
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: var(--spacing-4);
+		flex-wrap: wrap;
+	}
+
+	.cookie-message {
+		font-size: var(--font-size-sm);
+		color: var(--color-muted);
+		margin: 0;
+	}
+
+	.cookie-actions {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-4);
+	}
+
+	.cookie-link {
+		font-size: var(--font-size-xs);
+		color: var(--color-muted);
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+
+	.cookie-link:hover {
+		color: var(--color-text);
+	}
+
+	.cookie-accept {
+		padding: 8px 20px;
+		background: var(--color-accent);
+		color: #fff;
+		border: none;
+		border-radius: var(--radius-pill);
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 200ms ease;
+	}
+
+	.cookie-accept:hover {
+		background: var(--color-accent-hover);
+		transform: translateY(-1px);
+	}
+</style>

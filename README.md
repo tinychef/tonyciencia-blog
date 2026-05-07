@@ -1,67 +1,106 @@
-# EmDash Blog Template (Cloudflare)
+# Tony Ciencia — Blog IA · Automatización · Crecimiento
 
-A clean, minimal blog built with [EmDash](https://github.com/emdash-cms/emdash) and deployed on Cloudflare Workers with D1 and R2.
+Blog bilingüe (ES/EN) sobre inteligencia artificial, automatización y negocios digitales. Construido con [EmDash CMS](https://github.com/emdash-cms/emdash) + Astro, desplegado en Cloudflare Workers (D1 + R2).
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/emdash-cms/templates/tree/main/blog-cloudflare)
+**🌐 [tonyciencia.com](https://tonyciencia.com)**
 
-![Blog template homepage](https://raw.githubusercontent.com/emdash-cms/emdash/main/assets/templates/blog/latest/homepage-light-desktop.jpg)
+## Tecnología
 
-## What's Included
-
-- Featured post hero on the homepage
-- Post archive with reading time estimates
-- Category and tag archives
-- Full-text search
-- RSS feed
-- SEO metadata and JSON-LD
-- Dark/light mode
-- Forms plugin and webhook notifier
-
-## Pages
-
-| Page | Route |
+| Componente | Tecnología |
 |---|---|
-| Homepage | `/` |
-| All posts | `/posts` |
-| Single post | `/posts/:slug` |
-| Category archive | `/category/:slug` |
-| Tag archive | `/tag/:slug` |
-| Search | `/search` |
-| Static pages | `/pages/:slug` |
-| 404 | fallback |
+| CMS | EmDash |
+| Framework | Astro 6 |
+| Runtime | Cloudflare Workers |
+| Base de datos | Cloudflare D1 |
+| Almacenamiento | Cloudflare R2 |
+| Tipografía | Inter, JetBrains Mono |
+| i18n | ES (default) + EN |
 
-## Screenshots
+## Funcionalidades
 
-| | Desktop | Mobile |
+- 📝 Blog bilingüe con soporte ES/EN
+- 🔍 Búsqueda full-text
+- 📡 RSS feed
+- 🏷️ Categorías y tags
+- 🎨 Modo oscuro/claro
+- 📊 SEO metadata + JSON-LD (Schema.org)
+- 📬 Plugin de formularios (contact forms)
+- 🔔 Webhook notifier (n8n integration ready)
+- 🗺️ Sitemap automático con soporte i18n
+- ⚖️ Páginas legales completas (ES + EN)
+
+## Estructura de Rutas
+
+| Página | Ruta ES | Ruta EN |
 |---|---|---|
-| Light | ![homepage light desktop](https://raw.githubusercontent.com/emdash-cms/emdash/main/assets/templates/blog/latest/homepage-light-desktop.jpg) | ![homepage light mobile](https://raw.githubusercontent.com/emdash-cms/emdash/main/assets/templates/blog/latest/homepage-light-mobile.jpg) |
-| Dark | ![homepage dark desktop](https://raw.githubusercontent.com/emdash-cms/emdash/main/assets/templates/blog/latest/homepage-dark-desktop.jpg) | ![homepage dark mobile](https://raw.githubusercontent.com/emdash-cms/emdash/main/assets/templates/blog/latest/homepage-dark-mobile.jpg) |
+| Home | `/` | `/en` |
+| Blog | `/posts` | `/en/posts` |
+| Post | `/posts/:slug` | `/en/posts/:slug` |
+| Categoría | `/category/:slug` | `/en/category/:slug` |
+| Tag | `/tag/:slug` | `/en/tag/:slug` |
+| Búsqueda | `/search` | `/en/search` |
+| Servicios | `/servicios` | `/en/services` |
+| Sobre mí | `/about` | `/en/about` |
+| Contacto | `/contacto` | `/en/contact` |
+| Legal | `/legal/:slug` | `/en/legal/:slug` |
 
-## Infrastructure
-
-- **Runtime:** Cloudflare Workers
-- **Database:** D1
-- **Storage:** R2
-- **Framework:** Astro with `@astrojs/cloudflare`
-
-## Local Development
+## Desarrollo Local
 
 ```bash
 pnpm install
-pnpm bootstrap
-pnpm dev
+pnpm bootstrap        # Inicializa DB + aplica seed
+pnpm dev              # Servidor de desarrollo
 ```
 
-## Deploying
+Admin UI: `http://localhost:4321/_emdash/admin`
+
+## Despliegue
+
+### Requisitos previos (primera vez)
 
 ```bash
-pnpm deploy
+# Crear la base de datos D1
+wrangler d1 create tonyciencia-db
+# → Copiar el database_id al wrangler.jsonc
+
+# Crear el bucket R2
+wrangler r2 bucket create tonyciencia-media
 ```
 
-Or click the deploy button above to set up the project in your Cloudflare account.
+### Deploy automático (CI/CD)
 
-## See Also
+El repositorio incluye GitHub Actions para deploy automático:
 
-- [Node.js variant](../blog) -- same template using SQLite and local file storage
-- [All templates](../)
-- [EmDash documentation](https://github.com/emdash-cms/emdash/tree/main/docs)
+1. **Push a `main`** → despliega automáticamente a Cloudflare
+2. **PR con cambios en `seed/`** → valida el seed automáticamente
+
+#### Secrets necesarios en GitHub
+
+| Secret | Descripción |
+|---|---|
+| `CF_API_TOKEN` | Token de Cloudflare con permisos Workers + D1 + R2 |
+
+### Deploy manual
+
+```bash
+pnpm deploy           # Build + wrangler deploy
+```
+
+## Automatización de Contenido
+
+El blog está preparado para automatización via n8n:
+
+1. n8n genera el contenido con IA
+2. Publica via la API de EmDash (`/_emdash/api/`)
+3. Webhook notifier envía confirmación
+4. Contenido live en producción
+
+Ver [`docs/blog-automation-pipeline.md`](docs/blog-automation-pipeline.md) para detalles.
+
+## Licencia
+
+Contenido © Tony Ciencia LLC. Todos los derechos reservados.
+
+Tony Ciencia LLC — Registered in the U.S.
+8206 Louisiana Blvd NE, Ste A #6812
+Albuquerque, NM 87113 · New Mexico, USA
