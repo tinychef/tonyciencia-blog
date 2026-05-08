@@ -2,6 +2,10 @@
 import { getEmDashCollection, getEntryTerms } from "emdash";
 import Base from "../../../layouts/Base.astro";
 import { getReadingTime } from "../../../utils/reading-time";
+import { getLangFromUrl, useTranslations } from "../../../i18n/locales";
+
+const locale = getLangFromUrl(Astro.url);
+const t = useTranslations(locale);
 
 const { entries: allPosts, cacheHint } = await getEmDashCollection("posts");
 Astro.cache.set(cacheHint);
@@ -27,17 +31,17 @@ const formatDate = (date: Date) =>
 	date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
 ---
 
-<Base title="All Posts" description="Browse all blog posts">
+<Base title={t("posts.title")} description={t("posts.description")}>
 	<div class="posts-page">
 		<header class="page-header">
-			<h1 class="page-title">All Posts</h1>
+			<h1 class="page-title">{t("posts.title")}</h1>
 			<p class="page-description">
 				{posts.length} {posts.length === 1 ? "article" : "articles"}
 			</p>
 		</header>
 
 		{sortedPosts.length === 0 ? (
-			<p class="empty">No posts yet.</p>
+			<p class="empty">{t("posts.noPostsYet")}</p>
 		) : (
 			<div class="posts-list">
 				{postsWithTags.map(({ post, tags, bylines }) => (
@@ -54,7 +58,7 @@ const formatDate = (date: Date) =>
 									<time>{formatDate(post.data.publishedAt)}</time>
 								)}
 								{post.data.publishedAt && <span class="meta-dot" />}
-								<span>{getReadingTime(post.data.content)} min read</span>
+								<span>{getReadingTime(post.data.content)} {t("blog.minRead")}</span>
 							</div>
 							<h2 class="post-title">{post.data.title}</h2>
 							{post.data.excerpt && <p class="post-excerpt">{post.data.excerpt}</p>}

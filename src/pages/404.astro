@@ -5,6 +5,8 @@ import { getLangFromUrl, useTranslations } from "../i18n/locales";
 const locale = getLangFromUrl(Astro.url);
 const t = useTranslations(locale);
 const homeUrl = locale === "en" ? "/en" : "/";
+
+Astro.cache.set({ maxAge: 3600 });
 ---
 
 <Base title={t("404.title")} robots="noindex, nofollow">

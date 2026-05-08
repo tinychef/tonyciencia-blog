@@ -5,6 +5,8 @@ import { getLangFromUrl, useTranslations } from "../../i18n/locales";
 const locale = getLangFromUrl(Astro.url);
 const t = useTranslations(locale);
 
+Astro.cache.set({ maxAge: 3600 });
+
 const title = locale === "en" ? "About Us — Tony Ciencia" : "Sobre Nosotros — Tony Ciencia";
 const description = locale === "en" 
 	? "We are Tony Ciencia: a tech and digital education company specializing in AI, automation, and apps for entrepreneurs."

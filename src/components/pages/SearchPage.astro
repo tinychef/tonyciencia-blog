@@ -1,6 +1,4 @@
 ---
-export const prerender = false;
-
 import { getEmDashCollection } from "emdash";
 import Base from "../../layouts/Base.astro";
 import PostCard from "../../components/PostCard.astro";
@@ -12,7 +10,8 @@ const t = useTranslations(locale);
 
 const query = Astro.url.searchParams.get("q")?.trim() || "";
 
-const { entries: allPosts } = await getEmDashCollection("posts");
+const { entries: allPosts, cacheHint } = await getEmDashCollection("posts");
+Astro.cache.set(cacheHint);
 
 // Simple search: match query against title, excerpt, and content
 function matchesQuery(post: (typeof allPosts)[0], q: string): boolean {
@@ -39,6 +38,7 @@ const postsRoute = locale === "en" ? "/en/posts" : "/posts";
 <Base
 	title={searchTitle}
 	description="Search blog posts"
+	robots="noindex, nofollow"
 >
 	<section class="search-page">
 		<h1 class="search-title">{t("search.title")}</h1>
@@ -59,8 +59,8 @@ const postsRoute = locale === "en" ? "/en/posts" : "/posts";
 			query && (
 				<p class="search-summary">
 					{results.length === 0
-						? `No results for "${query}"`
-						: `${results.length} result${results.length === 1 ? "" : "s"} for "${query}"`}
+						? `${t("search.noResults")} "${query}"`
+						: `${results.length} ${t("search.resultsFor")} "${query}"`}
 				</p>
 			)
 		}
@@ -82,7 +82,7 @@ const postsRoute = locale === "en" ? "/en/posts" : "/posts";
 			)
 		}
 
-		{!query && <p class="search-hint">Enter a search term to find posts.</p>}
+		{!query && <p class="search-hint">{t("search.hint")}</p>}
 	</section>
 </Base>
 

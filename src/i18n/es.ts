@@ -187,9 +187,32 @@ export default {
 	"legal.affiliate.title": "Descargo de Afiliados",
 	"legal.general.title": "Descargo General",
 
+	// Posts
+	"posts.title": "Todos los artículos",
+	"posts.description": "Explora todos los artículos",
+	"posts.noPostsYet": "Sin artículos aún.",
+	"posts.author": "Autor",
+	"posts.authors": "Autores",
+	"posts.published": "Publicado",
+	"posts.readingTime": "Tiempo de lectura",
+	"posts.onThisPage": "En esta página",
+	"posts.continueReading": "Sigue leyendo",
+	"posts.tags": "Etiquetas",
+
+	// Category
+	"category.label": "Categoría",
+	"category.noPosts": "No hay artículos en esta categoría aún.",
+
+	// Tag
+	"tag.label": "Etiqueta",
+	"tag.noPosts": "No hay artículos con esta etiqueta aún.",
+
 	// Search
 	"search.title": "Buscar",
 	"search.placeholder": "Buscar artículos...",
+	"search.noResults": "Sin resultados para",
+	"search.resultsFor": "resultado(s) para",
+	"search.hint": "Ingresa un término para buscar artículos.",
 
 	// 404
 	"404.title": "Página no encontrada",

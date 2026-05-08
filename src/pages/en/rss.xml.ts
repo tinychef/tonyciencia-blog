@@ -1,16 +1,16 @@
 import type { APIRoute } from "astro";
-import { getEmDashCollection } from "emdash";
-
-const siteTitle = "Tony Ciencia";
+import { getEmDashCollection, getSiteSettings } from "emdash";
+import { resolveBlogSiteIdentity } from "../../utils/site-identity";
 
 export const GET: APIRoute = async ({ url }) => {
 	const siteUrl = url.origin;
+	const { siteTitle, siteTagline } = resolveBlogSiteIdentity(await getSiteSettings());
+
 	const { entries: allPosts } = await getEmDashCollection("posts", {
 		orderBy: { published_at: "desc" },
 		limit: 20,
 	});
 
-	// Filter EN posts only
 	const posts = allPosts.filter((p) => p.data.locale === "en");
 
 	const items = posts
@@ -32,6 +32,7 @@ export const GET: APIRoute = async ({ url }) => {
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>${escapeXml(siteTitle)}</title>
+    <description>${escapeXml(siteTagline)}</description>
     <link>${siteUrl}/en</link>
     <atom:link href="${siteUrl}/en/rss.xml" rel="self" type="application/rss+xml"/>
     <language>en</language>

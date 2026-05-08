@@ -15,10 +15,11 @@ if (!term) {
 const locale = getLangFromUrl(Astro.url);
 const t = useTranslations(locale);
 
-const { entries: allPosts } = await getEmDashCollection("posts", {
+const { entries: allPosts, cacheHint } = await getEmDashCollection("posts", {
 	where: { tag: term.slug },
 	orderBy: { published_at: "desc" },
 });
+Astro.cache.set(cacheHint);
 
 const posts = allPosts.filter((p) => p.data.locale === locale || (!p.data.locale && locale === "es"));
 
@@ -34,12 +35,12 @@ const postsRoute = locale === "en" ? "/en/posts" : "/posts";
 ---
 
 <Base
-	title={`Posts tagged "${term.label}"`}
-	description={`All posts tagged with ${term.label}`}
+	title={`${term.label} — ${t("tag.label")}`}
+	description={`${t("tag.label")}: ${term.label}`}
 >
 	<section class="archive-section">
 		<header class="archive-header">
-			<span class="archive-label">Tag</span>
+			<span class="archive-label">{t("tag.label")}</span>
 			<h1 class="archive-title">{term.label}</h1>
 			<p class="archive-count">
 				{filteredPosts.length}
@@ -49,7 +50,7 @@ const postsRoute = locale === "en" ? "/en/posts" : "/posts";
 
 		{
 			filteredPosts.length === 0 ? (
-				<p class="no-posts">No posts with this tag yet.</p>
+				<p class="no-posts">{t("tag.noPosts")}</p>
 			) : (
 				<div class="posts-grid">
 					{filteredPosts.map(({ post, tags }) => (

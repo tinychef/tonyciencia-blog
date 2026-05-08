@@ -71,7 +71,7 @@ const serviceLinks = locale === "en"
 const resourceLinks = locale === "en"
   ? [
       { label: "Blog", url: "/en/posts" },
-      { label: "RSS Feed", url: "/rss.xml" },
+      { label: "RSS Feed", url: "/en/rss.xml" },
       { label: "Search", url: "/en/search" },
     ]
   : [
@@ -130,7 +130,7 @@ const year = new Date().getFullYear();
             class="newsletter-input"
             aria-label={t("footer.newsletter.placeholder")}
           />
-          <button type="button" class="newsletter-btn">{t("footer.newsletter.btn")}</button>
+          <button type="button" class="newsletter-btn" disabled title={locale === "en" ? "Coming soon" : "Próximamente"}>{t("footer.newsletter.btn")}</button>
         </div>
       </div>
     </div>
@@ -338,6 +338,13 @@ const year = new Date().getFullYear();
   .newsletter-btn:hover {
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(200, 146, 42, 0.3);
+  }
+
+  .newsletter-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
   }
 
   /* ── 4-column Grid ── */

@@ -5,6 +5,19 @@
 
 import type { ContentBylineCredit, PortableTextBlock } from "emdash";
 
+export interface LegalPage {
+  id: string;
+  slug: string | null;
+  status: string;
+  title: string;
+  content?: PortableTextBlock[];
+  last_reviewed?: string;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date | null;
+  bylines?: ContentBylineCredit[];
+}
+
 export interface Page {
   id: string;
   slug: string | null;
@@ -22,9 +35,12 @@ export interface Post {
   slug: string | null;
   status: string;
   title: string;
-  featured_image?: { id: string; src?: string; alt?: string; width?: number; height?: number };
+  featured_image?: { id: string; src?: string; alt?: string; width?: number; height?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown> };
   content?: PortableTextBlock[];
   excerpt?: string;
+  translation_of?: string;
+  external_id?: string;
+  source?: string;
   createdAt: Date;
   updatedAt: Date;
   publishedAt: Date | null;
@@ -33,6 +49,7 @@ export interface Post {
 
 declare module "emdash" {
   interface EmDashCollections {
+    legal_pages: LegalPage;
     pages: Page;
     posts: Post;
   }

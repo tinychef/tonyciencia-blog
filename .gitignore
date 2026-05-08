@@ -35,3 +35,9 @@ pnpm-debug.log*
 .idea/
 .DS_Store
 Thumbs.db
+
+# Kilo
+.kilo/
+
+# npm (project uses pnpm)
+package-lock.json

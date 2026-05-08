@@ -191,9 +191,32 @@ const en: typeof es = {
 	"legal.affiliate.title": "Affiliate Disclaimer",
 	"legal.general.title": "General Disclaimer",
 
+	// Posts
+	"posts.title": "All Posts",
+	"posts.description": "Browse all blog posts",
+	"posts.noPostsYet": "No posts yet.",
+	"posts.author": "Author",
+	"posts.authors": "Authors",
+	"posts.published": "Published",
+	"posts.readingTime": "Reading time",
+	"posts.onThisPage": "On this page",
+	"posts.continueReading": "Continue reading",
+	"posts.tags": "Tags",
+
+	// Category
+	"category.label": "Category",
+	"category.noPosts": "No posts in this category yet.",
+
+	// Tag
+	"tag.label": "Tag",
+	"tag.noPosts": "No posts with this tag yet.",
+
 	// Search
 	"search.title": "Search",
 	"search.placeholder": "Search articles...",
+	"search.noResults": "No results for",
+	"search.resultsFor": "result(s) for",
+	"search.hint": "Enter a search term to find posts.",
 
 	// 404
 	"404.title": "Page not found",
