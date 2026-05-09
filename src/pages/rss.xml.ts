@@ -2,7 +2,6 @@ import type { APIRoute } from "astro";
 import { getEmDashCollection, getSiteSettings } from "emdash";
 
 import { resolveBlogSiteIdentity } from "../utils/site-identity";
-import { getEntryLocale } from "../utils/locale";
 
 export const GET: APIRoute = async ({ site, url }) => {
 	const siteUrl = site?.toString() || url.origin;
@@ -11,15 +10,10 @@ export const GET: APIRoute = async ({ site, url }) => {
 	const { entries: posts } = await getEmDashCollection("posts", {
 		orderBy: { published_at: "desc" },
 		limit: 20,
+		locale: "es",
 	});
 
-	// Filter to Spanish posts only
-	const esPosts = posts.filter((p) => {
-		const loc = getEntryLocale(p);
-		return loc === "es" || !loc;
-	});
-
-	const items = esPosts
+	const items = posts
 		.map((post) => {
 			if (!post.data.publishedAt) return null;
 			const pubDate = post.data.publishedAt.toUTCString();

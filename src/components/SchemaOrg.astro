@@ -17,6 +17,7 @@ interface Props {
 const { type, title, description, url, image, locale, publishedTime, modifiedTime, author, breadcrumbs, schemaType, faqItems } = Astro.props;
 
 const siteUrl = Astro.url.origin;
+const SITE_AUTHOR_NAME = "Antonio Duque";
 
 const SOCIAL_PROFILES = [
 	"https://youtube.com/@tonyciencia",
@@ -106,7 +107,7 @@ const articleSchema =
 				...(modifiedTime && { dateModified: modifiedTime }),
 				author: {
 					"@type": "Person",
-					name: author || "Antonio Duque",
+					name: author || SITE_AUTHOR_NAME,
 					url: `${siteUrl}${locale === "en" ? "/en/about" : "/about"}`,
 				},
 				publisher: {

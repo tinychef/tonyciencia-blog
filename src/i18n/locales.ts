@@ -50,6 +50,12 @@ const dictionaries: Record<Locale, TranslationDict> = { es, en };
 export function useTranslations(locale: Locale) {
 	const dict = dictionaries[locale];
 	return function t(key: keyof typeof es): string {
-		return dict[key] || es[key] || key;
+		if (dict[key]) return dict[key];
+		if (es[key]) {
+			if (import.meta.env.DEV) console.warn(`[i18n] Missing "${String(key)}" for locale "${locale}", falling back to ES`);
+			return es[key];
+		}
+		if (import.meta.env.DEV) console.warn(`[i18n] Missing translation key: "${String(key)}"`);
+		return key;
 	};
 }
