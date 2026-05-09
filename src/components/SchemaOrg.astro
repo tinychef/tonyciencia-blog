@@ -10,9 +10,11 @@ interface Props {
 	modifiedTime?: string | null;
 	author?: string | null;
 	breadcrumbs?: Array<{ name: string; url: string }> | null;
+	schemaType?: string | null;
+	faqItems?: Array<{ question: string; answer: string }> | null;
 }
 
-const { type, title, description, url, image, locale, publishedTime, modifiedTime, author, breadcrumbs } = Astro.props;
+const { type, title, description, url, image, locale, publishedTime, modifiedTime, author, breadcrumbs, schemaType, faqItems } = Astro.props;
 
 const siteUrl = Astro.url.origin;
 
@@ -88,11 +90,13 @@ const breadcrumbSchema =
 			}
 		: null;
 
+const effectiveSchemaType = schemaType || (type === "article" ? "Article" : null);
+
 const articleSchema =
 	type === "article"
 		? {
 				"@context": "https://schema.org",
-				"@type": "BlogPosting",
+				"@type": effectiveSchemaType === "HowTo" ? "HowTo" : "BlogPosting",
 				headline: title,
 				description: description || "",
 				url,
@@ -115,9 +119,26 @@ const articleSchema =
 				},
 			}
 		: null;
+
+const faqSchema =
+	faqItems && faqItems.length > 0
+		? {
+				"@context": "https://schema.org",
+				"@type": "FAQPage",
+				mainEntity: faqItems.map((item) => ({
+					"@type": "Question",
+					name: item.question,
+					acceptedAnswer: {
+						"@type": "Answer",
+						text: item.answer,
+					},
+				})),
+			}
+		: null;
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
 <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
 {breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
 {articleSchema && <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />}
+{faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}

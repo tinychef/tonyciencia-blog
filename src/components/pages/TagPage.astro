@@ -15,13 +15,12 @@ if (!term) {
 const locale = getLangFromUrl(Astro.url);
 const t = useTranslations(locale);
 
-const { entries: allPosts, cacheHint } = await getEmDashCollection("posts", {
+const { entries: posts, cacheHint } = await getEmDashCollection("posts", {
 	where: { tag: term.slug },
 	orderBy: { published_at: "desc" },
+	locale,
 });
 Astro.cache.set(cacheHint);
-
-const posts = allPosts.filter((p) => p.data.locale === locale || (!p.data.locale && locale === "es"));
 
 // Fetch tags for display on each post card
 const filteredPosts = await Promise.all(
@@ -37,6 +36,10 @@ const postsRoute = locale === "en" ? "/en/posts" : "/posts";
 <Base
 	title={`${term.label} — ${t("tag.label")}`}
 	description={`${t("tag.label")}: ${term.label}`}
+	breadcrumbs={[
+		{ name: locale === "en" ? "Blog" : "Blog", url: postsRoute },
+		{ name: term.label, url: `/tag/${term.slug}` },
+	]}
 >
 	<section class="archive-section">
 		<header class="archive-header">

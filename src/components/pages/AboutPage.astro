@@ -7,14 +7,57 @@ const t = useTranslations(locale);
 
 Astro.cache.set({ maxAge: 3600 });
 
-const title = locale === "en" ? "About Us — Tony Ciencia" : "Sobre Nosotros — Tony Ciencia";
+const title = locale === "en" ? "About Antonio Duque — Tony Ciencia" : "Sobre Antonio Duque — Tony Ciencia";
 const description = locale === "en" 
-	? "We are Tony Ciencia: a tech and digital education company specializing in AI, automation, and apps for entrepreneurs."
-	: "Somos Tony Ciencia: una empresa de tecnología y educación digital especializada en IA, automatización y apps para emprendedores.";
+	? "Antonio Duque is the founder of Tony Ciencia. 5+ years building AI automation systems, n8n workflows, and Cloudflare-based apps for businesses across LATAM."
+	: "Antonio Duque es el fundador de Tony Ciencia. Más de 5 años construyendo sistemas de automatización con IA, workflows n8n y apps en Cloudflare para negocios en LATAM.";
+
+const siteUrl = Astro.url.origin;
+
+const personSchema = {
+	"@context": "https://schema.org",
+	"@type": "Person",
+	name: "Antonio Duque",
+	alternateName: "Tony Ciencia",
+	url: siteUrl,
+	email: "bussines@tonyciencia.com",
+	jobTitle: locale === "en" ? "Founder & AI Automation Consultant" : "Fundador y Consultor de Automatización con IA",
+	description: description,
+	image: `${siteUrl}/assets/antonio-duque.webp`,
+	sameAs: [
+		"https://youtube.com/@tonyciencia",
+		"https://instagram.com/tonyciencia",
+		"https://x.com/tonyciencia",
+	],
+	worksFor: {
+		"@type": "Organization",
+		name: "Tony Ciencia LLC",
+		url: siteUrl,
+	},
+	knowsAbout: [
+		"Artificial Intelligence",
+		"Business Automation",
+		"n8n",
+		"Cloudflare Workers",
+		"Google Ads",
+		"Meta Ads",
+		"WhatsApp Business API",
+	],
+	address: {
+		"@type": "PostalAddress",
+		addressLocality: "Albuquerque",
+		addressRegion: "NM",
+		addressCountry: "US",
+	},
+};
 ---
 
-<Base title={title} description={description}>
-	<!-- ═══ HERO ═══════════════════════════════════════════════ -->
+<Base title={title} description={description} breadcrumbs={[
+	{ name: t("nav.about"), url: locale === "en" ? "/en/about" : "/about" },
+]}>
+	<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+
+	<!-- ═══ AUTHOR HERO ═══════════════════════════════════════════ -->
 	<section class="about-hero">
 		<div class="about-hero-inner">
 			<div class="page-breadcrumb">
@@ -22,79 +65,117 @@ const description = locale === "en"
 				<span>→</span>
 				<span>{t("nav.about")}</span>
 			</div>
-			<h1 class="about-title">
-				{t("about.title.line1")}<br />
-				<span class="title-gradient">{t("about.title.line2")}</span>
-			</h1>
-			<p class="about-subtitle">{t("about.subtitle")}</p>
-		</div>
-	</section>
-
-	<!-- ═══ MISIÓN / VALORES ═══════════════════════════════════ -->
-	<section class="values-section">
-		<div class="values-inner">
-			<div class="values-grid">
-				<div class="value-card">
-					<div class="value-icon">
-						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-							<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-						</svg>
-					</div>
-					<h3 class="value-title">{t("about.values.results.title")}</h3>
-					<p class="value-desc">{t("about.values.results.desc")}</p>
+			<div class="author-header">
+				<div class="author-avatar">
+					<img src="/assets/antonio-duque.webp" alt="Antonio Duque — Tony Ciencia" width="120" height="120" />
 				</div>
-				<div class="value-card">
-					<div class="value-icon">
-						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-							<circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
-						</svg>
+				<div class="author-intro">
+					<h1 class="about-title">
+						{locale === "en" ? "Hi, I'm Antonio Duque" : "Hola, soy Antonio Duque"}
+					</h1>
+					<p class="author-role">
+						{locale === "en" 
+							? "Founder of Tony Ciencia · AI Automation Consultant · Builder"
+							: "Fundador de Tony Ciencia · Consultor de Automatización con IA · Builder"}
+					</p>
+					<div class="author-social">
+						<a href="https://youtube.com/@tonyciencia" target="_blank" rel="noopener noreferrer" aria-label="YouTube">YouTube</a>
+						<span class="dot">·</span>
+						<a href="https://x.com/tonyciencia" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter">X</a>
+						<span class="dot">·</span>
+						<a href="https://instagram.com/tonyciencia" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
+						<span class="dot">·</span>
+						<a href="mailto:bussines@tonyciencia.com">Email</a>
 					</div>
-					<h3 class="value-title">{t("about.values.speed.title")}</h3>
-					<p class="value-desc">{t("about.values.speed.desc")}</p>
-				</div>
-				<div class="value-card">
-					<div class="value-icon">
-						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-						</svg>
-					</div>
-					<h3 class="value-title">{t("about.values.community.title")}</h3>
-					<p class="value-desc">{t("about.values.community.desc")}</p>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- ═══ STACK TECNOLÓGICO ══════════════════════════════════ -->
+	<!-- ═══ BIOGRAFÍA ═══════════════════════════════════════════ -->
+	<section class="bio-section">
+		<div class="bio-inner">
+			<div class="bio-content">
+				{locale === "en" ? (
+					<>
+						<p>I've spent the last 5+ years at the intersection of <strong>artificial intelligence</strong>, <strong>business automation</strong>, and <strong>digital growth</strong>. I don't just write about these topics — I build, deploy, and maintain production systems for real businesses every day.</p>
+						<p>My stack centers on <strong>n8n</strong> for workflow orchestration, <strong>Cloudflare Workers</strong> for edge computing, and <strong>AI APIs</strong> (OpenAI, Claude, Gemini) for intelligent automation. I've built CRM integrations that process thousands of WhatsApp conversations, marketing pipelines that run 24/7 without human intervention, and custom SaaS products on the Cloudflare edge.</p>
+						<p>Tony Ciencia is where I share everything I learn — not theory, but real implementations with real results. Every tutorial on this site is based on something I've actually built and tested in production.</p>
+						<p><strong>Born in LATAM, based in Albuquerque, NM.</strong> I work remotely with businesses across Latin America and the US, helping them automate what's slowing them down.</p>
+					</>
+				) : (
+					<>
+						<p>He pasado los últimos 5+ años en la intersección de la <strong>inteligencia artificial</strong>, la <strong>automatización de negocios</strong> y el <strong>crecimiento digital</strong>. No solo escribo sobre estos temas — construyo, despliego y mantengo sistemas en producción para negocios reales todos los días.</p>
+						<p>Mi stack se centra en <strong>n8n</strong> para orquestación de workflows, <strong>Cloudflare Workers</strong> para edge computing y <strong>APIs de IA</strong> (OpenAI, Claude, Gemini) para automatización inteligente. He construido integraciones de CRM que procesan miles de conversaciones de WhatsApp, pipelines de marketing que corren 24/7 sin intervención humana, y productos SaaS personalizados en el edge de Cloudflare.</p>
+						<p>Tony Ciencia es donde comparto todo lo que aprendo — no teoría, sino implementaciones reales con resultados reales. Cada tutorial en este sitio está basado en algo que realmente he construido y probado en producción.</p>
+						<p><strong>Nacido en LATAM, basado en Albuquerque, NM.</strong> Trabajo remotamente con negocios en toda Latinoamérica y EE.UU., ayudándolos a automatizar lo que los está frenando.</p>
+					</>
+				)}
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══ EXPERIENCIA ════════════════════════════════════════ -->
+	<section class="experience-section">
+		<div class="experience-inner">
+			<div class="section-label">{locale === "en" ? "Experience" : "Experiencia"}</div>
+			<h2 class="section-title">{locale === "en" ? "What I do" : "Qué hago"}</h2>
+			<div class="exp-grid">
+				<div class="exp-card">
+					<div class="exp-number">01</div>
+					<h3 class="exp-title">{locale === "en" ? "AI Automation" : "Automatización con IA"}</h3>
+					<p class="exp-desc">{locale === "en" 
+						? "I design and build end-to-end automation systems using n8n, OpenAI, and Cloudflare Workers. From lead qualification bots to full CRM pipelines."
+						: "Diseño y construyo sistemas de automatización end-to-end usando n8n, OpenAI y Cloudflare Workers. Desde bots de calificación de leads hasta pipelines completos de CRM."}</p>
+				</div>
+				<div class="exp-card">
+					<div class="exp-number">02</div>
+					<h3 class="exp-title">{locale === "en" ? "Digital Education" : "Educación Digital"}</h3>
+					<p class="exp-desc">{locale === "en"
+						? "I teach automation and AI through practical courses, 1-on-1 mentorship, and this blog. No fluff — only what works in production."
+						: "Enseño automatización e IA a través de cursos prácticos, mentorías 1 a 1 y este blog. Sin relleno — solo lo que funciona en producción."}</p>
+				</div>
+				<div class="exp-card">
+					<div class="exp-number">03</div>
+					<h3 class="exp-title">{locale === "en" ? "Custom Development" : "Desarrollo a Medida"}</h3>
+					<p class="exp-desc">{locale === "en"
+						? "I build web apps and SaaS products on Cloudflare's edge. Astro + React frontends, D1 databases, Workers APIs — all serverless."
+						: "Construyo apps web y productos SaaS en el edge de Cloudflare. Frontends Astro + React, bases de datos D1, APIs en Workers — todo serverless."}</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══ STACK TECNOLÓGICO ═══════════════════════════════════ -->
 	<section class="stack-section">
 		<div class="stack-inner">
 			<div class="section-label">{t("about.stack.label")}</div>
-			<h2 class="stack-title">{t("about.stack.title")}</h2>
+			<h2 class="section-title">{t("about.stack.title")}</h2>
 			<p class="stack-desc">{t("about.stack.desc")}</p>
 			<div class="stack-grid">
 				<div class="stack-item">
 					<span class="stack-name">Cloudflare Workers</span>
-					<span class="stack-use">Compute en el edge, zero-ops</span>
+					<span class="stack-use">{locale === "en" ? "Edge compute, zero-ops" : "Compute en el edge, zero-ops"}</span>
 				</div>
 				<div class="stack-item">
 					<span class="stack-name">Astro + EmDash</span>
-					<span class="stack-use">Sitios rápidos con CMS propio</span>
+					<span class="stack-use">{locale === "en" ? "Fast sites with custom CMS" : "Sitios rápidos con CMS propio"}</span>
 				</div>
 				<div class="stack-item">
-					<span class="stack-name">n8n + Zapier</span>
-					<span class="stack-use">Automatización de workflows</span>
+					<span class="stack-name">n8n</span>
+					<span class="stack-use">{locale === "en" ? "Workflow automation" : "Automatización de workflows"}</span>
 				</div>
 				<div class="stack-item">
 					<span class="stack-name">Cloudflare D1 + R2</span>
-					<span class="stack-use">Base de datos y storage global</span>
+					<span class="stack-use">{locale === "en" ? "Global database and storage" : "Base de datos y storage global"}</span>
 				</div>
 				<div class="stack-item">
-					<span class="stack-name">YouTube Data API v3</span>
-					<span class="stack-use">Automatización de contenido</span>
+					<span class="stack-name">OpenAI / Claude API</span>
+					<span class="stack-use">{locale === "en" ? "AI-powered automation" : "Automatización potenciada por IA"}</span>
 				</div>
 				<div class="stack-item">
 					<span class="stack-name">Zoho CRM + Campaigns</span>
-					<span class="stack-use">CRM y email marketing</span>
+					<span class="stack-use">{locale === "en" ? "CRM and email marketing" : "CRM y email marketing"}</span>
 				</div>
 			</div>
 		</div>
@@ -116,32 +197,48 @@ const description = locale === "en"
 <style>
 	.about-hero { padding: clamp(4rem, 8vw, 7rem) var(--spacing-6) clamp(3rem, 6vw, 5rem); background: var(--color-bg); border-bottom: 1px solid var(--color-border-subtle); }
 	.about-hero-inner { max-width: var(--wide-width); margin: 0 auto; }
-	.page-breadcrumb { display: flex; align-items: center; gap: var(--spacing-2); font-size: var(--font-size-sm); color: var(--color-muted); margin-bottom: var(--spacing-6); }
+	.page-breadcrumb { display: flex; align-items: center; gap: var(--spacing-2); font-size: var(--font-size-sm); color: var(--color-muted); margin-bottom: var(--spacing-8); }
 	.page-breadcrumb a { color: var(--color-muted); text-decoration: none; transition: color var(--transition-fast); }
 	.page-breadcrumb a:hover { color: var(--color-accent); }
-	.about-title { font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.12; color: var(--color-text); margin: 0 0 var(--spacing-6); }
-	.title-gradient { background: var(--tc-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-	.about-subtitle { font-size: var(--font-size-lg); color: var(--color-text-secondary); line-height: 1.7; max-width: 640px; margin: 0; }
 	
-	.values-section { padding: clamp(4rem, 7vw, 6rem) var(--spacing-6); background: var(--color-bg-subtle); border-bottom: 1px solid var(--color-border-subtle); }
-	.values-inner { max-width: var(--wide-width); margin: 0 auto; }
-	.values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-6); }
-	.value-card { padding: var(--spacing-8); background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-xl); display: flex; flex-direction: column; gap: var(--spacing-4); transition: transform var(--transition-base), box-shadow var(--transition-base); }
-	.value-card:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(2, 116, 190, 0.08); }
-	.value-icon { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 12px; background: var(--tc-gradient-subtle); color: var(--color-accent); }
-	.value-title { font-size: var(--font-size-xl); font-weight: 600; letter-spacing: -0.015em; color: var(--color-text); margin: 0; }
-	.value-desc { font-size: var(--font-size-base); color: var(--color-text-secondary); line-height: 1.65; margin: 0; }
-	
+	.author-header { display: flex; align-items: center; gap: var(--spacing-8); }
+	.author-avatar img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--color-border); }
+	.author-intro { flex: 1; }
+	.about-title { font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.12; color: var(--color-text); margin: 0 0 var(--spacing-3); }
+	.author-role { font-size: var(--font-size-lg); color: var(--color-text-secondary); margin: 0 0 var(--spacing-4); }
+	.author-social { display: flex; align-items: center; gap: var(--spacing-2); font-size: var(--font-size-sm); flex-wrap: wrap; }
+	.author-social a { color: var(--color-accent); text-decoration: none; font-weight: 500; }
+	.author-social a:hover { text-decoration: underline; }
+	.author-social .dot { color: var(--color-muted); }
+
+	/* Bio */
+	.bio-section { padding: clamp(4rem, 7vw, 6rem) var(--spacing-6); }
+	.bio-inner { max-width: 720px; margin: 0 auto; }
+	.bio-content { font-size: var(--font-size-lg); line-height: 1.8; color: var(--color-text-secondary); }
+	.bio-content p { margin-bottom: 1.5em; }
+	.bio-content strong { color: var(--color-text); font-weight: 600; }
+
+	/* Experience */
+	.experience-section { padding: clamp(4rem, 7vw, 6rem) var(--spacing-6); background: var(--color-bg-subtle); border-top: 1px solid var(--color-border-subtle); border-bottom: 1px solid var(--color-border-subtle); }
+	.experience-inner { max-width: var(--wide-width); margin: 0 auto; }
+	.section-label { font-size: var(--font-size-xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-accent); margin-bottom: var(--spacing-4); }
+	.section-title { font-size: clamp(1.75rem, 3.5vw, 2.5rem); font-weight: 700; letter-spacing: -0.025em; color: var(--color-text); margin: 0 0 var(--spacing-10); }
+	.exp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-6); }
+	.exp-card { padding: var(--spacing-8); background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-xl); }
+	.exp-number { font-size: var(--font-size-sm); font-weight: 700; color: var(--color-accent); font-family: var(--font-mono); margin-bottom: var(--spacing-4); }
+	.exp-title { font-size: var(--font-size-xl); font-weight: 600; color: var(--color-text); margin: 0 0 var(--spacing-3); }
+	.exp-desc { font-size: var(--font-size-base); color: var(--color-text-secondary); line-height: 1.65; margin: 0; }
+
+	/* Stack */
 	.stack-section { padding: clamp(4rem, 7vw, 6rem) var(--spacing-6); }
 	.stack-inner { max-width: var(--wide-width); margin: 0 auto; }
-	.section-label { font-size: var(--font-size-xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-accent); margin-bottom: var(--spacing-4); }
-	.stack-title { font-size: clamp(1.75rem, 3.5vw, 2.5rem); font-weight: 700; letter-spacing: -0.025em; color: var(--color-text); margin: 0 0 var(--spacing-4); max-width: 500px; }
 	.stack-desc { font-size: var(--font-size-lg); color: var(--color-text-secondary); line-height: 1.65; max-width: 520px; margin: 0 0 var(--spacing-10); }
 	.stack-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; border: 1px solid var(--color-border); border-radius: var(--radius-xl); overflow: hidden; background: var(--color-border); }
-	.stack-item { background: var(--color-bg); padding: var(--spacing-6) var(--spacing-6); display: flex; flex-direction: column; gap: var(--spacing-2); }
+	.stack-item { background: var(--color-bg); padding: var(--spacing-6); display: flex; flex-direction: column; gap: var(--spacing-2); }
 	.stack-name { font-size: var(--font-size-base); font-weight: 600; color: var(--color-text); }
 	.stack-use { font-size: var(--font-size-sm); color: var(--color-muted); }
 	
+	/* CTA */
 	.about-cta { padding: clamp(4rem, 8vw, 6rem) var(--spacing-6); background: var(--color-bg-subtle); border-top: 1px solid var(--color-border-subtle); text-align: center; }
 	.about-cta-inner { max-width: 560px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: var(--spacing-5); }
 	.about-cta-title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; letter-spacing: -0.025em; color: var(--color-text); margin: 0; }
@@ -149,10 +246,19 @@ const description = locale === "en"
 	.about-cta-actions { display: flex; gap: var(--spacing-4); flex-wrap: wrap; justify-content: center; }
 	
 	.btn-primary { display: inline-flex; align-items: center; padding: 13px 28px; background: var(--tc-gradient); color: white; font-weight: 600; font-size: var(--font-size-base); border-radius: var(--radius-lg); text-decoration: none; transition: transform var(--transition-fast), box-shadow var(--transition-fast); }
-	.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(2, 116, 190, 0.35); color: white; }
+	.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(200, 146, 42, 0.35); color: white; }
 	.btn-secondary { display: inline-flex; align-items: center; padding: 12px 27px; border: 1.5px solid var(--color-border); color: var(--color-text); font-weight: 500; font-size: var(--font-size-base); border-radius: var(--radius-lg); text-decoration: none; transition: border-color var(--transition-fast), color var(--transition-fast); }
 	.btn-secondary:hover { border-color: var(--color-accent); color: var(--color-accent); }
 	
-	@media (max-width: 900px) { .values-grid { grid-template-columns: 1fr; max-width: 480px; } .stack-grid { grid-template-columns: repeat(2, 1fr); } }
-	@media (max-width: 640px) { .values-grid { max-width: none; } .stack-grid { grid-template-columns: 1fr; } .about-cta-actions { flex-direction: column; width: 100%; max-width: 300px; } .btn-primary, .btn-secondary { width: 100%; justify-content: center; } }
+	@media (max-width: 900px) { 
+		.author-header { flex-direction: column; text-align: center; }
+		.author-social { justify-content: center; }
+		.exp-grid { grid-template-columns: 1fr; max-width: 480px; } 
+		.stack-grid { grid-template-columns: repeat(2, 1fr); } 
+	}
+	@media (max-width: 640px) { 
+		.stack-grid { grid-template-columns: 1fr; } 
+		.about-cta-actions { flex-direction: column; width: 100%; max-width: 300px; } 
+		.btn-primary, .btn-secondary { width: 100%; justify-content: center; } 
+	}
 </style>

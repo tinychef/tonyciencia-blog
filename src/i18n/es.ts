@@ -197,6 +197,7 @@ export default {
 	"posts.readingTime": "Tiempo de lectura",
 	"posts.onThisPage": "En esta página",
 	"posts.continueReading": "Sigue leyendo",
+	"posts.relatedPosts": "Posts relacionados",
 	"posts.tags": "Etiquetas",
 
 	// Category

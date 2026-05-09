@@ -7,11 +7,8 @@ import { getLangFromUrl, useTranslations } from "../../../i18n/locales";
 const locale = getLangFromUrl(Astro.url);
 const t = useTranslations(locale);
 
-const { entries: allPosts, cacheHint } = await getEmDashCollection("posts");
+const { entries: posts, cacheHint } = await getEmDashCollection("posts", { locale: "en" });
 Astro.cache.set(cacheHint);
-
-// Filter to English posts only
-const posts = allPosts.filter((p) => p.data.locale === "en");
 
 const sortedPosts = posts.toSorted((a, b) => {
 	const dateA = a.data.publishedAt?.getTime() ?? 0;

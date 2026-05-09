@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /_emdash/
+Disallow: /search
+Disallow: /en/search
 
 Sitemap: https://tonyciencia.com/sitemap-index.xml

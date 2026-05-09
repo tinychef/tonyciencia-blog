@@ -23,6 +23,8 @@ data.db-journal
 INUTIL/
 .claude/
 CLAUDE.md
+.firecrawl/
+cookies.txt
 
 # Logs
 npm-debug.log*
@@ -41,3 +43,10 @@ Thumbs.db
 
 # npm (project uses pnpm)
 package-lock.json
+
+# Temp scripts
+check_db.py
+*.bat
+
+# Internal docs / guides
+docs/

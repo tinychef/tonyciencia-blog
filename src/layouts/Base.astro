@@ -1,17 +1,14 @@
 ---
-import { getMenu, getEmDashCollection, getSiteSettings } from "emdash";
+import { getSiteSettings } from "emdash";
 import {
-	WidgetArea,
 	EmDashHead,
 	EmDashBodyStart,
 	EmDashBodyEnd,
 } from "emdash/ui";
 import { createPublicPageContext } from "emdash/page";
-import LiveSearch from "emdash/ui/search";
 import { Font } from "astro:assets";
 import { resolveBlogSiteIdentity } from "../utils/site-identity";
-import { getLangFromUrl, getAlternateLocale, getLocalePath, getMenuName, getLegalMenuName, useTranslations } from "../i18n/locales";
-import LanguageSwitcher from "../components/LanguageSwitcher.astro";
+import { getLangFromUrl, getAlternateLocale, getLocalePath, useTranslations } from "../i18n/locales";
 import SchemaOrg from "../components/SchemaOrg.astro";
 import CookieConsent from "../components/CookieConsent.astro";
 import Footer from "../components/Footer.astro";
@@ -28,6 +25,9 @@ interface Props {
 	publishedTime?: string | null;
 	modifiedTime?: string | null;
 	author?: string | null;
+	breadcrumbs?: Array<{ name: string; url: string }> | null;
+	schemaType?: string | null;
+	faqItems?: Array<{ question: string; answer: string }> | null;
 	/** Pass content reference for plugin page contributions on content pages */
 	content?: { collection: string; id: string; slug?: string | null };
 }
@@ -43,9 +43,12 @@ const {
 	publishedTime,
 	modifiedTime,
 	author,
+	breadcrumbs,
+	schemaType,
+	faqItems,
 	content,
 } = Astro.props;
-const { siteTitle, siteTagline, siteLogo, siteFavicon } = resolveBlogSiteIdentity(await getSiteSettings());
+const { siteTitle, siteFavicon } = resolveBlogSiteIdentity(await getSiteSettings());
 // If title already includes site title (from getSeoMeta), use as-is
 const fullTitle = title.includes(siteTitle) ? title : `${title} — ${siteTitle}`;
 
@@ -56,13 +59,6 @@ const t = useTranslations(locale);
 const altPath = getLocalePath(Astro.url.pathname, altLocale);
 const canonicalUrl = canonical || new URL(Astro.url.pathname, Astro.site || Astro.url.origin).href;
 const altUrl = new URL(altPath, Astro.site || Astro.url.origin).href;
-
-// Fetch locale-aware menus
-const menu = await getMenu(getMenuName(locale));
-const legalMenu = await getMenu(getLegalMenuName(locale));
-
-// Fetch pages for footer
-const { entries: pages } = await getEmDashCollection("pages");
 
 // Build public page context for plugin contributions
 // SEO data is passed here and rendered securely by EmDashHead
@@ -115,7 +111,7 @@ const isLoggedIn = !!Astro.locals.user;
 		<meta name="twitter:site" content="@tonyciencia" />
 		<meta name="twitter:image" content={image ?? `${Astro.site ?? Astro.url.origin}/assets/og-default.webp`} />
 		{siteFavicon && <link rel="icon" href={siteFavicon} />}
-		<SchemaOrg type={type} title={fullTitle} description={description} url={canonicalUrl} image={image} locale={locale} publishedTime={publishedTime} modifiedTime={modifiedTime} author={author} />
+		<SchemaOrg type={type} title={fullTitle} description={description} url={canonicalUrl} image={image} locale={locale} publishedTime={publishedTime} modifiedTime={modifiedTime} author={author} breadcrumbs={breadcrumbs} schemaType={schemaType} faqItems={faqItems} />
 		<EmDashHead page={pageCtx} />
 		<script is:inline>
 			// Apply theme immediately to prevent flash

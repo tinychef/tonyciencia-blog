@@ -41,6 +41,9 @@ export interface Post {
   translation_of?: string;
   external_id?: string;
   source?: string;
+  schema_type?: string;
+  faq_items?: PortableTextBlock[];
+  key_entities?: string;
   createdAt: Date;
   updatedAt: Date;
   publishedAt: Date | null;

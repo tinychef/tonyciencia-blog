@@ -79,13 +79,40 @@ const bylines = post.data.bylines ?? [];
 // Get reading time
 const readingTime = getReadingTime(post.data.content);
 
-// Get other posts for "More posts" section, with their tags
-// Fetch a few extra in case the current post is among them
-const { entries: recentPosts } = await getEmDashCollection("posts", {
-	orderBy: { published_at: "desc" },
-	limit: 4,
-});
-const otherPosts = recentPosts.filter((p) => p.id !== post.id).slice(0, 3);
+// Get other posts for "Related posts" section, prioritizing shared tags
+// First try to find posts with shared tags
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let relatedPosts: any[] = [];
+if (tags.length > 0) {
+	for (const tag of tags) {
+		const { entries: tagPosts } = await getEmDashCollection("posts", {
+			where: { tag: tag.slug },
+			orderBy: { published_at: "desc" },
+			limit: 6,
+		});
+		for (const tp of tagPosts) {
+			if (tp.id !== post.id && !relatedPosts.find((r) => r.id === tp.id)) {
+				relatedPosts.push(tp);
+			}
+			if (relatedPosts.length >= 3) break;
+		}
+		if (relatedPosts.length >= 3) break;
+	}
+}
+// Fallback to recent posts if no tag-based matches
+if (relatedPosts.length < 3) {
+	const { entries: recentPosts } = await getEmDashCollection("posts", {
+		orderBy: { published_at: "desc" },
+		limit: 6,
+	});
+	for (const rp of recentPosts) {
+		if (rp.id !== post.id && !relatedPosts.find((r) => r.id === rp.id)) {
+			relatedPosts.push(rp);
+		}
+		if (relatedPosts.length >= 3) break;
+	}
+}
+const otherPosts = relatedPosts.slice(0, 3);
 
 // Fetch tags for related posts (bylines are already hydrated by getEmDashCollection)
 const otherPostsWithTags = await Promise.all(
@@ -114,6 +141,10 @@ const publishDate =
 	type="article"
 	publishedTime={post.data.publishedAt?.toISOString() ?? null}
 	modifiedTime={post.data.updatedAt.toISOString()}
+	breadcrumbs={[
+		{ name: locale === "en" ? "Blog" : "Blog", url: locale === "en" ? "/en/posts" : "/posts" },
+		{ name: post.data.title, url: `/posts/${slug}` },
+	]}
 	content={{ collection: "posts", id: post.data.id, slug }}
 >
 	<article class="article">
@@ -258,7 +289,7 @@ const publishDate =
 		otherPostsWithTags.length > 0 && (
 			<section class="more-posts">
 				<div class="more-inner">
-					<h2 class="more-title">{t("posts.continueReading")}</h2>
+					<h2 class="more-title">{t("posts.relatedPosts")}</h2>
 					<div class="more-grid">
 						{otherPostsWithTags.map(
 							({ post: p, tags: postTags, bylines: postBylines }) => (

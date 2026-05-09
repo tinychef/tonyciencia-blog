@@ -42,7 +42,9 @@ export function getLegalMenuName(locale: Locale): string {
 import es from "./es";
 import en from "./en";
 
-const dictionaries: Record<Locale, typeof es> = { es, en };
+type TranslationDict = Record<keyof typeof es, string>;
+
+const dictionaries: Record<Locale, TranslationDict> = { es, en };
 
 /** Get a translation function for a given locale. */
 export function useTranslations(locale: Locale) {

@@ -11,13 +11,10 @@ import { getLangFromUrl, useTranslations } from "../../i18n/locales";
 const locale = getLangFromUrl(Astro.url);
 const t = useTranslations(locale);
 
-const { entries: allPosts, cacheHint } = await getEmDashCollection("posts");
+const { entries: posts, cacheHint } = await getEmDashCollection("posts", { locale });
 const { siteTitle, siteTagline } = resolveBlogSiteIdentity(await getSiteSettings());
 
 Astro.cache.set(cacheHint);
-
-// Filter by locale
-const posts = allPosts.filter((p) => p.data.locale === locale || (!p.data.locale && locale === "es"));
 
 const sortedPosts = posts.toSorted((a, b) => {
 	const dateA = a.data.publishedAt?.getTime() ?? 0;

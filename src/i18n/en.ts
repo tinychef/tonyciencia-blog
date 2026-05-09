@@ -1,6 +1,6 @@
 import type es from "./es";
 
-const en: typeof es = {
+const en = {
 	// Nav
 	"nav.home": "Home",
 	"nav.blog": "Blog",
@@ -201,6 +201,7 @@ const en: typeof es = {
 	"posts.readingTime": "Reading time",
 	"posts.onThisPage": "On this page",
 	"posts.continueReading": "Continue reading",
+	"posts.relatedPosts": "Related posts",
 	"posts.tags": "Tags",
 
 	// Category
@@ -231,6 +232,6 @@ const en: typeof es = {
 	// Language
 	"lang.switch": "Español",
 	"lang.current": "EN",
-};
+} satisfies Record<keyof typeof es, string>;
 
 export default en;

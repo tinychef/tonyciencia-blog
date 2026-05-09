@@ -10,11 +10,11 @@ const t = useTranslations(locale);
 
 const query = Astro.url.searchParams.get("q")?.trim() || "";
 
-const { entries: allPosts, cacheHint } = await getEmDashCollection("posts");
+const { entries: posts, cacheHint } = await getEmDashCollection("posts", { locale });
 Astro.cache.set(cacheHint);
 
 // Simple search: match query against title, excerpt, and content
-function matchesQuery(post: (typeof allPosts)[0], q: string): boolean {
+function matchesQuery(post: (typeof posts)[0], q: string): boolean {
 	if (!q) return false;
 	const lower = q.toLowerCase();
 	const title = (post.data.title || "").toLowerCase();
@@ -26,8 +26,7 @@ function matchesQuery(post: (typeof allPosts)[0], q: string): boolean {
 	);
 }
 
-const localePosts = allPosts.filter((p) => p.data.locale === locale || (!p.data.locale && locale === "es"));
-const results = query ? localePosts.filter((p) => matchesQuery(p, query)) : [];
+const results = query ? posts.filter((p) => matchesQuery(p, query)) : [];
 
 const searchTitle = query ? `${t("search.title")}: ${query}` : t("search.title");
 const searchPlaceholder = t("search.placeholder");

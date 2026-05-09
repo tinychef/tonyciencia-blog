@@ -77,8 +77,9 @@ const translationSlug = post.data.translation_of;
 const { entries: recentPosts } = await getEmDashCollection("posts", {
 	orderBy: { published_at: "desc" },
 	limit: 4,
+	locale: "en",
 });
-const otherPosts = recentPosts.filter((p) => p.id !== post.id && p.data.locale === "en").slice(0, 3);
+const otherPosts = recentPosts.filter((p) => p.id !== post.id).slice(0, 3);
 
 const otherPostsWithTags = await Promise.all(
 	otherPosts.map(async (p) => {

@@ -6,12 +6,11 @@ export const GET: APIRoute = async ({ url }) => {
 	const siteUrl = url.origin;
 	const { siteTitle, siteTagline } = resolveBlogSiteIdentity(await getSiteSettings());
 
-	const { entries: allPosts } = await getEmDashCollection("posts", {
+	const { entries: posts } = await getEmDashCollection("posts", {
 		orderBy: { published_at: "desc" },
 		limit: 20,
+		locale: "en",
 	});
-
-	const posts = allPosts.filter((p) => p.data.locale === "en");
 
 	const items = posts
 		.filter((p) => p.data.publishedAt)
