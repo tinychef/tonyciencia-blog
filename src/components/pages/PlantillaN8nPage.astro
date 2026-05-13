@@ -1,0 +1,845 @@
+---
+import Base from "../../layouts/Base.astro";
+
+const WORKER_URL = "https://resend-contact-worker.antonioduquejuliao.workers.dev/subscribe/n8n";
+const YCLOUD_URL = "https://partner.ycloud.com/invitation/uppMHH2H?prowapp";
+const GHL_URL    = "https://www.gohighlevel.com/highlevel-bootcamp?fp_ref=tony-ciencia-llc-57";
+const CONTACT_URL = "/contacto";
+
+const title = "Plantilla gratuita n8n + yCloud + Go High Level — Tony Ciencia";
+const description = "Descarga gratis la plantilla de automatización de conversaciones con n8n, yCloud y Go High Level. Conecta WhatsApp con tu CRM en menos de 1 hora.";
+
+const steps = [
+  {
+    num: "01",
+    title: "Importa el workflow en n8n",
+    desc: "Descarga el archivo ZIP que te enviamos por correo. Abre n8n → Import from file → listo.",
+  },
+  {
+    num: "02",
+    title: "Conecta yCloud y activa WhatsApp",
+    desc: "Crea tu cuenta en yCloud con el link especial, activa el webhook y empieza a recibir mensajes.",
+  },
+  {
+    num: "03",
+    title: "Configura Go High Level como CRM",
+    desc: "Crea tu cuenta GHL con el link especial, conecta la integración en n8n y los leads llegan solos.",
+  },
+];
+
+const benefits = [
+  { emoji: "⚡", title: "Responde en segundos", desc: "El workflow procesa cada mensaje de WhatsApp automáticamente y responde sin que intervengas." },
+  { emoji: "📋", title: "Leads en tu CRM al instante", desc: "Cada contacto nuevo queda registrado en Go High Level sin trabajo manual." },
+  { emoji: "🔔", title: "Notificaciones automáticas", desc: "Recibes alertas cuando un prospecto calificado entra al pipeline." },
+];
+---
+
+<Base
+  title={title}
+  description={description}
+  breadcrumbs={[{ name: "Plantilla n8n + yCloud + GHL", url: "/plantilla-n8n-ycloud-ghl" }]}
+>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="n8n-hero">
+    <div class="n8n-hero-orb n8n-hero-orb--1" aria-hidden="true"></div>
+    <div class="n8n-hero-orb n8n-hero-orb--2" aria-hidden="true"></div>
+    <div class="n8n-inner">
+      <span class="n8n-badge" data-animate data-delay="0">Plantilla Gratuita</span>
+      <h1 class="n8n-hero-title" data-animate data-delay="1">
+        Automatiza tus conversaciones de WhatsApp con
+        <span class="n8n-gradient-text">n8n + yCloud + Go High Level</span>
+      </h1>
+      <p class="n8n-hero-sub" data-animate data-delay="2">
+        Descarga gratis la plantilla lista para usar que conecta tus prospectos de
+        WhatsApp con tu CRM en menos de 1 hora. Sin código, sin complicaciones.
+      </p>
+      <div class="n8n-hero-ctas" data-animate data-delay="3">
+        <a href="#registro" class="n8n-btn-primary">Quiero la plantilla gratis →</a>
+        <a href="#como-funciona" class="n8n-btn-secondary">Ver cómo funciona ↓</a>
+      </div>
+
+      <!-- Logos de herramientas -->
+      <div class="n8n-tools" data-animate data-delay="4" aria-label="Herramientas incluidas">
+        <a href={YCLOUD_URL} target="_blank" rel="noopener noreferrer" class="n8n-tool-badge">
+          <span class="n8n-tool-dot n8n-tool-dot--green" aria-hidden="true"></span>
+          yCloud
+        </a>
+        <span class="n8n-tool-sep" aria-hidden="true">×</span>
+        <span class="n8n-tool-badge n8n-tool-badge--plain">
+          <span class="n8n-tool-dot n8n-tool-dot--amber" aria-hidden="true"></span>
+          n8n
+        </span>
+        <span class="n8n-tool-sep" aria-hidden="true">×</span>
+        <a href={GHL_URL} target="_blank" rel="noopener noreferrer" class="n8n-tool-badge">
+          <span class="n8n-tool-dot n8n-tool-dot--blue" aria-hidden="true"></span>
+          Go High Level
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BENEFICIOS ═══ -->
+  <section class="n8n-benefits">
+    <div class="n8n-inner">
+      <h2 class="n8n-section-title" data-animate>¿Qué incluye la plantilla?</h2>
+      <div class="n8n-benefits-grid">
+        {benefits.map((b, i) => (
+          <div class="n8n-benefit-card" data-animate data-delay={i}>
+            <span class="n8n-benefit-emoji" aria-hidden="true">{b.emoji}</span>
+            <strong class="n8n-benefit-title">{b.title}</strong>
+            <p class="n8n-benefit-desc">{b.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CÓMO FUNCIONA ═══ -->
+  <section class="n8n-steps" id="como-funciona">
+    <div class="n8n-inner">
+      <h2 class="n8n-section-title" data-animate>3 pasos para activarla</h2>
+      <div class="n8n-steps-list">
+        {steps.map((s, i) => (
+          <div class="n8n-step" data-animate data-delay={i}>
+            <span class="n8n-step-num" aria-hidden="true">{s.num}</span>
+            <div class="n8n-step-content">
+              <strong class="n8n-step-title">{s.title}</strong>
+              <p class="n8n-step-desc">{s.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ LINKS AFILIADO ═══ -->
+  <section class="n8n-affiliates">
+    <div class="n8n-inner">
+      <p class="n8n-affiliates-label">Necesitarás una cuenta en cada herramienta</p>
+      <div class="n8n-affiliates-grid">
+        <a href={YCLOUD_URL} target="_blank" rel="noopener noreferrer" class="n8n-affiliate-card">
+          <div class="n8n-affiliate-icon n8n-affiliate-icon--green" aria-hidden="true">Y</div>
+          <div>
+            <strong class="n8n-affiliate-name">yCloud</strong>
+            <p class="n8n-affiliate-desc">WhatsApp Business API para enviar y recibir mensajes</p>
+          </div>
+          <span class="n8n-affiliate-cta">Crear cuenta →</span>
+        </a>
+        <a href={GHL_URL} target="_blank" rel="noopener noreferrer" class="n8n-affiliate-card">
+          <div class="n8n-affiliate-icon n8n-affiliate-icon--blue" aria-hidden="true">G</div>
+          <div>
+            <strong class="n8n-affiliate-name">Go High Level</strong>
+            <p class="n8n-affiliate-desc">CRM todo-en-uno para gestionar leads y pipelines</p>
+          </div>
+          <span class="n8n-affiliate-cta">Crear cuenta →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CAPTURA DE LEADS ═══ -->
+  <section class="n8n-capture" id="registro">
+    <div class="n8n-inner">
+      <div class="n8n-capture-box">
+        <span class="n8n-badge" style="background:rgba(200,146,42,0.15);border-color:rgba(200,146,42,0.3)">
+          Gratis — sin tarjeta de crédito
+        </span>
+        <h2 class="n8n-capture-title">Recibe la plantilla en tu email ahora mismo</h2>
+        <p class="n8n-capture-sub">
+          Solo nombre y correo. Te envío el workflow ZIP listo para importar en n8n.
+        </p>
+
+        <form class="n8n-form" id="n8n-form" novalidate>
+          <!-- Honeypot — no tocar -->
+          <input type="text" name="_hp" id="_hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
+          <input type="hidden" name="_t" id="_t" />
+
+          <div class="n8n-form-row">
+            <div class="n8n-field">
+              <label for="n8n-name" class="n8n-label">Nombre</label>
+              <input
+                type="text"
+                id="n8n-name"
+                name="name"
+                class="n8n-input"
+                placeholder="Tu nombre"
+                required
+                minlength="2"
+                autocomplete="given-name"
+              />
+            </div>
+            <div class="n8n-field">
+              <label for="n8n-email" class="n8n-label">Correo electrónico</label>
+              <input
+                type="email"
+                id="n8n-email"
+                name="email"
+                class="n8n-input"
+                placeholder="tu@correo.com"
+                required
+                autocomplete="email"
+              />
+            </div>
+          </div>
+
+          <label class="n8n-consent">
+            <input type="checkbox" required />
+            <span>
+              Acepto recibir la plantilla y comunicaciones relacionadas de TonyCiencia.
+              Puedo cancelar cuando quiera.
+            </span>
+          </label>
+
+          <button type="submit" class="n8n-submit" id="n8n-submit">
+            <span id="n8n-submit-text">Enviar plantilla gratis →</span>
+            <span id="n8n-submit-loading" style="display:none">Enviando…</span>
+          </button>
+
+          <p id="n8n-msg-success" class="n8n-msg n8n-msg--success" style="display:none" role="status">
+            ✅ ¡Listo! Revisa tu correo — el ZIP ya está en camino.
+          </p>
+          <p id="n8n-msg-duplicate" class="n8n-msg n8n-msg--info" style="display:none" role="status">
+            ℹ️ Ya tienes la plantilla registrada. Revisa tu bandeja de entrada.
+          </p>
+          <p id="n8n-msg-error" class="n8n-msg n8n-msg--error" style="display:none" role="alert">
+            ❌ <span id="n8n-error-text">Algo salió mal. Intenta de nuevo.</span>
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA IMPLEMENTACIÓN ═══ -->
+  <section class="n8n-impl">
+    <div class="n8n-inner">
+      <div class="n8n-impl-box">
+        <h2 class="n8n-impl-title">¿Prefieres que lo implementemos por ti?</h2>
+        <p class="n8n-impl-sub">
+          Configuramos el workflow completo en tu negocio, conectamos yCloud, Go High Level
+          y entrenamos tu equipo. Todo en 22 días hábiles.
+        </p>
+        <a href={CONTACT_URL} class="n8n-btn-primary">Contratar implementación →</a>
+      </div>
+    </div>
+  </section>
+
+</Base>
+
+<script define:vars={{ WORKER_URL }}>
+  // Inyectar timestamp al cargar la página
+  const tField = document.getElementById("_t");
+  if (tField) tField.value = String(Date.now());
+
+  const form = document.getElementById("n8n-form");
+  const submitBtn = document.getElementById("n8n-submit");
+  const submitText = document.getElementById("n8n-submit-text");
+  const submitLoading = document.getElementById("n8n-submit-loading");
+  const msgSuccess = document.getElementById("n8n-msg-success");
+  const msgDuplicate = document.getElementById("n8n-msg-duplicate");
+  const msgError = document.getElementById("n8n-msg-error");
+  const errorText = document.getElementById("n8n-error-text");
+
+  function hideMessages() {
+    [msgSuccess, msgDuplicate, msgError].forEach((el) => {
+      if (el) el.style.display = "none";
+    });
+  }
+
+  function setLoading(loading) {
+    if (!submitBtn || !submitText || !submitLoading) return;
+    submitBtn.disabled = loading;
+    submitText.style.display = loading ? "none" : "inline";
+    submitLoading.style.display = loading ? "inline" : "none";
+  }
+
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      hideMessages();
+
+      const nameEl = document.getElementById("n8n-name");
+      const emailEl = document.getElementById("n8n-email");
+      const hpEl = document.getElementById("_hp");
+      const tEl = document.getElementById("_t");
+
+      const name = nameEl ? nameEl.value.trim() : "";
+      const email = emailEl ? emailEl.value.trim() : "";
+      const _hp = hpEl ? hpEl.value : "";
+      const _t = tEl ? parseInt(tEl.value, 10) : Date.now();
+
+      if (name.length < 2) {
+        if (nameEl) nameEl.focus();
+        return;
+      }
+      if (!email.includes("@")) {
+        if (emailEl) emailEl.focus();
+        return;
+      }
+
+      setLoading(true);
+
+      try {
+        const res = await fetch(WORKER_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, _hp, _t }),
+        });
+
+        const data = await res.json();
+
+        if (res.ok && data.success) {
+          form.style.display = "none";
+          if (data.duplicate) {
+            if (msgDuplicate) msgDuplicate.style.display = "block";
+          } else {
+            if (msgSuccess) msgSuccess.style.display = "block";
+          }
+        } else {
+          const msg = data.error || "Algo salió mal. Intenta de nuevo.";
+          if (errorText) errorText.textContent = msg;
+          if (msgError) msgError.style.display = "block";
+          setLoading(false);
+        }
+      } catch {
+        if (errorText) errorText.textContent = "Error de conexión. Intenta de nuevo.";
+        if (msgError) msgError.style.display = "block";
+        setLoading(false);
+      }
+    });
+  }
+</script>
+
+<style>
+  /* ── Variables locales ── */
+  .n8n-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-6);
+  }
+
+  .n8n-badge {
+    display: inline-block;
+    padding: 5px 14px;
+    background: rgba(200, 146, 42, 0.1);
+    border: 1px solid rgba(200, 146, 42, 0.25);
+    border-radius: 100px;
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: var(--spacing-4);
+  }
+
+  .n8n-gradient-text {
+    background: var(--tc-gradient-text, linear-gradient(135deg, #f0c96e, #c8922a));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .n8n-section-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--color-text);
+    text-align: center;
+    margin-bottom: var(--spacing-10);
+  }
+
+  /* ── Botones ── */
+  .n8n-btn-primary {
+    display: inline-block;
+    background: var(--tc-gradient);
+    color: #fff;
+    font-weight: 700;
+    font-size: var(--font-size-base);
+    padding: 14px 28px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .n8n-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(200, 146, 42, 0.35);
+    color: #fff;
+  }
+
+  .n8n-btn-secondary {
+    display: inline-block;
+    background: transparent;
+    color: var(--color-text-secondary);
+    font-weight: 600;
+    font-size: var(--font-size-base);
+    padding: 14px 24px;
+    border-radius: 100px;
+    text-decoration: none;
+    border: 1px solid var(--color-border);
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .n8n-btn-secondary:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  /* ── HERO ── */
+  .n8n-hero {
+    position: relative;
+    padding: var(--spacing-20) 0 var(--spacing-16);
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .n8n-hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.12;
+    pointer-events: none;
+  }
+
+  .n8n-hero-orb--1 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #e0a832, transparent 70%);
+    top: -100px;
+    right: -100px;
+  }
+
+  .n8n-hero-orb--2 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, #c8922a, transparent 70%);
+    bottom: -50px;
+    left: -80px;
+  }
+
+  .n8n-hero-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--color-text);
+    letter-spacing: -0.03em;
+    margin-bottom: var(--spacing-5);
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .n8n-hero-sub {
+    font-size: var(--font-size-lg);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto var(--spacing-8);
+  }
+
+  .n8n-hero-ctas {
+    display: flex;
+    gap: var(--spacing-3);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-10);
+  }
+
+  .n8n-tools {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-3);
+    flex-wrap: wrap;
+  }
+
+  .n8n-tool-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 100px;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-text);
+    text-decoration: none;
+    transition: border-color 0.2s ease;
+  }
+
+  .n8n-tool-badge:hover {
+    border-color: var(--color-accent);
+    color: var(--color-text);
+  }
+
+  .n8n-tool-badge--plain {
+    cursor: default;
+  }
+
+  .n8n-tool-sep {
+    color: var(--color-muted);
+    font-size: var(--font-size-sm);
+  }
+
+  .n8n-tool-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .n8n-tool-dot--green  { background: #22c55e; }
+  .n8n-tool-dot--amber  { background: #c8922a; }
+  .n8n-tool-dot--blue   { background: #3b82f6; }
+
+  /* ── BENEFICIOS ── */
+  .n8n-benefits {
+    padding: var(--spacing-16) 0;
+    background: var(--color-bg-subtle);
+    border-top: 1px solid var(--color-border-subtle);
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  .n8n-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--spacing-6);
+  }
+
+  .n8n-benefit-card {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+  }
+
+  .n8n-benefit-emoji {
+    font-size: 2rem;
+  }
+
+  .n8n-benefit-title {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  .n8n-benefit-desc {
+    font-size: var(--font-size-sm);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  /* ── PASOS ── */
+  .n8n-steps {
+    padding: var(--spacing-16) 0;
+  }
+
+  .n8n-steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-6);
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .n8n-step {
+    display: flex;
+    gap: var(--spacing-5);
+    align-items: flex-start;
+  }
+
+  .n8n-step-num {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--tc-gradient);
+    color: #fff;
+    font-size: var(--font-size-sm);
+    font-weight: 800;
+    border-radius: 50%;
+    letter-spacing: -0.02em;
+  }
+
+  .n8n-step-title {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--color-text);
+    display: block;
+    margin-bottom: var(--spacing-1);
+  }
+
+  .n8n-step-desc {
+    font-size: var(--font-size-sm);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  /* ── AFILIADOS ── */
+  .n8n-affiliates {
+    padding: var(--spacing-12) 0;
+    background: var(--color-bg-subtle);
+    border-top: 1px solid var(--color-border-subtle);
+  }
+
+  .n8n-affiliates-label {
+    text-align: center;
+    font-size: var(--font-size-sm);
+    color: var(--color-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: var(--spacing-6);
+  }
+
+  .n8n-affiliates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-5);
+  }
+
+  .n8n-affiliate-card {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+    padding: var(--spacing-5);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .n8n-affiliate-card:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 4px 16px rgba(200, 146, 42, 0.12);
+  }
+
+  .n8n-affiliate-icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #fff;
+  }
+
+  .n8n-affiliate-icon--green { background: #16a34a; }
+  .n8n-affiliate-icon--blue  { background: #2563eb; }
+
+  .n8n-affiliate-name {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--color-text);
+    display: block;
+  }
+
+  .n8n-affiliate-desc {
+    font-size: var(--font-size-xs);
+    color: var(--color-muted);
+    margin: 2px 0 0;
+  }
+
+  .n8n-affiliate-cta {
+    margin-left: auto;
+    flex-shrink: 0;
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    color: var(--color-accent);
+    white-space: nowrap;
+  }
+
+  /* ── CAPTURA ── */
+  .n8n-capture {
+    padding: var(--spacing-20) 0;
+  }
+
+  .n8n-capture-box {
+    background: var(--color-bg-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: var(--spacing-12) var(--spacing-10);
+    text-align: center;
+  }
+
+  .n8n-capture-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    color: var(--color-text);
+    margin: var(--spacing-3) 0 var(--spacing-3);
+    letter-spacing: -0.03em;
+  }
+
+  .n8n-capture-sub {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-8);
+  }
+
+  /* ── FORMULARIO ── */
+  .n8n-form {
+    max-width: 560px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .n8n-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-4);
+  }
+
+  .n8n-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1);
+  }
+
+  .n8n-label {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .n8n-input {
+    padding: 11px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-size: var(--font-size-base);
+    font-family: var(--font-sans);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .n8n-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px var(--color-accent-ring, rgba(200, 146, 42, 0.2));
+  }
+
+  .n8n-input::placeholder {
+    color: var(--color-muted);
+  }
+
+  .n8n-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-3);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-5);
+    cursor: pointer;
+    line-height: 1.5;
+  }
+
+  .n8n-consent input[type="checkbox"] {
+    flex-shrink: 0;
+    margin-top: 2px;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--color-accent);
+    cursor: pointer;
+  }
+
+  .n8n-submit {
+    width: 100%;
+    padding: 14px;
+    background: var(--tc-gradient);
+    color: #fff;
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    font-family: var(--font-sans);
+  }
+
+  .n8n-submit:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(200, 146, 42, 0.35);
+  }
+
+  .n8n-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  /* ── Mensajes ── */
+  .n8n-msg {
+    margin-top: var(--spacing-4);
+    padding: 12px 16px;
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+  }
+
+  .n8n-msg--success {
+    background: #f0fdf4;
+    color: #15803d;
+    border: 1px solid #bbf7d0;
+  }
+
+  .n8n-msg--info {
+    background: #eff6ff;
+    color: #1d4ed8;
+    border: 1px solid #bfdbfe;
+  }
+
+  .n8n-msg--error {
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+  }
+
+  /* ── IMPLEMENTACIÓN ── */
+  .n8n-impl {
+    padding: var(--spacing-16) 0 var(--spacing-20);
+    border-top: 1px solid var(--color-border-subtle);
+  }
+
+  .n8n-impl-box {
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .n8n-impl-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-4);
+  }
+
+  .n8n-impl-sub {
+    font-size: var(--font-size-base);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-6);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    .n8n-hero { padding: var(--spacing-12) 0 var(--spacing-10); }
+    .n8n-hero-ctas { flex-direction: column; align-items: center; }
+    .n8n-form-row { grid-template-columns: 1fr; }
+    .n8n-capture-box { padding: var(--spacing-8) var(--spacing-5); }
+    .n8n-affiliate-card { flex-wrap: wrap; }
+    .n8n-affiliate-cta { margin-left: 0; width: 100%; }
+  }
+</style>
