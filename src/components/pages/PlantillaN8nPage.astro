@@ -61,19 +61,17 @@ const benefits = [
 
       <!-- Logos de herramientas -->
       <div class="n8n-tools" data-animate data-delay="4" aria-label="Herramientas incluidas">
-        <a href={YCLOUD_URL} target="_blank" rel="noopener noreferrer" class="n8n-tool-badge">
-          <span class="n8n-tool-dot n8n-tool-dot--green" aria-hidden="true"></span>
-          yCloud
+        <a href={YCLOUD_URL} target="_blank" rel="noopener noreferrer" class="n8n-logo-pill n8n-logo-pill--amber" aria-label="yCloud">
+          <img src="https://www.ycloud.com/console/static/svg/logo-black.bcecff3d.svg" alt="yCloud" class="n8n-logo-img n8n-logo-img--dark" width="72" height="22" />
         </a>
         <span class="n8n-tool-sep" aria-hidden="true">×</span>
-        <span class="n8n-tool-badge n8n-tool-badge--plain">
-          <span class="n8n-tool-dot n8n-tool-dot--amber" aria-hidden="true"></span>
-          n8n
+        <span class="n8n-logo-pill n8n-logo-pill--dark" aria-label="n8n">
+          <img src="https://n8n.io/favicon.ico" alt="" aria-hidden="true" class="n8n-logo-favicon" width="18" height="18" />
+          <span class="n8n-logo-text">n8n</span>
         </span>
         <span class="n8n-tool-sep" aria-hidden="true">×</span>
-        <a href={GHL_URL} target="_blank" rel="noopener noreferrer" class="n8n-tool-badge">
-          <span class="n8n-tool-dot n8n-tool-dot--blue" aria-hidden="true"></span>
-          Go High Level
+        <a href={GHL_URL} target="_blank" rel="noopener noreferrer" class="n8n-logo-pill n8n-logo-pill--amber" aria-label="Go High Level">
+          <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/knES3eSWYIsc5YSZ3YLl/media/68dc14d7a969ba71daf21593.png" alt="Go High Level" class="n8n-logo-img n8n-logo-img--light" width="120" height="28" />
         </a>
       </div>
     </div>
@@ -119,7 +117,9 @@ const benefits = [
       <p class="n8n-affiliates-label">Necesitarás una cuenta en cada herramienta</p>
       <div class="n8n-affiliates-grid">
         <a href={YCLOUD_URL} target="_blank" rel="noopener noreferrer" class="n8n-affiliate-card">
-          <div class="n8n-affiliate-icon n8n-affiliate-icon--green" aria-hidden="true">Y</div>
+          <div class="n8n-affiliate-icon n8n-affiliate-icon--amber">
+            <img src="https://www.ycloud.com/console/static/svg/logo-black.bcecff3d.svg" alt="yCloud" class="n8n-affiliate-logo n8n-affiliate-logo--dark" width="60" height="18" />
+          </div>
           <div>
             <strong class="n8n-affiliate-name">yCloud</strong>
             <p class="n8n-affiliate-desc">WhatsApp Business API para enviar y recibir mensajes</p>
@@ -127,7 +127,9 @@ const benefits = [
           <span class="n8n-affiliate-cta">Crear cuenta →</span>
         </a>
         <a href={GHL_URL} target="_blank" rel="noopener noreferrer" class="n8n-affiliate-card">
-          <div class="n8n-affiliate-icon n8n-affiliate-icon--blue" aria-hidden="true">G</div>
+          <div class="n8n-affiliate-icon n8n-affiliate-icon--amber">
+            <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/knES3eSWYIsc5YSZ3YLl/media/68dc14d7a969ba71daf21593.png" alt="Go High Level" class="n8n-affiliate-logo n8n-affiliate-logo--light" width="80" height="20" />
+          </div>
           <div>
             <strong class="n8n-affiliate-name">Go High Level</strong>
             <p class="n8n-affiliate-desc">CRM todo-en-uno para gestionar leads y pipelines</p>
@@ -481,16 +483,63 @@ const benefits = [
     font-size: var(--font-size-sm);
   }
 
-  .n8n-tool-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
+  /* ── Cápsulas de logo ── */
+  .n8n-logo-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 18px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 44px;
   }
 
-  .n8n-tool-dot--green  { background: #22c55e; }
-  .n8n-tool-dot--amber  { background: #c8922a; }
-  .n8n-tool-dot--blue   { background: #3b82f6; }
+  .n8n-logo-pill--amber {
+    background: var(--tc-gradient);
+    box-shadow: 0 2px 10px rgba(200, 146, 42, 0.25);
+  }
+
+  .n8n-logo-pill--amber:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 18px rgba(200, 146, 42, 0.4);
+  }
+
+  .n8n-logo-pill--dark {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    cursor: default;
+  }
+
+  .n8n-logo-img {
+    display: block;
+    object-fit: contain;
+  }
+
+  .n8n-logo-img--dark {
+    /* Logo negro sobre fondo ámbar — bien contrastado */
+    filter: none;
+  }
+
+  .n8n-logo-img--light {
+    /* Logo blanco sobre fondo ámbar */
+    filter: brightness(0) invert(1);
+  }
+
+  .n8n-logo-favicon {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    border-radius: 3px;
+  }
+
+  .n8n-logo-text {
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: var(--color-text);
+    letter-spacing: -0.01em;
+  }
 
   /* ── BENEFICIOS ── */
   .n8n-benefits {
@@ -624,19 +673,35 @@ const benefits = [
 
   .n8n-affiliate-icon {
     flex-shrink: 0;
-    width: 44px;
+    min-width: 80px;
     height: 44px;
-    border-radius: 10px;
+    border-radius: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
-    font-weight: 800;
-    color: #fff;
+    padding: 0 14px;
   }
 
-  .n8n-affiliate-icon--green { background: #16a34a; }
-  .n8n-affiliate-icon--blue  { background: #2563eb; }
+  .n8n-affiliate-icon--amber {
+    background: var(--tc-gradient);
+    box-shadow: 0 2px 8px rgba(200, 146, 42, 0.3);
+  }
+
+  .n8n-affiliate-logo {
+    display: block;
+    object-fit: contain;
+    max-width: 100%;
+  }
+
+  .n8n-affiliate-logo--dark {
+    /* Logo negro sobre ámbar — sin filtro */
+    filter: none;
+  }
+
+  .n8n-affiliate-logo--light {
+    /* Logo blanco sobre ámbar */
+    filter: brightness(0) invert(1);
+  }
 
   .n8n-affiliate-name {
     font-size: var(--font-size-base);
