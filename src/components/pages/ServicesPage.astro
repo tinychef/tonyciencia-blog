@@ -127,6 +127,46 @@ const description = locale === "en"
 		</div>
 	</section>
 
+	<!-- ═══ RECURSOS IA ═══════════════════════════════════════════ -->
+	<section id="recursos-ia" class="service-block service-block--alt">
+		<div class="service-block-inner">
+			<div class="service-block-text">
+				<div class="service-tag">{locale === "en" ? "Free Resources" : "Recursos Gratuitos"}</div>
+				<h2 class="service-block-title">
+					{locale === "en" ? "AI Templates & Tools" : "Plantillas y herramientas de IA"}
+				</h2>
+				<p class="service-block-desc">
+					{locale === "en"
+						? "Download ready-to-use automation templates, workflows and AI tools. Implement in your business without starting from scratch."
+						: "Descarga plantillas de automatización, workflows y herramientas de IA listas para usar. Implementa en tu negocio sin empezar desde cero."}
+				</p>
+				<ul class="service-feature-list">
+					<li>{locale === "en" ? "n8n automation workflows" : "Workflows de automatización con n8n"}</li>
+					<li>{locale === "en" ? "CRM & messaging integrations" : "Integraciones de CRM y mensajería"}</li>
+					<li>{locale === "en" ? "AI prompt templates" : "Plantillas de prompts para IA"}</li>
+					<li>{locale === "en" ? "Implementation guides" : "Guías de implementación paso a paso"}</li>
+					<li>{locale === "en" ? "Free to download" : "Descarga gratuita"}</li>
+				</ul>
+				<a href={locale === "en" ? "/recursos-ia" : "/recursos-ia"} class="btn-primary">
+					{locale === "en" ? "Explore resources →" : "Ver todos los recursos →"}
+				</a>
+			</div>
+			<div class="service-block-visual">
+				<div class="visual-card">
+					<div class="visual-icon">
+						<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+						</svg>
+					</div>
+					<div class="visual-metric">
+						<span class="metric-val">100%</span>
+						<span class="metric-lbl">{locale === "en" ? "Free resources" : "Recursos gratuitos"}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<!-- ═══ CTA FINAL ════════════════════════════════════════════ -->
 	<section class="page-cta">
 		<div class="page-cta-inner">

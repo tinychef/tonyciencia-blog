@@ -1,0 +1,326 @@
+---
+import Base from "../../layouts/Base.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/locales";
+
+const locale = getLangFromUrl(Astro.url);
+const t = useTranslations(locale);
+
+const isEs = locale === "es";
+
+const title = isEs ? "Recursos IA — Tony Ciencia" : "AI Resources — Tony Ciencia";
+const description = isEs
+  ? "Directorio de plantillas, herramientas y recursos de inteligencia artificial para automatizar y escalar tu negocio."
+  : "Directory of AI templates, tools and resources to automate and scale your business.";
+
+interface Resource {
+  title: string;
+  description: string;
+  tags: string[];
+  badge: string;
+  badgeType: "free" | "paid" | "new";
+  url: string;
+  icon: string;
+}
+
+const resources: Resource[] = isEs
+  ? [
+      {
+        title: "Plantilla n8n + yCloud + Go High Level",
+        description:
+          "Sistema completo de automatización para negocios digitales: CRM, mensajería WhatsApp y workflows conectados. Lista para usar en minutos.",
+        tags: ["n8n", "yCloud", "Go High Level", "Automatización", "CRM"],
+        badge: "Gratis",
+        badgeType: "free",
+        url: "/plantilla-n8n-ycloud-ghl",
+        icon: "⚡",
+      },
+    ]
+  : [
+      {
+        title: "n8n + yCloud + Go High Level Template",
+        description:
+          "Complete automation system for digital businesses: CRM, WhatsApp messaging and connected workflows. Ready to use in minutes.",
+        tags: ["n8n", "yCloud", "Go High Level", "Automation", "CRM"],
+        badge: "Free",
+        badgeType: "free",
+        url: "/plantilla-n8n-ycloud-ghl",
+        icon: "⚡",
+      },
+    ];
+---
+
+<Base title={title} description={description}>
+  <!-- ═══ HERO ═══════════════════════════════════════════════════ -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-breadcrumb">
+        <a href={isEs ? "/" : "/en/"}>Tony Ciencia</a>
+        <span>→</span>
+        <a href={isEs ? "/servicios" : "/en/services"}>{isEs ? "Servicios" : "Services"}</a>
+        <span>→</span>
+        <span>{isEs ? "Recursos IA" : "AI Resources"}</span>
+      </div>
+      <h1 class="page-title">
+        {isEs ? "Recursos" : "AI"}<br />
+        <span class="title-gradient">{isEs ? "de Inteligencia Artificial" : "Resources"}</span>
+      </h1>
+      <p class="page-subtitle">
+        {isEs
+          ? "Plantillas, workflows y herramientas listas para usar. Descarga e implementa en tu negocio sin empezar desde cero."
+          : "Ready-to-use templates, workflows and tools. Download and implement in your business without starting from scratch."}
+      </p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num">{resources.length}</span>
+          <span class="stat-lbl">{isEs ? "recurso disponible" : "resource available"}{resources.length !== 1 ? "s" : ""}</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num">100%</span>
+          <span class="stat-lbl">{isEs ? "descargable" : "downloadable"}</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num">0€</span>
+          <span class="stat-lbl">{isEs ? "para empezar" : "to get started"}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ GRID DE RECURSOS ════════════════════════════════════════ -->
+  <section class="resources-section">
+    <div class="resources-inner">
+      {resources.length === 0 && (
+        <div class="empty-state">
+          <p class="empty-icon">🚧</p>
+          <p>{isEs ? "Nuevos recursos próximamente." : "New resources coming soon."}</p>
+        </div>
+      )}
+
+      <div class="resources-grid">
+        {resources.map((r) => (
+          <article class="resource-card">
+            <div class="card-header">
+              <span class="card-icon">{r.icon}</span>
+              <span class={`card-badge badge-${r.badgeType}`}>{r.badge}</span>
+            </div>
+            <h2 class="card-title">{r.title}</h2>
+            <p class="card-desc">{r.description}</p>
+            <div class="card-tags">
+              {r.tags.map((tag) => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+            <a href={r.url} class="card-cta">
+              {isEs ? "Ver recurso" : "View resource"} →
+            </a>
+          </article>
+        ))}
+
+        <!-- Placeholder próximamente -->
+        <article class="resource-card resource-card--coming">
+          <div class="card-header">
+            <span class="card-icon">🔜</span>
+            <span class="card-badge badge-new">{isEs ? "Próximamente" : "Coming soon"}</span>
+          </div>
+          <h2 class="card-title">{isEs ? "Más recursos en camino" : "More resources on the way"}</h2>
+          <p class="card-desc">
+            {isEs
+              ? "Plantillas de prompts, workflows de automatización avanzados, guías de implementación y mucho más."
+              : "Prompt templates, advanced automation workflows, implementation guides and much more."}
+          </p>
+          <div class="card-tags">
+            <span class="tag">ChatGPT</span>
+            <span class="tag">Make</span>
+            <span class="tag">Zapier</span>
+            <span class="tag">Prompts</span>
+          </div>
+          <span class="card-cta card-cta--disabled">
+            {isEs ? "Disponible pronto" : "Available soon"}
+          </span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ════════════════════════════════════════════════════ -->
+  <section class="page-cta">
+    <div class="page-cta-inner">
+      <h2 class="page-cta-title">
+        {isEs ? "¿Quieres un recurso personalizado?" : "Need a custom resource?"}
+      </h2>
+      <p class="page-cta-sub">
+        {isEs
+          ? "Cuéntame tu caso y diseñamos juntos la automatización perfecta para tu negocio."
+          : "Tell me your case and we design together the perfect automation for your business."}
+      </p>
+      <a href={isEs ? "/contacto" : "/en/contact"} class="btn-primary btn-large">
+        {isEs ? "Hablemos →" : "Let's talk →"}
+      </a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* ── Hero ── */
+  .page-hero {
+    padding: clamp(4rem, 8vw, 7rem) var(--spacing-6) clamp(3rem, 6vw, 5rem);
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+  .page-hero-inner { max-width: var(--wide-width); margin: 0 auto; }
+
+  .page-breadcrumb {
+    display: flex; align-items: center; gap: var(--spacing-2);
+    font-size: var(--font-size-sm); color: var(--color-muted); margin-bottom: var(--spacing-6);
+  }
+  .page-breadcrumb a { color: var(--color-muted); text-decoration: none; transition: color var(--transition-fast); }
+  .page-breadcrumb a:hover { color: var(--color-accent); }
+
+  .page-title {
+    font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 700;
+    letter-spacing: -0.03em; line-height: 1.12;
+    color: var(--color-text); margin: 0 0 var(--spacing-6);
+  }
+  .title-gradient {
+    background: var(--tc-gradient);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .page-subtitle {
+    font-size: var(--font-size-lg); color: var(--color-text-secondary);
+    line-height: 1.65; max-width: 580px; margin: 0 0 var(--spacing-10);
+  }
+
+  .hero-stats {
+    display: flex; align-items: center; gap: var(--spacing-8);
+    flex-wrap: wrap;
+  }
+  .stat-item { display: flex; flex-direction: column; gap: 2px; }
+  .stat-num {
+    font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700;
+    background: var(--tc-gradient);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .stat-lbl { font-size: var(--font-size-sm); color: var(--color-muted); }
+  .stat-divider { width: 1px; height: 40px; background: var(--color-border); }
+
+  /* ── Grid ── */
+  .resources-section {
+    padding: clamp(4rem, 7vw, 6rem) var(--spacing-6);
+    background: var(--color-bg);
+  }
+  .resources-inner { max-width: var(--wide-width); margin: 0 auto; }
+
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: var(--spacing-8);
+  }
+
+  .resource-card {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-8);
+    display: flex; flex-direction: column; gap: var(--spacing-5);
+    transition: box-shadow var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast);
+  }
+  .resource-card:hover {
+    box-shadow: 0 8px 32px rgba(200, 146, 42, 0.12);
+    transform: translateY(-2px);
+    border-color: var(--color-accent);
+  }
+  .resource-card--coming {
+    opacity: 0.7;
+    background: var(--color-bg-subtle);
+  }
+  .resource-card--coming:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: var(--color-border);
+  }
+
+  .card-header { display: flex; align-items: center; justify-content: space-between; }
+
+  .card-icon {
+    width: 48px; height: 48px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--tc-gradient); border-radius: var(--radius-lg);
+    font-size: 1.5rem;
+  }
+
+  .card-badge {
+    font-size: var(--font-size-xs); font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    padding: 4px 10px; border-radius: 100px;
+  }
+  .badge-free  { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
+  .badge-paid  { background: #fdf3e0; color: #c8922a; border: 1px solid #f5d99a; }
+  .badge-new   { background: var(--color-bg-subtle); color: var(--color-muted); border: 1px solid var(--color-border); }
+
+  .card-title {
+    font-size: var(--font-size-xl); font-weight: 700;
+    letter-spacing: -0.02em; color: var(--color-text); margin: 0;
+    line-height: 1.3;
+  }
+  .card-desc {
+    font-size: var(--font-size-base); color: var(--color-text-secondary);
+    line-height: 1.65; margin: 0; flex: 1;
+  }
+
+  .card-tags { display: flex; flex-wrap: wrap; gap: var(--spacing-2); }
+  .tag {
+    font-size: var(--font-size-xs); font-weight: 600;
+    padding: 3px 10px; border-radius: 100px;
+    background: var(--color-bg-subtle); border: 1px solid var(--color-border);
+    color: var(--color-muted);
+  }
+
+  .card-cta {
+    display: inline-flex; align-items: center;
+    padding: 11px 24px;
+    background: var(--tc-gradient); color: white;
+    font-weight: 600; font-size: var(--font-size-base);
+    border-radius: var(--radius-lg); text-decoration: none;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    align-self: flex-start;
+  }
+  .card-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(200, 146, 42, 0.35); color: white; }
+  .card-cta--disabled {
+    background: var(--color-bg-subtle);
+    color: var(--color-muted);
+    border: 1px solid var(--color-border);
+    cursor: default;
+  }
+  .card-cta--disabled:hover { transform: none; box-shadow: none; }
+
+  .empty-state { text-align: center; padding: var(--spacing-16); color: var(--color-muted); }
+  .empty-icon { font-size: 3rem; margin: 0 0 var(--spacing-4); }
+
+  /* ── CTA ── */
+  .page-cta {
+    padding: clamp(4rem, 8vw, 6rem) var(--spacing-6);
+    text-align: center;
+    background: var(--color-bg-subtle);
+    border-top: 1px solid var(--color-border-subtle);
+  }
+  .page-cta-inner { max-width: 560px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: var(--spacing-5); }
+  .page-cta-title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; letter-spacing: -0.025em; color: var(--color-text); margin: 0; }
+  .page-cta-sub { font-size: var(--font-size-lg); color: var(--color-text-secondary); line-height: 1.65; margin: 0; }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; padding: 13px 28px;
+    background: var(--tc-gradient); color: white; font-weight: 600;
+    font-size: var(--font-size-base); border-radius: var(--radius-lg);
+    text-decoration: none; transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(200, 146, 42, 0.35); color: white; }
+  .btn-primary.btn-large { padding: 16px 40px; font-size: var(--font-size-lg); border-radius: var(--radius-xl); }
+
+  @media (max-width: 640px) {
+    .resources-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: var(--spacing-5); }
+    .stat-divider { display: none; }
+  }
+</style>
