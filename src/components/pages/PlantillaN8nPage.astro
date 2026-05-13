@@ -28,9 +28,15 @@ const steps = [
 ];
 
 const benefits = [
-  { emoji: "⚡", title: "Responde en segundos", desc: "El workflow procesa cada mensaje de WhatsApp automáticamente y responde sin que intervengas." },
-  { emoji: "📋", title: "Leads en tu CRM al instante", desc: "Cada contacto nuevo queda registrado en Go High Level sin trabajo manual." },
-  { emoji: "🔔", title: "Notificaciones automáticas", desc: "Recibes alertas cuando un prospecto calificado entra al pipeline." },
+  { title: "Responde en segundos", desc: "El workflow procesa cada mensaje de WhatsApp automáticamente y responde sin que intervengas." },
+  { title: "Leads en tu CRM al instante", desc: "Cada contacto nuevo queda registrado en Go High Level sin trabajo manual." },
+  { title: "Notificaciones automáticas", desc: "Recibes alertas cuando un prospecto calificado entra al pipeline." },
+];
+
+const benefitIcons = [
+  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
+  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>`,
+  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>`,
 ];
 ---
 
@@ -84,7 +90,7 @@ const benefits = [
       <div class="n8n-benefits-grid">
         {benefits.map((b, i) => (
           <div class="n8n-benefit-card" data-animate data-delay={i}>
-            <span class="n8n-benefit-emoji" aria-hidden="true">{b.emoji}</span>
+            <span class="n8n-benefit-icon" aria-hidden="true" set:html={benefitIcons[i]} />
             <strong class="n8n-benefit-title">{b.title}</strong>
             <p class="n8n-benefit-desc">{b.desc}</p>
           </div>
@@ -199,13 +205,13 @@ const benefits = [
           </button>
 
           <p id="n8n-msg-success" class="n8n-msg n8n-msg--success" style="display:none" role="status">
-            ✅ ¡Listo! Revisa tu correo — el ZIP ya está en camino.
+            ¡Listo! Revisa tu correo — el ZIP ya está en camino.
           </p>
           <p id="n8n-msg-duplicate" class="n8n-msg n8n-msg--info" style="display:none" role="status">
-            ℹ️ Ya tienes la plantilla registrada. Revisa tu bandeja de entrada.
+            Ya tienes la plantilla registrada. Revisa tu bandeja de entrada.
           </p>
           <p id="n8n-msg-error" class="n8n-msg n8n-msg--error" style="display:none" role="alert">
-            ❌ <span id="n8n-error-text">Algo salió mal. Intenta de nuevo.</span>
+            <span id="n8n-error-text">Algo salió mal. Intenta de nuevo.</span>
           </p>
         </form>
       </div>
@@ -565,9 +571,18 @@ const benefits = [
     gap: var(--spacing-3);
   }
 
-  .n8n-benefit-emoji {
-    font-size: 2rem;
+  .n8n-benefit-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-lg);
+    background: var(--tc-gradient);
+    color: white;
+    flex-shrink: 0;
   }
+  .n8n-benefit-icon svg { display: block; }
 
   .n8n-benefit-title {
     font-size: var(--font-size-base);
