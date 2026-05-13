@@ -198,9 +198,23 @@ const isLoggedIn = !!Astro.locals.user;
 			setTheme(storedTheme);
 
 			if (themeToggle) {
-				themeToggle.addEventListener("click", () => {
+				themeToggle.addEventListener("click", (e) => {
 					const isDark = root.classList.contains("dark");
-					setTheme(isDark ? "light" : "dark");
+					const nextTheme = isDark ? "light" : "dark";
+
+					// Ripple origin: center of the toggle button
+					const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+					root.style.setProperty("--ripple-x", `${rect.left + rect.width / 2}px`);
+					root.style.setProperty("--ripple-y", `${rect.top + rect.height / 2}px`);
+
+					if (!document.startViewTransition) {
+						setTheme(nextTheme);
+						return;
+					}
+
+					root.dataset.themeTransition = "1";
+					const t = document.startViewTransition(() => setTheme(nextTheme));
+					t.finished.finally(() => delete root.dataset.themeTransition);
 				});
 			}
 
@@ -221,6 +235,26 @@ const isLoggedIn = !!Astro.locals.user;
 			 * order in the bundled CSS.
 			 */
 			@layer base;
+
+			/* ── Theme ripple transition (bombilla expansiva) ── */
+			:root[data-theme-transition]::view-transition-new(root) {
+				animation: theme-ripple 0.65s cubic-bezier(0.4, 0, 0.2, 1) both;
+				clip-path: circle(0 at var(--ripple-x, 50%) var(--ripple-y, 50%));
+				z-index: 99999;
+			}
+			:root[data-theme-transition]::view-transition-old(root) {
+				animation: none;
+				z-index: -1;
+			}
+			@keyframes theme-ripple {
+				to { clip-path: circle(160vmax at var(--ripple-x, 50%) var(--ripple-y, 50%)); }
+			}
+			@media (prefers-reduced-motion: reduce) {
+				:root[data-theme-transition]::view-transition-new(root),
+				:root[data-theme-transition]::view-transition-old(root) {
+					animation: none;
+				}
+			}
 
 			@layer base {
 				*:where(:not([class*="emdash"]):not([class*="ec-"])),
