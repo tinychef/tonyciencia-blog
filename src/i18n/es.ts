@@ -250,4 +250,8 @@ export default {
 	"trucosIA.subscribe.error": "Algo salió mal. Intenta de nuevo.",
 	"trucosIA.subscribe.sending": "Enviando...",
 	"trucosIA.resources.title": "Recursos relacionados",
+
+	// Empleado IA Landing
+	"empleadoIA.meta.title": "Empleado de IA para Atención al Cliente — TonyCiencia",
+	"empleadoIA.meta.description": "Automatiza la atención al cliente de tu negocio con un Asistente de IA que responde, registra incidencias y escala al equipo correcto — las 24 horas, todos los días.",
 } as const;

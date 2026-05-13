@@ -254,6 +254,10 @@ const en = {
 	"trucosIA.subscribe.error": "Something went wrong. Please try again.",
 	"trucosIA.subscribe.sending": "Sending...",
 	"trucosIA.resources.title": "Related resources",
+
+	// Empleado IA Landing
+	"empleadoIA.meta.title": "AI Employee for Customer Service — TonyCiencia",
+	"empleadoIA.meta.description": "Automate your business customer service with an AI Assistant that responds, logs incidents and escalates to the right team — 24 hours a day, every day.",
 } satisfies Record<keyof typeof es, string>;
 
 export default en;

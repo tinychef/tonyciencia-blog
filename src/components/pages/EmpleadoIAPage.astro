@@ -1,0 +1,841 @@
+---
+import Base from "../../layouts/Base.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/locales";
+
+const locale = getLangFromUrl(Astro.url);
+const t = useTranslations(locale);
+
+const CONTACT_URL = locale === "en" ? "/en/contact" : "/contacto";
+
+const faqItems = [
+  {
+    question: "¿Necesito tener conocimientos técnicos para usar esto?",
+    answer: "No. Nosotros configuramos todo. Tu equipo solo necesita revisar el panel y recibir las notificaciones.",
+  },
+  {
+    question: "¿Funciona con mi WhatsApp actual?",
+    answer: "Sí, integramos con WhatsApp Business API. Te guiamos en el proceso de verificación si aún no lo tienes.",
+  },
+  {
+    question: "¿Qué pasa si el cliente hace una pregunta que la IA no sabe responder?",
+    answer: "El sistema detecta cuándo no tiene la respuesta y escala automáticamente a un agente humano, sin que el cliente note la diferencia.",
+  },
+  {
+    question: "¿En cuánto tiempo está listo?",
+    answer: "22 días hábiles desde que nos entregas la información de tu negocio.",
+  },
+  {
+    question: "¿Puedo cancelar el servicio mensual?",
+    answer: "Sí, sin penalizaciones. Damos aviso con 30 días de anticipación.",
+  },
+];
+
+const whoCards = [
+  { emoji: "🧺", title: "Lavanderías", pain: "Clientes preguntando por su ropa, reportando prendas dañadas o perdidas, sin que nadie lleve el control." },
+  { emoji: "🐾", title: "Veterinarias", pain: "Dueños de mascotas en pánico a las 11pm sin poder contactar al veterinario." },
+  { emoji: "🚗", title: "Agencias de Autos", pain: "Prospectos preguntando precios y disponibilidad que se enfrían si no les respondes en minutos." },
+  { emoji: "🏠", title: "Inmobiliarias", pain: "Leads de propiedades que se pierden porque nadie respondió el domingo." },
+  { emoji: "🍕", title: "Restaurantes y Dark Kitchens", pain: "Pedidos, quejas y preguntas de menú que saturan a tu equipo." },
+  { emoji: "💇", title: "Salones y Spas", pain: "Citas sin confirmar, cancelaciones de último minuto y clientes esperando respuesta." },
+  { emoji: "🏋️", title: "Gimnasios", pain: "Preguntas de membresías, horarios y clases que llegan en todo momento." },
+  { emoji: "🏥", title: "Clínicas y Consultorios", pain: "Pacientes que necesitan agendar, cancelar o preguntar resultados fuera de horario." },
+];
+
+const features = [
+  "Flujo de conversación diseñado a la medida de tu negocio",
+  "Respuestas automáticas 24/7 en todos tus canales",
+  "Sistema de escalamiento al equipo o sucursal correcta",
+  "Registro automático de incidencias y reportes",
+  "Panel de control centralizado con métricas por canal",
+  "Base de conocimiento entrenada con tus FAQs reales",
+  "Integración con WhatsApp Business, Messenger e Instagram DM",
+  "Capacitación a tu equipo incluida",
+  "30 días de soporte post-implementación",
+];
+
+const comparison = [
+  { criteria: "Horario", traditional: "8 hrs/día, 5 días", ai: "24/7, sin excepciones" },
+  { criteria: "Canales simultáneos", traditional: "1 conversación a la vez", ai: "Ilimitados" },
+  { criteria: "Tiempo de respuesta", traditional: "Minutos u horas", ai: "Segundos" },
+  { criteria: "Registro de datos", traditional: "Manual (si lo hace)", ai: "Automático, siempre" },
+  { criteria: "Costo mensual", traditional: "$500–$1,500 USD", ai: "$377 USD" },
+  { criteria: "Vacaciones / faltas", traditional: "Sí", ai: "Nunca" },
+];
+
+const implementFeatures = [
+  "Análisis y mapeo de tus flujos de atención",
+  "Configuración en WhatsApp Business + Messenger + IG",
+  "Entrenamiento con tus FAQs y políticas reales",
+  "Integración con tu equipo y sistema de escalamiento",
+  "Pruebas y ajuste fino antes del lanzamiento",
+];
+
+const monthlyFeatures = [
+  "Mantenimiento y actualizaciones continuas",
+  "Optimización mensual basada en conversaciones reales",
+  "Soporte técnico prioritario",
+  "Nuevas integraciones según tu negocio crece",
+  "Reporte mensual de métricas e incidencias",
+];
+---
+
+<Base
+  title={t("empleadoIA.meta.title")}
+  description={t("empleadoIA.meta.description")}
+  schemaType="FAQPage"
+  faqItems={faqItems}
+  breadcrumbs={[{ name: "Empleado de IA", url: "/empleado-ia" }]}
+>
+
+  <!-- ═══ 1. HERO ═══ -->
+  <section class="eia-hero">
+    <div class="eia-hero-orb eia-hero-orb--1" aria-hidden="true"></div>
+    <div class="eia-hero-orb eia-hero-orb--2" aria-hidden="true"></div>
+    <div class="eia-hero-inner">
+      <span class="hub-badge" data-animate data-delay="0">IA para Negocios</span>
+      <h1 class="eia-hero-title" data-animate data-delay="1">
+        Tu negocio siempre respondiendo.
+        <span class="eia-gradient-text">Sin contratar más personal.</span>
+      </h1>
+      <p class="eia-hero-sub" data-animate data-delay="2">
+        Automatiza la atención al cliente de tu negocio con un Asistente de IA que responde,
+        registra incidencias y escala al equipo correcto — las 24 horas, todos los días.
+      </p>
+      <div class="eia-hero-ctas" data-animate data-delay="3">
+        <a href={CONTACT_URL} class="eia-btn-primary">Quiero mi Asistente de IA →</a>
+        <a href="#como-funciona" class="eia-btn-secondary">Ver cómo funciona ↓</a>
+      </div>
+      <div class="eia-channels" data-animate data-delay="4" aria-label="Canales soportados">
+        <span class="eia-channel">
+          <svg aria-label="WhatsApp" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </span>
+        <span class="eia-channel-sep" aria-hidden="true">·</span>
+        <span class="eia-channel">
+          <svg aria-label="Messenger" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 4.974 0 11.111c0 3.498 1.744 6.614 4.469 8.65V24l4.088-2.242c1.092.301 2.246.464 3.443.464 6.627 0 12-4.975 12-11.111C24 4.974 18.627 0 12 0zm1.191 14.963l-3.055-3.26-5.963 3.26L10.732 8.1l3.131 3.26L19.752 8.1l-6.561 6.863z"/></svg>
+          Messenger
+        </span>
+        <span class="eia-channel-sep" aria-hidden="true">·</span>
+        <span class="eia-channel">
+          <svg aria-label="Instagram" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Instagram
+        </span>
+        <span class="eia-channel-sep" aria-hidden="true">·</span>
+        <span class="eia-channel">
+          <svg aria-label="Chat Web" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          Chat Web
+        </span>
+        <span class="eia-channel-sep" aria-hidden="true">·</span>
+        <span class="eia-channel">
+          <svg aria-label="SMS" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"></path></svg>
+          SMS
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 2. ¿PARA QUIÉN? ═══ -->
+  <section class="eia-section eia-for-who">
+    <div class="eia-section-inner">
+      <h2 class="eia-section-title" data-animate>Si tu negocio recibe mensajes todos los días, esto es para ti</h2>
+      <div class="eia-who-grid">
+        {whoCards.map((card, i) => (
+          <div class="eia-who-card" data-animate data-delay={String(i % 4)}>
+            <span class="eia-who-emoji" aria-hidden="true">{card.emoji}</span>
+            <h3 class="eia-who-title">{card.title}</h3>
+            <p class="eia-who-pain">"{card.pain}"</p>
+          </div>
+        ))}
+      </div>
+      <p class="eia-who-close" data-animate>
+        Si tu equipo pierde tiempo respondiendo lo mismo una y otra vez,
+        tienes un problema que la IA ya puede resolver.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ 3. CÓMO FUNCIONA ═══ -->
+  <section class="eia-section eia-how" id="como-funciona">
+    <div class="eia-section-inner eia-section-inner--narrow">
+      <h2 class="eia-section-title eia-section-title--center" data-animate>Así trabaja tu nuevo Empleado de IA</h2>
+      <div class="eia-steps">
+        <div class="eia-step" data-animate data-delay="0">
+          <div class="eia-step-icon" aria-hidden="true">💬</div>
+          <div class="eia-step-num">Paso 1</div>
+          <h3 class="eia-step-title">Cliente escribe</h3>
+          <p class="eia-step-desc">Tu cliente manda un mensaje por WhatsApp, Instagram o Messenger preguntando, reportando un problema o pidiendo información.</p>
+        </div>
+        <div class="eia-step-connector" aria-hidden="true"></div>
+        <div class="eia-step" data-animate data-delay="1">
+          <div class="eia-step-icon" aria-hidden="true">🤖</div>
+          <div class="eia-step-num">Paso 2</div>
+          <h3 class="eia-step-title">La IA responde y registra</h3>
+          <p class="eia-step-desc">El asistente responde al instante, resuelve dudas frecuentes, levanta reportes y recopila los datos necesarios.</p>
+        </div>
+        <div class="eia-step-connector" aria-hidden="true"></div>
+        <div class="eia-step" data-animate data-delay="2">
+          <div class="eia-step-icon" aria-hidden="true">🔔</div>
+          <div class="eia-step-num">Paso 3</div>
+          <h3 class="eia-step-title">Escala lo que importa</h3>
+          <p class="eia-step-desc">Si la situación requiere atención humana, el sistema notifica al responsable correcto con toda la información lista.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 4. QUÉ INCLUYE ═══ -->
+  <section class="eia-section eia-features">
+    <div class="eia-section-inner eia-section-inner--narrow">
+      <h2 class="eia-section-title eia-section-title--center" data-animate>Todo configurado. Todo funcionando. Desde el día 1.</h2>
+      <div class="eia-features-grid" data-animate data-delay="1">
+        {features.map((f) => (
+          <div class="eia-feature-item">
+            <span class="eia-feature-check" aria-hidden="true">✓</span>
+            <span>{f}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 5. TABLA COMPARATIVA ═══ -->
+  <section class="eia-section eia-comparison">
+    <div class="eia-section-inner eia-section-inner--narrow">
+      <h2 class="eia-section-title eia-section-title--center" data-animate>Compara antes de decidir</h2>
+      <div class="eia-table-wrapper" data-animate data-delay="1">
+        <table class="eia-table">
+          <thead>
+            <tr>
+              <th scope="col">Criterio</th>
+              <th scope="col">Empleado Tradicional</th>
+              <th scope="col" class="eia-table-ia-head">Empleado IA ✦</th>
+            </tr>
+          </thead>
+          <tbody>
+            {comparison.map((row, i) => (
+              <tr data-animate data-delay={String(i % 4)}>
+                <td class="eia-table-criteria">{row.criteria}</td>
+                <td class="eia-table-traditional">{row.traditional}</td>
+                <td class="eia-table-ai">{row.ai}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="eia-table-note" data-animate data-delay="1">
+        * Costo estimado de empleado de atención al cliente en LATAM. El Empleado IA no reemplaza a tu equipo — lo libera para lo que realmente importa.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ 6. PRECIOS ═══ -->
+  <section class="eia-section eia-pricing">
+    <div class="eia-section-inner eia-section-inner--narrow">
+      <h2 class="eia-section-title eia-section-title--center" data-animate>Una inversión que se paga sola</h2>
+      <div class="eia-pricing-grid">
+        <!-- Implementación -->
+        <div class="eia-price-card" data-animate data-delay="0">
+          <span class="eia-price-badge eia-price-badge--muted">Pago único</span>
+          <div class="eia-price-amount">$940 <span class="eia-price-currency">USD</span></div>
+          <p class="eia-price-desc">Tu sistema de atención automatizada, configurado y listo en 22 días hábiles.</p>
+          <ul class="eia-price-features" role="list">
+            {implementFeatures.map((f) => (
+              <li class="eia-price-feature-item">
+                <span class="eia-feature-check" aria-hidden="true">✓</span> {f}
+              </li>
+            ))}
+          </ul>
+          <a href={CONTACT_URL} class="eia-price-cta">Comenzar ahora →</a>
+        </div>
+
+        <!-- Mensual (destacada) -->
+        <div class="eia-price-card eia-price-card--featured" data-animate data-delay="1">
+          <span class="eia-price-badge eia-price-badge--accent">Más popular</span>
+          <div class="eia-price-amount">$377 <span class="eia-price-currency">USD<span class="eia-price-period">/mes</span></span></div>
+          <p class="eia-price-desc">Mantenimiento, optimización continua y soporte de tu Asistente de IA activo.</p>
+          <ul class="eia-price-features" role="list">
+            {monthlyFeatures.map((f) => (
+              <li class="eia-price-feature-item">
+                <span class="eia-feature-check" aria-hidden="true">✓</span> {f}
+              </li>
+            ))}
+          </ul>
+          <a href={CONTACT_URL} class="eia-price-cta eia-price-cta--accent">Comenzar ahora →</a>
+        </div>
+      </div>
+      <p class="eia-pricing-reframe" data-animate>
+        $377 al mes. Menos que un empleado de medio tiempo. Con resultados desde el primer día.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ 7. FAQ ═══ -->
+  <section class="eia-section eia-faq">
+    <div class="eia-section-inner eia-section-inner--narrow">
+      <h2 class="eia-section-title eia-section-title--center" data-animate>Preguntas frecuentes</h2>
+      <div class="eia-faq-list">
+        {faqItems.map((item, i) => (
+          <details class="eia-faq-item" data-animate data-delay={String(i % 4)}>
+            <summary class="eia-faq-q">{item.question}</summary>
+            <div class="eia-faq-body">
+              <div class="eia-faq-body-inner">
+                <p class="eia-faq-a">{item.answer}</p>
+              </div>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 8. CTA FINAL ═══ -->
+  <section class="eia-final-cta">
+    <div class="eia-final-cta-inner">
+      <h2 class="eia-final-title" data-animate>¿Listo para que tu negocio nunca deje a un cliente sin respuesta?</h2>
+      <p class="eia-final-sub" data-animate data-delay="1">
+        Agenda una llamada de 30 minutos. Te mostramos cómo quedaría el sistema para tu negocio específico, sin costo.
+      </p>
+      <a href={CONTACT_URL} class="eia-final-btn" data-animate data-delay="2">Agendar llamada gratuita →</a>
+      <p class="eia-final-disclaimer" data-animate data-delay="3">Sin compromisos. Sin tecnicismos. Solo soluciones.</p>
+    </div>
+  </section>
+
+</Base>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add("is-visible");
+          observer.unobserve(e.target);
+        }
+      });
+    },
+    { threshold: 0.12 },
+  );
+  document.querySelectorAll("[data-animate]").forEach((el) => observer.observe(el));
+</script>
+
+<style>
+  /* ── ANIMATE ── */
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  [data-animate].is-visible { opacity: 1; transform: none; }
+  [data-animate][data-delay="1"] { transition-delay: 100ms; }
+  [data-animate][data-delay="2"] { transition-delay: 200ms; }
+  [data-animate][data-delay="3"] { transition-delay: 300ms; }
+  [data-animate][data-delay="4"] { transition-delay: 400ms; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-animate] { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ── SHARED LAYOUT ── */
+  .eia-section {
+    padding: clamp(4rem, 8vw, 7rem) var(--spacing-6);
+  }
+  .eia-section-inner {
+    max-width: var(--wide-width);
+    margin: 0 auto;
+  }
+  .eia-section-inner--narrow { max-width: 900px; }
+  .eia-section-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: var(--color-text);
+    margin: 0 0 var(--spacing-10);
+  }
+  .eia-section-title--center { text-align: center; }
+
+  /* ── SHARED BUTTONS ── */
+  .eia-btn-primary {
+    display: inline-block;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, var(--color-accent) 0%, #b07a1e 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: var(--font-size-base);
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s;
+    white-space: nowrap;
+  }
+  .eia-btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+  .eia-btn-secondary {
+    display: inline-block;
+    padding: 13px 28px;
+    border: 1.5px solid var(--color-border);
+    color: var(--color-text);
+    font-weight: 600;
+    font-size: var(--font-size-base);
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+  .eia-btn-secondary:hover { border-color: var(--color-accent); color: var(--color-accent); }
+
+  /* ── FEATURE CHECK ── */
+  .eia-feature-check {
+    color: var(--color-accent);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ── GRADIENT TEXT ── */
+  .eia-gradient-text {
+    display: block;
+    background: var(--tc-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── 1. HERO ── */
+  .eia-hero {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(5rem, 10vw, 9rem) var(--spacing-6) clamp(4rem, 7vw, 7rem);
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border-subtle);
+    text-align: center;
+  }
+  .eia-hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(80px);
+    opacity: 0.35;
+    animation: orb-float 8s ease-in-out infinite alternate;
+  }
+  .eia-hero-orb--1 {
+    width: 420px; height: 420px;
+    background: radial-gradient(circle, #e0a832 0%, transparent 70%);
+    top: -120px; right: -80px;
+    animation-delay: 0s;
+  }
+  .eia-hero-orb--2 {
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, #c8922a 0%, transparent 70%);
+    bottom: -60px; left: -60px;
+    animation-delay: -4s;
+  }
+  @keyframes orb-float {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(20px, -20px) scale(1.05); }
+  }
+  .eia-hero-inner {
+    position: relative;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .eia-hero-title {
+    font-size: clamp(2.25rem, 5.5vw, 3.5rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: var(--color-text);
+    margin: 0 0 var(--spacing-6);
+  }
+  .eia-hero-sub {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin: 0 0 var(--spacing-8);
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .eia-hero-ctas {
+    display: flex;
+    gap: var(--spacing-4);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-10);
+  }
+  .eia-channels {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-3);
+    flex-wrap: wrap;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+  }
+  .eia-channel {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+  }
+  .eia-channel svg { opacity: 0.7; }
+  .eia-channel-sep { opacity: 0.4; }
+
+  /* ── 2. FOR WHO ── */
+  .eia-for-who { background: var(--color-bg-subtle, var(--color-surface)); border-bottom: 1px solid var(--color-border-subtle); }
+  .eia-who-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-5);
+    margin-bottom: var(--spacing-10);
+  }
+  .eia-who-card {
+    padding: var(--spacing-6);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .eia-who-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(200, 146, 42, 0.1);
+  }
+  .eia-who-emoji { font-size: 2rem; display: block; margin-bottom: var(--spacing-3); }
+  .eia-who-title {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 var(--spacing-2);
+  }
+  .eia-who-pain {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+    font-style: italic;
+  }
+  .eia-who-close {
+    text-align: center;
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-text);
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  /* ── 3. HOW IT WORKS ── */
+  .eia-how { background: var(--color-bg); }
+  .eia-steps {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+  }
+  .eia-step {
+    flex: 1;
+    text-align: center;
+    padding: var(--spacing-8) var(--spacing-6);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+  }
+  .eia-step-connector {
+    flex: 0 0 40px;
+    align-self: center;
+    border-top: 2px dashed var(--color-accent);
+    opacity: 0.4;
+    margin-top: -20px;
+  }
+  .eia-step-icon { font-size: 2.5rem; display: block; margin-bottom: var(--spacing-4); }
+  .eia-step-num {
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-2);
+  }
+  .eia-step-title {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 var(--spacing-3);
+  }
+  .eia-step-desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ── 4. FEATURES ── */
+  .eia-features { background: var(--color-bg-subtle, var(--color-surface)); }
+  .eia-features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-4) var(--spacing-8);
+  }
+  .eia-feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-3);
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    line-height: 1.5;
+  }
+
+  /* ── 5. COMPARISON ── */
+  .eia-comparison { background: var(--color-bg); }
+  .eia-table-wrapper { overflow-x: auto; border-radius: var(--radius-lg); border: 1px solid var(--color-border); }
+  .eia-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--font-size-base);
+    min-width: 540px;
+  }
+  .eia-table thead tr {
+    background: var(--color-surface);
+    border-bottom: 2px solid var(--color-border);
+  }
+  .eia-table th {
+    padding: var(--spacing-4) var(--spacing-5);
+    font-weight: 700;
+    color: var(--color-text);
+    text-align: left;
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .eia-table-ia-head { color: var(--color-accent); }
+  .eia-table tbody tr { border-bottom: 1px solid var(--color-border-subtle); }
+  .eia-table tbody tr:last-child { border-bottom: none; }
+  .eia-table tbody tr:nth-child(even) { background: var(--color-surface); }
+  .eia-table td { padding: var(--spacing-4) var(--spacing-5); color: var(--color-text-secondary); vertical-align: middle; }
+  .eia-table-criteria { font-weight: 600; color: var(--color-text); }
+  .eia-table-ai { font-weight: 700; color: var(--color-accent); }
+  .eia-table-note {
+    margin-top: var(--spacing-5);
+    font-size: var(--font-size-sm);
+    color: var(--color-muted);
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  /* ── 6. PRICING ── */
+  .eia-pricing { background: var(--color-bg-subtle, var(--color-surface)); }
+  .eia-pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-6);
+    margin-bottom: var(--spacing-8);
+  }
+  .eia-price-card {
+    position: relative;
+    padding: var(--spacing-8) var(--spacing-8) var(--spacing-8);
+    background: var(--color-bg);
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-5);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .eia-price-card:hover { transform: scale(1.02); box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08); }
+  .eia-price-card--featured {
+    border-color: var(--color-accent);
+    box-shadow: 0 4px 24px rgba(200, 146, 42, 0.15);
+  }
+  .eia-price-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 4px 12px;
+    border-radius: var(--radius-pill);
+    width: fit-content;
+  }
+  .eia-price-badge--muted { background: var(--color-surface); color: var(--color-text-secondary); }
+  .eia-price-badge--accent { background: var(--color-accent-muted); color: var(--color-accent); }
+  .eia-price-amount {
+    font-size: clamp(2.25rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--color-text);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .eia-price-currency {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--color-text-secondary);
+  }
+  .eia-price-period {
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    color: var(--color-muted);
+  }
+  .eia-price-desc {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+  .eia-price-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+    flex: 1;
+  }
+  .eia-price-feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-3);
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+    line-height: 1.5;
+  }
+  .eia-price-cta {
+    display: block;
+    text-align: center;
+    padding: 13px 24px;
+    border: 1.5px solid var(--color-border);
+    color: var(--color-text);
+    font-weight: 700;
+    font-size: var(--font-size-base);
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+    margin-top: auto;
+  }
+  .eia-price-cta:hover { border-color: var(--color-accent); color: var(--color-accent); }
+  .eia-price-cta--accent {
+    background: linear-gradient(135deg, var(--color-accent) 0%, #b07a1e 100%);
+    color: #fff;
+    border-color: transparent;
+  }
+  .eia-price-cta--accent:hover { opacity: 0.9; color: #fff; border-color: transparent; }
+  .eia-pricing-reframe {
+    text-align: center;
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  /* ── 7. FAQ ── */
+  .eia-faq { background: var(--color-bg); }
+  .eia-faq-list { display: flex; flex-direction: column; gap: var(--spacing-3); }
+  .eia-faq-item {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-bg);
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .eia-faq-item[open] { border-color: var(--color-accent); }
+  .eia-faq-q {
+    list-style: none;
+    padding: var(--spacing-5) var(--spacing-6);
+    cursor: pointer;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-text);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-4);
+    user-select: none;
+    transition: color 0.2s;
+  }
+  .eia-faq-q::-webkit-details-marker { display: none; }
+  .eia-faq-q::after {
+    content: "+";
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--color-accent);
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+    line-height: 1;
+  }
+  details[open] .eia-faq-q::after { transform: rotate(45deg); }
+  .eia-faq-body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease;
+  }
+  details[open] .eia-faq-body { grid-template-rows: 1fr; }
+  .eia-faq-body-inner { overflow: hidden; }
+  .eia-faq-a {
+    padding: 0 var(--spacing-6) var(--spacing-5);
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ── 8. FINAL CTA ── */
+  .eia-final-cta {
+    padding: clamp(5rem, 10vw, 8rem) var(--spacing-6);
+    background: var(--tc-gradient-subtle);
+    border-top: 1px solid var(--color-border-subtle);
+    text-align: center;
+  }
+  .eia-final-cta-inner { max-width: 640px; margin: 0 auto; }
+  .eia-final-title {
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    font-weight: 800;
+    color: var(--color-text);
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    margin: 0 0 var(--spacing-5);
+  }
+  .eia-final-sub {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    margin: 0 0 var(--spacing-8);
+  }
+  .eia-final-btn {
+    display: inline-block;
+    padding: 16px 40px;
+    background: linear-gradient(135deg, var(--color-accent) 0%, #b07a1e 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: var(--font-size-lg);
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    animation: pulse-ring 2.8s ease-in-out infinite;
+    transition: opacity 0.2s, transform 0.2s;
+    margin-bottom: var(--spacing-5);
+  }
+  .eia-final-btn:hover { opacity: 0.9; transform: translateY(-2px); animation-play-state: paused; }
+  @keyframes pulse-ring {
+    0%   { box-shadow: 0 0 0 0 rgba(200, 146, 42, 0.4); }
+    60%  { box-shadow: 0 0 0 14px rgba(200, 146, 42, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(200, 146, 42, 0); }
+  }
+  .eia-final-disclaimer {
+    font-size: var(--font-size-sm);
+    color: var(--color-muted);
+    margin: 0;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .eia-who-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .eia-steps { flex-direction: column; gap: var(--spacing-4); }
+    .eia-step-connector { display: none; }
+    .eia-step { text-align: left; padding: var(--spacing-6); }
+    .eia-step-icon { display: inline; font-size: 1.5rem; margin-right: var(--spacing-2); margin-bottom: 0; }
+    .eia-pricing-grid { grid-template-columns: 1fr; }
+    .eia-who-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .eia-who-grid { grid-template-columns: 1fr; }
+    .eia-features-grid { grid-template-columns: 1fr; }
+    .eia-hero-title { font-size: 2rem; }
+    .eia-hero-ctas { flex-direction: column; align-items: center; }
+    .eia-btn-primary, .eia-btn-secondary { width: 100%; text-align: center; }
+  }
+</style>
