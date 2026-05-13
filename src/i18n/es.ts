@@ -228,4 +228,26 @@ export default {
 	// Language
 	"lang.switch": "English",
 	"lang.current": "ES",
+
+	// Trucos IA Hub
+	"trucosIA.badge": "Hub de IA",
+	"trucosIA.title.line1": "Trucos de Inteligencia Artificial",
+	"trucosIA.title.line2": "que Funcionan en el Mundo Real",
+	"trucosIA.subtitle": "Guías prácticas, workflows y recursos para aplicar IA a tu negocio hoy — sin teoría vacía.",
+	"trucosIA.featured.label": "Primera guía",
+	"trucosIA.featured.readTime": "min de lectura",
+	"trucosIA.featured.difficulty.beginner": "Principiante",
+	"trucosIA.featured.difficulty.intermediate": "Intermedio",
+	"trucosIA.featured.difficulty.advanced": "Avanzado",
+	"trucosIA.index.title": "Todas las guías",
+	"trucosIA.index.empty": "Próximamente más guías.",
+	"trucosIA.subscribe.title": "¿Quieres más trucos como este?",
+	"trucosIA.subscribe.desc": "Recibe nuevas guías de IA directamente en tu email — sin spam, solo contenido útil.",
+	"trucosIA.subscribe.namePlaceholder": "Tu nombre",
+	"trucosIA.subscribe.emailPlaceholder": "tu@email.com",
+	"trucosIA.subscribe.btn": "Quiero recibirlos",
+	"trucosIA.subscribe.success": "¡Listo! Revisa tu bandeja de entrada.",
+	"trucosIA.subscribe.error": "Algo salió mal. Intenta de nuevo.",
+	"trucosIA.subscribe.sending": "Enviando...",
+	"trucosIA.resources.title": "Recursos relacionados",
 } as const;

@@ -232,6 +232,28 @@ const en = {
 	// Language
 	"lang.switch": "Español",
 	"lang.current": "EN",
+
+	// Trucos IA Hub
+	"trucosIA.badge": "AI Hub",
+	"trucosIA.title.line1": "Artificial Intelligence Tricks",
+	"trucosIA.title.line2": "That Work in the Real World",
+	"trucosIA.subtitle": "Practical guides, workflows and resources to apply AI to your business today — no empty theory.",
+	"trucosIA.featured.label": "First guide",
+	"trucosIA.featured.readTime": "min read",
+	"trucosIA.featured.difficulty.beginner": "Beginner",
+	"trucosIA.featured.difficulty.intermediate": "Intermediate",
+	"trucosIA.featured.difficulty.advanced": "Advanced",
+	"trucosIA.index.title": "All guides",
+	"trucosIA.index.empty": "More guides coming soon.",
+	"trucosIA.subscribe.title": "Want more tricks like this?",
+	"trucosIA.subscribe.desc": "Get new AI guides straight to your inbox — no spam, only useful content.",
+	"trucosIA.subscribe.namePlaceholder": "Your name",
+	"trucosIA.subscribe.emailPlaceholder": "you@email.com",
+	"trucosIA.subscribe.btn": "Send them to me",
+	"trucosIA.subscribe.success": "Done! Check your inbox.",
+	"trucosIA.subscribe.error": "Something went wrong. Please try again.",
+	"trucosIA.subscribe.sending": "Sending...",
+	"trucosIA.resources.title": "Related resources",
 } satisfies Record<keyof typeof es, string>;
 
 export default en;

@@ -1,0 +1,89 @@
+---
+/**
+ * Stub para futuras landings individuales de IA.
+ * Cuando agregues una nueva guía:
+ * 1. Añade su slug al array LANDINGS en TrucosIAPage.astro
+ * 2. Crea un componente en src/components/landings/<slug>.astro con el contenido
+ * 3. Agrega su case aquí abajo para renderizarlo
+ */
+import Base from "../../layouts/Base.astro";
+import { getLangFromUrl } from "../../i18n/locales";
+
+const locale = getLangFromUrl(Astro.url);
+const { slug } = Astro.params;
+
+const hubUrl = "/trucos-inteligencia-artificial";
+---
+
+<Base
+  title={locale === "en" ? "Coming soon — TonyCiencia" : "Próximamente — TonyCiencia"}
+  description={locale === "en" ? "This guide is coming soon." : "Esta guía estará disponible próximamente."}
+>
+  <section class="coming-soon">
+    <div class="coming-soon-inner">
+      <span class="coming-badge">
+        {locale === "en" ? "Coming soon" : "Próximamente"}
+      </span>
+      <h1 class="coming-title">
+        {locale === "en" ? "This guide is on its way" : "Esta guía está en camino"}
+      </h1>
+      <p class="coming-desc">
+        {locale === "en"
+          ? `The guide "${slug}" is being prepared. Go back to the hub to see what's already available.`
+          : `La guía "${slug}" está en preparación. Vuelve al hub para ver lo que ya está disponible.`}
+      </p>
+      <a href={hubUrl} class="coming-btn">
+        {locale === "en" ? "← Back to AI Tricks" : "← Volver a Trucos de IA"}
+      </a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .coming-soon {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(4rem, 8vw, 7rem) var(--spacing-6);
+    text-align: center;
+  }
+  .coming-soon-inner { max-width: 520px; }
+  .coming-badge {
+    display: inline-block;
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    padding: 4px 12px;
+    background: var(--color-accent-muted);
+    border-radius: var(--radius-pill);
+    margin-bottom: var(--spacing-5);
+  }
+  .coming-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 var(--spacing-4);
+    letter-spacing: -0.02em;
+  }
+  .coming-desc {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin: 0 0 var(--spacing-8);
+  }
+  .coming-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--color-accent);
+    color: #fff;
+    text-decoration: none;
+    border-radius: var(--radius-pill);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    transition: opacity 0.2s;
+  }
+  .coming-btn:hover { opacity: 0.85; }
+</style>
