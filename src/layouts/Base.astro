@@ -133,7 +133,8 @@ const isLoggedIn = !!Astro.locals.user;
 		<header class="site-header">
 			<nav class="nav">
 				<a href="/" class="site-title" style="display: flex; align-items: center;">
-					<img src="/assets/logo-tonyciencia-full.webp" alt={siteTitle} class="site-logo-img" style="height: 28px; width: auto;" />
+					<img src="/assets/logo-tonyciencia-negro.png" alt={siteTitle} class="site-logo-img logo-light" />
+					<img src="/assets/logo-tonyciencia-blanco.png" alt={siteTitle} class="site-logo-img logo-dark" aria-hidden="true" />
 				</a>
 				<div class="nav-right">
 					<div class="nav-links">
@@ -539,6 +540,11 @@ const isLoggedIn = !!Astro.locals.user;
 				width: auto;
 				display: block;
 			}
+
+			.logo-light { display: block; }
+			.logo-dark  { display: none;  }
+			:root.dark .logo-light { display: none;  }
+			:root.dark .logo-dark  { display: block; }
 
 			.nav-right {
 				display: flex;
