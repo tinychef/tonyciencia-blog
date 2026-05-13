@@ -1,0 +1,308 @@
+---
+import Base from "../../layouts/Base.astro";
+import LeadMagnet from "../../components/LeadMagnet.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/locales";
+
+const locale = getLangFromUrl(Astro.url);
+const t = useTranslations(locale);
+
+Astro.cache.set({ maxAge: 3600 });
+
+const title = "Trucos de Inteligencia Artificial — TonyCiencia";
+const description =
+  "Descarga gratis la colección de workflows y trucos de IA que uso para automatizar mi negocio. Listos para importar en n8n.";
+
+const features = [
+  { icon: "⚡", label: "Workflows listos", desc: "Importa directamente en n8n sin configurar nada desde cero." },
+  { icon: "🤖", label: "IA integrada", desc: "GPT, Claude y Gemini conectados en flujos reales de negocio." },
+  { icon: "📩", label: "Email automation", desc: "Secuencias de email automáticas que convierten leads en clientes." },
+  { icon: "🔗", label: "Integraciones", desc: "WhatsApp, CRMs, Google Sheets, Notion y más." },
+];
+
+const faqItems = [
+  {
+    question: "¿Qué contiene el ZIP?",
+    answer:
+      "Workflows de n8n listos para importar. Incluyen automatizaciones con IA, secuencias de email y bots de WhatsApp que puedes adaptar a tu negocio en menos de 10 minutos.",
+  },
+  {
+    question: "¿Necesito saber programar?",
+    answer:
+      "No. n8n es una herramienta visual. Solo importas el workflow, conectas tus credenciales y listo. Los flujos incluyen comentarios explicativos.",
+  },
+  {
+    question: "¿Es realmente gratis?",
+    answer:
+      "Sí. Ingresa tu email y recibes el ZIP directamente en tu bandeja de entrada. Sin tarjetas, sin suscripciones ocultas.",
+  },
+];
+---
+
+<Base
+  title={title}
+  description={description}
+  schemaType="FAQPage"
+  faqItems={faqItems}
+  breadcrumbs={[{ name: "Trucos de IA", url: "/trucos-inteligencia-artificial" }]}
+>
+  <!-- HERO -->
+  <section class="tia-hero">
+    <div class="tia-hero-inner">
+      <span class="tia-label">Recurso gratuito</span>
+      <h1 class="tia-title">
+        Los trucos de IA que uso para
+        <span class="title-gradient">automatizar mi negocio</span>
+      </h1>
+      <p class="tia-subtitle">{description}</p>
+      <div class="tia-hero-cta">
+        <a href="#descarga" class="tia-btn-primary">Descargar gratis &rarr;</a>
+        <span class="tia-social-proof">+500 emprendedores ya lo usan</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="tia-features">
+    <div class="tia-features-inner">
+      <h2 class="tia-section-title">&iquest;Qu&eacute; viene en el ZIP?</h2>
+      <div class="features-grid">
+        {features.map((f) => (
+          <div class="feature-card">
+            <span class="feature-icon">{f.icon}</span>
+            <strong class="feature-label">{f.label}</strong>
+            <p class="feature-desc">{f.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LEAD MAGNET -->
+  <section class="tia-download" id="descarga">
+    <div class="tia-download-inner">
+      <LeadMagnet
+        title="Descarga la colección completa"
+        description="Workflows de n8n + trucos de IA listos para usar. Ingresa tu nombre y email y los recibes ahora."
+        cta="Enviarme el ZIP gratis →"
+        badge="Descarga gratuita"
+      />
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="tia-faq">
+    <div class="tia-faq-inner">
+      <h2 class="tia-section-title">Preguntas frecuentes</h2>
+      <div class="faq-list">
+        {faqItems.map((item) => (
+          <details class="faq-item">
+            <summary class="faq-question">{item.question}</summary>
+            <p class="faq-answer">{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* ── HERO ── */
+  .tia-hero {
+    padding: clamp(4rem, 10vw, 8rem) 1.5rem clamp(3rem, 6vw, 5rem);
+    text-align: center;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, oklch(65% 0.18 60 / 0.06) 0%, transparent 70%);
+  }
+
+  .tia-hero-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .tia-label {
+    display: inline-block;
+    background: oklch(65% 0.18 60 / 0.12);
+    color: oklch(75% 0.15 60);
+    border: 1px solid oklch(65% 0.18 60 / 0.25);
+    border-radius: 100px;
+    padding: 0.3rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .tia-title {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: oklch(95% 0.02 250);
+    margin: 0 0 1.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  .title-gradient {
+    background: linear-gradient(135deg, oklch(72% 0.18 60), oklch(60% 0.18 50));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .tia-subtitle {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: oklch(68% 0.04 250);
+    line-height: 1.65;
+    margin: 0 0 2rem;
+  }
+
+  .tia-hero-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .tia-btn-primary {
+    display: inline-block;
+    background: linear-gradient(135deg, oklch(62% 0.18 60), oklch(55% 0.18 50));
+    color: oklch(98% 0.01 60);
+    text-decoration: none;
+    padding: 0.9rem 2rem;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: opacity 0.2s, transform 0.15s;
+  }
+
+  .tia-btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+
+  .tia-social-proof {
+    font-size: 0.85rem;
+    color: oklch(55% 0.04 250);
+  }
+
+  /* ── FEATURES ── */
+  .tia-features {
+    padding: clamp(3rem, 6vw, 5rem) 1.5rem;
+  }
+
+  .tia-features-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .tia-section-title {
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    font-weight: 800;
+    color: oklch(93% 0.02 250);
+    text-align: center;
+    margin: 0 0 2.5rem;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .feature-card {
+    background: oklch(100% 0 0 / 0.03);
+    border: 1px solid oklch(100% 0 0 / 0.07);
+    border-radius: 14px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    transition: background 0.2s;
+  }
+
+  .feature-card:hover {
+    background: oklch(100% 0 0 / 0.055);
+  }
+
+  .feature-icon { font-size: 1.75rem; }
+
+  .feature-label {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: oklch(90% 0.03 250);
+  }
+
+  .feature-desc {
+    font-size: 0.85rem;
+    color: oklch(62% 0.04 250);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* ── DOWNLOAD ── */
+  .tia-download {
+    padding: clamp(2rem, 5vw, 4rem) 1.5rem;
+  }
+
+  .tia-download-inner {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  /* ── FAQ ── */
+  .tia-faq {
+    padding: clamp(3rem, 6vw, 5rem) 1.5rem;
+  }
+
+  .tia-faq-inner {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .faq-item {
+    background: oklch(100% 0 0 / 0.03);
+    border: 1px solid oklch(100% 0 0 / 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .faq-question {
+    cursor: pointer;
+    padding: 1.1rem 1.25rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: oklch(88% 0.03 250);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+
+  .faq-question::-webkit-details-marker { display: none; }
+
+  .faq-question::after {
+    content: "+";
+    font-size: 1.2rem;
+    color: oklch(65% 0.18 60);
+    transition: transform 0.2s;
+  }
+
+  details[open] .faq-question::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    padding: 0 1.25rem 1.1rem;
+    font-size: 0.9rem;
+    color: oklch(65% 0.04 250);
+    line-height: 1.65;
+    margin: 0;
+  }
+</style>
