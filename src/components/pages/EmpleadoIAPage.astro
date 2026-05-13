@@ -6,6 +6,8 @@ const locale = getLangFromUrl(Astro.url);
 const t = useTranslations(locale);
 
 const CONTACT_URL = locale === "en" ? "/en/contact" : "/contacto";
+const WA_NUMBER = "TUNUMERO"; // ← reemplaza con tu número sin + (ej: 5491112345678)
+const BUSINESS_EMAIL = "bussines@tonyciencia.com";
 
 const faqItems = [
   {
@@ -105,29 +107,50 @@ const monthlyFeatures = [
         <a href={CONTACT_URL} class="eia-btn-primary">Quiero mi Asistente de IA →</a>
         <a href="#como-funciona" class="eia-btn-secondary">Ver cómo funciona ↓</a>
       </div>
-      <div class="eia-channels" data-animate data-delay="4" aria-label="Canales soportados">
+      <!-- Botones rápidos de contacto -->
+      <div class="eia-quick-contact" data-animate data-delay="4">
+        <a
+          href={`https://wa.me/${WA_NUMBER}?text=Hola%2C%20me%20interesa%20el%20Empleado%20de%20IA`}
+          class="eia-quick-btn eia-quick-btn--wa"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Contactar por WhatsApp"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+        <a
+          href={`mailto:${BUSINESS_EMAIL}`}
+          class="eia-quick-btn eia-quick-btn--email"
+          aria-label="Enviar email"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          {BUSINESS_EMAIL}
+        </a>
+      </div>
+      <div class="eia-channels" data-animate data-delay="5" aria-label="Canales soportados">
         <span class="eia-channel">
-          <svg aria-label="WhatsApp" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <svg class="eia-channel-icon" aria-label="WhatsApp" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           WhatsApp
         </span>
         <span class="eia-channel-sep" aria-hidden="true">·</span>
         <span class="eia-channel">
-          <svg aria-label="Messenger" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 4.974 0 11.111c0 3.498 1.744 6.614 4.469 8.65V24l4.088-2.242c1.092.301 2.246.464 3.443.464 6.627 0 12-4.975 12-11.111C24 4.974 18.627 0 12 0zm1.191 14.963l-3.055-3.26-5.963 3.26L10.732 8.1l3.131 3.26L19.752 8.1l-6.561 6.863z"/></svg>
+          <svg class="eia-channel-icon" aria-label="Messenger" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 4.974 0 11.111c0 3.498 1.744 6.614 4.469 8.65V24l4.088-2.242c1.092.301 2.246.464 3.443.464 6.627 0 12-4.975 12-11.111C24 4.974 18.627 0 12 0zm1.191 14.963l-3.055-3.26-5.963 3.26L10.732 8.1l3.131 3.26L19.752 8.1l-6.561 6.863z"/></svg>
           Messenger
         </span>
         <span class="eia-channel-sep" aria-hidden="true">·</span>
         <span class="eia-channel">
-          <svg aria-label="Instagram" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          <svg class="eia-channel-icon" aria-label="Instagram" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
           Instagram
         </span>
         <span class="eia-channel-sep" aria-hidden="true">·</span>
         <span class="eia-channel">
-          <svg aria-label="Chat Web" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          <svg class="eia-channel-icon" aria-label="Chat Web" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
           Chat Web
         </span>
         <span class="eia-channel-sep" aria-hidden="true">·</span>
         <span class="eia-channel">
-          <svg aria-label="SMS" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"></path></svg>
+          <svg class="eia-channel-icon" aria-label="SMS" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"></path></svg>
           SMS
         </span>
       </div>
@@ -187,9 +210,9 @@ const monthlyFeatures = [
   <section class="eia-section eia-features">
     <div class="eia-section-inner eia-section-inner--narrow">
       <h2 class="eia-section-title eia-section-title--center" data-animate>Todo configurado. Todo funcionando. Desde el día 1.</h2>
-      <div class="eia-features-grid" data-animate data-delay="1">
-        {features.map((f) => (
-          <div class="eia-feature-item">
+      <div class="eia-features-grid">
+        {features.map((f, i) => (
+          <div class="eia-feature-item" data-animate data-delay={String(i % 3)}>
             <span class="eia-feature-check" aria-hidden="true">✓</span>
             <span>{f}</span>
           </div>
@@ -232,37 +255,53 @@ const monthlyFeatures = [
   <section class="eia-section eia-pricing">
     <div class="eia-section-inner eia-section-inner--narrow">
       <h2 class="eia-section-title eia-section-title--center" data-animate>Una inversión que se paga sola</h2>
-      <div class="eia-pricing-grid">
-        <!-- Implementación -->
-        <div class="eia-price-card" data-animate data-delay="0">
-          <span class="eia-price-badge eia-price-badge--muted">Pago único</span>
-          <div class="eia-price-amount">$940 <span class="eia-price-currency">USD</span></div>
-          <p class="eia-price-desc">Tu sistema de atención automatizada, configurado y listo en 22 días hábiles.</p>
-          <ul class="eia-price-features" role="list">
-            {implementFeatures.map((f) => (
-              <li class="eia-price-feature-item">
-                <span class="eia-feature-check" aria-hidden="true">✓</span> {f}
-              </li>
-            ))}
-          </ul>
-          <a href={CONTACT_URL} class="eia-price-cta">Comenzar ahora →</a>
+
+      <!-- Una sola opción: setup + mensualidad -->
+      <div class="eia-price-card eia-price-card--featured" data-animate data-delay="1">
+        <span class="eia-price-badge eia-price-badge--accent">Todo incluido</span>
+
+        <div class="eia-price-dual">
+          <div class="eia-price-dual-item">
+            <div class="eia-price-amount">$940 <span class="eia-price-currency">USD</span></div>
+            <p class="eia-price-dual-label">Implementación única</p>
+          </div>
+          <div class="eia-price-plus" aria-hidden="true">+</div>
+          <div class="eia-price-dual-item">
+            <div class="eia-price-amount">$377 <span class="eia-price-currency">USD<span class="eia-price-period">/mes</span></span></div>
+            <p class="eia-price-dual-label">Mensualidad continua</p>
+          </div>
         </div>
 
-        <!-- Mensual (destacada) -->
-        <div class="eia-price-card eia-price-card--featured" data-animate data-delay="1">
-          <span class="eia-price-badge eia-price-badge--accent">Más popular</span>
-          <div class="eia-price-amount">$377 <span class="eia-price-currency">USD<span class="eia-price-period">/mes</span></span></div>
-          <p class="eia-price-desc">Mantenimiento, optimización continua y soporte de tu Asistente de IA activo.</p>
-          <ul class="eia-price-features" role="list">
-            {monthlyFeatures.map((f) => (
-              <li class="eia-price-feature-item">
-                <span class="eia-feature-check" aria-hidden="true">✓</span> {f}
-              </li>
-            ))}
-          </ul>
-          <a href={CONTACT_URL} class="eia-price-cta eia-price-cta--accent">Comenzar ahora →</a>
+        <p class="eia-price-desc">
+          Tu sistema configurado y listo en 22 días hábiles — más soporte, optimización y evolución mensual continua.
+        </p>
+
+        <div class="eia-price-two-cols">
+          <div>
+            <p class="eia-price-col-label">Implementación incluye:</p>
+            <ul class="eia-price-features" role="list">
+              {implementFeatures.map((f) => (
+                <li class="eia-price-feature-item">
+                  <span class="eia-feature-check" aria-hidden="true">✓</span> {f}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p class="eia-price-col-label">Mensualidad incluye:</p>
+            <ul class="eia-price-features" role="list">
+              {monthlyFeatures.map((f) => (
+                <li class="eia-price-feature-item">
+                  <span class="eia-feature-check" aria-hidden="true">✓</span> {f}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
+
+        <a href={CONTACT_URL} class="eia-price-cta eia-price-cta--accent">Comenzar ahora →</a>
       </div>
+
       <p class="eia-pricing-reframe" data-animate>
         $377 al mes. Menos que un empleado de medio tiempo. Con resultados desde el primer día.
       </p>
@@ -292,11 +331,8 @@ const monthlyFeatures = [
   <section class="eia-final-cta">
     <div class="eia-final-cta-inner">
       <h2 class="eia-final-title" data-animate>¿Listo para que tu negocio nunca deje a un cliente sin respuesta?</h2>
-      <p class="eia-final-sub" data-animate data-delay="1">
-        Agenda una llamada de 30 minutos. Te mostramos cómo quedaría el sistema para tu negocio específico, sin costo.
-      </p>
-      <a href={CONTACT_URL} class="eia-final-btn" data-animate data-delay="2">Agendar llamada gratuita →</a>
-      <p class="eia-final-disclaimer" data-animate data-delay="3">Sin compromisos. Sin tecnicismos. Solo soluciones.</p>
+      <a href={CONTACT_URL} class="eia-final-btn" data-animate data-delay="1">Agendar llamada gratuita →</a>
+      <p class="eia-final-disclaimer" data-animate data-delay="2">Sin compromisos. Sin tecnicismos. Solo soluciones.</p>
     </div>
   </section>
 
@@ -321,21 +357,41 @@ const monthlyFeatures = [
   /* ── ANIMATE ── */
   [data-animate] {
     opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateY(20px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
   }
   [data-animate].is-visible { opacity: 1; transform: none; }
-  [data-animate][data-delay="1"] { transition-delay: 100ms; }
-  [data-animate][data-delay="2"] { transition-delay: 200ms; }
-  [data-animate][data-delay="3"] { transition-delay: 300ms; }
-  [data-animate][data-delay="4"] { transition-delay: 400ms; }
+  [data-animate][data-delay="1"] { transition-delay: 80ms; }
+  [data-animate][data-delay="2"] { transition-delay: 160ms; }
+  [data-animate][data-delay="3"] { transition-delay: 240ms; }
+  [data-animate][data-delay="4"] { transition-delay: 320ms; }
+  [data-animate][data-delay="5"] { transition-delay: 400ms; }
   @media (prefers-reduced-motion: reduce) {
     [data-animate] { opacity: 1; transform: none; transition: none; }
+    .eia-channel-icon, .eia-hero-orb { animation: none !important; }
+  }
+
+  /* ── CHANNEL ICON FLOAT ── */
+  .eia-channel-icon {
+    opacity: 0.75;
+    animation: icon-bob 3.2s ease-in-out infinite;
+    animation-play-state: paused;
+  }
+  .eia-channels.is-visible .eia-channel-icon { animation-play-state: running; }
+  .eia-channels .eia-channel:nth-child(1) .eia-channel-icon { animation-delay: 0s; }
+  .eia-channels .eia-channel:nth-child(3) .eia-channel-icon { animation-delay: 0.25s; }
+  .eia-channels .eia-channel:nth-child(5) .eia-channel-icon { animation-delay: 0.5s; }
+  .eia-channels .eia-channel:nth-child(7) .eia-channel-icon { animation-delay: 0.75s; }
+  .eia-channels .eia-channel:nth-child(9) .eia-channel-icon { animation-delay: 1s; }
+  @keyframes icon-bob {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    40%       { transform: translateY(-5px) rotate(-4deg); }
+    70%       { transform: translateY(-2px) rotate(2deg); }
   }
 
   /* ── SHARED LAYOUT ── */
   .eia-section {
-    padding: clamp(4rem, 8vw, 7rem) var(--spacing-6);
+    padding: clamp(2.5rem, 5vw, 4.5rem) var(--spacing-6);
   }
   .eia-section-inner {
     max-width: var(--wide-width);
@@ -348,7 +404,7 @@ const monthlyFeatures = [
     letter-spacing: -0.03em;
     line-height: 1.15;
     color: var(--color-text);
-    margin: 0 0 var(--spacing-10);
+    margin: 0 0 var(--spacing-6);
   }
   .eia-section-title--center { text-align: center; }
 
@@ -400,7 +456,7 @@ const monthlyFeatures = [
   .eia-hero {
     position: relative;
     overflow: hidden;
-    padding: clamp(5rem, 10vw, 9rem) var(--spacing-6) clamp(4rem, 7vw, 7rem);
+    padding: clamp(4rem, 8vw, 7rem) var(--spacing-6) clamp(3rem, 5vw, 5rem);
     background: var(--color-bg);
     border-bottom: 1px solid var(--color-border-subtle);
     text-align: center;
@@ -440,24 +496,56 @@ const monthlyFeatures = [
     letter-spacing: -0.03em;
     line-height: 1.1;
     color: var(--color-text);
-    margin: 0 0 var(--spacing-6);
+    margin: 0 0 var(--spacing-5);
   }
   .eia-hero-sub {
     font-size: var(--font-size-lg);
     color: var(--color-text-secondary);
     line-height: 1.7;
-    margin: 0 0 var(--spacing-8);
+    margin: 0 auto var(--spacing-6);
     max-width: 620px;
-    margin-left: auto;
-    margin-right: auto;
   }
   .eia-hero-ctas {
     display: flex;
     gap: var(--spacing-4);
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: var(--spacing-10);
+    margin-bottom: var(--spacing-5);
   }
+
+  /* ── QUICK CONTACT ── */
+  .eia-quick-contact {
+    display: flex;
+    gap: var(--spacing-3);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-6);
+  }
+  .eia-quick-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 20px;
+    border-radius: var(--radius-pill);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s;
+    white-space: nowrap;
+  }
+  .eia-quick-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+  .eia-quick-btn--wa {
+    background: #25D366;
+    color: #fff;
+  }
+  .eia-quick-btn--email {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+  }
+  .eia-quick-btn--email:hover { border-color: var(--color-accent); color: var(--color-accent); }
+
+  /* ── CHANNELS ── */
   .eia-channels {
     display: flex;
     align-items: center;
@@ -473,7 +561,6 @@ const monthlyFeatures = [
     gap: 6px;
     font-weight: 500;
   }
-  .eia-channel svg { opacity: 0.7; }
   .eia-channel-sep { opacity: 0.4; }
 
   /* ── 2. FOR WHO ── */
@@ -481,11 +568,11 @@ const monthlyFeatures = [
   .eia-who-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: var(--spacing-5);
-    margin-bottom: var(--spacing-10);
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-6);
   }
   .eia-who-card {
-    padding: var(--spacing-6);
+    padding: var(--spacing-5);
     background: var(--color-bg);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
@@ -496,7 +583,7 @@ const monthlyFeatures = [
     transform: translateY(-4px);
     box-shadow: 0 12px 40px rgba(200, 146, 42, 0.1);
   }
-  .eia-who-emoji { font-size: 2rem; display: block; margin-bottom: var(--spacing-3); }
+  .eia-who-emoji { font-size: 2rem; display: block; margin-bottom: var(--spacing-2); }
   .eia-who-title {
     font-size: var(--font-size-base);
     font-weight: 700;
@@ -530,7 +617,7 @@ const monthlyFeatures = [
   .eia-step {
     flex: 1;
     text-align: center;
-    padding: var(--spacing-8) var(--spacing-6);
+    padding: var(--spacing-7) var(--spacing-5);
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
@@ -542,7 +629,7 @@ const monthlyFeatures = [
     opacity: 0.4;
     margin-top: -20px;
   }
-  .eia-step-icon { font-size: 2.5rem; display: block; margin-bottom: var(--spacing-4); }
+  .eia-step-icon { font-size: 2.5rem; display: block; margin-bottom: var(--spacing-3); }
   .eia-step-num {
     font-size: var(--font-size-xs);
     font-weight: 700;
@@ -555,7 +642,7 @@ const monthlyFeatures = [
     font-size: var(--font-size-lg);
     font-weight: 700;
     color: var(--color-text);
-    margin: 0 0 var(--spacing-3);
+    margin: 0 0 var(--spacing-2);
   }
   .eia-step-desc {
     font-size: var(--font-size-sm);
@@ -569,7 +656,7 @@ const monthlyFeatures = [
   .eia-features-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-4) var(--spacing-8);
+    gap: var(--spacing-3) var(--spacing-8);
   }
   .eia-feature-item {
     display: flex;
@@ -610,24 +697,18 @@ const monthlyFeatures = [
   .eia-table-criteria { font-weight: 600; color: var(--color-text); }
   .eia-table-ai { font-weight: 700; color: var(--color-accent); }
   .eia-table-note {
-    margin-top: var(--spacing-5);
+    margin-top: var(--spacing-4);
     font-size: var(--font-size-sm);
     color: var(--color-muted);
     line-height: 1.5;
     text-align: center;
   }
 
-  /* ── 6. PRICING ── */
+  /* ── 6. PRICING (una tarjeta) ── */
   .eia-pricing { background: var(--color-bg-subtle, var(--color-surface)); }
-  .eia-pricing-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-6);
-    margin-bottom: var(--spacing-8);
-  }
   .eia-price-card {
     position: relative;
-    padding: var(--spacing-8) var(--spacing-8) var(--spacing-8);
+    padding: var(--spacing-8);
     background: var(--color-bg);
     border: 1.5px solid var(--color-border);
     border-radius: var(--radius-xl);
@@ -635,8 +716,9 @@ const monthlyFeatures = [
     flex-direction: column;
     gap: var(--spacing-5);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
+    margin-bottom: var(--spacing-6);
   }
-  .eia-price-card:hover { transform: scale(1.02); box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08); }
+  .eia-price-card:hover { transform: scale(1.01); box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08); }
   .eia-price-card--featured {
     border-color: var(--color-accent);
     box-shadow: 0 4px 24px rgba(200, 146, 42, 0.15);
@@ -651,10 +733,31 @@ const monthlyFeatures = [
     border-radius: var(--radius-pill);
     width: fit-content;
   }
-  .eia-price-badge--muted { background: var(--color-surface); color: var(--color-text-secondary); }
   .eia-price-badge--accent { background: var(--color-accent-muted); color: var(--color-accent); }
+
+  /* Dual pricing display */
+  .eia-price-dual {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-6);
+    flex-wrap: wrap;
+  }
+  .eia-price-dual-item { display: flex; flex-direction: column; gap: var(--spacing-1); }
+  .eia-price-dual-label {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin: 0;
+    font-weight: 500;
+  }
+  .eia-price-plus {
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--color-accent);
+    opacity: 0.6;
+    line-height: 1;
+  }
   .eia-price-amount {
-    font-size: clamp(2.25rem, 4vw, 3rem);
+    font-size: clamp(2rem, 4vw, 2.75rem);
     font-weight: 800;
     color: var(--color-text);
     letter-spacing: -0.03em;
@@ -676,14 +779,28 @@ const monthlyFeatures = [
     line-height: 1.6;
     margin: 0;
   }
+
+  /* Two-column features inside card */
+  .eia-price-two-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-6);
+  }
+  .eia-price-col-label {
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    margin: 0 0 var(--spacing-3);
+  }
   .eia-price-features {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-3);
-    flex: 1;
+    gap: var(--spacing-2);
   }
   .eia-price-feature-item {
     display: flex;
@@ -696,7 +813,7 @@ const monthlyFeatures = [
   .eia-price-cta {
     display: block;
     text-align: center;
-    padding: 13px 24px;
+    padding: 14px 28px;
     border: 1.5px solid var(--color-border);
     color: var(--color-text);
     font-weight: 700;
@@ -704,7 +821,6 @@ const monthlyFeatures = [
     border-radius: var(--radius-pill);
     text-decoration: none;
     transition: border-color 0.2s, color 0.2s, background 0.2s;
-    margin-top: auto;
   }
   .eia-price-cta:hover { border-color: var(--color-accent); color: var(--color-accent); }
   .eia-price-cta--accent {
@@ -734,7 +850,7 @@ const monthlyFeatures = [
   .eia-faq-item[open] { border-color: var(--color-accent); }
   .eia-faq-q {
     list-style: none;
-    padding: var(--spacing-5) var(--spacing-6);
+    padding: var(--spacing-4) var(--spacing-6);
     cursor: pointer;
     font-size: var(--font-size-base);
     font-weight: 600;
@@ -765,7 +881,7 @@ const monthlyFeatures = [
   details[open] .eia-faq-body { grid-template-rows: 1fr; }
   .eia-faq-body-inner { overflow: hidden; }
   .eia-faq-a {
-    padding: 0 var(--spacing-6) var(--spacing-5);
+    padding: 0 var(--spacing-6) var(--spacing-4);
     font-size: var(--font-size-base);
     color: var(--color-text-secondary);
     line-height: 1.65;
@@ -774,7 +890,7 @@ const monthlyFeatures = [
 
   /* ── 8. FINAL CTA ── */
   .eia-final-cta {
-    padding: clamp(5rem, 10vw, 8rem) var(--spacing-6);
+    padding: clamp(4rem, 8vw, 6rem) var(--spacing-6);
     background: var(--tc-gradient-subtle);
     border-top: 1px solid var(--color-border-subtle);
     text-align: center;
@@ -786,13 +902,7 @@ const monthlyFeatures = [
     color: var(--color-text);
     letter-spacing: -0.03em;
     line-height: 1.2;
-    margin: 0 0 var(--spacing-5);
-  }
-  .eia-final-sub {
-    font-size: var(--font-size-lg);
-    color: var(--color-text-secondary);
-    line-height: 1.65;
-    margin: 0 0 var(--spacing-8);
+    margin: 0 0 var(--spacing-6);
   }
   .eia-final-btn {
     display: inline-block;
@@ -805,7 +915,7 @@ const monthlyFeatures = [
     text-decoration: none;
     animation: pulse-ring 2.8s ease-in-out infinite;
     transition: opacity 0.2s, transform 0.2s;
-    margin-bottom: var(--spacing-5);
+    margin-bottom: var(--spacing-4);
   }
   .eia-final-btn:hover { opacity: 0.9; transform: translateY(-2px); animation-play-state: paused; }
   @keyframes pulse-ring {
@@ -826,10 +936,11 @@ const monthlyFeatures = [
   @media (max-width: 768px) {
     .eia-steps { flex-direction: column; gap: var(--spacing-4); }
     .eia-step-connector { display: none; }
-    .eia-step { text-align: left; padding: var(--spacing-6); }
+    .eia-step { text-align: left; padding: var(--spacing-5); }
     .eia-step-icon { display: inline; font-size: 1.5rem; margin-right: var(--spacing-2); margin-bottom: 0; }
-    .eia-pricing-grid { grid-template-columns: 1fr; }
     .eia-who-grid { grid-template-columns: repeat(2, 1fr); }
+    .eia-price-two-cols { grid-template-columns: 1fr; }
+    .eia-price-dual { gap: var(--spacing-4); }
   }
   @media (max-width: 640px) {
     .eia-who-grid { grid-template-columns: 1fr; }
@@ -837,5 +948,9 @@ const monthlyFeatures = [
     .eia-hero-title { font-size: 2rem; }
     .eia-hero-ctas { flex-direction: column; align-items: center; }
     .eia-btn-primary, .eia-btn-secondary { width: 100%; text-align: center; }
+    .eia-quick-contact { flex-direction: column; align-items: center; }
+    .eia-quick-btn { width: 100%; justify-content: center; }
+    .eia-price-dual { flex-direction: column; gap: var(--spacing-3); }
+    .eia-price-plus { display: none; }
   }
 </style>
