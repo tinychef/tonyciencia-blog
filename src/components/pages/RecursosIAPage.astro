@@ -32,7 +32,7 @@ const resources: Resource[] = isEs
         badge: "Gratis",
         badgeType: "free",
         url: "/plantilla-n8n-ycloud-ghl",
-        icon: "⚡",
+        icon: "",
       },
     ]
   : [
@@ -44,7 +44,7 @@ const resources: Resource[] = isEs
         badge: "Free",
         badgeType: "free",
         url: "/plantilla-n8n-ycloud-ghl",
-        icon: "⚡",
+        icon: "",
       },
     ];
 ---
@@ -93,7 +93,7 @@ const resources: Resource[] = isEs
     <div class="resources-inner">
       {resources.length === 0 && (
         <div class="empty-state">
-          <p class="empty-icon">🚧</p>
+          <p class="empty-icon">—</p>
           <p>{isEs ? "Nuevos recursos próximamente." : "New resources coming soon."}</p>
         </div>
       )}
@@ -102,7 +102,11 @@ const resources: Resource[] = isEs
         {resources.map((r) => (
           <article class="resource-card">
             <div class="card-header">
-              <span class="card-icon">{r.icon}</span>
+              <div class="card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+              </div>
               <span class={`card-badge badge-${r.badgeType}`}>{r.badge}</span>
             </div>
             <h2 class="card-title">{r.title}</h2>
@@ -121,7 +125,11 @@ const resources: Resource[] = isEs
         <!-- Placeholder próximamente -->
         <article class="resource-card resource-card--coming">
           <div class="card-header">
-            <span class="card-icon">🔜</span>
+            <div class="card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
+            </div>
             <span class="card-badge badge-new">{isEs ? "Próximamente" : "Coming soon"}</span>
           </div>
           <h2 class="card-title">{isEs ? "Más recursos en camino" : "More resources on the way"}</h2>
