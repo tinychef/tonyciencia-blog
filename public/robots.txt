@@ -4,4 +4,22 @@ Disallow: /_emdash/
 Disallow: /search
 Disallow: /en/search
 
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Anthropic-ai
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
 Sitemap: https://tonyciencia.com/sitemap-index.xml

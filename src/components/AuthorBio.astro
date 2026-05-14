@@ -1,0 +1,102 @@
+---
+import type { ContentBylineCredit } from "emdash";
+
+interface Props {
+	bylines: ContentBylineCredit[];
+	locale?: string;
+}
+
+const { bylines, locale = "es" } = Astro.props;
+const headingText = locale === "en" ? "About the author" : "Sobre el autor";
+---
+
+{bylines.length > 0 && (
+	<section class="author-bio" aria-label={headingText}>
+		<h2 class="author-bio-heading">{headingText}</h2>
+		{bylines.map((credit) => (
+			<div class="author-bio-card">
+				{credit.byline.avatarMediaId && (
+					<img
+						src={`/_emdash/api/media/file/${credit.byline.avatarMediaId}`}
+						alt={credit.byline.displayName}
+						class="author-bio-avatar"
+						width="64" height="64" loading="lazy" decoding="async"
+					/>
+				)}
+				<div class="author-bio-info">
+					<strong class="author-bio-name">{credit.byline.displayName}</strong>
+					{credit.roleLabel && (
+						<span class="author-bio-role">{credit.roleLabel}</span>
+					)}
+					{credit.byline.bio && (
+						<p class="author-bio-text">{credit.byline.bio}</p>
+					)}
+				</div>
+			</div>
+		))}
+	</section>
+)}
+
+<style>
+	.author-bio {
+		margin-top: var(--spacing-12);
+		padding: var(--spacing-6);
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-lg);
+	}
+
+	.author-bio-heading {
+		font-size: var(--font-size-sm);
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: var(--tracking-wide);
+		color: var(--color-muted);
+		margin-bottom: var(--spacing-4);
+	}
+
+	.author-bio-card {
+		display: flex;
+		align-items: flex-start;
+		gap: var(--spacing-4);
+	}
+
+	.author-bio-card + .author-bio-card {
+		margin-top: var(--spacing-4);
+		padding-top: var(--spacing-4);
+		border-top: 1px solid var(--color-border-subtle);
+	}
+
+	.author-bio-avatar {
+		width: 64px;
+		height: 64px;
+		border-radius: 50%;
+		object-fit: cover;
+		flex-shrink: 0;
+	}
+
+	.author-bio-info {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-1);
+	}
+
+	.author-bio-name {
+		font-size: var(--font-size-lg);
+		font-weight: 600;
+		color: var(--color-text);
+	}
+
+	.author-bio-role {
+		font-size: var(--font-size-sm);
+		color: var(--color-accent);
+		font-weight: 500;
+	}
+
+	.author-bio-text {
+		font-size: var(--font-size-sm);
+		line-height: var(--leading-relaxed);
+		color: var(--color-text-secondary);
+		margin-top: var(--spacing-1);
+	}
+</style>

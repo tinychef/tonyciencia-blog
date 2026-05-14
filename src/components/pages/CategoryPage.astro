@@ -34,8 +34,8 @@ const postsRoute = locale === "en" ? "/en/posts" : "/posts";
 ---
 
 <Base title={`${term.label} — ${t("category.label")}`} description={`${t("category.label")}: ${term.label}`} breadcrumbs={[
-	{ name: locale === "en" ? "Blog" : "Blog", url: postsRoute },
-	{ name: term.label, url: `/category/${term.slug}` },
+	{ name: "Blog", url: postsRoute },
+	{ name: term.label, url: `${locale === "en" ? "/en/category" : "/category"}/${term.slug}` },
 ]}>
 	<section class="archive-section">
 		<header class="archive-header">

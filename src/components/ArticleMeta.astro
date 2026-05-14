@@ -1,0 +1,89 @@
+---
+interface Props {
+	publishedTime?: string | null;
+	modifiedTime?: string | null;
+	readingTime?: number;
+	locale?: string;
+}
+
+const { publishedTime, modifiedTime, readingTime, locale = "es" } = Astro.props;
+
+const headingText = locale === "en" ? "About this article" : "Sobre este artículo";
+const publishedLabel = locale === "en" ? "Published" : "Publicado";
+const updatedLabel = locale === "en" ? "Last updated" : "Última actualización";
+const readingLabel = locale === "en" ? "Reading time" : "Tiempo de lectura";
+
+function formatDate(iso: string, loc: string): string {
+	return new Date(iso).toLocaleDateString(loc === "en" ? "en-US" : "es-ES", {
+		year: "numeric",
+		month: "long",
+		day: "numeric",
+	});
+}
+---
+
+<section class="article-meta-box" aria-label={headingText}>
+	<h2 class="article-meta-heading">{headingText}</h2>
+	<dl class="article-meta-list">
+		{publishedTime && (
+			<div class="article-meta-row">
+				<dt>{publishedLabel}</dt>
+				<dd><time datetime={publishedTime}>{formatDate(publishedTime, locale)}</time></dd>
+			</div>
+		)}
+		{modifiedTime && (
+			<div class="article-meta-row">
+				<dt>{updatedLabel}</dt>
+				<dd><time datetime={modifiedTime}>{formatDate(modifiedTime, locale)}</time></dd>
+			</div>
+		)}
+		{readingTime && (
+			<div class="article-meta-row">
+				<dt>{readingLabel}</dt>
+				<dd>{readingTime} min</dd>
+			</div>
+		)}
+	</dl>
+</section>
+
+<style>
+	.article-meta-box {
+		margin-top: var(--spacing-8);
+		padding: var(--spacing-5) var(--spacing-6);
+		background: var(--color-bg-subtle);
+		border: 1px solid var(--color-border-subtle);
+		border-radius: var(--radius-lg);
+	}
+
+	.article-meta-heading {
+		font-size: var(--font-size-sm);
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: var(--tracking-wide);
+		color: var(--color-muted);
+		margin-bottom: var(--spacing-3);
+	}
+
+	.article-meta-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--spacing-4) var(--spacing-8);
+	}
+
+	.article-meta-row {
+		display: flex;
+		align-items: baseline;
+		gap: var(--spacing-2);
+	}
+
+	.article-meta-row dt {
+		font-size: var(--font-size-sm);
+		color: var(--color-muted);
+		font-weight: 500;
+	}
+
+	.article-meta-row dd {
+		font-size: var(--font-size-sm);
+		color: var(--color-text-secondary);
+	}
+</style>

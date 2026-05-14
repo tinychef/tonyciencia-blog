@@ -10,6 +10,7 @@ import { Font } from "astro:assets";
 import { resolveBlogSiteIdentity } from "../utils/site-identity";
 import { getLangFromUrl, getAlternateLocale, getLocalePath, useTranslations } from "../i18n/locales";
 import SchemaOrg from "../components/SchemaOrg.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
 import CookieConsent from "../components/CookieConsent.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/theme.css";
@@ -28,6 +29,7 @@ interface Props {
 	breadcrumbs?: Array<{ name: string; url: string }> | null;
 	schemaType?: string | null;
 	faqItems?: Array<{ question: string; answer: string }> | null;
+	readingTime?: number | null;
 	/** Pass content reference for plugin page contributions on content pages */
 	content?: { collection: string; id: string; slug?: string | null };
 }
@@ -46,6 +48,7 @@ const {
 	breadcrumbs,
 	schemaType,
 	faqItems,
+	readingTime,
 	content,
 } = Astro.props;
 const { siteTitle, siteFavicon } = resolveBlogSiteIdentity(await getSiteSettings());
@@ -107,12 +110,27 @@ const isLoggedIn = !!Astro.locals.user;
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
 		<meta property="og:image:alt" content={`${title} — Tony Ciencia`} />
+		<meta property="og:site_name" content="Tony Ciencia" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:site" content="@tonyciencia" />
+		<meta name="twitter:title" content={pageTitle ?? title} />
+		<meta name="twitter:description" content={description ?? ""} />
 		<meta name="twitter:image" content={image ?? `${Astro.site ?? Astro.url.origin}/assets/og-default.webp`} />
 		{siteFavicon && <link rel="icon" href={siteFavicon} />}
-		<SchemaOrg type={type} title={fullTitle} description={description} url={canonicalUrl} image={image} locale={locale} publishedTime={publishedTime} modifiedTime={modifiedTime} author={author} breadcrumbs={breadcrumbs} schemaType={schemaType} faqItems={faqItems} />
+		<SchemaOrg type={type} title={fullTitle} description={description} url={canonicalUrl} image={image} locale={locale} publishedTime={publishedTime} modifiedTime={modifiedTime} author={author} breadcrumbs={breadcrumbs} schemaType={schemaType} faqItems={faqItems} readingTime={readingTime} />
 		<EmDashHead page={pageCtx} />
+		<link rel="dns-prefetch" href="https://www.youtube.com" />
+		<link rel="dns-prefetch" href="https://www.linkedin.com" />
+		<link rel="dns-prefetch" href="https://cdn.instagram.com" />
+		<script type="speculationrules" set:html={JSON.stringify({
+			prerender: [{
+				where: { href_matches: "/posts/*" },
+				eagerness: "moderate"
+			}, {
+				where: { href_matches: "/en/posts/*" },
+				eagerness: "moderate"
+			}]
+		})} />
 		<script is:inline>
 			// Apply theme immediately to prevent flash
 			(function () {
@@ -133,8 +151,8 @@ const isLoggedIn = !!Astro.locals.user;
 		<header class="site-header">
 			<nav class="nav">
 				<a href="/" class="site-title" style="display: flex; align-items: center;">
-					<img src="/assets/logo-tonyciencia-negro.png" alt={siteTitle} class="site-logo-img logo-light" />
-					<img src="/assets/logo-tonyciencia-blanco.png" alt={siteTitle} class="site-logo-img logo-dark" aria-hidden="true" />
+					<img src="/assets/logo-tonyciencia-negro.png" alt={siteTitle} class="site-logo-img logo-light" width="140" height="36" />
+					<img src="/assets/logo-tonyciencia-blanco.png" alt={siteTitle} class="site-logo-img logo-dark" aria-hidden="true" width="140" height="36" />
 				</a>
 				<div class="nav-right">
 					<div class="nav-links">
@@ -186,6 +204,9 @@ const isLoggedIn = !!Astro.locals.user;
 			</div>
 		</div>
 
+		{breadcrumbs && breadcrumbs.length > 0 && (
+			<Breadcrumbs items={breadcrumbs} locale={locale} />
+		)}
 		<main id="main-content">
 			<slot />
 		</main>

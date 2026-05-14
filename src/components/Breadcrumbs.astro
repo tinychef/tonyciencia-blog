@@ -1,0 +1,91 @@
+---
+interface Crumb {
+	name: string;
+	url: string;
+}
+
+interface Props {
+	items: Crumb[];
+	locale?: string;
+}
+
+const { items, locale = "es" } = Astro.props;
+const homeLabel = locale === "en" ? "Home" : "Inicio";
+---
+
+<nav aria-label="Breadcrumb" class="breadcrumbs-nav">
+	<ol class="breadcrumbs-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+		<li class="breadcrumbs-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+			<a itemprop="item" href={locale === "en" ? "/en" : "/"}>
+				<span itemprop="name">{homeLabel}</span>
+			</a>
+			<meta itemprop="position" content="1" />
+		</li>
+		{items.map((crumb, idx) => (
+			<li class="breadcrumbs-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+				{idx < items.length - 1 ? (
+					<a itemprop="item" href={crumb.url}>
+						<span itemprop="name">{crumb.name}</span>
+					</a>
+				) : (
+					<span itemprop="name" aria-current="page">{crumb.name}</span>
+				)}
+				<meta itemprop="position" content={String(idx + 2)} />
+			</li>
+		))}
+	</ol>
+</nav>
+
+<style>
+	.breadcrumbs-nav {
+		max-width: var(--wide-width);
+		margin: 0 auto;
+		padding: var(--spacing-4) var(--spacing-6);
+	}
+
+	.breadcrumbs-list {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		font-size: var(--font-size-sm);
+	}
+
+	.breadcrumbs-item {
+		display: inline-flex;
+		align-items: center;
+		color: var(--color-muted);
+	}
+
+	.breadcrumbs-item + .breadcrumbs-item::before {
+		content: "\203A";
+		padding: 0 var(--spacing-2);
+		color: var(--color-muted);
+		font-size: var(--font-size-lg);
+		line-height: 1;
+	}
+
+	.breadcrumbs-item a {
+		color: var(--color-muted);
+		text-decoration: none;
+		transition: color var(--transition-fast);
+	}
+
+	.breadcrumbs-item a:hover {
+		color: var(--color-accent);
+	}
+
+	.breadcrumbs-item [aria-current="page"] {
+		color: var(--color-text-secondary);
+		font-weight: 500;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.breadcrumbs-item a {
+			transition: none;
+		}
+	}
+</style>

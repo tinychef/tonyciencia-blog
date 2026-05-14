@@ -12,9 +12,10 @@ interface Props {
 	breadcrumbs?: Array<{ name: string; url: string }> | null;
 	schemaType?: string | null;
 	faqItems?: Array<{ question: string; answer: string }> | null;
+	readingTime?: number | null;
 }
 
-const { type, title, description, url, image, locale, publishedTime, modifiedTime, author, breadcrumbs, schemaType, faqItems } = Astro.props;
+const { type, title, description, url, image, locale, publishedTime, modifiedTime, author, breadcrumbs, schemaType, faqItems, readingTime } = Astro.props;
 
 const siteUrl = Astro.url.origin;
 const SITE_AUTHOR_NAME = "Antonio Duque";
@@ -28,6 +29,7 @@ const SOCIAL_PROFILES = [
 const orgSchema = {
 	"@context": "https://schema.org",
 	"@type": ["Organization", "LocalBusiness"],
+	"@id": `${siteUrl}#organization`,
 	name: "Tony Ciencia LLC",
 	alternateName: "Tony Ciencia",
 	url: siteUrl,
@@ -39,6 +41,7 @@ const orgSchema = {
 	},
 	image: `${siteUrl}/assets/og-default.webp`,
 	description: "Educación en IA, automatización de negocios y transformación digital para emprendedores y empresas.",
+	slogan: "IA y automatización para emprendedores",
 	address: {
 		"@type": "PostalAddress",
 		addressLocality: "Albuquerque",
@@ -59,6 +62,7 @@ const orgSchema = {
 const websiteSchema = {
 	"@context": "https://schema.org",
 	"@type": "WebSite",
+	"@id": `${siteUrl}#website`,
 	name: "Tony Ciencia",
 	url: siteUrl,
 	inLanguage: locale === "en" ? "en" : "es",
@@ -80,7 +84,7 @@ const breadcrumbSchema =
 				"@context": "https://schema.org",
 				"@type": "BreadcrumbList",
 				itemListElement: [
-					{ "@type": "ListItem", position: 1, name: "Inicio", item: siteUrl },
+					{ "@type": "ListItem", position: 1, name: locale === "en" ? "Home" : "Inicio", item: siteUrl },
 					...breadcrumbs.map((crumb, idx) => ({
 						"@type": "ListItem",
 						position: idx + 2,
@@ -93,33 +97,71 @@ const breadcrumbSchema =
 
 const effectiveSchemaType = schemaType || (type === "article" ? "Article" : null);
 
-const articleSchema =
-	type === "article"
-		? {
-				"@context": "https://schema.org",
-				"@type": effectiveSchemaType === "HowTo" ? "HowTo" : "BlogPosting",
-				headline: title,
-				description: description || "",
-				url,
-				inLanguage: locale === "en" ? "en" : "es",
-				...(image ? { image } : { image: `${siteUrl}/assets/og-default.webp` }),
-				...(publishedTime && { datePublished: publishedTime }),
-				...(modifiedTime && { dateModified: modifiedTime }),
-				author: {
-					"@type": "Person",
-					name: author || SITE_AUTHOR_NAME,
-					url: `${siteUrl}${locale === "en" ? "/en/about" : "/about"}`,
-				},
-				publisher: {
-					"@type": "Organization",
-					name: "Tony Ciencia LLC",
-					logo: {
-						"@type": "ImageObject",
-						url: `${siteUrl}/assets/logo-tonyciencia-full.webp`,
-					},
-				},
-			}
-		: null;
+const authorPerson = {
+	"@type": "Person",
+	name: author || SITE_AUTHOR_NAME,
+	url: `${siteUrl}${locale === "en" ? "/en/about" : "/about"}`,
+	...(author ? {} : {
+		jobTitle: "AI Educator & Automation Specialist",
+		worksFor: { "@id": `${siteUrl}#organization` },
+		sameAs: SOCIAL_PROFILES,
+		knowsAbout: [
+			"Artificial Intelligence",
+			"Marketing Automation",
+			"n8n",
+			"ChatGPT",
+			"Meta Ads",
+			"Google Ads",
+		],
+	}),
+};
+
+function buildArticleSchema() {
+	if (type !== "article") return null;
+
+	const baseType = effectiveSchemaType === "HowTo" ? "HowTo"
+		: effectiveSchemaType === "LearningResource" ? "LearningResource"
+		: "BlogPosting";
+
+	const schema: Record<string, unknown> = {
+		"@context": "https://schema.org",
+		"@type": baseType,
+		headline: title,
+		description: description || "",
+		url,
+		inLanguage: locale === "en" ? "en" : "es",
+		...(image ? { image } : { image: `${siteUrl}/assets/og-default.webp` }),
+		...(publishedTime && { datePublished: publishedTime }),
+		...(modifiedTime && { dateModified: modifiedTime }),
+		author: authorPerson,
+		publisher: {
+			"@type": "Organization",
+			name: "Tony Ciencia LLC",
+			logo: {
+				"@type": "ImageObject",
+				url: `${siteUrl}/assets/logo-tonyciencia-full.webp`,
+			},
+		},
+		speakable: {
+			"@type": "SpeakableSpecification",
+			cssSelector: [".quick-answer", ".article-excerpt"],
+		},
+	};
+
+	if (readingTime) {
+		schema.timeRequired = `PT${readingTime}M`;
+	}
+
+	if (baseType === "LearningResource") {
+		schema.educationalLevel = "Intermediate";
+		schema.learningResourceType = "Article";
+		schema.isAccessibleForFree = true;
+	}
+
+	return schema;
+}
+
+const articleSchema = buildArticleSchema();
 
 const faqSchema =
 	faqItems && faqItems.length > 0

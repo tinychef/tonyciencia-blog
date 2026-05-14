@@ -16,6 +16,8 @@ import {
 } from "emdash/ui";
 import Base from "../../layouts/Base.astro";
 import PostCard from "../../components/PostCard.astro";
+import AuthorBio from "../../components/AuthorBio.astro";
+import ArticleMeta from "../../components/ArticleMeta.astro";
 import { getReadingTime } from "../../utils/reading-time";
 import { resolveBlogSiteIdentity } from "../../utils/site-identity";
 import { getLangFromUrl, useTranslations } from "../../i18n/locales";
@@ -191,13 +193,15 @@ const publishDate =
 	type="article"
 	publishedTime={post.data.publishedAt?.toISOString() ?? null}
 	modifiedTime={post.data.updatedAt.toISOString()}
+	author={bylines.length > 0 ? bylines[0].byline.displayName : null}
 	breadcrumbs={[
-		{ name: locale === "en" ? "Blog" : "Blog", url: locale === "en" ? "/en/posts" : "/posts" },
-		{ name: post.data.title, url: `/posts/${slug}` },
+		{ name: "Blog", url: locale === "en" ? "/en/posts" : "/posts" },
+		{ name: post.data.title, url: `${locale === "en" ? "/en/posts" : "/posts"}/${slug}` },
 	]}
 	content={{ collection: "posts", id: post.data.id, slug }}
 	schemaType={post.data.schema_type || (faqItems.length > 0 ? "BlogPosting" : undefined)}
 	faqItems={faqItems.length > 0 ? faqItems : undefined}
+	readingTime={readingTime}
 >
 	<div class="reading-progress" id="reading-progress"></div>
 	<button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top">
@@ -336,6 +340,9 @@ const publishDate =
 				<div class="article-content">
 					<PortableText value={post.data.content} />
 				</div>
+
+				<ArticleMeta publishedTime={post.data.publishedAt?.toISOString() ?? null} modifiedTime={post.data.updatedAt.toISOString()} readingTime={readingTime} locale={locale} />
+				<AuthorBio bylines={bylines} locale={locale} />
 
 				<div class="article-comments">
 					<Comments collection="posts" contentId={post.data.id} threaded />
