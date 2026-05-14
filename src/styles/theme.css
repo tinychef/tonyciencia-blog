@@ -22,6 +22,11 @@
 	--color-text-secondary: #52524e;
 	--color-muted: #8a8a86;
 
+	/* Semantic states */
+	--color-success: #22c55e;
+	--color-warning: #f59e0b;
+	--color-error: #ef4444;
+
 	/* Brand gradients */
 	--tc-gradient: linear-gradient(135deg, #e0a832 0%, #c8922a 50%, #b07a1e 100%);
 	--tc-gradient-subtle: linear-gradient(135deg, rgba(200, 146, 42, 0.08) 0%, rgba(224, 168, 50, 0.04) 100%);
@@ -46,15 +51,27 @@
 	/* Transitions */
 	--transition-slow: 400ms ease;
 
+	/* Shadows */
+	--shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+	--shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+	--shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12);
+
 	/* Marquee / carousel */
 	--marquee-gap: 3rem;
 	--marquee-speed: 40s;
 
 	/* Glow orbs */
 	--orb-color: var(--color-accent);
+
+	/* Extended spacing for large sections */
+	--spacing-32: 8rem;
+	--spacing-40: 10rem;
+
+	/* Color scheme hint for native form controls */
+	color-scheme: light dark;
 }
 
-/* ─── Dark Mode (system pref) ─────────────────── */
+/* ─── Dark Mode (system preference) ────────────── */
 @media (prefers-color-scheme: dark) {
 	:root:not(.light) {
 		--color-bg: #09090b;
@@ -76,7 +93,7 @@
 	}
 }
 
-/* ─── Dark Mode (explicit class) ──────────────── */
+/* ─── Dark Mode (explicit class toggle) ────────── */
 :root.dark {
 	--color-bg: #09090b;
 	--color-bg-subtle: #111113;
@@ -94,90 +111,4 @@
 
 	--glass-bg: rgba(9, 9, 11, 0.72);
 	--glass-border: rgba(39, 39, 42, 0.5);
-}
-
-/* ─── Core Values & Testimonials ──────────────── */
-.values-section, .testimonials-section {
-	padding: 6rem 0;
-	background: var(--color-bg);
-}
-
-.values-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-	gap: 2rem;
-	margin-top: 3rem;
-}
-
-.value-item {
-	display: flex;
-	align-items: flex-start;
-	gap: 1rem;
-	padding: 1.5rem;
-	background: var(--color-surface);
-	border: 1px solid var(--color-border);
-	border-radius: var(--radius-lg);
-	transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.value-item:hover {
-	transform: translateY(-2px);
-	border-color: var(--color-border-subtle);
-}
-
-.value-icon {
-	color: var(--color-accent);
-	flex-shrink: 0;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 40px;
-	height: 40px;
-	background: var(--color-accent-muted);
-	border-radius: 50%;
-}
-
-.value-title {
-	font-size: 1.1rem;
-	font-weight: 600;
-	line-height: 1.4;
-	color: var(--color-text);
-	margin: 0;
-	padding-top: 0.5rem;
-}
-
-.testimonials-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-	gap: 2rem;
-	margin-top: 3rem;
-}
-
-.testimonial-card {
-	padding: 2rem;
-	background: var(--color-surface);
-	border: 1px solid var(--color-border);
-	border-radius: var(--radius-lg);
-	position: relative;
-}
-
-.testimonial-card::before {
-	content: '"';
-	position: absolute;
-	top: -10px;
-	left: 15px;
-	font-size: 4rem;
-	color: var(--color-accent-muted);
-	font-family: serif;
-	line-height: 1;
-}
-
-.testimonial-quote {
-	font-size: 1rem;
-	line-height: 1.6;
-	color: var(--color-text-secondary);
-	margin: 0;
-	position: relative;
-	z-index: 1;
-	font-style: italic;
 }

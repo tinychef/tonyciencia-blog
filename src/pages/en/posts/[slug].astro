@@ -74,12 +74,80 @@ const readingTime = getReadingTime(post.data.content);
 const translationSlug = post.data.translation_of;
 
 // Get other posts for "More posts" section
-const { entries: recentPosts } = await getEmDashCollection("posts", {
-	orderBy: { published_at: "desc" },
-	limit: 4,
-	locale: "en",
-});
-const otherPosts = recentPosts.filter((p) => p.id !== post.id).slice(0, 3);
+// Strategy: shared categories first, then shared tags, then recent posts
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let relatedPosts: any[] = [];
+
+const postCategories = await getEntryTerms("posts", post.data.id, "category");
+for (const cat of postCategories) {
+	const { entries: catPosts } = await getEmDashCollection("posts", {
+		where: { category: cat.slug },
+		orderBy: { published_at: "desc" },
+		limit: 6,
+		locale: "en",
+	});
+	for (const cp of catPosts) {
+		if (cp.id !== post.id && !relatedPosts.find((r) => r.id === cp.id)) {
+			relatedPosts.push(cp);
+		}
+		if (relatedPosts.length >= 4) break;
+	}
+	if (relatedPosts.length >= 4) break;
+}
+
+if (relatedPosts.length < 4 && tags.length > 0) {
+	for (const tag of tags) {
+		const { entries: tagPosts } = await getEmDashCollection("posts", {
+			where: { tag: tag.slug },
+			orderBy: { published_at: "desc" },
+			limit: 6,
+			locale: "en",
+		});
+		for (const tp of tagPosts) {
+			if (tp.id !== post.id && !relatedPosts.find((r) => r.id === tp.id)) {
+				relatedPosts.push(tp);
+			}
+			if (relatedPosts.length >= 4) break;
+		}
+		if (relatedPosts.length >= 4) break;
+	}
+}
+
+if (relatedPosts.length < 4) {
+	const { entries: recentPosts } = await getEmDashCollection("posts", {
+		orderBy: { published_at: "desc" },
+		limit: 8,
+		locale: "en",
+	});
+	for (const rp of recentPosts) {
+		if (rp.id !== post.id && !relatedPosts.find((r) => r.id === rp.id)) {
+			relatedPosts.push(rp);
+		}
+		if (relatedPosts.length >= 4) break;
+	}
+}
+const otherPosts = relatedPosts.slice(0, 4);
+
+// Extract FAQ items from post data for FAQPage schema
+function extractFaqItems(faqData: unknown): Array<{ question: string; answer: string }> {
+	if (!faqData || !Array.isArray(faqData)) return [];
+	const items: Array<{ question: string; answer: string }> = [];
+	const blocks = faqData as Array<{ _type: string; style?: string; children?: Array<{ text?: string }> }>;
+	for (let i = 0; i < blocks.length; i++) {
+		const block = blocks[i];
+		if (block._type === "block" && block.style === "h3") {
+			const question = block.children?.map((c) => c.text ?? "").join("") ?? "";
+			const nextBlock = blocks[i + 1];
+			const answer = nextBlock?.children?.map((c) => c.text ?? "").join("") ?? "";
+			if (question && answer) {
+				items.push({ question, answer });
+				i++;
+			}
+		}
+	}
+	return items;
+}
+const faqItems = extractFaqItems(post.data.faq_items);
 
 const otherPostsWithTags = await Promise.all(
 	otherPosts.map(async (p) => {
@@ -107,7 +175,13 @@ const publishDate =
 	type="article"
 	publishedTime={post.data.publishedAt?.toISOString() ?? null}
 	modifiedTime={post.data.updatedAt.toISOString()}
+	breadcrumbs={[
+		{ name: "Blog", url: "/en/posts" },
+		{ name: post.data.title, url: `/en/posts/${slug}` },
+	]}
 	content={{ collection: "posts", id: post.data.id, slug }}
+	schemaType={post.data.schema_type || (faqItems.length > 0 ? "BlogPosting" : undefined)}
+	faqItems={faqItems.length > 0 ? faqItems : undefined}
 >
 	<article class="article">
 		{

@@ -30,18 +30,25 @@ const hasMorePosts = sortedPosts.length > totalShown;
 
 let featuredTags: Array<{ slug: string; label: string }> = [];
 const featuredBylines = featuredPost?.data.bylines ?? [];
-if (featuredPost) {
-	const tags = await getEntryTerms("posts", featuredPost.data.id, "tag");
-	featuredTags = tags.map((t) => ({ slug: t.slug, label: t.label }));
-}
 
-const gridPostsWithTags = await Promise.all(
-	gridPosts.map(async (post) => {
+const allPostsToFetch = [
+	...(featuredPost ? [{ post: featuredPost, isFeatured: true }] : []),
+	...gridPosts.map((p) => ({ post: p, isFeatured: false })),
+];
+
+const allPostTags = await Promise.all(
+	allPostsToFetch.map(async ({ post, isFeatured }) => {
 		const tags = await getEntryTerms("posts", post.data.id, "tag");
-		const bylines = post.data.bylines ?? [];
-		return { post, tags: tags.map((t) => ({ slug: t.slug, label: t.label })), bylines };
+		return { post, isFeatured, tags: tags.map((t) => ({ slug: t.slug, label: t.label })), bylines: post.data.bylines ?? [] };
 	})
 );
+
+if (featuredPost) {
+	const featured = allPostTags.find((p) => p.isFeatured);
+	if (featured) featuredTags = featured.tags;
+}
+
+const gridPostsWithTags = allPostTags.filter((p) => !p.isFeatured);
 
 function formatDate(date: Date | null | undefined) {
 	if (!date) return null;
@@ -341,7 +348,164 @@ const contactRoute = locale === "en" ? "/en/contact" : "/contacto";
 	</section>
 </Base>
 
+<script>
+	// 4.1 Scroll-reveal animations
+	(function () {
+		const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+		const sections = document.querySelectorAll(".services-section, .values-section, .testimonials-section, .blog-preview-section, .cta-section");
+		sections.forEach((s) => s.classList.add("reveal-section"));
+
+		if (prefersReduced) {
+			sections.forEach((s) => s.classList.add("is-visible"));
+			return;
+		}
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add("is-visible");
+						observer.unobserve(entry.target);
+					}
+				});
+			},
+			{ threshold: 0.1 }
+		);
+		sections.forEach((s) => observer.observe(s));
+	})();
+
+	// 4.4 Stats counter animation
+	(function () {
+		const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+		const stats = document.querySelectorAll(".stat-number");
+		if (stats.length === 0) return;
+
+		function animateCounter(el: Element) {
+			const text = el.textContent || "";
+			const match = text.match(/(\d+)/);
+			if (!match) return;
+			const target = parseInt(match[1], 10);
+			const prefix = text.slice(0, text.indexOf(match[1]));
+			const suffix = text.slice(text.indexOf(match[1]) + match[1].length);
+			const duration = 1500;
+			const start = performance.now();
+
+			function step(now: number) {
+				const elapsed = now - start;
+				const progress = Math.min(elapsed / duration, 1);
+				const eased = 1 - Math.pow(1 - progress, 3);
+				const current = Math.round(eased * target);
+				el.textContent = prefix + current + suffix;
+				if (progress < 1) requestAnimationFrame(step);
+				else el.textContent = text;
+			}
+			requestAnimationFrame(step);
+		}
+
+		if (prefersReduced) return;
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						animateCounter(entry.target);
+						observer.unobserve(entry.target);
+					}
+				});
+			},
+			{ threshold: 0.5 }
+		);
+		stats.forEach((s) => observer.observe(s));
+	})();
+</script>
+
 <style>
+	/* ── Values & Testimonials (moved from theme.css) ──── */
+	.values-section, .testimonials-section {
+		padding: 6rem 0;
+		background: var(--color-bg);
+	}
+
+	.values-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 2rem;
+		margin-top: 3rem;
+	}
+
+	.value-item {
+		display: flex;
+		align-items: flex-start;
+		gap: 1rem;
+		padding: 1.5rem;
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-lg);
+		transition: transform 0.2s ease, border-color 0.2s ease;
+	}
+
+	.value-item:hover {
+		transform: translateY(-2px);
+		border-color: var(--color-border-subtle);
+	}
+
+	.value-icon {
+		color: var(--color-accent);
+		flex-shrink: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		background: var(--color-accent-muted);
+		border-radius: 50%;
+	}
+
+	.value-title {
+		font-size: 1.1rem;
+		font-weight: 600;
+		line-height: 1.4;
+		color: var(--color-text);
+		margin: 0;
+		padding-top: 0.5rem;
+	}
+
+	.testimonials-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+		margin-top: 3rem;
+	}
+
+	.testimonial-card {
+		padding: 2rem;
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-lg);
+		position: relative;
+	}
+
+	.testimonial-card::before {
+		content: '"';
+		position: absolute;
+		top: -10px;
+		left: 15px;
+		font-size: 4rem;
+		color: var(--color-accent-muted);
+		font-family: serif;
+		line-height: 1;
+	}
+
+	.testimonial-quote {
+		font-size: 1rem;
+		line-height: 1.6;
+		color: var(--color-text-secondary);
+		margin: 0;
+		position: relative;
+		z-index: 1;
+		font-style: italic;
+	}
+
 	/* ── HERO ─────────────────────────────────────────────── */
 	.hero {
 		position: relative;
@@ -385,6 +549,12 @@ const contactRoute = locale === "en" ? "/en/contact" : "/contacto";
 	@keyframes orb-float {
 		from { transform: translate(0, 0) scale(1); }
 		to { transform: translate(20px, -20px) scale(1.05); }
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.hero-orb {
+			animation: none;
+		}
 	}
 
 	/* Dot grid pattern */
@@ -974,5 +1144,25 @@ const contactRoute = locale === "en" ? "/en/contact" : "/contacto";
 		.stat-divider { width: 40px; height: 1px; }
 		.blog-preview-section .section-header { flex-direction: column; align-items: flex-start; gap: var(--spacing-4); }
 		.grid-posts { grid-template-columns: 1fr; }
+	}
+
+	/* ── Scroll Reveal ────────────────────────────── */
+	.reveal-section {
+		opacity: 0;
+		transform: translateY(20px);
+		transition: opacity 0.6s ease, transform 0.6s ease;
+	}
+
+	.reveal-section.is-visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.reveal-section {
+			opacity: 1;
+			transform: none;
+			transition: none;
+		}
 	}
 </style>
