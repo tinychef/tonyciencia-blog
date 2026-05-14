@@ -136,11 +136,6 @@ const isLoggedIn = !!Astro.locals.user;
 					<img src="/assets/logo-tonyciencia-negro.png" alt={siteTitle} class="site-logo-img logo-light" />
 					<img src="/assets/logo-tonyciencia-blanco.png" alt={siteTitle} class="site-logo-img logo-dark" aria-hidden="true" />
 				</a>
-				<button type="button" class="nav-burger" aria-label={t("nav.menu") || "Menu"} aria-expanded="false" aria-controls="mobile-menu">
-					<span class="burger-line"></span>
-					<span class="burger-line"></span>
-					<span class="burger-line"></span>
-				</button>
 				<div class="nav-right">
 					<div class="nav-links">
 						<a href={locale === "en" ? "/en/posts" : "/posts"}>{t("nav.blog")}</a>
@@ -154,6 +149,11 @@ const isLoggedIn = !!Astro.locals.user;
 							<svg class="moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
 						</button>
 					</div>
+					<button type="button" class="nav-burger" aria-label={t("nav.menu") || "Menu"} aria-expanded="false" aria-controls="mobile-menu">
+						<span class="burger-line"></span>
+						<span class="burger-line"></span>
+						<span class="burger-line"></span>
+					</button>
 					{
 						isLoggedIn && (
 							<a href="/_emdash/admin" class="nav-admin">
@@ -951,10 +951,6 @@ const isLoggedIn = !!Astro.locals.user;
 					padding: var(--spacing-3) var(--spacing-4);
 				}
 
-				.nav-burger {
-					display: flex;
-				}
-
 				.site-title {
 					font-size: var(--font-size-base);
 				}
@@ -962,7 +958,7 @@ const isLoggedIn = !!Astro.locals.user;
 				.nav-right {
 					display: flex;
 					align-items: center;
-					gap: var(--spacing-3);
+					gap: var(--spacing-2);
 				}
 
 				.nav-links {
@@ -977,8 +973,8 @@ const isLoggedIn = !!Astro.locals.user;
 					display: none;
 				}
 
-				.theme-switcher {
-					display: none;
+				.nav-burger {
+					display: flex;
 				}
 
 				.mobile-menu {
