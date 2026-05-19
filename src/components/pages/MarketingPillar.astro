@@ -1,0 +1,120 @@
+---
+import Base from "../../layouts/Base.astro";
+import PostCard from "../../components/PostCard.astro";
+import { getEmDashCollection, getEntryTerms } from "emdash";
+import { getReadingTime } from "../../utils/reading-time";
+import { getLangFromUrl, useTranslations } from "../../i18n/locales";
+
+const locale = getLangFromUrl(Astro.url);
+const t = useTranslations(locale);
+
+Astro.cache.set({ maxAge: 1800 });
+
+const { entries: posts, cacheHint } = await getEmDashCollection("posts", {
+	where: { category: "negocios" },
+	orderBy: { published_at: "desc" },
+	locale,
+});
+Astro.cache.set(cacheHint);
+
+const postsWithTags = await Promise.all(
+	posts.map(async (post) => {
+		const tags = await getEntryTerms("posts", post.data.id, "tag");
+		return { post, tags };
+	})
+);
+
+const postsRoute = locale === "en" ? "/en/posts" : "/posts";
+
+const title = locale === "en" ? "Digital Marketing & Business — Tony Ciencia" : "Marketing Digital y Negocios — Tony Ciencia";
+const description = locale === "en"
+	? "Digital marketing strategies for 2026: Google Ads, Meta Ads, first-party data, Click-to-WhatsApp campaigns, Demand Gen, and ROI-focused tactics for Latin American markets."
+	: "Estrategias de marketing digital para 2026: Google Ads, Meta Ads, datos propios, campañas Click-to-WhatsApp, Demand Gen y tácticas enfocadas en ROI para mercados latinoamericanos.";
+
+const faqItems = locale === "en" ? [
+	{ question: "What digital marketing channels work best in LATAM?", answer: "In Latin America, WhatsApp, Instagram Reels, and Google Search dominate. Click-to-WhatsApp ads on Meta generate the lowest CPLs, while Demand Gen on Google reaches YouTube, Gmail, and Discover audiences." },
+	{ question: "How important is first-party data in 2026?", answer: "Critical. With third-party cookies disappearing, advertisers with solid first-party data infrastructure (CAPI, CRM integration, Customer Match) have a measurable competitive advantage in targeting and attribution." },
+	{ question: "What is Demand Gen in Google Ads?", answer: "Demand Gen replaced Video Action Campaigns (VAC) in 2025. It covers YouTube Shorts, In-Stream, In-Feed, Gmail, and Discover with AI-powered creative generation and Target CPC bidding." },
+] : [
+	{ question: "Qué canales de marketing digital funcionan mejor en LATAM?", answer: "En Latinoamérica, WhatsApp, Instagram Reels y Google Search dominan. Los anuncios Click-to-WhatsApp en Meta generan los CPLs más bajos, mientras que Demand Gen en Google alcanza audiencias de YouTube, Gmail y Discover." },
+	{ question: "Qué tan importantes son los datos propios en 2026?", answer: "Críticos. Con la desaparición de cookies de terceros, los anunciantes con infraestructura sólida de first-party data (CAPI, integración de CRM, Customer Match) tienen una ventaja competitiva medible en targeting y atribución." },
+	{ question: "Qué es Demand Gen en Google Ads?", answer: "Demand Gen reemplazó a las Video Action Campaigns (VAC) en 2025. Cubre YouTube Shorts, In-Stream, In-Feed, Gmail y Discover con generación de creativos con IA y puja Target CPC." },
+];
+---
+
+<Base title={title} description={description} schemaType="FAQPage" faqItems={faqItems} breadcrumbs={[
+	{ name: locale === "en" ? "Digital Marketing" : "Marketing Digital", url: locale === "en" ? "/en/marketing-digital" : "/marketing-digital" },
+]}>
+	<section class="pillar-hero">
+		<div class="pillar-hero-inner">
+			<span class="pillar-label">{locale === "en" ? "Topic Hub" : "Hub Temático"}</span>
+			<h1 class="pillar-title">
+				{locale === "en" ? "Digital Marketing &" : "Marketing Digital y"}
+				<span class="title-gradient">{locale === "en" ? "Growth" : "Crecimiento"}</span>
+			</h1>
+			<p class="pillar-subtitle">{description}</p>
+		</div>
+	</section>
+
+	<section class="pillar-posts">
+		<div class="pillar-posts-inner">
+			<h2 class="section-title">{locale === "en" ? "All articles on digital marketing" : "Todos los artículos sobre marketing digital"}</h2>
+			{postsWithTags.length === 0 ? (
+				<p class="no-posts">{t("blog.noPostsYet")}</p>
+			) : (
+				<div class="posts-grid">
+					{postsWithTags.map(({ post, tags }) => (
+						<PostCard
+							title={post.data.title}
+							excerpt={post.data.excerpt}
+							featuredImage={post.data.featured_image}
+							href={`${postsRoute}/${post.id}`}
+							date={post.data.publishedAt ?? undefined}
+							readingTime={getReadingTime(post.data.content)}
+							tags={tags.map((tag) => ({ slug: tag.slug, label: tag.label }))}
+						/>
+					))}
+				</div>
+			)}
+		</div>
+	</section>
+
+	<section class="pillar-faq">
+		<div class="pillar-faq-inner">
+			<h2 class="section-title">{locale === "en" ? "Frequently asked questions" : "Preguntas frecuentes"}</h2>
+			<div class="faq-list">
+				{faqItems.map((item) => (
+					<div class="faq-item">
+						<h3 class="faq-question">{item.question}</h3>
+						<p class="faq-answer">{item.answer}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+</Base>
+
+<style>
+	.pillar-hero { padding: clamp(4rem, 8vw, 7rem) var(--spacing-6) clamp(3rem, 6vw, 5rem); background: var(--color-bg); border-bottom: 1px solid var(--color-border-subtle); }
+	.pillar-hero-inner { max-width: var(--wide-width); margin: 0 auto; }
+	.pillar-label { display: inline-block; font-size: var(--font-size-xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-accent); margin-bottom: var(--spacing-4); padding: 4px 12px; background: var(--color-accent-muted); border-radius: var(--radius-pill); }
+	.pillar-title { font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.12; color: var(--color-text); margin: 0 0 var(--spacing-6); }
+	.title-gradient { background: var(--tc-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+	.pillar-subtitle { font-size: var(--font-size-lg); color: var(--color-text-secondary); line-height: 1.7; max-width: 640px; margin: 0; }
+
+	.pillar-posts { padding: clamp(4rem, 7vw, 6rem) var(--spacing-6); }
+	.pillar-posts-inner { max-width: var(--wide-width); margin: 0 auto; }
+	.section-title { font-size: var(--font-size-2xl); font-weight: 700; color: var(--color-text); margin: 0 0 var(--spacing-8); }
+	.posts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-8); }
+	.no-posts { color: var(--color-muted); }
+
+	.pillar-faq { padding: clamp(4rem, 7vw, 6rem) var(--spacing-6); background: var(--color-bg-subtle); border-top: 1px solid var(--color-border-subtle); }
+	.pillar-faq-inner { max-width: 720px; margin: 0 auto; }
+	.faq-list { display: flex; flex-direction: column; gap: var(--spacing-6); }
+	.faq-item { padding: var(--spacing-6); background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-lg); }
+	.faq-question { font-size: var(--font-size-lg); font-weight: 600; color: var(--color-text); margin: 0 0 var(--spacing-3); }
+	.faq-answer { font-size: var(--font-size-base); color: var(--color-text-secondary); line-height: 1.65; margin: 0; }
+
+	@media (max-width: 900px) { .posts-grid { grid-template-columns: repeat(2, 1fr); } }
+	@media (max-width: 600px) { .posts-grid { grid-template-columns: 1fr; } }
+</style>

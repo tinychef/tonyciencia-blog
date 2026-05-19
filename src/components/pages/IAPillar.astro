@@ -1,0 +1,120 @@
+---
+import Base from "../../layouts/Base.astro";
+import PostCard from "../../components/PostCard.astro";
+import { getEmDashCollection, getEntryTerms } from "emdash";
+import { getReadingTime } from "../../utils/reading-time";
+import { getLangFromUrl, useTranslations } from "../../i18n/locales";
+
+const locale = getLangFromUrl(Astro.url);
+const t = useTranslations(locale);
+
+Astro.cache.set({ maxAge: 1800 });
+
+const { entries: posts, cacheHint } = await getEmDashCollection("posts", {
+	where: { category: "ia" },
+	orderBy: { published_at: "desc" },
+	locale,
+});
+Astro.cache.set(cacheHint);
+
+const postsWithTags = await Promise.all(
+	posts.map(async (post) => {
+		const tags = await getEntryTerms("posts", post.data.id, "tag");
+		return { post, tags };
+	})
+);
+
+const postsRoute = locale === "en" ? "/en/posts" : "/posts";
+
+const title = locale === "en" ? "Artificial Intelligence — Tony Ciencia" : "Inteligencia Artificial — Tony Ciencia";
+const description = locale === "en"
+	? "Everything about AI for business: ChatGPT workflows, AI-powered ads, Google AI Overviews, Claude, MCP, and practical strategies for leveraging artificial intelligence in 2026."
+	: "Todo sobre IA para negocios: flujos de trabajo con ChatGPT, anuncios con IA, Google AI Overviews, Claude, MCP y estrategias prácticas para aprovechar la inteligencia artificial en 2026.";
+
+const faqItems = locale === "en" ? [
+	{ question: "How can AI help my business?", answer: "AI can automate lead qualification, customer support, content generation, competitive analysis, and report creation. The key is integrating AI into your existing workflows rather than using it as a standalone tool." },
+	{ question: "Do I need technical skills to use AI?", answer: "Not necessarily. Tools like n8n, ChatGPT API, and no-code platforms allow non-technical users to build AI-powered workflows. Basic prompt engineering and workflow design are the main skills needed." },
+	{ question: "What AI tools should I start with?", answer: "Start with ChatGPT or Claude for content and analysis, n8n for workflow automation, and Meta/Google AI features for advertising. These cover the most common business use cases with the lowest learning curve." },
+] : [
+	{ question: "Cómo puede la IA ayudar a mi negocio?", answer: "La IA puede automatizar calificación de leads, soporte al cliente, generación de contenido, análisis competitivo y creación de reportes. La clave es integrar la IA en tus flujos existentes en lugar de usarla como herramienta aislada." },
+	{ question: "Necesito habilidades técnicas para usar IA?", answer: "No necesariamente. Herramientas como n8n, la API de ChatGPT y plataformas no-code permiten a usuarios sin conocimientos técnicos construir flujos potenciados por IA. El diseño de prompts y workflows son las habilidades principales." },
+	{ question: "Con qué herramientas de IA debería empezar?", answer: "Empieza con ChatGPT o Claude para contenido y análisis, n8n para automatización de workflows, y las funciones de IA de Meta/Google para publicidad. Estas cubren los casos de uso más comunes con la curva de aprendizaje más baja." },
+];
+---
+
+<Base title={title} description={description} schemaType="FAQPage" faqItems={faqItems} breadcrumbs={[
+	{ name: locale === "en" ? "Artificial Intelligence" : "Inteligencia Artificial", url: locale === "en" ? "/en/inteligencia-artificial" : "/inteligencia-artificial" },
+]}>
+	<section class="pillar-hero">
+		<div class="pillar-hero-inner">
+			<span class="pillar-label">{locale === "en" ? "Topic Hub" : "Hub Temático"}</span>
+			<h1 class="pillar-title">
+				{locale === "en" ? "Artificial Intelligence for" : "Inteligencia Artificial para"}
+				<span class="title-gradient">{locale === "en" ? "Business" : "Negocios"}</span>
+			</h1>
+			<p class="pillar-subtitle">{description}</p>
+		</div>
+	</section>
+
+	<section class="pillar-posts">
+		<div class="pillar-posts-inner">
+			<h2 class="section-title">{locale === "en" ? "All articles on AI" : "Todos los artículos sobre IA"}</h2>
+			{postsWithTags.length === 0 ? (
+				<p class="no-posts">{t("blog.noPostsYet")}</p>
+			) : (
+				<div class="posts-grid">
+					{postsWithTags.map(({ post, tags }) => (
+						<PostCard
+							title={post.data.title}
+							excerpt={post.data.excerpt}
+							featuredImage={post.data.featured_image}
+							href={`${postsRoute}/${post.id}`}
+							date={post.data.publishedAt ?? undefined}
+							readingTime={getReadingTime(post.data.content)}
+							tags={tags.map((tag) => ({ slug: tag.slug, label: tag.label }))}
+						/>
+					))}
+				</div>
+			)}
+		</div>
+	</section>
+
+	<section class="pillar-faq">
+		<div class="pillar-faq-inner">
+			<h2 class="section-title">{locale === "en" ? "Frequently asked questions" : "Preguntas frecuentes"}</h2>
+			<div class="faq-list">
+				{faqItems.map((item) => (
+					<div class="faq-item">
+						<h3 class="faq-question">{item.question}</h3>
+						<p class="faq-answer">{item.answer}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+</Base>
+
+<style>
+	.pillar-hero { padding: clamp(4rem, 8vw, 7rem) var(--spacing-6) clamp(3rem, 6vw, 5rem); background: var(--color-bg); border-bottom: 1px solid var(--color-border-subtle); }
+	.pillar-hero-inner { max-width: var(--wide-width); margin: 0 auto; }
+	.pillar-label { display: inline-block; font-size: var(--font-size-xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-accent); margin-bottom: var(--spacing-4); padding: 4px 12px; background: var(--color-accent-muted); border-radius: var(--radius-pill); }
+	.pillar-title { font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.12; color: var(--color-text); margin: 0 0 var(--spacing-6); }
+	.title-gradient { background: var(--tc-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+	.pillar-subtitle { font-size: var(--font-size-lg); color: var(--color-text-secondary); line-height: 1.7; max-width: 640px; margin: 0; }
+
+	.pillar-posts { padding: clamp(4rem, 7vw, 6rem) var(--spacing-6); }
+	.pillar-posts-inner { max-width: var(--wide-width); margin: 0 auto; }
+	.section-title { font-size: var(--font-size-2xl); font-weight: 700; color: var(--color-text); margin: 0 0 var(--spacing-8); }
+	.posts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-8); }
+	.no-posts { color: var(--color-muted); }
+
+	.pillar-faq { padding: clamp(4rem, 7vw, 6rem) var(--spacing-6); background: var(--color-bg-subtle); border-top: 1px solid var(--color-border-subtle); }
+	.pillar-faq-inner { max-width: 720px; margin: 0 auto; }
+	.faq-list { display: flex; flex-direction: column; gap: var(--spacing-6); }
+	.faq-item { padding: var(--spacing-6); background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-lg); }
+	.faq-question { font-size: var(--font-size-lg); font-weight: 600; color: var(--color-text); margin: 0 0 var(--spacing-3); }
+	.faq-answer { font-size: var(--font-size-base); color: var(--color-text-secondary); line-height: 1.65; margin: 0; }
+
+	@media (max-width: 900px) { .posts-grid { grid-template-columns: repeat(2, 1fr); } }
+	@media (max-width: 600px) { .posts-grid { grid-template-columns: 1fr; } }
+</style>

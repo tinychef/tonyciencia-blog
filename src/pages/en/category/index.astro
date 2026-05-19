@@ -1,0 +1,62 @@
+---
+import { getEmDashCollection, getEntryTerms } from "emdash";
+import Base from "../../../layouts/Base.astro";
+import { getLangFromUrl } from "../../../i18n/locales";
+
+const locale = getLangFromUrl(Astro.url);
+
+Astro.cache.set({ maxAge: 3600 });
+
+const { entries: posts } = await getEmDashCollection("posts", { locale });
+
+const categoryMap = new Map<string, string>();
+for (const post of posts) {
+	const cats = await getEntryTerms("posts", post.data.id, "category");
+	for (const cat of cats) {
+		if (!categoryMap.has(cat.slug)) {
+			categoryMap.set(cat.slug, cat.label || cat.slug);
+		}
+	}
+}
+const categories = Array.from(categoryMap.entries()).map(([slug, label]) => ({ slug, label }));
+
+const title = "All Categories";
+const description = "Browse all blog categories on Tony Ciencia.";
+---
+
+<Base title={title} description={description} breadcrumbs={[
+	{ name: "Blog", url: "/en/posts" },
+	{ name: title, url: "/en/category" },
+]}>
+	<section class="archive-index">
+		<header class="archive-header">
+			<span class="archive-label">Browse by topic</span>
+			<h1 class="archive-title">{title}</h1>
+			<p class="archive-count">{categories.length} categories</p>
+		</header>
+
+		<div class="terms-grid">
+			{categories.map((cat) => (
+				<a href={`/en/category/${cat.slug}`} class="term-card">
+					<h2 class="term-name">{cat.label}</h2>
+					<span class="term-arrow">→</span>
+				</a>
+			))}
+		</div>
+	</section>
+</Base>
+
+<style>
+	.archive-index { max-width: var(--wide-width); margin: 0 auto; padding: var(--spacing-12) var(--spacing-6); }
+	.archive-header { margin-bottom: var(--spacing-12); padding-bottom: var(--spacing-8); border-bottom: 1px solid var(--color-border-subtle); }
+	.archive-label { display: block; font-size: var(--font-size-xs); font-weight: 500; color: var(--color-accent); text-transform: uppercase; letter-spacing: var(--tracking-wider); margin-bottom: var(--spacing-2); }
+	.archive-title { font-size: var(--font-size-4xl); font-weight: 700; letter-spacing: var(--tracking-tight); margin-bottom: var(--spacing-2); }
+	.archive-count { font-size: var(--font-size-sm); color: var(--color-muted); }
+	.terms-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-6); }
+	.term-card { display: flex; align-items: center; justify-content: space-between; padding: var(--spacing-6); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); text-decoration: none; color: var(--color-text); transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast); }
+	.term-card:hover { transform: translateY(-2px); border-color: var(--color-accent); box-shadow: 0 8px 24px rgba(200, 146, 42, 0.1); }
+	.term-name { font-size: var(--font-size-lg); font-weight: 600; margin: 0; }
+	.term-arrow { font-size: var(--font-size-xl); color: var(--color-accent); }
+	@media (max-width: 900px) { .terms-grid { grid-template-columns: repeat(2, 1fr); } }
+	@media (max-width: 600px) { .terms-grid { grid-template-columns: 1fr; } }
+</style>
