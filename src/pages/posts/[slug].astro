@@ -70,6 +70,7 @@ const seo = getSeoMeta(post, {
 	path: `/posts/${slug}`,
 	defaultOgImage: featuredImageUrl,
 });
+const canonicalUrl = seo.canonical || new URL(`/posts/${slug}`, Astro.site ?? Astro.url.origin).href;
 
 // Get tags for this post
 // Note: post.id is the slug, post.data.id is the database ULID

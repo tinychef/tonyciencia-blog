@@ -99,8 +99,8 @@ const year = new Date().getFullYear();
     <div class="footer-top">
       <div class="footer-brand">
         <a href={locale === "en" ? "/en/" : "/"} class="footer-logo-link" aria-label={siteTitle}>
-          <img src="/assets/logo-tonyciencia-negro.png" alt={siteTitle} class="footer-logo-img logo-light" width="140" height="32" loading="lazy" />
-          <img src="/assets/logo-tonyciencia-blanco.png" alt={siteTitle} class="footer-logo-img logo-dark" width="140" height="32" loading="lazy" aria-hidden="true" />
+          <img src="/assets/logo-tonyciencia-negro.webp" alt={siteTitle} class="footer-logo-img logo-light" width="140" height="32" loading="lazy" />
+          <img src="/assets/logo-tonyciencia-blanco.webp" alt={siteTitle} class="footer-logo-img logo-dark" width="140" height="32" loading="lazy" aria-hidden="true" />
         </a>
         <p class="footer-tagline">{t("footer.tagline")}</p>
         <!-- Social links -->
@@ -244,7 +244,7 @@ const year = new Date().getFullYear();
 
   .footer-tagline {
     font-size: var(--font-size-sm);
-    color: var(--color-muted);
+    color: var(--color-text-secondary);
     margin: 0;
   }
 
@@ -286,7 +286,7 @@ const year = new Date().getFullYear();
     align-items: center;
     gap: var(--spacing-2);
     font-size: var(--font-size-sm);
-    color: var(--color-muted);
+    color: var(--color-text-secondary);
     text-decoration: none;
     transition: color 0.2s ease;
   }
@@ -311,7 +311,7 @@ const year = new Date().getFullYear();
 
   .newsletter-desc {
     font-size: var(--font-size-sm);
-    color: var(--color-muted);
+    color: var(--color-text-secondary);
     line-height: 1.5;
     margin: 0;
   }

@@ -9,8 +9,8 @@ const en = {
 	"nav.contact": "Contact",
 	"nav.search": "Search...",
 	"nav.admin": "Admin",
+	"nav.menu": "Menu",
 
-	// Hero
 	// Hero
 	"hero.badge": "AI · Automation · Growth",
 	"hero.title.line1": "Intelligent Systems.",

@@ -7,6 +7,7 @@ export default {
 	"nav.contact": "Contáctanos",
 	"nav.search": "Buscar...",
 	"nav.admin": "Admin",
+	"nav.menu": "Menú",
 
 	// Hero
 	"hero.badge": "IA · Automatización · Crecimiento",

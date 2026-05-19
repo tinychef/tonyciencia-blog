@@ -14,7 +14,7 @@ interface Tool {
 const trackLeft: Tool[] = [
   { name: "Pipedrive",      tag: "CRM",           url: "https://aff.trypipedrive.com/vyzzvh7thge6",       domain: "pipedrive.com" },
   { name: "Apollo.io",      tag: locale === "en" ? "Sales" : "Ventas",       url: "https://get.apollo.io/mzxfxk1o1ea5",          domain: "apollo.io" },
-  { name: "Brevo",          tag: "Email",          url: "https://get.brevo.com/p76y9av2p0t1",              domain: "brevo.com" },
+  { name: "Brevo",          tag: "Email",          url: "https://get.brevo.com/p76y9av2p0t1",              domain: "sendinblue.com" },
   { name: "Murf AI",        tag: locale === "en" ? "AI Voice" : "Voz IA",    url: "https://get.murf.ai/e5a3jr17jump",            domain: "murf.ai" },
   { name: "Kit",            tag: locale === "en" ? "Creators" : "Creadores", url: "https://partners.kit.com/v78kkgp588z9-uw04r", domain: "kit.com" },
   { name: "AdCreative.ai",  tag: locale === "en" ? "AI Ads" : "Ads IA",      url: "https://free-trial.adcreative.ai/3fn5zxosagaz", domain: "adcreative.ai" },
@@ -44,7 +44,7 @@ const sectionLabel = locale === "en" ? "Tools we recommend" : "Herramientas que 
   <p class="marquee-label">{sectionLabel}</p>
 
   <!-- Track izquierda: va hacia la izquierda -->
-  <div class="marquee-wrapper" aria-hidden="true">
+  <div class="marquee-wrapper">
     <div class="track track-left">
       {[...trackLeft, ...trackLeft].map((tool, i) => (
         <a
@@ -53,7 +53,7 @@ const sectionLabel = locale === "en" ? "Tools we recommend" : "Herramientas que 
           rel="noopener noreferrer"
           class="tool-card"
           aria-label={`${tool.name} — ${tool.tag}`}
-          aria-hidden={i >= trackLeft.length ? "true" : "false"}
+          aria-hidden={i >= trackLeft.length ? "true" : undefined}
           tabindex={i >= trackLeft.length ? -1 : 0}
         >
           <div class="tool-logo">
@@ -78,7 +78,7 @@ const sectionLabel = locale === "en" ? "Tools we recommend" : "Herramientas que 
   </div>
 
   <!-- Track derecha: va hacia la derecha (reverso) -->
-  <div class="marquee-wrapper" aria-hidden="true">
+  <div class="marquee-wrapper">
     <div class="track track-right">
       {[...trackRight, ...trackRight].map((tool, i) => (
         <a
@@ -87,7 +87,7 @@ const sectionLabel = locale === "en" ? "Tools we recommend" : "Herramientas que 
           rel="noopener noreferrer"
           class="tool-card"
           aria-label={`${tool.name} — ${tool.tag}`}
-          aria-hidden={i >= trackRight.length ? "true" : "false"}
+          aria-hidden={i >= trackRight.length ? "true" : undefined}
           tabindex={i >= trackRight.length ? -1 : 0}
         >
           <div class="tool-logo">
@@ -130,7 +130,7 @@ const sectionLabel = locale === "en" ? "Tools we recommend" : "Herramientas que 
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: var(--color-muted);
+    color: var(--color-text-secondary);
     margin: 0 0 0.25rem;
   }
 
