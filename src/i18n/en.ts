@@ -12,9 +12,9 @@ const en = {
 	"nav.menu": "Menu",
 
 	// Hero
-	"hero.badge": "AI · Automation · Growth",
-	"hero.title.line1": "Intelligent Systems.",
-	"hero.title.line2": "Scale with AI.",
+	"hero.badge": "Implementa IA, Avanza",
+	"hero.title.line1": "Implement AI,",
+	"hero.title.line2": "Move Forward.",
 	"hero.subtitle": "We build core solutions: Automation Services, Digital Courses, 1-on-1 Mentorships, and Custom SaaS.",
 	"hero.cta.primary": "View services",
 	"hero.cta.secondary": "Read the blog",
@@ -176,7 +176,7 @@ const en = {
 	"footer.company": "Company",
 	"footer.services": "Services",
 	"footer.resources": "Resources",
-	"footer.tagline": "AI · Automation · Growth",
+	"footer.tagline": "Implementa IA, Avanza",
 	"footer.newsletter.title": "Stay updated",
 	"footer.newsletter.desc": "Articles, workflows and resources on applied AI. No spam.",
 	"footer.newsletter.placeholder": "you@email.com",

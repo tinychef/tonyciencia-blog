@@ -1,4 +1,4 @@
-# Tony Ciencia — Blog IA · Automatización · Crecimiento
+# Tony Ciencia — Implementa IA, Avanza
 
 Blog bilingüe (ES/EN) sobre inteligencia artificial, automatización y negocios digitales. Construido con [EmDash CMS](https://github.com/emdash-cms/emdash) + Astro, desplegado en Cloudflare Workers (D1 + R2).
 

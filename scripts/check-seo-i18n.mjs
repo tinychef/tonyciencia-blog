@@ -6,6 +6,9 @@ const root = (...segments) => path.join(cwd, ...segments);
 
 const localesSource = fs.readFileSync(root("src", "i18n", "locales.ts"), "utf8");
 const llmsSource = fs.readFileSync(root("public", "llms.txt"), "utf8");
+const schemaOrgSource = fs.readFileSync(root("src", "components", "SchemaOrg.astro"), "utf8");
+const siteSeedSource = fs.readFileSync(root("seed", "base", "site.json"), "utf8");
+const requiredBrandSlogan = "Implementa IA, Avanza";
 
 const requiredLocaleMappings = [
 	'["/servicios", "/en/services"]',
@@ -41,6 +44,18 @@ for (const line of forbiddenLlmsLines) {
 	if (llmsSource.includes(line)) {
 		throw new Error(`Ruta obsoleta detectada en llms.txt: ${line}`);
 	}
+}
+
+if (!llmsSource.includes(requiredBrandSlogan)) {
+	throw new Error(`Falta slogan de marca en llms.txt: ${requiredBrandSlogan}`);
+}
+
+if (!schemaOrgSource.includes(`slogan: "${requiredBrandSlogan}"`)) {
+	throw new Error(`SchemaOrg no expone el slogan esperado: ${requiredBrandSlogan}`);
+}
+
+if (!siteSeedSource.includes(`"tagline": "${requiredBrandSlogan}"`)) {
+	throw new Error(`seed/base/site.json no define el tagline esperado: ${requiredBrandSlogan}`);
 }
 
 console.log("checks SEO/i18n OK");

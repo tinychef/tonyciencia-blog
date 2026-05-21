@@ -10,9 +10,9 @@ export default {
 	"nav.menu": "Menú",
 
 	// Hero
-	"hero.badge": "IA · Automatización · Crecimiento",
-	"hero.title.line1": "Sistemas Inteligentes.",
-	"hero.title.line2": "Escala con IA.",
+	"hero.badge": "Implementa IA, Avanza",
+	"hero.title.line1": "Implementa IA,",
+	"hero.title.line2": "Avanza.",
 	"hero.subtitle": "Construimos soluciones core: Servicios de Automatización, Cursos Digitales, Entrenamientos 1 a 1 y SaaS a medida.",
 	"hero.cta.primary": "Ver servicios",
 	"hero.cta.secondary": "Leer el blog",
@@ -173,7 +173,7 @@ export default {
 	"footer.company": "Empresa",
 	"footer.services": "Servicios",
 	"footer.resources": "Recursos",
-	"footer.tagline": "IA · Automatización · Crecimiento",
+	"footer.tagline": "Implementa IA, Avanza",
 	"footer.newsletter.title": "Mantente al día",
 	"footer.newsletter.desc": "Artículos, workflows y recursos sobre IA aplicada. Sin spam.",
 	"footer.newsletter.placeholder": "tu@email.com",
