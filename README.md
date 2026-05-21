@@ -40,6 +40,7 @@ Blog bilingüe (ES/EN) sobre inteligencia artificial, automatización y negocios
 | Tag | `/tag/:slug` | `/en/tag/:slug` |
 | Búsqueda | `/search` | `/en/search` |
 | Servicios | `/servicios` | `/en/services` |
+| Recursos IA | `/recursos-ia` | `/en/resources` |
 | Sobre mí | `/about` | `/en/about` |
 | Contacto | `/contacto` | `/en/contact` |
 | Legal | `/legal/:slug` | `/en/legal/:slug` |
@@ -48,6 +49,9 @@ Blog bilingüe (ES/EN) sobre inteligencia artificial, automatización y negocios
 
 ```bash
 pnpm install
+pnpm extract:seed      # Solo una vez si necesitas re-extraer fuentes desde seed/seed.json
+pnpm build:seed        # Ensambla seed/seed.json desde seed/base + content/posts
+pnpm check:seo-i18n    # Verifica mappings críticos ES/EN y llms.txt
 pnpm bootstrap        # Inicializa DB + aplica seed
 pnpm dev              # Servidor de desarrollo
 ```
@@ -72,7 +76,7 @@ wrangler r2 bucket create tonyciencia-media
 El repositorio incluye GitHub Actions para deploy automático:
 
 1. **Push a `main`** → despliega automáticamente a Cloudflare
-2. **PR con cambios en `seed/`** → valida el seed automáticamente
+2. **PR con cambios en `seed/base/`, `content/` o `scripts/build-seed.mjs`** → reconstruye y valida el seed automáticamente
 
 #### Secrets necesarios en GitHub
 
@@ -91,9 +95,10 @@ pnpm deploy           # Build + wrangler deploy
 El blog está preparado para automatización via n8n:
 
 1. n8n genera el contenido con IA
-2. Publica via la API de EmDash (`/_emdash/api/`)
-3. Webhook notifier envía confirmación
-4. Contenido live en producción
+2. Escribe posts bilingües en `content/posts/es/` y `content/posts/en/`
+3. Abre una rama `content/n8n/<fecha>-<slug-es>` y luego un PR para revisión editorial
+4. GitHub Actions reconstruye `seed/seed.json` y lo valida antes del merge
+5. Al mergear a `main`, Cloudflare despliega el sitio y EmDash actualiza el contenido
 
 Ver [`docs/blog-automation-pipeline.md`](docs/blog-automation-pipeline.md) para detalles.
 

@@ -1,0 +1,446 @@
+{
+  "$schema": "https://emdashcms.com/seed.schema.json",
+  "version": "1",
+  "meta": {
+    "name": "Tony Ciencia",
+    "description": "IA · Automatización · Crecimiento — Blog bilingüe ES/EN",
+    "author": "Tony Ciencia"
+  },
+  "settings": {
+    "title": "Tony Ciencia",
+    "tagline": "IA · Automatización · Crecimiento"
+  },
+  "collections": [
+    {
+      "slug": "posts",
+      "label": "Posts",
+      "labelSingular": "Post",
+      "supports": [
+        "drafts",
+        "revisions",
+        "search",
+        "seo"
+      ],
+      "commentsEnabled": true,
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true,
+          "searchable": true
+        },
+        {
+          "slug": "featured_image",
+          "label": "Featured Image",
+          "type": "image"
+        },
+        {
+          "slug": "content",
+          "label": "Content",
+          "type": "portableText",
+          "searchable": true
+        },
+        {
+          "slug": "excerpt",
+          "label": "Excerpt",
+          "type": "text"
+        },
+        {
+          "slug": "translation_of",
+          "label": "Translation Of (slug)",
+          "type": "string"
+        },
+        {
+          "slug": "external_id",
+          "label": "External ID (n8n)",
+          "type": "string"
+        },
+        {
+          "slug": "source",
+          "label": "Source",
+          "type": "string"
+        },
+        {
+          "slug": "schema_type",
+          "label": "Schema Type",
+          "type": "string"
+        },
+        {
+          "slug": "faq_items",
+          "label": "FAQ Section",
+          "type": "portableText"
+        },
+        {
+          "slug": "key_entities",
+          "label": "Key Entities (comma-separated)",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "slug": "pages",
+      "label": "Pages",
+      "labelSingular": "Page",
+      "supports": [
+        "drafts",
+        "revisions",
+        "search",
+        "seo"
+      ],
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true,
+          "searchable": true
+        },
+        {
+          "slug": "content",
+          "label": "Content",
+          "type": "portableText",
+          "searchable": true
+        }
+      ]
+    },
+    {
+      "slug": "legal_pages",
+      "label": "Legal Pages",
+      "labelSingular": "Legal Page",
+      "supports": [
+        "drafts",
+        "revisions"
+      ],
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "slug": "content",
+          "label": "Content",
+          "type": "portableText"
+        },
+        {
+          "slug": "last_reviewed",
+          "label": "Last Reviewed",
+          "type": "datetime"
+        }
+      ]
+    }
+  ],
+  "taxonomies": [
+    {
+      "name": "category",
+      "label": "Categories",
+      "labelSingular": "Category",
+      "hierarchical": true,
+      "collections": [
+        "posts"
+      ],
+      "terms": [
+        {
+          "slug": "ia",
+          "label": "Inteligencia Artificial"
+        },
+        {
+          "slug": "automatizacion",
+          "label": "Automatización"
+        },
+        {
+          "slug": "negocios",
+          "label": "Negocios Digitales"
+        },
+        {
+          "slug": "herramientas",
+          "label": "Herramientas"
+        }
+      ]
+    },
+    {
+      "name": "tag",
+      "label": "Tags",
+      "labelSingular": "Tag",
+      "hierarchical": false,
+      "collections": [
+        "posts"
+      ],
+      "terms": [
+        {
+          "slug": "n8n",
+          "label": "n8n"
+        },
+        {
+          "slug": "chatgpt",
+          "label": "ChatGPT"
+        },
+        {
+          "slug": "tutorial",
+          "label": "Tutorial"
+        },
+        {
+          "slug": "opinion",
+          "label": "Opinión"
+        },
+        {
+          "slug": "caso-de-uso",
+          "label": "Caso de Uso"
+        }
+      ]
+    }
+  ],
+  "bylines": [
+    {
+      "id": "byline-tony",
+      "slug": "tony",
+      "displayName": "Tony Ciencia"
+    },
+    {
+      "id": "byline-guest",
+      "slug": "guest-contributor",
+      "displayName": "Guest Contributor",
+      "isGuest": true
+    }
+  ],
+  "menus": [
+    {
+      "name": "primary_es",
+      "label": "Navegación Principal (ES)",
+      "items": [
+        {
+          "type": "custom",
+          "label": "Inicio",
+          "url": "/"
+        },
+        {
+          "type": "custom",
+          "label": "Blog",
+          "url": "/posts"
+        },
+        {
+          "type": "custom",
+          "label": "Automatización",
+          "url": "/automatizacion"
+        },
+        {
+          "type": "custom",
+          "label": "Servicios",
+          "url": "/servicios"
+        },
+        {
+          "type": "custom",
+          "label": "Sobre Mí",
+          "url": "/about"
+        },
+        {
+          "type": "custom",
+          "label": "Contacto",
+          "url": "/contacto"
+        }
+      ]
+    },
+    {
+      "name": "primary_en",
+      "label": "Primary Navigation (EN)",
+      "items": [
+        {
+          "type": "custom",
+          "label": "Home",
+          "url": "/en"
+        },
+        {
+          "type": "custom",
+          "label": "Blog",
+          "url": "/en/posts"
+        },
+        {
+          "type": "custom",
+          "label": "Automation",
+          "url": "/en/automation"
+        },
+        {
+          "type": "custom",
+          "label": "Services",
+          "url": "/en/services"
+        },
+        {
+          "type": "custom",
+          "label": "About",
+          "url": "/en/about"
+        },
+        {
+          "type": "custom",
+          "label": "Contact",
+          "url": "/en/contact"
+        }
+      ]
+    },
+    {
+      "name": "footer_legal_es",
+      "label": "Footer Legal (ES)",
+      "items": [
+        {
+          "type": "custom",
+          "label": "Política de Privacidad",
+          "url": "/legal/privacidad"
+        },
+        {
+          "type": "custom",
+          "label": "Términos de Uso",
+          "url": "/legal/terminos"
+        },
+        {
+          "type": "custom",
+          "label": "Política de Cookies",
+          "url": "/legal/cookies"
+        },
+        {
+          "type": "custom",
+          "label": "Aviso Legal",
+          "url": "/legal/aviso-legal"
+        },
+        {
+          "type": "custom",
+          "label": "Descargo de Afiliados",
+          "url": "/legal/afiliados"
+        },
+        {
+          "type": "custom",
+          "label": "Descargo General",
+          "url": "/legal/descargo"
+        }
+      ]
+    },
+    {
+      "name": "footer_legal_en",
+      "label": "Footer Legal (EN)",
+      "items": [
+        {
+          "type": "custom",
+          "label": "Privacy Policy",
+          "url": "/en/legal/privacy"
+        },
+        {
+          "type": "custom",
+          "label": "Terms & Conditions",
+          "url": "/en/legal/terms"
+        },
+        {
+          "type": "custom",
+          "label": "Cookie Policy",
+          "url": "/en/legal/cookies-en"
+        },
+        {
+          "type": "custom",
+          "label": "Legal Notice",
+          "url": "/en/legal/disclaimer"
+        },
+        {
+          "type": "custom",
+          "label": "Affiliate Disclaimer",
+          "url": "/en/legal/affiliate"
+        },
+        {
+          "type": "custom",
+          "label": "General Disclaimer",
+          "url": "/en/legal/general-disclaimer"
+        }
+      ]
+    }
+  ],
+  "widgetAreas": [
+    {
+      "name": "sidebar",
+      "label": "Sidebar",
+      "description": "Widget area displayed on single post pages",
+      "widgets": [
+        {
+          "type": "component",
+          "componentId": "core:search",
+          "title": "Search"
+        },
+        {
+          "type": "component",
+          "componentId": "core:categories",
+          "title": "Categories"
+        },
+        {
+          "type": "component",
+          "componentId": "core:tags",
+          "title": "Tags"
+        },
+        {
+          "type": "component",
+          "componentId": "core:recent-posts",
+          "title": "Recent Posts",
+          "settings": {
+            "count": 5,
+            "showDate": true
+          }
+        }
+      ]
+    },
+    {
+      "name": "footer",
+      "label": "Footer",
+      "description": "Widget area displayed in the site footer",
+      "widgets": [
+        {
+          "type": "content",
+          "title": "About",
+          "content": [
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Tony Ciencia LLC · 8206 Louisiana Blvd NE, Ste A #6812, Albuquerque, NM 87113, USA · contact@tonyciencia.com"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "slug": "newsletter-signup",
+      "title": "Newsletter Signup",
+      "description": "A call-to-action block for newsletter subscriptions",
+      "keywords": [
+        "newsletter",
+        "subscribe",
+        "email",
+        "cta"
+      ],
+      "source": "theme",
+      "content": [
+        {
+          "_type": "block",
+          "style": "h3",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Mantente al día"
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Recibe las últimas novedades sobre IA y automatización directamente en tu bandeja. Sin spam."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -186,6 +186,7 @@ const publishDate =
 	schemaType={post.data.schema_type || (faqItems.length > 0 ? "BlogPosting" : undefined)}
 	faqItems={faqItems.length > 0 ? faqItems : undefined}
 	readingTime={readingTime}
+	alternatePath={translationSlug ? `/posts/${translationSlug}` : undefined}
 >
 	<article class="article">
 		{

@@ -1,0 +1,102 @@
+{
+  "summary": "Canonical file payload for GitHub-driven EmDash blog automation",
+  "branch_name": "content/n8n/2026-05-21-mi-nuevo-post",
+  "files": {
+    "content/posts/es/mi-nuevo-post.json": {
+      "id": "post-mi-nuevo-post-es",
+      "slug": "mi-nuevo-post",
+      "status": "draft",
+      "locale": "es",
+      "published_at": "2026-05-21T12:00:00",
+      "bylines": [
+        {
+          "byline": "byline-tony"
+        }
+      ],
+      "taxonomies": {
+        "category": ["ia"],
+        "tag": ["chatgpt", "tutorial"]
+      },
+      "data": {
+        "title": "Mi Nuevo Post",
+        "excerpt": "Un resumen corto en español.",
+        "featured_image": {
+          "$media": {
+            "url": "https://example.com/cover-es.jpg",
+            "alt": "Texto alternativo en español",
+            "filename": "mi-nuevo-post-es.jpg"
+          }
+        },
+        "content": [
+          {
+            "_type": "block",
+            "style": "normal",
+            "children": [
+              {
+                "_type": "span",
+                "text": "Contenido completo en Portable Text."
+              }
+            ]
+          }
+        ],
+        "external_id": "n8n_wf_1234_es",
+        "source": "n8n",
+        "schema_type": "BlogPosting",
+        "key_entities": "IA, automatización, n8n",
+        "faq_items": []
+      }
+    },
+    "content/posts/en/my-new-post.json": {
+      "id": "post-my-new-post-en",
+      "slug": "my-new-post",
+      "status": "draft",
+      "locale": "en",
+      "published_at": "2026-05-21T12:05:00",
+      "bylines": [
+        {
+          "byline": "byline-tony"
+        }
+      ],
+      "taxonomies": {
+        "category": ["ia"],
+        "tag": ["chatgpt", "tutorial"]
+      },
+      "data": {
+        "title": "My New Post",
+        "excerpt": "A short summary in English.",
+        "featured_image": {
+          "$media": {
+            "url": "https://example.com/cover-en.jpg",
+            "alt": "English alt text",
+            "filename": "my-new-post-en.jpg"
+          }
+        },
+        "content": [
+          {
+            "_type": "block",
+            "style": "normal",
+            "children": [
+              {
+                "_type": "span",
+                "text": "Full Portable Text content."
+              }
+            ]
+          }
+        ],
+        "translation_of": "mi-nuevo-post",
+        "external_id": "n8n_wf_1234_en",
+        "source": "n8n",
+        "schema_type": "BlogPosting",
+        "key_entities": "AI, automation, n8n",
+        "faq_items": []
+      }
+    }
+  },
+  "n8n_workflow_notes": [
+    "1. El archivo ES se crea primero y define el slug de referencia.",
+    "2. El archivo EN debe incluir data.translation_of con el slug exacto del ES.",
+    "3. external_id debe ser único por archivo para evitar duplicados si el workflow corre dos veces.",
+    "4. category y tag deben usar slugs ya existentes en seed/base/site.json.",
+    "5. El PR no debe mergearse automáticamente: requiere revisión humana."
+  ]
+}

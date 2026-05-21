@@ -3,7 +3,7 @@ import Base from "../../layouts/Base.astro";
 import { getLangFromUrl, useTranslations } from "../../i18n/locales";
 
 const locale = getLangFromUrl(Astro.url);
-const t = useTranslations(locale);
+useTranslations(locale);
 
 const isEs = locale === "es";
 

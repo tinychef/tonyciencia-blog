@@ -3,7 +3,7 @@ import { getLangFromUrl, useTranslations } from "../i18n/locales";
 
 const locale = getLangFromUrl(Astro.url);
 const t = useTranslations(locale);
-const cookiePolicyUrl = locale === "en" ? "/en/legal/cookies" : "/legal/cookies";
+const cookiePolicyUrl = locale === "en" ? "/en/legal/cookies-en" : "/legal/cookies";
 ---
 
 <div class="cookie-consent" id="cookie-consent" role="alert" aria-live="polite" hidden>

@@ -167,6 +167,15 @@ function extractFaqItems(faqData: unknown): Array<{ question: string; answer: st
 }
 const faqItems = extractFaqItems(post.data.faq_items);
 
+const { entries: translatedPosts } = await getEmDashCollection("posts", {
+	where: { translation_of: slug },
+	locale: "en",
+	limit: 1,
+});
+
+const translatedPost = translatedPosts[0];
+const alternatePath = translatedPost ? `/en/posts/${translatedPost.id}` : undefined;
+
 // Fetch tags for related posts (bylines are already hydrated by getEmDashCollection)
 const otherPostsWithTags = await Promise.all(
 	otherPosts.map(async (p) => {
@@ -203,6 +212,7 @@ const publishDate =
 	schemaType={post.data.schema_type || (faqItems.length > 0 ? "BlogPosting" : undefined)}
 	faqItems={faqItems.length > 0 ? faqItems : undefined}
 	readingTime={readingTime}
+	alternatePath={alternatePath}
 >
 	<div class="reading-progress" id="reading-progress"></div>
 	<button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top">

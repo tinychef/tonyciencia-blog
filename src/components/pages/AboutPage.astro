@@ -55,7 +55,7 @@ const personSchema = {
 <Base title={title} description={description} breadcrumbs={[
 	{ name: t("nav.about"), url: locale === "en" ? "/en/about" : "/about" },
 ]}>
-	<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+	<script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 
 	<!-- ═══ AUTHOR HERO ═══════════════════════════════════════════ -->
 	<section class="about-hero">

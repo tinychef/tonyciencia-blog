@@ -1,0 +1,170 @@
+[
+  {
+    "id": "about",
+    "slug": "about",
+    "status": "published",
+    "locale": "es",
+    "data": {
+      "title": "Sobre Mí",
+      "content": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Tony Ciencia es un espacio dedicado a la intersección entre inteligencia artificial, automatización y crecimiento de negocios digitales. Aquí compartimos conocimiento práctico, herramientas y estrategias para escalar tu negocio con tecnología."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "automatizacion",
+    "slug": "automatizacion",
+    "status": "published",
+    "locale": "es",
+    "data": {
+      "title": "Automatización con IA y n8n",
+      "content": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Todo sobre automatización de negocios: workflows n8n, bots de WhatsApp, integraciones de CRM, procesos con IA y herramientas no-code para emprendedores. Aquí encontrarás guías prácticas, tutoriales y estrategias para automatizar tu negocio desde cero."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "servicios",
+    "slug": "servicios",
+    "status": "published",
+    "locale": "es",
+    "data": {
+      "title": "Servicios",
+      "content": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Automatización con IA, cursos digitales y desarrollo de apps a medida para escalar tu negocio. Ofrecemos soluciones personalizadas de automatización, formación en herramientas de IA y desarrollo de aplicaciones web."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "contacto",
+    "slug": "contacto",
+    "status": "published",
+    "locale": "es",
+    "data": {
+      "title": "Contacto",
+      "content": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Habla con Tony Ciencia. Agenda una llamada gratuita o escríbenos directamente para automatizar tu negocio con IA. Estamos disponibles para consultas sobre automatización, cursos, desarrollo de apps y consultoría."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "about-en",
+    "slug": "about",
+    "status": "published",
+    "locale": "en",
+    "data": {
+      "title": "About Me",
+      "content": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Tony Ciencia is a space dedicated to the intersection of artificial intelligence, automation, and digital business growth. Here we share practical knowledge, tools, and strategies to scale your business with technology."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "automation-en",
+    "slug": "automation",
+    "status": "published",
+    "locale": "en",
+    "data": {
+      "title": "AI & n8n Automation",
+      "content": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Everything about business automation: n8n workflows, WhatsApp bots, CRM integrations, AI processes, and no-code tools for entrepreneurs. Here you'll find practical guides, tutorials, and strategies to automate your business from scratch."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "services-en",
+    "slug": "services",
+    "status": "published",
+    "locale": "en",
+    "data": {
+      "title": "Services",
+      "content": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "AI automation, digital courses, and custom app development to scale your business. We offer personalized automation solutions, training in AI tools, and web application development."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "contact-en",
+    "slug": "contact",
+    "status": "published",
+    "locale": "en",
+    "data": {
+      "title": "Contact",
+      "content": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Talk to Tony Ciencia. Book a free call or write to us directly to automate your business with AI. We are available for consultations on automation, courses, app development, and consulting."
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

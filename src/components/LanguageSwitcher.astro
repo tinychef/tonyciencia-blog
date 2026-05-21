@@ -1,10 +1,15 @@
 ---
 import { getLangFromUrl, getAlternateLocale, getLocalePath, useTranslations } from "../i18n/locales";
 
+interface Props {
+	alternatePath?: string;
+}
+
+const { alternatePath } = Astro.props;
 const locale = getLangFromUrl(Astro.url);
 const altLocale = getAlternateLocale(locale);
 const t = useTranslations(locale);
-const altPath = getLocalePath(Astro.url.pathname, altLocale);
+const altPath = alternatePath || getLocalePath(Astro.url.pathname, altLocale);
 ---
 
 <a href={altPath} class="lang-switch" aria-label={t("lang.switch")} title={t("lang.switch")}>

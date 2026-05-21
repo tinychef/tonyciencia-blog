@@ -1,0 +1,372 @@
+{
+  "id": "post-n8n-mcp-2025-en",
+  "slug": "n8n-mcp-update-model-context-protocol-2025",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "automatizacion",
+      "ia"
+    ],
+    "tag": [
+      "n8n",
+      "tutorial",
+      "caso-de-uso"
+    ]
+  },
+  "data": {
+    "title": "n8n and MCP: The Update That Connects Your Workflows to Any AI in the World",
+    "excerpt": "n8n launched full support for Anthropic's Model Context Protocol (MCP). Now Claude, Cursor, or ChatGPT can execute and even create your workflows automatically. Complete guide to the update.",
+    "translation_of": "n8n-mcp-actualizacion-protocolo-contexto-modelo-2025",
+    "featured_image": {
+      "$media": {
+        "url": "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&h=800&fit=crop",
+        "alt": "Artificial intelligence connected to automation flows with n8n and MCP",
+        "filename": "n8n-mcp-protocol-ai.jpg"
+      }
+    },
+    "schema_type": "Article",
+    "key_entities": "n8n, MCP, Model Context Protocol, Anthropic, Claude, automation, workflow",
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Imagine telling Claude: \"Create a workflow in n8n that captures leads from my form and sends them to my CRM.\" And Claude does it. On its own. Without you touching the editor. That is already possible. The Model Context Protocol (MCP) has arrived in n8n, and the latest version turns your entire instance into a native tool for any AI agent."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "children": [
+          {
+            "_type": "span",
+            "text": "What is the Model Context Protocol (MCP)?"
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "MCP is an open standard created by Anthropic in November 2024. Its goal is to solve the historic problem of AI integrations: each model had its own way of connecting to external tools, forcing developers to create custom adapters for every possible combination."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "MCP proposes a universal protocol: an MCP server exposes tools in a standard format, and any MCP client (Claude Desktop, Cursor, Windsurf, ChatGPT, etc.) can discover those tools and use them automatically. It is the USB-C of AI integrations."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "children": [
+          {
+            "_type": "span",
+            "text": "What n8n Launched: Two Nodes That Change Automation"
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "On April 10, 2025, n8n officially announced two new nodes that make n8n a first-class citizen of the MCP ecosystem."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "children": [
+          {
+            "_type": "span",
+            "text": "1. MCP Server Trigger: Turn Any Workflow into an AI Tool"
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "The MCP Server Trigger node acts as the entry point. It exposes your n8n workflow as an MCP tool with a public URL (two URLs: one for testing and one for production). Any MCP-compatible AI agent can connect to that URL and execute your workflow as if it were its own function."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Practical example: you have a workflow that checks the status of an order in your Shopify store. Add the MCP Server Trigger at the start and, from that moment on, Claude can answer customer questions about their orders in real time, calling your workflow directly."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "children": [
+          {
+            "_type": "span",
+            "text": "2. MCP Client Tool: n8n Connects to Any MCP Server"
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "The MCP Client Tool node works in reverse: it turns n8n into an MCP client. From inside a workflow with an AI Agent node, you can connect to any external MCP server and use all its available tools, or just the ones you select."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "In November 2025, n8n also released the MCP Client as a standalone node — no need to be inside an AI Agent. You can call MCP servers from any step in your workflow."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "children": [
+          {
+            "_type": "span",
+            "text": "The Biggest Update: n8n Can Now Create Its Own Workflows with AI"
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Here is the quantum leap. Starting with n8n v2.13 (available for all editions — Cloud, Enterprise, and free Community), n8n exposes its own native MCP server. You don't have to build anything: your instance is already an MCP server from day one."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "But the new feature in v2.14 (released March 2026) is historic: n8n's MCP server now includes tools to create and edit workflows programmatically. That means you can tell Claude in your terminal:"
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "marks": [
+              "em"
+            ],
+            "text": "\"Create a workflow in n8n that every Monday at 8am checks my Stripe sales from the week and sends me a summary on WhatsApp.\""
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "And Claude will build that workflow in your n8n instance, node by node, without you opening the editor."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "children": [
+          {
+            "_type": "span",
+            "text": "How to Start: Connect Claude Desktop to Your n8n in 3 Steps"
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "You need n8n v2.13 or higher and Claude Desktop installed. The process is as follows:"
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "listItem": "number",
+        "level": 1,
+        "children": [
+          {
+            "_type": "span",
+            "text": "In n8n, go to Settings → API and generate an API Key. Copy your instance URL (for example, https://your-n8n.railway.app)."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "listItem": "number",
+        "level": 1,
+        "children": [
+          {
+            "_type": "span",
+            "text": "In Claude Desktop, open settings (claude_desktop_config.json) and add your n8n MCP server with the SSE endpoint URL of your instance and your API Key as Bearer authentication."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "listItem": "number",
+        "level": 1,
+        "children": [
+          {
+            "_type": "span",
+            "text": "Restart Claude Desktop. You will see the n8n tools available in the side panel. From that moment you can execute workflows and, with v2.13+, create them directly from the conversation."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Why This Matters for Your Business Right Now"
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "For years, automating a business required knowing how to code or spending hours learning a visual tool. MCP + n8n inverts that equation: now you describe your process in natural language to an AI agent, and the agent builds it for you. The barrier to entry for automation has just hit the floor."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "If you already use n8n, update to v2.13+ and connect Claude Desktop today. If you don't use n8n yet, this is the best time to start: you get access to a platform that can be controlled with natural language, without writing a single line of code, in any edition including the free one."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Automation no longer requires knowing how to automate. Just knowing what you want to happen."
+          }
+        ]
+      }
+    ],
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Is n8n's MCP support free?"
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Yes. The MCP Server Trigger and MCP Client Tool nodes are available in all n8n editions: Cloud, Enterprise, and Community (free self-hosted) from v2.13."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Which AI agents can connect to n8n's MCP Server?"
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Any client compatible with the MCP protocol: Claude Desktop, Cursor, Windsurf, ChatGPT (with MCP support), and any custom agent that implements the standard."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Can I create n8n workflows directly from Claude?"
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Yes, starting with n8n v2.13. n8n's native MCP server includes tools to create and edit workflows programmatically. You just need to connect Claude Desktop to your instance through the MCP server configuration."
+          }
+        ]
+      }
+    ],
+    "external_id": "migration:en:n8n-mcp-update-model-context-protocol-2025",
+    "source": "editorial-migration"
+  },
+  "published_at": "2026-05-12T09:00:00",
+  "locale": "en"
+}

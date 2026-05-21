@@ -73,7 +73,7 @@ const websiteSchema = {
 	},
 	potentialAction: {
 		"@type": "SearchAction",
-		target: `${siteUrl}/search?q={search_term_string}`,
+		target: `${siteUrl}${locale === "en" ? "/en/search" : "/search"}?q={search_term_string}`,
 		"query-input": "required name=search_term_string",
 	},
 };
@@ -180,8 +180,8 @@ const faqSchema =
 		: null;
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
-<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
-{breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
-{articleSchema && <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />}
-{faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+<script is:inline type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+{breadcrumbSchema && <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
+{articleSchema && <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />}
+{faqSchema && <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
