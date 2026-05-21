@@ -116,7 +116,8 @@ const contactRoute = locale === "en" ? "/en/contact" : "/contacto";
 				</p>
 			</div>
 			<div class="services-grid">
-				<div class="service-card">
+				<div class="service-card" data-service="01">
+					<span class="service-code">01</span>
 					<div class="service-icon">
 						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
 							<path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 2a10 10 0 0 1 10 10"/>
@@ -127,7 +128,8 @@ const contactRoute = locale === "en" ? "/en/contact" : "/contacto";
 					<p class="service-desc">{t("services.automation.desc")}</p>
 					<a href={`${servicesRoute}#automatizacion`} class="service-link">{t("services.automation.link")}</a>
 				</div>
-				<div class="service-card featured">
+				<div class="service-card featured" data-service="02">
+					<span class="service-code">02</span>
 					<div class="featured-badge">{t("services.courses.badge")}</div>
 					<div class="service-icon">
 						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -136,9 +138,10 @@ const contactRoute = locale === "en" ? "/en/contact" : "/contacto";
 					</div>
 					<h3 class="service-title">{t("services.courses.title")}</h3>
 					<p class="service-desc">{t("services.courses.desc")}</p>
-					<a href={`${servicesRoute}#cursos`} class="service-link">{t("services.courses.link")}</a>
+					<a href={`${servicesRoute}#agentes-ia`} class="service-link">{t("services.courses.link")}</a>
 				</div>
-				<div class="service-card">
+				<div class="service-card" data-service="03">
+					<span class="service-code">03</span>
 					<div class="service-icon">
 						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
 							<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
@@ -146,7 +149,7 @@ const contactRoute = locale === "en" ? "/en/contact" : "/contacto";
 					</div>
 					<h3 class="service-title">{t("services.apps.title")}</h3>
 					<p class="service-desc">{t("services.apps.desc")}</p>
-					<a href={`${servicesRoute}#apps`} class="service-link">{t("services.apps.link")}</a>
+					<a href={`${servicesRoute}#mentoria`} class="service-link">{t("services.apps.link")}</a>
 				</div>
 			</div>
 		</div>
@@ -753,7 +756,9 @@ const contactRoute = locale === "en" ? "/en/contact" : "/contacto";
 	/* ── SERVICIOS ────────────────────────────────────────── */
 	.services-section {
 		padding: clamp(4rem, 8vw, 7rem) var(--spacing-6);
-		background: var(--color-bg-subtle);
+		background:
+			linear-gradient(135deg, rgba(200, 146, 42, 0.06), transparent 34%),
+			linear-gradient(180deg, var(--color-bg-subtle), var(--color-bg));
 		border-top: 1px solid var(--color-border-subtle);
 		border-bottom: 1px solid var(--color-border-subtle);
 	}
@@ -807,21 +812,46 @@ const contactRoute = locale === "en" ? "/en/contact" : "/contacto";
 		padding: var(--spacing-8);
 		background: var(--color-bg);
 		border: 1px solid var(--color-border);
-		border-radius: var(--radius-xl);
+		border-radius: 8px;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
-		transition: transform var(--transition-base), box-shadow var(--transition-base);
+		min-height: 320px;
+		overflow: hidden;
+		transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+	}
+
+	.service-card::before {
+		content: attr(data-service);
+		position: absolute;
+		right: -0.2rem;
+		bottom: -1.1rem;
+		font-size: clamp(5rem, 12vw, 8rem);
+		font-weight: 800;
+		line-height: 1;
+		color: var(--color-text);
+		opacity: 0.035;
+		pointer-events: none;
 	}
 
 	.service-card:hover {
 		transform: translateY(-4px);
-		box-shadow: 0 12px 40px rgba(200, 146, 42, 0.12);
+		border-color: var(--color-accent-muted);
+		box-shadow: 0 18px 48px rgba(10, 20, 30, 0.10);
 	}
 
 	.service-card.featured {
 		border-color: var(--color-accent-muted);
 		box-shadow: 0 0 0 1px var(--color-accent-muted);
+	}
+
+	.service-code {
+		font-family: var(--font-mono);
+		font-size: var(--font-size-xs);
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		color: var(--color-accent);
+		margin-bottom: var(--spacing-5);
 	}
 
 	.featured-badge {
