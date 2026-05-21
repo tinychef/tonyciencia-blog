@@ -1,0 +1,51 @@
+{
+  "id": "post-seo-2026-ai-overviews-citable-content",
+  "slug": "seo-2026-ai-overviews-citable-content",
+  "status": "published",
+  "bylines": [{ "byline": "byline-tony" }],
+  "taxonomies": {
+    "category": ["ia", "negocios"],
+    "tag": ["opinion", "caso-de-uso"]
+  },
+  "data": {
+    "title": "SEO 2026: How to Write Citable Content for AI Overviews, AI Mode, and Generative Search",
+    "excerpt": "SEO is no longer only about ranking. In 2026, the goal is to become a citable source for generative answers, AI search engines, and assistants.",
+    "featured_image": {
+      "$media": {
+        "url": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&h=800&fit=crop",
+        "alt": "SEO content strategy with artificial intelligence",
+        "filename": "seo-2026-ai-overviews-citable-content.jpg"
+      }
+    },
+    "content": [
+      { "_type": "block", "style": "normal", "children": [{ "_type": "span", "text": "Google AI Overviews, AI Mode, and generative assistants changed the game: more users receive an answer before clicking. That does not mean content is dead. It means mediocre content lost even more value. The new goal is to become a source that AI can understand, verify, and cite." }] },
+      { "_type": "block", "style": "h2", "children": [{ "_type": "span", "text": "From keywords to entities" }] },
+      { "_type": "block", "style": "normal", "children": [{ "_type": "span", "text": "Keywords still matter, but they are not enough. Generative systems understand relationships between entities: tools, people, processes, industries, metrics, and problems. A strong article defines those entities, explains how they connect, and adds concrete examples. If your content only repeats generic phrases, it is easy to ignore." }] },
+      { "_type": "block", "style": "h2", "children": [{ "_type": "span", "text": "What makes a page citable" }] },
+      { "_type": "block", "style": "normal", "children": [{ "_type": "span", "text": "A citable page has a clear thesis, direct answers, scannable structure, proprietary criteria or examples, visible authorship, recent updates, and links to reliable sources. It also avoids absolute promises. Generative AI favors content that reduces ambiguity and makes claims easier to verify." }] },
+      { "_type": "block", "style": "h2", "children": [{ "_type": "span", "text": "The practical formula" }] },
+      { "_type": "block", "style": "normal", "children": [{ "_type": "span", "text": "Start with a brief answer to the main problem. Then develop context, decision criteria, practical steps, common mistakes, and FAQs. Include business examples, not only theory. Close with an actionable recommendation. This structure helps human readers and makes it easier for generative systems to extract useful passages." }] },
+      { "_type": "block", "style": "h2", "children": [{ "_type": "span", "text": "AI as the editorial backbone" }] },
+      { "_type": "block", "style": "normal", "children": [{ "_type": "span", "text": "AI can research, cluster topics, detect questions, propose outlines, translate, and refresh content. But the thesis, judgment, real examples, and fact-checking should remain under human control. In SEO 2026, using AI is not the problem. Publishing without editorial judgment is the problem." }] },
+      { "_type": "block", "style": "h2", "children": [{ "_type": "span", "text": "How landings and blog posts work together" }] },
+      { "_type": "block", "style": "normal", "children": [{ "_type": "span", "text": "Landing pages should act as semantic and conversion hubs. Blog posts should answer specific questions that support those landings. A post about AI agents should link to AI agent services. A guide about n8n should link to automation. This builds topical authority and conversion paths at the same time." }] },
+      { "_type": "block", "style": "h2", "children": [{ "_type": "span", "text": "SEO 2026 checklist" }] },
+      { "_type": "block", "style": "normal", "children": [{ "_type": "span", "text": "Define the main entity, intent, short answer, evidence, examples, FAQ, schema, internal links, update date, author, and next action. If any of those are missing, content may still rank, but it has a lower chance of becoming a trusted source for generative answers." }] },
+      { "_type": "block", "style": "h2", "children": [{ "_type": "span", "text": "Conclusion" }] },
+      { "_type": "block", "style": "normal", "children": [{ "_type": "span", "text": "SEO 2026 is not about writing more. It is about writing better, with architecture, authority, and usefulness. Companies that win visibility will turn their expertise into citable assets: clear pages, useful posts, proprietary examples, real cases, and an editorial strategy guided by AI but governed by humans." }] }
+    ],
+    "translation_of": "seo-2026-ai-overviews-contenido-citable",
+    "schema_type": "BlogPosting",
+    "key_entities": "SEO 2026, AI Overviews, AI Mode, generative search, citable content, entities, Google Search",
+    "faq_items": [
+      { "_type": "block", "style": "h3", "children": [{ "_type": "span", "text": "Is SEO dead because of generative AI?" }] },
+      { "_type": "block", "style": "normal", "children": [{ "_type": "span", "text": "No. The goal changed: content must rank, but it must also be understandable, reliable, and citable by generative systems." }] },
+      { "_type": "block", "style": "h3", "children": [{ "_type": "span", "text": "Should AI be used to write SEO content?" }] },
+      { "_type": "block", "style": "normal", "children": [{ "_type": "span", "text": "Yes, for research, structure, questions, and updates. Differentiation should come from human judgment, real cases, and verification." }] }
+    ],
+    "external_id": "editorial-2026:en:seo-ai-overviews-citable-content",
+    "source": "codex-editorial-ai-trends-2026"
+  },
+  "published_at": "2026-05-18T09:10:00",
+  "locale": "en"
+}

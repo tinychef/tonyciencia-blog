@@ -114,18 +114,38 @@ const formattedDate = date
 
 	<style>
 		.post-card {
+			position: relative;
 			display: flex;
 			flex-direction: column;
-			border: 1px solid var(--color-border-subtle);
-			border-radius: var(--radius-lg);
+			border: 1px solid var(--color-border);
+			border-radius: var(--radius-xl);
 			padding: var(--spacing-4);
+			background:
+				linear-gradient(180deg, color-mix(in srgb, var(--color-bg) 92%, transparent), color-mix(in srgb, var(--color-bg-subtle) 86%, transparent)),
+				var(--color-bg);
+			box-shadow: var(--shadow-sm);
+			overflow: hidden;
 			transition: border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
 		}
 
+		.post-card::before {
+			content: "";
+			position: absolute;
+			inset: 0;
+			pointer-events: none;
+			background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), transparent 36%, var(--color-accent-muted));
+			opacity: 0;
+			transition: opacity var(--transition-base);
+		}
+
 		.post-card:hover {
-			border-color: var(--color-accent-ring);
-			box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-			transform: translateY(-2px);
+			border-color: var(--color-accent);
+			box-shadow: var(--shadow-premium);
+			transform: translateY(-4px);
+		}
+
+		.post-card:hover::before {
+			opacity: 1;
 		}
 
 		@media (prefers-reduced-motion: reduce) {
@@ -138,6 +158,8 @@ const formattedDate = date
 		}
 
 	.card-link {
+		position: relative;
+		z-index: 1;
 		display: block;
 		text-decoration: none;
 		color: inherit;
@@ -146,7 +168,7 @@ const formattedDate = date
 	.card-image {
 		aspect-ratio: 16 / 10;
 		overflow: hidden;
-		border-radius: var(--radius-lg);
+		border-radius: calc(var(--radius-xl) - 6px);
 		background: var(--color-surface);
 		margin-bottom: var(--spacing-4);
 	}
@@ -164,8 +186,11 @@ const formattedDate = date
 
 	.card-placeholder {
 		aspect-ratio: 16 / 10;
-		border-radius: var(--radius-lg);
-		background: var(--color-surface);
+		border-radius: calc(var(--radius-xl) - 6px);
+		background:
+			var(--tc-grid),
+			linear-gradient(135deg, var(--color-surface), color-mix(in srgb, var(--color-accent) 10%, var(--color-surface)));
+		background-size: 30px 30px, auto;
 		margin-bottom: var(--spacing-4);
 	}
 
@@ -198,9 +223,9 @@ const formattedDate = date
 
 	.card-title {
 		font-size: var(--font-size-xl);
-		font-weight: 600;
-		line-height: var(--leading-snug);
-		letter-spacing: var(--tracking-snug);
+		font-weight: 800;
+		line-height: 1.12;
+		letter-spacing: -0.035em;
 		margin-bottom: var(--spacing-2);
 		transition: color var(--transition-fast);
 	}
@@ -224,6 +249,8 @@ const formattedDate = date
 		flex-wrap: wrap;
 		gap: var(--spacing-2);
 		margin-top: var(--spacing-3);
+		position: relative;
+		z-index: 1;
 	}
 
 	.card-tag {
@@ -232,7 +259,8 @@ const formattedDate = date
 		font-size: var(--font-size-xs);
 		color: var(--color-muted);
 		background: var(--color-surface);
-		border-radius: var(--radius);
+		border: 1px solid var(--color-border-subtle);
+		border-radius: var(--radius-pill);
 		text-decoration: none;
 		transition:
 			color var(--transition-fast),

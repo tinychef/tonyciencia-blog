@@ -1,6 +1,7 @@
 ---
 import { getEmDashCollection, getEntryTerms } from "emdash";
 import Base from "../../layouts/Base.astro";
+import PostCard from "../../components/PostCard.astro";
 import { getReadingTime } from "../../utils/reading-time";
 import { getLangFromUrl, useTranslations } from "../../i18n/locales";
 
@@ -8,7 +9,6 @@ const locale = getLangFromUrl(Astro.url);
 const t = useTranslations(locale);
 
 const { entries: posts, cacheHint } = await getEmDashCollection("posts", { locale });
-
 Astro.cache.set(cacheHint);
 
 const sortedPosts = posts.toSorted((a, b) => {
@@ -17,118 +17,99 @@ const sortedPosts = posts.toSorted((a, b) => {
 	return dateB - dateA;
 });
 
-// Fetch tags for each post (bylines are already hydrated by getEmDashCollection)
 const postsWithTags = await Promise.all(
-	sortedPosts.map(async (post) => {
-		const tags = await getEntryTerms("posts", post.data.id, "tag");
-		const bylines = post.data.bylines ?? [];
-		return { post, tags, bylines };
-	})
+	sortedPosts.map(async (post) => ({
+		post,
+		tags: (await getEntryTerms("posts", post.data.id, "tag")).map((tag) => ({ slug: tag.slug, label: tag.label })),
+		bylines: post.data.bylines ?? [],
+	}))
 );
-
-const formatDate = (date: Date) =>
-	date.toLocaleDateString(locale === "en" ? "en-US" : "es-ES", {
-		year: "numeric",
-		month: "long",
-		day: "numeric",
-	});
 ---
 
 <Base title={t("posts.title")} description={t("posts.description")}>
-	<div class="posts-page">
-		<header class="page-header">
-			<h1 class="page-title">{t("posts.title")}</h1>
-			<p class="page-description">
-				{posts.length}
-				{posts.length === 1 ? "article" : "articles"}
-			</p>
-		</header>
+	<section class="posts-hero">
+		<div class="tc-shell posts-hero-inner">
+			<span class="tc-eyebrow">AI Radar</span>
+			<h1>{t("posts.title")}</h1>
+			<p>{locale === "en" ? "Enterprise AI, automation, agents, and productivity guides for companies that need practical implementation." : "IA empresarial, automatización, agentes y productividad para empresas que necesitan implementación práctica."}</p>
+			<div class="posts-count">{posts.length} {posts.length === 1 ? "article" : "articles"}</div>
+		</div>
+	</section>
 
-		{
-			sortedPosts.length === 0 ? (
+	<section class="posts-catalog">
+		<div class="tc-shell">
+			{sortedPosts.length === 0 ? (
 				<p class="empty">{t("posts.noPostsYet")}</p>
 			) : (
-				<div class="posts-list">
+				<div class="posts-grid">
 					{postsWithTags.map(({ post, tags, bylines }) => (
-						<article class="post-item">
-							<a href={`/posts/${post.id}`} class="post-link">
-								<div class="post-meta">
-									{bylines.length > 0 && (
-										<>
-											<div class="post-bylines">
-												{bylines.slice(0, 2).map((credit, index) => (
-													<>
-														{index > 0 && <span class="byline-sep">,</span>}
-														<span class="post-byline">
-															{credit.byline.avatarMediaId && (
-																<img
-																	src={`/_emdash/api/media/file/${credit.byline.avatarMediaId}`}
-																	alt={credit.byline.displayName}
-																	class="post-byline-avatar"
-																/>
-															)}
-															<span class="post-byline-name">
-																{credit.byline.displayName}
-															</span>
-														</span>
-													</>
-												))}
-												{bylines.length > 2 && (
-													<span class="byline-more">+{bylines.length - 2}</span>
-												)}
-											</div>
-											<span class="meta-dot" />
-										</>
-									)}
-									{post.data.publishedAt && (
-										<time>{formatDate(post.data.publishedAt)}</time>
-									)}
-									{post.data.publishedAt && <span class="meta-dot" />}
-									<span>{getReadingTime(post.data.content)} {t("blog.minRead")}</span>
-								</div>
-								<h2 class="post-title">{post.data.title}</h2>
-								{post.data.excerpt && (
-									<p class="post-excerpt">{post.data.excerpt}</p>
-								)}
-							</a>
-							{tags.length > 0 && (
-								<div class="post-tags">
-									{tags.slice(0, 3).map((t) => (
-										<a href={`/tag/${t.slug}`} class="post-tag">
-											{t.label}
-										</a>
-									))}
-								</div>
-							)}
-						</article>
+						<PostCard
+							title={post.data.title}
+							excerpt={post.data.excerpt}
+							featuredImage={post.data.featured_image}
+							href={`/posts/${post.id}`}
+							date={post.data.publishedAt ?? undefined}
+							readingTime={getReadingTime(post.data.content)}
+							tags={tags}
+							bylines={bylines}
+						/>
 					))}
 				</div>
-			)
-		}
-	</div>
+			)}
+		</div>
+	</section>
 </Base>
 
 <style>
-	.posts-page {
-		max-width: var(--content-width);
-		margin: 0 auto;
-		padding: var(--spacing-8) var(--spacing-6) var(--spacing-16);
+	.posts-hero {
+		padding: clamp(4rem, 8vw, 7rem) 0 clamp(3rem, 6vw, 5rem);
+		border-bottom: 1px solid var(--color-border-subtle);
+		background:
+			var(--tc-grid),
+			linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 10%, transparent), transparent 42%),
+			var(--color-bg);
+		background-size: 46px 46px, auto, auto;
 	}
 
-	.page-header {
-		margin-bottom: var(--spacing-12);
+	.posts-hero-inner {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: var(--spacing-5);
 	}
 
-	.page-title {
-		font-size: var(--font-size-4xl);
-		font-weight: 700;
-		letter-spacing: var(--tracking-tight);
-		margin-bottom: var(--spacing-2);
+	.posts-hero h1 {
+		max-width: 880px;
+		font-size: clamp(3rem, 8vw, 6.5rem);
+		line-height: 0.9;
+		letter-spacing: -0.08em;
 	}
 
-	.page-description {
-		font-size: var(--font-size-lg);
+	.posts-hero p {
+		max-width: 62ch;
+		color: var(--color-text-secondary);
+		font-size: clamp(1.05rem, 1.4vw, 1.28rem);
+		line-height: 1.75;
+	}
+
+	.posts-count {
+		padding: 0.45rem 0.8rem;
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-pill);
+		background: var(--color-bg);
 		color: var(--color-muted);
+		font-size: var(--font-size-sm);
+		font-weight: 800;
+	}
+
+	.posts-catalog {
+		padding: clamp(3rem, 7vw, 6rem) 0;
+	}
+
+	.posts-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: var(--spacing-5);
 	}
 
 	.empty {
@@ -136,137 +117,15 @@ const formatDate = (date: Date) =>
 		font-size: var(--font-size-lg);
 	}
 
-	.posts-list {
-		display: flex;
-		flex-direction: column;
-	}
-
-	.post-item {
-		padding: var(--spacing-8) 0;
-		border-bottom: 1px solid var(--color-border-subtle);
-	}
-
-	.post-item:first-child {
-		padding-top: 0;
-	}
-
-	.post-item:last-child {
-		border-bottom: none;
-	}
-
-	.post-link {
-		display: block;
-		text-decoration: none;
-		color: inherit;
-	}
-
-	.post-meta {
-		display: flex;
-		align-items: center;
-		gap: var(--spacing-3);
-		font-size: var(--font-size-sm);
-		color: var(--color-muted);
-		margin-bottom: var(--spacing-2);
-	}
-
-	.meta-dot {
-		width: 3px;
-		height: 3px;
-		border-radius: 50%;
-		background: var(--color-muted);
-	}
-
-	/* Post bylines */
-	.post-bylines {
-		display: flex;
-		align-items: center;
-		gap: 2px;
-	}
-
-	.post-byline {
-		display: inline-flex;
-		align-items: center;
-		gap: var(--spacing-1);
-	}
-
-	.post-byline-avatar {
-		width: var(--avatar-size-sm);
-		height: var(--avatar-size-sm);
-		border-radius: 50%;
-		object-fit: cover;
-	}
-
-	.post-byline-name {
-		font-weight: 500;
-		color: var(--color-text-secondary);
-	}
-
-	.byline-sep {
-		color: var(--color-muted);
-		margin-right: 2px;
-	}
-
-	.byline-more {
-		font-size: var(--font-size-xs);
-		color: var(--color-muted);
-		margin-left: 2px;
-	}
-
-	.post-title {
-		font-size: var(--font-size-2xl);
-		font-weight: 600;
-		line-height: var(--leading-snug);
-		letter-spacing: var(--tracking-snug);
-		margin-bottom: var(--spacing-2);
-		transition: color var(--transition-fast);
-	}
-
-	.post-link:hover .post-title {
-		color: var(--color-accent);
-	}
-
-	.post-excerpt {
-		font-size: var(--font-size-lg);
-		line-height: var(--leading-relaxed);
-		color: var(--color-text-secondary);
-	}
-
-	.post-tags {
-		display: flex;
-		flex-wrap: wrap;
-		gap: var(--spacing-2);
-		margin-top: var(--spacing-4);
-	}
-
-	.post-tag {
-		display: inline-block;
-		padding: var(--tag-padding-y) var(--spacing-3);
-		font-size: var(--font-size-sm);
-		color: var(--color-text-secondary);
-		background: var(--color-surface);
-		border-radius: var(--radius);
-		text-decoration: none;
-		transition:
-			color var(--transition-fast),
-			background var(--transition-fast);
-	}
-
-	.post-tag:hover {
-		color: var(--color-text);
-		background: var(--color-border);
-	}
-
-	@media (max-width: 600px) {
-		.posts-page {
-			padding: var(--spacing-6) var(--spacing-4) var(--spacing-12);
+	@media (max-width: 980px) {
+		.posts-grid {
+			grid-template-columns: repeat(2, 1fr);
 		}
+	}
 
-		.page-title {
-			font-size: var(--font-size-3xl);
-		}
-
-		.post-title {
-			font-size: var(--font-size-xl);
+	@media (max-width: 640px) {
+		.posts-grid {
+			grid-template-columns: 1fr;
 		}
 	}
 </style>

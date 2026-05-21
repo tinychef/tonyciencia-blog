@@ -22,305 +22,198 @@ const sortedPosts = posts.toSorted((a, b) => {
 	return dateB - dateA;
 });
 
-const featuredPost = sortedPosts.find((p) => p.data.featured_image);
-const featuredIndex = featuredPost ? sortedPosts.indexOf(featuredPost) : -1;
-const gridPosts = sortedPosts.filter((_, i) => i !== featuredIndex).slice(0, 6);
-const totalShown = (featuredPost ? 1 : 0) + gridPosts.length;
-const hasMorePosts = sortedPosts.length > totalShown;
+const featuredPost = sortedPosts[0];
+const gridPosts = sortedPosts.slice(1, 5);
+const postsRoute = locale === "en" ? "/en/posts" : "/posts";
+const servicesRoute = locale === "en" ? "/en/services" : "/servicios";
+const contactRoute = locale === "en" ? "/en/contact" : "/contacto";
 
-let featuredTags: Array<{ slug: string; label: string }> = [];
-const featuredBylines = featuredPost?.data.bylines ?? [];
+const featuredTags = featuredPost
+	? (await getEntryTerms("posts", featuredPost.data.id, "tag")).map((tag) => ({ slug: tag.slug, label: tag.label }))
+	: [];
 
-const allPostsToFetch = [
-	...(featuredPost ? [{ post: featuredPost, isFeatured: true }] : []),
-	...gridPosts.map((p) => ({ post: p, isFeatured: false })),
-];
-
-const allPostTags = await Promise.all(
-	allPostsToFetch.map(async ({ post, isFeatured }) => {
-		const tags = await getEntryTerms("posts", post.data.id, "tag");
-		return { post, isFeatured, tags: tags.map((t) => ({ slug: t.slug, label: t.label })), bylines: post.data.bylines ?? [] };
-	})
+const gridPostsWithTags = await Promise.all(
+	gridPosts.map(async (post) => ({
+		post,
+		tags: (await getEntryTerms("posts", post.data.id, "tag")).map((tag) => ({ slug: tag.slug, label: tag.label })),
+	}))
 );
 
-if (featuredPost) {
-	const featured = allPostTags.find((p) => p.isFeatured);
-	if (featured) featuredTags = featured.tags;
-}
+const formatDate = (date: Date | null | undefined) =>
+	date?.toLocaleDateString(locale === "en" ? "en-US" : "es-ES", {
+		year: "numeric",
+		month: "short",
+		day: "numeric",
+	});
 
-const gridPostsWithTags = allPostTags.filter((p) => !p.isFeatured);
-
-function formatDate(date: Date | null | undefined) {
-	if (!date) return null;
-	const loc = locale === "en" ? "en-US" : "es-ES";
-	return date.toLocaleDateString(loc, { year: "numeric", month: "long", day: "numeric" });
-}
-
-// Adjust routes based on locale
-const servicesRoute = locale === "en" ? "/en/services" : "/servicios";
-const postsRoute = locale === "en" ? "/en/posts" : "/posts";
-const contactRoute = locale === "en" ? "/en/contact" : "/contacto";
+const operatingSystem = locale === "en"
+	? [
+			["Audit", "We map repetitive work, data gaps, and AI-ready decisions."],
+			["Build", "We deploy automations and agents connected to your actual tools."],
+			["Control", "We document rules, escalation paths, and human review points."],
+			["Scale", "We measure impact and expand only where the business case is real."],
+		]
+	: [
+			["Auditar", "Mapeamos trabajo repetitivo, brechas de datos y decisiones listas para IA."],
+			["Construir", "Desplegamos automatizaciones y agentes conectados a tus herramientas reales."],
+			["Controlar", "Documentamos reglas, escalamiento y puntos de revisión humana."],
+			["Escalar", "Medimos impacto y expandimos solo donde el caso de negocio es real."],
+		];
 ---
 
 <Base title={siteTitle} description={siteTagline}>
-	<!-- ═══ HERO ═══════════════════════════════════════════════════════ -->
-	<section class="hero">
-		<!-- Glow orbs (Framer/Raycast aesthetic) -->
-		<div class="hero-orb hero-orb-1" aria-hidden="true"></div>
-		<div class="hero-orb hero-orb-2" aria-hidden="true"></div>
-		<!-- Dot grid pattern -->
-		<div class="hero-dot-grid" aria-hidden="true"></div>
-
-		<div class="hero-inner">
-			<h1 class="hero-title">
-				{t("hero.title.line1")}<br />
-				<span class="hero-title-gradient">{t("hero.title.line2")}</span>
-			</h1>
-			<p class="hero-subtitle">
-				{t("hero.subtitle")}
-			</p>
-			<div class="hero-actions">
-				<a href={servicesRoute} class="btn-primary">{t("hero.cta.primary")}</a>
-				<a href={postsRoute} class="btn-secondary">{t("hero.cta.secondary")}</a>
+	<section class="hero-2026">
+		<div class="hero-grid-bg" aria-hidden="true"></div>
+		<div class="tc-shell hero-shell">
+			<div class="hero-copy">
+				<span class="tc-eyebrow">{t("services.label")}</span>
+				<h1 class="hero-title">
+					{t("hero.title.line1")}<br />
+					<span class="tc-gradient-text">{t("hero.title.line2")}</span>
+				</h1>
+				<p class="hero-subtitle">{t("hero.subtitle")}</p>
+				<div class="hero-actions">
+					<a href={servicesRoute} class="tc-btn tc-btn--primary">{t("hero.cta.primary")}</a>
+					<a href={postsRoute} class="tc-btn tc-btn--secondary">{t("hero.cta.secondary")}</a>
+				</div>
+				<div class="hero-proof" aria-label="Business proof">
+					<div>
+						<strong>3</strong>
+						<span>{locale === "en" ? "B2B services" : "servicios B2B"}</span>
+					</div>
+					<div>
+						<strong>24/7</strong>
+						<span>{locale === "en" ? "automation logic" : "lógica automatizada"}</span>
+					</div>
+					<div>
+						<strong>0</strong>
+						<span>{locale === "en" ? "AI improvisation" : "improvisación con IA"}</span>
+					</div>
+				</div>
 			</div>
-			<div class="hero-stats">
-				<div class="hero-stat">
-					<span class="stat-number">+500</span>
-					<span class="stat-label">{t("hero.stat.students")}</span>
+
+			<div class="hero-console tc-card" aria-label="AI implementation console">
+				<div class="console-top">
+					<span></span><span></span><span></span>
+					<p>{locale === "en" ? "AI operating layer" : "Capa operativa IA"}</p>
 				</div>
-				<div class="stat-divider"></div>
-				<div class="hero-stat">
-					<span class="stat-number">50+</span>
-					<span class="stat-label">{t("hero.stat.workflows")}</span>
+				<div class="console-flow">
+					<div class="flow-node active">{locale === "en" ? "CRM Lead" : "Lead CRM"}</div>
+					<div class="flow-line"></div>
+					<div class="flow-node">{locale === "en" ? "AI Agent" : "Agente IA"}</div>
+					<div class="flow-line"></div>
+					<div class="flow-node">{locale === "en" ? "Human Review" : "Revisión humana"}</div>
 				</div>
-				<div class="stat-divider"></div>
-				<div class="hero-stat">
-					<span class="stat-number">96%</span>
-					<span class="stat-label">{t("hero.stat.results")}</span>
+				<div class="console-panel">
+					<p class="panel-label">{locale === "en" ? "Business rule" : "Regla empresarial"}</p>
+					<p>{locale === "en" ? "Escalate high-value leads, document every decision, and keep the team in control." : "Escala leads de alto valor, documenta cada decisión y mantiene al equipo en control."}</p>
+				</div>
+				<div class="console-metrics">
+					<div><strong>01</strong><span>{t("services.automation.title")}</span></div>
+					<div><strong>02</strong><span>{t("services.courses.title")}</span></div>
+					<div><strong>03</strong><span>{t("services.apps.title")}</span></div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- ═══ TOOLS MARQUEE ══════════════════════════════════════════════ -->
 	<ToolsMarquee />
 
-	<!-- ═══ SERVICIOS ══════════════════════════════════════════════════ -->
-	<section class="services-section">
-		<div class="section-container">
-			<div class="section-header">
-				<span class="section-label">{t("services.label")}</span>
-				<h2 class="section-title">{t("services.heading")}</h2>
-				<p class="section-subtitle">
-					{t("services.sub")}
-				</p>
+	<section class="tc-section services-2026">
+		<div class="tc-shell">
+			<div class="section-split">
+				<div>
+					<span class="tc-eyebrow">{t("services.label")}</span>
+					<h2 class="tc-section-title">{t("services.heading")}</h2>
+				</div>
+				<p class="tc-section-copy">{t("services.sub")}</p>
 			</div>
-			<div class="services-grid">
-				<div class="service-card" data-service="01">
-					<span class="service-code">01</span>
-					<div class="service-icon">
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 2a10 10 0 0 1 10 10"/>
-							<path d="M12 12 2.1 9.1"/>
-						</svg>
-					</div>
-					<h3 class="service-title">{t("services.automation.title")}</h3>
-					<p class="service-desc">{t("services.automation.desc")}</p>
-					<a href={`${servicesRoute}#automatizacion`} class="service-link">{t("services.automation.link")}</a>
-				</div>
-				<div class="service-card featured" data-service="02">
-					<span class="service-code">02</span>
-					<div class="featured-badge">{t("services.courses.badge")}</div>
-					<div class="service-icon">
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-							<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
-						</svg>
-					</div>
-					<h3 class="service-title">{t("services.courses.title")}</h3>
-					<p class="service-desc">{t("services.courses.desc")}</p>
-					<a href={`${servicesRoute}#agentes-ia`} class="service-link">{t("services.courses.link")}</a>
-				</div>
-				<div class="service-card" data-service="03">
-					<span class="service-code">03</span>
-					<div class="service-icon">
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-							<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-						</svg>
-					</div>
-					<h3 class="service-title">{t("services.apps.title")}</h3>
-					<p class="service-desc">{t("services.apps.desc")}</p>
-					<a href={`${servicesRoute}#mentoria`} class="service-link">{t("services.apps.link")}</a>
-				</div>
+
+			<div class="service-matrix">
+				<a href={`${servicesRoute}#automatizacion`} class="matrix-card tc-card">
+					<span class="matrix-index">01</span>
+					<h3>{t("services.automation.title")}</h3>
+					<p>{t("services.automation.desc")}</p>
+					<strong>{t("services.automation.link")}</strong>
+				</a>
+				<a href={`${servicesRoute}#agentes-ia`} class="matrix-card tc-card matrix-card--prime">
+					<span class="matrix-index">02</span>
+					<small>{t("services.courses.badge")}</small>
+					<h3>{t("services.courses.title")}</h3>
+					<p>{t("services.courses.desc")}</p>
+					<strong>{t("services.courses.link")}</strong>
+				</a>
+				<a href={`${servicesRoute}#mentoria`} class="matrix-card tc-card">
+					<span class="matrix-index">03</span>
+					<h3>{t("services.apps.title")}</h3>
+					<p>{t("services.apps.desc")}</p>
+					<strong>{t("services.apps.link")}</strong>
+				</a>
 			</div>
 		</div>
 	</section>
 
-	<!-- ═══ CORE VALUES ════════════════════════════════════════════════ -->
-	<section class="values-section">
-		<div class="section-container">
-			<div class="section-header">
-				<h2 class="section-title">{t("core.values.title")}</h2>
+	<section class="tc-section operating-section">
+		<div class="tc-shell operating-grid">
+			<div>
+				<span class="tc-eyebrow">{locale === "en" ? "Method" : "Método"}</span>
+				<h2 class="tc-section-title">{locale === "en" ? "AI that works like an operating system." : "IA que funciona como sistema operativo."}</h2>
 			</div>
-			<div class="values-grid">
-				<!-- Pedagogía -->
-				<div class="value-item">
-					<div class="value-icon">
-						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+			<div class="operating-list">
+				{operatingSystem.map(([title, copy], index) => (
+					<div class="operating-item">
+						<span>{String(index + 1).padStart(2, "0")}</span>
+						<div>
+							<h3>{title}</h3>
+							<p>{copy}</p>
+						</div>
 					</div>
-					<h3 class="value-title">{t("core.values.v1.title")}</h3>
-				</div>
-				<!-- Experiencia IA -->
-				<div class="value-item">
-					<div class="value-icon">
-						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8h.01M12 8h.01M17 8h.01"/></svg>
-					</div>
-					<h3 class="value-title">{t("core.values.v2.title")}</h3>
-				</div>
-				<!-- Marketing -->
-				<div class="value-item">
-					<div class="value-icon">
-						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-					</div>
-					<h3 class="value-title">{t("core.values.v3.title")}</h3>
-				</div>
-				<!-- 5 años -->
-				<div class="value-item">
-					<div class="value-icon">
-						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-					</div>
-					<h3 class="value-title">{t("core.values.v4.title")}</h3>
-				</div>
-				<!-- Confianza legal -->
-				<div class="value-item">
-					<div class="value-icon">
-						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-					</div>
-					<h3 class="value-title">{t("core.values.v5.title")}</h3>
-				</div>
+				))}
 			</div>
 		</div>
 	</section>
 
-	<!-- ═══ TESTIMONIALS ═══════════════════════════════════════════════ -->
-	<section class="testimonials-section">
-		<div class="section-container">
-			<div class="section-header">
-				<h2 class="section-title">{t("testimonials.title")}</h2>
-			</div>
-			<div class="testimonials-grid">
-				<div class="testimonial-card">
-					<div class="testimonial-stars" aria-label="5 estrellas">★★★★★</div>
-					<p class="testimonial-quote">{t("testimonials.t1.quote")}</p>
-					<div class="testimonial-author">
-						<div class="author-avatar" aria-hidden="true">AJ</div>
-						<div class="author-info">
-							<span class="author-name">{t("testimonials.t1.author")}</span>
-							<span class="author-role">{t("testimonials.t1.role")}</span>
-						</div>
-					</div>
+	<section class="tc-section blog-radar">
+		<div class="tc-shell">
+			<div class="section-split">
+				<div>
+					<span class="tc-eyebrow">{locale === "en" ? "AI Radar" : "Radar IA"}</span>
+					<h2 class="tc-section-title">{t("blog.latest")}</h2>
 				</div>
-				<div class="testimonial-card">
-					<div class="testimonial-stars" aria-label="5 estrellas">★★★★★</div>
-					<p class="testimonial-quote">{t("testimonials.t2.quote")}</p>
-					<div class="testimonial-author">
-						<div class="author-avatar" aria-hidden="true">FP</div>
-						<div class="author-info">
-							<span class="author-name">{t("testimonials.t2.author")}</span>
-							<span class="author-role">{t("testimonials.t2.role")}</span>
-						</div>
-					</div>
-				</div>
-				<div class="testimonial-card">
-					<div class="testimonial-stars" aria-label="5 estrellas">★★★★★</div>
-					<p class="testimonial-quote">{t("testimonials.t3.quote")}</p>
-					<div class="testimonial-author">
-						<div class="author-avatar" aria-hidden="true">RM</div>
-						<div class="author-info">
-							<span class="author-name">{t("testimonials.t3.author")}</span>
-							<span class="author-role">{t("testimonials.t3.role")}</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- ═══ BLOG PREVIEW ═══════════════════════════════════════════════ -->
-	<section class="blog-preview-section">
-		<div class="section-container">
-			<div class="section-header">
-				<h2 class="section-title">{t("blog.latest")}</h2>
-				{hasMorePosts && <a href={postsRoute} class="btn-outline">{t("blog.viewAll")} →</a>}
+				<a href={postsRoute} class="tc-btn tc-btn--secondary">{t("blog.viewAll")}</a>
 			</div>
 
-			{posts.length === 0 ? (
+			{sortedPosts.length === 0 ? (
 				<div class="empty-state">
 					<p>{t("blog.noPostsYet")}</p>
-					{process.env.NODE_ENV === "development" && (
-						<a href="/_emdash/admin/content/posts" class="btn-primary">
-							{t("blog.createPost")}
-						</a>
-					)}
 				</div>
 			) : (
-				<div class="blog-grid-layout">
+				<div class="blog-radar-grid">
 					{featuredPost && (
-						<article class="featured-post-card">
-							<a href={`${postsRoute}/${featuredPost.id}`} class="featured-post-link">
-								{featuredPost.data.featured_image ? (
-									<div class="featured-post-image">
+						<article class="featured-article tc-card">
+							<a href={`${postsRoute}/${featuredPost.id}`} class="featured-link">
+								{featuredPost.data.featured_image && (
+									<div class="featured-media">
 										<Image image={featuredPost.data.featured_image} />
 									</div>
-								) : (
-									<div class="featured-post-image-placeholder" />
 								)}
-								<div class="featured-post-content">
-									<div class="featured-post-meta">
-										{featuredBylines.length > 0 && (
-											<>
-												<div class="featured-bylines">
-													{featuredBylines.slice(0, 2).map((credit, index) => (
-														<>
-															{index > 0 && <span class="byline-sep">,</span>}
-															<span class="post-byline">
-																{credit.byline.avatarMediaId && (
-																	<img
-																		src={`/_emdash/api/media/file/${credit.byline.avatarMediaId}`}
-																		alt={credit.byline.displayName}
-																		class="post-byline-avatar"
-																	/>
-																)}
-																<span>{credit.byline.displayName}</span>
-															</span>
-														</>
-													))}
-												</div>
-												<span class="meta-dot" />
-											</>
-										)}
-										{featuredPost.data.publishedAt && (
-											<time>{formatDate(featuredPost.data.publishedAt)}</time>
-										)}
-										<span class="meta-dot" />
+								<div class="featured-body">
+									<div class="featured-meta">
+										{featuredPost.data.publishedAt && <time>{formatDate(featuredPost.data.publishedAt)}</time>}
 										<span>{getReadingTime(featuredPost.data.content)} {t("blog.minRead")}</span>
 									</div>
-									<h3 class="featured-post-title">{featuredPost.data.title}</h3>
-									{featuredPost.data.excerpt && (
-										<p class="featured-post-excerpt">{featuredPost.data.excerpt}</p>
-									)}
+									<h3>{featuredPost.data.title}</h3>
+									{featuredPost.data.excerpt && <p>{featuredPost.data.excerpt}</p>}
 									{featuredTags.length > 0 && (
-										<div class="post-tags">
-											{featuredTags.slice(0, 3).map((tag) => (
-												<span class="post-tag">{tag.label}</span>
-											))}
+										<div class="featured-tags">
+											{featuredTags.slice(0, 3).map((tag) => <span>{tag.label}</span>)}
 										</div>
 									)}
 								</div>
 							</a>
 						</article>
 					)}
-
-					<div class="grid-posts">
+					<div class="post-stack">
 						{gridPostsWithTags.map(({ post, tags }) => (
 							<PostCard
 								title={post.data.title}
@@ -338,861 +231,500 @@ const contactRoute = locale === "en" ? "/en/contact" : "/contacto";
 		</div>
 	</section>
 
-	<!-- ═══ CTA FINAL ══════════════════════════════════════════════════ -->
-	<section class="cta-section">
-		<div class="cta-inner">
-			<p class="cta-social-proof">{t("cta.social_proof")}</p>
-			<h2 class="cta-title">{t("cta.title")}</h2>
-			<p class="cta-subtitle">
-				{t("cta.sub")}
-			</p>
-			<a href={contactRoute} class="btn-primary btn-large">{t("cta.button")}</a>
+	<section class="final-cta">
+		<div class="tc-shell">
+			<div class="final-cta-card tc-card">
+				<span class="tc-eyebrow">{t("cta.social_proof")}</span>
+				<h2>{t("cta.title")}</h2>
+				<p>{t("cta.sub")}</p>
+				<a href={contactRoute} class="tc-btn tc-btn--primary">{t("cta.button")}</a>
+			</div>
 		</div>
 	</section>
 </Base>
 
 <script>
-	// 4.1 Scroll-reveal animations
 	(function () {
 		const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-		const sections = document.querySelectorAll(".services-section, .values-section, .testimonials-section, .blog-preview-section, .cta-section");
-		sections.forEach((s) => s.classList.add("reveal-section"));
-
+		const targets = document.querySelectorAll(".service-matrix > *, .operating-item, .blog-radar-grid, .final-cta-card");
+		targets.forEach((target) => target.classList.add("scroll-reveal"));
 		if (prefersReduced) {
-			sections.forEach((s) => s.classList.add("is-visible"));
+			targets.forEach((target) => target.classList.add("is-visible"));
 			return;
 		}
-
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						entry.target.classList.add("is-visible");
-						observer.unobserve(entry.target);
-					}
-				});
-			},
-			{ threshold: 0.1 }
-		);
-		sections.forEach((s) => observer.observe(s));
-	})();
-
-	// 4.4 Stats counter animation
-	(function () {
-		const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-		const stats = document.querySelectorAll(".stat-number");
-		if (stats.length === 0) return;
-
-		function animateCounter(el: Element) {
-			const text = el.textContent || "";
-			const match = text.match(/(\d+)/);
-			if (!match) return;
-			const target = parseInt(match[1], 10);
-			const prefix = text.slice(0, text.indexOf(match[1]));
-			const suffix = text.slice(text.indexOf(match[1]) + match[1].length);
-			const duration = 1500;
-			const start = performance.now();
-
-			function step(now: number) {
-				const elapsed = now - start;
-				const progress = Math.min(elapsed / duration, 1);
-				const eased = 1 - Math.pow(1 - progress, 3);
-				const current = Math.round(eased * target);
-				el.textContent = prefix + current + suffix;
-				if (progress < 1) requestAnimationFrame(step);
-				else el.textContent = text;
-			}
-			requestAnimationFrame(step);
-		}
-
-		if (prefersReduced) return;
-
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						animateCounter(entry.target);
-						observer.unobserve(entry.target);
-					}
-				});
-			},
-			{ threshold: 0.5 }
-		);
-		stats.forEach((s) => observer.observe(s));
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (!entry.isIntersecting) return;
+				entry.target.classList.add("is-visible");
+				observer.unobserve(entry.target);
+			});
+		}, { threshold: 0.14 });
+		targets.forEach((target) => observer.observe(target));
 	})();
 </script>
 
 <style>
-	/* ── Values & Testimonials (moved from theme.css) ──── */
-	.values-section, .testimonials-section {
-		padding: 6rem 0;
-		background: var(--color-bg);
-	}
-
-	.values-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-		gap: 2rem;
-		margin-top: 3rem;
-	}
-
-	.value-item {
-		display: flex;
-		align-items: flex-start;
-		gap: 1rem;
-		padding: 1.5rem;
-		background: var(--color-surface);
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-lg);
-		transition: transform 0.2s ease, border-color 0.2s ease;
-	}
-
-	.value-item:hover {
-		transform: translateY(-2px);
-		border-color: var(--color-border-subtle);
-	}
-
-	.value-icon {
-		color: var(--color-accent);
-		flex-shrink: 0;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 40px;
-		height: 40px;
-		background: var(--color-accent-muted);
-		border-radius: 50%;
-	}
-
-	.value-title {
-		font-size: 1.1rem;
-		font-weight: 600;
-		line-height: 1.4;
-		color: var(--color-text);
-		margin: 0;
-		padding-top: 0.5rem;
-	}
-
-	.testimonials-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 2rem;
-		margin-top: 3rem;
-	}
-
-	.testimonial-card {
-		padding: 2rem;
-		background: var(--color-surface);
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-lg);
+	.hero-2026 {
 		position: relative;
-	}
-
-	.testimonial-card::before {
-		content: '"';
-		position: absolute;
-		top: -10px;
-		left: 15px;
-		font-size: 4rem;
-		color: var(--color-accent-muted);
-		font-family: serif;
-		line-height: 1;
-	}
-
-	.testimonial-quote {
-		font-size: 1rem;
-		line-height: 1.6;
-		color: var(--color-text-secondary);
-		margin: 0;
-		position: relative;
-		z-index: 1;
-		font-style: italic;
-	}
-
-	/* ── HERO ─────────────────────────────────────────────── */
-	.hero {
-		position: relative;
-		padding: clamp(3rem, 8vw, 5rem) var(--spacing-6) clamp(4rem, 8vw, 7rem);
-		overflow: hidden;
-		background: var(--color-bg);
 		isolation: isolate;
+		overflow: hidden;
+		padding: clamp(4.5rem, 9vw, 8rem) 0 clamp(4rem, 7vw, 6rem);
 	}
 
-	/* Glow orbs — Framer/Raycast aesthetic */
-	.hero-orb {
-		position: absolute;
-		border-radius: 50%;
-		pointer-events: none;
-		z-index: 0;
-		filter: blur(100px);
-		opacity: 0.18;
-		animation: orb-float 8s ease-in-out infinite alternate;
-	}
-
-	.hero-orb-1 {
-		width: 600px;
-		height: 400px;
-		background: var(--color-accent);
-		top: -10%;
-		right: -5%;
-		animation-delay: 0s;
-		opacity: 0.15;
-	}
-
-	.hero-orb-2 {
-		width: 400px;
-		height: 300px;
-		background: var(--color-accent-hover);
-		bottom: 0;
-		left: -8%;
-		animation-delay: -4s;
-		opacity: 0.10;
-	}
-
-	@keyframes orb-float {
-		from { transform: translate(0, 0) scale(1); }
-		to { transform: translate(20px, -20px) scale(1.05); }
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.hero-orb {
-			animation: none;
-		}
-	}
-
-	/* Dot grid pattern */
-	.hero-dot-grid {
+	.hero-grid-bg {
 		position: absolute;
 		inset: 0;
-		z-index: 0;
-		pointer-events: none;
-		background-image: radial-gradient(
-			circle,
-			var(--color-border) 1px,
-			transparent 1px
-		);
-		background-size: 28px 28px;
-		mask-image: radial-gradient(
-			ellipse 80% 60% at 50% 50%,
-			black 30%,
-			transparent 100%
-		);
-		opacity: 0.5;
+		z-index: -1;
+		background-image: var(--tc-grid);
+		background-size: 46px 46px;
+		mask-image: radial-gradient(ellipse 72% 62% at 50% 20%, black 0%, transparent 72%);
+		opacity: 0.48;
 	}
 
-	.hero-inner {
-		max-width: 800px;
-		margin: 0 auto;
-		text-align: center;
-		position: relative;
-		z-index: 10;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-
-	.hero-badge {
-		display: inline-flex;
-		align-items: center;
-		gap: 8px;
-		padding: 6px 14px;
-		background: var(--color-surface);
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-pill);
-		font-size: var(--font-size-sm);
-		font-weight: 500;
-		color: var(--color-text-secondary);
-		margin-bottom: var(--spacing-8);
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-	}
-
-	.hero-badge-dot {
-		width: 6px;
-		height: 6px;
-		border-radius: 50%;
-		background: var(--color-accent);
-		box-shadow: 0 0 8px var(--color-accent);
-	}
-
-	.hero-logo-wrap {
-		margin-bottom: var(--spacing-8);
-	}
-
-	.hero-logo {
-		height: 48px;
-		width: auto;
-		object-fit: contain;
-	}
-
-	.hero-title {
-		font-size: clamp(2.5rem, 6vw, 4.5rem);
-		font-weight: 800;
-		letter-spacing: -0.04em;
-		line-height: 1.1;
-		color: var(--color-text);
-		margin: 0 0 var(--spacing-6);
-	}
-
-	.hero-title-gradient {
-		background: var(--tc-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-	}
-
-	.hero-subtitle {
-		font-size: clamp(1.125rem, 2vw, 1.25rem);
-		line-height: 1.6;
-		color: var(--color-text-secondary);
-		margin: 0 0 var(--spacing-10);
-		max-width: 640px;
-	}
-
-	.hero-br {
-		display: none;
-	}
-
-	.hero-actions {
-		display: flex;
-		gap: var(--spacing-4);
-		justify-content: center;
-		margin-bottom: var(--spacing-16);
-	}
-
-	.hero-stats {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: var(--spacing-8);
-		padding-top: var(--spacing-10);
-		border-top: 1px solid var(--color-border-subtle);
-		width: 100%;
-		max-width: 600px;
-	}
-
-	.hero-stat {
-		display: flex;
-		flex-direction: column;
-		gap: var(--spacing-1);
-	}
-
-	.stat-number {
-		font-size: var(--font-size-2xl);
-		font-weight: 700;
-		color: var(--color-text);
-		letter-spacing: -0.02em;
-	}
-
-	.stat-label {
-		font-size: var(--font-size-sm);
-		color: var(--color-muted);
-	}
-
-	.stat-divider {
-		width: 1px;
-		height: 32px;
-		background: var(--color-border-subtle);
-	}
-
-	/* ── TESTIMONIAL AUTHOR ─────────────────────────────── */
-	.testimonial-stars {
-		color: var(--color-accent);
-		font-size: 0.9rem;
-		letter-spacing: 2px;
-		margin-bottom: 0.75rem;
-	}
-
-	.testimonial-author {
-		display: flex;
-		align-items: center;
-		gap: 0.75rem;
-		margin-top: 1.25rem;
-		padding-top: 1.25rem;
-		border-top: 1px solid var(--color-border-subtle);
-	}
-
-	.author-avatar {
-		width: 36px;
-		height: 36px;
-		border-radius: 50%;
-		background: var(--tc-gradient);
-		color: white;
-		font-size: 0.7rem;
-		font-weight: 700;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-shrink: 0;
-		letter-spacing: 0;
-	}
-
-	.author-info {
-		display: flex;
-		flex-direction: column;
-		gap: 2px;
-	}
-
-	.author-name {
-		font-size: var(--font-size-sm);
-		font-weight: 600;
-		color: var(--color-text);
-	}
-
-	.author-role {
-		font-size: var(--font-size-xs);
-		color: var(--color-muted);
-	}
-
-	/* ── CTA SOCIAL PROOF ───────────────────────────────── */
-	.cta-social-proof {
-		font-size: var(--font-size-sm);
-		font-weight: 500;
-		color: var(--color-accent);
-		text-transform: uppercase;
-		letter-spacing: 0.08em;
-		margin: 0;
-	}
-
-	/* ── SERVICIOS ────────────────────────────────────────── */
-	.services-section {
-		padding: clamp(4rem, 8vw, 7rem) var(--spacing-6);
-		background:
-			linear-gradient(135deg, rgba(200, 146, 42, 0.06), transparent 34%),
-			linear-gradient(180deg, var(--color-bg-subtle), var(--color-bg));
-		border-top: 1px solid var(--color-border-subtle);
-		border-bottom: 1px solid var(--color-border-subtle);
-	}
-
-	.section-container {
-		max-width: var(--wide-width);
-		margin: 0 auto;
-	}
-
-	.section-header {
-		text-align: center;
-		max-width: 600px;
-		margin: 0 auto var(--spacing-16);
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-
-	.section-label {
-		font-size: var(--font-size-xs);
-		font-weight: 600;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		color: var(--color-accent);
-		margin-bottom: var(--spacing-4);
-	}
-
-	.section-title {
-		font-size: clamp(2rem, 4vw, 2.75rem);
-		font-weight: 700;
-		letter-spacing: -0.03em;
-		color: var(--color-text);
-		margin: 0 0 var(--spacing-4);
-	}
-
-	.section-subtitle {
-		font-size: var(--font-size-lg);
-		color: var(--color-text-secondary);
-		line-height: 1.6;
-		margin: 0;
-	}
-
-	.services-grid {
+	.hero-shell {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.85fr);
+		gap: clamp(2rem, 5vw, 5rem);
+		align-items: center;
+	}
+
+	.hero-copy {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
 		gap: var(--spacing-6);
 	}
 
-	.service-card {
-		position: relative;
-		padding: var(--spacing-8);
-		background: var(--color-bg);
-		border: 1px solid var(--color-border);
-		border-radius: 8px;
+	.hero-title {
+		font-size: clamp(3.2rem, 9vw, 7.4rem);
+		line-height: 0.88;
+		letter-spacing: -0.085em;
+		max-width: 9ch;
+	}
+
+	.hero-subtitle {
+		max-width: 62ch;
+		color: var(--color-text-secondary);
+		font-size: clamp(1.1rem, 1.4vw, 1.3rem);
+		line-height: 1.75;
+	}
+
+	.hero-actions,
+	.hero-proof {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--spacing-3);
+	}
+
+	.hero-proof {
+		width: 100%;
+		margin-top: var(--spacing-4);
+		padding-top: var(--spacing-6);
+		border-top: 1px solid var(--color-border);
+	}
+
+	.hero-proof div {
+		min-width: 140px;
 		display: flex;
 		flex-direction: column;
-		align-items: flex-start;
-		min-height: 320px;
-		overflow: hidden;
-		transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+		gap: 0.15rem;
 	}
 
-	.service-card::before {
-		content: attr(data-service);
-		position: absolute;
-		right: -0.2rem;
-		bottom: -1.1rem;
-		font-size: clamp(5rem, 12vw, 8rem);
-		font-weight: 800;
-		line-height: 1;
-		color: var(--color-text);
-		opacity: 0.035;
-		pointer-events: none;
+	.hero-proof strong {
+		font-size: clamp(1.7rem, 3vw, 2.4rem);
+		letter-spacing: -0.05em;
 	}
 
-	.service-card:hover {
-		transform: translateY(-4px);
-		border-color: var(--color-accent-muted);
-		box-shadow: 0 18px 48px rgba(10, 20, 30, 0.10);
+	.hero-proof span {
+		color: var(--color-muted);
+		font-size: var(--font-size-sm);
 	}
 
-	.service-card.featured {
-		border-color: var(--color-accent-muted);
-		box-shadow: 0 0 0 1px var(--color-accent-muted);
+	.hero-console {
+		padding: clamp(1.2rem, 2vw, 1.6rem);
+		transform: rotate(1.2deg);
 	}
 
-	.service-code {
-		font-family: var(--font-mono);
-		font-size: var(--font-size-xs);
-		font-weight: 700;
-		letter-spacing: 0.1em;
-		color: var(--color-accent);
-		margin-bottom: var(--spacing-5);
+	.console-top,
+	.console-flow,
+	.console-metrics {
+		position: relative;
+		z-index: 1;
 	}
 
-	.featured-badge {
-		position: absolute;
-		top: -12px;
-		left: 32px;
-		background: var(--tc-gradient);
-		color: white;
-		font-size: 0.75rem;
-		font-weight: 600;
-		padding: 4px 12px;
-		border-radius: var(--radius-pill);
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
-	}
-
-	.service-icon {
+	.console-top {
 		display: flex;
 		align-items: center;
-		justify-content: center;
-		width: 48px;
-		height: 48px;
-		border-radius: 12px;
-		background: var(--tc-gradient-subtle);
-		color: var(--color-accent);
+		gap: 0.45rem;
+		margin-bottom: var(--spacing-8);
+	}
+
+	.console-top span {
+		width: 0.65rem;
+		height: 0.65rem;
+		border-radius: 999px;
+		background: var(--color-border);
+	}
+
+	.console-top p {
+		margin-left: auto;
+		color: var(--color-muted);
+		font-size: var(--font-size-xs);
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+	}
+
+	.console-flow {
+		display: grid;
+		grid-template-columns: 1fr auto 1fr auto 1fr;
+		align-items: center;
+		gap: var(--spacing-3);
 		margin-bottom: var(--spacing-6);
 	}
 
-	.service-title {
-		font-size: var(--font-size-xl);
-		font-weight: 600;
-		letter-spacing: -0.01em;
-		color: var(--color-text);
-		margin: 0 0 var(--spacing-3);
+	.flow-node {
+		padding: 0.85rem;
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-lg);
+		background: var(--color-bg);
+		text-align: center;
+		font-size: var(--font-size-sm);
+		font-weight: 800;
 	}
 
-	.service-desc {
-		font-size: var(--font-size-base);
+	.flow-node.active {
+		border-color: var(--color-accent);
+		box-shadow: 0 0 0 4px var(--color-accent-muted);
+	}
+
+	.flow-line {
+		width: 2rem;
+		height: 1px;
+		background: var(--color-border);
+	}
+
+	.console-panel {
+		position: relative;
+		z-index: 1;
+		padding: var(--spacing-5);
+		border: 1px solid var(--color-border-subtle);
+		border-radius: var(--radius-xl);
+		background: var(--color-bg-subtle);
 		color: var(--color-text-secondary);
 		line-height: 1.6;
-		margin: 0 0 var(--spacing-8);
-		flex-grow: 1;
 	}
 
-	.service-link {
-		font-weight: 500;
+	.panel-label {
+		margin-bottom: var(--spacing-2);
 		color: var(--color-accent);
-		text-decoration: none;
-		display: inline-flex;
-		align-items: center;
-		transition: color var(--transition-fast);
+		font-size: var(--font-size-xs);
+		font-weight: 800;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
 	}
 
-	.service-link:hover {
-		color: var(--color-accent-hover);
-	}
-
-	/* ── BLOG PREVIEW ─────────────────────────────────────── */
-	.blog-preview-section {
-		padding: clamp(4rem, 8vw, 7rem) var(--spacing-6);
-	}
-
-	.blog-preview-section .section-header {
-		flex-direction: row;
-		justify-content: space-between;
-		max-width: none;
-		margin-bottom: var(--spacing-10);
-	}
-
-	.blog-grid-layout {
-		display: grid;
-		grid-template-columns: 1fr;
-		gap: var(--spacing-10);
-	}
-
-	.grid-posts {
+	.console-metrics {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
-		gap: var(--spacing-8) var(--spacing-6);
+		gap: var(--spacing-3);
+		margin-top: var(--spacing-4);
 	}
 
-	/* Featured Post */
-	.featured-post-link {
+	.console-metrics div {
+		padding: var(--spacing-4);
+		border-radius: var(--radius-lg);
+		background: color-mix(in srgb, var(--color-bg) 72%, transparent);
+		border: 1px solid var(--color-border-subtle);
+	}
+
+	.console-metrics strong,
+	.console-metrics span {
+		display: block;
+	}
+
+	.console-metrics strong {
+		color: var(--color-accent);
+		font-family: var(--font-mono);
+	}
+
+	.console-metrics span {
+		color: var(--color-text-secondary);
+		font-size: var(--font-size-sm);
+	}
+
+	.section-split {
 		display: grid;
-		grid-template-columns: 1.2fr 1fr;
+		grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.7fr);
 		gap: var(--spacing-10);
-		text-decoration: none;
+		align-items: end;
+		margin-bottom: clamp(2rem, 5vw, 4rem);
+	}
+
+	.services-2026 {
+		background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--color-bg-subtle) 72%, transparent), transparent);
+	}
+
+	.service-matrix {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: var(--spacing-5);
+	}
+
+	.matrix-card {
+		display: flex;
+		min-height: 390px;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: clamp(1.4rem, 2.5vw, 2rem);
 		color: inherit;
-		group: featured;
+		text-decoration: none;
+		transition: transform var(--transition-base), border-color var(--transition-base);
 	}
 
-	.featured-post-image {
+	.matrix-card:hover {
+		transform: translateY(-8px);
+		border-color: var(--color-accent);
+	}
+
+	.matrix-card--prime {
+		background:
+			linear-gradient(140deg, var(--color-bg), color-mix(in srgb, var(--color-accent) 10%, var(--color-bg))),
+			var(--color-bg);
+	}
+
+	.matrix-index {
+		color: var(--color-accent);
+		font-family: var(--font-mono);
+		font-weight: 900;
+	}
+
+	.matrix-card small {
+		width: fit-content;
+		padding: 0.3rem 0.65rem;
+		border-radius: var(--radius-pill);
+		background: var(--color-accent-muted);
+		color: var(--color-accent);
+		font-weight: 900;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+	}
+
+	.matrix-card h3 {
+		margin-top: auto;
+		font-size: clamp(1.8rem, 4vw, 3rem);
+		letter-spacing: -0.055em;
+	}
+
+	.matrix-card p {
+		margin: var(--spacing-4) 0 var(--spacing-6);
+		color: var(--color-text-secondary);
+		line-height: 1.65;
+	}
+
+	.matrix-card strong {
+		color: var(--color-accent);
+	}
+
+	.operating-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 0.78fr) minmax(320px, 1fr);
+		gap: clamp(2rem, 6vw, 5rem);
+		align-items: start;
+	}
+
+	.operating-list {
+		display: grid;
+		gap: var(--spacing-3);
+	}
+
+	.operating-item {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: var(--spacing-4);
+		padding: var(--spacing-5);
+		border: 1px solid var(--color-border);
 		border-radius: var(--radius-xl);
-		overflow: hidden;
-		aspect-ratio: 16/10;
-		background: var(--color-surface);
+		background: color-mix(in srgb, var(--color-bg) 82%, transparent);
 	}
 
-	.featured-post-image img {
+	.operating-item span {
+		color: var(--color-accent);
+		font-family: var(--font-mono);
+		font-weight: 900;
+	}
+
+	.operating-item h3 {
+		font-size: var(--font-size-xl);
+	}
+
+	.operating-item p {
+		color: var(--color-text-secondary);
+		line-height: 1.65;
+	}
+
+	.blog-radar-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.9fr);
+		gap: var(--spacing-6);
+		align-items: start;
+	}
+
+	.featured-link {
+		display: grid;
+		color: inherit;
+		text-decoration: none;
+	}
+
+	.featured-media {
+		position: relative;
+		z-index: 1;
+		aspect-ratio: 16 / 10;
+		overflow: hidden;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.featured-media img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
 		transition: transform var(--transition-slow);
 	}
 
-	.featured-post-image-placeholder {
-		width: 100%;
-		height: 100%;
-		border-radius: var(--radius-xl);
-		background: var(--color-surface);
-		aspect-ratio: 16/10;
+	.featured-link:hover img {
+		transform: scale(1.035);
 	}
 
-	.featured-post-link:hover .featured-post-image img {
-		transform: scale(1.03);
+	.featured-body {
+		position: relative;
+		z-index: 1;
+		padding: clamp(1.4rem, 2.5vw, 2rem);
 	}
 
-	.featured-post-content {
+	.featured-meta,
+	.featured-tags {
 		display: flex;
-		flex-direction: column;
-		justify-content: center;
-	}
-
-	.featured-post-meta {
-		display: flex;
-		align-items: center;
 		flex-wrap: wrap;
-		gap: var(--spacing-3);
+		gap: var(--spacing-2);
+		color: var(--color-muted);
 		font-size: var(--font-size-sm);
-		color: var(--color-muted);
-		margin-bottom: var(--spacing-4);
 	}
 
-	.featured-bylines {
-		display: flex;
-		align-items: center;
-		gap: 4px;
+	.featured-body h3 {
+		margin: var(--spacing-4) 0;
+		font-size: clamp(1.8rem, 4vw, 3.2rem);
+		line-height: 1;
+		letter-spacing: -0.055em;
 	}
 
-	.post-byline {
-		display: inline-flex;
-		align-items: center;
-		gap: var(--spacing-2);
-		font-weight: 500;
+	.featured-body p {
 		color: var(--color-text-secondary);
+		line-height: 1.7;
 	}
 
-	.post-byline-avatar {
-		width: 24px;
-		height: 24px;
-		border-radius: 50%;
-		object-fit: cover;
+	.featured-tags {
+		margin-top: var(--spacing-5);
 	}
 
-	.byline-sep {
-		color: var(--color-muted);
-	}
-
-	.meta-dot {
-		width: 3px;
-		height: 3px;
-		border-radius: 50%;
-		background: var(--color-border);
-	}
-
-	.featured-post-title {
-		font-size: clamp(1.75rem, 3vw, 2.5rem);
-		font-weight: 700;
-		line-height: 1.2;
-		letter-spacing: -0.02em;
-		color: var(--color-text);
-		margin: 0 0 var(--spacing-4);
-		transition: color var(--transition-fast);
-	}
-
-	.featured-post-link:hover .featured-post-title {
-		color: var(--color-accent);
-	}
-
-	.featured-post-excerpt {
-		font-size: var(--font-size-lg);
-		color: var(--color-text-secondary);
-		line-height: 1.6;
-		margin: 0 0 var(--spacing-6);
-		display: -webkit-box;
-		-webkit-line-clamp: 3;
-		-webkit-box-orient: vertical;
-		overflow: hidden;
-	}
-
-	.post-tags {
-		display: flex;
-		flex-wrap: wrap;
-		gap: var(--spacing-2);
-	}
-
-	.post-tag {
-		padding: 4px 12px;
-		background: var(--color-surface);
-		border: 1px solid var(--color-border-subtle);
+	.featured-tags span {
+		padding: 0.28rem 0.65rem;
+		border: 1px solid var(--color-border);
 		border-radius: var(--radius-pill);
-		font-size: var(--font-size-xs);
-		font-weight: 500;
-		color: var(--color-text-secondary);
 	}
 
-	/* ── CTA FINAL ────────────────────────────────────────── */
-	.cta-section {
-		padding: clamp(4rem, 8vw, 7rem) var(--spacing-6);
-		text-align: center;
-		background: var(--color-bg-subtle);
-		border-top: 1px solid var(--color-border-subtle);
-	}
-
-	.cta-inner {
-		max-width: 600px;
-		margin: 0 auto;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: var(--spacing-6);
-	}
-
-	.cta-title {
-		font-size: clamp(2rem, 4vw, 3rem);
-		font-weight: 700;
-		letter-spacing: -0.03em;
-		color: var(--color-text);
-		margin: 0;
-	}
-
-	.cta-subtitle {
-		font-size: var(--font-size-lg);
-		color: var(--color-text-secondary);
-		line-height: 1.6;
-		margin: 0;
-	}
-
-	/* ── BUTTONS ──────────────────────────────────────────── */
-	.btn-primary {
-		display: inline-flex;
-		align-items: center;
-		padding: 12px 28px;
-		background: var(--tc-gradient);
-		color: white;
-		font-weight: 600;
-		border-radius: var(--radius-lg);
-		text-decoration: none;
-		transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-	}
-
-	.btn-primary:hover {
-		transform: translateY(-1px);
-		box-shadow: 0 8px 24px rgba(200, 146, 42, 0.35);
-		color: white;
-	}
-
-	.btn-primary.btn-large {
-		padding: 16px 40px;
-		font-size: var(--font-size-lg);
-		border-radius: var(--radius-xl);
-	}
-
-	.btn-secondary {
-		display: inline-flex;
-		align-items: center;
-		padding: 11px 27px;
-		border: 1.5px solid var(--color-border);
-		color: var(--color-text);
-		font-weight: 500;
-		border-radius: var(--radius-lg);
-		text-decoration: none;
-		transition: border-color var(--transition-fast), color var(--transition-fast);
-	}
-
-	.btn-secondary:hover {
-		border-color: var(--color-accent);
-		color: var(--color-accent);
-	}
-
-	.btn-outline {
-		display: inline-flex;
-		align-items: center;
-		font-weight: 500;
-		color: var(--color-text-secondary);
-		text-decoration: none;
-		transition: color var(--transition-fast);
-	}
-
-	.btn-outline:hover {
-		color: var(--color-accent);
-	}
-
-	.empty-state {
-		text-align: center;
-		padding: var(--spacing-16) 0;
-		color: var(--color-muted);
-		display: flex;
-		flex-direction: column;
-		align-items: center;
+	.post-stack {
+		display: grid;
 		gap: var(--spacing-4);
 	}
 
-	/* ── RESPONSIVE ───────────────────────────────────────── */
-	@media (min-width: 641px) {
-		.hero-br { display: block; }
+	.final-cta {
+		padding: 0 0 clamp(4rem, 8vw, 7rem);
 	}
 
-	@media (max-width: 900px) {
-		.services-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
-		.grid-posts { grid-template-columns: repeat(2, 1fr); }
-		.featured-post-link { grid-template-columns: 1fr; gap: var(--spacing-6); }
-		.featured-post-image { aspect-ratio: 16/9; }
+	.final-cta-card {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: var(--spacing-5);
+		padding: clamp(2rem, 6vw, 5rem);
+		text-align: center;
 	}
 
-	@media (max-width: 640px) {
-		.hero-actions { flex-direction: column; width: 100%; max-width: 300px; }
-		.btn-primary, .btn-secondary { width: 100%; justify-content: center; }
-		.hero-stats { flex-direction: column; gap: var(--spacing-4); padding-top: var(--spacing-8); border-top: none; }
-		.stat-divider { width: 40px; height: 1px; }
-		.blog-preview-section .section-header { flex-direction: column; align-items: flex-start; gap: var(--spacing-4); }
-		.grid-posts { grid-template-columns: 1fr; }
+	.final-cta-card h2 {
+		max-width: 760px;
+		font-size: clamp(2.3rem, 6vw, 5rem);
+		line-height: 0.95;
+		letter-spacing: -0.07em;
 	}
 
-	/* ── Scroll Reveal ────────────────────────────── */
-	.reveal-section {
+	.final-cta-card p {
+		max-width: 640px;
+		color: var(--color-text-secondary);
+		font-size: var(--font-size-lg);
+		line-height: 1.7;
+	}
+
+	.scroll-reveal {
 		opacity: 0;
-		transform: translateY(20px);
-		transition: opacity 0.6s ease, transform 0.6s ease;
+		transform: translateY(24px);
+		transition: opacity 0.7s ease, transform 0.7s ease;
 	}
 
-	.reveal-section.is-visible {
+	.scroll-reveal.is-visible {
 		opacity: 1;
 		transform: translateY(0);
 	}
 
+	@media (max-width: 980px) {
+		.hero-shell,
+		.section-split,
+		.operating-grid,
+		.blog-radar-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.hero-console {
+			transform: none;
+		}
+
+		.service-matrix {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.hero-actions,
+		.hero-proof,
+		.console-flow,
+		.console-metrics {
+			grid-template-columns: 1fr;
+			flex-direction: column;
+		}
+
+		.flow-line {
+			width: 1px;
+			height: 1.5rem;
+			margin-inline: auto;
+		}
+
+		.matrix-card {
+			min-height: 310px;
+		}
+	}
+
 	@media (prefers-reduced-motion: reduce) {
-		.reveal-section {
+		.scroll-reveal,
+		.matrix-card,
+		.featured-media img {
+			transition: none;
+		}
+		.scroll-reveal {
 			opacity: 1;
 			transform: none;
-			transition: none;
+		}
+		.matrix-card:hover,
+		.tc-btn:hover {
+			transform: none;
 		}
 	}
 </style>

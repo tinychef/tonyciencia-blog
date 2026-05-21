@@ -616,6 +616,238 @@
     ],
     "posts": [
       {
+        "id": "post-ai-agents-enterprise-governance-2026",
+        "slug": "ai-agents-enterprise-governance-2026",
+        "status": "published",
+        "bylines": [
+          {
+            "byline": "byline-tony"
+          }
+        ],
+        "taxonomies": {
+          "category": [
+            "ia",
+            "negocios"
+          ],
+          "tag": [
+            "chatgpt",
+            "caso-de-uso"
+          ]
+        },
+        "data": {
+          "title": "Enterprise AI Agents in 2026: How to Implement Them with Control, Safety, and ROI",
+          "excerpt": "AI agents are no longer demos. In 2026, they become an operating layer for sales, support, and operations. The difference is governance, not prompts.",
+          "featured_image": {
+            "$media": {
+              "url": "https://images.unsplash.com/photo-1676277791608-ac54d9e5a75f?w=1200&h=800&fit=crop",
+              "alt": "Enterprise AI agents technology dashboard",
+              "filename": "ai-agents-enterprise-governance-2026.jpg"
+            }
+          },
+          "content": [
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "The most common mistake in enterprise AI agent implementation is treating agents as smarter chatbots. A useful agent does not only answer: it retrieves information, chooses the next step, executes actions, logs what happened, and escalates risk. In 2026, the advantage belongs to companies that design an operating layer with clear limits."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "What changed in 2026"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "The enterprise conversation moved from 'which model should we use' to 'which process can we redesign with agents'. Analyst research points to fast adoption of task-specific agents inside enterprise apps, while AI surveys show many companies still struggle to move from pilots to measurable value. That makes governance, traceability, and measurement mandatory from day one."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "The first three ROI use cases"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "The first use case is support: the agent answers repetitive questions, searches policies, writes summaries, and escalates sensitive cases. The second is sales: it qualifies leads, summarizes context, proposes next steps, and updates the CRM. The third is operations: it reviews forms, validates data, produces reports, and flags exceptions. The value comes from reducing friction, not replacing judgment."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Minimum architecture"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "An enterprise agent needs five layers: a trusted knowledge base, tools connected through APIs or n8n, authorization rules, action logs, and an escalation protocol. If one layer is missing, the agent may look impressive in a demo but fragile in production."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Governance is the real product"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Governance means defining what the agent can do, what it cannot do, what data it can access, when it needs approval, and how every action is audited. For small and mid-size companies, this does not require heavy bureaucracy. It requires a simple risk matrix: informational actions, reversible actions, critical actions, and prohibited actions."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Metrics that matter"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Do not measure only conversations handled. Measure time saved, correct escalation rate, errors avoided, response speed, user satisfaction, and opportunities created. An agent that answers a lot but escalates poorly does not improve the business. An agent that answers less but removes critical work may create more ROI."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "A 30-day implementation plan"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Week 1: audit the process and define boundaries. Week 2: connect knowledge sources and tools. Week 3: test with real cases and internal users. Week 4: deploy with monitoring, logging, and human review. After 30 days, decide whether to scale, adjust, or shut it down. The discipline to stop what does not create value is part of mature AI strategy."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Conclusion"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "The company that wins with AI agents is not the company that automates everything. It is the company that chooses high-impact processes, defines limits, measures outcomes, and keeps humans in sensitive decisions. That is the difference between playing with AI and turning it into operational advantage."
+                }
+              ]
+            }
+          ],
+          "translation_of": "agentes-ia-gobierno-empresarial-2026",
+          "schema_type": "BlogPosting",
+          "key_entities": "AI agents, agentic AI, AI governance, enterprise automation, n8n, OpenAI, McKinsey, Gartner",
+          "faq_items": [
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Does an AI agent replace an entire team?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "That should not be the initial goal. The best use is reducing repetitive work, improving response times, and escalating complex decisions to humans."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Which process should be automated first?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Start with a frequent, documented, lower-risk process: repeated questions, lead classification, ticket summaries, or internal reports."
+                }
+              ]
+            }
+          ],
+          "external_id": "editorial-2026:en:ai-agents-enterprise-governance",
+          "source": "codex-editorial-ai-trends-2026"
+        },
+        "published_at": "2026-05-20T09:10:00",
+        "locale": "en"
+      },
+      {
         "id": "post-claude-spacex-2026-en",
         "slug": "claude-spacex-merger-may-2026",
         "status": "published",
@@ -2521,6 +2753,238 @@
         "locale": "en"
       },
       {
+        "id": "post-n8n-ai-automation-business-operations-2026",
+        "slug": "n8n-ai-automation-business-operations-2026",
+        "status": "published",
+        "bylines": [
+          {
+            "byline": "byline-tony"
+          }
+        ],
+        "taxonomies": {
+          "category": [
+            "automatizacion",
+            "herramientas"
+          ],
+          "tag": [
+            "n8n",
+            "tutorial"
+          ]
+        },
+        "data": {
+          "title": "n8n and AI Automation: A Simple Architecture for Business Operations",
+          "excerpt": "A practical guide to designing workflows with n8n, AI models, and human review without turning operations into a black box.",
+          "featured_image": {
+            "$media": {
+              "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop",
+              "alt": "Business operations automation dashboard",
+              "filename": "n8n-ai-automation-business-operations-2026.jpg"
+            }
+          },
+          "content": [
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "n8n has become a key piece for companies that want automation without depending on a closed platform. The combination of triggers, APIs, webhooks, and AI nodes makes operations faster and more controllable. The key is not starting with the tool. Start with the business flow."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "The base flow: input, decision, action"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Every useful workflow has three parts. The input may be a form, email, WhatsApp, CRM, or webhook. The decision is where AI helps: it classifies, summarizes, prioritizes, or detects intent. The action updates systems, sends messages, creates tasks, or produces reports. If the flow does not end in a concrete action, you are probably decorating a manual process."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Where AI belongs"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "AI works best when it receives structured context. Instead of asking it to 'analyze a lead', pass industry, budget, urgency, source, history, and prioritization rules. In n8n, you can prepare that context before the AI node and validate the output before executing actions."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Safety pattern: humans at the right point"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "You do not need human review at every step. You need human review for irreversible actions, sensitive messages, discounts, critical state changes, and decisions with legal or financial impact. Everything else can run automatically with clear logs and alerts when something falls outside the expected range."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Example: B2B lead to qualified opportunity"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "A form enters through a webhook. n8n validates fields, checks the CRM, sends context to the model, receives a score, creates a sales task if it passes the threshold, and sends a personalized email. If the model detects high budget or contractual risk, it opens human review before replying. AI accelerates without taking absolute control."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "What to measure"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Measure cycle time, avoided tasks, error rate, qualified leads, responses sent, escalated tickets, and estimated weekly savings. If a workflow cannot be measured, you do not know whether you automated value or just complexity."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Common mistakes"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "The first mistake is putting AI in every step. The second is not saving logs. The third is not versioning prompts and rules. The fourth is forgetting failure cases: down APIs, incomplete data, ambiguous responses, or duplicates. Mature automation designs the happy path and the broken path."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Conclusion"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "n8n plus AI can become the operational backbone of a small or mid-size business. But only if it is designed as architecture: clean inputs, explainable decisions, controlled actions, logs, and metrics. Automation that scales is automation you can understand, audit, and improve."
+                }
+              ]
+            }
+          ],
+          "translation_of": "automatizacion-n8n-ia-operaciones-2026",
+          "schema_type": "HowTo",
+          "key_entities": "n8n, automation, artificial intelligence, webhooks, CRM, workflows, business operations",
+          "faq_items": [
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Is n8n useful for companies or only makers?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "It works for companies when designed with logs, error handling, secure credentials, and human review for critical actions."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Where should AI be used inside a workflow?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Use it for classification, summarization, prioritization, data extraction, and drafts. Do not use it as the only source of truth for critical actions."
+                }
+              ]
+            }
+          ],
+          "external_id": "editorial-2026:en:n8n-ai-automation-business-operations",
+          "source": "codex-editorial-ai-trends-2026"
+        },
+        "published_at": "2026-05-19T09:10:00",
+        "locale": "en"
+      },
+      {
         "id": "post-n8n-mcp-2025-en",
         "slug": "n8n-mcp-update-model-context-protocol-2025",
         "status": "published",
@@ -2891,6 +3355,700 @@
         },
         "published_at": "2026-05-12T09:00:00",
         "locale": "en"
+      },
+      {
+        "id": "post-seo-2026-ai-overviews-citable-content",
+        "slug": "seo-2026-ai-overviews-citable-content",
+        "status": "published",
+        "bylines": [
+          {
+            "byline": "byline-tony"
+          }
+        ],
+        "taxonomies": {
+          "category": [
+            "ia",
+            "negocios"
+          ],
+          "tag": [
+            "opinion",
+            "caso-de-uso"
+          ]
+        },
+        "data": {
+          "title": "SEO 2026: How to Write Citable Content for AI Overviews, AI Mode, and Generative Search",
+          "excerpt": "SEO is no longer only about ranking. In 2026, the goal is to become a citable source for generative answers, AI search engines, and assistants.",
+          "featured_image": {
+            "$media": {
+              "url": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&h=800&fit=crop",
+              "alt": "SEO content strategy with artificial intelligence",
+              "filename": "seo-2026-ai-overviews-citable-content.jpg"
+            }
+          },
+          "content": [
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Google AI Overviews, AI Mode, and generative assistants changed the game: more users receive an answer before clicking. That does not mean content is dead. It means mediocre content lost even more value. The new goal is to become a source that AI can understand, verify, and cite."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "From keywords to entities"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Keywords still matter, but they are not enough. Generative systems understand relationships between entities: tools, people, processes, industries, metrics, and problems. A strong article defines those entities, explains how they connect, and adds concrete examples. If your content only repeats generic phrases, it is easy to ignore."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "What makes a page citable"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "A citable page has a clear thesis, direct answers, scannable structure, proprietary criteria or examples, visible authorship, recent updates, and links to reliable sources. It also avoids absolute promises. Generative AI favors content that reduces ambiguity and makes claims easier to verify."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "The practical formula"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Start with a brief answer to the main problem. Then develop context, decision criteria, practical steps, common mistakes, and FAQs. Include business examples, not only theory. Close with an actionable recommendation. This structure helps human readers and makes it easier for generative systems to extract useful passages."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "AI as the editorial backbone"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "AI can research, cluster topics, detect questions, propose outlines, translate, and refresh content. But the thesis, judgment, real examples, and fact-checking should remain under human control. In SEO 2026, using AI is not the problem. Publishing without editorial judgment is the problem."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "How landings and blog posts work together"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Landing pages should act as semantic and conversion hubs. Blog posts should answer specific questions that support those landings. A post about AI agents should link to AI agent services. A guide about n8n should link to automation. This builds topical authority and conversion paths at the same time."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "SEO 2026 checklist"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Define the main entity, intent, short answer, evidence, examples, FAQ, schema, internal links, update date, author, and next action. If any of those are missing, content may still rank, but it has a lower chance of becoming a trusted source for generative answers."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Conclusion"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "SEO 2026 is not about writing more. It is about writing better, with architecture, authority, and usefulness. Companies that win visibility will turn their expertise into citable assets: clear pages, useful posts, proprietary examples, real cases, and an editorial strategy guided by AI but governed by humans."
+                }
+              ]
+            }
+          ],
+          "translation_of": "seo-2026-ai-overviews-contenido-citable",
+          "schema_type": "BlogPosting",
+          "key_entities": "SEO 2026, AI Overviews, AI Mode, generative search, citable content, entities, Google Search",
+          "faq_items": [
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Is SEO dead because of generative AI?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "No. The goal changed: content must rank, but it must also be understandable, reliable, and citable by generative systems."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Should AI be used to write SEO content?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Yes, for research, structure, questions, and updates. Differentiation should come from human judgment, real cases, and verification."
+                }
+              ]
+            }
+          ],
+          "external_id": "editorial-2026:en:seo-ai-overviews-citable-content",
+          "source": "codex-editorial-ai-trends-2026"
+        },
+        "published_at": "2026-05-18T09:10:00",
+        "locale": "en"
+      },
+      {
+        "id": "post-agentes-ia-gobierno-empresarial-2026",
+        "slug": "agentes-ia-gobierno-empresarial-2026",
+        "status": "published",
+        "bylines": [
+          {
+            "byline": "byline-tony"
+          }
+        ],
+        "taxonomies": {
+          "category": [
+            "ia",
+            "negocios"
+          ],
+          "tag": [
+            "chatgpt",
+            "caso-de-uso"
+          ]
+        },
+        "data": {
+          "title": "Agentes IA en Empresas 2026: Cómo Implementarlos con Control, Seguridad y ROI",
+          "excerpt": "Los agentes IA ya no son demos: en 2026 se convierten en una capa operativa para ventas, soporte y operaciones. La diferencia está en el gobierno, no en el prompt.",
+          "featured_image": {
+            "$media": {
+              "url": "https://images.unsplash.com/photo-1676277791608-ac54d9e5a75f?w=1200&h=800&fit=crop",
+              "alt": "Panel tecnológico de agentes IA empresariales",
+              "filename": "agentes-ia-gobierno-empresarial-2026.jpg"
+            }
+          },
+          "content": [
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "El error más común al implementar agentes IA en una empresa es tratarlos como chatbots más inteligentes. Un agente útil no solo responde: consulta información, decide el siguiente paso, ejecuta acciones, registra lo que hizo y escala cuando encuentra riesgo. En 2026, la ventaja no la tiene quien prueba más herramientas, sino quien diseña una capa operativa con límites claros."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Qué cambió en 2026"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "La conversación empresarial pasó de 'qué modelo usamos' a 'qué proceso podemos rediseñar con agentes'. Gartner proyecta una adopción acelerada de agentes específicos por tarea dentro de aplicaciones empresariales, mientras reportes de McKinsey muestran que muchas compañías siguen atrapadas entre pilotos y valor real. Eso obliga a diseñar agentes con gobierno, trazabilidad y medición desde el primer día."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Los tres casos donde el ROI aparece primero"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "El primer caso es soporte interno o externo: el agente responde preguntas repetidas, busca políticas, genera resumen y escala casos sensibles. El segundo es ventas: califica leads, resume contexto, propone próximos pasos y actualiza el CRM. El tercero es operaciones: revisa formularios, valida datos, genera reportes y avisa excepciones. En todos, el valor viene de reducir fricción, no de reemplazar criterio humano."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Arquitectura mínima para no improvisar"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Un agente empresarial necesita cinco capas: una base de conocimiento confiable, herramientas conectadas por API o n8n, reglas de autorización, registro de acciones y un protocolo de escalamiento. Si una de esas capas falta, el agente puede parecer impresionante en una demo, pero se vuelve frágil en producción."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Gobierno: la parte que casi nadie diseña"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Gobernar agentes IA significa definir qué puede hacer, qué no puede hacer, qué datos puede ver, cuándo debe pedir aprobación y cómo se audita cada acción. Para una empresa pequeña o mediana, esto no requiere burocracia pesada. Requiere una matriz simple de riesgo: acciones informativas, acciones reversibles, acciones críticas y acciones prohibidas."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Métricas que importan"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "No midas solo conversaciones atendidas. Mide tiempo ahorrado, tasa de escalamiento correcto, errores evitados, velocidad de respuesta, satisfacción del usuario y oportunidades generadas. Un agente que responde mucho pero escala mal no mejora el negocio. Un agente que responde menos, pero reduce tareas críticas, puede tener más ROI."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Plan de implementación en 30 días"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Semana 1: audita el proceso y define límites. Semana 2: conecta fuentes de conocimiento y herramientas. Semana 3: prueba con casos reales y usuarios internos. Semana 4: despliega con monitoreo, logging y revisión humana. Después de 30 días, decide si escalar, ajustar o apagar. La disciplina de apagar lo que no aporta también es parte de una estrategia madura de IA."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Conclusión"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "La empresa que gana con agentes IA no es la que automatiza todo. Es la que elige procesos de alto impacto, define límites, mide resultados y mantiene humanos en las decisiones sensibles. Esa es la diferencia entre jugar con IA y convertirla en ventaja operativa."
+                }
+              ]
+            }
+          ],
+          "schema_type": "BlogPosting",
+          "key_entities": "agentes IA, agentic AI, gobierno de IA, automatización empresarial, n8n, OpenAI, McKinsey, Gartner",
+          "faq_items": [
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "¿Un agente IA reemplaza un equipo completo?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "No debería ser el objetivo inicial. El mejor uso es reducir tareas repetitivas, mejorar tiempos de respuesta y escalar decisiones complejas a humanos."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "¿Qué proceso conviene automatizar primero?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Empieza por un proceso frecuente, documentado y con bajo riesgo: preguntas repetidas, clasificación de leads, resúmenes de tickets o reportes internos."
+                }
+              ]
+            }
+          ],
+          "external_id": "editorial-2026:es:agentes-ia-gobierno-empresarial",
+          "source": "codex-editorial-ai-trends-2026"
+        },
+        "published_at": "2026-05-20T09:00:00",
+        "locale": "es"
+      },
+      {
+        "id": "post-automatizacion-n8n-ia-operaciones-2026",
+        "slug": "automatizacion-n8n-ia-operaciones-2026",
+        "status": "published",
+        "bylines": [
+          {
+            "byline": "byline-tony"
+          }
+        ],
+        "taxonomies": {
+          "category": [
+            "automatizacion",
+            "herramientas"
+          ],
+          "tag": [
+            "n8n",
+            "tutorial"
+          ]
+        },
+        "data": {
+          "title": "Automatización con n8n e IA: La Arquitectura Simple para Operaciones Empresariales",
+          "excerpt": "Una guía práctica para diseñar workflows con n8n, modelos de IA y revisión humana sin convertir tu operación en una caja negra.",
+          "featured_image": {
+            "$media": {
+              "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop",
+              "alt": "Dashboard de automatización de operaciones con datos empresariales",
+              "filename": "automatizacion-n8n-ia-operaciones-2026.jpg"
+            }
+          },
+          "content": [
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "n8n se volvió una pieza clave para empresas que quieren automatizar sin depender de una plataforma cerrada. La combinación de triggers, APIs, webhooks y nodos de IA permite construir una operación más rápida, pero también más controlable. La clave es no empezar por la herramienta: empieza por el flujo de negocio."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "El flujo base: entrada, decisión y acción"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Todo workflow útil tiene tres partes. La entrada puede ser un formulario, email, WhatsApp, CRM o webhook. La decisión es donde entra la IA: clasifica, resume, prioriza o detecta intención. La acción actualiza sistemas, envía mensajes, crea tareas o genera reportes. Si el flujo no termina en una acción concreta, probablemente solo estás decorando un proceso manual."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Dónde poner la IA"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "La IA funciona mejor cuando recibe contexto estructurado. En vez de pedirle que 'analice un lead', pásale industria, presupuesto, urgencia, origen, historial y regla de priorización. En n8n puedes preparar ese contexto antes del nodo de IA y luego validar la salida antes de ejecutar acciones."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Patrón de seguridad: humano en el punto correcto"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "No necesitas revisión humana en cada paso. Necesitas revisión humana en acciones irreversibles, mensajes sensibles, descuentos, cambios de estado críticos y decisiones con impacto legal o financiero. El resto puede ejecutarse automáticamente con logs claros y alertas si algo sale del rango esperado."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Ejemplo: lead B2B a oportunidad calificada"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Un formulario entra por webhook. n8n valida campos, consulta el CRM, envía el contexto al modelo, recibe una puntuación, crea una tarea para ventas si supera el umbral y envía un email personalizado. Si el modelo detecta presupuesto alto o riesgo contractual, abre revisión humana antes de responder. Así la IA acelera sin tomar control absoluto."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Qué medir"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Mide tiempo de ciclo, tareas evitadas, tasa de error, leads calificados, respuestas enviadas, tickets escalados y ahorro estimado por semana. Si el workflow no se puede medir, no sabes si automatizaste valor o solo complejidad."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Errores frecuentes"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "El primer error es meter IA en todos los pasos. El segundo es no guardar logs. El tercero es no versionar prompts y reglas. El cuarto es olvidar los casos de fallo: APIs caídas, datos incompletos, respuestas ambiguas o duplicados. Una automatización madura diseña el camino feliz y también el camino roto."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Conclusión"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "n8n más IA puede convertirse en la columna vertebral operativa de una empresa pequeña o mediana. Pero solo si se diseña como arquitectura: entradas limpias, decisiones explicables, acciones controladas, logs y métricas. La automatización que escala es la que puedes entender, auditar y mejorar."
+                }
+              ]
+            }
+          ],
+          "schema_type": "HowTo",
+          "key_entities": "n8n, automatización, inteligencia artificial, webhooks, CRM, workflows, operaciones empresariales",
+          "faq_items": [
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "¿n8n sirve para empresas o solo para makers?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Sirve para empresas si se diseña con logs, control de errores, credenciales bien gestionadas y revisión humana para acciones críticas."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "¿Dónde conviene usar IA dentro de un workflow?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "En clasificación, resumen, priorización, extracción de datos y generación de borradores. No conviene usarla como única fuente de verdad para acciones críticas."
+                }
+              ]
+            }
+          ],
+          "external_id": "editorial-2026:es:automatizacion-n8n-ia-operaciones",
+          "source": "codex-editorial-ai-trends-2026"
+        },
+        "published_at": "2026-05-19T09:00:00",
+        "locale": "es"
       },
       {
         "id": "post-chatgpt-negocios-2026",
@@ -6208,6 +7366,237 @@
           "source": "editorial-migration"
         },
         "published_at": "2026-05-12T09:00:00",
+        "locale": "es"
+      },
+      {
+        "id": "post-seo-2026-ai-overviews-contenido-citable",
+        "slug": "seo-2026-ai-overviews-contenido-citable",
+        "status": "published",
+        "bylines": [
+          {
+            "byline": "byline-tony"
+          }
+        ],
+        "taxonomies": {
+          "category": [
+            "ia",
+            "negocios"
+          ],
+          "tag": [
+            "opinion",
+            "caso-de-uso"
+          ]
+        },
+        "data": {
+          "title": "SEO 2026: Cómo Escribir Contenido Citable para AI Overviews, AI Mode y Buscadores Generativos",
+          "excerpt": "El SEO ya no consiste solo en rankear. En 2026, el objetivo es ser una fuente citable para respuestas generativas, motores de búsqueda con IA y asistentes.",
+          "featured_image": {
+            "$media": {
+              "url": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&h=800&fit=crop",
+              "alt": "Estrategia de contenido SEO con inteligencia artificial",
+              "filename": "seo-2026-ai-overviews-contenido-citable.jpg"
+            }
+          },
+          "content": [
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Google AI Overviews, AI Mode y los asistentes generativos cambiaron el juego: cada vez más usuarios reciben una respuesta antes de hacer clic. Eso no significa que el contenido murió. Significa que el contenido mediocre perdió todavía más valor. El nuevo objetivo es ser una fuente que la IA pueda entender, verificar y citar."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "De palabras clave a entidades"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Las palabras clave siguen importando, pero ya no bastan. Los sistemas generativos entienden relaciones entre entidades: herramientas, personas, procesos, industrias, métricas y problemas. Un artículo fuerte define esas entidades, explica cómo se conectan y aporta ejemplos concretos. Si tu contenido solo repite frases genéricas, es fácil de ignorar."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Qué hace citable a una página"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Una página citable tiene una tesis clara, respuestas directas, estructura escaneable, datos o criterios propios, autoría visible, actualización reciente y enlaces a fuentes confiables. También evita promesas absolutas. La IA generativa favorece contenido que reduce ambigüedad y permite contrastar afirmaciones."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "La fórmula práctica"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Empieza con una respuesta breve al problema principal. Después desarrolla contexto, criterios de decisión, pasos prácticos, errores frecuentes y preguntas frecuentes. Incluye ejemplos de negocio, no solo teoría. Cierra con una recomendación accionable. Esta estructura ayuda al lector humano y también facilita que sistemas generativos extraigan fragmentos útiles."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "IA como columna vertebral editorial"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "La IA puede investigar, agrupar temas, detectar preguntas, proponer outlines, traducir y refrescar contenido. Pero la tesis, el criterio, los ejemplos reales y el fact-checking deben quedar bajo control humano. En SEO 2026, usar IA no es el problema. El problema es publicar contenido sin juicio editorial."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Cómo fortalecer landings y blog juntos"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Las landings deben funcionar como hubs semánticos y de conversión. El blog debe responder preguntas específicas que apoyan esas landings. Un post sobre agentes IA debe enlazar a servicios de agentes. Una guía sobre n8n debe enlazar a automatización. Así el sitio construye autoridad temática y también rutas de conversión."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Checklist SEO 2026"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Define entidad principal, intención, respuesta corta, evidencia, ejemplos, FAQ, schema, enlaces internos, fecha de actualización, autor y próxima acción. Si falta alguno de esos puntos, el contenido puede rankear, pero tendrá menos probabilidad de convertirse en una fuente confiable para respuestas generativas."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Conclusión"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "SEO 2026 no es escribir más. Es escribir mejor, con arquitectura, autoridad y utilidad. Las empresas que ganen visibilidad serán las que conviertan su experiencia en activos citables: páginas claras, posts útiles, datos propios, ejemplos reales y una estrategia editorial guiada por IA, pero gobernada por humanos."
+                }
+              ]
+            }
+          ],
+          "schema_type": "BlogPosting",
+          "key_entities": "SEO 2026, AI Overviews, AI Mode, búsqueda generativa, contenido citable, entidades, Google Search",
+          "faq_items": [
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "¿El SEO murió por la IA generativa?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "No. Cambió el objetivo: además de posicionar, el contenido debe ser entendible, confiable y citable por sistemas generativos."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "¿Conviene usar IA para escribir contenido SEO?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Sí, para investigación, estructura, preguntas y actualización. La diferenciación debe venir de criterio humano, casos reales y verificación."
+                }
+              ]
+            }
+          ],
+          "external_id": "editorial-2026:es:seo-ai-overviews-contenido-citable",
+          "source": "codex-editorial-ai-trends-2026"
+        },
+        "published_at": "2026-05-18T09:00:00",
         "locale": "es"
       }
     ],

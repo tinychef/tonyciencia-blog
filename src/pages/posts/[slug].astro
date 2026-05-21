@@ -95,6 +95,7 @@ const categoryResults = await Promise.all(
 			where: { category: cat.slug },
 			orderBy: { published_at: "desc" },
 			limit: 6,
+			locale: "es",
 		})
 	)
 );
@@ -116,6 +117,7 @@ if (relatedPosts.length < 4 && tags.length > 0) {
 				where: { tag: tag.slug },
 				orderBy: { published_at: "desc" },
 				limit: 6,
+				locale: "es",
 			})
 		)
 	);
@@ -136,6 +138,7 @@ if (relatedPosts.length < 4) {
 	const { entries: recentPosts } = await getEmDashCollection("posts", {
 		orderBy: { published_at: "desc" },
 		limit: 8,
+		locale: "es",
 	});
 	for (const rp of recentPosts) {
 		if (rp.id !== post.id && !relatedPosts.find((r) => r.id === rp.id)) {

@@ -1,0 +1,51 @@
+{
+  "id": "post-n8n-ai-automation-business-operations-2026",
+  "slug": "n8n-ai-automation-business-operations-2026",
+  "status": "published",
+  "bylines": [{ "byline": "byline-tony" }],
+  "taxonomies": {
+    "category": ["automatizacion", "herramientas"],
+    "tag": ["n8n", "tutorial"]
+  },
+  "data": {
+    "title": "n8n and AI Automation: A Simple Architecture for Business Operations",
+    "excerpt": "A practical guide to designing workflows with n8n, AI models, and human review without turning operations into a black box.",
+    "featured_image": {
+      "$media": {
+        "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop",
+        "alt": "Business operations automation dashboard",
+        "filename": "n8n-ai-automation-business-operations-2026.jpg"
+      }
+    },
+    "content": [
+      { "_type": "block", "style": "normal", "children": [{ "_type": "span", "text": "n8n has become a key piece for companies that want automation without depending on a closed platform. The combination of triggers, APIs, webhooks, and AI nodes makes operations faster and more controllable. The key is not starting with the tool. Start with the business flow." }] },
+      { "_type": "block", "style": "h2", "children": [{ "_type": "span", "text": "The base flow: input, decision, action" }] },
+      { "_type": "block", "style": "normal", "children": [{ "_type": "span", "text": "Every useful workflow has three parts. The input may be a form, email, WhatsApp, CRM, or webhook. The decision is where AI helps: it classifies, summarizes, prioritizes, or detects intent. The action updates systems, sends messages, creates tasks, or produces reports. If the flow does not end in a concrete action, you are probably decorating a manual process." }] },
+      { "_type": "block", "style": "h2", "children": [{ "_type": "span", "text": "Where AI belongs" }] },
+      { "_type": "block", "style": "normal", "children": [{ "_type": "span", "text": "AI works best when it receives structured context. Instead of asking it to 'analyze a lead', pass industry, budget, urgency, source, history, and prioritization rules. In n8n, you can prepare that context before the AI node and validate the output before executing actions." }] },
+      { "_type": "block", "style": "h2", "children": [{ "_type": "span", "text": "Safety pattern: humans at the right point" }] },
+      { "_type": "block", "style": "normal", "children": [{ "_type": "span", "text": "You do not need human review at every step. You need human review for irreversible actions, sensitive messages, discounts, critical state changes, and decisions with legal or financial impact. Everything else can run automatically with clear logs and alerts when something falls outside the expected range." }] },
+      { "_type": "block", "style": "h2", "children": [{ "_type": "span", "text": "Example: B2B lead to qualified opportunity" }] },
+      { "_type": "block", "style": "normal", "children": [{ "_type": "span", "text": "A form enters through a webhook. n8n validates fields, checks the CRM, sends context to the model, receives a score, creates a sales task if it passes the threshold, and sends a personalized email. If the model detects high budget or contractual risk, it opens human review before replying. AI accelerates without taking absolute control." }] },
+      { "_type": "block", "style": "h2", "children": [{ "_type": "span", "text": "What to measure" }] },
+      { "_type": "block", "style": "normal", "children": [{ "_type": "span", "text": "Measure cycle time, avoided tasks, error rate, qualified leads, responses sent, escalated tickets, and estimated weekly savings. If a workflow cannot be measured, you do not know whether you automated value or just complexity." }] },
+      { "_type": "block", "style": "h2", "children": [{ "_type": "span", "text": "Common mistakes" }] },
+      { "_type": "block", "style": "normal", "children": [{ "_type": "span", "text": "The first mistake is putting AI in every step. The second is not saving logs. The third is not versioning prompts and rules. The fourth is forgetting failure cases: down APIs, incomplete data, ambiguous responses, or duplicates. Mature automation designs the happy path and the broken path." }] },
+      { "_type": "block", "style": "h2", "children": [{ "_type": "span", "text": "Conclusion" }] },
+      { "_type": "block", "style": "normal", "children": [{ "_type": "span", "text": "n8n plus AI can become the operational backbone of a small or mid-size business. But only if it is designed as architecture: clean inputs, explainable decisions, controlled actions, logs, and metrics. Automation that scales is automation you can understand, audit, and improve." }] }
+    ],
+    "translation_of": "automatizacion-n8n-ia-operaciones-2026",
+    "schema_type": "HowTo",
+    "key_entities": "n8n, automation, artificial intelligence, webhooks, CRM, workflows, business operations",
+    "faq_items": [
+      { "_type": "block", "style": "h3", "children": [{ "_type": "span", "text": "Is n8n useful for companies or only makers?" }] },
+      { "_type": "block", "style": "normal", "children": [{ "_type": "span", "text": "It works for companies when designed with logs, error handling, secure credentials, and human review for critical actions." }] },
+      { "_type": "block", "style": "h3", "children": [{ "_type": "span", "text": "Where should AI be used inside a workflow?" }] },
+      { "_type": "block", "style": "normal", "children": [{ "_type": "span", "text": "Use it for classification, summarization, prioritization, data extraction, and drafts. Do not use it as the only source of truth for critical actions." }] }
+    ],
+    "external_id": "editorial-2026:en:n8n-ai-automation-business-operations",
+    "source": "codex-editorial-ai-trends-2026"
+  },
+  "published_at": "2026-05-19T09:10:00",
+  "locale": "en"
+}

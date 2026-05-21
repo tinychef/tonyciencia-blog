@@ -1,7 +1,7 @@
 /*
-  theme.css — Tony Ciencia · European Startup Edition
-  Dark-first design with amber accent, inspired by Linear / Vercel / Stripe.
-  Unlayered so always wins over Base.astro @layer base defaults.
+  theme.css — Tony Ciencia · 2026 Enterprise AI Edition
+  This file can evolve the visual system, but the dark/light toggle logic and
+  ripple transition live in Base.astro and must remain untouched.
 */
 
 :root {
@@ -32,6 +32,10 @@
 	--tc-gradient-subtle: linear-gradient(135deg, rgba(200, 146, 42, 0.08) 0%, rgba(224, 168, 50, 0.04) 100%);
 	--tc-gradient-dark: linear-gradient(135deg, #ab7517 0%, #8f5c09 100%);
 	--tc-gradient-text: linear-gradient(135deg, #f0c96e 0%, #c8922a 100%);
+	--tc-ink-gradient: linear-gradient(135deg, var(--color-text) 0%, color-mix(in srgb, var(--color-text) 72%, var(--color-accent)) 100%);
+	--tc-signal-gradient: conic-gradient(from 210deg at 50% 50%, rgba(200, 146, 42, 0), rgba(200, 146, 42, 0.42), rgba(255, 255, 255, 0.16), rgba(200, 146, 42, 0));
+	--tc-grid: linear-gradient(var(--color-border-subtle) 1px, transparent 1px), linear-gradient(90deg, var(--color-border-subtle) 1px, transparent 1px);
+	--tc-noise: radial-gradient(circle at 20% 15%, rgba(200, 146, 42, 0.12), transparent 28%), radial-gradient(circle at 78% 18%, rgba(224, 168, 50, 0.08), transparent 24%), radial-gradient(circle at 50% 95%, rgba(200, 146, 42, 0.08), transparent 32%);
 
 	/* Radii — rounded pill aesthetic */
 	--radius: 8px;
@@ -55,6 +59,8 @@
 	--shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
 	--shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
 	--shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12);
+	--shadow-premium: 0 24px 80px rgba(22, 17, 9, 0.12);
+	--shadow-premium-dark: 0 24px 80px rgba(0, 0, 0, 0.34);
 
 	/* Marquee / carousel */
 	--marquee-gap: 3rem;
@@ -90,6 +96,7 @@
 
 		--glass-bg: rgba(9, 9, 11, 0.72);
 		--glass-border: rgba(39, 39, 42, 0.5);
+		--tc-noise: radial-gradient(circle at 20% 15%, rgba(224, 168, 50, 0.16), transparent 28%), radial-gradient(circle at 78% 18%, rgba(224, 168, 50, 0.09), transparent 24%), radial-gradient(circle at 50% 95%, rgba(224, 168, 50, 0.10), transparent 32%);
 	}
 }
 
@@ -111,4 +118,153 @@
 
 	--glass-bg: rgba(9, 9, 11, 0.72);
 	--glass-border: rgba(39, 39, 42, 0.5);
+	--tc-noise: radial-gradient(circle at 20% 15%, rgba(224, 168, 50, 0.16), transparent 28%), radial-gradient(circle at 78% 18%, rgba(224, 168, 50, 0.09), transparent 24%), radial-gradient(circle at 50% 95%, rgba(224, 168, 50, 0.10), transparent 32%);
+}
+
+html {
+	text-rendering: optimizeLegibility;
+}
+
+body {
+	background:
+		var(--tc-noise),
+		var(--color-bg);
+}
+
+:where(a, button, input, textarea, select, summary):focus-visible {
+	outline: 2px solid var(--color-accent);
+	outline-offset: 4px;
+}
+
+:where(button, input, textarea, select) {
+	font: inherit;
+}
+
+::selection {
+	background: var(--color-accent);
+	color: var(--color-on-accent);
+}
+
+.tc-shell {
+	max-width: var(--wide-width);
+	margin-inline: auto;
+	padding-inline: var(--spacing-6);
+}
+
+.tc-eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.55rem;
+	width: fit-content;
+	padding: 0.45rem 0.8rem;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-pill);
+	background: color-mix(in srgb, var(--color-bg) 82%, transparent);
+	color: var(--color-text-secondary);
+	font-size: var(--font-size-xs);
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+
+.tc-eyebrow::before {
+	content: "";
+	width: 0.45rem;
+	height: 0.45rem;
+	border-radius: 999px;
+	background: var(--color-accent);
+	box-shadow: 0 0 18px var(--color-accent);
+}
+
+.tc-gradient-text {
+	background: var(--tc-gradient-text);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.tc-card {
+	position: relative;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-xl);
+	background:
+		linear-gradient(180deg, color-mix(in srgb, var(--color-bg) 94%, transparent), color-mix(in srgb, var(--color-bg-subtle) 88%, transparent)),
+		var(--color-bg);
+	box-shadow: var(--shadow-premium);
+	overflow: hidden;
+}
+
+:root.dark .tc-card {
+	box-shadow: var(--shadow-premium-dark);
+}
+
+.tc-card::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background: linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 34%, rgba(200, 146, 42, 0.08));
+	opacity: 0.55;
+}
+
+.tc-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.55rem;
+	min-height: 46px;
+	padding: 0.85rem 1.25rem;
+	border-radius: var(--radius-pill);
+	border: 1px solid transparent;
+	font-weight: 800;
+	text-decoration: none;
+	transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.tc-btn:hover {
+	transform: translateY(-2px);
+}
+
+.tc-btn--primary {
+	background: var(--tc-gradient);
+	color: var(--color-on-accent) !important;
+	box-shadow: 0 14px 32px rgba(200, 146, 42, 0.28);
+}
+
+.tc-btn--secondary {
+	background: color-mix(in srgb, var(--color-bg) 76%, transparent);
+	border-color: var(--color-border);
+	color: var(--color-text) !important;
+}
+
+.tc-btn--secondary:hover {
+	border-color: var(--color-accent);
+	color: var(--color-accent) !important;
+}
+
+.tc-section {
+	padding-block: clamp(4rem, 8vw, 7rem);
+}
+
+.tc-section-title {
+	font-size: clamp(2.1rem, 5vw, 4.5rem);
+	line-height: 0.98;
+	letter-spacing: -0.06em;
+}
+
+.tc-section-copy {
+	max-width: 68ch;
+	color: var(--color-text-secondary);
+	font-size: clamp(1.02rem, 1.2vw, 1.2rem);
+	line-height: 1.75;
+}
+
+@media (max-width: 640px) {
+	.tc-shell {
+		padding-inline: var(--spacing-4);
+	}
+
+	.tc-btn {
+		width: 100%;
+	}
 }
