@@ -12,7 +12,9 @@ const t = useTranslations(locale);
 const { entries: cmsPosts, cacheHint } = await getEmDashCollection("posts", { locale: "en" });
 Astro.cache.set(cacheHint);
 
-const posts = (cmsPosts.length > 0 ? cmsPosts : getStaticPosts("en")) as any[];
+const staticPosts = getStaticPosts("en");
+const cmsSlugs = new Set(cmsPosts.map((post) => post.id));
+const posts = [...staticPosts.filter((post) => !cmsSlugs.has(post.id)), ...cmsPosts] as any[];
 
 const sortedPosts = posts.toSorted((a, b) => {
 	const dateA = a.data.publishedAt?.getTime() ?? 0;

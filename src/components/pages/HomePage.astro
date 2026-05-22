@@ -17,7 +17,9 @@ const { siteTitle, siteTagline } = resolveBlogSiteIdentity(await getSiteSettings
 
 Astro.cache.set(cacheHint);
 
-const posts = (cmsPosts.length > 0 ? cmsPosts : getStaticPosts(locale)) as any[];
+const staticPosts = getStaticPosts(locale);
+const cmsSlugs = new Set(cmsPosts.map((post) => post.id));
+const posts = [...staticPosts.filter((post) => !cmsSlugs.has(post.id)), ...cmsPosts] as any[];
 
 const sortedPosts = posts.toSorted((a, b) => {
 	const dateA = a.data.publishedAt?.getTime() ?? 0;
