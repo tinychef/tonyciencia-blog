@@ -6,15 +6,18 @@ import PostCard from "../../components/PostCard.astro";
 import ToolsMarquee from "../../components/ToolsMarquee.astro";
 import { getReadingTime } from "../../utils/reading-time";
 import { resolveBlogSiteIdentity } from "../../utils/site-identity";
+import { getStaticPosts, getStaticTags } from "../../utils/static-posts";
 import { getLangFromUrl, useTranslations } from "../../i18n/locales";
 
 const locale = getLangFromUrl(Astro.url);
 const t = useTranslations(locale);
 
-const { entries: posts, cacheHint } = await getEmDashCollection("posts", { locale });
+const { entries: cmsPosts, cacheHint } = await getEmDashCollection("posts", { locale });
 const { siteTitle, siteTagline } = resolveBlogSiteIdentity(await getSiteSettings());
 
 Astro.cache.set(cacheHint);
+
+const posts = (cmsPosts.length > 0 ? cmsPosts : getStaticPosts(locale)) as any[];
 
 const sortedPosts = posts.toSorted((a, b) => {
 	const dateA = a.data.publishedAt?.getTime() ?? 0;
@@ -29,13 +32,17 @@ const servicesRoute = locale === "en" ? "/en/services" : "/servicios";
 const contactRoute = locale === "en" ? "/en/contact" : "/contacto";
 
 const featuredTags = featuredPost
-	? (await getEntryTerms("posts", featuredPost.data.id, "tag")).map((tag) => ({ slug: tag.slug, label: tag.label }))
+	? getStaticTags(featuredPost).length > 0
+		? getStaticTags(featuredPost)
+		: (await getEntryTerms("posts", featuredPost.data.id, "tag")).map((tag) => ({ slug: tag.slug, label: tag.label }))
 	: [];
 
 const gridPostsWithTags = await Promise.all(
 	gridPosts.map(async (post) => ({
 		post,
-		tags: (await getEntryTerms("posts", post.data.id, "tag")).map((tag) => ({ slug: tag.slug, label: tag.label })),
+		tags: getStaticTags(post).length > 0
+			? getStaticTags(post)
+			: (await getEntryTerms("posts", post.data.id, "tag")).map((tag) => ({ slug: tag.slug, label: tag.label })),
 	}))
 );
 
@@ -194,13 +201,17 @@ const operatingSystem = locale === "en"
 							<a href={`${postsRoute}/${featuredPost.id}`} class="featured-link">
 								{featuredPost.data.featured_image && (
 									<div class="featured-media">
-										<Image image={featuredPost.data.featured_image} />
+										{featuredPost.data.featured_image?.src ? (
+											<img src={featuredPost.data.featured_image.src} alt={featuredPost.data.featured_image.alt ?? featuredPost.data.title} loading="eager" decoding="async" />
+										) : (
+											<Image image={featuredPost.data.featured_image} />
+										)}
 									</div>
 								)}
 								<div class="featured-body">
 									<div class="featured-meta">
 										{featuredPost.data.publishedAt && <time>{formatDate(featuredPost.data.publishedAt)}</time>}
-										<span>{getReadingTime(featuredPost.data.content)} {t("blog.minRead")}</span>
+										<span>{getReadingTime(featuredPost.data.content as any)} {t("blog.minRead")}</span>
 									</div>
 									<h3>{featuredPost.data.title}</h3>
 									{featuredPost.data.excerpt && <p>{featuredPost.data.excerpt}</p>}
@@ -221,7 +232,7 @@ const operatingSystem = locale === "en"
 								featuredImage={post.data.featured_image}
 								href={`${postsRoute}/${post.id}`}
 								date={post.data.publishedAt ?? undefined}
-								readingTime={getReadingTime(post.data.content)}
+								readingTime={getReadingTime(post.data.content as any)}
 								tags={tags}
 							/>
 						))}

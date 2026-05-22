@@ -3,13 +3,16 @@ import { getEmDashCollection, getEntryTerms } from "emdash";
 import Base from "../../layouts/Base.astro";
 import PostCard from "../../components/PostCard.astro";
 import { getReadingTime } from "../../utils/reading-time";
+import { getStaticPosts, getStaticTags } from "../../utils/static-posts";
 import { getLangFromUrl, useTranslations } from "../../i18n/locales";
 
 const locale = getLangFromUrl(Astro.url);
 const t = useTranslations(locale);
 
-const { entries: posts, cacheHint } = await getEmDashCollection("posts", { locale });
+const { entries: cmsPosts, cacheHint } = await getEmDashCollection("posts", { locale });
 Astro.cache.set(cacheHint);
+
+const posts = (cmsPosts.length > 0 ? cmsPosts : getStaticPosts("es")) as any[];
 
 const sortedPosts = posts.toSorted((a, b) => {
 	const dateA = a.data.publishedAt?.getTime() ?? 0;
@@ -20,7 +23,9 @@ const sortedPosts = posts.toSorted((a, b) => {
 const postsWithTags = await Promise.all(
 	sortedPosts.map(async (post) => ({
 		post,
-		tags: (await getEntryTerms("posts", post.data.id, "tag")).map((tag) => ({ slug: tag.slug, label: tag.label })),
+		tags: getStaticTags(post).length > 0
+			? getStaticTags(post)
+			: (await getEntryTerms("posts", post.data.id, "tag")).map((tag) => ({ slug: tag.slug, label: tag.label })),
 		bylines: post.data.bylines ?? [],
 	}))
 );
@@ -49,7 +54,7 @@ const postsWithTags = await Promise.all(
 							featuredImage={post.data.featured_image}
 							href={`/posts/${post.id}`}
 							date={post.data.publishedAt ?? undefined}
-							readingTime={getReadingTime(post.data.content)}
+							readingTime={getReadingTime(post.data.content as any)}
 							tags={tags}
 							bylines={bylines}
 						/>

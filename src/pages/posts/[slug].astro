@@ -20,6 +20,7 @@ import AuthorBio from "../../components/AuthorBio.astro";
 import ArticleMeta from "../../components/ArticleMeta.astro";
 import { getReadingTime } from "../../utils/reading-time";
 import { resolveBlogSiteIdentity } from "../../utils/site-identity";
+import { getStaticPost, getStaticPosts, getStaticTags } from "../../utils/static-posts";
 import { getLangFromUrl, useTranslations } from "../../i18n/locales";
 
 const locale = getLangFromUrl(Astro.url);
@@ -31,7 +32,10 @@ if (!slug) {
 	return Astro.redirect("/404");
 }
 
-const { entry: post, cacheHint } = await getEmDashEntry("posts", slug);
+const { entry: cmsPost, cacheHint } = await getEmDashEntry("posts", slug);
+const staticPost = cmsPost ? null : getStaticPost("es", slug);
+const post = (cmsPost ?? staticPost) as any;
+const isStaticPost = !cmsPost && !!staticPost;
 
 if (!post) {
 	return Astro.redirect("/404");
@@ -64,30 +68,39 @@ const featuredImageUrl = getImageUrl(post.data.featured_image);
 const { siteTitle } = resolveBlogSiteIdentity(await getSiteSettings());
 
 // Generate SEO meta from content
-const seo = getSeoMeta(post, {
-	siteTitle,
-	siteUrl: Astro.url.origin,
-	path: `/posts/${slug}`,
-	defaultOgImage: featuredImageUrl,
-});
+const seo = isStaticPost
+	? {
+			title: `${post.data.title} — ${siteTitle}`,
+			ogTitle: post.data.title,
+			description: post.data.excerpt ?? "",
+			ogImage: featuredImageUrl,
+			canonical: new URL(`/posts/${slug}`, Astro.site ?? Astro.url.origin).href,
+			robots: null,
+		}
+	: getSeoMeta(post as any, {
+			siteTitle,
+			siteUrl: Astro.url.origin,
+			path: `/posts/${slug}`,
+			defaultOgImage: featuredImageUrl,
+		});
 const canonicalUrl = seo.canonical || new URL(`/posts/${slug}`, Astro.site ?? Astro.url.origin).href;
 
 // Get tags for this post
 // Note: post.id is the slug, post.data.id is the database ULID
-const tags = await getEntryTerms("posts", post.data.id, "tag");
+const tags = isStaticPost ? getStaticTags(post) : await getEntryTerms("posts", post.data.id, "tag");
 
 // Bylines are already hydrated by getEmDashEntry
 const bylines = post.data.bylines ?? [];
 
 // Get reading time
-const readingTime = getReadingTime(post.data.content);
+const readingTime = getReadingTime(post.data.content as any);
 
 // Get other posts for "Related posts" section
 // Strategy: shared categories first, then shared tags, then recent posts
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let relatedPosts: any[] = [];
 
-const postCategories = await getEntryTerms("posts", post.data.id, "category");
+const postCategories = isStaticPost ? [] : await getEntryTerms("posts", post.data.id, "category");
 
 const categoryResults = await Promise.all(
 	postCategories.map((cat) =>
@@ -134,7 +147,9 @@ if (relatedPosts.length < 4 && tags.length > 0) {
 }
 
 // 3. Fallback to recent posts if still not enough
-if (relatedPosts.length < 4) {
+if (isStaticPost) {
+	relatedPosts = getStaticPosts("es").filter((candidate) => candidate.id !== post.id).slice(0, 4);
+} else if (relatedPosts.length < 4) {
 	const { entries: recentPosts } = await getEmDashCollection("posts", {
 		orderBy: { published_at: "desc" },
 		limit: 8,
@@ -170,11 +185,13 @@ function extractFaqItems(faqData: unknown): Array<{ question: string; answer: st
 }
 const faqItems = extractFaqItems(post.data.faq_items);
 
-const { entries: translatedPosts } = await getEmDashCollection("posts", {
-	where: { translation_of: slug },
-	locale: "en",
-	limit: 1,
-});
+const { entries: translatedPosts } = isStaticPost
+	? { entries: getStaticPosts("en").filter((candidate) => candidate.data.translation_of === slug).slice(0, 1) }
+	: await getEmDashCollection("posts", {
+			where: { translation_of: slug },
+			locale: "en",
+			limit: 1,
+		});
 
 const translatedPost = translatedPosts[0];
 const alternatePath = translatedPost ? `/en/posts/${translatedPost.id}` : undefined;
@@ -182,7 +199,7 @@ const alternatePath = translatedPost ? `/en/posts/${translatedPost.id}` : undefi
 // Fetch tags for related posts (bylines are already hydrated by getEmDashCollection)
 const otherPostsWithTags = await Promise.all(
 	otherPosts.map(async (p) => {
-		const postTags = await getEntryTerms("posts", p.data.id, "tag");
+		const postTags = isStaticPost ? getStaticTags(p) : await getEntryTerms("posts", p.data.id, "tag");
 		const postBylines = p.data.bylines ?? [];
 		return { post: p, tags: postTags, bylines: postBylines };
 	})
@@ -211,7 +228,7 @@ const publishDate =
 		{ name: "Blog", url: locale === "en" ? "/en/posts" : "/posts" },
 		{ name: post.data.title, url: `${locale === "en" ? "/en/posts" : "/posts"}/${slug}` },
 	]}
-	content={{ collection: "posts", id: post.data.id, slug }}
+	content={isStaticPost ? undefined : { collection: "posts", id: post.data.id, slug }}
 	schemaType={post.data.schema_type || (faqItems.length > 0 ? "BlogPosting" : undefined)}
 	faqItems={faqItems.length > 0 ? faqItems : undefined}
 	readingTime={readingTime}
@@ -226,7 +243,11 @@ const publishDate =
 		{
 			post.data.featured_image && (
 				<div class="article-hero" {...post.edit.featured_image}>
-					<Image image={post.data.featured_image} />
+					{isStaticPost ? (
+						<img src={(post.data.featured_image as any).src} alt={(post.data.featured_image as any).alt ?? post.data.title} loading="eager" decoding="async" />
+					) : (
+						<Image image={post.data.featured_image as any} />
+					)}
 				</div>
 			)
 		}
@@ -358,10 +379,12 @@ const publishDate =
 				<ArticleMeta publishedTime={post.data.publishedAt?.toISOString() ?? null} modifiedTime={post.data.updatedAt.toISOString()} readingTime={readingTime} locale={locale} />
 				<AuthorBio bylines={bylines} locale={locale} />
 
-				<div class="article-comments">
-					<Comments collection="posts" contentId={post.data.id} threaded />
-					<CommentForm collection="posts" contentId={post.data.id} />
-				</div>
+				{!isStaticPost && (
+					<div class="article-comments">
+						<Comments collection="posts" contentId={post.data.id} threaded />
+						<CommentForm collection="posts" contentId={post.data.id} />
+					</div>
+				)}
 			</div>
 
 			{/* Right gutter: TOC + Sidebar widgets */}
