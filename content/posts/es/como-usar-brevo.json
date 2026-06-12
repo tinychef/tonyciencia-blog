@@ -1,0 +1,1263 @@
+{
+  "id": "post-como-usar-brevo",
+  "slug": "como-usar-brevo",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "ia",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "Brevo Tutorial: Guía Paso a Paso para Automatizar tu Marketing",
+    "excerpt": "Aprende a usar Brevo desde cero con esta guía completa. Descubre cómo enviar emails, SMS y automatizar tareas en una sola plataforma. Empieza gratis ahora.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/como-usar-brevo.jpg",
+        "alt": "Brevo Tutorial: Guía Paso a Paso para Automatizar tu Marketing",
+        "filename": "como-usar-brevo.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Introducción: ¿Por qué elegir Brevo para tu negocio?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si buscas una herramienta que unifique tu comunicación con clientes sin la complejidad de múltiples plataformas, Brevo es tu respuesta. Esta plataforma de CRM y marketing multicanal te permite gestionar emails, SMS, WhatsApp y chat en vivo desde un solo lugar. Lo que me encanta es su enfoque en negocios en crecimiento: no necesitas ser una gran empresa para usar funciones avanzadas. Los planes son accesibles y el nivel gratuito ya incluye herramientas sólidas para empezar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-brevo"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Brevo destaca por su interfaz intuitiva y su generador de contenido con IA, que te ayuda a redactar asuntos y copys de email en segundos. Si quieres profundizar en sus características, te recomiendo leer ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "¿Qué es Brevo y para qué sirve?",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " en nuestro blog. Para mí, su mayor ventaja es la integración nativa de canales: imagina enviar un email de seguimiento, luego un SMS de recordatorio y finalmente un mensaje por WhatsApp, todo automatizado. Esta coherencia en la comunicación marca la diferencia en la experiencia del cliente.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 1: Crea tu cuenta y configura lo básico",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://get.brevo.com/p76y9av2p0t1"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Empezar con Brevo es sorprendentemente rápido. Ve a ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "brevo.com",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " y regístrate en el plan gratuito, que no requiere tarjeta de crédito y te da 300 emails diarios. Una vez dentro, la plataforma te guiará para configurar los elementos esenciales:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Importa tus contactos:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Puedes subir un CSV o conectar tu lista desde otra herramienta. Brevo soporta segmentación avanzada desde el inicio, así que etiqueta a tus contactos por interés, comportamiento o demografía.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Verifica tu dominio:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Este paso es clave para mejorar la entregabilidad. Sigue las instrucciones para añadir registros DNS y evitar que tus emails terminen en spam.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Configura tu formulario de captura:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Usa el editor de arrastrar y soltar para crear formularios atractivos que se integren con tu sitio web. Cada nueva suscripción puede disparar un email de bienvenida automático.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-brevo"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si ya tienes una lista en Mailchimp o ActiveCampaign, la migración es fluida. Brevo tiene guías específicas para cada caso. Para ver más trucos de configuración inicial, visita ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Trucos y mejores formas de usar Brevo",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 2: Crea tu primera campaña de email con el editor drag & drop",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Con los contactos listos, es hora de lanzar tu primera campaña. Ve a \"Campañas\" > \"Email\" y selecciona una plantilla responsive. El editor de Brevo es una delicia: arrastra bloques de texto, imágenes, botones y ajusta el diseño sin tocar código. La IA te sugerirá líneas de asunto basadas en el contenido de tu email, un salvavidas cuando no sabes cómo enganchar al lector.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Un consejo práctico: usa la vista previa para asegurarte de que el email se ve perfecto en móvil. Más del 60% de las aperturas ocurren ahí. Una vez satisfecho, programa el envío para el horario óptimo (Brevo analiza el engagement de tu audiencia) y envía una prueba a tu propia dirección.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/brevo-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para inspirarte en estrategias de contenido, explora ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Casos de uso de Brevo",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", donde verás ejemplos de newsletters, lanzamientos de productos y recuperación de carritos abandonados.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 3: Domina las automatizaciones para ahorrar tiempo",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Aquí es donde Brevo brilla con fuerza. En \"Automatizaciones\", puedes crear flujos que se disparan por eventos específicos. Por ejemplo:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Secuencia de onboarding:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Cuando alguien se suscribe, recibe un email de bienvenida, al día siguiente un enlace a un recurso útil, y al tercer día una oferta especial.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Carrito abandonado:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Si un cliente deja productos en tu tienda, Brevo puede enviarle un recordatorio por email y, si no abre, un SMS con un código de descuento.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lead scoring:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Asigna puntos a tus contactos según su interacción (aperturas, clics, visitas web). Cuando un lead alcanza un umbral, recibe automáticamente una oferta personalizada.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-brevo"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Las automatizaciones son visuales y arrastras los nodos como un diagrama. Puedes combinar condiciones (\"si abre el email\" + \"visita página de precios\") para crear flujos hipersegmentados. Si quieres ver ejemplos avanzados, no te pierdas ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Por qué elegir Brevo para automatizar",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://get.brevo.com/p76y9av2p0t1"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "**",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "¿Listo para implementar estas automatizaciones en tu negocio? Empieza con el plan Starter desde $9 al mes y accede a todas las funciones clave.",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "**",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 4: Expande tu alcance con SMS, WhatsApp y chat en vivo",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Brevo no es solo email marketing. Desde el mismo dashboard, puedes:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Enviar campañas SMS:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Ideal para ofertas relámpago o alertas urgentes. Los créditos SMS se compran por separado, pero la integración es nativa.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Conectar WhatsApp Business:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Envía mensajes de seguimiento, confirmaciones de pedidos o soporte al cliente. La API de WhatsApp está integrada, así que no necesitas herramientas externas.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Añadir chat en vivo a tu web:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Instala el widget de Brevo y responde consultas en tiempo real. Cada conversación queda registrada en el CRM, vinculada al perfil del contacto.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/brevo-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La verdadera magia ocurre cuando combinas canales. Imagina: un usuario llena un formulario (email de bienvenida), no abre el primer email (envías SMS), visita tu web (chat en vivo le saluda por nombre). Esta coherencia multicanal aumenta las conversiones dramáticamente. Para novedades recientes sobre estos canales, revisa ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Funciones nuevas en Brevo",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 5: Analiza resultados y optimiza con datos",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Brevo incluye reportes detallados en el plan gratuito. Verás métricas como:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tasa de apertura y clics:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Descubre qué asuntos y contenidos resonaron.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Distribución geográfica y demográfica:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Conoce a tu audiencia en profundidad.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Rendimiento por segmento:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Compara el engagement entre diferentes grupos de contactos.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Revenue attribution (en planes superiores):",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Mide exactamente cuántas ventas generó cada campaña.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Usa estos datos para iterar. Si un email tuvo baja apertura, prueba un asunto más directo. Si un segmento no clickea, reevalúa el contenido. La cultura del test A/B es clave aquí, y Brevo lo facilita con pruebas simples de líneas de asunto o contenido.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Funciones destacadas que marcan la diferencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Más allá de lo básico, Brevo incluye herramientas que normalmente se pagan aparte:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Generador de contenido con IA:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Redacta borradores de email, sugiere mejoras y ajusta el tono (formal, amigable, urgente) en un clic.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "CRM integrado:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Gestiona toda la información de tus contactos, interacciones y ventas en un solo lugar. Perfecto para equipos de ventas y marketing.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Páginas de aterrizaje:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Crea landing pages para capturar leads sin necesidad de un desarrollador.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Automatizaciones de WhatsApp:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Envía mensajes de carrito abandonado, confirmaciones de pedido y encuestas de satisfacción vía WhatsApp.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Para quién es ideal Brevo?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Brevo brilla para:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Emprendedores y freelancers",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " que necesitan una herramienta profesional sin complicaciones técnicas.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pymes y startups",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " en crecimiento que buscan unificar su marketing y ventas en una plataforma escalable.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Negocios de e-commerce",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " que quieren automatizar emails transaccionales, recuperación de carritos y upselling.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Agencias de marketing",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " que gestionan múltiples clientes y necesitan reportes claros por cuenta.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si tu prioridad es enviar newsletters simples, cualquier herramienta sirve. Pero si quieres construir sistemas de comunicación inteligentes que ahorren tiempo y aumenten ventas, Brevo es la elección más lógica. Su plan gratuito es generoso, y el Starter desde $9 al mes desbloquea funcionalidades que en otras plataformas cuestan 3 o 4 veces más.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Conclusión: Da el paso hacia un marketing más inteligente",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Brevo no es solo otra herramienta de email; es un ecosistema completo para relacionarte con tus clientes en los canales que ellos prefieren. Su curva de aprendizaje es suave, pero su potencial es enorme. Desde el primer email hasta flujos complejos multicanal, todo está diseñado para que crezcas sin fricciones.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://get.brevo.com/p76y9av2p0t1"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si te ha gustado este tutorial, te invito a explorar más contenido en TonyCiencia. Y si estás listo para experimentar por ti mismo, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "crea tu cuenta gratuita en Brevo hoy mismo",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " y empieza a automatizar tu marketing. No hay riesgo, solo oportunidades.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "*Divulgación: Este artículo contiene enlaces de afiliado. Si te suscribes a través de ellos, recibiré una comisión sin costo adicional para ti. Solo recomiendo herramientas que uso y en las que confío.*",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sigue leyendo en TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/brevo-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Funciones nuevas en Brevo",
+            "marks": [
+              "l8"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Descubre las últimas actualizaciones y cómo aprovecharlas.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-brevo"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Por qué elegir Brevo?",
+            "marks": [
+              "l9"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Análisis en profundidad de sus ventajas competitivas.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/brevo-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Casos de uso de Brevo",
+            "marks": [
+              "l10"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Ejemplos reales de empresas que optimizaron su marketing.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-brevo"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Trucos y mejores formas de usar Brevo",
+            "marks": [
+              "l11"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Consejos para exprimir al máximo la plataforma.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l12",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-elevenlabs"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo usar ElevenLabs",
+            "marks": [
+              "l12"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Integración de voz generada por IA en tus campañas.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l13",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-descript"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo usar Descript",
+            "marks": [
+              "l13"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Edita videos y podcasts para contenido multimedia.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l14",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-gamma"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo usar Gamma",
+            "marks": [
+              "l14"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Crea presentaciones impactantes con IA.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "Brevo, CRM, marketing multicanal, email marketing, automatización",
+    "keywords": [
+      "Brevo tutorial",
+      "plataforma marketing email",
+      "automatización marketing",
+      "CRM para negocios",
+      "herramienta email marketing"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/brevo.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A person smiling while looking at a laptop screen showing a clean dashboard with email campaign metrics and automation workflows.. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Es realmente gratuita la versión de Brevo?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sí, el plan gratuito de Brevo es perpetuo y no requiere tarjeta de crédito. Incluye 300 emails diarios, contactos ilimitados, el editor de email, formularios y reportes básicos. Es perfecto para empezar a probar la plataforma sin compromiso.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Puedo migrar mi lista de contactos desde otra plataforma?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Absolutamente. Brevo permite importar contactos desde archivos CSV o directamente desde herramientas como Mailchimp, ActiveCampaign o HubSpot. El proceso es guiado y conserva todos los datos y segmentación que ya tengas.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué tan difíciles son las automatizaciones para alguien sin experiencia técnica?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Las automatizaciones de Brevo son visuales y muy intuitivas. Arrastras y sueltas bloques como \"enviar email\", \"esperar 3 días\" o \"si abre el email\" para crear flujos. La plataforma incluye plantillas listas para usar en casos comunes como onboarding o recuperación de carritos, por lo que puedes empezar con algo simple y luego personalizar.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:es:brevo:tutorial",
+    "source": "sdk-agent-blog-seo:mimo"
+  },
+  "published_at": "2026-06-12T04:47:57",
+  "locale": "es"
+}

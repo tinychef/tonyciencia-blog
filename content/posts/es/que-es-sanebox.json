@@ -1,0 +1,962 @@
+{
+  "id": "post-que-es-sanebox",
+  "slug": "que-es-sanebox",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "ia",
+      "herramientas"
+    ],
+    "tag": [
+      "caso-de-uso"
+    ]
+  },
+  "data": {
+    "title": "SaneBox: qué es y cómo revoluciona tu bandeja de entrada",
+    "excerpt": "Descubre qué es SaneBox y para qué sirve. Es la herramienta de IA que organiza tu email automáticamente para que solo veas lo importante. Prueba gratis.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/que-es-sanebox.jpg",
+        "alt": "SaneBox: qué es y cómo revoluciona tu bandeja de entrada",
+        "filename": "que-es-sanebox.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué es SaneBox? Tu nuevo aliado contra el caos del email",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://try.sanebox.com/dfa515mcau8s"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Imagina esto: abres tu correo y, en lugar de cientos de mensajes irrelevantes, solo ves los correos que realmente importan. Eso es ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "SaneBox",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Es un servicio de inteligencia artificial que se integra con tu proveedor de email (Gmail, Outlook, Apple Mail, etc.) y aprende de tus hábitos para ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "filtrar, priorizar y organizar",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " tu bandeja de entrada de forma automática. No es una app nueva que debes descargar; funciona silenciosamente en segundo plano. Si tu objetivo es recuperar horas de tu semana, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "probar SaneBox es el mejor paso",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " para transformar tu relación con el correo.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Para qué sirve SaneBox? Beneficios concretos y medibles",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "SaneBox no es magia, es IA aplicada de manera inteligente. Su propósito central es ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "acabar con el \"inbox overwhelm\"",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Según datos de la compañía, sus usuarios ahorran en promedio 3-4 horas por semana en gestión de emails. Esto no es una cifra abstracta; se traduce en no perder tiempo en newsletters que no lees, en no saltar notificaciones de mensajes comerciales y, lo más crucial, en asegurarte de que ningún correo importante (de un jefe, cliente o familiar) se pierda en el ruido. Su fortaleza es que aprende de ti: si mueves un correo a cierta carpeta, SaneBox aprende y lo hará automáticamente la próxima vez.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Funciones destacadas: más allá de un simple filtro",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "SaneBox no se limita a mover correos a spam. Ofrece un ecosistema de funciones pensadas para distintos escenarios. Algunas de las más poderosas son:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "SaneLater",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": La función estrella. Separa lo urgente (tu Inbox) de lo que puede esperar (SaneLater). Es como tener un asistente que pre-califica tu correo.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "SaneBlackHole",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Un botón de \"olvido definitivo\". Mueve un correo aquí y todos los futuros del remitente irán directo a la papelera. Ideal para desuscripciones sin fin.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "SaneNoReplies",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Te alerta sobre correos que enviaste y nunca obtuviste respuesta, para que puedas darles un seguimiento a tiempo.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "SaneDoNotDisturb",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Actívalo cuando necesites concentración. Todos los correos nuevos se moverán a SaneLater y podrás revisarlos en lote más tarde.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Daily Digest",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Un resumen diario de los correos que SaneBox movió a SaneLater, para que no te pierdas nada y puedas darles atención cuando tú quieras.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "SaneNews y SaneCC",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Filtran newsletters y correos donde estás en copia, manteniendo tu Inbox para los mensajes directos y personales.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/sanebox-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Puedes explorar todas las ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "nuevas funciones y actualizaciones de SaneBox",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " en TonyCiencia.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Para quién es ideal SaneBox? Perfiles que más se benefician",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si te identificas con alguno de estos perfiles, SaneBox es para ti:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Profesionales con alta carga de email",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Ejecutivos, freelancers, personal de ventas o soporte que reciben decenas o cientos de correos diarios y necesitan priorizar comunicación con clientes o jefatura.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Usuarios de múltiples cuentas",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": SaneBox permite gestionar 1, 2 o hasta 4 cuentas de email desde un solo panel (según el plan), unificando la gestión.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Personas que sienten ansiedad al abrir el correo",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Esa sensación de \"no quiero ver\" desaparece cuando sabes que lo que verá es manejable e importante.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-descript"
+          },
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-gamma"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Amantes de la productividad y la automatización",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Si usas herramientas como ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Descript",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " para editar podcasts o ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Gamma",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " para crear presentaciones, valorarás la misma filosofía de automatizar tareas tediosas. SaneBox hace eso por tu email.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo funciona: simple, seguro y compatible con todo",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-sanebox"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Empezar es increíblemente sencillo. No necesitas descargar nada. Te conectas a través del sitio web de SaneBox con tu cuenta de correo (el proceso es seguro y revocable en cualquier momento). Una vez activado, comienza a analizar tus patrones. Puedes personalizar el comportamiento entrenándolo: si arrastras un correo de \"SaneLater\" a tu Inbox, aprende que ese remitente es prioritario. Funciona con todos los clientes de email principales en iOS, Android, escritorio y web. Para un ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "tutorial paso a paso sobre cómo configurar y usar SaneBox",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " eficientemente, visita nuestra ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "guía detallada",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Planes y precios: elige el que se adapte a tu flujo",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "SaneBox opera con un modelo de suscripción flexible. Tienen un ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "período de prueba gratuito de 14 días",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " sin necesidad de tarjeta de crédito. Los planes principales son:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Snack",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " (desde ~$4.99/mes): Perfecto para individuos con una sola cuenta de email. Incluye 2 funciones esenciales como SaneLater.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lunch",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " (desde ~$7.99/mes): Para usuarios más avanzados, con soporte para 2 cuentas y 6 funciones, permitiendo un control más fino.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Dinner",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " (desde ~$24.99/mes): Diseñado para \"power users\" y equipos. Soporte para 4 cuentas y acceso a ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "todas",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " las funciones, incluyendo soporte telefónico.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://try.sanebox.com/dfa515mcau8s"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Los precios son significativamente más bajos si se paga de forma anual o bianual. Considerando el tiempo que recuperas, el retorno de inversión es inmediato. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Comienza tu prueba gratuita aquí",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " y siente la diferencia en tu primer día.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sigue leyendo en TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-sanebox"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Quieres entender a fondo ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "por qué elegir SaneBox",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " sobre otras soluciones? Analizamos ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "sus ventajas únicas",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/sanebox-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Descubre ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "casos de uso prácticos",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " en distintas profesiones en nuestro ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "análisis de aplicaciones reales",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-sanebox"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lleva tu productividad al máximo nivel con nuestros ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "trucos y mejores formas de usar SaneBox",
+            "marks": [
+              "l8"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Preguntas frecuentes (FAQ)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Es seguro conectar mi email con SaneBox?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sí. SaneBox solo necesita permisos para mover correos entre carpetas en tu servidor. No lee el contenido de tus emails para publicidad ni almacena tu información. Puedes revocar el acceso en cualquier momento desde tu panel.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Funciona con mi proveedor de email corporativo o con IMAP?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "SaneBox es compatible con prácticamente todos los proveedores que soportan IMAP, incluyendo Gmail, Outlook.com, Yahoo Mail, y servidores corporativos. Revisa su lista de compatibilidad.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué pasa con mi correo durante la prueba? Si no me gusta, ¿se pierde algo?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tu correo nunca se pierde. SaneBox solo crea copias en sus propias carpetas (como @SaneLater). Si decides cancelar, todos los correos permanecen intactos en tu cuenta original. Es completamente no destructivo.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "SaneBox, IA, Gmail, Outlook, Apple Mail",
+    "keywords": [
+      "SaneBox",
+      "gestión de email con IA",
+      "organizar bandeja de entrada",
+      "filtros inteligentes email",
+      "productividad email"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/sanebox.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A person smiling while looking at a clean, organized email inbox on a laptop screen in a bright home office. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿SaneBox puede eliminar correos no deseados automáticamente?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "SaneBox es un organizador y filtro inteligente, no un destructor. No elimina correos automáticamente a menos que tú uses específicamente la función SaneBlackHole para bloquear remitentes. Su enfoque es mover, no borrar, para que siempre tengas control.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Necesito conocimientos técnicos para configurarlo?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para nada. El proceso de conexión es guiado y sencillo, similar a autorizar una app en tu cuenta de Google o Microsoft. SaneBox comienza a trabajar en cuanto se conecta.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Puedo enseñarle manualmente a SaneBox qué es importante?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¡Exacto! Esa es una de sus mejores características. Simplemente arrastra un correo de una carpeta de SaneBox (como SaneLater) a tu Inbox o a otra carpeta, y SaneBox aprenderá ese patrón para el futuro.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:es:sanebox:quees",
+    "source": "sdk-agent-blog-seo:mimo"
+  },
+  "published_at": "2026-06-12T05:32:40",
+  "locale": "es"
+}

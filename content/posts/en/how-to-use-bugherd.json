@@ -1,0 +1,1880 @@
+{
+  "id": "post-how-to-use-bugherd",
+  "slug": "how-to-use-bugherd",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "negocios",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "BugHerd Tutorial: Collect Website Feedback in Minutes",
+    "excerpt": "Learn how to use BugHerd to gather visual website feedback. Clients point, click, comment—done. Step-by-step setup guide inside.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/how-to-use-bugherd.jpg",
+        "alt": "BugHerd Tutorial: Collect Website Feedback in Minutes",
+        "filename": "how-to-use-bugherd.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Why I Switched to BugHerd for Website Feedback",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "I used to collect website feedback through screenshots in Slack, screenshots attached to emails, and screenshots buried in Google Drive folders. Clients would describe problems like \"the thing on the right side looks weird\" and I'd spend 20 minutes figuring out what they meant.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "BugHerd changed that completely. Instead of screenshots and vague descriptions, my clients point directly at the issue on the live website, leave a comment, and BugHerd captures everything—the exact element, the browser details, the screen resolution. One click, done.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If you build websites for clients or manage a team that does, this tutorial will walk you through exactly how to set up and use BugHerd to collect feedback without the chaos.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What BugHerd Actually Does (In Plain English)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/what-is-bugherd"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "BugHerd is a ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "visual website feedback tool",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " that works like sticky notes on a live website. Here's the core concept:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Your client opens the staging site (or live site)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "They click on any element they want to comment on",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "A pin drops and a comment box appears",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "BugHerd automatically grabs a screenshot, the CSS selector, browser info, and OS details",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "That feedback becomes a task in your BugHerd board",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "No extensions needed for your clients. No training sessions. No \"please take a screenshot and circle the problem.\" Just point, click, comment.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/why-choose-bugherd"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Want to see why teams keep choosing it? Check out ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "why BugHerd stands out",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " for website projects.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 1: Create Your BugHerd Account",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://partners.bugherd.com/tj7d6g9xsdd0"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Head to ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "BugHerd's website",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " and sign up. You can use Google SSO or create an account with email. Here's what I appreciate: no credit card required upfront. You get a 60-day money-back guarantee, so there's zero risk in trying it with a real project.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Once you're in, you'll land on the dashboard. BugHerd uses a Kanban-style board by default—columns like \"New,\" \"In Progress,\" \"Done\"—but you can customize these to match your workflow.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pro tip:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Spend two minutes setting up your columns before adding your first project. It saves time later when feedback starts rolling in.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 2: Install BugHerd on Your Website",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "This is where BugHerd's simplicity shines. You install a small JavaScript snippet on your website, similar to adding Google Analytics. That's it.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Here's the process:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1. In your BugHerd dashboard, click \"Add a Project\"",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2. Enter your website URL",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3. Copy the provided script tag",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4. Paste it before the closing `</body>` tag on your site",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "5. Refresh your site and confirm the BugHerd sidebar appears",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "For WordPress sites, you can use a plugin. For sites built on frameworks like React or Next.js, just add the script to your main layout file.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The whole installation takes about 3 minutes. I've timed it.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 3: Invite Your Team and Clients",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "BugHerd has two types of users: ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "members",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " (your team who manage tasks) and ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "guests",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " (clients or stakeholders who leave feedback).",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Members",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " get full access to the task board, can assign work, change statuses, and manage the project",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Guests",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " only see the feedback sidebar on the website—they can point, click, and comment, but they don't access your internal task board",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "This separation is brilliant. Your client never sees internal notes like \"client doesn't understand responsive design\" or priority labels. They just see a clean interface for leaving feedback.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Invite team members from Settings → Members. Send guest links from Settings → Guests. Guests don't need to create an account—they click a link and start annotating.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/bugherd-tips"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Looking for ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "practical tips on getting the most from BugHerd",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "? We've written a whole guide on best practices.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 4: Collect Feedback (The Fun Part)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Here's where BugHerd earns its reputation. Once the script is installed and people are invited, collecting feedback is almost frictionless.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How clients leave feedback:",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1. Open the website",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2. The BugHerd sidebar appears (or they toggle it with a keyboard shortcut)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3. Click anywhere on the page",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4. A pin drops with a comment box",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "5. Type the feedback, optionally attach a file, hit submit",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What BugHerd captures automatically:",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Full-page screenshot (visible area)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "HTML element and CSS selector",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Browser and version",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Operating system",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Screen resolution",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "URL where the feedback was left",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Logged-in user (if applicable)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "This automatic context is a massive time-saver. Instead of asking \"which browser are you using?\" or \"can you send me a screenshot?\"—you already have everything.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "I once had a client report a \"broken button\" that only appeared broken on Safari 15. Without BugHerd's automatic browser detection, I would have spent an hour trying to reproduce it in Chrome.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 5: Manage and Resolve Issues",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Feedback flows into your Kanban board as tasks. From there, you can:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Assign",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " tasks to specific team members",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Add tags",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " for categorization (design, content, functionality)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Set priority levels",
+            "marks": [
+              "strong"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Move tasks",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " through your workflow columns",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Mark as duplicate",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " when clients report the same thing twice",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Reply to feedback",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " directly—clients see your response in the sidebar",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The reply feature is underrated. When a client submits feedback and you reply \"Fixed—please check,\" they can verify right there on the website. No back-and-forth emails.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-monday-com"
+          },
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-clickup"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "BugHerd also integrates with tools you already use. It connects with ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "project management platforms like monday.com",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "ClickUp",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", Jira, Asana, Slack, and more. Feedback in BugHerd can automatically create tasks in your preferred PM tool.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Highlighted Features You'll Love",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "BugHerd keeps improving, and these features stand out:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Video feedback",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " — Clients can record their screen while narrating the problem. Perfect for complex issues that are hard to describe with text.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Multi-environment support",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " — Use BugHerd on staging, development, and production sites. Each environment gets its own project board.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Custom metadata",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " — Pass custom data (user ID, account type, subscription plan) with each piece of feedback. Super useful for SaaS companies debugging customer-specific issues.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pin visibility controls",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " — Decide whether guests see other people's pins or only their own. Helpful when you don't want clients seeing each other's feedback.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "PDF export",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " — Export your entire feedback board as a PDF for archiving or client presentations.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/bugherd-new-features"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Want the full rundown on what's new? See all ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "BugHerd's latest features",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Who Is BugHerd Ideal For?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "BugHerd isn't for everyone—but for the right teams, it's transformative.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/bugherd-use-cases"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Web agencies and freelancers",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " — If you build websites for clients, BugHerd eliminates the feedback bottleneck. Clients love how easy it is, and you'll cut revision cycles in half. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Explore specific use cases",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " to see how agencies use it daily.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "QA teams",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " — Instead of writing lengthy bug reports, testers click directly on the issue. The automatic technical context means developers get actionable information immediately.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "SaaS product teams",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " — Collect feedback from beta users on your web app without asking them to fill out forms or join calls.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "E-commerce teams",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " — Review product pages, checkout flows, and landing pages with marketing and design teams all in one place.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Internal teams doing UAT",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " — User acceptance testing becomes visual and collaborative instead of spreadsheet-driven.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If your work involves showing a website to someone else and asking \"what do you think?\"—BugHerd will make that process dramatically better.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How BugHerd Compares to the Email-and-Screenshot Approach",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Let me be direct: BugHerd vs. traditional feedback methods isn't really a comparison. It's like comparing GPS navigation to asking strangers for directions.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "With email feedback, you get: vague descriptions, missing screenshots, no technical context, lost threads, and duplicated reports.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "With BugHerd, you get: visual annotations pinned to exact elements, automatic screenshots, browser/OS/resolution data, a centralized task board, and zero lost feedback.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "I've seen teams reduce their feedback-to-resolution time by 50% after adopting BugHerd. Not because the tool works magic—but because it removes every piece of friction from the feedback process.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://partners.bugherd.com/tj7d6g9xsdd0"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ready to stop drowning in feedback emails? ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Try BugHerd free",
+            "marks": [
+              "l8"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " and see the difference on your next project.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Quick Setup Checklist",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Here's everything you need to get BugHerd running today:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "[ ] Create a BugHerd account (no credit card needed)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "[ ] Add your website project",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "[ ] Install the JavaScript snippet",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "[ ] Customize your Kanban board columns",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "[ ] Invite team members",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "[ ] Generate and share guest links with clients",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "[ ] Test by leaving a pin yourself",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "[ ] Start collecting feedback",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Total setup time: under 10 minutes. Seriously.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Final Thoughts",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Website feedback doesn't have to be painful. BugHerd turns a messy, frustrating process into something clients actually enjoy using. The point-and-click interface requires zero technical knowledge from your clients, while the automatic context capture gives your developers everything they need to fix issues fast.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "With over 350,000 users worldwide and a 4.8/5 rating, it's clear that teams who try BugHerd stick with it.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://partners.bugherd.com/tj7d6g9xsdd0"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If you're ready to streamline your website review process, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "start your BugHerd trial here",
+            "marks": [
+              "l9"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". No credit card, no commitment—just a better way to collect feedback.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "*Disclosure: This post contains affiliate links. If you sign up through our links, we may earn a commission at no extra cost to you.*",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Keep Reading on TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/what-is-bugherd"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What Is BugHerd and How Does It Work?",
+            "marks": [
+              "l10"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/why-choose-bugherd"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Why Choose BugHerd for Your Next Project",
+            "marks": [
+              "l11"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l12",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/bugherd-use-cases"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "BugHerd Use Cases for Agencies and Teams",
+            "marks": [
+              "l12"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l13",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/bugherd-tips"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tips and Best Practices for BugHerd",
+            "marks": [
+              "l13"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l14",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-clickup"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How to Use ClickUp for Project Management",
+            "marks": [
+              "l14"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l15",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-monday-com"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How to Use monday.com for Team Workflows",
+            "marks": [
+              "l15"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "BugHerd, web development, client feedback, website review, bug tracking",
+    "keywords": [
+      "BugHerd",
+      "website feedback tool",
+      "visual feedback software",
+      "client feedback website",
+      "bug tracking tool"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/bugherd.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A laptop screen showing a website with colorful pin markers and a sidebar feedback panel, hands pointing at the screen. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Does BugHerd work on mobile devices?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Yes. BugHerd's feedback sidebar is fully responsive and works on tablets and smartphones. Clients can leave feedback from any device with a browser.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Do my clients need to create an account to leave feedback?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "No. Guests access BugHerd through a shared link—no sign-up required. They click the link, the sidebar loads, and they start annotating immediately.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Can I use BugHerd on staging or development sites?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Absolutely. BugHerd works on any URL where you can install the script—local development, staging, QA environments, and production sites all supported.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How does BugHerd capture technical details automatically?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "When someone clicks on a page element, BugHerd's script captures the HTML/CSS selector, a screenshot, browser version, operating system, screen resolution, and the exact URL. No manual input needed.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:en:bugherd:tutorial",
+    "source": "sdk-agent-blog-seo:mimo",
+    "translation_of": "como-usar-bugherd"
+  },
+  "published_at": "2026-06-12T13:41:55",
+  "locale": "en"
+}

@@ -1,0 +1,782 @@
+{
+  "id": "post-como-usar-evolve-ai",
+  "slug": "como-usar-evolve-ai",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "ia",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "Automatiza tu outreach con Evolve AI: Tutorial completo",
+    "excerpt": "Descubre cómo usar Evolve AI para automatizar mensajes de ventas y marketing. Tutorial paso a paso para empezar hoy.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/como-usar-evolve-ai.jpg",
+        "alt": "Automatiza tu outreach con Evolve AI: Tutorial completo",
+        "filename": "como-usar-evolve-ai.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué es Evolve AI y por qué va a transformar tu trabajo?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Evolve AI es una plataforma de inteligencia artificial diseñada específicamente para profesionales de ventas y marketing. En esencia, te permite automatizar el proceso de contacto inicial con clientes potenciales (",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "outreach",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "), personalizar mensajes a escala y generar contenido relevante usando agentes de IA especializados. Olvídate de pasar horas redactando correos que luego no se abren; con Evolve AI, la IA se encarga de lo repetitivo para que tú te centres en cerrar tratos y construir relaciones.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-evolve-ai"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La diferencia está en su enfoque: no es un generador de texto genérico. Los agentes de IA de Evolve están entrenados para entender el contexto de ventas, analizar datos de prospectos y adaptar el tono de cada mensaje. Esto se traduce en tasas de respuesta más altas y un pipeline de ventas más lleno. Si buscas escalar tu operación sin perder el toque personal, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Evolve AI es la herramienta que necesitas",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tutorial paso a paso: Configura tu primer campaña de outreach automatizado",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Empezar con Evolve AI es sorprendentemente directo. Sigue estos pasos y tendrás tu primera campaña funcionando en menos de una hora.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 1: Accede a la plataforma y define tu objetivo",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://go.evolveplatform.ai/2s3ra6yrmk7s"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Visita ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "evolveplatform.ai",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " y crea tu cuenta. Al iniciar sesión, el primer paso es definir claramente el objetivo de tu campaña. ¿Buscas agendar demos, presentar un nuevo producto o recuperar leads fríos? Evolve AI te guía para configurar parámetros como el sector, tamaño de empresa ideal y el tono de comunicación (formal, directo, consultivo). Esta definición es crucial porque la IA la usará para personalizar cada interacción.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 2: Importa y segmenta tu lista de contactos",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sube tu lista de prospectos en formato CSV o intégrala directamente desde tu CRM (como HubSpot o Salesforce) si la usas. La plataforma te permite segmentar los contactos con etiquetas inteligentes. Por ejemplo, puedes crear un segmento para \"C-Level en fintech\" y otro para \"Gerentes de Marketing en e-commerce\". Cada segmento recibirá mensajes adaptados a sus desafíos específicos, lo que aumenta drásticamente la relevancia.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 3: Configura los agentes de IA y las secuencias",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-evolve-ai"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Aquí ocurre la magia. En el panel de \"Agentes\", selecciona el tipo de agente para tu campaña (por ejemplo, \"Agente de prospección B2B\" o \"Agente de nurturing\"). Luego, diseña tu secuencia de mensajes: cuántos toques quieres, con qué intervalo (por ejemplo, email inicial, seguimiento a 3 días, toque final a una semana). Para cada paso, puedes escribir una base o dejar que la IA genere borradores completos. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Mi consejo:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " empieza con una secuencia de 3 pasos. Te sorprenderá la calidad de los borradores generados, que incluyen líneas de asunto creativas y llamadas a la acción claras. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Descubre más trucos para optimizar estas secuencias aquí",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 4: Personaliza, aprueba y lanza",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Revisa los borradores generados. Puedes editar cualquier parte, desde el saludo hasta el cierre, para inyectar tu voz única. Una vez satisfecho, programa la fecha y hora de lanzamiento. Evolve AI enviará los mensajes de forma escalonada, simulando el comportamiento humano para evitar filtros de spam. La plataforma monitoriza todo en tiempo real: abre, clics, respuestas y hasta el sentimiento general de las respuestas recibidas.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Funciones nuevas y destacadas que te van a encantar",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Evolve AI no se queda estática; su equipo constantemente añade mejoras. Estas son algunas de las funciones que marcan la diferencia:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Generador de contenido para redes sociales:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " A partir de una case study o un artículo de tu blog, los agentes de IA pueden crear posts para LinkedIn, Twitter o Facebook, adaptados al formato y audiencia de cada red. Es ideal para repurpear contenido y mantener un calendario editorial activo sin esfuerzo.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Análisis de sentimiento avanzado:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Más allá de simplemente decir si una respuesta es \"positiva\" o \"negativa\", esta función identifica emociones clave como \"urgencia\", \"interés inicial\" o \"escepticismo\", y te recomienda la mejor respuesta pre-aprobada para avanzar la conversación.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Integraciones profundas con herramientas de video:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Puedes vincular tu cuenta de Loom o Vimeo y la IA generará automáticamente descripciones persuasivas y enlaces personalizados para incluir en tus correos de video prospecting, una táctica de alto impacto que ahora es trivial de escalar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Para quién es ideal Evolve AI? Encuentra tu caso de uso",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Esta plataforma brilla en escenarios específicos donde la personalización a escala es clave. Si te identificas con alguno, es probable que sea tu nueva herramienta favorita:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Equipos de ventas B2B (SDRs, AEs):",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Automatiza el tedious trabajo de prospección inicial, permitiendo que tu equipo se enfoque solo en conversaciones con leads calificados que ya muestran interés.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Agencias de marketing y consultores:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Gestiona las campañas de outreach de múltiples clientes desde una sola dashboard, con segmentación por cliente y reportes automáticos.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Fundadores y equipos pequeños:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Si eres un startup que necesita hacer mucho con poco, Evolve AI actúa como un miembro adicional del equipo de ventas que trabaja 24/7, acelerando tu proceso de customer discovery y validación.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/evolve-ai-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Responsables de growth o marketing de producto:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Ideal para lanzar campañas de producto a nuevos segmentos de mercado o para realizar campañas de win-back con clientes inactivos usando mensajes altamente personalizados basados en su historial. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Explora más casos de uso aquí",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Mi experiencia: De escepticismo a productividad multiplicada",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Confieso que al principio dudaba. ¿Cómo podría una IA captar la sutileza de un mensaje de ventas? Decidí probar Evolve AI en una campaña para reactivar leads fríos de hace 6 meses. Configuré un agente, subí la lista y dejé que la IA generara una secuencia de 2 correos. El primer email era directo y ofrecía un recurso nuevo y valioso (una guía) basado en su industria. El segundo, enviado 5 días después, hacía referencia al primero y proponía una llamada de 15 minutos.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://go.evolveplatform.ai/2s3ra6yrmk7s"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "El resultado: una tasa de apertura del 48% (vs. el 22% de mis campañas manuales anteriores) y 7 demos agendadas en la primera semana. La IA no solo ahorró horas de redacción; sus líneas de asunto fueron increíblemente efectivas. Ahora la uso para todo: desde la prospección inicial hasta la preparación de materiales para reuniones de seguimiento. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Si quieres empezar ya, te regalo un acceso prioritario con este enlace",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sigue leyendo en TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Te ha gustado este tutorial? En nuestro blog profundizamos más en herramientas que potencian tu trabajo:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/evolve-ai-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Novidades y últimas actualizaciones de Evolve AI",
+            "marks": [
+              "l5"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-evolve-ai"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Guía definitiva: Qué es Evolve AI y para qué sirve",
+            "marks": [
+              "l6"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-elevenlabs"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo usar ElevenLabs para dar voz a tus presentaciones con IA",
+            "marks": [
+              "l7"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-descript"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Descript: Edita videos como documentos de texto",
+            "marks": [
+              "l8"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-gamma"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Gamma: Crea presentaciones impactantes con IA en minutos",
+            "marks": [
+              "l9"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Disclosure:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Este artículo contiene enlaces de afiliado. Si realizas una compra a través de ellos, recibimos una comisión sin costo adicional para ti, lo que nos ayuda a mantener este contenido gratuito y de calidad.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "Evolve AI, PartnerStack, ventas B2B, automatización marketing, contenido personalizado IA",
+    "keywords": [
+      "Evolve AI",
+      "plataforma IA ventas",
+      "automatizar outreach",
+      "marketing con IA",
+      "herramientas de ventas AI"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/evolveplatform.ai as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A professional looking at a laptop screen showing a clean dashboard with graphs and a chat interface, symbolizing AI-powered sales automation and efficiency.. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Evolve AI es solo para empresas grandes o también para freelancers?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Es perfecta para ambos. Los freelancers y equipos pequeños la valoran por automatizar tareas que normalmente consumen mucho tiempo, como la prospección manual. Las empresas grandes la usan para escalar procesos existentes sin contratar más personal. La plataforma es escalable.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Mis correos podrían parecer genéricos o \"roboticos\"?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Todo lo contrario. La IA de Evolve está entrenada para personalizar cada mensaje basándose en datos del prospecto (industria, cargo, tamaño de empresa). Puedes añadir instrucciones específicas al agente para que refleje tu voz. Los resultados son mensajes que suenan naturales y relevantes, no plantillas.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Puedo integrar Evolve AI con mi CRM o herramientas de email actuales?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sí, Evolve AI ofrece integraciones nativas con los CRM más populares como HubSpot, Salesforce y Pipedrive. Esto permite sincronizar contactos y registrar automáticamente la actividad de outreach en el perfil de cada lead, manteniendo tu flujo de trabajo unificado.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:es:evolve-ai:tutorial",
+    "source": "sdk-agent-blog-seo:mimo"
+  },
+  "published_at": "2026-06-12T14:32:21",
+  "locale": "es"
+}

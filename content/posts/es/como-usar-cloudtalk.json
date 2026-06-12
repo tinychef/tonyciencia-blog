@@ -1,0 +1,888 @@
+{
+  "id": "post-como-usar-cloudtalk",
+  "slug": "como-usar-cloudtalk",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "negocios",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "Call Center en la Nube con CloudTalk: Tutorial Paso a Paso",
+    "excerpt": "Configura tu call center profesional en minutos con este tutorial de CloudTalk. Mejora ventas y soporte con números globales, IVR y analítica con IA.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/como-usar-cloudtalk.jpg",
+        "alt": "Call Center en la Nube con CloudTalk: Tutorial Paso a Paso",
+        "filename": "como-usar-cloudtalk.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué es exactamente CloudTalk y por qué es un game-changer?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-cloudtalk"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Imagina una centralita telefónica completa, potente y flexible que vive 100% en tu navegador. Eso es CloudTalk. Es una plataforma de ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "call center en la nube",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " diseñada específicamente para equipos de ventas y soporte. Olvídate del hardware costoso, de las limitaciones geográficas y de los dolores de cabeza técnicos. Con CloudTalk, tu equipo puede hacer y recibir llamadas profesionales desde cualquier lugar del mundo, usando solo una computadora y auriculares. Su interfaz es tan intuitiva que empezar a usarla se siente casi como iniciar sesión en un correo electrónico. Para mí, la verdadera magia está en cómo integra herramientas de IA y analítica potentes de manera tan sencilla, permitiendo que incluso equipos pequeños funcionen con la eficiencia de una gran corporación.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tutorial Paso a Paso: Configura tu Call Center en 1 Hora",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Vamos a la acción. Sigue estos pasos y tendrás tu operación funcionando rápido.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://get.cloudtalk.io/e9hi3dnr08hb"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1. Registro y acceso al panel:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " El proceso comienza en ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "cloudtalk.io",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Crear una cuenta de prueba gratuita es instantáneo. Una vez dentro, te encontrarás con un panel de control limpio y organizado. No te abrumes; cada sección está claramente etiquetada. Lo primero es familiarizarte con los apartados de Llamadas, Contactos, Analítica y Configuración.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2. Adquirir tus números virtuales:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Esta es una de sus mayores fortalezas. Dirígete a Configuración > Números y podrás comprar números de teléfono locales de más de 160 países. ¿Quieres que tus clientes en México te llamen a un número local? En 2 clics lo tienes. ¿Necesitas presencia en España o Colombia? Listo. Este paso transforma tu negocio instantáneamente en una operación global.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3. Configurar tu Árbol de IVR (Atención con voz interactiva):",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " En Configuración > IVR, diseña el flujo de llamada que tu cliente escuchará. Puedes crear menús como \"Presione 1 para Ventas, 2 para Soporte\" o \"Para hablar con el departamento de facturación, diga 'factura'\". CloudTalk ofrece IVR inteligente, lo que significa que puede interpretar lenguaje natural. Configurar esto es sorprendentemente visual, usando un editor de arrastrar y soltar. Te recomiendo empezar con un flujo simple de 2-3 opciones.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4. Invitar a tu equipo y asignar roles:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " En Configuración > Usuarios, invita a tu equipo por correo electrónico. Asigna roles específicos: agente, supervisor, administrador. Cada uno tendrá los permisos adecuados. Los agentes solo verán lo necesario para trabajar, mientras que tú tendrás el control total. Esta granularidad es excelente para la productividad y la seguridad.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-apollo-io"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "5. Integrar con tu CRM favorito:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " CloudTalk brilla al conectarse con las herramientas que ya usas. En Configuración > Integraciones, encontrarás plugins listos para HubSpot, Salesforce, Pipedrive y ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "muchas otras plataformas de ventas",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". La integración es de ida y vuelta: al recibir una llamada, la ficha del contacto en tu CRM se abre automáticamente con toda su historial. Cuando termines la llamada, CloudTalk puede crear una nota o tarea directamente en el CRM. Esta sincronización en tiempo real es lo que hace que nada se pierda entre el teléfono y tu base de datos de clientes.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Funciones Nuevas y Destacadas que Debes Conocer",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/cloudtalk-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "CloudTalk evoluciona constantemente. Algunas de sus funciones más impactantes, que puedes explorar a fondo en nuestra guía de ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "funciones nuevas de CloudTalk",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", incluyen:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Analítica Predictiva con IA:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " No solo te dice cuántas llamadas hiciste. La IA analiza patrones, predice la probabilidad de cierre de ventas en una conversación y sugiere el mejor momento para contactar a un lead. Es como tener un coach de ventas trabajando 24/7 detrás de escena.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Monitoreo y Coaching en Tiempo Real:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Los supervisores pueden escuchar llamadas en vivo, susurrar consejos al agente sin que el cliente lo escuche, o intervenir directamente. La función de \"barge-in\" (interrumpir) es útil para sesiones de entrenamiento intensivo.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Analítica de Emociones:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Esta herramienta avanzada de IA analiza el tono de voz y la velocidad del habla tanto del agente como del cliente. Genera reportes sobre niveles de estrés, satisfacción o frustración, dando una capa de *insight* humano que los datos por sí solos no captan.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Mensajería de Texto (SMS) Integrada:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Los agentes pueden enviar SMS masivos o individuales directamente desde la misma interfaz, creando campañas omnicanal efectivas sin cambiar de aplicación.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Para Quién es Ideal CloudTalk? Su Aplicación Perfecta",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Este tutorial es útil para cualquiera, pero CloudTalk se adapta como un guante a estos perfiles:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Equipos de Ventas Remotos o Híbridos:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Si tu equipo de sales está distribuido geográficamente, CloudTalk les da una centralita unificada. Cada agente, esté en Buenos Aires, Bogotá o Ciudad de México, suena como si estuviera en la misma oficina. Las métricas de desempeño son consistentes y fáciles de comparar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Empresas con Atención al Cliente en Varios Países:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " El hecho de ofrecer números locales en 160+ países no es un lujo; es una necesidad para reducir la barrera de contacto. Un cliente en España se siente más cómodo marcando un número local que uno internacional. CloudTalk soluciona esto de raíz.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Startups y PyMEs que Buscan Escalar:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " No necesitas una inversión inicial gigante. Empiezas con 3 agentes y creces hasta 300 sin cambiar de plataforma. La flexibilidad en planes y la facilidad de agregar nuevos usuarios y números permiten que la infraestructura crezca a la par de tu negocio. Es una solución que no te va a quedar chica.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Cualquier Empresa que Use un CRM Principal:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " La integración profunda con Salesforce, HubSpot y otros es su sello distintivo. Si tu proceso de ventas o soporte vive en un CRM, CloudTalk lo potencia al conectarlo de manera nativa con el canal telefónico.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Mis Trucos para Sacar el Máximo Provecho",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-cloudtalk"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Después de usarlo intensamente, estos son algunos ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "trucos y mejores prácticas",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " que marcan la diferencia:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Usa las Etiquetas de Llamada:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Después de cada interacción, etiqueta la llamada (ej: \"Interesado\", \"Soporte técnico\", \"Queja\", \"Cierre inminente\"). Luego, filtra por etiqueta en la analítica para obtener *insights* precisos sobre los motivos de contacto más comunes.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Programa \"Horarios de Oficina\" en el IVR:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Configura tu IVR para que, fuera del horario laboral, ofrezca un menú diferente, como dejar un mensaje de voz o redirigir a una línea de emergencia. Es un detalle que profesionaliza muchísimo tu imagen.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Aprovecha los \"Snippets\" o Respuestas Rápidas:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Crea textos predeterminados para SMS o notas comunes que tus agentes puedan insertar con un atajo de teclado. Ahorra cientos de horas al mes en comunicación repetitiva.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Prueba CloudTalk y Transforma tu Operación",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-cloudtalk"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "No hay mejor manera de entender el impacto de CloudTalk que experimentándolo. Su plan de prueba gratuita es robusto y no requiere tarjeta de crédito. Puedes configurar todo lo que te he mostrado en este ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "tutorial de CloudTalk",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " y tenerlo funcionando en la tarde.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://get.cloudtalk.io/e9hi3dnr08hb"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si tu equipo de ventas o soporte todavía depende de teléfonos celulares personales, software anticuado o múltiples aplicaciones desconectadas, estás perdiendo tiempo, oportunidades y una valiosa analítica. CloudTalk unifica todo en una sola plataforma elegante y potente. **",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Empieza tu prueba gratuita de CloudTalk aquí y lleva tu comunicación empresarial al siguiente nivel",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".**",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "*Disclosure: Este artículo contiene enlaces de afiliado a CloudTalk. Si realizas una compra a través de ellos, recibimos una comisión sin costo adicional para ti, lo que nos ayuda a crear más guías gratuitas.*",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sigue leyendo en TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Profundiza en el ecosistema de productividad empresarial con estas lecturas complementarias:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/cloudtalk-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Todos los casos de uso donde CloudTalk marca la diferencia",
+            "marks": [
+              "l7"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-clickup"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Domina ClickUp: Tutorial para gestionar proyectos y tareas",
+            "marks": [
+              "l8"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-monday-com"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Automatiza flujos de trabajo con monday.com: Guía completa",
+            "marks": [
+              "l9"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-apollo-io"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo usar Apollo.io para potenciar tu prospección de ventas",
+            "marks": [
+              "l10"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "CloudTalk, IVR, analítica con IA, números internacionales, CRM",
+    "keywords": [
+      "call center en la nube",
+      "CloudTalk tutorial",
+      "software de llamadas en la nube",
+      "números virtuales internacionales",
+      "solución de ventas"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/cloudtalk.io as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A diverse team of sales agents wearing headsets, working collaboratively in a modern, sunlit office with a large screen showing a dashboard of call analytics.. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Necesito comprar equipos de teléfono físicos para usar CloudTalk?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "No, esa es una de sus grandes ventajas. CloudTalk funciona 100% en la nube. Solo necesitas una computadora o laptop con navegador, una conexión a internet estable y unos auriculares con micrófono. Puedes usar desde auriculares USB básicos hasta modelos profesionales. No hay inversión en hardware especializado.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Es CloudTalk seguro para datos sensibles de clientes?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sí, CloudTalk se toma la seguridad muy en serio. Utiliza cifrado de extremo a extremo para todas las llamadas y datos en tránsito. Cumple con regulaciones internacionales como GDPR. Además, todas las grabaciones y datos se almacenan en centros de datos seguros y certificados. Puedes configurar políticas de retención de datos según las necesidades de tu industria.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Puedo conservar mi número de teléfono actual si me cambio a CloudTalk?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sí, el proceso se llama 'portabilidad numérica'. CloudTalk te permite transferir tu número de teléfono local existente a su plataforma sin perderlo. El equipo de soporte te guía paso a paso para que la transición sea fluida y tus clientes no noten el cambio. Esto es clave para mantener la continuidad de tu negocio.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué tan compleja es la configuración del menú de voz (IVR)?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Es sorprendentemente sencilla gracias a su editor visual. Puedes crear árboles de decisión complejos (como 'Si el cliente dice 'factura', transfíralo al departamento contable') simplemente arrastrando y conectando bloques en una interfaz gráfica. No necesitas conocimientos de programación. Para flujos básicos, puedes tenerlo listo en 15 minutos.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:es:cloudtalk:tutorial",
+    "source": "sdk-agent-blog-seo:mimo"
+  },
+  "published_at": "2026-06-12T14:13:23",
+  "locale": "es"
+}

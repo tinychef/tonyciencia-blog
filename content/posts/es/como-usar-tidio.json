@@ -1,0 +1,1339 @@
+{
+  "id": "post-como-usar-tidio",
+  "slug": "como-usar-tidio",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "ia",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "Tidio Tutorial Paso a Paso: Domina su IA para Atención al Cliente",
+    "excerpt": "Aprende a configurar Tidio y su agente IA Lyro en minutos. Tutorial completo para transformar tu soporte y ventas en e-commerce o SaaS.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/como-usar-tidio.jpg",
+        "alt": "Tidio Tutorial Paso a Paso: Domina su IA para Atención al Cliente",
+        "filename": "como-usar-tidio.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Introducción: Más que un chat, un copiloto para tu negocio",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-tidio"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si buscas una herramienta que no solo responda preguntas, sino que activamente ayude a vender y resuelva el 70% de las consultas recurrentes sin intervención humana, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "estás en el lugar correcto",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Tidio ha evolucionado de ser un simple widget de chat a una plataforma completa donde la inteligencia artificial y el toque humano se combinan de manera elegante. Su agente IA, Lyro, es el corazón de esta magia.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "En este tutorial, te guiaré paso a paso para que implementes Tidio y veas resultados rápidos. Olvídate de configuraciones complejas; aquí empezarás desde cero.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Divulgación:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Este artículo contiene enlaces de afiliado. Si realizas una compra a través de ellos, no tendrás costo adicional y nos ayudarás a mantener TonyCiencia. Solo recomendamos herramientas que usamos y creemos genuinamente útiles.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 1: Registro y Configuración Inicial (En menos de 10 minutos)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://www.tidio.com"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "El primer paso es crear tu cuenta. Ve a ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "tidio.com",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " y regístrate con tu correo o cuenta de Google. El proceso es increíblemente fluido.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Inmediatamente después, Tidio te guiará para:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Conectar tu sitio web:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Solo necesitas copiar un pequeño código de seguimiento en el `<head>` de tu página. Si usas Shopify, WordPress o WooCommerce, tienen integraciones nativas que simplifican esto a un solo clic.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Personalizar la apariencia:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Elige los colores, el mensaje de bienvenida y la posición del widget. Te recomiendo que el mensaje sea directo: \"¿Necesitas ayuda? ¡Pregúntame!\".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Definir los horarios de atención:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Configura cuándo tu equipo humano estará disponible. Fuera de ese horario, Lyro puede hacerse cargo o puedes dejar un formulario de contacto.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "> ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Consejo Pro:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Durante la configuración, activa la opción de \"Vista de Visitantes\". Te permite ver en tiempo real qué páginas navegan tus usuarios, lo cual es oro para entender sus intenciones.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 2: Desata el Poder de Lyro, tu Agente IA",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Aquí es donde Tidio brilla como ninguna otra. Lyro no es un simple chatbot de decisiones. Es un agente IA entrenado que:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Comprende el contexto",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " de la conversación, no solo palabras clave.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Aprende de tu base de conocimiento",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " (documentos, FAQ, respuestas de tu equipo).",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Conversa de forma natural",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " en múltiples idiomas, incluido el español neutro.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Escala a un humano suavemente",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " cuando la situación lo requiere.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para activarlo:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " En el panel de Tidio, ve a *Chatbots* -> *Lyro*. Aquí verás la opción de ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "\"Configurar tu base de conocimiento\"",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Este es el paso crucial. Puedes:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Importar un archivo PDF o documento con toda la información de tus productos y políticas.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Conectar tu página de FAQ existente.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Simplemente copiar y pegar respuestas comunes que ya usas.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/tidio-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lyro aprenderá de todo esto en minutos. Luego, puedes probarlo directamente en el chat de demostración. Su capacidad para ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "dar recomendaciones de productos relevantes",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " basándose en las preguntas de los clientes es simplemente asombrosa para las ventas.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tidio.pxf.io/c/6249333/1826568/21771"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si aún no estás convencido de que la IA puede transformar tu soporte, Lyro es la prueba definitiva. Pruébalo gratis aquí",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 3: Crea Flujos de Automatización Inteligentes (Flows)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Más allá de Lyro, puedes diseñar \"Flows\": secuencias automatizadas para ventas y soporte. Esto es perfecto para:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Saludar proactivamente a visitantes",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " en páginas clave (como la de precios o un producto específico).",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Recolectar leads",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " ofreciendo un descuento a cambio de un email.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Calificar tickets",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " redirigiendo consultas técnicas al equipo adecuado.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "En el constructor visual de Flows, arrastras y sueltas nodos. Es intuitivo. Un flujo básico pero potente que te sugiero crear es:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Nodo Disparador:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " \"Visitante en la página de checkout por más de 2 minutos\".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Nodo Acción:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Lyro envía un mensaje: \"Veo que estás en el checkout. ¿Tienes alguna duda antes de finalizar tu compra?\".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-tidio"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Esta automatización simple puede reducir el abandono del carrito de forma drástica. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Descubre todas las posibilidades de automatización que Tidio ofrece",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Funciones Nuevas y Destacadas que Debes Conocer",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/tidio-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tidio está en constante evolución. Algunas de sus ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "características más recientes y poderosas",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " incluyen:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lyro AI Agent para Soporte Multicanal:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Ahora Lyro puede integrarse en más de solo el chat de tu web. Puedes conectarlo a canales como Instagram Messenger, WhatsApp y email, centralizando todo el soporte inteligente.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paneles de Análisis Unificados:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Visualiza el impacto real de Lyro y tu equipo humano en un solo lugar. Métricas como \"Conversaciones resueltas por Lyro\", \"Satisfacción del cliente (CSAT)\" y \"Tiempo de respuesta promedio\" te dan una visión 360°.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tidio.pxf.io/c/6249333/1826568/21771"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Recomendaciones de Productos con IA:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Este es un game-changer para el e-commerce",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Lyro analiza la conversación y sugiere productos específicos de tu catálogo, convirtiendo preguntas en ventas potenciales.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Integración Profunda con Plataformas como Impact.com:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Para negocios basados en programas de afiliados, la capacidad de Tidio para rastrear y atribuir interacciones es invaluable.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Para Quién es Ideal Tidio? Más de lo que Imaginas",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La versatilidad de Tidio es su mayor fortaleza. Es ideal para:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tiendas de e-commerce (Shopify, WooCommerce, etc.):",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Donde el soporte pre-venta y post-venta es crítico para la conversión y la retención. Lyro puede responder sobre tallas, estado de envío y políticas de devolución al instante.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Negocios de SaaS y Startups:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Perfecta para soporte técnico escalable. La IA puede guiar a los usuarios a través de tutoriales, resolver errores comunes y solo escalar los casos complejos al equipo de desarrollo.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Agencias y Consultores que gestionan clientes:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Puedes gestionar múltiples sitios web desde un solo panel de Tidio, lo que lo hace extremadamente eficiente para ofrecer servicios de atención al cliente como servicio.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Creadores de contenido y coaches:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Para gestionar consultas de su audiencia, ofrecer soporte a sus cursos online o membresías, y automatizar respuestas frecuentes.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-tidio"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si tu negocio se encuentra en alguno de estos perfiles, Tidio no es una opción, es una necesidad estratégica",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo Escalar con Tidio: De 50 a Miles de Conversaciones",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Un aspecto inteligente de Tidio es su modelo de precios, que crece contigo. Puedes empezar con un plan gratuito robusto y luego migrar a un plan basado en el volumen de \"conversaciones facturables\".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Conversación facturable:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Se considera una interacción continua entre un cliente y (tu equipo o Lyro) que dura hasta 24 horas. Múltiples mensajes en esa ventana cuentan como una sola conversación.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Flexibilidad:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Puedes ajustar tu plan mensualmente según tu demanda. En temporada alta, subes el volumen; en periodos tranquilos, lo bajas. Solo pagas por lo que usas.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La clave para escalar sin sobresaltos es ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "alimentar continuamente la base de conocimiento de Lyro",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Cada nueva pregunta que reciba tu equipo es una oportunidad para entrenar a tu agente IA y hacerlo más autónomo con el tiempo.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "CTA Final: Tu Próximo Paso Hacia un Soporte Transformador",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Implementar Tidio es una de las decisiones con mayor retorno de inversión que puedes tomar por tu atención al cliente y ventas. La combinación de la potencia de Lyro con la flexibilidad de los flujos manuales te da un control total y una eficiencia sin precedentes.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tidio.pxf.io/c/6249333/1826568/21771"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "No te quedes con la teoría. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Crea tu cuenta gratis en Tidio hoy y empieza a configurar tu primer agente IA Lyro",
+            "marks": [
+              "l8"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Observa cómo responde a tus primeras pruebas, personaliza su base de conocimiento y siente la diferencia. Tu equipo y tus clientes te lo agradecerán.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sigue leyendo en TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para profundizar más en el ecosistema de herramientas inteligentes, te recomiendo:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/tidio-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Las novedades de Tidio que están cambiando el juego",
+            "marks": [
+              "l9"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-tidio"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Por qué elegir Tidio sobre otras soluciones de chat",
+            "marks": [
+              "l10"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/tidio-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Casos de uso avanzados para tu negocio",
+            "marks": [
+              "l11"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l12",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-tidio"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Trucos y mejores prácticas para dominar Tidio",
+            "marks": [
+              "l12"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l13",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-elevenlabs"
+          },
+          {
+            "_key": "l14",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-descript"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Y si te interesa la IA para contenido, descubre ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "cómo usar ElevenLabs para voz",
+            "marks": [
+              "l13"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " o ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Descript para edición de vídeo",
+            "marks": [
+              "l14"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "Tidio, Lyro AI, e-commerce, SaaS, chatbot, atención al cliente",
+    "keywords": [
+      "tutorial tidio",
+      "agente IA Lyro",
+      "chatbot para ecommerce",
+      "soporte automatizado",
+      "atención al cliente inteligente",
+      "plataforma de chat en vivo"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/tidio.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A friendly customer service agent using a laptop with a chat interface open, showing AI and human icons collaborating, in a bright modern office. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Tidio realmente puede reemplazar a mi equipo de soporte humano?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "No, es un potente complemento. Tidio y su agente IA Lyro están diseñados para manejar las consultas repetitivas (hasta un 70% según ellos), liberando a tu equipo humano para que se enfoque en casos complejos, ventas de alto valor y relaciones personalizadas. Es una colaboración eficiente, no un reemplazo.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué pasa si Lyro no sabe la respuesta a una pregunta?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tidio gestiona esto de dos formas inteligentes: 1) Lyro puede transferir la conversación automáticamente a un agente humano disponible en el chat en vivo. 2) Puedes configurarlo para que sugiera artículos específicos de tu base de conocimiento o le pida al cliente que reformule la pregunta. Cada interacción así se usa para mejorar a Lyro.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Es difícil migrar mi FAQ o base de conocimiento a Tidio?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "En absoluto. Tidio hace que este proceso sea muy sencillo. Puedes importar documentos PDF, conectar páginas web existentes (como tu página de FAQ), o simplemente copiar y pegar texto. Lyro procesa esta información y la aprende rápidamente, sin necesidad de conocimientos técnicos.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:es:tidio:tutorial",
+    "source": "sdk-agent-blog-seo:mimo"
+  },
+  "published_at": "2026-06-12T05:14:09",
+  "locale": "es"
+}

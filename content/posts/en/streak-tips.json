@@ -1,0 +1,869 @@
+{
+  "id": "post-streak-tips",
+  "slug": "streak-tips",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "negocios",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "Streak CRM Tips: Best Ways to Supercharge Your Gmail Workflow",
+    "excerpt": "Discover top tips & best practices for Streak CRM. Learn how to master your sales pipeline directly in Gmail and close deals faster.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/streak-tips.jpg",
+        "alt": "Streak CRM Tips: Best Ways to Supercharge Your Gmail Workflow",
+        "filename": "streak-tips.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If your sales process lives in your inbox, why not manage your entire CRM there too? That’s the simple, brilliant premise behind Streak. It’s not just another tab you have to open; it’s a powerhouse CRM that lives directly inside your Gmail, turning your familiar email interface into a command center for deals, projects, and client relationships. For teams tired of toggling between apps, this feels like a superpower. Here are the best ways to use Streak to transform your workflow.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1. Master Your Pipeline Visualization",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Streak’s core strength is its visual pipeline, which you can customize for any process—sales, hiring, project management, or even bug tracking. Instead of a static spreadsheet, your deals move through stages you define, right next to your emails.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://get.streak.com/mpug8tw2pl8n"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pro Tip:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Create separate pipelines for different client types or sales stages. For example, have a \"Sales Inquiry\" pipeline that feeds into a \"Enterprise Deal\" pipeline once qualified. The drag-and-drop interface makes updating deal stages instantaneous. You can see where every opportunity stands at a glance, which is a game-changer for forecasting. If you want to ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "try this hands-on, start here",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2. Automate the Follow-Up Grind",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The follow-up is where deals are won or lost, but it’s also incredibly tedious. Streak’s automation features let you build sequences that send personalized emails at intervals you set, triggered by pipeline stage changes.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/why-choose-streak"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Best Practice:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Set up a 3-touch sequence for new leads. After an initial email, automatically schedule a follow-up for 3 days later if they haven’t responded, then another 7 days after that. You can personalize each email with merge fields like `{{name}}` or `{{company}}` to keep it human. This automation runs silently in the background, ensuring no lead falls through the cracks while you focus on high-value conversations. For a deeper dive into automation strategies, explore our guide on ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "why teams choose Streak",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3. Leverage Mail Merge for Scalable Outreach",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Streak’s mail merge isn’t your average mass email. It pulls merge field data directly from your Streak boxes (the individual records in your pipeline) or from a Google Sheet, allowing for highly personalized bulk outreach that feels one-to-one.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://get.streak.com/mpug8tw2pl8n"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Insider Technique:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Combine mail merge with pipeline data. Send a personalized check-in email to all clients in your \"Active Project\" stage, automatically including their project name and last interaction date. This maintains personal touch at scale. It’s perfect for announcements, check-ins, or re-engagement campaigns without ever leaving Gmail. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Discover how it integrates seamlessly",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " into your current sending process.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Unlocking New Potential: Streak's Latest Features",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Streak constantly evolves, and recent updates have focused on deepening its AI and integration capabilities. The platform now offers AI-powered features that can help draft email replies, summarize email threads, and even extract key information from conversations to auto-populate your pipeline fields. These credits are tiered across plans, with the Pro+ plan offering a generous 150 credits per user per month. Furthermore, enhanced reporting in the Pro+ and Enterprise plans gives you actionable insights into team performance, sales velocity, and forecast accuracy—data that was once buried in spreadsheets now lives in dynamic dashboards within your inbox.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Who Is Streak Perfect For? Ideal Use Cases",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Streak shines for specific workstyles and team structures. It’s ideal for:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sales Teams (SMB & Mid-Market):",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " If your sales cycle is driven by email conversations, Streak eliminates the context-switching tax. The entire history is in the thread, and the deal status is in the sidebar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Gmail-Centric Professionals:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Recruiters, freelancers, and consultants who live in Gmail will find Streak’s CRM functionality a natural and powerful extension of their existing tool.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/streak-use-cases"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Teams Needing Simplicity with Power:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " You get the robust features of a dedicated CRM (automations, reporting, collaboration) without the overwhelming complexity and separate login. For teams using other project tools, Streak can complement them. See how it compares to other methodologies in our article on ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "modern use cases for a Gmail CRM",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Getting Started: Your First Steps",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Adopting Streak is remarkably simple because it’s a Chrome extension that adds panels right inside Gmail. Here’s how to hit the ground running:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Install and Connect:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " The setup takes less than two minutes. Install the extension, connect your Gmail, and you’re ready to create your first pipeline.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Build Your First Pipeline:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Start with a basic sales pipeline: Lead > Contacted > Meeting Set > Proposal Sent > Won. You can always customize it later.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Convert Emails to Boxes:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " The magic moment is when you open a lead’s email and click the Streak icon to create a new \"box\" (record) in your pipeline. The email thread is now attached to that deal forever.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-streak"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Add Teammates:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Invite colleagues to shared pipelines. You can see when they’ve viewed emails, who owns which box, and collaborate seamlessly on the same threads. For a complete walkthrough, follow our ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "step-by-step Streak tutorial",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pro Tips for Power Users",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Once you’re comfortable, level up with these practices:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Use Tags and Filters:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Tag boxes with custom labels (e.g., \"High Priority,\" \"Partner Lead\") and then use Streak’s advanced filter views to slice your data in any way you need.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Leverage Integrations:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Connect Streak to your favorite apps like Slack for deal notifications, or Zapier to connect to thousands of other tools. The Pro+ plan unlocks these powerful integrations.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Utilize Snippets:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Save your most common email responses as snippets. You can insert a personalized, pre-written template with one click, dramatically speeding up your reply time.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://get.streak.com/mpug8tw2pl8n"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ready to see how it all comes together? You can ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "try Streak for free",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " to experience the blend of email and CRM firsthand.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Keep reading on TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "To deepen your productivity knowledge, explore these related guides:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/what-is-streak"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What is Streak? A Deep Dive into the Gmail CRM",
+            "marks": [
+              "l6"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-streak"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How to Use Streak for Project Management",
+            "marks": [
+              "l7"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/streak-new-features"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Exploring Streak's Latest Feature Releases",
+            "marks": [
+              "l8"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-clickup"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "ClickUp vs. Streak: Different Tools for Different Needs",
+            "marks": [
+              "l9"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-monday-com"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How monday.com Complements Email-Based Workflows",
+            "marks": [
+              "l10"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-apollo-io"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Supercharging Lead Sourcing with Apollo.io and Streak",
+            "marks": [
+              "l11"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "*Disclosure: This post contains affiliate links. We may earn a commission if you make a purchase, at no extra cost to you.*",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "Streak, Gmail, CRM, sales pipeline, mail merge, automation",
+    "keywords": [
+      "Streak CRM",
+      "Gmail CRM",
+      "sales pipeline",
+      "mail merge",
+      "CRM for Gmail",
+      "Streak tips"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/streak.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A clean, modern workspace showing a laptop with Gmail open, Streak's colorful pipeline stages visible, with a coffee cup and notebook beside it, conveying productivity.. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Is Streak really free?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Yes, Streak offers a robust free plan that includes basic CRM features, email tracking, and mail merge for up to 500 contacts per month. Paid plans unlock advanced automations, reporting, integrations, and increased limits.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Does Streak work with Outlook or only Gmail?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Streak is built exclusively for Gmail and Google Workspace. It installs as a Chrome extension and integrates seamlessly within the Gmail interface, providing a native feel that other CRMs cannot match.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How secure is my data with Streak?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Streak is a Google Cloud Partner and adheres to strict security standards. Your data is encrypted both in transit and at rest. Furthermore, all data remains within Google's infrastructure, leveraging the same security that protects Google's own services.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:en:streak:trucos",
+    "source": "sdk-agent-blog-seo:mimo",
+    "translation_of": "trucos-streak"
+  },
+  "published_at": "2026-06-12T05:31:09",
+  "locale": "en"
+}

@@ -1,0 +1,1163 @@
+{
+  "id": "post-como-usar-shopify",
+  "slug": "como-usar-shopify",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "negocios",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "Shopify: Tutorial paso a paso para crear tu tienda online",
+    "excerpt": "Aprende a crear tu tienda Shopify en minutos con este tutorial completo. Descubre funciones, precios y por qué es la plataforma líder en e-commerce.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/como-usar-shopify.jpg",
+        "alt": "Shopify: Tutorial paso a paso para crear tu tienda online",
+        "filename": "como-usar-shopify.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Listo para lanzar tu negocio online sin complicaciones técnicas? ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Shopify",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " lleva años siendo la plataforma preferida por emprendedores que quieren empezar a vender rápido y sin dolor de cabeza. En este tutorial, te guío paso a paso para que abras tu tienda en menos de una hora.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué hace que Shopify sea la plataforma de e-commerce favorita?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Shopify no es solo una herramienta para crear páginas bonitas. Es un ecosistema completo donde gestionas productos, pagos, envíos y marketing desde un solo panel. Desde que empecé a usarla para proyectos personales y clientes, me sorprende lo intuitiva que es:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Configuración en minutos",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": No necesitas saber programación. Todo es arrastrar y soltar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pasarelas de pago integradas",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Acepta tarjetas de crédito, PayPal, Apple Pay y más con tarifas competitivas (desde 2.9% + 30¢ USD en el plan básico).",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Aplicaciones para cada necesidad",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Más de 6.000 apps en su tienda para añadir funciones como dropshipping, email marketing o inventario avanzado.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Asistente de IA incorporado",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Genera descripciones de productos, analiza ventas y hasta sugiere estrategias. Parece tener un equipo de expertos trabajando para ti.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-shopify"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si buscas una plataforma que crezca contigo, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "explora por qué elegir Shopify",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " como tu socio tecnológico.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tutorial paso a paso: Crea tu primera tienda Shopify hoy",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 1: Regístrate y elige tu plan",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://shopify.com"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ve a ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "shopify.com",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " y prueba gratis por 3 días. Después, puedes empezar con el plan ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Basic",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " a $29/mes, ideal para emprendedores solos. El truco: si pagas anualmente, ahorras hasta un 25%.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 2: Configura tu dominio y marca",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Shopify te da un subdominio gratuito (tutienda.myshopify.com), pero recomiendo comprar un dominio profesional desde la plataforma. Luego, personaliza:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Logo y colores de marca",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Favicon y descripción SEO",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Páginas esenciales (Acerca de, Contacto, Políticas)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 3: Agrega tus primeros productos",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "En \"Productos\" → \"Añadir producto\", sube fotos de alta calidad, escribe descripciones con keywords relevantes y establece precios. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Consejo",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Usa el asistente de IA para generar textos persuasivos en segundos.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 4: Configura envíos y pagos",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Define zonas de envío, tarifas y transportistas (Shopify ofrece descuentos de hasta 87% en envíos con el plan Grow). En \"Pagos\", activa Shopify Payments o integra otros proveedores como Mercado Pago.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 5: Lanza y promociona",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Antes de lanzar, prueba todo el proceso de compra. Luego, comparte tu tienda en redes sociales, usa el marketing por email integrado y explora apps de publicidad. Tu tienda ya está en línea.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/shopify-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Quieres ver casos reales de negocios exitosos? Descubre ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "casos de uso inspiradores",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Funciones nuevas y destacadas de Shopify en 2024",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Shopify no deja de innovar. Algunas funciones que me tienen entusiasmado:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Shopify Magic (IA generativa)",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Crea textos para productos, correos y hasta imágenes con inteligencia artificial. Ahorra horas de trabajo creativo.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Checkout extensible",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Personaliza la experiencia de pago completo con apps y scripts, aumentando conversiones.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Shopify Collabs",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Conecta directamente con influencers para promocionar productos, gestionando afiliados desde tu panel.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Mejoras en el POS (Punto de Venta)",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Si vendes en físico, la integración online-offline es más fluida que nunca.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Nuevos reportes de analítica",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Dashboard con métricas en tiempo real para tomar decisiones basadas en datos.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/shopify-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Mantente al día con todas las ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "novedades de Shopify",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " en nuestro blog.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para quién es ideal Shopify",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Emprendedores principiantes",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Si es tu primera tienda, la curva de aprendizaje es suave y el soporte 24/7 te salva de apuros.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Negocios que escalan rápidamente",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Con planes que van desde $29 a $299/mes, creces sin migrar de plataforma.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Vendedores de dropshipping",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Integra Oberlo o DSers en un clic para vender sin inventario propio.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Marcas con tienda física",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": El sistema POS sincroniza inventarios y ventas online-offline sin problemas.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Creadores de contenido",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Vende merch, cursos o digitales con apps especializadas.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://shopify.pxf.io/c/6249333/1061744/13624"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si reconoces ahí tu perfil, no busques más. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Prueba Shopify aquí",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " y transforma tu idea en un negocio real.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Consejos para exprimir al máximo tu tienda Shopify",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Optimiza para SEO desde el día 1",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Usa keywords en títulos, descripciones y URLs. Shopify genera sitemaps automáticamente.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Automatiza tareas repetitivas",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Configura reglas para inventario, emails de carrito abandonado y descuentos recurrentes.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Aprovecha las analíticas",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Revisa qué productos convierten más, de dónde viene tu tráfico y qué canales dan mejor ROI.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Prueba apps antes de contratar programadores",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Muchas soluciones ya existen en la tienda de apps y son más baratas.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-shopify"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para más hacks avanzados, consulta nuestros ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "trucos y mejores prácticas",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Empieza a vender con confianza",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Shopify no es solo una plataforma; es un socio que te quita de encima la parte técnica para que te concentres en lo que amas: tu producto y tus clientes. Con su trial gratuito, no hay riesgo en probarla.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://shopify.pxf.io/c/6249333/1061744/13624"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Listo para lanzar tu tienda?",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Comienza tu prueba de Shopify ahora",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " y vende tu primer producto esta semana.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "*Disclosure: Este artículo contiene enlaces de afiliado. Si compras a través de ellos, recibimos una comisión sin costo extra para ti.*",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sigue leyendo en TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-shopify"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Qué es Shopify y para qué sirve",
+            "marks": [
+              "l7"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-clickup"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo usar ClickUp para organizar tu negocio",
+            "marks": [
+              "l8"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-monday-com"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tutorial de monday.com para equipos",
+            "marks": [
+              "l9"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-apollo-io"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Automatiza ventas con Apollo.io",
+            "marks": [
+              "l10"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Preguntas frecuentes sobre Shopify",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Shopify es seguro para pagos en Latinoamérica?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sí, cumple con PCI DSS nivel 1 y procesa pagos con encriptación de grado bancario. Además, integra pasarelas locales como Mercado Pago, Conekta y PSE.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Puedo migrar mi tienda de otra plataforma a Shopify?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Absolutamente. Shopify ofrece herramientas de importación para productos, clientes e historial de pedidos desde WooCommerce, Magento, BigCommerce y otras.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Necesito saber programar para usar Shopify?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "No. Su editor drag-and-drop y las plantillas personalizables permiten crear una tienda profesional sin código. Para funcionalidades avanzadas, hay miles de apps listas para instalar.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "Shopify, e-commerce, emprendimiento digital, ventas online",
+    "keywords": [
+      "Shopify",
+      "crear tienda online",
+      "plataforma e-commerce",
+      "tutorial Shopify",
+      "dropshipping",
+      "vender online"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/shopify.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A happy entrepreneur setting up a colorful online store on their laptop while holding a credit card, surrounded by shipping boxes and a smartphone showing orders. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [],
+    "external_id": "tonyciencia-affiliate:es:shopify:tutorial",
+    "source": "sdk-agent-blog-seo:mimo"
+  },
+  "published_at": "2026-06-12T05:06:39",
+  "locale": "es"
+}

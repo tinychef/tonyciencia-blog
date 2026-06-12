@@ -1,0 +1,1540 @@
+{
+  "id": "post-how-to-use-diginius",
+  "slug": "how-to-use-diginius",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "negocios",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "Diginius Tutorial: Unify Your Digital Marketing Data in 7 Steps",
+    "excerpt": "Learn how to set up Diginius Insight from scratch. This step-by-step tutorial shows you how to consolidate PPC, SEO, and social data into one powerful dashboard. Start optimizing today.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/how-to-use-diginius.jpg",
+        "alt": "Diginius Tutorial: Unify Your Digital Marketing Data in 7 Steps",
+        "filename": "how-to-use-diginius.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "*Disclosure: This post contains affiliate links. If you sign up through our links, we may earn a commission at no extra cost to you.*",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "I have spent years juggling tabs — Google Ads here, Meta Business Suite there, LinkedIn Campaign Manager in another window, and a separate SEO tracker on the side. Sound familiar? The constant context-switching eats into time you could spend actually *improving* campaigns.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://get.diginius.com/ycym32ulhdyp-zjmxj2"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Then I found ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Diginius Insight",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", and the way I manage marketing data completely changed. Diginius is a digital marketing intelligence platform that pulls PPC, SEO, and social media performance into a single, unified dashboard. It uses AI to surface optimization opportunities you would otherwise miss. And it does this whether you are an agency managing dozens of clients or a business running your own channels.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "This tutorial walks you through setting up Diginius Insight from scratch. By the end, you will have a fully connected, reporting-ready platform that gives you clarity across every campaign you run.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 1: Create Your Diginius Insight Account",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://diginius.com"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Head to ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "diginius.com",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " and click ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Get started free",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". You can register directly on the Diginius Insight platform — no sales call required to begin exploring.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The signup process asks for basic information: your name, email, company name, and your primary use case (agency or in-house business). This distinction matters because Diginius tailors the dashboard layout and available features based on your profile. Agencies get multi-client management views, while businesses see a streamlined single-account perspective.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Once you confirm your email, you land on the Diginius Insight dashboard. The interface is clean — no overwhelming menus or buried settings. A quick-start wizard walks you through the initial configuration, which brings us to the next step.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/what-is-diginius"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If you want a deeper overview of what the platform actually is before diving in, check out our guide on ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "what Diginius is",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 2: Connect Your Advertising Accounts",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "This is where Diginius starts earning its keep. Navigate to ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Integrations",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " in the left sidebar. You will see direct connectors for the platforms that matter most:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Google Ads",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " — Search, Display, Shopping, YouTube, and Performance Max campaigns",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Microsoft Advertising",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " — Diginius is actually Microsoft's largest Global Channel Partner of 2025, so this integration is exceptionally deep",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Meta Ads",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " (Facebook & Instagram)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "LinkedIn Ads",
+            "marks": [
+              "strong"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "TikTok Ads",
+            "marks": [
+              "strong"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The connection process is OAuth-based for most platforms: click the connector, authorize access, and Diginius begins pulling historical data within minutes. For Microsoft Advertising specifically, the integration goes further than what you get with most third-party tools — Diginius can manage bids, budgets, and campaign structures natively.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pro tip:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Connect all your active platforms in one sitting. The power of Diginius comes from cross-channel visibility. A single connected account gives you data; three or four connected accounts give you *insight*.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 3: Set Up Client or Business Profiles",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If you run an agency, this step is critical. Under ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Settings > Profiles",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", create a profile for each client. Each profile acts as a container: it groups the relevant ad accounts, SEO properties, and social media channels for that specific client.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "For in-house marketers, you might create profiles by product line, region, or business unit. The flexibility here is one of the reasons Diginius works so well for both use cases — the platform does not force you into a rigid organizational structure.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Within each profile, you can assign team members with different permission levels. Your junior analyst sees the dashboards they need without access to billing or account management features. Your account director sees everything across all clients. This role-based access keeps things secure without creating bottlenecks.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Diginius also supports ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "white-labeling",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " for agencies. You can add your agency branding to reports and dashboards, so when you share insights with clients, it reinforces your brand — not someone else's.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 4: Configure Unified Reporting",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Here is where the magic happens. Go to ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Reports > Report Builder",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " and start building cross-channel reports that combine data from every connected platform.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Imagine a single report that shows:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Total ad spend across Google, Microsoft, and Meta",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Conversions broken down by channel",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cost per acquisition trends over time",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "SEO keyword rankings alongside paid search performance",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Social media engagement metrics next to social ad results",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "That is what Diginius delivers out of the box. The drag-and-drop report builder lets you assemble these views in minutes. You choose the metrics, the date ranges, the comparison periods, and the visualization types.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "For agencies, the scheduling feature is a game-changer. Set up automated report delivery — weekly, biweekly, or monthly — sent directly to client inboxes. Each report arrives branded with your agency identity, looking like you built it custom every single time.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/diginius-use-cases"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Want to explore specific scenarios? Our article on ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Diginius use cases",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " covers real-world examples across different industries.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 5: Leverage AI-Powered Optimization Insights",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Diginius does not just aggregate data — it analyzes it. The platform's AI engine scans your connected campaigns and surfaces actionable recommendations. These are not vague suggestions like \"consider increasing budget.\" They are specific, data-backed insights:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Budget reallocation opportunities:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " \"Shifting 12% of spend from Campaign A to Campaign B could reduce your blended CPA by 18%.\"",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Keyword gaps:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " SEO data reveals keywords where you rank on page two but have strong paid performance — signaling an organic content opportunity.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Creative fatigue alerts:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " When ad creative performance drops below threshold across Meta and LinkedIn simultaneously, Diginius flags it before your spend wastes away.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cross-channel attribution clarity:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " See how a LinkedIn ad view contributes to a Google search conversion three days later.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "These insights appear in a dedicated ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Recommendations",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " feed on your dashboard. You can act on them directly from the platform — adjusting bids, pausing campaigns, or reassigning budgets without switching tabs.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "This is genuinely the feature that made me a permanent Diginius user. The AI does not replace strategic thinking; it accelerates it by eliminating the manual data crunching that used to eat half my week.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/diginius-tips"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If you want practical advice on getting the most from these features, bookmark our ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Diginius tips and best practices",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " guide.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 6: Explore the Latest Platform Features",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Diginius ships updates frequently, and a few recent additions deserve your attention:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Enhanced Microsoft Advertising Management",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " — As Microsoft's top global partner, Diginius now offers deeper bid strategy controls and audience targeting tools for Microsoft Ads than you will find in the native interface. If Microsoft is part of your channel mix, this alone justifies the platform.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Multi-Touch Attribution Dashboard",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " — The newest attribution view shows the full customer journey across all connected channels in a visual flow. You see exactly which touchpoints contribute to conversions, not just the last click.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Collaboration Workspaces",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " — Teams can now annotate reports, tag colleagues on specific data points, and maintain threaded conversations directly inside the platform. No more screenshotting dashboards into Slack.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "API Access for Custom Integrations",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " — For teams with developers, the expanded API lets you pipe Diginius data into your own internal tools, data warehouses, or BI platforms.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "SEO Performance Tracking",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " — The SEO module has grown significantly. You can now track keyword rankings, monitor technical site health, and correlate organic performance with paid campaigns — all in the same place.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/diginius-new-features"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Stay on top of platform updates by reading our ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Diginius new features roundup",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 7: Scale Your Operations with Confidence",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Once your accounts are connected, your reports are running, and the AI recommendations are flowing, something interesting happens: you reclaim time. Time you previously spent compiling data, building spreadsheets, and explaining numbers to clients or stakeholders.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Diginius scales with you. Whether you add five new client accounts or expand into three new advertising platforms, the unified architecture absorbs it without additional complexity. The per-profile organization keeps things tidy. The automated reporting keeps stakeholders informed. The AI keeps optimization continuous.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Agencies using Diginius report that they can onboard new clients faster because the reporting infrastructure is already built — they just plug in the new accounts. In-house teams report that cross-functional meetings become more productive because everyone is looking at the same unified numbers instead of debating whose spreadsheet is correct.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/why-choose-diginius"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If you are evaluating multiple tools, our comparison on ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "why choose Diginius",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " breaks down what sets it apart.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://get.diginius.com/ycym32ulhdyp-zjmxj2"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Start your free Diginius Insight account today",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " and see what unified marketing intelligence feels like.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Who Is Diginius Ideal For?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Diginius serves a wide range of marketing professionals, but certain groups get extraordinary value from the platform:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Digital Marketing Agencies",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " — This is Diginius's sweet spot. Multi-client management, white-label reporting, role-based access, and scalable dashboards are built specifically for agency workflows. If you manage PPC, SEO, and social for multiple clients, Diginius eliminates the operational chaos.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "In-House Marketing Teams at SMBs",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " — Small and mid-size businesses running their own paid and organic campaigns benefit from having enterprise-grade analytics without the enterprise price tag. The AI recommendations are especially valuable when your team is lean and every dollar of ad spend needs to count.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Performance Marketers Focused on Microsoft Advertising",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " — Diginius's partnership with Microsoft means you get capabilities here that simply do not exist in other third-party platforms. If Bing and the Microsoft Audience Network are part of your strategy, this is the tool to manage them.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Data-Driven Leaders Who Need Cross-Channel Clarity",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " — If you are a CMO, VP of Marketing, or Head of Growth who needs a single source of truth across all digital channels, Diginius delivers that without requiring a dedicated analytics team to maintain it.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Freelance Consultants Managing Multiple Accounts",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " — Even solo operators managing campaigns for a handful of clients find Diginius valuable. The automated reporting alone saves hours each week, and the professional presentation strengthens client relationships.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://get.diginius.com/ycym32ulhdyp-zjmxj2"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Try Diginius Insight free and transform how you manage marketing data",
+            "marks": [
+              "l8"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Frequently Asked Questions",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How much does Diginius Insight cost?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Diginius offers a free tier to get started, with paid plans that scale based on the number of connected accounts and features you need. Pricing is customized — you can request a quote directly from their website or book a demo to discuss your specific requirements.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Does Diginius work for agencies with 50+ clients?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Absolutely. The multi-client architecture is designed for scale. Agencies managing dozens or even hundreds of client accounts use Diginius with per-client profiles, role-based permissions, and automated report scheduling to keep operations efficient.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Can I use Diginius if I only run Google Ads?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Yes, but the real power emerges when you connect multiple channels. Even connecting just Google Ads and Microsoft Advertising gives you cross-platform visibility that single-platform tools cannot match. As you grow your channel mix, Diginius grows with you.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Keep Reading on TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/what-is-diginius"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What Is Diginius? A Complete Overview",
+            "marks": [
+              "l9"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/why-choose-diginius"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Why Choose Diginius Over Other Marketing Platforms",
+            "marks": [
+              "l10"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/diginius-use-cases"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Diginius Use Cases for Agencies and Businesses",
+            "marks": [
+              "l11"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l12",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/diginius-tips"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Diginius Tips and Best Practices",
+            "marks": [
+              "l12"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l13",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/diginius-new-features"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Diginius New Features and Updates",
+            "marks": [
+              "l13"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l14",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-clickup"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How to Use ClickUp for Project Management",
+            "marks": [
+              "l14"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l15",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-monday-com"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How to Use monday.com for Team Workflows",
+            "marks": [
+              "l15"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "Diginius, Diginius Insight, Microsoft Advertising, PPC, SEO, social media marketing",
+    "keywords": [
+      "Diginius Insight tutorial",
+      "Diginius marketing platform",
+      "unified marketing reporting",
+      "PPC management software",
+      "digital marketing analytics platform",
+      "Diginius for agencies"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/diginius.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A modern marketing team gathered around a large screen displaying unified campaign dashboards with colorful charts and KPIs, bright office environment with natural light. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What is Diginius Insight and what does it do?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Diginius Insight is a digital marketing intelligence platform that unifies your PPC, SEO, and social media campaign data into a single dashboard. It provides automated cross-channel reporting, AI-powered optimization recommendations, and multi-client management tools — making it especially powerful for agencies and data-driven marketing teams.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Is Diginius Insight free to use?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Yes, Diginius offers a free tier so you can explore the platform before committing. Paid plans scale based on the number of connected accounts and advanced features you need. You can sign up directly on their website or book a demo for a tailored walkthrough.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How is Diginius different from other marketing reporting tools?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Diginius stands out for its deep Microsoft Advertising integration (they are Microsoft's largest Global Channel Partner of 2025), its AI-driven optimization recommendations, and its agency-first design with white-label reporting and role-based client management. Unlike basic reporting dashboards, Diginius does not just show data — it tells you what to do with it.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:en:diginius:tutorial",
+    "source": "sdk-agent-blog-seo:mimo",
+    "translation_of": "como-usar-diginius"
+  },
+  "published_at": "2026-06-12T14:49:34",
+  "locale": "en"
+}

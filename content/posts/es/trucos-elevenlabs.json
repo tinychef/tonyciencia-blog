@@ -1,0 +1,861 @@
+{
+  "id": "post-trucos-elevenlabs",
+  "slug": "trucos-elevenlabs",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "ia",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "ElevenLabs: Trucos para Voces IA Hiperrealistas",
+    "excerpt": "Descubre los mejores trucos y formas de usar ElevenLabs para crear voces IA increíbles. Aprende a clonar voces, doblar videos y más.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/trucos-elevenlabs.jpg",
+        "alt": "ElevenLabs: Trucos para Voces IA Hiperrealistas",
+        "filename": "trucos-elevenlabs.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Introducción a la Magia de las Voces con IA",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://try.elevenlabs.io/8w0jtxk54bd0"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "He probado docenas de herramientas de síntesis de voz, pero pocas me han dejado tan impresionado como ElevenLabs. Su capacidad para generar voces hiperrealistas, que suenan completamente humanas, es un salto cuántico. Ya sea para narrar un audiobook, doblar un video al español o dar vida a un personaje en un videojuego, esta plataforma lo hace posible con una calidad asombrosa. Si buscas una solución profesional y sencilla, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "descubre ElevenLabs aquí",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " y mira de qué va todo esto.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Funciones Clave que Elevan tu Contenido",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "ElevenLabs no es solo un conversor de texto a voz. Es un ecosistema completo para la creación de audio con IA. Estas son sus funciones estrella:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Text-to-Speech hiperrealista",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Con cientos de voces preestablecidas y la capacidad de ajustar la estabilidad, claridad y estilo, el resultado es insólito. Ya no suena robótico; suena a una persona real respirando entre frases.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Clonación de Voz (Voice Cloning)",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Esta es la función que cambia las reglas del juego. Puedes crear una réplica digital de tu propia voz (o de un locutor profesional con permiso) con solo unos minutos de audio. Ideal para mantener la coherencia en todos tus proyectos sin volver al estudio de grabación.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Doblaje Multilingüe (Speech-to-Speech)",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Tienes un video en inglés y lo necesitas en español neutro con la misma voz. ElevenLabs lo hace. Traduce y reproduce el audio en otro idioma manteniendo el tono, la entonación y el ritmo original. Es perfecto para creadores con audiencia global.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-elevenlabs"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para entender a fondo el potencial, te recomiendo leer nuestra ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "guía sobre qué es ElevenLabs y para qué sirve",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Trucos y Mejores Formas de Usarla",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Después de meses usándola, he descubierto algunos trucos que marcan una gran diferencia en la calidad del output final.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "La regla de los 60 segundos para la clonación",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Al clonar tu voz, sube un audio limpio de 1-2 minutos donde hables de forma natural, sin eco y con variación en el tono (algo de emoción, preguntas, afirmaciones). El algoritmo aprende mejor con matices, no con una lectura monótona. Esto evita que la voz clonada suene \"plana\".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Usa etiquetas SSML para control fino",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Aunque su interfaz es sencilla, puedes insertar etiquetas SSML para pausas más largas (`<break time=\"1.5s\"/>`), cambiar la pronunciación de una palabra o añadir susurros. Es el secreto para que la narración cobre vida dramática.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Mezcla voces en el Studio (Productions)",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": En lugar de generar un archivo de audio largo, usa la función Productions. Aquí puedes asignar diferentes voces IA a distintos personajes de un guion, ajustar tiempos y editar todo como en una pista de audio profesional. Es como tener un estudio de doblaje en tu navegador.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-elevenlabs"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si quieres un tutorial paso a paso, no te pierdes nuestro artículo sobre ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "cómo usar ElevenLabs desde cero",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Funciones Nuevas y Destacadas de 2024",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "ElevenLabs evoluciona a una velocidad vertiginosa. Estas son las novedades que más me han entusiasmado este año:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Generación de Efectos de Sonido (Sound Effects)",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Ya no solo es voz. Ahora puedes describir \"truenos lejanos\" o \"pasos en un pasillo\" y la IA genera el efecto de sonido correspondiente. Esto ahorra horas buscando en bancos de audio.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Producción Musical Asistida por IA",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Una función experimental que permite generar pistas instrumentales básicas a partir de descripciones. Aún en desarrollo, pero el potencial para creadores de contenido es enorme.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Mayor control sobre la \"personalidad\" de la voz",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Ahora puedes ajustar parámetros como \"entusiasmo\", \"calma\" o \"urgencia\" directamente en el generador, permitiendo que la misma voz base exprese emociones radicalmente distintas.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/elevenlabs-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Estas novedades consolidan a ElevenLabs como una de las ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "herramientas de IA más innovadoras del mercado",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Para Quién es Ideal ElevenLabs? (Spoiler: Para Más Gente de la que Crees)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Esta herramienta no es solo para grandes estudios. Su escalabilidad (desde un plan gratuito hasta soluciones empresariales) la hace accesible y útil para una audiencia vasta:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Creadores de Contenido (YouTubers, Podcasters)",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Para narrar videos, crear intros únicas, hacer versiones en otros idiomas o simplemente producir contenido más rápido sin depender de su grabación natural.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Profesionales del Marketing y E-learning",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Generar locuciones para videos explicativos, anuncios y cursos online con voces consistentes y profesionales, en múltiples idiomas.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Desarrolladores y Estudios de Videojuegos",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Crear voces para cientos de NPCs de forma rápida y económica, o prototipar diálogos antes de la grabación final.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Autores y Editores de Audiobooks",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Producir versiones de audio de libros con voces que capturan la esencia del personaje, o hacer lecturas de prueba antes de contratar a un narrador humano.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/elevenlabs-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para más casos de uso específicos, explora nuestros ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "ejemplos de uso de ElevenLabs",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". La versatilidad es su mayor fortaleza.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Conclusión y Primeros Pasos",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "ElevenLabs ha democratizado la producción de audio de calidad profesional con IA. Su combinación de voces realistas, clonación precisa y un ecosistema que incluye efectos y música lo convierten en una herramienta integral. Lo mejor es que puedes probarlo gratis con su plan básico para sentir el poder de la tecnología.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://try.elevenlabs.io/8w0jtxk54bd0"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Estoy convencido de que, una vez que experimentes la fluidez y naturalidad de sus voces, no querrás volver atrás. Es una herramienta que potencia la creatividad sin límites técnicos. ¿Listo para transformar tu contenido auditivo? **",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Regístrate en ElevenLabs y comienza a crear",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "**.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "*Divulgación: Este artículo contiene enlaces de afiliados. Si realizas una compra a través de ellos, recibimos una pequeña comisión sin costo adicional para ti.*",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sigue leyendo en TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si te ha gustado esta guía, tenemos mucho más contenido que te encantará:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-elevenlabs"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tutorial completo: Cómo usar ElevenLabs",
+            "marks": [
+              "l6"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-elevenlabs"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Por qué elegir ElevenLabs sobre otras opciones",
+            "marks": [
+              "l7"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-descript"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Guía para usar Descript",
+            "marks": [
+              "l8"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-gamma"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo crear presentaciones con Gamma",
+            "marks": [
+              "l9"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-invideo-ai"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Creando videos con InVideo AI",
+            "marks": [
+              "l10"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "ElevenLabs, voz IA, síntesis de voz, clonación de voz, texto a voz",
+    "keywords": [
+      "ElevenLabs",
+      "síntesis de voz IA",
+      "clonación de voz",
+      "text-to-speech hiperrealista",
+      "doblaje multilingüe",
+      "voz IA"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/elevenlabs.io as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). Content creator smiling while using ElevenLabs voice cloning feature on a computer screen. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿ElevenLabs tiene un plan gratuito para empezar?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¡Sí! ElevenLabs ofrece un generoso plan gratuito que incluye 10,000 créditos al mes. Esto es suficiente para probar la síntesis de voz, la clonación básica y experimentar con todas sus funciones principales sin pagar nada.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Puedo usar comercialmente las voces que clono con ElevenLabs?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sí, en los planes de pago (Starter y superiores) tienes licencia para uso comercial de las voces, incluidas las que clonas. Esto es perfecto para anuncios, videos de productos, audiobooks y más. Recomiendo revisar los términos específicos de tu plan.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué idiomas soporta ElevenLabs para el doblaje y el texto a voz?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "ElevenLabs soporta más de 29 idiomas para síntesis de voz, incluyendo español (con variante neutra y de varios países), inglés, francés, alemán, portugués, japonés y muchos más. Su función de doblaje multilingüe es especialmente potente para mantener el tono original.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:es:elevenlabs:trucos",
+    "source": "sdk-agent-blog-seo:mimo"
+  },
+  "published_at": "2026-06-12T03:45:46",
+  "locale": "es"
+}

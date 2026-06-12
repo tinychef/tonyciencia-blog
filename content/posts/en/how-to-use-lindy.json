@@ -1,0 +1,1695 @@
+{
+  "id": "post-how-to-use-lindy",
+  "slug": "how-to-use-lindy",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "ia",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "Lindy AI Tutorial: Set Up Your Personal AI Assistant Today",
+    "excerpt": "Step-by-step Lindy AI tutorial: automate emails, meetings & CRM tasks with autonomous agents. Free plan available. Start saving hours weekly now!",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/how-to-use-lindy.jpg",
+        "alt": "Lindy AI Tutorial: Set Up Your Personal AI Assistant Today",
+        "filename": "how-to-use-lindy.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "*Disclosure: Some links below are affiliate links. We earn a small commission at no extra cost to you if you sign up through them.*",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/what-is-lindy"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "I've tested dozens of AI tools this year. Some overpromise. Some underdeliver. Then I found ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Lindy",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", and honestly? It changed how I run my workday.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lindy is an AI personal assistant that actually handles real tasks. Not just answering questions—doing the work. Drafting emails, scheduling meetings, prepping agendas, following up with contacts. The kind of stuff that eats your afternoon.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "This tutorial walks you through setting Lindy up from scratch. No tech skills required. By the end, you'll have an AI teammate handling the repetitive grind while you focus on what matters.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Let's dive in.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What You'll Need Before Starting",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Getting Lindy running takes about 10 minutes. Here's what to have ready:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "A Gmail or Outlook account (Lindy integrates directly)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Your calendar link (Google Calendar or Outlook Calendar)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Optional: CRM credentials (HubSpot, Salesforce, Pipedrive)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Optional: Slack workspace access",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "That's it. Lindy handles the heavy lifting from there.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 1: Create Your Lindy Account",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://try.lindy.ai/gkd3o3sgd7d2"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Head to ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "lindy.ai",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " and click \"Try for free.\" The free plan gives you solid functionality to test everything before committing.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sign up with your Google account or email. The process takes under 60 seconds. No credit card needed for the free tier.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Once you're in, Lindy greets you with a short onboarding flow. It asks what you want help with—email, meetings, CRM, or all three. Select your priorities, and Lindy configures itself accordingly.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "I went with \"all three.\" No regrets.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 2: Connect Your Email",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "This is where Lindy starts earning its spot on your team.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Navigate to ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Settings → Integrations → Email",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Click \"Connect Gmail\" or \"Connect Outlook.\" Authorize the connection through your provider's standard OAuth flow.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Once connected, Lindy reads your email patterns. It learns who you email often, your writing style, your typical response times. This isn't surface-level scanning—it's building a model of how you communicate.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Within an hour, Lindy started drafting replies that sounded like me. Not generic AI fluff. Actual responses I'd send, just pre-written and waiting for approval.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/lindy-new-features"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "new features Lindy keeps rolling out",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " make the email integration even smarter over time.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 3: Link Your Calendar",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Go to ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Settings → Integrations → Calendar",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Connect Google Calendar or Outlook Calendar. Lindy immediately starts understanding your schedule patterns—when you're free, how long meetings typically run, your preferred buffer time between calls.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Here's what blew me away: Lindy handles scheduling via email. Someone emails asking to meet? Lindy drafts a response with available slots. You approve, and it sends the calendar invite. Done.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "No more back-and-forth \"Does Tuesday work?\" chains.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/lindy-use-cases"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lindy also joins your video calls as a note-taker. It transcribes conversations, extracts action items, and sends follow-up summaries automatically. The ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "use cases for this feature alone",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " are worth exploring.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 4: Set Up Your CRM Connection",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If you use HubSpot, Salesforce, or Pipedrive, this step transforms Lindy from \"helpful\" to \"essential.\"",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Navigate to ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Settings → Integrations → CRM",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " and authorize your platform.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lindy syncs your contacts, deals, and pipeline stages. Now it can:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Draft follow-up emails based on deal stage",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Update contact records after meetings",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Remind you about cold leads that need attention",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pre-call prep with relevant contact history",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "I stopped losing deals to forgotten follow-ups. Lindy pings me when a lead goes quiet for too long, and it drafts a re-engagement email I can send in one click.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://try.lindy.ai/gkd3o3sgd7d2"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Start your free Lindy trial here",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " and connect your CRM—you'll see results within the first week.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 5: Configure Autonomous Agents",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "This is Lindy's superpower. Agents are automated workflows that run without your input.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Go to ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Agents → Create New Agent",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". You'll see templates for common workflows:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Inbox Zero Agent",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Automatically categorizes and drafts replies for routine emails",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Meeting Prep Agent",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Pulls relevant context before each meeting",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Follow-Up Agent",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Sends personalized follow-ups after meetings",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "CRM Hygiene Agent",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Keeps your pipeline data clean and current",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pick one to start. I began with the Follow-Up Agent because I'm terrible at remembering to email people after calls.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Configure the agent's rules: How long after a meeting should it follow up? What tone? Which contacts get priority? Lindy asks these questions clearly during setup.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Once activated, agents work 24/7. They draft, suggest, and sometimes send autonomously (depending on your comfort level with auto-send).",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/lindy-tips"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Check out our ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "detailed tips for maximizing Lindy agents",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " for advanced configurations.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "New & Featured Functions",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lindy ships updates regularly. Here's what's currently standing out:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Multi-Inbox Support (Plus Plan)",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Connect up to 2 email accounts. Perfect if you manage work and personal emails separately. Lindy handles both with distinct personalities and rules.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "iMessage & SMS Integration",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Respond to messages through Lindy's chat interface. It drafts responses and you send them from your phone. Great for on-the-go communication.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Meeting Note Taking with Action Items",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Lindy doesn't just transcribe—it identifies tasks, assigns owners (if multiple people are on the call), and creates a summary you can share instantly.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "100+ Integrations",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Beyond the basics, Lindy connects with Slack, Notion, Google Sheets, Zapier, and dozens of other tools. The ecosystem keeps expanding.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Smart Scheduling Links",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Lindy generates booking pages that sync with your availability and preferences. Share a link, and the other person picks a slot—no email tennis required.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Who Is Lindy Ideal For?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lindy isn't trying to be everything for everyone. It shines brightest for specific people:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Solo Founders & Freelancers",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": You're wearing every hat. Lindy takes the email and scheduling hat off your head. That's 5-10 hours per week back in your pocket.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sales Professionals",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Pipeline management, follow-ups, meeting prep—Lindy handles the administrative side so you can focus on closing.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Busy Managers",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": When your calendar is packed and your inbox is overflowing, Lindy acts as your first line of defense. It triages, drafts, and schedules while you lead.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Remote Teams",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Lindy's meeting transcription and follow-up features keep distributed teams aligned without adding another meeting.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Anyone Drowning in Email",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": If you spend more than an hour daily on email, Lindy pays for itself in recovered time.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/lindy-use-cases"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "real-world use cases",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " we've documented show exactly how different professionals leverage Lindy.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pricing: What to Expect",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lindy offers transparent pricing:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Free",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Test the core features with limited usage",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Plus ($49.99/month)",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": 2 inboxes, iMessage/SMS, full meeting suite, 100+ integrations",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pro",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Higher usage limits, priority support, advanced agent configurations",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Compare that to a human assistant at $8,000/month who works 9-5, takes sick days, and handles one task at a time. Lindy works around the clock, never takes a day off, and juggles multiple workflows simultaneously.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://try.lindy.ai/gkd3o3sgd7d2"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Grab your free Lindy account here",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " and upgrade when you're ready.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pro Tips for Getting Maximum Value",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "After months of daily Lindy use, here's what I'd tell a new user:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Review drafts for the first two weeks.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Lindy learns from your edits. The more feedback it gets early, the better it matches your style long-term.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Start with one workflow.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Don't activate every agent on day one. Master email automation first, then layer in calendar and CRM.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Use the meeting prep feature religiously.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Walking into meetings with context you didn't have to manually gather? That's a competitive advantage.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Check your agent dashboard weekly.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Lindy shows what it's accomplished. Seeing the numbers—\"47 emails drafted, 12 meetings scheduled, 8 follow-ups sent\"—makes the value tangible.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "5. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Leverage iMessage integration.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Being able to approve drafts from your phone keeps things moving even when you're away from your desk.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Keep Reading on TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Want to explore more AI tools and workflows? Check out these guides:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/what-is-lindy"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What is Lindy and How Does It Work?",
+            "marks": [
+              "l8"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/why-choose-lindy"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Why Choose Lindy Over Other AI Assistants",
+            "marks": [
+              "l9"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/lindy-tips"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lindy Tips & Best Practices",
+            "marks": [
+              "l10"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-elevenlabs"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How to Use ElevenLabs for AI Voice",
+            "marks": [
+              "l11"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l12",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-descript"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How to Use Descript for Video Editing",
+            "marks": [
+              "l12"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l13",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-gamma"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How to Use Gamma for Presentations",
+            "marks": [
+              "l13"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Final Thoughts",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lindy isn't hype. It's a genuinely useful AI assistant that handles the repetitive work stealing hours from your week.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The setup takes minutes. The learning curve is gentle. The time savings are real.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l14",
+            "_type": "link",
+            "href": "https://try.lindy.ai/gkd3o3sgd7d2"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If you're curious, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "try Lindy free right now",
+            "marks": [
+              "l14"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Connect your email, let it draft a few replies, and see how it feels. Most people know within 48 hours whether it's a fit.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "I'm betting it will be.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "Lindy AI, PartnerStack, CRM, iMessage, SMS",
+    "keywords": [
+      "Lindy AI tutorial",
+      "AI personal assistant",
+      "automate emails AI",
+      "Lindy AI setup",
+      "AI meeting scheduler",
+      "autonomous AI agents"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/lindy.ai as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A busy professional at a clean desk with a laptop showing a chat interface, calendar notifications floating around, coffee cup nearby, warm natural lighting from a window. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How long does it take to set up Lindy?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Initial setup takes about 10 minutes. You connect your email, calendar, and optionally your CRM. Lindy begins learning your patterns immediately, with noticeable accuracy within the first few hours of use.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Is Lindy secure enough for business email?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Yes. Lindy uses standard OAuth authentication—it never stores your email password. Data is encrypted in transit and at rest. The platform follows industry-standard security practices for handling business communications.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Can I try Lindy before paying?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Absolutely. Lindy offers a free plan with core functionality. You can test email drafting, basic scheduling, and agent features without entering credit card details. Upgrade to Plus ($49.99/month) when you want expanded capabilities.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:en:lindy:tutorial",
+    "source": "sdk-agent-blog-seo:mimo",
+    "translation_of": "como-usar-lindy"
+  },
+  "published_at": "2026-06-12T04:12:55",
+  "locale": "en"
+}

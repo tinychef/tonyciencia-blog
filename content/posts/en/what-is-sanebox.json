@@ -1,0 +1,822 @@
+{
+  "id": "post-what-is-sanebox",
+  "slug": "what-is-sanebox",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "ia",
+      "herramientas"
+    ],
+    "tag": [
+      "caso-de-uso"
+    ]
+  },
+  "data": {
+    "title": "SaneBox: AI Tame Your Inbox & Reclaim Hours",
+    "excerpt": "Discover SaneBox, the AI email manager that filters noise so you only see what matters. Reclaim 3-4 hours weekly. Try it free now.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/what-is-sanebox.jpg",
+        "alt": "SaneBox: AI Tame Your Inbox & Reclaim Hours",
+        "filename": "what-is-sanebox.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "My inbox used to be a source of constant anxiety. A relentless flood of newsletters, notifications, and low-priority threads buried the few messages that actually needed my attention. I tried complex filtering rules and aggressive unsubscribes, but it felt like fighting a hydra. Then I integrated SaneBox, and the difference wasn't just noticeable—it was transformative.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "SaneBox isn't just another email app. It's an intelligent layer that sits on top of any email service you already use—Gmail, Outlook, Apple Mail, you name it. Its AI works silently in the background, analyzing sender history, your past interactions, and email patterns to sort everything for you before you even open your inbox.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How SaneBox Actually Works Its Magic",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The core idea is simple: your inbox should only contain messages requiring your prompt attention. Everything else gets intelligently sorted into separate, intuitive folders SaneBox creates. As new emails arrive, SaneBox’s AI makes a split-second decision based on your behavior. Did you always archive emails from that promo address? They go straight to `@SaneLater`. Never reply to that certain newsletter? It heads to `@SaneNoReplies`.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://try.sanebox.com/dfa515mcau8s"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "This isn't rigid, rule-based filtering. The system learns *your* unique patterns. If you start engaging with a sender you previously ignored, SaneBox adapts. It's like having a personal email secretary who knows your priorities perfectly. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "You can start your free trial and see this AI in action",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The Standout Features That Changed My Workflow",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "While the core filtering is brilliant, the specific features are what build a truly sane email ecosystem. Here are the ones I rely on daily:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "`@SaneLater`: The Heart of Sanity.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " This is your new best friend. It holds all the \"read later\" content—newsletters, social notifications, general updates. Instead of scanning these throughout the day, I batch-process my `SaneLater` folder twice a day. It’s where inbox zero actually becomes achievable.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "`@SaneBlackHole`: One-Click Banishment.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Annoyed by a persistent sender you can't unsubscribe from? Drag the email to this folder *once*, and all future emails from that address vanish forever. It’s gloriously simple.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "`@SaneNoReplies`: Track Conversations.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " This folder gathers emails you sent where you’re waiting for a reply. No more scrolling through Sent to remember who you need to follow up with. It’s a game-changer for accountability.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "`@SaneReminders` & Snooze Folders.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Set a reminder on any email to have it reappear at the top of your inbox at a specific time (e.g., `@SaneTomorrow`, `@SaneNextWeek`). It turns your email into a lightweight task manager.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Daily Digest.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " SaneBox sends you a summary of emails it moved out of your inbox, so you never miss anything it filtered. It provides peace of mind and full transparency.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/sanebox-new-features"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "These features are why SaneBox users report saving an average of 3-4 hours per week. That’s not a marketing line; it’s the direct result of eliminating \"email overwhelm\" and constant context-switching. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Explore all the power features in detail",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Who Is This For? (Hint: Probably You)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "SaneBox is ideal for anyone who feels their email controls them, not the other way around. It’s particularly powerful for:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Professionals and Knowledge Workers:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " If your inbox is a primary work tool, SaneBox protects your focus time by ensuring only actionable items get through during your work blocks.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "People Who Juggle Multiple Email Accounts:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Manage all of them through one intelligent system. The \"Dinner\" plan supports up to 4 accounts with all features.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Those Aiming for Inbox Zero but Falling Short:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " SaneBox makes the goal practical by doing the heavy sorting for you. You just process clean, categorized folders.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Anyone Overwhelmed by Email Volume:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " If you have hundreds or thousands of unread messages, SaneBox’s \"Email Deep Clean\" can retroactively sort your existing inbox, giving you a fresh start.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/sanebox-use-cases"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "It’s not for people who send and receive fewer than 10 emails a day and are perfectly content. But for the rest of us? It’s a lifeline. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "See specific use cases for different professions",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Getting Started is Painlessly Simple",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "One of SaneBox’s biggest strengths is its lack of friction. There’s no new app to learn or complex migration. You sign up, connect your existing email account (you authorize it via secure OAuth, you never give them your password), and it starts working immediately on your *server side*.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-sanebox"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Nothing changes about how you send or receive emails. The only difference is the new folders that appear and the dramatic reduction in noise in your main inbox. You can tweak which features are active via their straightforward dashboard. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "This step-by-step tutorial walks you through the entire setup in minutes",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Flexible Pricing for Every Need",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "SaneBox offers a 14-day free trial with no credit card required, so you can experience the transformation risk-free. Their plans are structured around features and number of email accounts:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Snack (From $4.99/mo):",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " The most popular plan for individuals. Connects 1 email account and includes core features like `@SaneLater`, `@SaneNews`, and a daily digest.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lunch (From $7.99/mo):",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " For those who want more control. Supports 2 email accounts and includes 6 features, adding tools like `@SaneNoReplies` and `@SaneBlackHole`.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Dinner (From $24.99/mo):",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " The ultimate plan for power users or small teams. Supports 4 email accounts, includes *every* feature, and adds phone support.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://try.sanebox.com/dfa515mcau8s"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Committing annually or biennially saves you 40-55% compared to monthly billing. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Check current pricing and start your trial here",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Why SaneBox Stands Out in a Crowd",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/why-choose-sanebox"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "While other tools might offer snooze or basic filtering, SaneBox’s depth is in its learning AI and its holistic ecosystem of folders that manage every aspect of email flow—from incoming clutter to outgoing follow-ups. It doesn’t just delay; it categorizes with context. It respects your existing workflow instead of forcing you into a new one. The transparency of the Daily Digest builds trust, and the \"set-and-forget\" nature means the benefit compounds over time without maintenance. For a deeper dive into its philosophy, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "see why many choose SaneBox",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Disclosure: I believe in this tool and use it myself. The links above are affiliate links, which means I may earn a small commission if you make a purchase, at no extra cost to you. My recommendation is based solely on my positive experience.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Keep Reading on TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-sanebox"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "A Step-by-Step Tutorial: How to Use SaneBox Like a Pro",
+            "marks": [
+              "l6"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/sanebox-tips"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "5 Essential SaneBox Tips & Best Practices",
+            "marks": [
+              "l7"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-elevenlabs"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How to Use ElevenLabs for Voice Generation",
+            "marks": [
+              "l8"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-descript"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Descript: The All-in-One Audio & Video Editor",
+            "marks": [
+              "l9"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "SaneBox, AI email management, SaneLater, email productivity, inbox zero",
+    "keywords": [
+      "email management AI",
+      "inbox organizer",
+      "SaneBox review",
+      "email productivity tool",
+      "clean inbox",
+      "smart email filter"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/sanebox.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A person happily closing their laptop with a clear, empty email inbox on the screen, sun streaming in.. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Does SaneBox work with my email provider?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Yes, almost certainly. SaneBox is compatible with any email service that supports IMAP, including Gmail, Outlook, Yahoo Mail, iCloud, AOL, and most business/corporate email servers. It works at the server level, so it’s independent of your email client (Apple Mail, Outlook app, etc.).",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Is my email data safe with SaneBox?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "SaneBox takes security seriously. They only access email headers (sender, subject, date) and your folder structure for analysis—never the body content of your emails for their AI learning. They use industry-standard OAuth for authentication, so you never share your password. They do not store your emails on their servers; the sorting happens in real-time on your email provider’s server.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Will I lose emails if SaneBox filters them?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "No. SaneBox doesn’t delete anything. It moves emails to its dedicated folders (`@SaneLater`, etc.), which are always accessible in your email client. Furthermore, its Daily Digest summary sends you a recap of everything it moved, so you have full visibility and can override any sorting decisions with a simple drag-and-drop to train the AI.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:en:sanebox:quees",
+    "source": "sdk-agent-blog-seo:mimo",
+    "translation_of": "que-es-sanebox"
+  },
+  "published_at": "2026-06-12T05:33:11",
+  "locale": "en"
+}

@@ -1,0 +1,1021 @@
+{
+  "id": "post-instantly-new-features",
+  "slug": "instantly-new-features",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "ia",
+      "herramientas"
+    ],
+    "tag": [
+      "opinion"
+    ]
+  },
+  "data": {
+    "title": "Instantly AI: New Features for Cold Email at Scale",
+    "excerpt": "Discover Instantly's latest features: unlimited accounts, AI sequences, and auto warmup. See why teams choose it for cold email outreach at scale.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/instantly-new-features.jpg",
+        "alt": "Instantly AI: New Features for Cold Email at Scale",
+        "filename": "instantly-new-features.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/what-is-instantly"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "When you're sending cold emails at scale, every new feature that removes friction is a gift. That's exactly the vibe Instantly keeps delivering — update after update, they strip away the headaches that used to eat entire afternoons. If you've been curious about what's new or you're evaluating ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "cold email tools",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", this breakdown covers the latest from Instantly and why it matters for your pipeline.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Disclosure:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Some links below are affiliate links. If you sign up through them, I may earn a commission at no extra cost to you. I only recommend tools I genuinely use or have tested thoroughly.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Why Instantly Keeps Climbing",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Plenty of email outreach platforms send messages. Fewer handle the full journey — from warming up a brand-new domain to hitting \"send\" on 10,000 personalized emails without your deliverability tanking. Instantly has carved out its reputation by obsessing over that exact pipeline.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The team ships fast. In the past year alone, they've rolled out improvements that touch nearly every part of the workflow: smarter AI copy suggestions, deeper analytics, tighter CRM integrations, and a cleaner UI that doesn't require a weekend tutorial. The pace is noticeable, and the quality hasn't dipped.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-instantly"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If you want a deeper dive into the fundamentals before we get into the shiny stuff, check out this ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "step-by-step Instantly tutorial",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "New and Highlighted Features You Should Know About",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Here's what's got the Instantly community buzzing right now:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Unlimited Email Accounts — No Per-Seat Surprises",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "This is the headline feature that keeps winning people over. You connect as many sending accounts as you need. Ten? Fifty? More? Instantly doesn't charge per mailbox. For agencies running campaigns across multiple client domains, this alone eliminates a massive cost center compared to tools that bill per seat.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The setup is straightforward: connect via SMTP or API, and the platform rotates sending across accounts automatically. You spread volume, protect reputation, and never hit a \"upgrade your plan to add one more email\" wall.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Automated Domain Warmup That Actually Works",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "New domains need a warmup period before they can handle real volume. Instantly's warmup engine runs in the background without you babysitting it. It sends and receives realistic warmup emails, gradually increasing volume over days or weeks. The system monitors deliverability signals and adjusts pace on its own.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "I've seen accounts go from zero to 50+ daily sends per mailbox in under three weeks with healthy inbox placement. The warmup dashboard shows real-time stats — open rates on warmup emails, spam score trends, and estimated readiness. No guesswork.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/instantly-tips"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Want the full playbook on getting the most from warmup? This guide on ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Instantly tips and best practices",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " covers it in detail.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "AI-Powered Sequence Building",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Writing sequences used to take me hours. Instantly's AI assistant now generates full multi-step follow-up sequences from a short prompt. You describe your offer, your audience, and your goal, and it produces a draft with subject lines, body copy, and suggested timing between steps.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The output is genuinely usable out of the box. I typically edit about 20% of it — tweak the tone, add a specific objection handler, swap a CTA. But having a solid first draft in seconds changes the math completely. You go from dreading sequence creation to launching campaigns in minutes.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The AI also suggests A/B variants for subject lines. You can spin up two or three options per step, let the platform test them, and let the data pick the winner. It's built-in optimization without extra tools.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Unified Inbox and Smart Reply Detection",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Managing replies across dozens of inboxes used to mean tab-hopping chaos. Instantly's unified inbox consolidates every response into a single view. But it goes further: the AI classifies replies as positive, negative, neutral, or out-of-office. You can filter by category, so hot leads surface instantly while auto-replies and unsubscribes get handled quietly.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "This feature saves sales reps from drowning in manual sorting. One user reported cutting their reply triage time by 70% after the smart detection went live. That's not a marginal improvement — it's an extra hour or two per day that goes back into actual conversations.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Deeper CRM and PartnerStack Integrations",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/instantly-use-cases"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Instantly now connects natively with major CRMs and flows through ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "PartnerStack",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " for teams running affiliate or partner programs alongside their outreach. Data syncs bidirectionally: leads captured in Instantly push to your CRM, and CRM segments can feed directly into Instantly campaigns. No Zapier workarounds needed for the core handoffs.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "For agencies and SaaS teams, this closes the loop between outreach and pipeline tracking. You see exactly which campaigns drive qualified conversations and, eventually, revenue.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Who Gets the Most Out of Instantly",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Not every tool fits every situation, so let's be specific. Instantly shines brightest for:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Founders and solo operators",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " bootstrapping pipeline. If you're wearing every hat, you need a tool that handles warmup, sending, and reply management without constant oversight. Instantly's automation lets you set up a campaign on Monday and focus on closing the replies it generates all week.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Agencies managing multiple clients.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " The unlimited accounts model is built for this. Each client gets their own domain set, their own sequences, and their own analytics — all under one dashboard. Billing stays predictable because you're not paying per mailbox.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sales teams scaling outbound.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " When you're going from 100 emails a day to 5,000+, deliverability becomes the bottleneck. Instantly's warmup and rotation infrastructure handles that scale gracefully. Teams using the platform regularly report inbox placement rates above 80% even at high volume.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Growth marketers testing offers.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " The AI sequence builder makes it fast to spin up variant campaigns. Testing three different value propositions across three audience segments used to require a full afternoon. Now it's a lunch-break task.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/why-choose-instantly"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If any of these profiles sound like you, it's worth exploring ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "why teams choose Instantly",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " as their go-to outreach platform.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What Users Are Actually Saying",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The cold email space has no shortage of tools. What sets Instantly apart in user feedback is the recurring theme of simplicity at scale. Reviews consistently highlight three things:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "The onboarding is fast.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " People go from signup to their first campaign in under an hour. The interface guides you through domain connection, warmup activation, and sequence creation without requiring a technical background.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Deliverability holds up.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " This is the make-or-break metric, and Instantly takes it seriously. The warmup system isn't an afterthought — it's core infrastructure. Users moving from other platforms frequently mention seeing better inbox placement within the first two weeks.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "The pricing makes sense.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " You know exactly what you're paying, and you're not penalized for scaling. That transparency builds trust, especially for teams watching their budget closely.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pricing: Straightforward and Scalable",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Instantly offers tiered plans designed around outreach volume, lead database access, and CRM features. The Growth plan covers most small-to-mid teams with generous sending limits and full warmup access. The Hypergrowth plan adds higher volume caps and priority features for aggressive scaling.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "There are no hidden per-email fees or surprise upgrades for adding accounts. You pick a plan, connect your domains, and send. If your needs grow, you move up a tier — but you won't hit artificial ceilings designed to force upgrades.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://refer.instantly.ai/ndtfrl3h0x5l"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "You can ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "try Instantly today",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " and see how the platform fits your workflow. The signup takes two minutes.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Start Sending Smarter — Not Harder",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Here's the bottom line: Instantly keeps adding features that solve real problems cold emailers face daily. Unlimited accounts remove cost friction. Automated warmup protects your reputation. AI sequences cut your prep time by 80%. And the unified inbox keeps you from drowning in replies.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://refer.instantly.ai/ndtfrl3h0x5l"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If you're serious about outbound and you want a platform that grows with you rather than one that nickel-and-dimes every mailbox, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Instantly is built for exactly that",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". The newest features make the case even stronger.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://refer.instantly.ai/ndtfrl3h0x5l"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Grab your account, connect a domain, and watch your first campaign land in inboxes — not spam folders. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Get started with Instantly here",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Keep Reading on TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/what-is-instantly"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What Is Instantly and How Does It Work?",
+            "marks": [
+              "l8"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-instantly"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Complete Guide: How to Use Instantly for Cold Email",
+            "marks": [
+              "l9"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/why-choose-instantly"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Why Choose Instantly Over Other Outreach Tools",
+            "marks": [
+              "l10"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/instantly-use-cases"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Instantly Use Cases: From SaaS Sales to Agency Growth",
+            "marks": [
+              "l11"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l12",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/instantly-tips"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tips and Best Practices for Instantly Campaigns",
+            "marks": [
+              "l12"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l13",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-elevenlabs"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How to Use ElevenLabs for AI Voice in Your Outreach",
+            "marks": [
+              "l13"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "Instantly, PartnerStack, AI-powered outreach, cold email, email deliverability",
+    "keywords": [
+      "instantly.ai",
+      "cold email software",
+      "email outreach tool",
+      "AI email sequences",
+      "domain warmup",
+      "cold email at scale"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/instantly.ai as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A modern home office with three monitors showing colorful email analytics dashboards, sending progress bars at 90%, and a campaign calendar. A mug of coffee sits beside a notepad with arrows pointing upward.. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How many email accounts can I connect to Instantly?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "There's no hard cap on connected email accounts. You can link as many sending mailboxes as you need across any plan. The platform rotates sends across them automatically to protect deliverability and spread volume evenly.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How long does domain warmup take in Instantly?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Most users see their domains ready for moderate sending volume within two to three weeks. The warmup engine adjusts pace based on real-time deliverability signals, so fresh domains ramp up gradually while maintaining healthy inbox placement rates.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Does Instantly integrate with my CRM?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Yes. Instantly connects natively with popular CRMs and supports bidirectional data sync. Leads from your campaigns push into your CRM pipeline, and CRM segments can feed directly into Instantly for targeted outreach — no third-party automation tools required.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:en:instantly:novedades",
+    "source": "sdk-agent-blog-seo:mimo",
+    "translation_of": "instantly-novedades"
+  },
+  "published_at": "2026-06-12T04:25:07",
+  "locale": "en"
+}

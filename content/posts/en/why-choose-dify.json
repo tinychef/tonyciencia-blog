@@ -1,0 +1,1101 @@
+{
+  "id": "post-why-choose-dify",
+  "slug": "why-choose-dify",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "ia",
+      "herramientas"
+    ],
+    "tag": [
+      "opinion"
+    ]
+  },
+  "data": {
+    "title": "Dify: Build AI Apps Without Code, Why Choose It",
+    "excerpt": "Discover Dify, the open-source platform to build AI chatbots & agents without advanced code. See why it's the top choice for speed and flexibility. Try it now!",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/why-choose-dify.jpg",
+        "alt": "Dify: Build AI Apps Without Code, Why Choose It",
+        "filename": "why-choose-dify.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "I spend my days knee-deep in AI tools, and when something genuinely simplifies the complex, it gets my attention. Dify did just that. It's a platform that hands you the keys to build powerful AI applications—think custom chatbots, intelligent agents, and retrieval-augmented generation (RAG) pipelines—without demanding you be a machine learning PhD. Let's break down why choosing Dify is a smart move.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What Exactly is Dify and How Does it Work?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://dify.ai"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "At its core, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Dify",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " is an open-source platform designed to democratize LLM application development. Imagine having a visual canvas where you can drag and drop components to define your app's logic. You connect different blocks: one for processing user input, another for searching your own documents (that's the RAG pipeline), and another for generating a response using models like GPT or open-source alternatives.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/what-is-dify"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The magic is in its orchestration. You define the workflow visually, and Dify handles the API calls, data management, and model interaction behind the scenes. This approach means you can go from an idea to a working prototype in hours, not weeks. The visual workflow builder is intuitive, and for those who want to go deeper, there's a powerful backend for more customization. It’s this blend of simplicity and depth that makes Dify stand out. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Explore the fundamentals of Dify here",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Key Features That Make Dify Shine",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Dify isn't just another entry in the crowded AI tools space. It packs a suite of features built for real-world application building.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Visual Workflow Builder:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " This is the heart of the experience. You design your app's flow by connecting nodes on a canvas. It makes complex logic, like multi-step reasoning or conditional branching, surprisingly clear to set up and debug.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Built-in RAG Pipeline:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Integrating your own data is seamless. Upload documents (PDFs, Word files, etc.), and Dify automatically processes them into a searchable knowledge base. This allows your AI to answer questions with context from your proprietary information, drastically improving accuracy.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Model Agnostic:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " You're not locked into one AI provider. Dify supports integration with major models like OpenAI's GPT series, Anthropic's Claude, and a growing list of open-source models. This flexibility lets you choose the best model for your specific task and budget.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "One-Click Deployment:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Once your app is ready, you can deploy it as a standalone web app, embed it into your website, or access it via API. The process is streamlined, removing the typical DevOps headache from the equation.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Collaboration & Management:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " For teams, Dify offers features to collaborate on projects and manage the lifecycle of your applications. You can track usage, monitor costs, and refine your apps based on real user interactions.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/dify-new-features"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The team is constantly shipping updates, and the ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "newest features",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " often focus on enhancing these core strengths, like improved data processing or more granular control over agent behaviors.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Why Choose Dify Over Other Options?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "You might be wondering how it compares to building directly with LangChain or using another no-code platform. Dify's sweet spot is its perfect balance. It offers the structural power of a framework like LangChain but through a visual, accessible interface. It's more specialized for end-to-end app building than generic automation tools.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://affiliate.dify.ai/ehm5uywvxx1s"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Think of it like this: LangChain gives you all the raw materials and a blueprint. Dify gives you a pre-fabricated modular home system where you choose the layout, and the heavy lifting of plumbing and wiring is done for you. The open-source nature means you can self-host for full data control and customization, a massive plus for enterprises. If you're hitting a wall with rigid chatbot builders, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "see how Dify's workflow approach solves those limitations",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "A Step-by-Step Glimpse: Building Your First App",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Getting started is refreshingly direct. After signing up, you create a new application. Let's say you want a customer support bot for your e-commerce store.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Define the Goal:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " In the app setup, you describe what it should do: \"Answer questions about our products, shipping, and return policy based on our FAQ documents.\"",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Build the Knowledge Base:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Upload your FAQ PDFs and product manuals. Dify ingests and indexes this content, making it ready for retrieval.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Design the Workflow:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " In the visual editor, you set the first node to receive the user's question. The next node queries your knowledge base. You can add logic to check if the retrieved info is relevant before the final node, powered by your chosen LLM, formulates a friendly, accurate response.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Test & Refine:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Use the built-in previewer to chat with your bot. See how it handles edge cases and tweak the prompts or workflow nodes as needed. The iteration cycle is incredibly fast.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "5.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Deploy:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " With a click, you get a shareable link to your live support agent.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-dify"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "This hands-on process demystifies AI development. For a detailed walkthrough, check our ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "step-by-step Dify tutorial",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Who is Dify Ideal For?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Dify isn't just for one type of user; its flexibility caters to a wide range of creators and organizations.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Startups & Solopreneurs:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Quickly validate AI-powered business ideas without a huge engineering team. Build MVPs for internal tools or customer-facing features to test market fit fast.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Product Managers & Domain Experts:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " You understand the business logic best. Dify allows you to directly build the AI tools that solve your team's pain points, bypassing lengthy development queues.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Developers & ML Engineers:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Use it as a rapid prototyping tool or a robust orchestration layer for more complex projects. It accelerates development and handles the boilerplate, letting you focus on unique business logic and advanced model tuning.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Enterprises:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " The self-hosted option provides the security and data control needed for sensitive operations. Teams can collaboratively build and manage a portfolio of internal AI applications.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Educators & Students:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " It's an outstanding platform for learning how LLMs and agents work by building hands-on projects, abstracting away initial complexity.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/dify-use-cases"
+          },
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/dify-use-cases"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Basically, if you have a problem that can be solved by understanding or generating language, and you want to build a tailored solution, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Dify is your launchpad",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Discover specific ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "use cases and inspiration",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " for your industry.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pro Tips to Get the Most Out of Dify",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/dify-tips"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "To truly leverage the platform, keep a few best practices in mind. Start small; build a single, focused agent first to understand the flow. Treat your knowledge base documents as high-quality source material—the better the input, the better the output. Use the workflow logs extensively to debug and understand how your app makes decisions. Also, experiment with different model providers within the platform to find the optimal performance-cost balance for your use case. Master these, and you'll build incredibly powerful applications. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Unlock our best tips and practices here",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Final Verdict: A Powerful Engine for Your AI Ideas",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Dify delivers where it counts: it dramatically lowers the barrier to creating sophisticated, custom AI applications while retaining the power and flexibility developers need. The open-source foundation is a huge advantage for transparency and control. It turns abstract AI concepts into tangible, deployable tools with remarkable efficiency.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://affiliate.dify.ai/ehm5uywvxx1s"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If you're serious about moving beyond basic prompts and building real AI-powered solutions, Dify is the platform I consistently recommend. It empowers you to bring your unique AI vision to life, regardless of your starting point. **",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Start building your first AI application with Dify today",
+            "marks": [
+              "l8"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "**.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "*Disclosure: This post contains affiliate links. I may earn a commission if you make a purchase through them, at no extra cost to you.*",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "---",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Keep reading on TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ready to dive deeper into the AI toolstack? We have you covered.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-dify"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "A Beginner's Guide to Using Dify",
+            "marks": [
+              "l9"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": A perfect starting point after this overview.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/dify-new-features"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The Latest Updates in Dify",
+            "marks": [
+              "l10"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Stay ahead of the curve with new capabilities.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/dify-use-cases"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Creative Use Cases for Dify",
+            "marks": [
+              "l11"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Spark ideas for your next project.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l12",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-elevenlabs"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How to Use ElevenLabs for AI Voice",
+            "marks": [
+              "l12"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Pair text-based AI with stunning voice generation.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l13",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-descript"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Editing Podcasts & Videos with Descript",
+            "marks": [
+              "l13"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Enhance your media content workflow.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l14",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-gamma"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Creating Presentations with Gamma",
+            "marks": [
+              "l14"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Transform ideas into polished decks effortlessly.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l15",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/what-is-dify"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What is Dify? A Deep Dive",
+            "marks": [
+              "l15"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Understand the platform's philosophy and architecture.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "Dify, LLM, Open-Source, RAG Pipeline, PartnerStack",
+    "keywords": [
+      "Dify platform",
+      "build AI apps no-code",
+      "LLM application builder",
+      "open-source AI workflow",
+      "create chatbot no code"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/dify.ai as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A developer smiling while quickly connecting simple visual blocks on a screen to build a sophisticated AI chatbot interface.. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Is Dify really free to use?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Yes, Dify has a generous free tier for its cloud-hosted version, allowing you to build and deploy applications with usage limits. As an open-source platform, you can also self-host it entirely for free, though you'd be responsible for your own infrastructure costs.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Do I need to know how to code to use Dify?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "You do not need advanced coding skills. Dify's visual workflow builder lets you design complex AI logic by connecting blocks in an interface. For most chatbot and agent applications, no code is required. Developers can use code for more advanced customizations and integrations.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What AI models can I use with Dify?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Dify is model-agnostic. It integrates seamlessly with major models from OpenAI (like GPT-4), Anthropic (Claude), and a wide array of open-source models available through providers like Replicate. You can choose the best model for your task's needs and budget.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:en:dify:porque",
+    "source": "sdk-agent-blog-seo:mimo",
+    "translation_of": "por-que-elegir-dify"
+  },
+  "published_at": "2026-06-12T04:11:51",
+  "locale": "en"
+}

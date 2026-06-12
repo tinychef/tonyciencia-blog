@@ -1,0 +1,1016 @@
+{
+  "id": "post-bugherd-casos-de-uso",
+  "slug": "bugherd-casos-de-uso",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "negocios",
+      "herramientas"
+    ],
+    "tag": [
+      "caso-de-uso"
+    ]
+  },
+  "data": {
+    "title": "BugHerd: Feedback Visual para Web Sin Complicaciones",
+    "excerpt": "Transforma el caos de correos y capturas en tareas claras. BugHerd permite anotar bugs directamente en tu web. Pruébala ahora.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/bugherd-casos-de-uso.jpg",
+        "alt": "BugHerd: Feedback Visual para Web Sin Complicaciones",
+        "filename": "bugherd-casos-de-uso.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "*Divulgación: Este artículo contiene enlaces de afiliado. Si realizas una compra a través de ellos, podemos recibir una comisión sin costo adicional para ti.*",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-bugherd"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Te suena familiar? Un cliente te envía 15 correos electrónicos con capturas borrosas, descripciones vagas y la famosa frase \"no se ve bien en mi teléfono\". Pasas más tiempo descifrando el feedback que arreglando el sitio. Este es el dolor que ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "BugHerd",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " eliminó para siempre de mi flujo de trabajo.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "BugHerd no es otra herramienta de gestión de tareas. Es un ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "puente directo y visual",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " entre lo que tus clientes o testers ven en el navegador y las tareas técnicas que tu equipo necesita completar. La magia está en su simplicidad: ellos señalan, tú arreglas.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo funciona BugHerd: Un flujo de trabajo que enloquece (por lo eficiente)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Imagina esto: instalas un pequeño snippet de código (un script) en el sitio web que estás desarrollando o revisando. Listo. Ahora, cualquier persona con el enlace de revisión puede convertirse en un reporter de bugs profesional.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Señala y comenta:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Tu cliente, tu jefe o tu tester navega por el sitio. Ve algo que no le gusta o un error. Con un clic, abre el panel lateral de BugHerd, señala el elemento exacto (un botón, una imagen, un texto) y escribe su comentario. Así de fácil.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Contexto automático:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Mientras ellos señalan, BugHerd trabaja en segundo plano. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Captura una screenshot",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " de la pantalla completa, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "registra la URL exacta",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", el navegador, la resolución de pantalla y hasta el sistema operativo. Se acabó el \"¿en qué página pasó?\".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Tarea creada al instante:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Ese comentario, junto con toda esa información técnica invaluable, se convierte ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "automáticamente",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " en una tarea dentro de tu tablero Kanban en BugHerd. Puedes asignarla, priorizarla y marcarla como resuelta directamente desde allí.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://partners.bugherd.com/tj7d6g9xsdd0"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Deja de perseguir correos y empieza a resolver problemas con BugHerd",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". La diferencia es brutal. Mi bandeja de entrada se redujo en un 70% en la primera semana.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Funciones nuevas y destacadas que marcan la diferencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "BugHerd ha evolucionado mucho más allá de las anotaciones básicas. Estas son las funciones que, en mi experiencia, llevan la colaboración a otro nivel:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Modo de sesión:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Ideal para revisiones síncronas. Puedes iniciar una \"sesión\" donde todos los invitados ven los comentarios en tiempo real, como una reunión de feedback dentro de la propia web. Perfecto para workshops con clientes.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-clickup"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Prioridades y estados personalizados:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " No todos los bugs son iguales. Puedes configurar etiquetas como \"Crítico\", \"Menor\" o \"Sugerencia\" y flujos de estado (\"Abierto\", \"En progreso\", \"Resuelto\", \"Aprobado\") que se adaptan a la metodología de tu equipo. Para ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "integrarlo con tu stack de project management, mira este tutorial",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Integración con herramientas de desarrollo:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " BugHerd conecta nativamente con Jira, GitHub, Asana y más. Esto significa que una tarea creada en BugHerd puede sincronizarse automáticamente con el backlog de tu equipo de desarrollo, sin duplicar trabajo.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-bugherd"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Grabación de pantalla y anotaciones avanzadas:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Para bugs que son difíciles de describir con una sola imagen, ahora puedes grabar un video corto de la pantalla y añadir anotaciones manuscritas. Para los detalles técnicos más finos, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "descubre estos trucos profesionales",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para quién es ideal BugHerd: Más roles de los que imaginas",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "BugHerd brilla donde existe una necesidad de comunicar y resolver problemas visuales en una web. Es ideal para:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Agencias de diseño y desarrollo web:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Es su público natural. Agiliza las revisiones de prototipos y sitios en staging con clientes que no son técnicos. Acaba con los \"no me gusta\" sin contexto.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Equipos de producto y UX/UI:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Permite a testers y usuarios beta reportar problemas de usabilidad directamente en la interfaz, con toda la data técnica necesaria para los ingenieros.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-bugherd"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Freelancers y consultores independientes:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Te posiciona como un profesional organizado. Entregas revisiones limpias y demuestras un control absoluto del proceso, lo que te permite ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "justificar y cobrar más por tu trabajo",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://partners.bugherd.com/tj7d6g9xsdd0"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Departamentos de Marketing y Ventas:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " ¿Necesitan revisar una landing page o un formulario de captura? Les das un link y ellos señalan los cambios directamente, sin crear tickets en sistemas complejos. Una vez que pruebas ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "BugHerd",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", no hay vuelta atrás para este tipo de revisiones.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Casos de uso reales donde BugHerd es el héroe",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Lanzamiento de una nueva web:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Durante las 48 horas previas al lanzamiento, el equipo de soporte, marketing y dirección tienen acceso al sitio staging. Reportan cientos de detalles (un typo, una imagen rota, un CTA que no convence) directamente en BugHerd. El equipo de desarrollo tiene un tablero priorizado para atacar, sin una sola llamada o reunión de sync.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-apollo-io"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Soporte técnico a clientes SaaS:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Un cliente reporta que \"algo no funciona\" en su dashboard. En lugar de pedirle 10 capturas y logs, le envías el link de BugHerd. Él señala el botón que falla. Tu equipo de soporte ve inmediatamente el error en consola, la URL y puede replicar el entorno. La resolución es 5 veces más rápida. Para herramientas complementarias en este flujo, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "explora este artículo sobre Apollo.io",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Mejora continua de un producto digital:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Tu equipo de producto analiza los reportes de BugHerd mensualmente. No solo corrige errores, sino que identifica patrones: \"el 40% de los comentarios se refieren a la complejidad del formulario de registro\". Esto se convierte en el input perfecto para tu próximo sprint de mejoras de UX.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sigue leyendo en TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Listo para sumergirte? Tenemos guías completas que te llevarán de la mano.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-bugherd"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tutorial paso a paso:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Cómo usar BugHerd desde cero",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " para configurarlo en tu primer proyecto.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/bugherd-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Las últimas novedades:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Revisión de funciones nuevas de BugHerd",
+            "marks": [
+              "l8"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " para estar al día con sus potentes actualizaciones.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-bugherd"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Comparativa positiva:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "¿Por qué elegir BugHerd?",
+            "marks": [
+              "l9"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " para entender su enfoque único frente a otras soluciones.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-monday-com"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para equipos de trabajo:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Si combinas BugHerd con ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "monday.com",
+            "marks": [
+              "l10"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", crearás un ecosistema de gestión de proyectos imparable.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Preguntas frecuentes (FAQ)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1. ¿Mis clientes necesitan crear una cuenta o instalar algo?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¡No! Esa es una de sus mayores ventajas. Solo necesitas darles un enlace único. Al hacer clic, se activa el panel de BugHerd en su navegador. Solo ven el botón de \"Enviar Feedback\" en la esquina de la web. Es extremadamente amigable para usuarios no técnicos.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2. ¿Cómo se diferencia BugHerd de simplemente usar Google Sheets o Trello para reportar bugs?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La diferencia es el ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "contexto automático y la ubicación precisa",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". En una hoja de cálculo, el feedback se separa del producto. En BugHerd, el comentario está atado al elemento exacto de la pantalla, con la screenshot, la URL y la info técnica ya capturada. Elimina el 90% del ida-y-vuelta para aclarar detalles.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3. ¿Es seguro usar BugHerd en sitios web de producción o con información sensible?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "BugHerd es muy seguro. Tú controlas quién accede al panel de feedback a través de invitaciones por correo o links protegidos con contraseña. Puedes pausar la recolección de feedback en cualquier momento. Toda la data se transmite y almacena de forma encriptada. Es una herramienta usada por empresas Fortune 500 para sus revisiones internas y externas.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "BugHerd, feedback visual, sitios web, desarrollo web, clientes, equipos",
+    "keywords": [
+      "feedback visual web",
+      "herramienta feedback sitios web",
+      "BugHerd",
+      "anotaciones visuales",
+      "revisión sitios web",
+      "feedback cliente desarrollo web"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/bugherd.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A person pointing at a website on a laptop with BugHerd interface overlay, showing comments and screenshots.. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Mis clientes necesitan crear una cuenta o instalar algo para usar BugHerd?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¡No! Esa es una de sus mayores ventajas. Solo necesitas darles un enlace único. Al hacer clic, se activa el panel de BugHerd en su navegador. Solo ven el botón de \"Enviar Feedback\" en la esquina de la web. Es extremadamente amigable para usuarios no técnicos.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Cómo se diferencia BugHerd de usar hojas de cálculo o Trello para reportar bugs?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La diferencia es el contexto automático y la ubicación precisa. En una hoja de cálculo, el feedback se separa del producto. En BugHerd, el comentario está atado al elemento exacto de la pantalla, con la screenshot, la URL y la info técnica ya capturada. Elimina el 90% del ida-y-vuelta para aclarar detalles.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Es seguro usar BugHerd en sitios web de producción o con información sensible?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sí, es muy seguro. Tú controlas el acceso mediante invitaciones por correo o links protegidos con contraseña. Puedes pausar la recolección de feedback en cualquier momento. Toda la data se transmite y almacena de forma encriptada.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:es:bugherd:casos",
+    "source": "sdk-agent-blog-seo:mimo"
+  },
+  "published_at": "2026-06-12T13:43:09",
+  "locale": "es"
+}

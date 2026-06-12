@@ -1,0 +1,1487 @@
+{
+  "id": "post-how-to-use-pylon",
+  "slug": "how-to-use-pylon",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "negocios",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "Pylon Tutorial: Streamline Your B2B Support Step-by-Step",
+    "excerpt": "Follow this step-by-step Pylon tutorial to centralize Slack, email & Teams support with AI. See how to set it up and transform your B2B customer service.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/how-to-use-pylon.jpg",
+        "alt": "Pylon Tutorial: Streamline Your B2B Support Step-by-Step",
+        "filename": "how-to-use-pylon.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "*Disclosure: Some links in this article are affiliate links, meaning we may earn a commission at no extra cost to you if you make a purchase.*",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://www.usepylon.com"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tired of juggling support conversations across Slack DMs, cluttered email inboxes, and Microsoft Teams chats? For growing B2B companies, managing fragmented customer communications is a surefire way to let critical issues slip through the cracks. That’s where ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Pylon",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " comes in—a dedicated B2B support platform built to consolidate your channels and supercharge your team with intelligent automation. In this step-by-step Pylon tutorial, I’ll walk you through exactly how to set it up and use it to bring order to the chaos.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Why You Need a Platform Like Pylon for B2B Support",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Let’s be real: your standard helpdesk or CRM might be great for e-commerce or B2C, but it often falls short for complex B2B relationships. B2B support involves longer sales cycles, multiple stakeholders, and deep product integration. Conversations happen in the tools your clients already use—like Slack and Teams. Trying to force these into a traditional ticketing system creates friction and dead ends.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/why-choose-pylon"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pylon was designed from the ground up for this reality. Instead of moving conversations *out* of Slack, it brings powerful support workflows *into* them. It treats each channel—Slack, email, Teams—as a first-class citizen, giving you a unified view without disrupting your customers’ flow. This isn’t just another helpdesk; it’s a strategic upgrade for your entire customer-facing operation. If you’re evaluating options, understanding ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "why to choose Pylon",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " is key.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 1: Connecting Your Channels & Initial Setup",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Getting started with Pylon is refreshingly straightforward. The first step is connecting the communication channels where your clients already reach out.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://www.usepylon.com"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Sign Up & Onboarding:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Head to ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Pylon’s website",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " and schedule a demo. Their team specializes in B2B, so they’ll understand your setup immediately. During onboarding, they’ll help you map out your support structure.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Connect Slack:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " This is Pylon’s standout integration. You’ll authorize Pylon to access specific Slack channels or DMs. I recommend creating dedicated support channels (e.g., #client-support-acme-corp) for major accounts. Pylon will automatically start creating tickets from messages in these channels.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Connect Email:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Link your team’s shared support email (like support@yourcompany.com). Pylon’s AI engine instantly parses incoming emails, pulling them into your unified queue.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Connect Microsoft Teams:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Similar to Slack, you connect relevant Teams channels. This is a game-changer for clients who operate primarily in the Microsoft ecosystem.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Within an hour, you’ll have a central “inbox” that aggregates every customer conversation, regardless of where it started. No more copy-pasting or manually logging tickets.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 2: Mastering the Unified Support Inbox",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Once connected, the Pylon dashboard becomes your mission control. Here’s how to leverage it:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "View & Triage:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " All incoming tickets appear in a single stream. You can filter by channel (Slack, Email, Teams), priority, or assignee. The interface is clean and fast—no bloat.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Internal Collaboration:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " This is where Pylon shines for B2B. You can @mention teammates *within a ticket* to loop in experts, and they can respond directly from Pylon or their connected Slack. All internal notes stay private, while client-facing replies are published to the original channel.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "SLA Tracking:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Set up response and resolution time targets. Pylon’s dashboard gives you a clear, at-a-glance view of which tickets are at risk of breaching SLAs, so you can proactively manage workload.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The real magic is in the seamless context. A ticket originating from a Slack thread keeps that entire conversation history attached, so any team member can jump in fully informed.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 3: Leveraging AI-Powered Automation",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pylon isn’t just a consolidation tool; it’s an intelligent one. The AI-native features are designed to eliminate repetitive work and surface insights.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Automated Tagging & Routing:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Pylon’s AI analyzes ticket content and can automatically apply tags (e.g., “Billing,” “API Issue,” “Onboarding”) and even route tickets to the appropriate team or individual based on predefined rules.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Suggested Replies:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " For common questions, the AI can suggest replies from your knowledge base or past ticket resolutions. Your agents can accept, tweak, and send them in seconds, ensuring consistency and speed.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Customer Sentiment Analysis:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " The platform can flag tickets that indicate frustration or high urgency, helping your team prioritize emotional escalations before they blow up.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/pylon-new-features"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "To unlock the full potential, explore the ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "latest new features Pylon releases",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", as they consistently add powerful AI-driven capabilities tailored for B2B use cases.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 4: Setting Up Workflows & Macros",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "To scale effectively, you need to systematize the predictable. Pylon’s workflow engine lets you build powerful automations with a simple “if this, then that” logic.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Example Workflow for a Critical Outage:",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "IF",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " a ticket is tagged “service-outage” in any channel.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "THEN",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " auto-assign it to your senior engineering support lead.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "THEN",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " send a proactive message to the relevant client’s Slack channel: “Hi team, we’ve identified an issue affecting X. Our engineers are on it and we’ll update you in 15 minutes.”",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "THEN",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " create a public status page incident.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/pylon-use-cases"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "This kind of proactive, automated communication builds immense trust with B2B clients. You can also create macros—single-click templates that combine a public reply with internal actions, like updating a ticket’s status and sending a notification. For inspiration, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "learn about common Pylon use cases",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 5: Reporting & Continuous Improvement",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What gets measured gets managed. Pylon’s analytics go beyond basic volume metrics.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Channel Performance:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " See which channel (Slack, email, Teams) generates the most tickets, which has the fastest resolution time, and where clients prefer to engage. This data can inform your team’s resource allocation.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Agent Performance:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Track metrics like first response time, resolution time, and ticket volume per agent to identify coaching opportunities and top performers.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Customer Health Signals:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Look at trends in ticket topics. A sudden spike in “API integration” tickets might indicate a need for better documentation or a webinar, turning support interactions into product feedback.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Regularly review these reports to identify bottlenecks and refine your workflows. The platform makes it easy to export data for deeper analysis if needed.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Key Features That Make Pylon Stand Out",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Beyond the core steps, here are the features that truly differentiate Pylon in the support landscape:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Deep Slack & Teams Integration:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " It doesn’t just scrape messages; it manages them natively within those platforms, respecting their UX.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "B2B-Specific AI:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " The automation is trained on B2B interaction patterns, not generic consumer inquiries.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Unified Customer View:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " See every interaction across all channels for a single account in one place, providing a complete relationship history.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Self-Service Portal & Knowledge Base:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Easily publish and manage a help center, and integrate it with Pylon’s AI to power suggested replies.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Enterprise-Grade Security:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " SOC 2 Type II compliance, SSO, and role-based access control are standard.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/what-is-pylon"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "You can explore a detailed breakdown in our article on ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "what Pylon is and its core components",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Who is Pylon Ideal For? (It's Not for Everyone)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pylon is a specialist tool. It’s ideal for:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "B2B SaaS Companies:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Especially those with technical products where support conversations are deep and happen in developer-centric tools like Slack.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Enterprise Support Teams:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " That need to manage SLAs, multiple stakeholders, and high-touch communication across formal (email) and informal (Slack) channels.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Customer Success Teams:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Who want to blend proactive support with reactive ticket management, using data to identify at-risk accounts.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Companies Scaling Rapidly:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Where support requests are outgrowing informal email chains, and a structured system is needed *yesterday*.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "It might be overkill for a very small B2C startup, but for mid-market and enterprise B2B operations drowning in channel chaos, it’s a lifesaver.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ready to Transform Your Support Operation?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If your support team is spending more time copying links between Slack and your helpdesk than actually helping customers, it’s time for a change. Pylon offers a focused, intelligent solution that meets B2B clients where they are.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://pylon.partnerlinks.io/nkys1i3jit11"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The setup is guided, the interface is intuitive, and the impact is immediate: faster response times, better context for agents, and happier clients. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Start your Pylon journey today and see the difference",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " a purpose-built platform can make.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pro Tips for Getting the Most Out of Pylon",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Start with a Pilot:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Connect one or two key client channels first. Work out your workflow and tagging structure there before rolling out company-wide.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Define Your Tagging Taxonomy:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Spend time creating a logical set of tags. This is the foundation for all your automation and reporting. Keep it simple initially.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Use the Internal Messaging Sparingly:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " The power of Pylon is in client-facing channels. Encourage your team to communicate externally unless the context is truly internal.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/pylon-tips"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Integrate with Your Stack:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Connect Pylon to tools like Salesforce, Jira, or Linear for syncing ticket data with your CRM and project management. For adjacent tools, our ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "tips on using Apollo.io",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " can enhance your sales-led support motions.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://pylon.partnerlinks.io/nkys1i3jit11"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ready to centralize your support and empower your team with AI?",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Explore Pylon's plans and start your free setup",
+            "marks": [
+              "l8"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Keep reading on TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/pylon-new-features"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "A Deep Dive into Pylon's Latest Features",
+            "marks": [
+              "l9"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/why-choose-pylon"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pylon vs. Traditional Helpdesks: Why B2B Wins",
+            "marks": [
+              "l10"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/pylon-use-cases"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "5 Real-World Use Cases for Pylon in B2B",
+            "marks": [
+              "l11"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l12",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/pylon-tips"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Maximizing Your Pylon Investment: Tips & Best Practices",
+            "marks": [
+              "l12"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l13",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-monday-com"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How to Use monday.com for Client Management",
+            "marks": [
+              "l13"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l14",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-clickup"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Streamlining Your Workflow with ClickUp",
+            "marks": [
+              "l14"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "Pylon, Slack, Microsoft Teams, B2B support, AI automation, helpdesk",
+    "keywords": [
+      "Pylon tutorial",
+      "B2B support platform",
+      "Slack ticket management",
+      "AI support automation",
+      "enterprise helpdesk",
+      "Pylon setup guide"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/usepylon.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A clean, modern dashboard view showing unified tickets from Slack and email, with a subtle AI icon indicating automation.. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Can Pylon replace our Slack or Teams app entirely?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "No, and that’s by design. Pylon enhances your existing Slack and Teams experience by adding powerful support ticketing and automation directly within them. Your team and clients continue using their preferred apps, while Pylon works in the background to manage and organize conversations.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How does Pylon's AI handle data privacy and security?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pylon is built with enterprise-grade security. It is SOC 2 Type II compliant, encrypts data in transit and at rest, and offers features like SSO and role-based access control. The AI processes data to provide suggestions and automation but does not store or learn from your confidential customer data beyond what’s necessary for the service.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Is there a free trial or a low-commitment way to start?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pylon offers a guided demo and setup process rather than a standard self-serve free trial, due to its focus on personalized B2B implementation. Their Starter plan begins at $59 per seat/month (billed annually) with a 3-seat minimum, making it a cost-effective entry point for teams serious about professionalizing their support stack.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:en:pylon:tutorial",
+    "source": "sdk-agent-blog-seo:mimo",
+    "translation_of": "como-usar-pylon"
+  },
+  "published_at": "2026-06-12T16:29:11",
+  "locale": "en"
+}

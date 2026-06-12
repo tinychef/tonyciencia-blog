@@ -1,0 +1,1038 @@
+{
+  "id": "post-trucos-whatconverts",
+  "slug": "trucos-whatconverts",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "negocios",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "Trucos WhatConverts: Domina la Atribución de Leads",
+    "excerpt": "Descubre trucos y las mejores formas de usar WhatConverts para ver qué campañas generan leads reales. Optimiza tu marketing con datos precisos.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/trucos-whatconverts.jpg",
+        "alt": "Trucos WhatConverts: Domina la Atribución de Leads",
+        "filename": "trucos-whatconverts.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Por qué la atribución de marketing ya no es opcional",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-whatconverts"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lanzas campañas en Google Ads, redes sociales, email marketing... pero, ¿sabes con certeza cuál de todas esas inversiones te está trayendo clientes reales? El problema clásico del \"último clic\" te deja a ciegas. Una persona ve tu anuncio en Instagram, luego busca tu marca en Google y finalmente llena un formulario. ¿A quién le damos el crédito? Sin una herramienta como ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "WhatConverts",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", estás tomando decisiones basadas en suposiciones, no en hechos.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://partners.whatconverts.com/h76ncd7br6ve"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ahí es donde WhatConverts cambia el juego. Esta plataforma no solo cuenta clics o visitas; ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "rastrea la fuente exacta de cada lead real",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": cada llamada telefónica, cada formulario enviado y cada chat iniciado. La diferencia entre saber que \"algo funciona\" y saber exactamente qué campaña X te generó 15 consultas cualificadas el martes pasado es abismal. Es la diferencia entre adivinar y escalar. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Pruébala con su free trial aquí",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " y siente la claridad en tus datos.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "7 trucos avanzados para exprimir WhatConverts al máximo",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Una vez que tienes la herramienta, estos trucos te ayudarán a sacarle un jugo increíble:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Etiquetado dinámico en formularios:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " No te conformes con saber que el lead vino de un formulario. Usa los parámetros dinámicos de WhatConverts para capturar automáticamente qué campaña, anuncio o palabra clave específica llevó al usuario a ese formulario. Configura parámetros en tu URL de destino (ej. `?wc_adgroup=`) y la plataforma los asignará al lead sin esfuerzo manual.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Graba y escucha las llamadas:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " El \"call tracking\" es oro puro. Usa la grabación de llamadas (con el consentimiento adecuado) para entender qué preguntas hacen tus leads, objeciones comunes y el tono de tus ventas. Esto te permite optimizar scripts y entrenar a tu equipo con datos reales, no intuiciones.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-apollo-io"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Integra con tu CRM en segundos:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " WhatConverts no es un callejón sin salida. Conecta directamente con tu CRM (Salesforce, HubSpot, etc.) para que la información del lead (fuente, transcripción de la llamada) se sincronice automáticamente. Tu equipo de ventas tendrá el contexto completo desde el primer segundo. ¿Quieres ver otras integraciones potentes? Echa un vistazo a ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "cómo usar Apollo.io",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Crea reportes de \"valor del lead\":",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Asigna un valor monetario a cada tipo de lead (una llamada vale más que un formulario básico, por ejemplo). WhatConverts te permite configurar estas reglas, para que tus reportes muestren no solo la cantidad de leads, sino el ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "valor económico estimado",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " que cada canal te está trayendo. Esto es clave para justificar presupuestos de marketing.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "5.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Usa los filtros por calidad:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " No todos los leads son iguales. Filtra en tu dashboard por duración de la llamada (llamadas largas suelen ser más cualificadas), por palabra clave de búsqueda o por página de destino. Esto te permite identificar qué campañas no solo generan volumen, sino ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "calidad",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "6.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Configura alertas en tiempo real:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Crea alertas por email o SMS para leads de alto valor. Imagina recibir una notificación al instante cuando alguien llama desde tu campaña de Google Ads más rentable. Te permite reaccionar y actuar con velocidad. Es como tener un radar de oportunidades activo 24/7.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-clickup"
+          },
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-monday-com"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "7.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Aprovecha el \"Lead Manager\" centralizado:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Olvídate de revisar el email, el CRM y el teléfono por separado. El centro de leads de WhatConverts es tu nueva base de operaciones. Puedes añadir notas, calificar leads y ver todo el historial de interacciones de un vistazo. Para una organización impecable del flujo de trabajo, también te recomiendo explorar ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "ClickUp",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " o ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "monday.com",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Funciones nuevas y destacadas que marcan la diferencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "WhatConverts está en constante evolución. Algunas de sus características más potentes que debes conocer son:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Análisis de Palabras Clave de Chatbot:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Si usas chatbots en tu web, ahora WhatConverts puede rastrear qué palabras o frases específicas usan los usuarios antes de iniciar un chat. Esto revela la intención de búsqueda de manera ultra-precisa.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Integración mejorada con Google Analytics 4:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " La sincronización con GA4 es más fluida, permitiéndote ver tus conversiones de leads de WhatConverts directamente en la interfaz de GA4, cruzando datos de atribución para un análisis unificado.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Mejoras en el Rastreo de Formularios Avanzados:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Incluso para formularios construidos con JavaScript puro o soluciones como Gravity Forms o HubSpot Forms, el rastreo se ha vuelto más robusto y confiable, capturando más leads que antes.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/whatconverts-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Dashboard de \"Lead Value\" más intuitivo:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " La visualización del valor total de los leads por canal ha mejorado, con gráficos interactivos que te permiten desglosar los datos con un solo clic. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Descubre todas las novedades aquí",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Para quién es ideal WhatConverts? (Spoiler: Probablemente para ti)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Esta herramienta es especialmente poderosa si:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Agencias de Marketing Digital:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Si gestionas campañas para clientes, la atribución de WhatConverts te permite demostrar con datos incontrovertibles qué estrategias están generando resultados reales. Es tu mejor argumento para renovaciones de contrato y upselling.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Negocios Locales que Dependen de Llamadas:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Clínicas dentales, abogados, talleres mecánicos... Si tus clientes te llaman para reservar o contratar, necesitas saber de dónde vienen esas llamadas para invertir tu presupuesto en lo que funciona.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Equipos de Ventas B2B:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Cuando el ciclo de venta es largo y empieza con una llamada de descubrimiento o un formulario de solicitud de demo, entender la fuente original es crucial para calificar y nutrir esos leads eficientemente.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://partners.whatconverts.com/h76ncd7br6ve"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cualquier negocio que invierte en publicidad online y quiere parar de desperdiciar dinero.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Si gastas en Google Ads, Meta Ads o cualquier otra plataforma, y no tienes claro el retorno por canal, WhatConverts te da la lupa que necesitas. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Si este eres tú, empieza a optimizar tu presupuesto aquí",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Implementación sencilla: Primeros pasos para empezar a rastrear",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "No necesitas ser un desarrollador para ponerlo en marcha. El proceso básico es:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Configura tu cuenta y elige tu número de teléfono",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " de seguimiento (si vas a rastrear llamadas).",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Instala el snippet de seguimiento",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " en tu sitio web. Es una simple línea de código similar a la de Google Analytics.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Configura tus formularios",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " para que los datos se capturen. La plataforma te guía con instrucciones claras.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Define tus canales y campañas",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " en el panel para organizar los datos como tú necesitas.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-whatconverts"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "5.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "¡Listo!",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Empieza a ver los leads llegar en tiempo real, con su fuente de origen clara. Para un guía completa paso a paso, tenemos ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "este tutorial detallado",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Conclusión: Deja de adivinar y empieza a saber con certeza",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "En un mundo donde el presupuesto de marketing es limitado, la claridad es el recurso más valioso. WhatConverts te proporciona esa claridad al conectar tus esfuerzos de marketing con los resultados de ventas tangibles. No es una herramienta más de analytics; es el puente entre lo que gastas y lo que ganas, visibilizado en cada llamada, formulario y chat que genera valor para tu negocio.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://partners.whatconverts.com/h76ncd7br6ve"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Listo para tomar el control y finalmente ver qué campañas merecen más inversión?",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Activa tu prueba gratuita de WhatConverts y transforma tus datos",
+            "marks": [
+              "l8"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". La diferencia entre crecer a ciegas y crecer con una hoja de ruta precisa está a un clic.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "*Disclosure: Este artículo contiene enlaces de afiliado. Si realizas una compra a través de ellos, podemos recibir una comisión sin costo adicional para ti, lo que nos ayuda a seguir creando contenido útil.*",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sigue leyendo en TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-whatconverts"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Guía completa: ¿Qué es y para qué sirve WhatConverts?",
+            "marks": [
+              "l9"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/whatconverts-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Mejores formas de usar WhatConverts en casos de uso reales",
+            "marks": [
+              "l10"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-whatconverts"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Por qué elegir WhatConverts sobre otras opciones",
+            "marks": [
+              "l11"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "WhatConverts, marketing digital, leads, conversiones, PartnerStack",
+    "keywords": [
+      "atribución de marketing",
+      "tracking de leads",
+      "analytics de conversiones",
+      "WhatConverts",
+      "campañas digitales"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/whatconverts.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A marketer looking at a dashboard with clear charts showing lead sources from calls, forms, and chats, looking satisfied and enlightened.. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué tipo de leads puedo rastrear con WhatConverts?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Puedes rastrear tres fuentes principales: llamadas telefónicas (con números de seguimiento dinámicos), formularios web (cualquier formulario que tengas en tu sitio) y chats (integraciones con plataformas de chat en vivo). Esto te da una visión 360° de cómo te contactan tus clientes potenciales.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Es difícil implementar WhatConverts en mi web?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "No, la implementación es bastante sencilla. Solo necesitas añadir un pequeño snippet de código de seguimiento a tu sitio, similar a como se instala Google Analytics. Para el tracking de llamadas, te asignarán números de teléfono, y para los formularios, hay guías paso a paso para las integraciones más comunes.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Cuál es la diferencia principal entre WhatConverts y Google Analytics?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La diferencia está en el nivel de detalle y la naturaleza del lead. Google Analytics se enfoca en páginas vistas, sesiones y conversiones de macro (como una compra). WhatConverts está construido específicamente para la atribución de leads offline y de alta consideración (llamadas, consultas), vinculando cada lead individual a su fuente de marketing exacta, lo que GA4 no puede hacer de forma nativa.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:es:whatconverts:trucos",
+    "source": "sdk-agent-blog-seo:mimo"
+  },
+  "published_at": "2026-06-12T14:09:06",
+  "locale": "es"
+}

@@ -1,0 +1,1066 @@
+{
+  "id": "post-how-to-use-nutshell-crm",
+  "slug": "how-to-use-nutshell-crm",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "negocios",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "Nutshell CRM Setup: Your Step-by-Step B2B Sales Guide",
+    "excerpt": "Set up your B2B sales process in minutes with Nutshell CRM. This tutorial walks you through pipeline management, email sequences, and closing deals faster.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/how-to-use-nutshell-crm.jpg",
+        "alt": "Nutshell CRM Setup: Your Step-by-Step B2B Sales Guide",
+        "filename": "how-to-use-nutshell-crm.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Let's be honest: most CRMs feel like they were designed by engineers, for engineers. You open them up and suddenly you need a manual just to log a call. That's exactly why I've been so impressed with ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Nutshell CRM",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "—it’s a rare tool that feels both incredibly powerful and refreshingly simple to use from day one. I’m going to walk you through exactly how to set it up for your B2B team, so you can stop wrestling with software and start closing deals.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "*I’ll sometimes link to Nutshell, and if you sign up through my link, I may earn a commission at no extra cost to you. It helps keep this content coming!*",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Why Nutshell CRM Feels Different for B2B Teams",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/what-is-nutshell-crm"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Before we dive into the steps, let's talk about the core philosophy. Nutshell isn't trying to be everything to everyone. It's built specifically for B2B sales teams that want clarity and action over complexity. The moment you sign up, you’re not bombarded with a thousand options. Instead, you’re guided toward setting up your sales process—the actual workflow your team follows from a first contact to a closed deal. This focus on ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "the real meaning of a B2B CRM",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " is what makes it shine. It cuts through the noise and gives you tools for what actually moves the needle: pipeline management, clear communication, and actionable data.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Your 4-Step Nutshell CRM Setup Guide",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Getting started is genuinely straightforward. Here’s your path to a fully operational sales system.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 1: Connect Your Email & Calendar (The Foundation)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "This is your first power move. Nutshell’s email sync is flawless. Go to ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Settings > Integrations",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " and connect your Google Workspace or Microsoft 365 account. This doesn’t just log emails automatically; it lets you send full email sequences directly from your CRM using your own email address. This single integration eliminates hours of copy-pasting and ensures every team interaction is tracked in one place. Your calendar sync means all your scheduled meetings and calls appear right on contact and company timelines, giving you instant context.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 2: Build Your Pipeline (Your Sales Roadmap)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "This is where the magic happens. Navigate to ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Pipeline",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Nutshell gives you a clean, drag-and-drop Kanban board. Don’t just use the default stages! Customize them to mirror your actual sales process. For example, you might create stages like:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "New Lead:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Initial contact made.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Discovery Call:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Qualification meeting scheduled.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Proposal Sent:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Formal quote or proposal delivered.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Negotiation:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Terms being discussed.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Verbal Agreement:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Deal is pending final paperwork.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Each stage can have a win probability and required activities. This visual map turns your abstract sales process into a manageable, actionable workflow. You can create multiple pipelines for different sales motions, like “Enterprise Sales” vs. “SMB Onboarding.”",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 3: Import Your Contacts & Companies",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/nutshell-crm-use-cases"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Clean data is critical. Go to ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "People",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " or ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Companies",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " and click ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Import",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". You can upload a CSV from your old spreadsheet or CRM. Nutshell’s mapping tool is intuitive. Here’s my pro tip: take the time to clean your list *before* importing. Deduplicate entries, standardize job titles, and ensure company names are consistent. Nutshell will auto-link people to their companies, building your relationship map automatically. This immediate visibility into who works where is a game-changer for strategic outreach. For a deeper dive, check out our guide on ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "smart CRM use cases",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 4: Automate Your First Workflow",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/nutshell-crm-new-features"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "This is where you reclaim your time. Head to ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Automations",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Start simple. A great first automation is a “Deal Stalled” alert. Set a rule: *If a lead sits in the “Discovery Call” stage for more than 7 days, notify the sales rep and add a task: “Follow up with new value prop.”* You can also set up automatic lead assignment. For instance, assign all leads from a specific web form directly to your top-performing sales rep. Nutshell’s automation engine is powerful but logical—it’s based on triggers and actions you understand. Exploring ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "the latest Nutshell features",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " often reveals even more clever automation templates.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Standout Features You’ll Use Daily",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Beyond the core setup, several features make Nutshell a daily driver:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Smart Email Sequences:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Craft multi-touch campaigns that send automatically from your connected email account. You can create a 5-step nurturing sequence for cold leads or a 3-step follow-up sequence after a proposal is sent. The tracking tells you exactly who opened and clicked, so you know who’s hot.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/why-choose-nutshell-crm"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Customizable Reporting Dashboards:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Forget about begging for reports. Build your own dashboards with widgets showing pipeline value, won/lost ratios, individual rep performance, and lead source effectiveness. Seeing the health of your business at a glance is incredibly empowering. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Why choose Nutshell CRM",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " often boils down to this clarity.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Activity-Based Selling:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Nutshell brilliantly focuses on activities as much as outcomes. You can set daily or weekly activity goals for your team (e.g., 25 calls, 10 demos scheduled). The system tracks these automatically, helping you coach based on effort and consistency, not just luck.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Who Is Nutshell CRM Perfect For?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Nutshell isn’t for everyone, and that’s its strength. It’s ideal for:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Growth-Stage B2B Startups:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " You’re moving beyond spreadsheets and need a structured process that won’t overwhelm your small team. Nutshell scales with you.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sales Teams of 1 to 50 Users:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " The collaboration features, clear pipelines, and shared reporting are built for teams that need to work together seamlessly without enterprise-level complexity.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Non-Technical Founders and Sales Leaders:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " If you want a powerful tool you can actually configure and manage yourself without hiring a dedicated admin, Nutshell is your best bet. Its interface is intuitive, and the support is fantastic.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-clickup"
+          },
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-monday-com"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "You can see real-world examples and compare approaches in our ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "ClickUp vs. Nutshell comparison",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " or ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "monday.com sales workflows",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pro Tips for Getting Maximum Value",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Once you’re set up, keep these best practices in mind to really dominate:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Use the “Nutshell” Mobile App Religiously:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Log every call, note, and meeting right after it happens while it’s fresh. The mobile experience is top-notch.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Leverage “Saved Views”:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Create and save filtered views of your pipeline or contacts (e.g., “All decision-makers in the SaaS industry in the West Coast”). This turns your CRM into a targeted prospecting tool.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-apollo-io"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Integrate with Your Favorite Tools:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Nutshell connects natively to services like Slack, QuickBooks, and Zapier. But for prospecting, its ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "integration with Apollo.io",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " for enriching lead data is a powerhouse combo.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Schedule a Weekly Pipeline Review:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Use the shared pipeline view as your single source of truth in weekly sales meetings. Drag deals, assign next steps, and celebrate wins together. It aligns the team instantly.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://try.nutshell.com/ssuchcfp1lga"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ready to transform your sales process with a tool that’s both powerful and actually enjoyable to use? Start your 14-day free trial of Nutshell CRM right now",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". No credit card needed.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The trial gives you full access, and I genuinely believe you’ll have your team selling smarter within the first week. Give it a shot and see the difference a focused CRM makes.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Keep Reading on TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/nutshell-crm-new-features"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Dive into the specific features that set Nutshell apart",
+            "marks": [
+              "l8"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/nutshell-crm-tips"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Explore more advanced sales automation tips",
+            "marks": [
+              "l9"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/nutshell-crm-use-cases"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "See how other B2B teams are succeeding with their CRM",
+            "marks": [
+              "l10"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "affx",
+            "_type": "link",
+            "href": "https://try.nutshell.com/ssuchcfp1lga"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "My pick: ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Try it free Nutshell CRM",
+            "marks": [
+              "affx"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "Nutshell, B2B teams, sales pipeline, email sequences, automation",
+    "keywords": [
+      "Nutshell CRM tutorial",
+      "B2B CRM setup",
+      "sales pipeline management",
+      "CRM for small business",
+      "easy CRM software"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/nutshell.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A focused team around a laptop showing a clean sales pipeline dashboard, with coffee cups and a whiteboard with strategy notes in the background.. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Is Nutshell CRM difficult to set up for a small team?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Not at all. That's its biggest strength. You can connect your email and build a basic sales pipeline in under an hour. Its guided setup and intuitive interface mean you don't need an IT expert to get started, and you can begin logging deals and activities immediately.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Can Nutshell handle email marketing campaigns?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Yes, and it does it brilliantly through its 'Sequences' feature. You can build automated multi-step email campaigns that send from your own email account, with detailed tracking on opens and clicks. It's less about bulk newsletter blasts and more about targeted, personalized sales follow-ups at scale.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How does Nutshell's pricing compare to other CRMs?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Nutshell is positioned as an affordable, value-packed option for SMBs. They offer straightforward per-user pricing without complex tier gates. All core features, including pipeline management, email sync, and automation, are included in their standard plans, making it a very cost-effective choice for teams that want power without the enterprise price tag.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:en:nutshell-crm:tutorial",
+    "source": "sdk-agent-blog-seo:mimo",
+    "translation_of": "como-usar-nutshell-crm"
+  },
+  "published_at": "2026-06-12T13:50:08",
+  "locale": "en"
+}

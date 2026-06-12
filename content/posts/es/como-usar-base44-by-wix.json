@@ -1,0 +1,751 @@
+{
+  "id": "post-como-usar-base44-by-wix",
+  "slug": "como-usar-base44-by-wix",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "negocios",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "Base44: Crea Apps con IA en Minutos (Tutorial Paso a Paso)",
+    "excerpt": "Aprende a usar Base44, la herramienta de Wix que convierte tu idea en una app funcional con IA. Sigue este tutorial y lanza tu proyecto hoy mismo.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/como-usar-base44-by-wix.jpg",
+        "alt": "Base44: Crea Apps con IA en Minutos (Tutorial Paso a Paso)",
+        "filename": "como-usar-base44-by-wix.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-base44-by-wix"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Descubrí ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Base44",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " hace un mes y me cambió la forma de encarar proyectos. Imagina: describes en lenguaje natural la aplicación que necesitas y, en segundos, la IA de Wix genera una versión funcional completa. Sin código, sin plantillas complicadas, sin esperas. Este tutorial es tu guía directa para dominar esta herramienta y dejar de soñar con apps para empezar a construirlas.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Divulgación de afiliado:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Si realizas una compra a través de mis enlaces, puedo recibir una comisión sin costo adicional para ti. Solo recomiendo herramientas en las que confío plenamente.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué es exactamente Base44 y por qué es diferente?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-monday-com"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Base44 (by Wix) es un constructor de aplicaciones con IA. No es un editor drag-and-drop tradicional. Tu trabajo es escribir una descripción clara de lo que quieres (un \"brief\"). La IA interpreta esa solicitud, diseña la interfaz, configura la lógica y entrega una app base que puedes probar al instante. Es la diferencia entre explicarle a un desarrollador qué necesitas y tener un desarrollador IA que lo construya en un parpadeo. Esta herramienta resuelve el cuello de botella más grande en el no-code: el tiempo de creación inicial. Mientras herramientas como ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "monday.com",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " organizan procesos existentes, Base44 te ayuda a crear el proceso mismo desde cero.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tutorial Paso a Paso: De tu Idea a una App Funcional",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Vamos a crear una app sencilla de \"Gestión de Proyectos para un Equipo Remoto\". Sigue estos pasos.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 1: Accede y Describe tu App",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://base44.pxf.io/c/6249333/2049275/25619?trafcat=base"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ve a ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "base44.com",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " e inicia sesión. Te enfrentarás a una barra de texto simple. Aquí es donde ocurre la magia. Escribe tu solicitud como si se lo explicaras a un colega. Sé específico. En vez de \"una app de tareas\", escribe: \"Una aplicación de gestión de proyectos con tableros Kanban para Product, Marketing y Design. Cada tarea debe tener prioridad (Alta, Media, Baja), responsable, fecha límite y un botón para moverla entre columnas (Pendiente, En Progreso, Hecho). Incluye un dashboard con el total de tareas por estado.\"",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 2: Activa el Modo Plan (Recomendado)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Antes de darle a \"Start the build\", activa el interruptor ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Plan",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". La IA no se lanzará a construir de inmediato. Primero, generará un plan detallado: qué pantallas creará, qué bases de datos usará, qué funciones incluirá. Esto te da un control increíble. Puedes editar el plan, añadir más detalles o simplificarlo antes de que comience el trabajo de construcción. Es como revisar el blueprint de un arquitecto antes de que ponga el primer ladrillo.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 3: Construye y Observa",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Haz clic en \"Start the build\". En menos de un minuto, Base44 generará tu aplicación. Verás una barra de progreso y, al final, una URL única donde está alojada tu nueva app. En nuestro ejemplo, la app generada tendrá los tres tableros Kanball, los campos de tarea y el dashboard. La interfaz es limpia y moderna por defecto. Puedes probarla en el navegador de inmediato, añadir tareas de prueba y ver cómo funciona la lógica.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 4: Personaliza y Expande",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-apollo-io"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La versión generada es tu lienzo. Ahora puedes usar la misma barra de texto para pedir cambios o mejoras. Prueba con: \"Añade un botón en cada tarea para asignar un color etiqueta\" o \"Modifica el dashboard para que muestre un gráfico circular de tareas por responsable\". La IA iterará sobre su propio trabajo. Para necesidades más complejas, como integraciones con otras plataformas, Base44 es el punto de partida perfecto. Por ejemplo, la lógica de captura de leads que construyas aquí podría complementarse luego con las automatizaciones de ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Apollo.io",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Funciones Nuevas y Destacadas que Debes Probar",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Base44 no es estática. Estas son algunas funciones que amplían su poder:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Super Agents:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Esta función nueva permite crear agentes de IA dentro de tu app. Puedes describir un agente que, por ejemplo, resuma correos electrónicos de clientes o analice el sentimiento de comentarios, y Base44 lo integrará.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Migración desde otra plataforma:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Si empezaste un prototipo en otro sitio, Base44 puede ayudarte a migrar esa estructura. Es ideal para consolidar proyectos dispersos.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Plan de Voz:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Puedes activar el reconocimiento de voz (configurado desde tu iPhone) para dictar tu brief en vez de escribirlo. Perfecto para cuando las ideas fluyen rápido.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Para quién es ideal Base44?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Esta herramienta es para personas que valoran la velocidad y la claridad sobre el control granular del código. Es perfecta para:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-base44-by-wix"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Emprendedores y Fundadores:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Que necesitan validar una idea con un MVP funcional en horas, no meses. La rapidez de ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Base44",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " no tiene paralelo.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Equipos de Producto y Marketing:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Que requieren herramientas internas personalizadas (dashboards, portales, calculadoras) sin depender del backlog de desarrollo.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-clickup"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Creadores y Freelancers:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Que quieren monetizar sus conocimientos creando apps a medida para sus clientes o para sus propios proyectos, ampliando su oferta de servicios. Si ya usas herramientas de gestión como ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "ClickUp",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", Base44 te permite construir las extensiones que siempre faltaron.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Mi Experiencia y Consejos Finales",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lo que más me impresionó es la calidad del código y la UI generada. No es un esqueleto sin estilo. La app sale lista para usar. Mi consejo clave: invierte tiempo en escribir el mejor brief posible en el Paso 1. Cuanto más claro y descriptivo seas, más cerca estará la app generada de tu visión. Y no te detengas en la primera versión. Usa la iteración. Pide refinamientos. La IA aprende del contexto de tu sesión.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://base44.pxf.io/c/6249333/2049275/25619?trafcat=base"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Listo para transformar esa idea en una aplicación real? No hay mejor forma de entender el poder de Base44 que probándola. **",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Empieza a construir tu primera app gratis aquí",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "** y descubre lo rápido que puedes materializar tus proyectos.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sigue leyendo en TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/base44-by-wix-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Profundiza en todas las ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "novedades y funciones de Base44",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/base44-by-wix-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Descubre más ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "casos de uso creativos",
+            "marks": [
+              "l8"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " para inspirarte.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-base44-by-wix"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Aprende los mejores ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "trucos para optimizar tus prompts",
+            "marks": [
+              "l9"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " y obtener mejores resultados.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "Base44, Wix, Inteligencia Artificial, No-Code, Aplicaciones",
+    "keywords": [
+      "Base44",
+      "crear aplicaciones sin código",
+      "herramienta IA",
+      "Wix",
+      "tutorial Base44"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/base44.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A person smiling while typing a simple description on a laptop, with a colorful app interface forming magically on the screen.. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Base44 tiene un plan gratuito o es de pago?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Base44 ofrece un plan gratuito con funcionalidades esenciales, ideal para probar la herramienta y construir proyectos personales o de validación. Para necesidades profesionales, como mayor capacidad de almacenamiento, dominios personalizados o acceso a funciones avanzadas como los Super Agents, ofrecen planes de pago anual con descuentos especiales, como el de su día temático Base44 Day.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Necesito saber algún tipo de programación o diseño para usar Base44?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Absolutamente no. Base44 está diseñada para ser utilizada exclusivamente mediante lenguaje natural. Tu trabajo es describir con la mayor claridad posible la funcionalidad, el flujo y el aspecto básico de la aplicación que necesitas. La IA se encarga de toda la implementación técnica, el diseño de la interfaz y la estructura de la base de datos.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué pasa con los datos y la seguridad de la aplicación que creo?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Las aplicaciones generadas con Base44 se alojan en la infraestructura segura de Wix. Tú mantienes la propiedad de tu aplicación y de los datos que se generan en ella. Para proyectos que requieran niveles de cumplimiento normativo muy específicos (como HIPAA o PCI DSS), es recomendable revisar los detalles técnicos en su documentación oficial para asegurar que cumplan con tus requisitos particulares.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:es:base44-by-wix:tutorial",
+    "source": "sdk-agent-blog-seo:mimo"
+  },
+  "published_at": "2026-06-12T07:15:18",
+  "locale": "es"
+}

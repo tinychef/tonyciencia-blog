@@ -1,0 +1,1124 @@
+{
+  "id": "post-how-to-use-folk-crm",
+  "slug": "how-to-use-folk-crm",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "negocios",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "Folk CRM: A Simple Step-by-Step Tutorial for Relationship Teams",
+    "excerpt": "Learn how to set up and use folk CRM to manage contacts, deals, and pipelines with AI. This step-by-step tutorial gets you started in minutes.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/how-to-use-folk-crm.jpg",
+        "alt": "Folk CRM: A Simple Step-by-Step Tutorial for Relationship Teams",
+        "filename": "how-to-use-folk-crm.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://www.folk.app/"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If your work revolves around people—clients, partners, candidates, leads—you know a traditional CRM can feel like overkill. Too many fields, too much friction, not enough focus on the actual relationship. That’s exactly the gap ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "folk CRM",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " was built to fill. It’s a modern, beautifully simple platform designed to manage contacts, deals, and pipelines with powerful AI woven right in. I’ve been using it for several months, and it’s genuinely transformed how our team collaborates around our network.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "This tutorial will walk you through getting started with folk CRM, from your first login to leveraging its smartest features. We’ll move step-by-step, so you can have your workspace running smoothly by the end of the day.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Disclosure:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " This post contains affiliate links. If you sign up through one of my links, I may earn a commission at no extra cost to you. I only recommend tools I truly use and believe in.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 1: Signing Up & Your First Workspace",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://try.folk.app/spc456axvhm2-s83uu"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Getting started with folk is refreshingly straightforward. Head to ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "folk.app",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " and click \"Get Started.\" You can sign up with your Google or Microsoft account in one click, which is perfect because folk integrates deeply with both ecosystems—your email and calendar sync automatically from the start.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Once you’re in, you’ll be prompted to create your first workspace. This is your team’s central hub. Give it a name (like \"Main Workspace\" or your company name) and invite your teammates. The Standard plan starts at $24 per member per month, which is a great value considering the features included like pipeline management, email campaigns, and contact enrichment. The onboarding wizard is intuitive and will have you importing contacts in less than five minutes.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 2: Building Your First Pipeline",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pipelines in folk are visual, drag-and-drop boards for managing any workflow. This isn’t just for sales; it’s for fundraising, partnerships, recruiting—any process with stages.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Navigate to \"Pipelines\"",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " on the left-hand sidebar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  Click ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "\"Create a new pipeline.\"",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Name it",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " (e.g., \"Sales Leads,\" \"Partnership Outreach,\" \"Candidate Pipeline\").",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Define your stages.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Folk suggests common ones, but you can customize them completely. For a sales pipeline, you might have: New Lead → Qualified → Proposal Sent → Negotiation → Won/Lost.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "5.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Start adding deals.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Click the \"Add a new deal\" button in any stage. You can link a deal to an existing contact or create a new one on the fly.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The interface is clean and fast. Moving deals between stages is as simple as dragging a card. This visual clarity alone will save your team hours of confusion in weekly meetings.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 3: Importing & Enriching Your Contacts",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "This is where folk begins to show its AI magic. You likely have contacts scattered across spreadsheets, email, and LinkedIn. Folk brings them together.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Direct Import:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Use the \"Import\" button to upload a CSV or connect to other tools. Folk maps fields intelligently, so you don’t lose data.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Email & Calendar Sync:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Once connected, folk automatically suggests adding people you’ve recently communicated with. It builds your database passively.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/folk-crm-new-features"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Magic Fields & Enrichment:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " This is a standout feature. For any contact, you can click the magic wand icon to auto-fill information like job title, company, location, and social profiles using folk’s AI. It pulls data from the web, saving you from manual research. You can ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "learn more about this innovative approach in our deep dive on new features",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The result is a rich, living address book where every contact card tells a complete story. No more digging through old emails for context.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 4: Leveraging AI Assistants to Automate Work",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Folk’s AI isn’t a gimmick; it’s a practical assistant that learns from your data. Here’s how to use it:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Drafting Emails:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " When you’re in a contact’s profile, click \"Email.\" Start typing a reply, and folk’s AI will suggest relevant context from your past interactions or the contact’s company news. It can help you draft entire messages based on simple prompts.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Creating Tasks & Notes:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " In a deal or contact view, use the note section. Folk’s AI can suggest tasks based on the note’s content (e.g., \"Follow up in 3 days\").",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Automated Data Entry:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Whenever you add a new contact, folk’s AI works in the background to enrich it. It learns your team’s tagging and categorization patterns over time, making suggestions more accurate.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Think of it as a very smart junior assistant who takes notes, does research, and reminds you of what’s important. It frees you up to focus on building the actual relationship.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Who is folk CRM Ideal For?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Folk shines brightest for teams where relationships are the core asset. If your workflow fits into one of these categories, you’ll love it:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/folk-crm-use-cases"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Consulting & Agencies:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Managing client projects, stakeholder communications, and business development pipelines in one place. The ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "use cases are particularly strong here",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Investors & Venture Capital:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Tracking deal flow, founder interactions, and portfolio company updates. The relational view is perfect for remembering the little details that matter.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Partnerships & Business Development:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Keeping track of outreach, partner onboarding, and co-marketing initiatives with clear visual pipelines.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Recruitment Teams:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Managing candidates through hiring stages, with all communication and notes attached to their profile.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/why-choose-folk-crm"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Small to Mid-Sized Teams:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Any team of 2-100 that needs to move fast, hates clunky software, and values a clean, collaborative interface. Folk’s design philosophy makes it ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "incredibly easy to choose",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " over more complex, traditional CRMs.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "It’s less about rigid sales funnels and more about nurturing a web of connections—which is how modern business actually works.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Advanced Features & Pro Tips",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Once you’re comfortable, unlock more power with these features:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Email Campaigns:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " From any filtered list of contacts (e.g., \"All CEOs in New York\"), you can launch a personalized email sequence directly from folk. Track opens and replies without leaving the app.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Custom Fields & Views:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Create fields specific to your business (e.g., \"Contract Renewal Date\" or \"Project Scope\"). Save custom views of your contacts or deals for one-click access later.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-monday-com"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Deep Integrations:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Folk connects seamlessly with the tools you already use. Sync two-way with Slack, connect to Stripe for payment data, or use Zapier to link thousands of other apps. It plays nicely with other ecosystems; for instance, you can ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "compare its approach to tools like monday.com",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " to see how it prioritizes simplicity.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Mobile App:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Manage your contacts and pipeline on the go with their sleek iOS and Android apps. It’s fully featured, not a stripped-down afterthought.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/folk-crm-tips"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "My top tip: ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Spend time defining your key pipelines and magic field templates early",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". A little upfront structure pays massive dividends in daily efficiency.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Getting Started is the Hardest Part (But It’s Not Hard)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The biggest hurdle with any new tool is adoption. Folk minimizes this by being genuinely enjoyable to use. The learning curve is minimal, and the value is immediate—especially once the AI starts saving you time on research and email drafting.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "My advice is to start small. Pick one pipeline for one team, import a targeted list of 50-100 contacts, and use it for a week. You’ll quickly see how the context-aware AI and clean interface reduce friction. Within a month, it’ll likely become your team’s central hub for everything client- and partner-related.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://try.folk.app/spc456axvhm2-s83uu"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ready to give your relationships the home they deserve? ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Try folk CRM for free and see the difference",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". The free plan lets you test the core experience, and upgrading is simple when you’re ready to scale.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Keep reading on TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Want to dive even deeper? Here’s more on how to get the most out of folk and how it fits into the broader software landscape:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/what-is-folk-crm"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What is folk CRM? A Complete Overview",
+            "marks": [
+              "l8"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/folk-crm-use-cases"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Top Use Cases for folk CRM in Your Business",
+            "marks": [
+              "l9"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-apollo-io"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "folk CRM vs. Apollo.io: A Focus on Relationships",
+            "marks": [
+              "l10"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-clickup"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Integrating folk with Your Favorite Tools",
+            "marks": [
+              "l11"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "folk CRM, PartnerStack, AI assistants, magic fields, pipeline management, contact enrichment",
+    "keywords": [
+      "folk CRM tutorial",
+      "folk CRM setup",
+      "CRM for relationship teams",
+      "AI CRM software",
+      "folk CRM guide",
+      "manage contacts folk"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/folk.app as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A clean, modern desktop screen showing a folk CRM interface with colorful contact cards and a sales pipeline, with a person smiling in the background.. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Is folk CRM really easier to use than Salesforce or HubSpot?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Yes, fundamentally. Folk is designed for relationship-first teams, not just sales. The interface is cleaner, with fewer mandatory fields and more flexibility. Features like Magic Fields and AI Assistants reduce manual data entry, making it feel less like a database and more like a collaborative workspace. It’s built for speed and simplicity.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Can I use folk CRM for fundraising or investor relations?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Absolutely. Folk is excellent for fundraising. You can create a dedicated \"Fundraising Pipeline\" with stages like \"Initial Contact,\" \"Pitch Deck Sent,\" \"Due Diligence,\" and \"Term Sheet.\" Every interaction with an investor is logged in their contact profile, providing perfect context for your next meeting.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How does the AI enrichment work, and is it accurate?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "When you add a new contact, folk’s AI scans the web to find publicly available information like job title, company, location, and social profiles. It uses this to auto-fill fields. It’s highly accurate for professionals with a public digital footprint (like on LinkedIn). You can always manually correct or add to the data, and the AI learns from those corrections to improve.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:en:folk-crm:tutorial",
+    "source": "sdk-agent-blog-seo:mimo",
+    "translation_of": "como-usar-folk-crm"
+  },
+  "published_at": "2026-06-12T05:39:42",
+  "locale": "en"
+}

@@ -1,0 +1,1023 @@
+{
+  "id": "post-como-usar-whale",
+  "slug": "como-usar-whale",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "negocios",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "Whale: Tutorial Paso a Paso para Documentar y Entrenar",
+    "excerpt": "Aprende a usar Whale para documentar SOPs y entrenar a tu equipo. Tutorial completo paso a paso. ¡Optimiza tu onboarding ahora!",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/como-usar-whale.jpg",
+        "alt": "Whale: Tutorial Paso a Paso para Documentar y Entrenar",
+        "filename": "como-usar-whale.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si alguna vez sentiste que documentar procesos internos es como construir un castillo de naipes que se desmorona con cada cambio, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Whale",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " es la herramienta que necesitas. No es solo un repositorio más; es una plataforma inteligente diseñada para convertir el caos operativo en claridad, y el onboarding doloroso en un proceso ágil y medible. En este tutorial, te guiaré paso a paso para que domines Whale y transformes cómo tu equipo aprende y trabaja.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "(Divulgación: este artículo contiene enlaces de afiliado. Si realizas una compra a través de ellos, no incurres en costo adicional y me ayudas a seguir creando contenido útil.)",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1. Primeros Pasos: Configuración Inicial en Whale",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-whale"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "El registro en Whale es sorprendentemente sencillo y su plan gratuito es generoso, lo que te permite probar la plataforma sin presiones. Ingresa a ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "usewhale.io",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " y haz clic en \"Start for Free\". Solo necesitas tu email corporativo. Una vez dentro, el asistente de configuración te pedirá que invites a tu primer miembro del equipo. Aquí viene un consejo clave: ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "empieza con un compañero colaborativo",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", no con todo el departamento. Querrás perfeccionar un flujo de trabajo antes de escalar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-whale"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "El dashboard es limpio y directo. A la izquierda, tienes el menú principal con \"Procesos\", \"Entrenamiento\" y \"Playbooks\". Por ahora, ve a \"Procesos\" y crea tu primer documento. Nómbralo con claridad: \"Proceso de Atención al Cliente por Chat\" o \"Checklist de Onboarding para Desarrolladores\". Esta será tu primera pieza de conocimiento estructurado. La facilidad para empezar a documentar es una de las ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "razones por las que elegir Whale",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " frente a métodos tradicionales como documentos de Google desorganizados.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2. Documentando tu Primer SOP (Procedimiento Operativo Estándar)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ahora, vamos al corazón de Whale. Abre el documento que acabas de crear. Notarás que la interfaz se parece a un editor de texto moderno, pero con superpoderes. Puedes:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Añadir pasos numerados con checklists interactivas.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Incorporar videos y GIFs directamente desde YouTube o subiéndolos (ideal para mostrar una acción en software).",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Insertar capturas de pantalla y anotarlas dentro de la misma plataforma.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Usar la ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "función de IA para SOPs",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " para generar una base o expandir notas desordenadas en pasos claros. Es un salvavidas cuando tienes prisa.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/whale-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ejemplo concreto:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Documentando \"Cómo Procesar un Reembolso\". En el paso 1, escribe \"Accede al panel de administración de Stripe\". Luego, arrastra y suelta una captura de pantalla de la página de Stripe. Haz clic en \"Añadir\" y selecciona \"Video\" para insertar un tutorial rápido de 30 segundos que grabaste. En el paso 2, agrega una checklist: \"Verificar fecha de compra\", \"Revisar política de reembolso\", \"Aprobar solicitud\". En menos de 10 minutos, tienes un recurso vivo y visual. Para inspirarte en otros flujos, echa un vistazo a estos ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "casos de uso de Whale",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3. Creando un Curso de Entrenamiento Interactivo",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Whale no se queda en documentar; convierte ese conocimiento en entrenamiento activo. Ve a la sección \"Entrenamiento\" y crea un nuevo curso. Asigna un nombre, como \"Certificación para Nuevo Personal de Ventas\". Ahora, puedes:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Añadir lecciones:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Vincula los SOPs que ya creaste como módulos. Cada documento de proceso se convierte en una lección que el empleado debe marcar como completada.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Incluir quizzes:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Después de un módulo crítico, añade un cuestionario de 3 preguntas para verificar la comprensión. El sistema califica automáticamente.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Asignar y hacer seguimiento:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Asigna el curso a un grupo o individuo. En la pestaña \"Progreso\", verás en tiempo real quién ha completado qué, y con qué puntuación. Olvídate de perseguir a la gente por email; el sistema lo hace por ti.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://invite.usewhale.io/87rnfekkswjt-40l8xf"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La automatización del seguimiento es donde Whale brilla. Puedes configurar recordatorios automáticos para los que llevan retraso. Es perfecto para equipos remotos o en crecimiento. **Si quieres una herramienta que haga el trabajo pesado por ti, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "prueba Whale aquí",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".**",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4. Funciones Nuevas y Destacadas de Whale en 2024",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Whale evoluciona rápido. Estas son las funcionalidades que realmente están marcando la diferencia este año:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Playbooks Inteligentes:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Son como carpetas dinámicas. Puedes crear un \"Playbook de Onboarding\" que agrupe automáticamente todos los SOPs y cursos relevantes para un rol específico (ej: \"Playbook para Diseñador UX\"). Al actualizar un SOP en cualquier lugar, el Playbook se actualiza al instante.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-monday-com"
+          },
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-clickup"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Integraciones Profundas:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Se conecta de manera nativa con herramientas como Slack y Microsoft Teams. Esto significa que puedes compartir un SOP directamente en un canal o recibir notificaciones de cuando un equipo completa un entrenamiento. Para comparar enfoques de gestión de proyectos, puedes ver cómo se integra ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Whale con monday.com",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " o con ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "ClickUp",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", pero la ventaja de Whale es su foco único en el conocimiento y entrenamiento.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/whale-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Análisis de Brechas de Habilidad:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Una función beta muy prometedora. Al hacer seguimiento de los quizzes y el rendimiento, la plataforma empieza a señalar áreas donde el equipo completo tiene debilidades comunes, permitiéndote crear contenido de entrenamiento proactivo. Descubre más sobre estas ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "novedades de Whale",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " en nuestro blog.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "5. ¿Para Quién es Ideal Whale? (Hint: Probablemente Para Ti)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Startups y equipos en rápido crecimiento:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Cuando contratas a 5 personas al mes, no puedes tener a un fundador dedicando 4 horas a formar a cada una. Whale sistematiza el conocimiento, liberando tiempo fundacional.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Departamentos de RRHH y Operaciones:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Es su aliado secreto para escalar la cultura y los procesos sin perder calidad. El seguimiento de progreso les da datos concretos para reportar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Líderes de equipo y gerentes de proyecto:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Tienes la responsabilidad de que tu equipo sea competente y consistente. Whale te da la herramienta para hacerlo sin microgestionar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Compañías con procedimientos complejos o regulatorios:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Si la precisión lo es todo (ej: healthcare, fintech, logística), Whale garantiza que todos sigan el mismo camino, y te da la trazabilidad para auditorías.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "En esencia, si alguna vez has dicho \"lo documentamos en algún lugar\" o \"tenemos un proceso, pero nadie lo sigue\", Whale es para ti. Es la solución para el conocimiento tribal que se pierde cuando alguien se va de vacaciones.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lleva tu Productividad al Siguiente Nivel",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Implementar Whale no es solo comprar un software; es invertir en la resiliencia y escalabilidad de tu organización. Es reemplazar la fricción por fluidez, y la confusión por competencia compartida. El plan gratuito es lo suficientemente robusto para que lo pruebes con un equipo pequeño y veas el impacto en primera persona.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://invite.usewhale.io/87rnfekkswjt-40l8xf"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Listo para dejar de repetir las mismas explicaciones y empezar a construir un activo de conocimiento vivo? **",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Empieza tu prueba gratis en Whale ahora",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "** y experimenta la diferencia de un equipo verdaderamente alineado.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sigue leyendo en TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-whale"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué es Whale y para qué sirve exactamente?",
+            "marks": [
+              "l8"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/whale-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Guía completa de funciones nuevas de Whale",
+            "marks": [
+              "l9"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-whale"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Trucos y mejores prácticas para usar Whale al máximo",
+            "marks": [
+              "l10"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-apollo-io"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo usar Apollo.io para tus prospecciones",
+            "marks": [
+              "l11"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Preguntas Frecuentes (FAQ)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Q: ¿El plan gratuito de Whale es realmente útil o tiene muchas limitaciones?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "A:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " El plan gratuito es sorprendentemente completo para empezar. Incluye 5 miembros, 1 creador y acceso a la IA para SOPs. Es perfecto para validar la herramienta con un pequeño equipo piloto antes de escalar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Q: ¿Cómo se compara Whale con usar solo Notion o Google Docs para SOPs?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "A:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " La diferencia está en la ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "trazabilidad y el entrenamiento activo",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Notion es un gran wiki, pero Whale fue diseñado específicamente para asegurar que el conocimiento no solo esté ahí, sino que sea consumido, entendido y medido a través de quizzes y seguimiento de progreso.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Q: ¿Puedo migrar mis documentos existentes (Word, PDF, etc.) a Whale?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "A:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Sí, puedes copiar y pegar contenido directamente en el editor de Whale. Para una migración masiva, su equipo de soporte puede asistirte. El valor no está solo en alojar el documento, sino en reconstruirlo como un SOP interactivo con checklists y multimedia.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "Whale, SOP, onboarding, entrenamiento, documentación, equipos",
+    "keywords": [
+      "tutorial whale",
+      "documentar SOPs",
+      "entrenar equipo",
+      "onboarding empleados",
+      "plataforma whale",
+      "software productividad"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/usewhale.io as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A diverse team collaborating around a modern laptop showing a clean, intuitive interface with documents and progress bars, soft lighting, professional but welcoming atmosphere.. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿El plan gratuito de Whale es realmente útil o tiene muchas limitaciones?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "El plan gratuito es sorprendentemente completo para empezar. Incluye 5 miembros, 1 creador y acceso a la IA para SOPs. Es perfecto para validar la herramienta con un pequeño equipo piloto antes de escalar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Cómo se compara Whale con usar solo Notion o Google Docs para SOPs?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La diferencia está en la trazabilidad y el entrenamiento activo. Notion es un gran wiki, pero Whale fue diseñado específicamente para asegurar que el conocimiento no solo esté ahí, sino que sea consumido, entendido y medido a través de quizzes y seguimiento de progreso.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Puedo migrar mis documentos existentes (Word, PDF, etc.) a Whale?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sí, puedes copiar y pegar contenido directamente en el editor de Whale. Para una migración masiva, su equipo de soporte puede asistirte. El valor no está solo en alojar el documento, sino en reconstruirlo como un SOP interactivo con checklists y multimedia.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:es:whale:tutorial",
+    "source": "sdk-agent-blog-seo:mimo"
+  },
+  "published_at": "2026-06-12T13:19:37",
+  "locale": "es"
+}

@@ -1,0 +1,1217 @@
+{
+  "id": "post-openart-ai-tips",
+  "slug": "openart-ai-tips",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "ia",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "OpenArt AI: Best Tips & Ways to Create Amazing Images",
+    "excerpt": "Discover proven tips and best ways to use OpenArt AI for stunning AI-generated images, videos, and characters. Start creating today.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/openart-ai-tips.jpg",
+        "alt": "OpenArt AI: Best Tips & Ways to Create Amazing Images",
+        "filename": "openart-ai-tips.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "*Disclosure: Some links below are affiliate links. If you make a purchase, TonyCiencia may earn a commission at no extra cost to you.*",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "I have spent more hours than I care to admit clicking through AI image generators. Some produce muddy results. Others lock the good models behind enterprise pricing. OpenArt AI hit differently from the first session — the outputs were sharp, the controls actually made sense, and the credit system felt fair.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If you have been curious about diving into AI image creation or you are looking for a platform that handles everything from still images to short video clips, this guide walks you through the best ways to use OpenArt AI and tips that will level up your results fast.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://openartai.pxf.io/c/6249333/3106413/38572"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "**Start creating with OpenArt AI here**",
+            "marks": [
+              "l0"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "---",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What Makes OpenArt AI Worth Your Attention",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "OpenArt AI is a web-based platform that gives you access to multiple AI models under one roof. We are talking about Stable Diffusion variants, FLUX, ControlNet workflows, and over 100 premium image, video, and audio models. Instead of juggling different apps or self-hosting models on your own machine, everything runs inside a clean browser workspace.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What I appreciate most is the layer of control. You can go from a simple text prompt to a fully styled image in seconds, or you can dig into ControlNet to guide poses, edges, and depth maps for precise compositions. That range — from beginner-friendly to granular — is rare.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The platform also supports consistent character creation, one-click story generation, and short video clips. So if you are building a brand with a mascot, writing a comic, or prototyping social content, OpenArt AI covers a lot of ground in one subscription.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "---",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Best Tips for Getting Stunning Results with OpenArt AI",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1. Start with a Strong Prompt Structure",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "A vague prompt like \"a warrior\" will give you generic output. Instead, structure your prompt with four layers:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Subject",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": A female samurai in crimson armor",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Setting",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Standing on a cliff at golden hour",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Style",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Cinematic lighting, Studio Ghibli influence",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Technical",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": 8K detail, shallow depth of field",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "OpenArt AI responds well to this kind of layered input because its models — especially FLUX and SDXL variants — are trained on detailed captioning. The more context you provide, the closer the first generation gets to your vision.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2. Use ControlNet to Lock Down Composition",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "This is where OpenArt AI separates itself from simpler tools. ControlNet lets you upload a reference sketch, a pose skeleton, or a depth map, and the AI generates an image that follows that structure.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Practical example: I uploaded a rough pencil sketch of a character pose, ran it through the OpenPose ControlNet module, and got a fully rendered character in the exact stance I wanted — on the first try. No more generating 40 images hoping one lands in the right pose.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3. Leverage Consistent Characters for Branding",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/what-is-openart-ai"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "One of the newest features on ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "OpenArt AI",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " is consistent character creation. You train a small personalized model on a few reference images of your character, and then every future generation keeps that character recognizable across different scenes and outfits.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If you are building a YouTube channel mascot, an illustrated book series, or even marketing visuals for a product, this feature saves enormous time. No more explaining to the AI what your character looks like every single prompt.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4. Experiment with Parallel Generations",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Depending on your plan, OpenArt AI lets you run 8, 16, or more generations simultaneously. This is not just a speed perk — it is a creative strategy. Generate eight variations of the same prompt with slightly different seeds or style modifiers, then pick the winner. You will find that small tweaks in phrasing produce wildly different moods, and side-by-side comparison makes the best version obvious.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "5. Try One-Click Stories for Narrative Projects",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If you have ever wanted to create a short visual story but felt overwhelmed by the workflow, OpenArt AI's One-Click Story feature handles the heavy lifting. You give it a premise, and it generates a sequence of illustrated panels with consistent characters and environments. It is a fast way to prototype a comic, a storyboard, or a social media story series.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://openartai.pxf.io/c/6249333/3106413/38572"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "**Unlock the full creative suite at OpenArt AI**",
+            "marks": [
+              "l2"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "---",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "New & Featured Functions You Should Try",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "OpenArt AI has rolled out several features recently that are worth your attention:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Seedance 2.0",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " just went live on the platform. This new video generation model produces smoother, more coherent short clips from text or image prompts. If you have been wanting to add motion to your AI art portfolio, this is the feature to test first.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The Expanded Workspace",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " now includes dedicated tabs for Image, Video, Audio, Characters, and Story — all within a single project environment. You can move between media types without losing context or re-uploading assets.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "100+ Premium Models",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " cover a wide spectrum of styles and use cases. From photorealistic portrait models to anime-focused generators and architectural visualization tools, the library keeps expanding. You can switch between models with one click and compare outputs instantly.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Powerful Image Editing Suite",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " means you do not have to export to Photoshop for basic fixes. Inpainting, outpainting, upscaling, and background removal all happen inside the platform. I have finished entire pieces without leaving the browser.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/openart-ai-new-features"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "For a deeper dive into every new addition, check the ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "full OpenArt AI new features guide",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "---",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Who Is OpenArt AI Ideal For?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Content creators and social media managers",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " who need a constant flow of unique visuals will find OpenArt AI's credit system and speed hard to beat. The Essential plan alone supports up to 4,000 images per month — more than enough for daily posting.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Indie game developers and concept artists",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " benefit from ControlNet and consistent character features. You can iterate on character designs, environment concepts, and mood boards without commissioning external art for every revision.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Writers and storytellers",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " who want to visualize their narratives — whether for a webcomic, a children's book, or a pitch deck — will love the One-Click Story and character consistency tools.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Small business owners and marketers",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " who cannot justify a full design team can use OpenArt AI to produce product mockups, social graphics, and ad creatives at a fraction of the cost. The Advanced and Infinite plans include commercial use rights, which is a big deal if you plan to use outputs in paid campaigns.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Educators and students",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " exploring AI art as a subject or a creative medium will find the free trial credits a low-risk way to experiment before committing.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-openart-ai"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If any of these descriptions match you, the ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "step-by-step tutorial",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " will get you producing results within your first session.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "---",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pricing That Scales With You",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "OpenArt AI offers four tiers:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "| Plan | Monthly | Annual (50% off) | Credits |",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "|---|---|---|---|",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "| Free | $0 | — | 40 trial credits |",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "| Essential | $14 | $7/mo | 4,000/mo |",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "| Advanced | $29 | $14.50/mo | 12,000/mo |",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "| Infinite | $56 | $28/mo | 24,000/mo |",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The annual pricing is where the value really shows. At $7 per month on the Essential plan, you are paying less than a single stock photo for a tool that generates thousands of custom images.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "I started on Essential, burned through my credits in the first week because I was having too much fun, and upgraded to Advanced within a month. The ability to add credits as needed on higher tiers is a nice safety net for heavy project months.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/why-choose-openart-ai"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Explore the ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "reasons why creators choose OpenArt AI",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " for a full breakdown of what each tier unlocks.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "---",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Final Thoughts: Just Start Creating",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Here is the honest truth — the best way to understand what OpenArt AI can do is to generate your first image. The free trial gives you 40 credits to play with premium features, and you will know within ten minutes whether this tool fits your creative workflow.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "My advice: pick a project. A character design. A mood board. A short visual story. Give it a real purpose, and let OpenArt AI show you what it can do.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://openartai.pxf.io/c/6249333/3106413/38572"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "**Sign up for OpenArt AI and start your first project today**",
+            "marks": [
+              "l6"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "---",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Keep reading on TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/what-is-openart-ai"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What is OpenArt AI? A complete overview",
+            "marks": [
+              "l7"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-openart-ai"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step-by-step tutorial: How to use OpenArt AI",
+            "marks": [
+              "l8"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/why-choose-openart-ai"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Why choose OpenArt AI over other tools",
+            "marks": [
+              "l9"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/openart-ai-use-cases"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "OpenArt AI use cases for creators and businesses",
+            "marks": [
+              "l10"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-elevenlabs"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How to use ElevenLabs for AI voice generation",
+            "marks": [
+              "l11"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l12",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-gamma"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How to use Gamma for AI-powered presentations",
+            "marks": [
+              "l12"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "OpenArt AI, Stable Diffusion, FLUX, ControlNet, Impact.com",
+    "keywords": [
+      "OpenArt AI",
+      "AI image generation",
+      "Stable Diffusion AI art",
+      "AI art creator",
+      "ControlNet images",
+      "best AI image tools"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/openart.ai as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A creator sitting at a desk with multiple colorful AI-generated character portraits and landscape images floating around a glowing monitor screen, digital art studio atmosphere. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Is OpenArt AI free to use?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Yes. OpenArt AI offers a free plan with 40 one-time trial credits that let you test premium models and features. If you want to keep creating, paid plans start at $7 per month with annual billing, giving you 4,000 credits monthly.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Can I use OpenArt AI images for commercial purposes?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The Advanced and Infinite plans include commercial use rights, so you can use generated images in products, marketing materials, and client work. The Essential plan is best suited for personal and experimental use.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What AI models does OpenArt AI support?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "OpenArt AI supports Stable Diffusion variants, FLUX, ControlNet workflows, and over 100 premium models covering photorealistic, anime, architectural, and other styles. New models like Seedance 2.0 for video are added regularly.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:en:openart-ai:trucos",
+    "source": "sdk-agent-blog-seo:mimo",
+    "translation_of": "trucos-openart-ai"
+  },
+  "published_at": "2026-06-12T12:58:14",
+  "locale": "en"
+}

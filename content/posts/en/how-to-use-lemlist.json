@@ -1,0 +1,1917 @@
+{
+  "id": "post-how-to-use-lemlist",
+  "slug": "how-to-use-lemlist",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "ia",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "How to Use Lemlist for Multichannel Outreach (Step-by-Step)",
+    "excerpt": "Learn how to set up your first Lemlist campaign from scratch. This step-by-step tutorial covers cold email, LinkedIn outreach, and deliverability — try it free.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/how-to-use-lemlist.jpg",
+        "alt": "How to Use Lemlist for Multichannel Outreach (Step-by-Step)",
+        "filename": "how-to-use-lemlist.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How to Use Lemlist: A Step-by-Step Tutorial for Multichannel Outreach That Actually Works",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "I've tested a lot of outreach tools. Most of them do one thing well — send emails — and then leave you stitching together three other apps for LinkedIn, phone calls, and deliverability. Lemlist is different. It bundles email, LinkedIn, SMS, calls, and a built-in lead database into a single platform, and it does all of this without feeling bloated.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "In this tutorial, I'm going to walk you through setting up your first Lemlist campaign from absolute zero. Whether you're a solo founder trying to book demos or an agency managing outreach for ten clients, the steps below will get you live in under an hour.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://get.lemlist.com/ui9r4ec8cba9"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If you're already curious and want to follow along, you can ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "grab a 30-day free trial here",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "---",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What Is Lemlist?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lemlist is a multichannel outreach platform built for B2B teams who want to contact prospects across email, LinkedIn, phone, SMS, and WhatsApp — all from one dashboard. What makes it stand out is its obsession with personalization and deliverability.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The platform includes a massive database of 650M+ contacts, AI-powered sequence writing, dynamic image personalization (think screenshots of a prospect's website embedded in your email), and a deliverability hub with automatic warm-up so your emails land in inboxes instead of spam folders.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/what-is-lemlist"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "I wrote a deeper breakdown of the platform if you want the full picture: ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "What Is Lemlist and Why Teams Are Switching to It",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "---",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Why I Recommend Lemlist Over Other Outreach Tools",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "I'm not going to pretend there aren't other options out there. There are plenty. But here's why Lemlist consistently wins for me:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1. True multichannel from one place.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " You're not just sending emails. You can automate LinkedIn profile visits, connection requests, messages, and even voice drops — and it all lives in the same campaign builder. No Zapier hacks needed.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2. Personalization that goes beyond `{first_name}`.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Lemlist lets you create dynamic images, custom landing pages for each lead, and AI-generated copy that adapts to each prospect's company, role, and pain points. When I switched from generic templates to Lemlist's personalization, my reply rates nearly doubled.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3. Built-in deliverability tools.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Most platforms leave you to figure out email warm-up on your own. Lemlist has a dedicated deliverability hub that monitors your sender reputation, rotates sending accounts, and gradually warms up new domains. This alone saved me from buying a separate tool.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4. A 650M+ lead database with built-in finder.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Instead of paying for Apollo, Lusha, or another enrichment tool separately, Lemlist includes email and phone number finding right inside the platform.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/why-choose-lemlist"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If you want a deeper comparison of why teams are making the switch, check out ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Why Choose Lemlist for Your Outreach Stack",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "---",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step-by-Step: Setting Up Your First Lemlist Campaign",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Here's the part you came for. Let's build a real campaign together.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 1: Create Your Account and Pick a Plan",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://get.lemlist.com/ui9r4ec8cba9"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Head to ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "lemlist.com",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " and sign up. You'll get a 14-day free trial on any plan, but if you use the link in this post, you can unlock an extended 30-day trial — plenty of time to test everything properly.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "When choosing a plan, here's the quick breakdown:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Email plan (from €39/mo):",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Great if you only need email outreach. Includes unlimited users, 5,000 emails/month, the lead database, and the deliverability hub.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Multichannel plan (from €109/mo):",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " This is the one I recommend. It adds LinkedIn automation, SMS, WhatsApp (as an add-on), a built-in call dialer with VoIP, and 5 senders per user. Unlimited emails and messages.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "For most B2B teams doing serious outbound, the Multichannel plan is where the real value lives.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 2: Build Your Lead List",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Inside Lemlist, click on ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "\"Leads\"",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " in the sidebar. You have two options:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Option A: Use Lemlist's built-in database.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Search by job title, company size, industry, location, and technology stack. The database has over 650 million contacts. Filter ruthlessly — a tight list of 200 well-matched leads will outperform a spray of 10,000 random ones every time.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Option B: Import your own list.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Upload a CSV with columns for first name, last name, company, email, LinkedIn URL, and any custom fields you want to use for personalization (like a recent blog post they wrote, or their tech stack).",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pro tip: I always add at least 3-5 custom merge fields per lead. The more data you feed Lemlist's AI, the more convincing your personalized messages will be.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 3: Create Your Sequence",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Navigate to ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "\"Campaigns\"",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " and click ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "\"Create a campaign.\"",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " You'll land in the sequence builder, which is a drag-and-drop timeline of touchpoints.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Here's a multichannel sequence that's been working well for me:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Day 1 — Email #1:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Short, personalized intro email. Reference something specific about their company. Use a dynamic screenshot of their homepage as an image if you want to really stand out.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Day 3 — LinkedIn Visit:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Automatically visit their LinkedIn profile. This creates a subtle awareness trigger.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Day 4 — LinkedIn Connection Request:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Send a connection request with a short note.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Day 6 — Email #2:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Follow up with a case study or social proof relevant to their industry.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "5. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Day 9 — LinkedIn Message:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " If they accepted your connection, send a friendly message referencing your email.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "6. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Day 12 — Email #3:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " The breakup email. Short, no pressure, with a clear question.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lemlist's AI — called ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "lemCopilot",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " — can draft each of these steps for you. Just describe your offer, your ideal customer, and your tone, and it generates ready-to-send copy. I still tweak the output, but it cuts my sequence creation time from an hour to fifteen minutes.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 4: Add Personalization Layers",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "This is where Lemlist separates itself from every other tool I've used.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Dynamic images:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Upload an image template, and Lemlist will overlay the lead's name, company logo, or website screenshot automatically. Every recipient sees a version that looks like it was made just for them.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Custom landing pages:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " You can generate a unique landing page per lead. Imagine sending a prospect an email that links to a page with *their* logo, *their* pain points, and a personalized calendar booking link.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "AI variables:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Beyond standard merge tags, you can use AI to generate custom sentences for each lead based on data in your CSV. For example, \"I noticed {{company}} recently {{ai_generated_insight}} — here's how we can help.\" This feels genuinely personal without any manual work.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 5: Configure Deliverability",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Before you hit send, go to the ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Deliverability Hub",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " in the left sidebar. Here's what to set up:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Connect your sending email(s).",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Lemlist supports Google Workspace, Microsoft 365, and custom SMTP. The Multichannel plan lets you rotate up to 5 senders per user.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Enable warm-up.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Toggle on lemwarm (Lemlist's built-in warm-up tool). It gradually increases your sending volume while exchanging emails with other lemwarm users to build your sender reputation. Run this for at least 2-3 weeks before starting outreach on a new domain.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Check your DNS records.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Lemlist walks you through SPF, DKIM, and DMARC setup. Don't skip this — it's the single biggest factor in whether your emails land in the inbox.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 6: Launch and Monitor",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Hit ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "\"Launch\"",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " and watch your campaign go live. Lemlist's dashboard gives you real-time stats on:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Open rates (with automatic open tracking)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Reply rates (categorized as positive, negative, or neutral)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "LinkedIn acceptance rates",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Call outcomes",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pay special attention to your ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "reply rate",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " in the first 48 hours. If it's below 3-5%, your subject line or first line probably needs work. Lemlist's A/B testing feature lets you test up to 5 variants of any email step, so iterate fast.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/lemlist-tips"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "I wrote a full guide on campaign optimization: ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Lemlist Tips & Best Practices",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "---",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "New & Standout Features Worth Exploring",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lemlist ships updates frequently, and a few recent additions have genuinely impressed me:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "lemAgent (AI Agents):",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " You can now deploy AI agents that handle parts of your outreach autonomously — from lead research to follow-up writing. Think of it as an AI SDR that works inside your Lemlist account.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Unified Inbox:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " All your email replies, LinkedIn messages, and SMS responses funnel into a single inbox. No more tab-switching between platforms. You can reply, assign to teammates, and tag conversations without leaving Lemlist.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "WhatsApp Automation:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Recently added as an add-on, this lets you include WhatsApp messages in your sequences. For teams targeting markets where WhatsApp dominates (LATAM, parts of Europe, Middle East), this is a game-changer.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Built-in Call Dialer with VoIP:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " The Multichannel plan now includes a native dialer. You can make calls directly from Lemlist, log outcomes, and add call steps to your sequences. No need for a separate phone tool.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/lemlist-new-features"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "For a full breakdown of what's new, see ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Lemlist New Features & Updates",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "---",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Who Lemlist Is Ideal For",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lemlist isn't for everyone, and that's fine. Here's who will get the most out of it:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "B2B sales teams",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " running account-based or outbound-led strategies. If your pipeline depends on cold outreach at scale, Lemlist gives you everything in one place.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Agencies",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " managing outreach for multiple clients. The platform supports unlimited users and lets you segment campaigns by client, domain, and audience.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Solo founders and bootstrapped startups",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " who can't afford (or don't want) a stack of five different tools. Lemlist replaces your email tool, LinkedIn automation tool, lead database, warm-up service, and calling software.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Recruiters",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " doing outbound sourcing. The multichannel approach works beautifully for reaching passive candidates — especially with LinkedIn + email combos.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Teams that care about deliverability.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " If you've been burned by low open rates or spam folder placement, Lemlist's deliverability hub is one of the best I've seen in any outreach platform.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/lemlist-use-cases"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "For more examples of how different teams use Lemlist, check out ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Lemlist Use Cases & Real Results",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "---",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tips to Maximize Your Results with Lemlist",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "After months of using Lemlist, here are the habits that made the biggest difference for me:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1. Never skip warm-up.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " I know it's tempting to launch immediately. Don't. Run lemwarm for at least 14 days on a new domain. Your open rates will thank you.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2. Keep your first email under 80 words.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Long cold emails get deleted. Open with a relevant observation about their company, state your value prop in one sentence, and close with a simple question.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3. Use the A/B testing on every campaign.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Test subject lines first (they control open rates), then test first lines (they control reply rates). Let Lemlist's AI generate variants for you.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4. Layer channels thoughtfully.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Don't blast every channel on day one. Space out your touchpoints and vary the medium. An email followed by a LinkedIn visit two days later feels natural; a simultaneous email + LinkedIn message + SMS feels desperate.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "5. Clean your lists regularly.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Use Lemlist's built-in email verification before sending. Bounce rates above 3% will hurt your sender reputation fast.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "6. Review your Unified Inbox daily.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Replies have a shelf life. The faster you respond to positive replies, the higher your meeting booking rate.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://get.lemlist.com/ui9r4ec8cba9"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ready to put all of this into practice? ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Start your Lemlist free trial and launch your first campaign this week",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "---",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Keep Reading on TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Looking to build a complete outreach and content stack? Here are more guides we've published:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/what-is-lemlist"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What Is Lemlist? The Complete Overview",
+            "marks": [
+              "l8"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/why-choose-lemlist"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Why Choose Lemlist for Your Sales Outreach",
+            "marks": [
+              "l9"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/lemlist-new-features"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lemlist New Features & Recent Updates",
+            "marks": [
+              "l10"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/lemlist-tips"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lemlist Tips & Best Practices for Higher Reply Rates",
+            "marks": [
+              "l11"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l12",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-elevenlabs"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How to Use ElevenLabs for AI Voice in Outreach Videos",
+            "marks": [
+              "l12"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l13",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-descript"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How to Use Descript to Edit Sales Call Recordings",
+            "marks": [
+              "l13"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l14",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-gamma"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How to Use Gamma to Create Pitch Decks for Your Outreach",
+            "marks": [
+              "l14"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "*Disclosure: This post contains affiliate links. If you sign up through one of our links, we may earn a commission at no extra cost to you. We only recommend tools we genuinely use and trust.*",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "lemlist, cold email, LinkedIn automation, sales engagement, outreach platform",
+    "keywords": [
+      "lemlist tutorial",
+      "multichannel outreach",
+      "cold email software",
+      "lemlist setup",
+      "email outreach automation",
+      "personalized cold email"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/lemlist.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A laptop screen showing a multichannel campaign dashboard with email and LinkedIn icons, surrounded by floating personalized message previews and contact cards on a clean white desk. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Is Lemlist good for cold email beginners?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Absolutely. Lemlist's AI-powered sequence builder and lemCopilot make it easy to write professional outreach even if you've never sent a cold email before. The platform also includes pre-built templates and a deliverability hub that handles the technical setup for you.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How much does Lemlist cost?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The Email plan starts at €39/month and covers email-only outreach with 5,000 emails/month, unlimited users, and access to the 650M+ lead database. The Multichannel plan starts at €109/month and adds LinkedIn automation, SMS, WhatsApp, a built-in call dialer, and 5 senders per user with unlimited emails and messages.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Can Lemlist replace my LinkedIn automation tool?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Yes. On the Multichannel plan, Lemlist automates LinkedIn profile visits, connection requests, messages, and InMails — all integrated into the same campaign timeline as your emails and calls. You don't need a separate tool like Dripify or Expandi.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How long should I warm up my email domain before launching a Lemlist campaign?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lemlist recommends at least 14 days of warm-up using their built-in lemwarm feature. For brand-new domains, 21-28 days is safer. The deliverability hub monitors your sender reputation and automatically adjusts sending volume.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:en:lemlist:tutorial",
+    "source": "sdk-agent-blog-seo:mimo",
+    "translation_of": "como-usar-lemlist"
+  },
+  "published_at": "2026-06-12T04:45:27",
+  "locale": "en"
+}

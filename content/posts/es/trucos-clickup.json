@@ -1,0 +1,964 @@
+{
+  "id": "post-trucos-clickup",
+  "slug": "trucos-clickup",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "negocios",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "ClickUp: Trucos pro para dominar tu productividad",
+    "excerpt": "Descubre cómo usar ClickUp al máximo con estos trucos y mejores formas. Potencia tu trabajo en equipo hoy. ¡Prueba la versión gratuita ahora!",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/trucos-clickup.jpg",
+        "alt": "ClickUp: Trucos pro para dominar tu productividad",
+        "filename": "trucos-clickup.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Introducción: ¿Por qué ClickUp está revolucionando la gestión del trabajo?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://try.web.clickup.com/vrgnpqnkkxr6"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si sientes que tu flujo de trabajo actual es un laberinto de apps y hojas de cálculo, deja que te presente a ClickUp. Esta plataforma todo-en-uno no es solo otra herramienta más; es el centro de mando definitivo para equipos que quieren dejar de perder tiempo y empezar a construir cosas increíbles. Desde tareas y documentos hasta metas y sprints con IA integrada, ClickUp reúne todo lo que necesitas en un solo espacio. Lo mejor de todo es que puedes ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "probarlo gratis y sin riesgos",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". En esta guía, vamos a desglosar los trucos y mejores formas para que lo domines como un experto.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "5 Trucos infalibles para optimizar tu espacio de trabajo en ClickUp",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La verdadera magia de ClickUp está en su flexibilidad. Aquí tienes algunas formas concretas de sacarle el jugo:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://try.web.clickup.com/vrgnpqnkkxr6"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1. Crea \"Espacios\" estratégicos, no solo por departamento.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " En lugar de tener un Espacio para Marketing y otro para Ventas, prueba uno para \"Proyectos Activos\" y otro para \"Recursos y Procesos\". Así, mantienes la operativa del día separada de la base de conocimientos, reduciendo el ruido y mejorando el enfoque. Puedes ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "explorar todos los planes, incluyendo el gratuito, aquí",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2. Dominar las \"Vistas\" es dominar tu perspectiva.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " ClickUp te permite ver la misma información de múltiples maneras. ¿Un proyecto complejo? Úsalo en vista de ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Diagrama de Gantt",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " para dependencias. ¿Una reunión de planificación? Cámbialo a vista ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Lista",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". ¿Quieres motivar al equipo? Activa la vista ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Tablero",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " (Kanban). Un truco pro: guarda tu vista favorita como \"Página de Inicio\" para cada Espacio.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3. Usa los \"Campos Personalizados\" para rastrear lo que importa de verdad.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Más allá de prioridad y estado, crea campos para \"Potencial de ingreso\", \"Riesgo\", \"Nivel de satisfacción del cliente\" o \"URL del entregable\". Convierte estos campos en filtros y columnas en tus vistas, y en segundos tendrás informes que antes te tomaban horas.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-clickup"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4. Implementa \"Plantillas de Lista\" para tareas recurrentes.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " ¿Lanzas campañas mensuales? ¿Tienes un checklist de onboarding para nuevos clientes? Diseña la lista una vez, con todos los subtareas, campos y documentos adjuntos, y guárdala como plantilla. La siguiente vez, la creas con un clic y cero errores de omisión. Si necesitas un tutorial detallado, tenemos uno completo ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "aquí",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "5. Automatiza las tareas tediosas con las reglas nativas.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " \"Cuando el estado cambie a 'En revisión', asigna a Juan y añade un comentario\". \"Cuando se cree una tarea en el sprint, añádela automáticamente al proyecto principal\". Las automatizaciones de ClickUp eliminan la fricción y los errores manuales. En el plan Business, tienes hasta 5,000 automatizaciones por mes, un valor brutal.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Funciones nuevas y destacadas que te dejarán boquiabierto",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "ClickUp no se queda quieto. Su ritmo de innovación es uno de los puntos que más destacan los usuarios. Algunas gemas recientes que debes explorar:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/clickup-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "ClickUp Brain con Agentes de IA:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Esto va mucho más allá de un asistente de texto. Los \"Agentes\" pueden asignar tareas, colaborar en documentos y ser mencionados en comentarios, operando como miembros del equipo siempre disponibles. Imagina un agente que resuma los avances de la semana en el documento de minutas o que proponga subtareas basadas en el objetivo de la tarea principal. Es el futuro, pero ya está aquí. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Descubre más sobre sus capacidades de IA",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Whiteboards integrados y privados:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Piensa en la pizarra física de tu oficina, pero digital, colaborativa y conectada a tus datos de ClickUp. Puedes dibujar un esquema, arrastrar tareas existentes para planificarlas visualmente, y crear notas adhesivas que se convierten en tareas con un clic. Es ideal para sesiones de brainstorming y planificación ágil.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Documentos con superpoderes:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Los Docs en ClickUp no son simples word. Puedes incrustar tablas de tareas, vistas de lista, y hasta relojes de cuenta regresiva. Crear un documento de especificaciones donde la tabla de \"Requisitos\" son tareas vivas que se actualizan en tiempo real cambia las reglas del juego.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Panel de metas (Goals) con OKRs:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Establece objetivos clave y resultados medibles, y vincula progresos directamente a las tareas y proyectos de ClickUp. Ver cómo la finalización de un sprint impacta en el OKR trimestral de la empresa es increíblemente motivador y claro.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para quién es ideal ClickUp: más allá de los equipos de tech",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Aunque es un favorito entre equipos de desarrollo y producto, su utilidad es transversal. Si te identificas con alguno de estos perfiles, ClickUp es para ti:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Agencias de marketing y creativas:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Gestiona campañas, entregables, presupuestos de clientes y feedback en un mismo lugar. Los permisos por invitados permiten que el cliente vea su progreso sin exponer tu trabajo interno.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-pipedrive"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Equipos de ventas y revops:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Construye un pipeline visual con el Tablero, gestiona acuerdos con campos personalizados y automatiza el paso de leads entre etapas con reglas. Integra con tu CRM favorito como ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Pipedrive",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " para tener una visión 360°.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-clickup"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Startups y pymes en crecimiento:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " La escalabilidad de ClickUp es perfecta. Empieza con el plan gratuito para un equipo pequeño, y a medida que creces, añades funcionalidades como Portafolios para visión ejecutiva o Time Tracking para facturación. Aprende ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "por qué elegir ClickUp",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " frente a otras opciones.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Freelancers y consultores:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Centraliza todos tus proyectos, clientes, contratos y seguimiento de tiempo. La capacidad de crear diferentes Espacios por cliente o por tipo de servicio mantiene todo ordenado y profesional.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo empezar con ClickUp sin sentirte abrumado",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La profundidad de ClickUp puede parecer intimidante al principio. La clave es empezar simple:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Comienza con una sola Lista.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " No intentes replicar toda tu estructura de trabajo de golpe. Elige un proyecto real, crea una Lista, añade 5-10 tareas y empieza a usar los estados, comentarios y fechas de vencimiento.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Explora un solo tipo de vista a la vez.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Pasa una semana trabajando en vista Lista. La siguiente, experimenta con el Tablero. Así, descubrirás cuál se adapta mejor a cada tipo de trabajo sin sobrecarga cognitiva.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-clickup"
+          },
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-clickup"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  **Revisa la ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Guía de inicio de TonyCiencia",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " y luego el ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Tutorial paso a paso",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".** Tener un mapa claro acelera enormemente la curva de aprendizaje.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Involucra a tu equipo desde el día uno.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " La adopción es más fácil cuando todos juegan. Hagan una demo informal y asignen tareas reales desde el primer momento.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sigue leyendo en TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Listo para profundizar? Tenemos más contenido para convertirte en un experto:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-clickup"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Guía completa: qué es ClickUp y para qué sirve",
+            "marks": [
+              "l8"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-clickup"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tutorial paso a paso para usar ClickUp",
+            "marks": [
+              "l9"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/clickup-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Los mejores casos de uso de ClickUp",
+            "marks": [
+              "l10"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-clickup"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Análisis: por qué elegir ClickUp",
+            "marks": [
+              "l11"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l12",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-monday-com"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo usar monday.com",
+            "marks": [
+              "l12"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l13",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-apollo-io"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Introducción a Apollo.io",
+            "marks": [
+              "l13"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Conclusión: Tu productividad merece este salto",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l14",
+            "_type": "link",
+            "href": "https://try.web.clickup.com/vrgnpqnkkxr6"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "ClickUp no es solo un organizador de tareas; es una plataforma que fomenta la claridad, la colaboración y la ejecución a velocidad. Con sus trucos de personalización, funciones impulsadas por IA y su increíble flexibilidad, puede adaptarse a cómo tú y tu equipo realmente trabajan. La mejor forma de entender su poder es probarla. Aprovecha la ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "garantía de devolución del 100% y ahorra hasta un 30% con el plan anual",
+            "marks": [
+              "l14"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", y empieza hoy a transformar tu flujo de trabajo. ¿Qué esperas para hacer el cambio?",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "ClickUp, gestión de trabajo, productividad, IA, sprints, automatizaciones",
+    "keywords": [
+      "ClickUp trucos",
+      "mejorar productividad",
+      "gestión de proyectos",
+      "ClickUp funciones",
+      "herramienta de trabajo"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/clickup.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A bright, organized digital workspace dashboard showing colorful project boards and charts on a laptop screen, with a team celebrating a milestone in the background.. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Es realmente gratis el plan Forever Free de ClickUp?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sí, el plan Free Forever de ClickUp es completamente gratuito y no requiere tarjeta de crédito. Incluye tareas ilimitadas, miembros ilimitados, Docs colaborativos, gestión de sprints y 60MB de almacenamiento, sin límite de tiempo.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Puedo usar ClickUp si trabajo solo, como freelance?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¡Por supuesto! ClickUp es ideal para freelancers. Te permite organizar múltiples proyectos por cliente, gestionar tu tiempo con el Time Tracking nativo y crear una base de conocimientos profesional con Docs. Todo desde una interfaz unificada.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿ClickUp se integra con otras herramientas que ya uso?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sí, ClickUp tiene integraciones nativas ilimitadas con las herramientas más populares como Slack, Google Drive, HubSpot, GitHub y más. También permite crear automatizaciones con webhooks para conectar cualquier servicio externo.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:es:clickup:trucos",
+    "source": "sdk-agent-blog-seo:mimo"
+  },
+  "published_at": "2026-06-12T04:04:59",
+  "locale": "es"
+}

@@ -1,0 +1,1108 @@
+{
+  "id": "post-trucos-activecampaign",
+  "slug": "trucos-activecampaign",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "ia",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "ActiveCampaign: 7 trucos para potenciar tu email marketing y CRM",
+    "excerpt": "Descubre trucos y mejores formas de usar ActiveCampaign para automatizar ventas, segmentar audiencias y escalar tu negocio. ¡Domina la plataforma!",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/trucos-activecampaign.jpg",
+        "alt": "ActiveCampaign: 7 trucos para potenciar tu email marketing y CRM",
+        "filename": "trucos-activecampaign.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Introducción: Por qué ActiveCampaign se ha convertido en mi herramienta favorita",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si trabajas en marketing digital o ventas, sabes que la clave está en enviar el mensaje correcto, a la persona correcta, en el momento justo. Esto, hecho manualmente, es imposible de escalar. Aquí es donde brilla ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "ActiveCampaign",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". No es solo otra plataforma de email; es un centro de comando inteligente que fusiona email marketing, SMS, un CRM potente y automatizaciones que reaccionan al comportamiento real de tus contactos.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://try.activecampaign.com/x53ed2y6qns9"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "He probado decenas de herramientas, y ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "ActiveCampaign",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " destaca por su flexibilidad y poder a un precio que no asusta a las PYMES. En esta guía, compartiré trucos concretos y las mejores formas de exprimir al máximo esta plataforma. ¿Listo para transformar tus campañas? Empieza a explorar ActiveCampaign ahora y mira la diferencia.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Truco 1: Domina las automatizaciones basadas en comportamiento",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La verdadera magia de ActiveCampaign está en sus automatizaciones. Olvídate de los flujos lineales y aburridos. Aquí puedes crear caminos que se adaptan en tiempo real.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ejemplo concreto:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Supongamos que tienes un webinar. Puedes crear una automatización que:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  Envía la invitación.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  Si el contacto hace clic pero no se registra, le envía un recordatorio 24h después con un beneficio adicional.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  Si se registra, le envía la confirmación y materiales previos.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4.  Si se une al webinar en vivo, le envía una secuencia post-evento especial.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "5.  Si no se une, le envía la grabación y una oferta exclusiva.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-activecampaign"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Mejor forma de hacerlo:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Usa el ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Constructor Visual de Automatizaciones",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Es drag-and-drop, intuitivo y puedes ver el flujo completo. Aprovecha las condiciones \"Si/Si No\" para bifurcar caminos. Un truco pro es usar etiquetas (tags) dentro de la automatización para segmentar después. Por ejemplo, etiqueta a \"asistió al webinar\" para crear una audiencia hipersegmentada para tu próximo lanzamiento. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Aprende a configurar automatizaciones paso a paso",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Truco 2: Segmientación avanzada que va más allá de las listas",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Las listas son el pasado. En ActiveCampaign, la segmentación se basa en datos dinámicos: actividad, intereses, puntos de lead scoring y campos personalizados.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Truco para empezar hoy:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Crea un segmento \"Contactos que abrieron mi último email PERO NO hicieron clic\". Luego, crea una automatización específica para re-engancharlos con un enfoque diferente, quizás un recurso gratuito o una pregunta directa.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ejemplo potente:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Para un e-commerce, puedes segmentar:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "\"Clientes que compraron el producto A en los últimos 30 días\".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "\"Contactos que visitaron la página del producto B 3 veces pero no compraron\".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "\"Suscriptores que llevan 90 días sin abrir emails\" (a estos les puedes enviar una campaña de reactivación o limpiar tu lista para mejorar la deliverability).",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-activecampaign"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Esta segmentación profunda, combinada con la capacidad de enviar ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "email y SMS en la misma automatización",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", es donde ActiveCampaign supera a muchas otras. La comunicación se vuelve omnicanal y relevante. Si quieres ver por qué tantas agencias y negocios la eligen, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "lee esto",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Truco 3: Integra tu CRM y ventas sin esfuerzo",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "El CRM de ActiveCampaign no es un añadido; está perfectamente integrado con el núcleo de marketing. Esto significa que tu equipo de ventas ve el historial completo de marketing del lead (emails abiertos, páginas visitadas, ofertas descargadas) directamente en el deal.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Mejor forma de usarlo:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Configura el ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Lead Scoring",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Asigna puntos automáticamente por acciones valiosas (descargar un ebook = +10 puntos, visitar la página de precios = +25 puntos, pedir una demo = +50 puntos). Cuando un lead alcanza un umbral, el sistema puede moverlo automáticamente a una etapa del pipeline del CRM y notificar a un vendedor por SMS o email.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/activecampaign-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Truco de integración:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Conéctalo con herramientas como Shopify, WooCommerce o Salesforce. Así, cuando un contacto compre en tu tienda, su etiqueta en ActiveCampaign se actualiza, y puede entrar en una automatización de onboarding o upsell específico. La unión de datos es lo que te da el poder de una empresa grande. Descubre más ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "casos de uso prácticos aquí",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Funciones nuevas y destacadas que están cambiando el juego",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "ActiveCampaign innova constantemente. Algunas funciones recientes que debes conocer:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Active Intelligence (AI):",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " No es un simple generador de texto. La IA de AC sugiere líneas de asunto, optimiza horarios de envío y hasta identifica qué contactos están \"en riesgo\" de darse de baja, permitiéndote intervenir a tiempo.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Envío de SMS y WhatsApp masivo dentro de las automatizaciones:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Esto abre un canal directo y con tasas de apertura altísimas. Úsalo para recordatorios de citas, ofertas flash o confirmaciones de pedido.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Mejoras en el Constructor de Emails:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Ahora es más rápido, con más plantillas profesionales y opciones de personalización dinámica basada en datos del contacto.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Informes de atribución multicanal:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Por fin puedes ver con claridad qué canal (email, SMS, anuncios) contribuyó a una conversión. Esto es oro puro para optimizar tu presupuesto.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/activecampaign-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Estas actualizaciones convierten a ActiveCampaign en una plataforma que no solo ejecuta, sino que piensa contigo. Mantente al día con ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "todas las novedades",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para quién es ideal ActiveCampaign: Más allá del email blast",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Esta herramienta no es para todos, y eso es una fortaleza. Brilla especialmente para:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Negocios de servicios y consultores:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Ideal para nutrir leads con secuencias de email educativas, agendar demostraciones automáticamente y gestionar tu pipeline de ventas en un solo lugar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tiendas online (e-commerce):",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " La integración con plataformas de venta es top. Puedes automatizar todo el ciclo: carrito abandonado, post-compra con reseñas, upsell de productos complementarios y recuperación de clientes inactivos.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Agencias de marketing:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Les permite ofrecer a sus clientes una plataforma robusta con white-label (marca blanca), reportes automatizados y la capacidad de gestionar múltiples cuentas desde un solo panel.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Creadores de contenido y educadores:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Perfecto para lanzar cursos, gestionar miembros y crear experiencias de aprendizaje personalizadas basadas en el progreso del alumno.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://try.activecampaign.com/x53ed2y6qns9"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si te identificas con alguno de estos perfiles, y buscas una herramienta que crezca contigo, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "ActiveCampaign es una apuesta segura",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Mi truco final: Empieza simple, pero empieza hoy",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La amplitud de funciones puede asustar. Mi consejo: ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "no intentes dominarlo todo a la vez",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Elige UNA meta concreta. Por ejemplo:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "\"Quiero automatizar mi secuencia de bienvenida para nuevos suscriptores\".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "\"Quiero recuperar el 10% de los carritos abandonados\".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "\"Quiero que mi equipo de ventas reciba leads calificados automáticamente\".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Concéntrate en construir esa automatización simple, mide los resultados y luego expande. La curva de aprendizaje vale cada minuto porque el impacto en eficiencia y ventas es real. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Empieza con su prueba gratuita y pon a prueba estos trucos esta misma semana.",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sigue leyendo en TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Profundiza tu conocimiento con estos artículos relacionados:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-activecampaign"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tutorial completo: Cómo usar ActiveCampaign desde cero",
+            "marks": [
+              "l6"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-activecampaign"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Qué es ActiveCampaign y para qué sirve",
+            "marks": [
+              "l7"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-elevenlabs"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo usar ElevenLabs para crear voces realistas",
+            "marks": [
+              "l8"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-descript"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Guía de Descript para edicionar audio como un profesional",
+            "marks": [
+              "l9"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-gamma"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Gamma: Crea presentaciones impactantes con IA",
+            "marks": [
+              "l10"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "*Descargo de responsabilidad: Esta publicación contiene enlaces de afiliado. Si realizas una compra a través de ellos, podemos recibir una comisión sin costo adicional para ti. Solo recomendamos herramientas que usamos y en las que confiamos.*",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "ActiveCampaign, marketing automation, email marketing, CRM, automatizaciones, segmentación",
+    "keywords": [
+      "ActiveCampaign",
+      "marketing automation",
+      "email marketing",
+      "CRM",
+      "automatizaciones",
+      "segmentación avanzada"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/activecampaign.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A marketer at a modern desk, smiling while reviewing a colorful automation flow and subscriber segments on a laptop screen, with ActiveCampaign logo subtly visible.. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿ActiveCampaign es bueno para principiantes en email marketing?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¡Absolutamente! Aunque es muy potente, su interfaz es clara y ofrecen recursos de aprendizaje excelentes. Mi consejo es que empieces con sus plantillas y una automatización simple. La comunidad y el soporte son muy útiles para resolver dudas.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Puedo migrar mis listas de otro proveedor como Mailchimp a ActiveCampaign?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sí, ActiveCampaign facilita la migración. Tienen guías específicas y herramientas para importar contactos, historial y hasta automatizaciones. El proceso es muy fluido para no perder datos valiosos.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué diferencia a ActiveCampaign de otras plataformas de email marketing?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La principal diferencia es su poder en automatización y la integración nativa del CRM. Mientras otras herramientas se centran en el envío, AC se centra en el viaje completo del cliente, reaccionando a su comportamiento en múltiples canales (email, SMS, web) desde una sola plataforma.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:es:activecampaign:trucos",
+    "source": "sdk-agent-blog-seo:mimo"
+  },
+  "published_at": "2026-06-12T04:34:19",
+  "locale": "es"
+}
