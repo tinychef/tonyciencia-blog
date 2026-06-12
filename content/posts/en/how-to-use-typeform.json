@@ -1,0 +1,881 @@
+{
+  "id": "post-how-to-use-typeform",
+  "slug": "how-to-use-typeform",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "negocios",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "Typeform Tutorial: Create Engaging Forms That Convert",
+    "excerpt": "Step-by-step guide to building interactive forms with Typeform. Boost completion rates and collect better data with this AI-powered tool.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/how-to-use-typeform.jpg",
+        "alt": "Typeform Tutorial: Create Engaging Forms That Convert",
+        "filename": "how-to-use-typeform.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If you've ever filled out a standard, boring form and abandoned it halfway, you know the problem. Traditional forms are static, impersonal, and often feel like a chore. What if your forms felt more like a conversation? That's exactly what Typeform delivers. It's a form and survey builder that uses a conversational interface and AI to create experiences people actually enjoy completing. The result? Dramatically higher completion rates and richer, more thoughtful data.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "In this tutorial, I'll walk you through exactly how to use Typeform to create your first interactive form. Whether you're collecting leads, gathering customer feedback, or running market research, this guide will get you from zero to launched. Let's dive in.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Disclosure: This post contains affiliate links. If you make a purchase through these links, we may earn a commission at no extra cost to you.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Getting Started with Your First Typeform",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/what-is-typeform"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Creating an account is the first step. Head over to ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Typeform's website",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " and sign up. They offer a generous free plan to get you started, so you can explore the core features without any commitment.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Once you're in the dashboard, click the big \"Create typeform\" button. You'll be greeted by their form builder, which is clean and intuitive. The magic of Typeform is that you build your form question-by-question, not on a single, overwhelming page. This is the foundation of the conversational experience.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Your first decision is to choose a starting point. You can use a blank slate, one of their many beautiful templates (for surveys, lead capture, quizzes, etc.), or—this is a game-changer—use their AI generator. Simply describe what you need, like \"a customer satisfaction survey for a coffee shop,\" and the AI will draft a complete, logical form for you in seconds. It's an incredible time-saver and helps you avoid blank-page syndrome.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Crafting Your Questions: The Art of the Conversation",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "This is where the fun begins. With your template or AI draft ready, it's time to refine. Each \"step\" of your form is a question or a piece of content. Click on any step to edit it.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Typeform offers a rich variety of question types beyond simple text fields: multiple choice, picture choice, opinion scales, yes/no, rankings, and more. The key is to match the question type to what you're asking. Need a rating? Use the opinion scale. Want to make it visual? The picture choice is fantastic for feedback on product designs or preferences.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/typeform-tips"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Here's a pro tip: use ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "logic jumps",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". This is conditional logic that makes your form truly intelligent. For example, if someone answers \"No\" to \"Have you used our product before?\", you can jump them to a different set of questions than a returning user. This personalizes the journey, keeping it relevant and short for each respondent. It's a feature that makes your forms feel smart and respectful of people's time. For more advanced strategies, check out our ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Typeform tips & best practices",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Enhancing Engagement with Design & Branding",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "A beautiful form is a form that gets completed. Typeform understands this deeply. Their design customization is powerful yet simple.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "You can upload your logo, choose your brand's color palette, and select fonts that match your style. This isn't just cosmetic; it builds trust and professionalism. You can also add images, GIFs, or videos to questions to make them more engaging. Imagine sending a customer a survey where the thank-you message is a short, friendly video from your team. That's memorable.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "For seamless integration into your website, you can adjust the layout (centered or full-width) and even change the background. The goal is to make the form feel like a native part of your site or email, not a clunky third-party widget. Once your design is polished, preview it with the \"Preview\" button to experience it exactly as your respondents will.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Integrating & Sharing: Making Your Form Work for You",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "A form only delivers value when the responses flow into your workflow. Typeform excels here with a robust integration library.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-clickup"
+          },
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-monday-com"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Under the \"Connect\" tab, you can link your form to thousands of other apps. Popular choices include Google Sheets (for a live, auto-updating response spreadsheet), Slack (to get instant notifications of new submissions), and email marketing tools like Mailchimp (to add new subscribers automatically). Setting up an integration usually takes just a couple of clicks and a quick authorization. If you manage projects, integrating with tools like ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "ClickUp",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " or ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "monday.com",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " can automatically create tasks from form submissions.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-apollo-io"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "When it's time to share, Typeform gives you a direct link, a QR code, and an embed code. The embed is slick; you can place it as a pop-up, a side panel, or a full-page widget on your site. You can also share it directly to social media or via email. For marketers looking to pair beautiful forms with targeted outreach, this is where Typeform truly shines alongside tools like ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Apollo.io",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://typeform.partnerlinks.io/kbmtvvihlk8k"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ready to see the impact on your data collection? **",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Start building your first conversational form for free",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".**",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Advanced Features: Going Beyond the Basics",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Once you're comfortable with the fundamentals, Typeform has powerful layers to explore. Their newer AI features are particularly exciting.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Research Flow",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " is a standout. It transforms a survey into an AI-moderated research study. The AI can ask follow-up questions based on initial answers, digging deeper into insights you might not have anticipated. After collecting responses, it generates automated reports with summaries, key themes, and even sentiment analysis. It's like having a research assistant built into your survey tool.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/typeform-new-features"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Another advanced tool is ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Video Questions & Answers",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". You can ask a question via video and have respondents answer via video. This adds a layer of personal connection and nuance that text alone can't capture—perfect for user testing, testimonials, or personalized applications. You can see all the ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "latest features on their site",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "For analyzing your data, the built-in analytics dashboard shows real-time insights: completion rates, average time spent, and drop-off points. You can view individual responses or aggregate data in charts. This is essential for understanding what's working and where you might need to tweak your form's flow to reduce friction.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "For Whom Is Typeform Ideal?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Typeform isn't just a generic form builder; it's a specialized tool for professionals who value quality interactions and data. It's ideal for:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Marketers & Growth Teams:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Perfect for lead generation forms, post-webinar surveys, and interactive content like quizzes that drive engagement and segment audiences.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Product Managers & UX Researchers:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Essential for user feedback surveys, feature request forms, and beta testing sign-ups where context and nuance are everything.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "HR & People Teams:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Fantastic for employee engagement surveys, onboarding feedback, and internal polls with a modern, respectful feel.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Educators & Trainers:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Creates engaging quizzes, assessments, and course feedback forms that students will actually complete.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Solopreneurs & Agencies:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " The aesthetic quality and ease of use make clients look good, which reflects well on you.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/why-choose-typeform"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "In short, if you believe that the *how* of asking is as important as *what* you ask, Typeform is built for you. It elevates data collection from a transaction to an experience. If you're evaluating options, our deep dive on ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "why to choose Typeform",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " covers its unique advantages in more detail.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Your Next Step: Build Something People Love",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "You've now seen the full journey: from creating your form with AI assistance, to designing a beautiful, logical flow, integrating it with your stack, and unlocking advanced research capabilities. Typeform's power lies in its thoughtful design philosophy—it puts the respondent's experience first, which directly translates to better results for you.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The platform is constantly evolving, with new AI-driven features making it smarter and more efficient. It moves beyond being just a form to become an interactive data hub.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://typeform.partnerlinks.io/kbmtvvihlk8k"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The best way to understand the difference is to experience it. Don't just take my word for it—**",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "click here to try Typeform's free plan and build your first conversational form today",
+            "marks": [
+              "l8"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".**",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Keep reading on TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/typeform-new-features"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Discover the latest AI-powered additions to Typeform",
+            "marks": [
+              "l9"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/typeform-tips"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "A complete guide to what Typeform is and how it works",
+            "marks": [
+              "l10"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/typeform-use-cases"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Explore creative use cases for interactive forms",
+            "marks": [
+              "l11"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "Typeform, AI forms, survey platform, form builder, interactive forms",
+    "keywords": [
+      "Typeform tutorial",
+      "interactive forms",
+      "survey tool",
+      "conversational forms",
+      "form builder",
+      "AI forms"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/typeform.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A user on a laptop smiling at a beautifully designed, colorful Typeform quiz interface on screen.. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Is Typeform really free?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Yes, Typeform has a free Basic plan that lets you create unlimited forms with up to 10 questions and 10 responses per month. It's perfect for testing the waters. Paid plans offer more responses, questions, and advanced features like logic jumps and integrations.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How does Typeform's AI help create forms?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Typeform's AI can generate a complete draft of a form or survey from a simple text prompt, like 'create a customer satisfaction survey.' It also powers features like Research Flow, where the AI can ask intelligent follow-up questions to respondents, uncovering deeper insights automatically.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Can I use Typeform for complex business processes?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Absolutely. Beyond simple surveys, Typeform is great for multi-step lead capture, interactive job applications, and customer onboarding flows. With its conditional logic (logic jumps), webhooks, and integrations with CRMs and project management tools, you can build sophisticated, automated workflows that connect directly to your business systems.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:en:typeform:tutorial",
+    "source": "sdk-agent-blog-seo:mimo",
+    "translation_of": "como-usar-typeform"
+  },
+  "published_at": "2026-06-12T04:42:14",
+  "locale": "en"
+}

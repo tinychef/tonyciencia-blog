@@ -1,0 +1,1117 @@
+{
+  "id": "post-how-to-use-webcatalog",
+  "slug": "how-to-use-webcatalog",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "negocios",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "WebCatalog: Turn Any Website Into a Desktop App",
+    "excerpt": "Learn how to use WebCatalog to turn websites into desktop apps. Manage multiple accounts and streamline your workflow with this step-by-step guide.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/how-to-use-webcatalog.jpg",
+        "alt": "WebCatalog: Turn Any Website Into a Desktop App",
+        "filename": "how-to-use-webcatalog.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/what-is-webcatalog"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "I spend my day jumping between a dozen different web apps. Gmail for one client, Slack for another, three different social media dashboards, and two separate project management boards. My browser was a chaotic mess of tabs, and logging in and out was wasting precious minutes. That’s when I found ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "WebCatalog",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", and it completely rewired my workflow.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://try.webcatalog.io/h8kuam5b12qt"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "This tool doesn't just create shortcuts; it transforms any website into a standalone desktop application. It feels like magic. Suddenly, my web apps live on my taskbar or dock like native programs. I can manage multiple accounts for the same service side-by-side without needing to open different browsers or use incognito modes. If you're looking for a real productivity upgrade, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "give WebCatalog a try",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "*(Just a heads up, some links here are affiliate links. If you make a purchase, I might earn a commission at no extra cost to you. I only recommend tools I genuinely use and love.)*",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Your Step-by-Step Tutorial: From Web Tab to Desktop App",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Getting started with WebCatalog is surprisingly simple. Here’s exactly how I set up my most-used web apps in under ten minutes.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 1: Download and Install",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/why-choose-webcatalog"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Head over to the ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "official WebCatalog website",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " and download the version for your operating system (Mac, Windows, or Linux). The installation is standard—just follow the prompts. Once installed, launch the application. You’ll be greeted by a clean, intuitive interface.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 2: Add Your First Web App",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Click the prominent ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "\"+\"",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " button in the top-left corner or the \"Add App\" option. A search bar appears. Type in the name of the website you want to turn into an app—let's use \"Notion\" as our example. WebCatalog's catalog will show pre-configured profiles for popular sites, which optimize settings like notifications and appearance. Select \"Notion\" from the list.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 3: Configure and Name Your App",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Here’s where the power shines. You’ll see configuration options:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Name:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " It auto-fills \"Notion,\" but you can change it to \"Work Notes\" or \"Personal Wiki.\"",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Icon:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " It pulls the favicon, but you can upload a custom icon for easy visual identification.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Profile:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " This is the key to managing multiple accounts. Create a new profile for each account. For example, I have \"Notion - Client A\" and \"Notion - Personal.\"",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Click ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "\"Add\"",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " and watch the magic happen. A new, dedicated window for Notion appears, complete with its own entry in your system's taskbar/dock.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 4: Log In and Repeat",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-clickup"
+          },
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-monday-com"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Log into your Notion account within this new app window. That session is now saved and isolated to this profile. Now, repeat the process: add \"Notion\" again, but create a second profile for your other account. You now have two completely separate Notion applications running on your desktop, just like any other program. The same process works for ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "productivity suites like ClickUp",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " or ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "monday.com",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Key Features That Make WebCatalog Stand Out",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Beyond basic app creation, WebCatalog is packed with features that solve real desktop workflow headaches.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "True Multi-Account Management:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " This isn't just about multiple windows. Each profile maintains its own cookies, cache, and login session. Switch between your work Twitter, client Twitter, and personal Twitter with a click, each in its own app.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Workspace Organization:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Group your apps into custom workspaces. I have a \"Morning Routine\" workspace that opens my email, calendar, and news apps together with one click. Another workspace for \"Project Alpha\" holds all related tools.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/webcatalog-use-cases"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Curated App Catalog:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " It’s more than a blank-slate wrapper. WebCatalog offers ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "optimized profiles for hundreds of popular websites",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", ensuring features like desktop notifications and proper keyboard shortcuts work out of the box.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Deep Customization:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Tweak the app's appearance—enable a dark reader, set the default zoom level, or configure custom keyboard shortcuts. You can even have the app launch at system startup.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/webcatalog-new-features"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The constant updates are another huge plus. The developers are always shipping ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "new, useful features",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " that respond to user feedback.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Who Is WebCatalog Perfect For? (It's More People Than You Think)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "You’ll get immense value from WebCatalog if you:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Juggle Multiple Accounts:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Freelancers, social media managers, and support agents who need to operate several profiles for the same platform (Gmail, Slack, Instagram, Shopify) will find this indispensable.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Crave a Tidy Digital Workspace:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " If you’re tired of tab clutter and want a dedicated, distraction-free space for each task or project, WebCatalog creates that structure.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-apollo-io"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Rely on Web-First Applications:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " For tools like ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Apollo.io for sales",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", Figma, Canva, or any SaaS product, having them as native-feeling apps improves focus and speed.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Use a Shared or Multi-User Computer:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Individual profiles keep each user's accounts and data completely separate and private.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "5 Killer Benefits You’ll Notice Immediately",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Reclaimed Browser Sanity:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Your main browser can go back to being a research and browsing tool, not a cluttered app launcher.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Faster Task Switching:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Clicking an app icon on the dock is faster and more intentional than hunting for a browser tab.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Focused Work Sessions:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Launching a specific workspace tells your brain \"it's time for this type of work,\" reducing context-switching fatigue.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "System-Wide Integration:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Apps made with WebCatalog can often use system shortcuts (Cmd/Ctrl+Tab to switch) and integrate better with your OS than browser tabs.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "5.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "A Single Source of Truth:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " All your web apps are organized in one application—the WebCatalog dashboard. No more lost tabs or forgotten logins.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ready to Transform Your Workflow?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If you’ve ever felt frustrated by browser tab overload or the hassle of logging into multiple accounts, WebCatalog is the elegant solution you’ve been searching for. It turns a chaotic web workflow into an organized, efficient desktop system.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The free tier lets you create a handful of apps, which is perfect for testing the waters. For power users with many accounts and workspaces, the paid plan is a worthwhile investment in daily time savings and mental clarity.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Stop just *using* websites. Start *running* them as dedicated applications.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://try.webcatalog.io/h8kuam5b12qt"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "**",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Experience the difference with WebCatalog today",
+            "marks": [
+              "l8"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".**",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Keep reading on TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Dive deeper into maximizing your digital productivity:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/webcatalog-new-features"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Discover the latest capabilities in our ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "WebCatalog: New Features Roundup",
+            "marks": [
+              "l9"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/webcatalog-use-cases"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "See specific workflows in our guide on ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "WebCatalog Use Cases for Professionals",
+            "marks": [
+              "l10"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/webcatalog-tips"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Master the basics with our ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Tips & Best Ways to Use WebCatalog",
+            "marks": [
+              "l11"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l12",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/why-choose-webcatalog"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Compare it in our focused guide: ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Why Choose WebCatalog Over Browser Tabs?",
+            "marks": [
+              "l12"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "WebCatalog, desktop apps, web apps, multiple accounts, workspace organization",
+    "keywords": [
+      "WebCatalog tutorial",
+      "website to desktop app",
+      "manage multiple accounts",
+      "productivity tool",
+      "web app manager"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/webcatalog.io as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A clean desktop screen showing multiple neatly organized application windows for social media, email, and project management, with the WebCatalog logo subtly in the corner.. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Is WebCatalog free to use?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Yes, WebCatalog offers a generous free tier that allows you to create and manage a limited number of applications. This is perfect for personal use or trying out the core features. For users needing unlimited apps, advanced workspace features, and premium support, there is a paid subscription plan.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Does it work with any website?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Absolutely. While WebCatalog has a curated catalog of pre-configured profiles for popular sites (which ensure optimal performance), you can add *any* website URL to create a custom application for it. The tool simply packages the web page into a standalone app window.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Is it secure to run my accounts through WebCatalog?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Yes, security is a key consideration. WebCatalog does not intercept or store your passwords. It uses your system's native web engine (like Chromium) to render the site, and each application profile stores its own isolated cookies and cache, just like a separate browser. Your login credentials are handled directly by the website itself.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:en:webcatalog:tutorial",
+    "source": "sdk-agent-blog-seo:mimo",
+    "translation_of": "como-usar-webcatalog"
+  },
+  "published_at": "2026-06-12T16:33:31",
+  "locale": "en"
+}

@@ -1,0 +1,1259 @@
+{
+  "id": "post-bubble-new-features",
+  "slug": "bubble-new-features",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "negocios",
+      "herramientas"
+    ],
+    "tag": [
+      "opinion"
+    ]
+  },
+  "data": {
+    "title": "Bubble New Features 2025: Build Apps Faster Than Ever",
+    "excerpt": "Discover the latest Bubble.io features that let you build web and mobile apps without code. Start free today and launch your next big idea.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/bubble-new-features.jpg",
+        "alt": "Bubble New Features 2025: Build Apps Faster Than Ever",
+        "filename": "bubble-new-features.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Bubble's Latest Features Make Building Apps Without Code Feel Like Magic",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "*Disclosure: This post contains affiliate links. If you sign up through them, I may earn a commission at no extra cost to you.*",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "I've been watching Bubble.io evolve for years, and the recent crop of updates has me genuinely excited. If you've ever dreamed of building a full-stack web application but don't write code, this is your moment. Bubble keeps raising the bar for what's possible in the no-code space — and the latest features prove it.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://bubble.pxf.io/c/6249333/1241519/15270"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Let's dive into what's new, why it matters, and how you can ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "start building on Bubble today",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "---",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What Is Bubble.io?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Before we get into the shiny new stuff, a quick primer for the uninitiated: Bubble is a visual programming platform that lets you build fully functional web applications without writing a single line of code. We're not talking about simple landing pages or basic forms. Bubble handles complex logic, database management, user authentication, API integrations, and responsive UI — all through a drag-and-drop interface.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Think of it as the tool that bridges the gap between \"I have an idea\" and \"I have a working product.\" Founders use it to launch MVPs. Agencies use it to ship client projects in weeks instead of months. And increasingly, enterprise teams are turning to Bubble for internal tools and customer-facing platforms.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/what-is-bubble"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If you want to understand the full picture, check out our guide on ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "what Bubble is and how it works",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "---",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "New Features That Change the Game",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Bubble has been shipping updates at a remarkable pace. Here are the standout features that caught my attention:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Native Mobile App Support",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "This is the big one. Bubble now supports building iOS and Android apps natively. Previously, you'd need to wrap your Bubble web app in a third-party container — a clunky workaround that introduced performance issues. Now, you can design, build, and deploy mobile apps directly from the Bubble editor. The same visual builder, the same database, the same logic engine. One platform, three outputs: web, iOS, Android.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "For anyone building a product that needs a mobile presence (which is nearly everyone in 2025), this eliminates a massive pain point.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Redesigned Pricing and Free Plan",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Bubble revamped its pricing structure to be far more accessible. The free plan now includes everything you need to build and test your application — development version included. You only upgrade to the Starter plan ($29/month) when you're ready to go live. This \"build first, pay later\" approach removes the financial barrier that used to scare away first-time builders.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://bubble.pxf.io/c/6249333/1241519/15270"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The pricing also scales by Workload Units rather than arbitrary feature gates, which means you pay based on actual usage. For startups watching their burn rate, this transparency is refreshing. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "See the current pricing tiers and start free here",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Improved Performance and Workload System",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Speaking of Workload Units — Bubble overhauled its infrastructure to deliver faster page loads and more predictable performance. The new system allocates server resources dynamically, so your app handles traffic spikes gracefully instead of grinding to a halt. If you've built on Bubble before and worried about scaling, these improvements address those concerns head-on.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Enhanced Database and Privacy Rules",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Managing data in Bubble just got more intuitive. The updated database editor includes better filtering, bulk operations, and clearer relationship mapping between data types. Privacy rules have also been refined, giving you granular control over who sees what. For apps handling sensitive user data (think healthcare, finance, or B2B SaaS), these upgrades are essential.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "AI-Powered Workflows",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Bubble integrated AI capabilities directly into the workflow editor. You can now connect to AI models, process data with intelligent prompts, and build AI-driven features without leaving the platform. Chatbots, content generators, smart recommendations — all achievable through Bubble's visual logic system combined with AI APIs.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "---",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Why Choose Bubble Over Other No-Code Tools",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The no-code landscape is crowded. Webflow excels at websites. Glide is great for simple mobile apps. But when you need to build a real application — with user accounts, complex workflows, relational databases, third-party integrations, and custom business logic — Bubble stands alone.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Here's why:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Full-stack capability.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " You're not limited to front-end design. Bubble gives you a visual backend, database, and logic engine. No other no-code platform matches this depth.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Massive plugin ecosystem.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Thousands of plugins extend Bubble's functionality. Payments, maps, charts, email services — if you can think of it, there's likely a plugin for it.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Active community and resources.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Bubble's forum, YouTube channel, and third-party course ecosystem mean you're never stuck. Answers are everywhere.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Production-grade apps.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Companies have raised millions of venture capital while running on Bubble. This isn't a prototyping toy. It's infrastructure.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/why-choose-bubble"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Our deep dive on ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "why choose Bubble for your next project",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " covers this in much more detail.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-monday-com"
+          },
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-clickup"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "For teams already using project management tools like ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "monday.com",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " or ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "ClickUp",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", Bubble integrates smoothly into existing workflows. Build your app in Bubble, manage the project in your PM tool, and sync data where needed.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "---",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Who Is Bubble Ideal For?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Not every tool is for everyone. But Bubble's ideal users include:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Startup founders and solopreneurs.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " You have a product idea but no technical co-founder. Bubble lets you validate your concept with a working MVP in weeks, not months. Launch, get user feedback, iterate — all without touching code or hiring a dev team.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Non-technical teams building internal tools.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Operations managers, HR departments, and marketing teams frequently need custom dashboards, CRM systems, or workflow automations. Instead of begging engineering for resources, they build it themselves on Bubble.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Agencies and freelancers.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " If you build client projects for a living, Bubble dramatically increases your output. What used to take a team of three developers and two months can now ship in two weeks with one person. More projects, more revenue, less overhead.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "SaaS builders.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " If you're launching a software-as-a-service product, Bubble's database structure, user authentication, and subscription billing capabilities make it a natural fit. Build, launch, and scale — all on one platform.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Educators and students.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Learning to think in logic, workflows, and data relationships is valuable regardless of whether you eventually write code. Bubble teaches these concepts visually, making it an incredible educational tool.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/bubble-use-cases"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Our resource on ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "real-world Bubble use cases",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " showcases examples across all these categories and more.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "---",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tips for Getting the Most Out of Bubble",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "A few hard-won insights from builders who've shipped dozens of Bubble apps:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Start with your data structure.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Before you design a single screen, map out your data types and their relationships. A clean database saves you from painful refactoring later.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Use reusable elements aggressively.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Bubble lets you create components you can drop into any page. Headers, navigation bars, card layouts — build them once, use them everywhere.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Master privacy rules early.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Don't wait until launch to configure who can see what. Set up privacy rules from day one, especially if your app handles user-generated content or sensitive data.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Optimize for performance.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Use \"Do a search for\" wisely. Limit the data you load on page load. Enable the \"make this element private\" option for elements that don't need SEO indexing.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "5. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Version your app.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Bubble includes built-in version control. Before making major changes, save a version. If something breaks, you can roll back in seconds.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/bubble-tips"
+          },
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-bubble"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "For more practical advice, read our ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Bubble tips and best practices guide",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". And if you're completely new, the ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "step-by-step Bubble tutorial",
+            "marks": [
+              "l8"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " walks you through building your first app from scratch.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "---",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The Bottom Line",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Bubble.io has matured from an impressive experiment into a production-ready platform. The new features — native mobile support, AI workflows, improved pricing, and better performance — make it more accessible and more powerful than ever.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://bubble.pxf.io/c/6249333/1241519/15270"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If you've been sitting on a product idea, waiting for the right moment or the right co-founder: this is your sign. Bubble gives you everything you need to build, launch, and scale a real application. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Start building on Bubble for free today",
+            "marks": [
+              "l9"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "---",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Keep Reading on TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-bubble"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step-by-Step Bubble Tutorial: Build Your First App",
+            "marks": [
+              "l10"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/why-choose-bubble"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Why Choose Bubble: A Complete Breakdown",
+            "marks": [
+              "l11"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l12",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/bubble-use-cases"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Bubble Use Cases: Real Projects That Launched Without Code",
+            "marks": [
+              "l12"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l13",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/bubble-tips"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Bubble Tips and Best Practices for 2025",
+            "marks": [
+              "l13"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l14",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-apollo-io"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How to Use Apollo.io for Sales Prospecting",
+            "marks": [
+              "l14"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l15",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/what-is-bubble"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What Is Bubble? Everything You Need to Know",
+            "marks": [
+              "l15"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "Bubble.io, no-code, web apps, mobile apps, SaaS, visual programming",
+    "keywords": [
+      "Bubble.io",
+      "no-code platform",
+      "build apps without code",
+      "Bubble new features",
+      "no-code development",
+      "web app builder"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/bubble.io as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A developer smiling at a laptop screen showing a colorful drag-and-drop app builder interface with floating UI components, in a bright modern home office with a coffee mug and plant on the desk. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Is Bubble.io really free to use?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Yes. Bubble offers a free plan that includes the full development environment. You can build and test your entire application without paying anything. The Starter plan at $29/month is only required when you're ready to launch your app to the public with a custom domain.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Can I build a mobile app with Bubble?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Absolutely. Bubble now supports native iOS and Android app development directly from its visual editor. You can build a mobile app using the same drag-and-drop interface, database, and logic engine used for web apps. This eliminates the need for third-party wrappers or separate mobile development tools.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Is Bubble suitable for production apps with real users?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Yes — many companies run production applications on Bubble that serve thousands or even millions of users. The platform includes built-in hosting, SSL, database management, and a workload-based performance system that scales with your traffic. Startups have raised significant venture capital while running entirely on Bubble infrastructure.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:en:bubble:novedades",
+    "source": "sdk-agent-blog-seo:mimo",
+    "translation_of": "bubble-novedades"
+  },
+  "published_at": "2026-06-12T05:11:57",
+  "locale": "en"
+}

@@ -1,0 +1,1325 @@
+{
+  "id": "post-como-usar-aweber",
+  "slug": "como-usar-aweber",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "ia",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "AWeber tutorial: Guía paso a paso para empezar con email marketing",
+    "excerpt": "Aprende a configurar AWeber desde cero: crea newsletters, automatizaciones y landing pages con esta guía completa. Empieza a vender hoy.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/como-usar-aweber.jpg",
+        "alt": "AWeber tutorial: Guía paso a paso para empezar con email marketing",
+        "filename": "como-usar-aweber.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Divulgación: Este artículo contiene enlaces de afiliado. Si te registras a través de ellos, puedo recibir una comisión sin costo adicional para ti.",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://aweber.com"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Llevo años probando herramientas de email marketing, y cuando alguien me pregunta por una plataforma confiable para emprendedores que recién arrancan, siempre regreso a ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "AWeber",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Hay algo en su simplicidad que enamora: no necesitas ser un experto en tecnología para lanzar campañas que realmente conecten.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si estás buscando una solución que te permita crear newsletters profesionales, automatizar secuencias de correos y hasta vender productos directamente desde una landing page, este tutorial es para ti. Voy a guiarte paso a paso para que configures tu cuenta y empieces a enviar emails que generen resultados.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://psjoin.aweber.com/z6tw712otfc8"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Y lo mejor: puedes ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "probar AWeber gratis durante 14 días",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " sin compromiso. No requiere tarjeta de crédito, así que no tienes excusa para no explorar sus funciones.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué es AWeber y por qué funciona tan bien para emprendedores?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "AWeber no es cualquier plataforma de email marketing. Con más de 27 años en el mercado, se ganó su reputación como la herramienta que inventó el autoresponder. Esto significa que llevan décadas refinando lo que funciona para negocios pequeños.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La diferencia con otras plataformas es que AWeber fue diseñada pensando en personas que no tienen equipo de marketing enorme. Su interfaz es intuitiva, pero no simplona. Tiene todo lo que necesitas para crecer: desde formularios básicos hasta secuencias automatizadas complejas.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-aweber"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si quieres entender a fondo ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "por qué elegir AWeber sobre otras opciones",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", tengo un artículo completo que analiza sus ventajas específicas. Pero adelanto algo: su tasa de entrega de emails es una de las mejores del mercado, lo que significa que tus correos realmente llegan a la bandeja de entrada.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 1: Crear tu cuenta en AWeber (toma 5 minutos)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Vamos a lo práctico. Dirígete a la página principal de AWeber y haz clic en \"Get started for free\". Solo necesitas:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1. Tu nombre",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2. Apellido",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3. Dirección de correo electrónico",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4. Contraseña",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Puedes incluso registrarte con tu cuenta de Google para agilizar el proceso. Una vez dentro, AWeber te hará algunas preguntas básicas sobre tu negocio: qué vendes, cuántos suscriptores tienes actualmente y cuáles son tus objetivos. Esto no es solo formalidad, la plataforma personaliza tu experiencia según tus respuestas.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Después de esto, estarás en el panel principal. No te asustes por la cantidad de opciones. Vamos a enfocarnos en lo esencial primero.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 2: Configurar tu lista y formulario de suscripción",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tu lista de suscriptores es el corazón de tu negocio digital. En el menú principal, ve a \"Lists\" y crea tu primera lista. Dale un nombre descriptivo, como \"Suscriptores Newsletter\" o \"Clientes Curso Online\".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ahora, crea tu primer formulario de suscripción. AWeber ofrece un editor drag-and-drop muy sencillo:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Arrastra campos como nombre, email y teléfono",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Personaliza colores y fuentes que coincidan con tu marca",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Añade un mensaje de bienvenida claro",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Configura la página de confirmación",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Un consejo profesional: incluye un imán de lead irresistible. Algo como \"Descarga gratis: 10 plantillas para redes sociales\" convierte mucho mejor que un simple \"Suscríbete a nuestro newsletter\".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Funciones destacadas y nuevas que vas a amar",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "AWeber no se queda estancada. Constantemente incorporan nuevas herramientas que marcan la diferencia:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Smart Designer",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " - Esta función utiliza inteligencia artificial para crear diseños de emails automáticamente basados en tu sitio web. Solo ingresas tu URL y AWeber genera plantillas que coinciden con tu identidad visual. Un ahorrador de tiempo brutal.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Páginas de pago integradas",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " - Esto es oro puro para emprendedores. Puedes vender productos digitales directamente desde AWeber sin necesidad de conectar otra plataforma de pagos. Configura precio, descripción y ¡listo! Tus suscriptores pueden comprar en dos clics.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Automatizaciones avanzadas",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " - No estamos hablando de autoresponders simples. Puedes crear flujos completos: si alguien compra un producto, recibe una secuencia de emails relacionados. Si alguien no abre tus correos en 30 días, entra en una campaña de reactivación. Las posibilidades son enormes.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/aweber-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para ver las ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "últimas funciones que han lanzado",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", revisa nuestro artículo actualizado donde cubrimos cada novedad con ejemplos prácticos.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 3: Crear tu primera campaña de email",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ahora viene lo divertido. Ve a \"Campaigns\" y selecciona \"Create a Campaign\". AWeber te ofrece dos opciones principales:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Newsletter",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " - Para envíos regulares, como un email semanal con novedades, consejos o contenido de valor. Ideal para mantener engagement constante con tu audiencia.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Secuencia automatizada",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " - Perfecta para nurturing. Por ejemplo, cuando alguien se suscribe, puede recibir automáticamente:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Email 1: Bienvenida + regalo prometido",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Email 2 (día 3): Historia de tu marca",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Email 3 (día 7): Oferta especial",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Email 4 (día 14): Testimonios de clientes",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "El editor de emails de AWeber es uno de los más amigables que he usado. Tienes cientos de plantillas profesionales, pero también puedes empezar desde cero con el editor HTML si eres más avanzado.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Algo que me encanta: el sistema de puntuación de contactos. AWeber automáticamente asigna puntos a tus suscriptores basándose en su actividad. Los que más interactúan con tus emails tienen puntuación más alta, lo que te permite identificar a tus fans más leales.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-aweber"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "trucos avanzados y mejores prácticas",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", te recomiendo leer nuestra guía completa donde compartimos estrategias que aumentan tasas de apertura hasta un 40%.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 4: Construir landing pages que conviertan",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿No tienes sitio web? No hay problema. AWeber incluye un constructor de landing pages que funciona perfectamente para:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Capturar leads con un formulario",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Presentar un webinar gratuito",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Vender un producto digital",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ofrecer un servicio",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Las landing pages de AWeber incluyen páginas de pago integradas, así que el flujo completo ocurre dentro de la plataforma. El visitante ve tu página, se interesa, ingresa sus datos de pago y recibe el producto. Todo automatizado.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/aweber-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "He visto emprendedores que generan sus primeras ventas usando únicamente AWeber. Sin Shopify, sin WordPress, sin complicaciones. Para ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "casos de uso específicos y ejemplos reales",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", tenemos un artículo con historias de negocios que empezaron exactamente así.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para quién es ideal AWeber",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "AWeber brilla especialmente en estos escenarios:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Emprendedores digitales",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " que venden cursos, ebooks o mentorías. Las páginas de pago integradas y secuencias de venta automatizadas hacen que el proceso sea casi pasivo.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Creadores de contenido",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " que quieren monetizar su audiencia con newsletters. AWeber facilita segmentar suscriptores por intereses y enviar contenido ultra personalizado.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Negocios locales",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " que necesitan mantener contacto con clientes. Desde recordatorios de citas hasta promociones especiales, las automatizaciones ahorran horas de trabajo manual.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Consultores y coaches",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " que quieren construir una base de datos de prospectos calificados. Los formularios avanzados y puntuación de contactos permiten identificar a los clientes más interesados.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Profesionales que migran de otra plataforma",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". AWeber tiene herramientas de importación excelentes y soporte técnico 24/7 que realmente contesta preguntas útiles.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 5: Analizar resultados y optimizar",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "No puedes mejorar lo que no mides. AWeber proporciona estadísticas detalladas para cada campaña:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tasa de apertura (qué porcentaje abre tus emails)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tasa de clics (quién interactúa con tus enlaces)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tasa de conversión (ventas generadas)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Mapa de calor (dónde hacen clic tus suscriptores)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Crecimiento de lista (ganancia vs pérdida neta)",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Mi consejo: revisa estas métricas semanalmente. No te obsesiones con los números diarios, pero sí mantén un ojo en las tendencias. Si tu tasa de apertura baja consistentemente, probablemente necesitas mejorar tus asuntos de email o la frecuencia de envío.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "AWeber también permite tests A/B muy sencillos. Prueba dos asuntos diferentes en una muestra pequeña de tu lista, el ganador se envía automáticamente al resto. Esta simple estrategia puede duplicar tus tasas de apertura.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Empieza hoy mismo con AWeber",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si llegaste hasta aquí, ya sabes que no necesitas conocimientos técnicos para lanzar campañas de email marketing efectivas. AWeber simplifica todo el proceso: desde crear tu lista hasta vender productos.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://psjoin.aweber.com/z6tw712otfc8"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La mejor parte es que puedes ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "comenzar con la prueba gratuita de AWeber",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " y explorar todas estas funciones sin arriesgar un centavo. En 14 días tendrás tiempo de crear tu primer formulario, configurar una secuencia de bienvenida y enviar tu primera campaña.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "No dejes que la perfección te paralice. La mejor estrategia de email marketing es la que ejecutas hoy, no la que planeas durante meses. AWeber te da todas las herramientas; tú solo necesitas traer tu mensaje y tu entusiasmo.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://psjoin.aweber.com/z6tw712otfc8"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Regístrate gratis en AWeber aquí",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " y transforma la forma en que te conectas con tu audiencia. Tu negocio te lo va a agradecer.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sigue leyendo en TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-aweber"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Qué es AWeber y para qué sirve",
+            "marks": [
+              "l8"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " - Explicación completa de esta plataforma",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-elevenlabs"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo usar ElevenLabs",
+            "marks": [
+              "l9"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " - Tutorial de esta herramienta de voz IA",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-descript"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Guía para Descript",
+            "marks": [
+              "l10"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " - Edición de video simplificada",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-gamma"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tutorial de Gamma",
+            "marks": [
+              "l11"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " - Crea presentaciones impresionantes",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "AWeber, PartnerStack, newsletters, automatizaciones, landing pages, páginas de pago",
+    "keywords": [
+      "AWeber tutorial",
+      "email marketing emprendedores",
+      "configurar AWeber",
+      "plataforma email marketing",
+      "AWeber funciones"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/aweber.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A bright workspace with a laptop showing email analytics dashboard, coffee cup, and notebook with marketing ideas. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿AWeber es realmente gratis?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "AWeber ofrece un plan gratuito con funciones limitadas para hasta 500 suscriptores. También tiene una prueba de 14 días en su plan completo sin requerir tarjeta de crédito. Esto te permite probar todas las funciones avanzadas antes de comprometerte.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Puedo migrar mi lista de Mailchimp a AWeber?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sí, AWeber facilita la migración desde otras plataformas. Solo necesitas exportar tu lista actual como archivo CSV e importarla en AWeber. El proceso preserva tus etiquetas y segmentos. Su equipo de soporte incluso puede ayudarte personalmente durante la migración.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿AWeber funciona bien para vender productos digitales?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Excelente pregunta. AWeber incluye páginas de pago integradas que te permiten vender ebooks, cursos o servicios directamente sin necesidad de otra plataforma. Solo configuras el producto, precio y descripción, y tus suscriptores pueden comprar en pocos clics. Es ideal para emprendedores que quieren simplificar su stack tecnológico.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:es:aweber:tutorial",
+    "source": "sdk-agent-blog-seo:mimo"
+  },
+  "published_at": "2026-06-12T13:35:00",
+  "locale": "es"
+}

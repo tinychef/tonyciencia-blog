@@ -1,0 +1,1990 @@
+{
+  "id": "post-how-to-use-hostinger-cl",
+  "slug": "how-to-use-hostinger-cl",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "negocios",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "Hostinger CL Step-by-Step Tutorial: Launch Your Site Today",
+    "excerpt": "Learn how to set up your website with Hostinger CL from scratch. Fast hosting, free domains, and AI tools—all at budget-friendly prices. Start now!",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/how-to-use-hostinger-cl.jpg",
+        "alt": "Hostinger CL Step-by-Step Tutorial: Launch Your Site Today",
+        "filename": "how-to-use-hostinger-cl.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "*Disclosure: This post contains affiliate links. If you sign up through them, I may earn a commission at no extra cost to you.*",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Why I Wrote This Hostinger CL Tutorial",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "I have built dozens of websites over the past decade. Some on premium platforms that drained my wallet. Others on budget hosts that frustrated me with downtime and sluggish load speeds.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://www.awin1.com/awclick.php?mid=117365&id=2061927"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Then I discovered ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Hostinger CL",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", and the experience shifted completely. Here was a hosting provider running since 2004 that offered genuinely fast servers, robust security features, and pricing that did not make me wince. I have been recommending it ever since.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "This tutorial walks you through every step—from choosing a plan to launching a polished, professional website. Whether you are a blogger, freelancer, small business owner, or someone who just wants a personal portfolio online, you will finish this guide with a live site. No coding background required.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Let me show you exactly how I set up sites on Hostinger CL, including some tricks I picked up along the way.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What Is Hostinger CL?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/what-is-hostinger-cl"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Hostinger CL",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " is a web hosting platform trusted by over 29 million users worldwide. It provides everything you need to get a website online: domain registration, hosting infrastructure, a custom control panel called hPanel, WordPress auto-installers, and even an AI-powered website builder.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What sets it apart from competitors in the same price bracket:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "LiteSpeed servers with built-in caching",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " — sites load in under a second for most visitors.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Free SSL certificates",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " on every plan — no manual installation headaches.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Weekly or daily backups",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " depending on your tier — your data stays protected.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "99.9% uptime guarantee",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " backed by a track record that actually holds up.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Global data centers",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " in the US, Europe, Asia, and South America — pick the one closest to your audience.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "I have hosted client projects on Hostinger CL where page speed scores jumped 30–40 points compared to their previous providers. That kind of improvement matters for SEO and user retention.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/what-is-hostinger-cl"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If you want a deeper overview before diving into the tutorial, check out ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "our full breakdown of what Hostinger CL offers",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 1: Choose the Right Hosting Plan",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://www.awin1.com/awclick.php?mid=117365&id=2061927"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Head to ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "hostinger.com",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " and navigate to the hosting section. You will see several tiers:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Single Web Hosting",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Perfect if you need one website. You get 50 GB SSD storage, 100 GB bandwidth, one email account, and a free SSL certificate. This plan costs less than a cup of coffee per month when you catch one of their frequent promotions.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Premium Web Hosting",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "This is where most beginners land—and for good reason. You get 100 websites, 100 GB SSD storage, unlimited bandwidth, a free domain name for the first year, and up to 25 email accounts. The extra breathing room is worth the small price bump.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Business Web Hosting",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Designed for growing sites and online stores. You unlock 200 GB NVMe storage, daily backups, enhanced DDoS protection, and a free CDN. If you run WooCommerce or expect traffic spikes, this is your sweet spot.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cloud Startup",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "For high-traffic projects that need dedicated resources without managing a full VPS. You get 200 GB storage, 3 GB RAM, 2 CPU cores, and a dedicated IP address.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "My recommendation for most readers:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Start with Premium Web Hosting. It includes the free domain, supports multiple sites, and costs only a few dollars monthly. You can always upgrade later without migration headaches—Hostinger CL handles that internally.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 2: Register Your Domain Name",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "After selecting your plan, Hostinger CL prompts you to choose a domain. Type your desired name into the search bar and check availability.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "A few tips I follow when picking domains:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Keep it short and memorable.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " \"tonysbakery.com\" beats \"the-best-bakery-in-downtown-portland.com\" every time.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Avoid hyphens and numbers",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " if possible—they create confusion when spoken aloud.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Choose .com first.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " It carries the most trust. Grab .co or .io only if the .com is taken and your brand leans tech or creative.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Think about your audience location.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Hosting a Chilean business? Consider a .cl domain for local SEO signals.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Hostinger CL offers domains across dozens of extensions. The first year is free on Premium and Business plans, which saved me roughly $12–15 on my last project.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Once you have locked in your domain, proceed to checkout. You will create an account, select your billing cycle (longer terms bring steeper discounts), and complete payment.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 3: Set Up WordPress with One Click",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "After payment clears, you land in hPanel—Hostinger CL's custom control panel. It is clean, fast, and logically organized. No cluttered cPanel maze here.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Here is how to install WordPress:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1. In hPanel, click ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "\"Website\"",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " in the left sidebar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2. Select ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "\"Auto Installer.\"",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3. Choose ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "WordPress",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " from the list of applications.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4. Fill in your site title, admin email, and a strong password.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "5. Pick your preferred language and click ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "\"Install.",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The entire process takes under two minutes. Hostinger CL pre-configures sensible defaults, so you are not staring at a blank screen wondering what to do next.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Once installed, visit yourdomain.com/wp-admin to access the WordPress dashboard. From here you can install themes, add plugins, and start creating content.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/hostinger-cl-tips"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "I wrote a more detailed guide on ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "optimizing your Hostinger CL WordPress setup",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " if you want to squeeze maximum performance out of the box.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 4: Build Your Site with the AI Website Builder",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Not everyone wants to wrestle with WordPress themes and plugin configurations. If that sounds like you, Hostinger CL has a brilliant alternative: its ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "AI Website Builder",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Here is how I used it for a recent portfolio project:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1. From hPanel, navigate to ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "\"Website\"",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " and select ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "\"AI Website Builder.\"",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2. Describe your business or project in a few sentences. I typed: \"Freelance graphic designer specializing in brand identity for startups.\"",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3. The AI generates a complete multi-page website—hero section, about page, services, contact form, and footer—within 60 seconds.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4. Customize colors, fonts, images, and text using the drag-and-drop editor. Every element is editable without touching code.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "5. Hit ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "\"Publish\"",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " and your site goes live instantly.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The output impressed me. Clean layouts, responsive on mobile, and visually coherent with my brand description. For someone launching their first site, this removes the steepest part of the learning curve.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/hostinger-cl-use-cases"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Want to see real-world examples? Browse our collection of ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Hostinger CL use cases",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " across different industries.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 5: Optimize Speed, Security, and SEO",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Your site is live. Now let us make it fast, secure, and discoverable.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Speed Optimization",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Enable LiteSpeed Cache.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Hostinger CL includes the LiteSpeed Cache plugin pre-installed on WordPress plans. Activate it from your dashboard under Plugins. It handles page caching, browser caching, and image optimization automatically.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Use a CDN.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Cloudflare integration is available directly in hPanel. Toggle it on to serve assets from servers nearest to each visitor.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Compress images before upload.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Tools like ShortPixel or Imagify integrate seamlessly with WordPress.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Security",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "SSL is automatic.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Your free certificate activates within minutes of domain setup. Verify it by checking for the padlock icon in your browser.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Enable DDoS protection.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " On Business plans and above, this is active by default. On Premium, you can toggle it in hPanel under Security settings.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Schedule backups.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Premium and Business plans include automatic backups, but I always recommend downloading a manual backup monthly through hPanel as a safety net.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "SEO Basics",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Install ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Yoast SEO",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " or ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Rank Math",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " from the WordPress plugin directory.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Submit your sitemap to Google Search Console.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Write descriptive title tags and meta descriptions for every page.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Hostinger CL servers respond so quickly that your Core Web Vitals scores start strong from day one. That gives you a genuine head start in search rankings compared to sites hosted on slower infrastructure.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/hostinger-cl-tips"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "For deeper optimization strategies, I wrote a dedicated piece on ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "getting the most from Hostinger CL",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "New and Featured Functions Worth Knowing",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Hostinger CL keeps iterating, and a few recent additions genuinely stand out:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "AI Content Generator",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Built directly into the website builder, this tool drafts copy for your pages—headlines, descriptions, blog intros. I still edit the output to add my voice, but it cuts initial drafting time by roughly 70%.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "WordPress Staging Tool",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Test changes in a clone of your live site before pushing them public. Available on Business and Cloud plans. I use this constantly for client projects where a broken plugin could mean lost revenue.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Object Cache Integration",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Redis-powered object caching is now available on higher-tier plans. For WooCommerce stores, this translates to faster cart loads and smoother checkout flows—directly impacting conversion rates.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Automatic Plugin and Theme Updates",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Hostinger CL can manage WordPress updates for you, reducing vulnerability windows. You control which plugins auto-update and which stay manual.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Enhanced Email Hosting",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Every plan includes professional email addresses tied to your domain. Recent improvements added better spam filtering and a cleaner webmail interface.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/hostinger-cl-new-features"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "These features stack up to a platform that genuinely evolves with its user base. You are not signing up for a stagnant service—Hostinger CL ships meaningful improvements regularly. Read more about ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "the latest Hostinger CL features",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Who Is Hostinger CL Ideal For?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Not every tool fits every person. Here is who gets the most value from Hostinger CL:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "First-Time Website Owners",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The AI builder, one-click WordPress install, and intuitive hPanel make it nearly impossible to get stuck. You do not need prior technical knowledge to launch a professional site.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Bloggers and Content Creators",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Fast servers, free SSL, and easy WordPress integration mean you can focus on writing instead of troubleshooting server configs. LiteSpeed caching keeps your pages snappy even as traffic grows.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Small Business Owners",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Professional email, multiple website support on a single plan, and e-commerce-ready hosting cover the essentials. The pricing structure makes it practical for businesses watching their margins.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Freelancers and Agencies",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Managing multiple client sites from one dashboard is straightforward. Staging tools, backups, and white-label-friendly features support professional workflows.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Budget-Conscious Developers",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If you need reliable hosting for side projects, prototypes, or MVPs without burning through capital, Hostinger CL delivers performance that punches well above its price point.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "I have personally used it for client sites, personal blogs, and affiliate projects. The results consistently exceeded what I expected at these price tiers.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/why-choose-hostinger-cl"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Explore more perspectives on ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "why professionals choose Hostinger CL",
+            "marks": [
+              "l8"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ready to Launch? Here Is Your Next Step",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "You now have the complete playbook: pick a plan, register your domain, install WordPress or use the AI builder, and optimize for speed and security. The entire process from zero to live site takes under 30 minutes.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://www.awin1.com/awclick.php?mid=117365&id=2061927"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Start your Hostinger CL journey today and get an exclusive discount",
+            "marks": [
+              "l9"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". The current promotional pricing will not last forever, and you lock in the lowest rate by committing to a longer billing cycle.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "I genuinely believe Hostinger CL offers the best value in web hosting right now. Every site I have built on their platform has performed reliably, loaded quickly, and stayed secure. Give it a try—you have a 30-day money-back guarantee if it does not meet your expectations.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "---",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Keep Reading on TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/what-is-hostinger-cl"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What Is Hostinger CL? A Complete Overview",
+            "marks": [
+              "l10"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/why-choose-hostinger-cl"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Why Choose Hostinger CL Over Other Hosts",
+            "marks": [
+              "l11"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l12",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/hostinger-cl-use-cases"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Hostinger CL Use Cases Across Industries",
+            "marks": [
+              "l12"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l13",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/hostinger-cl-tips"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tips and Best Practices for Hostinger CL",
+            "marks": [
+              "l13"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l14",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/hostinger-cl-new-features"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "New Features Coming to Hostinger CL",
+            "marks": [
+              "l14"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l15",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-monday-com"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How to Use monday.com for Project Management",
+            "marks": [
+              "l15"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "---",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Frequently Asked Questions",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Q: Is Hostinger CL good for beginners with zero technical experience?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "A: Absolutely. Hostinger CL was built with beginners in mind. The AI Website Builder creates a complete site from a text description. The one-click WordPress installer eliminates manual setup. And hPanel is far more intuitive than traditional cPanel interfaces. You can have a professional website live within 30 minutes without writing a single line of code.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Q: Can I migrate my existing website to Hostinger CL?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "A: Yes, and it is free. Hostinger CL provides an automated migration tool that transfers your WordPress site, including all files, databases, and emails, from your current host. The process typically completes within a few hours, and their support team assists if any issues arise. Zero downtime during migration is the standard experience.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Q: What happens if I exceed my hosting plan limits?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "A: Hostinger CL sends notifications when you approach resource limits. On shared plans, you can upgrade to a higher tier instantly through hPanel without losing data or experiencing downtime. Their scaling path goes from Single Hosting all the way to Cloud plans, so your hosting grows alongside your website traffic.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "Hostinger, WordPress, Awin, AI Website Builder, hPanel",
+    "keywords": [
+      "hostinger web hosting",
+      "hostinger tutorial",
+      "cheap web hosting 2025",
+      "hostinger wordpress setup",
+      "hostinger AI website builder",
+      "hostinger step by step guide"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/hostinger.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A person sitting at a modern desk with dual monitors showing a website dashboard and a beautifully designed homepage, with a coffee mug and plants in the background. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [],
+    "external_id": "tonyciencia-affiliate:en:hostinger-cl:tutorial",
+    "source": "sdk-agent-blog-seo:mimo",
+    "translation_of": "como-usar-hostinger-cl"
+  },
+  "published_at": "2026-06-12T15:52:51",
+  "locale": "en"
+}

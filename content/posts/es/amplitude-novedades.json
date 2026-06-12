@@ -1,0 +1,976 @@
+{
+  "id": "post-amplitude-novedades",
+  "slug": "amplitude-novedades",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "negocios",
+      "herramientas"
+    ],
+    "tag": [
+      "opinion"
+    ]
+  },
+  "data": {
+    "title": "Amplitude: Analiza el comportamiento de usuarios con sus nuevas funcio",
+    "excerpt": "Descubre las nuevas funciones de Amplitude para analytics. Analiza patrones, optimiza tu producto y toma decisiones basadas en datos. Prueba su plan gratuito.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/amplitude-novedades.jpg",
+        "alt": "Amplitude: Analiza el comportamiento de usuarios con sus nuevas funciones",
+        "filename": "amplitude-novedades.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "El momento de entender a tu usuario profundo es ahora",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://amplitude.com"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Alguna vez has lanzado una nueva función en tu app o sitio web y no has sabido exactamente cómo la están recibiendo? Esa incertidumbre se acaba. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Amplitude",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " ha evolucionado de ser una herramienta de análisis a ser el cerebro de decisiones de tu producto. Y sus funciones más recientes te van a cambiar la forma de trabajar. Personalmente, considero que para cualquier equipo que construya producto digital, no conocer Amplitude es como intentar navegar sin GPS.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://use.amplitude.com/yr0fuyu74wis"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si quieres dejar de adivinar y empezar a saber, te recomiendo que le eches un vistazo directamente a su ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "plan de arranque gratuito",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Es de los más generosos del mercado.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué es realmente Amplitude y por qué importa tanto?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-amplitude"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "En esencia, Amplitude es una ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "plataforma de product analytics",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " que te permite rastrear cada acción que los usuarios realizan dentro de tu producto. Desde hasta dónde hacen scroll, qué botones pulsan, en qué paso de un registro abandonan, hasta qué secuencia de acciones los lleva a convertirse en clientes pagados o a churnear (irse).",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pero su verdadero poder no está solo en recolectar datos, sino en transformarlos en \"¡Ajá!\". Te ayuda a responder preguntas cruciales como: \"¿Qué hace el 10% de usuarios que se queda más de 30 días?\" o \"¿Qué feature está realmente impulsando el crecimiento?\". Es la diferencia entre tomar decisiones en base a corazonadas y tomarlas basadas en la realidad de tu producto.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Funciones nuevas y destacadas que impulsan la toma de decisiones",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Amplitude no se ha quedado quieto. Su enfoque en convertirse en la plataforma de analytics impulsada por IA se nota en estas incorporaciones:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "AI Feedback y asistencia de IA:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Ahora, la plataforma no solo te muestra los datos, sino que te ayuda a interpretarlos. Puedes hacer preguntas en lenguaje natural sobre tus dashboards y obtener insights claros, como \"¿Qué evento está correlacionado con una mayor retención la segunda semana?\". Esto acelera enormemente el descubrimiento de patrones, incluso para quienes no son expertos en SQL.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Session Replay integrado:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Esta es una joya. Ya no necesitas usar una herramienta separada para ver grabaciones de sesiones de usuario. Con Session Replay en Amplitude, puedes ver exactamente qué hizo un usuario que cayó en un error o abandonó un carrito. La capacidad de saltar desde un punto de un funnel directamente a la grabación de esa sesión es una ganancia de tiempo brutal para investigar bugs o fricciones. Un estudio de su página de precios menciona que está incluido incluso en el plan Starter.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Experimentación Web y Feature Flags:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Amplitude se ha consolidado no solo como una herramienta de análisis, sino de acción. Sus herramientas de feature flags y experimentación web (A/B tests) están profundamente integradas con el analytics. Esto significa que puedes segmentar tu experimento usando cohortes basadas en comportamiento (por ejemplo, \"usuarios que completaron el onboarding\") y ver el impacto en métricas clave, todo dentro de la misma plataforma. Es un flujo de trabajo perfecto: analiza, formula una hipótesis, crea el test, mide el resultado.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://use.amplitude.com/yr0fuyu74wis"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Planes escalables y accesibles:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Su nuevo modelo de planes es claro y flexible. El plan Starter es gratuito e incluye características que antes eran de pago en otras plataformas, como hasta 10,000 MTUs, analytics listos para usar y los feature flags ilimitados. Esto baja la barrera de entrada para startups y equipos pequeños a prácticamente cero. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Empieza gratis aquí y pruébalo con tu propio producto",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Para quién es ideal Amplitude? Te sorprenderá su versatilidad",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "No es solo para gigantes tech. Su arquitectura y nuevos planes la hacen perfecta para:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Startups en fase de crecimiento (Scale-ups):",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Que necesitan entender qué palancas mover para encontrar el product-market fit y escalar. La capacidad de crear cohorts de comportamiento y funnels es clave para iterar rápido.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Equipos de Producto en empresas SaaS:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Los PM y diseñadores usan Amplitude para validar features, entender el adoption rate y reducir el churn analizando los patrones de los usuarios que se van.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Equipos de Marketing y Growth:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Para medir el ROI real de campañas, entender el viaje del usuario más allá del primer clic y crear audiencias personalizadas para remarketing basadas en acciones dentro del app.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Desarrolladores y Equipos de QA:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Gracias a los feature flags y la posibilidad de lanzar cambios a segmentos de usuarios específicos de forma controlada, mitigando riesgos.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo empezar a usar Amplitude de forma efectiva",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-amplitude"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "El proceso es más sencillo de lo que parece. Si te preguntas ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "cómo usar Amplitude en la práctica",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", la curva inicial es amigable.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Define tu objetivo y tus eventos clave:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Antes de instrumentar nada, decide qué quieres mejorar. ¿La activación? ¿La retención semanal? Identifica los 3-5 eventos de usuario que están directamente ligados a ese objetivo (por ejemplo: \"crear_primer_proyecto\", \"invitar_miembro\", \"exportar_informe\").",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Implementa el SDK:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Amplitude tiene SDKs para todas las plataformas principales (web, iOS, Android) y documentación clara. El instrumentar estos eventos es el paso técnico principal.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Construye tu primer dashboard y funnels:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " No te compliques. Empieza con un funnel de activación (paso 1: registro, paso 2: onboarding, paso 3: acción core) y un dashboard de métricas clave (DAU/WAU, retención, etc.). La magia sucede cuando empiezas a segmentar estos gráficos por cohortes basadas en comportamiento.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-amplitude"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Itera y profundiza:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Una vez hecho lo básico, explora las sesiones que fallan, lanza un experimento para mejorar la conversión en un paso específico del funnel y mide. La ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "guía de mejores prácticas y trucos",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " te ahorrará muchos dolores de cabeza.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Integraciones que potencian tu flujo de trabajo",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-clickup"
+          },
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-monday-com"
+          },
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-apollo-io"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Amplitude no es un silo. Se integra de manera robusta con el ecosistema de herramientas que ya usas. Conecta tus datos con plataformas como ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "ClickUp",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " para vincular insights a tareas de desarrollo, con ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "monday.com",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " para visualizar métricas en paneles de gestión de proyectos, o con ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Apollo.io",
+            "marks": [
+              "l8"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " para enriquecer los perfiles de tus usuarios de B2B con datos de engagement en el producto. Estas integraciones convierten los datos en acciones en otros sistemas de forma fluida.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Caso de éxito: De la intuición a la métrica",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/amplitude-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Un equipo de producto en una fintech LATAM estaba por lanzar una nueva sección de inversiones en su app. Usaron Amplitude para crear un funnel desde el primer clic en la promoción hasta la creación de la cuenta de inversión. Descubrieron que el 40% de los usuarios abandonaba en el paso de verificación de identidad (KYC). En lugar de adivinar, revisaron las Session Replays de esos usuarios y vieron que el documento no se subía bien en ciertos dispositivos Android. Arreglaron el bug, relanzaron, y la conversión de ese paso subió un 25%. Sin este nivel de detalle, ese 25% se hubiera perdido. Para ver más aplicaciones, consulta nuestra sección de ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "casos de uso de Amplitude",
+            "marks": [
+              "l9"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tu próximo paso: Empieza a descubrir lo que no sabías",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La diferencia entre un producto que crece y uno que se estanca está en los detalles del comportamiento del usuario. Amplitude te da las lentes para ver esos detalles con claridad sin precedentes. Su plan gratuito es el lugar perfecto para empezar a descubrir patrones que están ahora mismo ocultos en tus datos. No tienes nada que perder y un enorme potencial de aprendizaje por ganar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://use.amplitude.com/yr0fuyu74wis"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "**",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Crea tu cuenta gratuita en Amplitude y comienza a analizar hoy mismo",
+            "marks": [
+              "l10"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "**.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "*Divulgación: Este artículo contiene enlaces de afiliado a Amplitude. Si realizas una compra a través de uno de ellos, recibimos una pequeña comisión sin costo adicional para ti, lo que nos ayuda a seguir creando contenido de calidad.*",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sigue leyendo en TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-amplitude"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Qué es Amplitude y para qué sirve exactamente",
+            "marks": [
+              "l11"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l12",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-amplitude"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Por qué elegir Amplitude sobre otras plataformas de analytics",
+            "marks": [
+              "l12"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l13",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-amplitude"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tutorial paso a paso para usar Amplitude por primera vez",
+            "marks": [
+              "l13"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l14",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-amplitude"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Trucos y mejores formas de sacar el máximo provecho a Amplitude",
+            "marks": [
+              "l14"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l15",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-clickup"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo usar ClickUp para organizar los insights de tu producto",
+            "marks": [
+              "l15"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l16",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-monday-com"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo integrar monday.com con tus datos de analítica",
+            "marks": [
+              "l16"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "Amplitude, producto digital, analytics de comportamiento, startups, empresas de tecnología",
+    "keywords": [
+      "analytics de producto",
+      "comportamiento de usuarios",
+      "plataforma analytics",
+      "Amplitude",
+      "product analytics"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/amplitude.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A diverse team of product managers and data analysts reviewing interactive user behavior charts and funnel visualizations on a large screen in a modern office.. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Amplitude es solo para empresas grandes?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Todo lo contrario. Su plan Starter gratuito está diseñado específicamente para individuos, exploradores y startups. Incluye hasta 10,000 MTUs y 2 millones de eventos, analytics preconfigurados, session replay y feature flags ilimitados. Es una de las ofertas más accesibles del mercado para empezar con product analytics de nivel profesional sin costo.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué diferencia a Amplitude de Google Analytics?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Mientras Google Analytics está optimizado para el marketing y el tráfico web, Amplitude es una plataforma de product analytics. Su enfoque está en el comportamiento del usuario DENTRO de tu producto (app o web) y en las secuencias de eventos. Esto permite crear funnels complejos, cohortes basadas en acciones (no solo en fechas o demografía) y entender la causalidad detrás de la retención o el churn, algo que GA4 no hace de forma nativa.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Necesito saber programar para usar Amplitude?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para la parte de análisis y visualización, no. La interfaz es muy intuitiva y con las plantillas listas puedes empezar a sacar insights rápido. Sin embargo, sí necesitarás ayuda de desarrollo para implementar el SDK y enviar los eventos desde tu aplicación. Amplitude tiene una excelente documentación para hacer este proceso lo más sencillo posible.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:es:amplitude:novedades",
+    "source": "sdk-agent-blog-seo:mimo"
+  },
+  "published_at": "2026-06-12T05:23:50",
+  "locale": "es"
+}

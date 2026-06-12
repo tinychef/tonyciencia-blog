@@ -1,0 +1,1001 @@
+{
+  "id": "post-trucos-emergent",
+  "slug": "trucos-emergent",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "ia",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "Emergent: Transforma tu idea en una app funcional con IA",
+    "excerpt": "Descubre cómo Emergent, la plataforma de desarrollo con IA, automatiza código, testing y despliegue. Aprende trucos para crear apps rápidamente.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/trucos-emergent.jpg",
+        "alt": "Emergent: Transforma tu idea en una app funcional con IA",
+        "filename": "trucos-emergent.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si alguna vez has tenido una idea genial para una aplicación web o móvil, pero la sola imaginar el proceso de desarrollo te ha detenido... esta guía es para ti. Hoy no hablaremos de frameworks, lenguajes o configuraciones complejas. Hablaremos de una herramienta que cambia radicalmente las reglas del juego: ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Emergent",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Prepárate para descubrir los trucos y las mejores formas de usar esta plataforma de desarrollo con IA que promete pasar de tu concepto a una app funcional en minutos, no meses.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué es Emergent y por qué revoluciona el desarrollo?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-emergent"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "En esencia, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Emergent",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " es una plataforma de desarrollo impulsada por inteligencia artificial. Pero no es un simple generador de snippets. Su propuesta es más audaz: tú describes tu idea en lenguaje natural –como se lo explicarías a un amigo– y la IA de Emergent se encarga de escribir el código completo, probarlo y desplegarlo automáticamente. Hablamos de aplicaciones full-stack, tanto web como móviles.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Esto significa que el ciclo de \"idea -> código -> pruebas -> lanzamiento\" se comprime dramáticamente. Mientras un equipo de desarrollo tradicional podría tardar semanas o meses en tener un MVP (Producto Mínimo Viable), con Emergent puedes tener una versión funcional lista para mostrar a usuarios o inversores en una tarde. ¿El truco aquí? ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Piensa en grande, pero empieza pequeño.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " No intentes describir el próximo Facebook en tu primer intento. Comienza con la funcionalidad central de tu idea. Por ejemplo: \"Quiero una app para que los vecinos de mi edificio puedan reservar el área de parrilla. Necesita un calendario, un formulario de registro y que envíe notificaciones por email.\" Emergent tomará esa instrucción y la convertirá en una aplicación operativa.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-emergent"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para los que buscan entender la tecnología subyacente, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "aquí profundizamos en cómo funciona Emergent",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", pero baste decir que su motor de IA interpreta el contexto, genera código limpio (React, Node.js, bases de datos) y se asegura de que todo funcione en armonía. Es como tener un equipo de desarrollo senior disponible 24/7, listo para ejecutar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Trucos para exprimir al máximo la plataforma",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Emergent es potente, pero como cualquier herramienta, saber cómo usarla marca la diferencia. Aquí van los trucos que he aprendido para obtener resultados espectaculares:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Sé descriptivo y específico, no ambiguo.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " La IA trabaja mejor con contexto. En lugar de \"una tienda online\", prueba: \"Una tienda online minimalista para vender camisetas ecológicas. Necesita una página de productos con filtros por talla y color, un carrito de compras y una pasarela de pago con Stripe. Los colores principales son blanco y verde.\" Cuanta más orientación le des, más alineado estará el resultado con tu visión. Es el secreto para evitar revisiones innecesarias.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Itera con rapidez.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " El mayor lujo de Emergent es el tiempo. No te cases con la primera versión. ¿No te gustó el diseño del header? Pídele un cambio: \"Haz el header más grande y pon el logo a la izquierda en lugar de al centro.\" En segundos tendrás una nueva versión. Usa esta velocidad para experimentar. Prueba flujos de usuario diferentes, cambia colores, ajusta funcionalidades. La iteración barata y rápida es tu mejor aliada para pulir el producto.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Divide y vencerás.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Si tu proyecto es complejo, no lo describes todo de golpe. Construye por módulos. Primero, genera la funcionalidad de usuario (registro/login). Luego, en una nueva conversación, pídele que añada el módulo de \"carrito de compras\" a la app existente. Emergent puede mantener el contexto y construir sobre aplicaciones anteriores. Esta técnica te da control total y evita que la IA se confunda con descripciones monolíticas.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Aprovecha el despliegue automático con un clic.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " ¿Quieres compartir un enlace para que alguien pruebe tu nueva app? En la interfaz de Emergent, encontrarás la opción de desplegar con un solo clic. En minutos, tu aplicación estará en una URL pública, lista para ser compartida. Este truco es perfecto para validaciones rápidas con clientes potenciales o para impresionar en una reunión de trabajo.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-emergent"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si quieres un tutorial visual paso a paso, hemos preparado una ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "guía completa para usar Emergent",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " que te lleva de cero a desplegado.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Funciones nuevas y destacadas que debes probar",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/emergent-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Emergent no está quieta; su equipo, respaldado por la reconocida Y Combinator, está constantemente mejorando la plataforma. Estas son algunas de las ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "novedades más impactantes",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ":",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Integración nativa con bases de datos.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Ya no solo genera el código de la aplicación; ahora configura y gestiona la base de datos (SQL o NoSQL) que necesitas, ya sea para almacenar usuarios, productos o cualquier otro dato. Esto es un salto cualitativo enorme para crear apps con persistencia real de datos.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Testing y debugging inteligente.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " La IA ahora no solo escribe el código, sino que lo revisa automáticamente para detectar errores comunes antes de que tú los veas. Además, si reportas un bug (\"el botón de pago no funciona\"), la herramienta puede sugerir correcciones e incluso aplicarlas por ti. La calidad del código resultante ha mejorado notablemente.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Templates y puntos de partida especializados.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " ¿No quieres empezar desde una página en blanco? Ahora puedes elegir plantillas pre-construidas para apps comunes: listas de tareas, dashboards de administración, landing pages, y más. Solo personaliza y construye sobre esa base sólida. Es genial para inspirarte y acelerar aún más el proceso.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Mejor manejo de autenticación.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Implementar sistemas de registro y login seguros es complejo. Emergent ahora ofrece opciones más robustas y configurables para integrar autenticación con proveedores como Google o Apple, cuidando la seguridad de tus usuarios sin que tengas que ser un experto en criptografía.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para quién es ideal Emergent: Más allá de los desarrolladores",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Una de las preguntas más comunes es: \"¿Necesito saber programar para usarlo?\" La respuesta corta es no. Emergent está diseñado para ser accesible. Su verdadera magia reside en democratizar la creación de software. Es ideal para:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/emergent-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Emprendedores y validadores de ideas.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Si tienes un concepto de negocio, Emergent es tu mejor herramienta para crear un MVP funcional rápidamente y testearlo en el mercado real. La velocidad te permite pivotear sin perder meses de desarrollo. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Descubre más casos de uso aquí",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Desarrolladores profesionales que buscan eficiencia.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " ¿Un desarrollador senior se beneficiaría? ¡Absolutamente! Puedes usar Emergent para generar el scaffolding (la estructura base) de proyectos complejos, crear prototipos funcionales para presentar a clientes, o automatizar la creación de componentes repetitivos. Te ahorra horas de trabajo \"aburrido\" para que te enfoques en la lógica de negocio compleja.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Equipos de producto y diseño.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Los diseñadores UX/UI pueden traducir sus wireframes y descripciones de características directamente en aplicaciones funcionales para pruebas de usuario, sin depender de la cola de desarrollo del equipo de ingeniería. Es puente entre el diseño y la implementación tangible.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Estudiantes y aficionados a la tecnología.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Es una forma increíble de aprender desarrollo de software viendo cómo la IA estructura y escribe código real. Puedes explorar, romper y modificar sin miedo, en un entorno seguro y guiado.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo empezar tu primer proyecto hoy mismo",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Convencido? Empezar con Emergent es sorprendentemente simple. Solo necesitas una idea, por pequeña que sea. No hace falta que tengas un documento de especificaciones técnicas de 50 páginas. Basta con una descripción clara de lo que quieres lograr.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "El flujo es intuitivo:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://get.emergent.sh/qh22mu56q2fj"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  **Regístrate en ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "emergent.sh",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".** El proceso es rápido.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Inicia una nueva conversación.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Describe tu app como lo harías con un colega.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Itera y refina.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Usa los trucos que te di antes: sé específico, prueba cambios rápidos.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "¡Despliega!",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Cuando estés satisfecho, comparte la URL con el mundo.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La barrera de entrada al desarrollo de software nunca ha sido tan baja. Emergent no es solo una herramienta; es un socio de desarrollo que te permite enfocarte en la visión, mientras la IA se ocupa de la ejecución técnica. Es la forma más rápida y fluida que conozco de materializar una idea digital.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://get.emergent.sh/qh22mu56q2fj"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "**Listo para transformar tu idea en una aplicación real? ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Empieza a construir con Emergent ahora mismo.",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "**",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sigue leyendo en TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-emergent"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tutorial completo: Cómo usar Emergent paso a paso",
+            "marks": [
+              "l7"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-emergent"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Descubre por qué elegir Emergent frente a otras herramientas",
+            "marks": [
+              "l8"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/emergent-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Explora casos de uso reales y ejemplos",
+            "marks": [
+              "l9"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-emergent"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Qué es y para qué sirve Emergent en detalle",
+            "marks": [
+              "l10"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-elevenlabs"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo usar ElevenLabs para crear voces con IA",
+            "marks": [
+              "l11"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l12",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-descript"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo usar Descript para editar audio y vídeo",
+            "marks": [
+              "l12"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l13",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-gamma"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo usar Gamma para presentaciones inteligentes",
+            "marks": [
+              "l13"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "*Este artículo contiene enlaces de afiliación. Si realizas una compra a través de ellos, recibimos una comisión sin costo adicional para ti, lo que nos ayuda a seguir creando contenido útil.*",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "Emergent, Y Combinator, PartnerStack",
+    "keywords": [
+      "Emergent app",
+      "desarrollo con IA",
+      "plataforma no-code",
+      "crear aplicaciones",
+      "automatización de código",
+      "emergent.sh"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/emergent.sh as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A modern workspace with a laptop showing a clean app interface, surrounded by glowing abstract code symbols and futuristic UI elements, suggesting automated creation.. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Es Emergent realmente gratis? ¿Cuál es el modelo de negocio?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Emergent opera con un modelo freemium. Puedes empezar a construir aplicaciones sin costo. Los planes de pago están orientados a usuarios que necesitan más potencia computacional, aplicaciones de mayor escala o características avanzadas como despliegues en dominios personalizados. Es ideal para probar la herramienta sin compromiso.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué tipo de aplicaciones puedo crear con Emergent? ¿Es solo para páginas web simples?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¡Para nada! Emergent está diseñado para construir aplicaciones full-stack complejas. Puedes crear desde dashboards interactivos, pasarelas de pago, redes sociales, gestores de contenido, hasta apps móviles con funciones como autenticación de usuarios, bases de datos, notificaciones y lógica de negocio personalizada. Los límites están en tu imaginación y en lo bien que describas tu idea.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿El código generado es de buena calidad y seguro?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sí. Emergent se enfoca en generar código limpio, estructurado y siguiendo buenas prácticas modernas (como React para el frontend y Node.js para el backend). Además, su sistema de testing integrado ayuda a garantizar la funcionalidad y a reducir errores comunes desde el inicio. La plataforma también se actualiza constantemente para seguir estándares de seguridad.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:es:emergent:trucos",
+    "source": "sdk-agent-blog-seo:mimo"
+  },
+  "published_at": "2026-06-12T07:33:49",
+  "locale": "es"
+}

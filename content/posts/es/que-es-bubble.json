@@ -1,0 +1,1000 @@
+{
+  "id": "post-que-es-bubble",
+  "slug": "que-es-bubble",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "negocios",
+      "herramientas"
+    ],
+    "tag": [
+      "caso-de-uso"
+    ]
+  },
+  "data": {
+    "title": "Bubble: Qué es y para qué sirve esta plataforma no-code",
+    "excerpt": "Descubre qué es Bubble, la plataforma no-code para crear apps web completas sin código. Aprende para qué sirve y cómo empezar gratis. ¡Construye tu idea hoy!",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/que-es-bubble.jpg",
+        "alt": "Bubble: Qué es y para qué sirve esta plataforma no-code",
+        "filename": "que-es-bubble.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué es exactamente Bubble?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Bubble es una ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "plataforma de desarrollo no-code",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " que te permite crear aplicaciones web completas, funcionales y escalables sin escribir una sola línea de código. Imagina tener el poder de un equipo de desarrollo completo, pero en una interfaz visual donde tú arrastras, sueltas y configuras. Desde la interfaz de usuario (UI) hasta la lógica compleja y la base de datos, todo se diseña visualmente. Es como usar un constructor de sitios web, pero para aplicaciones con la profundidad y el poder de software profesional.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-bubble"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "El corazón de Bubble es su editor drag-and-drop. Tienes un lienzo donde diseñas cada botón, cada formulario y cada página. Luego, conectas esa interfaz con una lógica de flujo de trabajo (workflows) que define qué pasa cuando un usuario hace clic, envía un dato o carga una página. Puedes gestionar usuarios, crear listas dinámicas, procesar pagos y conectar con servicios externos, todo desde el mismo panel. La curva de aprendizaje existe, pero ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "una guía paso a paso",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " te lleva de la idea a una aplicación funcional en semanas, no meses.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://bubble.pxf.io/c/6249333/1241519/15270"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si buscas una herramienta que sea potente pero accesible, Bubble es un candidato de primer nivel. Puedes **",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "explorar sus planes y empezar a construir gratis",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "** para probar su potencial de primera mano.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Funciones nuevas y destacadas que marcan la diferencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Bubble no se queda estática; la plataforma evoluciona rápido para darte más poder. Algunas de sus funcionalidades estrella incluyen:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Capacidad nativa para aplicaciones móviles:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Ahora puedes construir y empaquetar tu aplicación como una app nativa para iOS y Android directamente desde Bubble. Esto abre un universo de posibilidades para llegar a más usuarios.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Editor colaborativo:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Varios miembros de tu equipo pueden trabajar en el mismo proyecto en tiempo real, como en un documento de Google, agilizando el desarrollo.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Backend completo y base de datos relacional:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " No es un simple frontend. Puedes crear tipos de datos complejos con relaciones (por ejemplo, un \"Usuario\" con muchos \"Pedidos\") y manejar toda la lógica del servidor dentro de la plataforma.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Workloads Units (Unidades de Carga):",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Este sistema de medición es clave para entender el costo. Te da una forma transparente de gestionar el rendimiento y los recursos de tu aplicación, especialmente cuando empieza a crecer. Un plan gratuito con 2 unidades es perfecto para desarrollar y probar tu MVP.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Potentes integraciones y APIs:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Conecta tu app con miles de servicios (Stripe, Sendgrid, Google Maps, Zapier) o crea tus propias API RESTful para integrar cualquier sistema externo.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/bubble-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Estas mejoras consolidan a Bubble como una de las plataformas más completas del ecosistema. Puedes estar al tanto de todas las novedades en nuestro apartado de ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "novedades de Bubble",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Para quién es ideal esta plataforma?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Bubble brilla con luz propia en varios escenarios concretos. Es ideal para:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Emprendedores y fundadores de startups:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Es la forma más rápida y económica de lanzar un producto mínimo viable (MVP) para validar una idea de negocio sin una inversión masiva en un equipo técnico. Puedes iterar basándote en feedback real de usuarios.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Agencias de desarrollo y freelancers:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Te permite entregar proyectos a clientes más rápido y con un control total sobre la lógica. Es perfecto para construir paneles de administración, marketplaces y herramientas internas personalizadas. Muchas agencias usan Bubble para escalar sus operaciones.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Equipos de producto y empresas establecidas:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Para crear herramientas internas, dashboards o prototipos avanzados sin depender del backlog de desarrollo. El editor colaborativo lo hace ideal para equipos.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/bubble-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Creadores sin conocimientos técnicos:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Si tienes una idea clara pero no sabes programar, Bubble te da las herramientas para materializarla. Los recursos de la comunidad y plantillas te ayudan a empezar. Para inspirarte, mira estos ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "casos de uso exitosos",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-bubble"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si te reconoces en alguno de estos perfiles, entenderás rápidamente ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "por qué elegir Bubble",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " puede ser una decisión estratégica para tu proyecto.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo empezar con Bubble: un vistazo al proceso",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Empezar es sorprendentemente sencillo. El proceso se resume en estos pasos:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Crea tu cuenta gratuita:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Accede a bubble.io y regístrate. No necesitas tarjeta de crédito.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Elige una plantilla o empieza en blanco:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Tienes cientos de plantillas profesionales para distintos tipos de aplicaciones (redes sociales, CRMs, directorios). Puedes usarlas como base o construir desde cero para un control total.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Conoce el editor:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Familiarízate con el lienzo, el árbol de elementos, el panel de propiedades y, lo más importante, el editor de workflows. Aquí es donde ocurre la magia.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Define tu base de datos:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Antes de diseñar la interfaz, es una buena práctica crear los tipos de datos que necesitarás (ej. \"Producto\", \"Orden\", \"Reseña\"). Esto te dará una estructura sólida.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "5.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Diseña y conecta:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Construye la interfaz visualmente y luego crea los workflows para hacerla funcionar. Por ejemplo, un botón de \"Comprar\" debe tener un workflow que cree una nueva \"Orden\" en la base de datos y redirija al usuario al pago.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-bubble"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para dominar los atajos y mejores prácticas desde el inicio, te recomiendo explorar nuestros ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "trucos y mejores formas de usar Bubble",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". La comunidad es increíblemente activa, así que nunca estarás solo.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Consideraciones de precio y escalabilidad",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://bubble.pxf.io/c/6249333/1241519/15270"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "El modelo de precios de Bubble es flexible y basado en el crecimiento. Puedes **",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "comenzar a construir de forma completamente gratuita",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "** para desarrollo y pruebas. Cuando tu aplicación esté lista para recibir tráfico real y usuarios, necesitas un plan de pago (como el plan Starter a $29/mes). El precio escala según las \"Workload Units\" (Unidades de Carga), que son una medida del tráfico y procesamiento de tu app. Esto significa que solo pagas por lo que usas, y es muy transparente. Para aplicaciones que manejan mucho tráfico, Bubble ofrece planes de escala profesional con soporte prioritario.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sigue leyendo en TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para dominar esta herramienta y similares, te dejo estas lecturas:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-bubble"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "**",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Tutorial completo: Cómo usar Bubble paso a paso",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "**",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-bubble"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "**",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Guía: Por qué elegir Bubble para tu próximo proyecto",
+            "marks": [
+              "l8"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "**",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-bubble"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "**",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Top de trucos y mejores formas de usar Bubble",
+            "marks": [
+              "l9"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "**",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-clickup"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "**",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Así puedes usar ClickUp para organizar tu equipo",
+            "marks": [
+              "l10"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "**",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-monday-com"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "**",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Descubre monday.com para la gestión de proyectos",
+            "marks": [
+              "l11"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "**",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l12",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-apollo-io"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "**",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Cómo usar Apollo.io para encontrar leads",
+            "marks": [
+              "l12"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "**",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "Bubble, no-code, plataforma, aplicaciones web, desarrollo visual, base de datos",
+    "keywords": [
+      "Bubble no-code",
+      "qué es Bubble",
+      "plataforma Bubble",
+      "crear apps sin código",
+      "Bubble para qué sirve",
+      "Bubble.io"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/bubble.io as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A person smiling while dragging and connecting colorful blocks on a computer screen, with a progress bar showing 'App Complete' at 100%.. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Es realmente posible crear una aplicación profesional solo con Bubble, sin código?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sí, absolutamente. Bubble se ha convertido en el estándar no-code para aplicaciones web de producción. Empresas utilizan Bubble para gestionar operaciones complejas, marketplaces con múltiples tipos de usuarios y SaaS que facturan miles de dólares al mes. Ofrece el control y la profundidad de un lenguaje de programación, pero con una interfaz visual.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Cuánto cuesta realmente lanzar y mantener una app con Bubble?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Puedes desarrollarla gratis para siempre. El costo comienza cuando estás listo para lanzar y recibir tráfico de usuarios reales. El plan Starter cuesta $29/mes e incluye una cantidad generosa de Workload Units. El costo se adapta a tu tráfico; una app pequeña con pocos usuarios puede costar lo mismo que una suscripción a Netflix, mientras que apps con alto tráfico escalarán en precio proporcionalmente.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Bubble es rápido para aplicaciones con muchos usuarios?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "El rendimiento de Bubble es muy bueno para la mayoría de aplicaciones. Ha mejorado drásticamente en los últimos años. Para aplicaciones con tráfico muy alto (cientos de miles de usuarios simultáneos), requiere una arquitectura eficiente y, posiblemente, el plan de escala profesional. Para el 95% de los proyectos de startups y SaaS, el rendimiento es más que suficiente.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Puedo exportar mi código o mover mi app a otro lugar después?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Bubble es una plataforma cerrada; no puedes exportar el código fuente. Esto es un estándar en las plataformas no-code porque el \"código\" son las configuraciones visuales y los workflows. Sin embargo, tus datos (la base de datos) sí son tuyos y puedes exportarlos mediante API. La ventaja es que Bubble se encarga de todo el hosting, la seguridad y las actualizaciones por ti.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:es:bubble:quees",
+    "source": "sdk-agent-blog-seo:mimo"
+  },
+  "published_at": "2026-06-12T05:13:19",
+  "locale": "es"
+}

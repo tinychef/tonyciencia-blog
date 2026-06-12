@@ -1,0 +1,1031 @@
+{
+  "id": "post-turbotic-novedades",
+  "slug": "turbotic-novedades",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "automatizacion",
+      "herramientas"
+    ],
+    "tag": [
+      "opinion"
+    ]
+  },
+  "data": {
+    "title": "Automatización inteligente: Turbotic revoluciona tus flujos",
+    "excerpt": "Descubre las nuevas funciones de Turbotic que transforman la automatización RPA con IA, orquestando bots y flujos complejos. Prueba esta plataforma que ya usan gigantes como LinkedIn.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/turbotic-novedades.jpg",
+        "alt": "Automatización inteligente: Turbotic revoluciona tus flujos",
+        "filename": "turbotic-novedades.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué es Turbotic y por qué está cambiando la automatización?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-turbotic"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Imagina tener un director de orquesta para todos los procesos repetitivos de tu empresa: que coordina bots, integra aplicaciones y adapta los flujos en tiempo real, todo desde una sola consola. Eso es ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Turbotic",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". No es solo otra herramienta de automatización; es una ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "plataforma de orquestación con IA",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " diseñada para empresas que quieren escalar sin complicaciones. He visto cómo equipos usan bots RPA de forma aislada y terminan con más caos que orden. Aquí, la IA centralizada conecta todo.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://try.turbotic.com/nkdqxpx9guh8"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Recientemente probaron una nueva integración con sistemas legados y el cambio fue instantáneo: lo que antes tomaba semanas de configuración manual, ahora se despliega en horas. Si tu organización ya usa bots, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Turbotic",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " es el siguiente paso lógico para darles cohesión e inteligencia.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Funciones nuevas y destacadas: el salto hacia una automatización realmente inteligente",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lo que me entusiasma de las últimas actualizaciones de Turbotic es que eliminan la fricción típica de la automatización. Estas son las novedades que ya están impactando:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Orquestación de Agentes de IA Autónomos:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Ahora puedes definir agentes de IA que no solo ejecutan tareas, sino que toman decisiones basadas en contexto. Por ejemplo, un agente puede priorizar tickets de soporte según el sentimiento del cliente y asignarlos al especialista adecuado, sin intervención humana.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Auto-curación de Flujos (Self-Healing):",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Si un bot falla por un cambio en la interfaz web o una API, el sistema detecta la anomalía, sugiere o aplica una corrección automáticamente, y notifica al equipo. Esto reduce el tiempo de inactividad drásticamente.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Editor Visual con Lenguaje Natural:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Ahora puedes describir lo que necesitas (“enviar un reporte de ventas semanal por Slack cuando cierre el mes”) y la plataforma traduce eso en un flujo automatizado. Es como tener un asistente que entiende tu intención.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Analítica Avanzada de Procesos:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Un dashboard nuevo que no solo muestra si un bot está corriendo, sino que analiza cuellos de botella, sugiere optimizaciones y predice el ROI de cada automatización.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-turbotic"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Estas funciones no son solo mejoras incrementales; representan un cambio de paradigma. La plataforma pasa de ser un ejecutor de tareas a un ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "cerebro operativo",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " que aprende y se adapta. Para equipos de TI y operaciones, esto significa menos incendios que apagar y más tiempo para innovar. Si quieres profundizar en cómo implementarlas, aquí tienes un ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "tutorial paso a paso sobre Turbotic",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Cómo funciona Turbotic bajo el capó? Más simple de lo que parece",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "El poder de Turbotic reside en su arquitectura de tres capas, pero no necesitas ser un arquitecto de software para usarla:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Capa de Integración:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Se conecta con cientos de aplicaciones (SAP, Salesforce, bases de datos, APIs custom) usando conectores predefinidos o APIs personalizadas. La nueva versión tiene un “marketplace de integraciones” donde la comunidad comparte configuraciones probadas.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Motor de Orquestación:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Aquí es donde ocurre la magia. Diseñas flujos visuales arrastrando bloques que representan acciones, decisiones (if/then), o invocaciones a agentes de IA. Puedes anidar flujos y crear lógicas complejas sin escribir código.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Consola de Control y Monitoreo:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Una vista única para supervisar todos los bots y flujos en producción. Los paneles de nueva generación muestran métricas de rendimiento, alertas y hasta una “línea de tiempo” de cada ejecución para debugging fácil.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-turbotic"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Un cliente, una firma financiera, usó esta consola para reducir el tiempo de cierre mensual en un 70%. Lo que antes era una maraña de scripts desconectados, ahora es un flujo unificado y visible. Si ya usas otras herramientas como n8n, te sorprenderá cómo Turbotic lleva la orquestación a otro nivel. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Descubre aquí las diferencias clave",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Para quién es ideal Turbotic? (Spoiler: más empresas de las que crees)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "No, no es solo para corporaciones gigantes con departamentos de IT masivos. Es ideal para:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Equipos de Operaciones y TI en empresas medianas y grandes",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " que tienen múltiples procesos dependientes de personas y sistemas heterogéneos. Si tu equipo pasa horas copiando datos entre Excel y un ERP, Turbotic es tu solución.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Departamentos de Atención al Cliente",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " que quieren automatizar la respuesta inicial, el seguimiento de casos y el reporteo, liberando a sus agentes para interacciones complejas.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Áreas de Finanzas y RRHH",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " donde los procesos de auditoría, onboarding o nómina son críticos y requieren precisión y trazabilidad absoluta.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Empresas que ya iniciaron con RPA pero están estancadas",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " en el “piloto perpetuo”. Turbotic es el escalamiento controlado que necesitas.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/turbotic-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "He visto startups tecnológicas usarlo para automatizar desde el provisioning de servidores hasta el envío de boletas. Su flexibilidad es brutal. Si te identificas, explora varios ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "casos de uso reales",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " para inspirarte.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo empezar con Turbotic: pasos concretos para tu primer éxito",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La curva de aprendizaje es sorprendentemente suave si sigues una ruta lógica:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Identifica un proceso “dolor” pero simple:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Empieza por algo como la extracción de datos de facturas en PDF y su carga en un sistema contable. No intentes automatizar todo el departamento de finanzas de golpe.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Usa el asistente de IA para tu primer flujo:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Describe el proceso en palabras simples dentro de la plataforma. El sistema generará un esqueleto que puedes refinar visualmente. Es muy gratificante verlo funcionar en minutos.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Prueba en un entorno aislado:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Turbotic permite ejecutar flujos en modo “sandbox” para que observes el comportamiento sin afectar sistemas reales.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Monitorea, mide y itera:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " La consola te dará datos desde el día uno. Mide el tiempo ahorrado o los errores eliminados. Ese dato será tu mejor argumento para expandir el uso.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-turbotic"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Un truco que aprendí: empieza integrando solo dos sistemas. La satisfacción de ver que la información fluye automáticamente entre ellos es lo que genera el “momento ajá” y el apoyo de la dirección. Para acelerar, aquí tienes ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "trucos y mejores formas de usar Turbotic",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Un vistazo al futuro: automatización como capacidad core",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lo más fascinante de Turbotic no son solo sus funciones actuales, sino hacia dónde apunta. Su roadmap está alineado con la visión de las “Future-Proof Organizations” que mencionan en su sitio. La idea es que la automatización, orquestada por IA, se convierta en una capacidad central de la empresa, tan natural como usar email.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ya están experimentando con ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "agentes proactivos",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " que identifican procesos susceptibles de automatizarse solo con observar los patrones de trabajo de los usuarios. Imagina que la plataforma te sugiere: “Noto que tu equipo dedica 10 horas semanales a reconciliar estos datos. ¿Quieres que cree un flujo automatizado?”. Eso ya no es ciencia ficción.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-manychat"
+          },
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://try.turbotic.com/nkdqxpx9guh8"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Están construyendo la infraestructura para que empresas como la tuya no solo sobrevivan al cambio, sino que lo lideren. Si estás explorando automatizaciones más simples para chatbots, quizás ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Manychat",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " sea tu primer paso, pero para un control y escala empresarial, Turbotic está en otra liga. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Comienza a explorar su plataforma hoy",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " y transforma la forma en que opera tu negocio.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "---",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "*Divulgación: Este artículo contiene enlaces de afiliado. Si realizas una compra a través de ellos, recibiré una pequeña comisión sin costo adicional para ti, lo que me ayuda a seguir creando contenido de calidad.*",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sigue leyendo en TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-turbotic"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Guía completa: qué es Turbotic y para qué sirve",
+            "marks": [
+              "l8"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-turbotic"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tutorial práctico: cómo usar Turbotic paso a paso",
+            "marks": [
+              "l9"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-turbotic"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Análisis: por qué elegir Turbotic sobre otras plataformas",
+            "marks": [
+              "l10"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/turbotic-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Inspiración: casos de uso de Turbotic en empresas reales",
+            "marks": [
+              "l11"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l12",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-turbotic"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Optimización: trucos y mejores formas de usar Turbotic",
+            "marks": [
+              "l12"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l13",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-n8n"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Alternativa simple: cómo usar n8n para automatizaciones básicas",
+            "marks": [
+              "l13"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "Turbotic, RPA, IA, automatización, Ericsson, LinkedIn, Sony, Volvo",
+    "keywords": [
+      "automatización inteligente",
+      "orquestración IA",
+      "plataforma Turbotic",
+      "RPA con IA",
+      "flujos de trabajo automatizados"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/turbotic.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A sleek, futuristic digital command center dashboard showing interconnected workflow nodes and AI agents orchestrating tasks across different system icons, glowing with a calm blue and white light. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Turbotic requiere conocimientos avanzados en programación para implementarlo?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "No. Turbotic está diseñado con un editor visual y un asistente de lenguaje natural que permite crear flujos complejos sin código. Los equipos de negocio pueden automatizar procesos típicos, mientras que TI puede profundizar en personalizaciones avanzadas mediante APIs. Es una plataforma accesible pero potente.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué tipo de soporte ofrece Turbotic para empresas que recién comienzan con la automatización?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Turbotic proporciona onboarding guiado, plantillas de procesos comunes y acceso a expertos para diseñar tu primer flujo. Su consola incluye analítica para mostrar el valor desde el inicio, facilitando la demostración interna del ROI. Además, su comunidad y documentación son muy activas para resolver dudas.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Turbotic puede integrarse con sistemas legacy o aplicaciones antiguas en mi empresa?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sí, es uno de sus puntos fuertes. La plataforma ofrece múltiples métodos de integración, incluyendo conectores estándar, APIs REST y la capacidad de orquestar bots RPA tradicionales (como los de UiPath o Automation Anywhere) que ya estén interactuando con esos sistemas legacy. Esto protege tus inversiones previas.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:es:turbotic:novedades",
+    "source": "sdk-agent-blog-seo:mimo"
+  },
+  "published_at": "2026-06-12T14:09:27",
+  "locale": "es"
+}

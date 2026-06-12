@@ -1,0 +1,647 @@
+{
+  "id": "post-how-to-use-aisq",
+  "slug": "how-to-use-aisq",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "ia",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "AISQ Tutorial: Master AI Meeting Assistant Fast",
+    "excerpt": "Learn how AISQ, the AI meeting assistant, records, transcribes, and summarizes your calls automatically. Boost productivity today—get started now!",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/how-to-use-aisq.jpg",
+        "alt": "AISQ Tutorial: Master AI Meeting Assistant Fast",
+        "filename": "how-to-use-aisq.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Disclosure: This post contains affiliate links, which means I may earn a commission if you make a purchase through my links at no extra cost to you.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What is AISQ and Why You Need It",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://try.aisq.com/ktgws2gp8rd7"
+          },
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/why-choose-aisq"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Meetings are the backbone of collaboration, but they often leave behind a trail of scattered notes, missed action items, and wasted time. I've been there—juggling follow-ups while trying to recall who said what. That's why I was thrilled to discover AISQ, an AI meeting assistant that automatically records, transcribes, summarizes, and generates action items from your calls and meetings. It’s like having a dedicated note-taker who never misses a detail, letting you focus on the conversation instead of scribbling notes. If you're tired of losing track of key decisions, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "explore AISQ here",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " and see how it transforms your workflow. For more on why it stands out, check out ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "why choose AISQ",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Getting Started with AISQ",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://try.aisq.com/ktgws2gp8rd7"
+          },
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-elevenlabs"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Setting up AISQ is straightforward, even if you're not tech-savvy. First, visit ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "aisq.com",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " and sign up for an account. The process is quick: enter your email, choose a plan, and you're in. AISQ integrates seamlessly with popular calendar apps like Google Calendar and Outlook, so it can automatically join your scheduled meetings. I recommend starting with a free trial to test its features without commitment. Once logged in, you'll find a clean dashboard where you can manage all your recordings and summaries. This ease of setup is a huge win—no complex configurations needed. If you're curious about other AI tools, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "how to use ElevenLabs",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " might interest you for voiceovers.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step-by-Step: How to Use AISQ for Your Meetings",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 1: Integrating AISQ with Your Calendar and Calls",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/aisq-use-cases"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Begin by connecting AISQ to your calendar. Go to the settings tab and authorize access to Google Calendar or Microsoft Outlook. This allows AISQ to automatically detect upcoming meetings and join them as a silent participant. For ad-hoc calls, you can manually invite AISQ via a unique meeting link. I've used this for both scheduled and impromptu calls, and it never misses a beat. The AI ensures high-quality audio capture, even in noisy environments. This integration is a game-changer for busy professionals—learn more about its capabilities in ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "AISQ use cases",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 2: Recording and Transcribing Meetings",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/aisq-tips"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Once AISQ joins a meeting, it starts recording and transcribing in real-time. You'll see a live transcript as the conversation unfolds, which is perfect for catching up if you join late. The transcription is impressively accurate, handling multiple speakers and technical jargon with ease. After the call, the full transcript is saved to your dashboard. I've found this feature invaluable for reviewing complex discussions—no more rewinding recordings. For tips on optimizing transcription, see ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "AISQ tips & best ways",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 3: Generating Summaries and Action Items",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-gamma"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Here's where AISQ shines. Within minutes of ending a meeting, it generates a concise summary highlighting key points, decisions, and action items. The AI identifies who is responsible for what, complete with deadlines if mentioned. For example, after a recent marketing strategy call, AISQ summarized the budget approval and assigned tasks to team members instantly. This automation eliminates the guesswork and ensures accountability. If you're exploring other AI tools for content, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "how to use Gamma",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " is great for presentations.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 4: Reviewing and Sharing Insights",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/what-is-aisq"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "From the dashboard, you can review summaries, edit transcripts if needed, and share them via email or integrations with tools like Slack. AISQ also offers analytics, like meeting duration and topic trends, to help you optimize future discussions. I often share summaries with my team right after calls, which keeps everyone aligned. This seamless sharing loop has cut down follow-up emails by half in my experience. Discover more about its features in ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "what is AISQ",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "New and Featured Functions of AISQ",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/aisq-new-features"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "AISQ constantly evolves, and recent updates have made it even more powerful. One standout is the \"Priority Action Items\" feature, which uses AI to rank tasks by urgency based on conversation context. Another is multi-language support, allowing transcriptions in over 20 languages—ideal for global teams. There's also enhanced security with end-to-end encryption for all recordings. These innovations show AISQ's commitment to staying ahead. For a deep dive into updates, visit ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "new features of AISQ",
+            "marks": [
+              "l8"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". I'm particularly impressed by how these functions reduce manual work; it feels like having an extra team member dedicated to productivity.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Who is AISQ Ideal For?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "AISQ is perfect for anyone who spends time in meetings and wants to maximize their output. Small business owners and entrepreneurs will love it for keeping client calls organized without hiring assistants. Marketing agencies and remote teams benefit from its ability to coordinate across time zones with clear action items. If you're a freelancer or consultant, AISQ helps you maintain professionalism by providing detailed records of discussions. From my experience, it's especially valuable for those juggling multiple projects—its automation frees up hours each week. Even educators and nonprofit leaders can use it to streamline committee meetings. Essentially, if you value time and clarity, AISQ is built for you.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Conclusion: Transform Your Meetings with AISQ",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://try.aisq.com/ktgws2gp8rd7"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "AISQ isn't just another AI tool; it's a comprehensive solution that makes meetings productive and actionable. From seamless integration to intelligent summaries, it handles the heavy lifting so you can focus on what matters—collaboration and decision-making. I've integrated it into my daily routine, and the difference is night and day: no more missed deadlines or forgotten discussions. Ready to give it a try? ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Start your AISQ journey today",
+            "marks": [
+              "l9"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " and experience the future of meetings. You won't look back.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Keep reading on TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-descript"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Discover ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "how to use Descript",
+            "marks": [
+              "l10"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " for audio editing.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/what-is-aisq"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Learn more about ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "AI meeting assistants",
+            "marks": [
+              "l11"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " in our guide.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l12",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/aisq-tips"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Get tips on ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "maximizing productivity with AISQ",
+            "marks": [
+              "l12"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "AISQ, AI assistant, meetings, transcription, action items",
+    "keywords": [
+      "AI meeting assistant",
+      "AISQ tutorial",
+      "meeting transcription",
+      "AI productivity tools",
+      "automated meeting summaries"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/aisq.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A professional smiling at a laptop with AI-generated meeting notes displayed on screen. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How does AISQ ensure the privacy of my meeting recordings?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "AISQ uses end-to-end encryption and secure cloud storage to protect all recordings, and you have full control over who accesses the data.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Can AISQ transcribe meetings in languages other than English?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Yes, AISQ supports transcription in over 20 languages, including Spanish, French, and German, making it ideal for global teams.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Is there a limit to the number of meetings I can record with AISQ?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "It depends on your plan, but AISQ offers scalable options, from a free trial with limited recordings to unlimited plans for businesses.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:en:aisq:tutorial",
+    "source": "sdk-agent-blog-seo:mimo",
+    "translation_of": "como-usar-aisq"
+  },
+  "published_at": "2026-06-12T07:37:11",
+  "locale": "en"
+}

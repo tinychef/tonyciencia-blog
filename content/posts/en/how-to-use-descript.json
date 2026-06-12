@@ -1,0 +1,1241 @@
+{
+  "id": "post-how-to-use-descript",
+  "slug": "how-to-use-descript",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "ia",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "Descript Tutorial: Edit Video by Editing Text (Step-by-Step)",
+    "excerpt": "Learn how to edit video and podcasts by editing text with Descript. Step-by-step tutorial with voice cloning, auto-clips, and AI editing tricks that save hours.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/how-to-use-descript.jpg",
+        "alt": "Descript Tutorial: Edit Video by Editing Text (Step-by-Step)",
+        "filename": "how-to-use-descript.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If you've ever stared at a timeline in Premiere Pro scrubbing back and forth for 20 minutes just to remove a single \"um,\" you already know why Descript exists. This tool flips video and podcast editing on its head: you edit your media by editing a text document. Delete a word from the transcript, and it vanishes from the video. Rearrange paragraphs, and the footage rearranges itself.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "I've been using Descript for months now across YouTube videos, podcast episodes, and client work. The workflow is genuinely addictive once you get the hang of it. Below is my complete step-by-step walkthrough—from zero to polished final export.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "This post contains affiliate links. If you purchase through them, I may earn a small commission at no extra cost to you.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 1: Create Your Account and Start a New Project",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/what-is-descript"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Head to ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Descript",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " and sign up. There's a free tier that gives you a real taste of the platform—no credit card needed. Once you're in, the interface feels more like a word processor than a traditional NLE (non-linear editor). That's intentional.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Click \"New Project\" and choose whether you're working with video or audio. Descript supports both natively. Upload your file—drag and drop works perfectly—or record directly inside the app. Descript records your screen, camera, and mic simultaneously, which is fantastic for tutorials or remote interviews.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Within seconds, Descript transcribes everything. The transcription quality is shockingly accurate, even with multiple speakers, crosstalk, and accents. Each speaker gets automatically labeled, and you can rename them with one click.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/descript-use-cases"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If you want to see how other creators use Descript across different formats, check out our ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Descript use cases guide",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 2: Edit Video by Editing Text",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Here's where the magic happens—and I don't use that word lightly.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Your transcript sits on the left side of the screen. Your video preview sits on the right. They're perfectly synced. Every word in the transcript corresponds to a specific frame in your footage.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "To remove something:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Highlight the text. Press delete. The audio and video clip disappears. No timeline juggling. No razor tool. No ripple edits to worry about.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "To rearrange:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Cut a sentence or paragraph and paste it somewhere else. The media follows. I recently restructured an entire 12-minute YouTube video by literally copy-pasting paragraphs of the transcript. Took four minutes. In DaVinci Resolve, that would've been an hour.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "To find filler words:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Descript automatically detects \"um,\" \"uh,\" \"like,\" and \"you know.\" Go to the sidebar, click \"Filler Words,\" and remove every single one with one button press. The first time I did this on a 30-minute podcast, it saved me roughly 45 minutes of manual editing.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "You can also highlight a section and use the toolbar to split, copy, or add it to a sequence. The whole experience feels like writing a Google Doc that happens to contain video.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://get.descript.com/oxm6ow5zw5nx"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ready to try this workflow yourself? Get started with Descript here.",
+            "marks": [
+              "l2"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 3: Record a Voice Clone with Overdub",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "This feature still blows my mind every time I use it.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Descript's Overdub lets you create an AI clone of your own voice. You record about 10 minutes of training audio (Descript walks you through it), and within a short processing window, your voice clone is ready.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Practical use case:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " You stumble over a word during recording. Instead of re-recording the whole segment, you just type the correct word into the transcript. Descript generates the fix using your cloned voice, and it blends seamlessly with the surrounding audio. I tested this on three different episodes, and no listener—or even my co-host—noticed the swap.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "You can also use Overdub to add entirely new sentences. Say you forgot to mention a sponsor or want to add a transitional phrase. Type it, and your clone speaks it in your voice. The tone, cadence, and pacing match surprisingly well.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-elevenlabs"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "For deeper tips on voice cloning across tools, our ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "ElevenLabs guide",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " covers another excellent option worth exploring.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 4: Use Studio Sound and Auto-Enhance",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Descript includes a one-click audio enhancement called ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Studio Sound",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". It removes background noise, reduces echo, evens out volume levels, and adds warmth to your voice. I've recorded in echoey hotel rooms, coffee shops, and a car—and Studio Sound made each one sound like it came from a treated studio.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The processing happens in the cloud, so it takes a moment, but the results are remarkable. Toggle it on and off to hear the before-and-after. The difference is dramatic.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "You also get access to automatic volume leveling, silence removal, and eye contact correction (yes, it uses AI to make it look like you're looking directly at the camera even if you were reading notes). These features alone justify the price for anyone recording talking-head content.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Step 5: Auto-Generate Clips for Social Media",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "This is the feature that changed my content repurposing game entirely.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Descript can automatically identify the most engaging segments of your long-form video or podcast and turn them into short clips. It analyzes the transcript for hooks, stories, and high-energy moments, then generates properly formatted clips for TikTok, Instagram Reels, and YouTube Shorts.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "You pick an aspect ratio (9:16, 1:1, 16:9), customize the layout, add captions with your brand fonts and colors, and export. What used to take me an entire afternoon—watching my own content, selecting clips, reformatting, adding captions—now takes about 10 minutes.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The auto-captions are customizable with animated word highlighting, progress bars, and speaker labels. You can save templates so every clip looks consistent without manual tweaking each time.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-invideo-ai"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Want more AI-powered content creation workflows? Our ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "InVideo AI tutorial",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " pairs perfectly with Descript for a full production pipeline.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "New and Standout Features",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Descript ships updates frequently, and a few recent additions deserve attention:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Underlord (AI Co-Editor):",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " This is Descript's built-in AI assistant. It can rephrase awkward sentences, shorten rambling sections, suggest cuts, and even rewrite your script for a different tone. Think of it as having an editor sitting next to you offering suggestions in real time.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "AI Green Screen:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Remove or replace backgrounds without a physical green screen. The edge detection handles hair and movement better than most dedicated tools I've tested.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Automatic Chapter Markers:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Descript detects topic changes and generates chapter markers for YouTube. This is a massive SEO win since YouTube chapters boost watch time and discoverability.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Remote Recording with Built-in Transcription:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Record a guest call directly in Descript. Each participant gets a separate high-quality track, and transcription happens automatically. No more syncing Zoom recordings with separate audio files.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Improved Multicam Support:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Edit multi-camera projects using the same text-based workflow. Descript switches angles based on who's speaking, and you can override with a click.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/descript-new-features"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "For a full breakdown of the latest releases, bookmark our ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Descript new features page",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Who Is Descript Ideal For?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Descript isn't trying to replace After Effects or compete with Hollywood color grading. It excels in specific, high-demand workflows:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Podcasters",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " — This is arguably the best podcast editing tool available. The transcript-based editing, filler word removal, Studio Sound, and clip generation make it a complete podcast production suite. If you're editing a weekly show, Descript will save you hours every single week.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "YouTube Creators",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " — Talking-head videos, screen recordings, tutorials, and vlogs all benefit enormously from the text-based editing model. The auto-chapters feature alone is worth the switch.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Course Creators and Educators",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " — Record your lessons, clean them up fast, and generate supplementary clips for marketing. The transcription doubles as accessibility subtitles.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Marketing Teams",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " — Repurpose a single webinar into dozens of social clips, blog post drafts (export the transcript), and email snippets. The efficiency gains compound quickly when you're producing content at scale.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Solo Creators and Freelancers",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " — If you wear every hat in your business, Descript reduces the technical barrier to professional-quality video and audio. You don't need to learn keyboard shortcuts or memorize timeline logic. If you can edit a Word doc, you can edit video.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/why-choose-descript"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "For more on why Descript stands out in a crowded market, read our comparison piece on ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "why creators choose Descript",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pricing: What Does Descript Cost?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Descript offers a free plan that includes 1 hour of transcription per month, watermark-free exports at 720p, and limited AI credits. It's enough to test the workflow and decide if it clicks for you.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Hobbyist plan",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " starts at $16/month (billed annually) and includes 10 media hours, 400 AI credits, 1080p watermark-free exports, and full access to Underlord. For most individual creators, this tier is the sweet spot.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Higher tiers add more hours, team collaboration features, and enterprise-grade tools. But honestly, the Hobbyist plan covers the needs of most podcasters and YouTubers I know.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "My Final Verdict After Months of Daily Use",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Descript isn't perfect—no tool is. But the core premise works brilliantly: editing video by editing text is not a gimmick. It's a fundamentally faster way to produce content. The voice cloning is genuinely useful. The auto-clip generation turns one piece of content into ten. Studio Sound rescued recordings I would've otherwise thrown away.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "If you create any form of spoken-word content—podcasts, YouTube videos, courses, webinars—Descript deserves a spot in your toolkit. The learning curve is about 15 minutes. The time savings are measured in hours per week.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://get.descript.com/oxm6ow5zw5nx"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Start editing smarter with Descript today—try it free and see the difference yourself.",
+            "marks": [
+              "l7"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-gamma"
+          },
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/descript-tips"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pro tip: Pair Descript with other AI tools for a powerhouse workflow. Check out our ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Gamma tutorial",
+            "marks": [
+              "l8"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " for turning your transcripts into presentations, and our ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "best Descript tips guide",
+            "marks": [
+              "l9"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " for advanced tricks that squeeze even more value from the platform.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Keep Reading on TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/what-is-descript"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What Is Descript and How Does It Work?",
+            "marks": [
+              "l10"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/why-choose-descript"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Why Creators Are Switching to Descript",
+            "marks": [
+              "l11"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l12",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/descript-use-cases"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Descript Use Cases: From Podcasts to Marketing",
+            "marks": [
+              "l12"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l13",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/descript-tips"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Descript Tips and Best Practices",
+            "marks": [
+              "l13"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l14",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/descript-new-features"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Descript New Features and Updates",
+            "marks": [
+              "l14"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l15",
+            "_type": "link",
+            "href": "https://tonyciencia.com/en/posts/how-to-use-invideo-ai"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How to Use InVideo AI for Video Creation",
+            "marks": [
+              "l15"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "Descript, Descript.com, video editing, podcast editing, AI transcription, voice cloning, Underlord",
+    "keywords": [
+      "Descript tutorial",
+      "video editing AI",
+      "podcast editing software",
+      "text-based video editing",
+      "voice cloning software",
+      "Descript review"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/descript.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A content creator sitting at a desk with dual monitors, one screen showing a transcript with highlighted text and the other showing the corresponding video clip being edited in real time, warm studio lighting, modern minimalist workspace. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Can Descript edit video even if I have no video editing experience?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Yes. Descript is designed for people who have never touched a traditional video editor. The interface looks like a text document—if you can highlight and delete words in Google Docs, you can edit video in Descript. There are no timelines, tracks, or complex keyframes to learn.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How accurate is Descript's AI voice cloning?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "After about 10 minutes of training audio, Descript creates a voice clone that closely matches your tone and cadence. For short corrections and additions—fixing a mispronounced word or adding a missing sentence—most listeners won't detect the edit. It's one of the most practical AI features for podcasters and video creators.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Is Descript free to use?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Descript offers a free plan with 1 hour of transcription per month, 720p exports without watermarks, and limited AI credits. It's a genuine free tier that lets you test the full text-based editing workflow before committing to a paid plan. The Hobbyist plan at $16/month (annual) unlocks 10 media hours and full AI features.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:en:descript:tutorial",
+    "source": "sdk-agent-blog-seo:mimo",
+    "translation_of": "como-usar-descript"
+  },
+  "published_at": "2026-06-12T12:49:21",
+  "locale": "en"
+}

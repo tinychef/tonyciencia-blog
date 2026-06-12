@@ -1,0 +1,1045 @@
+{
+  "id": "post-como-usar-lemlist",
+  "slug": "como-usar-lemlist",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "ia",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "lemlist Tutorial: Cómo automatizar tu outreach paso a paso",
+    "excerpt": "Aprende a configurar lemlist paso a paso y transforma tu outreach con email, LinkedIn e IA. Guía completa para empezar hoy.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/como-usar-lemlist.jpg",
+        "alt": "lemlist Tutorial: Cómo automatizar tu outreach paso a paso",
+        "filename": "como-usar-lemlist.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "lemlist: Tu nuevo centro de mando para outreach que genera respuestas",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-lemlist"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si estás buscando una forma de escalar tus esfuerzos de prospección sin perder el toque personal, lemlist es la plataforma que estás esperando. Olvídate de los correos genéricos que van directo a la bandeja de spam. En este tutorial, te mostraré paso a paso cómo configurar y usar ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "lemlist",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " para que tus campañas de email y LinkedIn no solo lleguen, sino que conecten y consigan respuestas.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "*Disclosure: Este artículo incluye enlaces de afiliado. Si adquieres lemlist a través de ellos, sin costo extra para ti, apoyas a TonyCiencia.*",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 1: Configuración inicial y conexión de canales",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://get.lemlist.com/ui9r4ec8cba9"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "El primer paso es crear tu cuenta en ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "lemlist",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Lo genial es que su interfaz es intuitiva desde el minuto cero. Aquí no se trata de \"configurar\", sino de \"conectar\".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Conecta tu buzón de email:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " lemlist se integra con los principales proveedores (Google Workspace, Outlook, etc.) y se preocupa por tu reputación de envío desde el primer día. Su \"Deliverability Hub\" y herramienta de calentamiento (warm-up) automáticos son una salvación para no acabar en spam.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Vincula tu perfil de LinkedIn:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Esta es una de sus joyas. Con su extensión de Chrome, puedes conectar tu cuenta para automatizar visitas de perfil, solicitudes de conexión y mensajes, todo desde el mismo lugar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Explora la base de datos:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " lemlist te da acceso a más de 650 millones de leads. Puedes filtrar por cargo, industria, ubicación y más para encontrar a tus clientes ideales sin salir de la plataforma.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 2: Crea tu primer secuencia de email multicanal",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ahora viene la parte divertida. Ve a \"Campanas\" y crea una nueva secuencia. La magia de lemlist está en su editor visual.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Diseña emails dinámicos:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " No uses plantillas aburridas. Con lemlist, puedes insertar imágenes personalizadas (¡sí, que tengan el nombre o logo de tu prospecto!), vídeos y text variables que hacen que cada email parezca escrito a mano.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-lemlist"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Construye pasos inteligentes:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Una secuencia típica puede ser: Email 1 (presentación) -> Esperar 2 días -> Visita automática de LinkedIn -> Esperar 1 día -> Email 2 (con seguimiento). Si en algún paso obtienes una respuesta (abierta, clic o respuesta), lemlist puede sacar automáticamente al lead de la secuencia. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Descubre más trucos para potenciar tus campañas",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 3: Potencia con IA y automatizaciones avanzadas",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Aquí es donde lemlist se adelanta a la competencia. Su agente de IA, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "lemAgent",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", puede ayudarte a generar líneas de asunto, personalizar copys y hasta responder a los leads por ti cuando estás ocupado.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/lemlist-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Otro punto fuerte es la automatización multicanal real. No es solo email + LinkedIn. Puedes añadir pasos de ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "SMS",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " y ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "WhatsApp",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " (como add-on) para tocar a tus prospectos donde sea que estén más activos. Todo está centralizado en una ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "bandeja de entrada unificada",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " donde gestionas todas las conversaciones. Para inspirarte, echa un vistazo a ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "casos de uso reales",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " de empresas como la tuya.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Funciones nuevas y destacadas que marcan la diferencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "lemlist no para de innovar. Algunas funciones que debes probar ya:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "LinkedIn Automation avanzado:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " No solo envía mensajes. Puede hacer scraping de leads de publicaciones, eventos o grupos específicos de LinkedIn y añadirlos directamente a tus campañas.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Encuentra números de teléfono y emails:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Con su buscador integrado, puedes encontrar datos de contacto verificados para tus leads, completando tu perfil de contacto para outreach omnicanal.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Integración con tu CRM y API:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Sincroniza lemlist sin problemas con Salesforce, HubSpot, Pipedrive u otras herramientas que ya uses para mantener todo tu flujo de trabajo conectado.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Para quién es ideal lemlist? (Spoiler: Para quien quiere resultados)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "lemlist no es para todo el mundo, y eso es una buena señal. Es la herramienta perfecta para:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Equipos de ventas B2B y SDRs:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Que necesitan enviar volúmenes altos de correos y mensajes personalizados sin perder eficiencia.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-lemlist"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Agencias de marketing y growth hacking:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Que gestionan campañas de outreach para múltiples clientes y necesitan una plataforma potente y escalable. Es una herramienta clave para ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "entender por qué elegir lemlist",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " sobre otras.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Fundadores y equipos de crecimiento de startups:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Que buscan sus primeros 100 clientes o validan un mercado y necesitan un canal de adquisición directo y medible.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cualquier profesional que valore la reputación:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Si te preocupa no acabar en spam y quieres un sistema que caliente y cuide tu buzón por ti, lemlist es tu aliado.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Empieza hoy: Prueba lemlist sin riesgo",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La mejor forma de convencerte es probándola. Y ahora mismo tienes una oportunidad única para hacerlo con cero compromiso.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://get.lemlist.com/ui9r4ec8cba9"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "**",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Activa tu prueba gratuita extendida de 30 días de lemlist aquí",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "**. Sí, has leído bien: un mes entero para explorar todas sus funciones premium, crear tus primeras campañas y ver de primera mano cómo cambia tu tasa de respuesta. Esta oferta especial no suele estar disponible, así que aprovecha para saltar la prueba estándar de 14 días.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/lemlist-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Quieres estar al tanto de todas sus ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "novedades y actualizaciones",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "? Tenemos un artículo dedicado a ello.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sigue leyendo en TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si este tutorial te fue útil, aquí tienes más contenido para dominar el outreach:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-lemlist"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "**",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Todo sobre lemlist: Qué es y para qué sirve",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "**",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-lemlist"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "**",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Trucos y mejores formas de usar lemlist",
+            "marks": [
+              "l8"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "**",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-elevenlabs"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "**",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Cómo usar ElevenLabs para crear voces con IA en tus vídeos",
+            "marks": [
+              "l9"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "**",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-descript"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "**",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Cómo usar Descript para editar audio y vídeo con facilidad",
+            "marks": [
+              "l10"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "**",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-gamma"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "**",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Cómo usar Gamma para crear presentaciones impactantes con IA",
+            "marks": [
+              "l11"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "**",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "FAQ Rápida sobre lemlist",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "P: ¿lemlist es solo para email frío?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "R: ¡De ninguna manera! Aunque su herramienta de email es excepcional, es una plataforma verdaderamente multicanal. Integra secuencias de email, acciones de LinkedIn (mensajes, conexiones, visitas), SMS, WhatsApp e incluso llamadas de voz (VoIP) en un solo flujo automatizado.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "P: ¿Cómo ayuda lemlist a evitar el spam?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "R: Cuenta con un \"Deliverability Hub\" que monitoriza tu reputación y una herramienta de calentamiento (warm-up) automática. Esto significa que la plataforma \"conversa\" con otros usuarios de lemlist para generar actividad positiva en tu buzón, mejorando tu tasa de entrega con el tiempo.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "P: ¿Puedo usar lemlist si soy principiante en outreach?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "R: Sí, y es una gran opción para empezar. Su interfaz es visual y intuitiva, y ofrece plantillas de secuencias probadas. Además, tener todas las herramientas (búsqueda de leads, email, LinkedIn, CRM) en un solo lugar simplifica enormemente el proceso para los que recién comienzan.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "lemlist, email frío, LinkedIn, automatización de ventas, IA para ventas",
+    "keywords": [
+      "lemlist tutorial",
+      "outreach automatizado",
+      "cold email personalizado",
+      "plataforma de ventas multicanal",
+      "como usar lemlist"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/lemlist.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A professional sitting at a modern desk with multiple computer screens showing graphs and email interfaces, a smartphone displaying LinkedIn notifications, looking focused and successful.. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Cuál es la diferencia entre el plan de Email y el de Multichannel en lemlist?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "El plan de Email (desde 31€/mes) está enfocado en outreach masivo y personalizado por correo electrónico, con herramientas avanzadas de deliverability. El plan Multichannel (desde 87€/mes) incluye todo lo del plan de Email, pero añade automatización nativa de LinkedIn, SMS, WhatsApp, un dialer de llamadas integrado y la posibilidad de usar múltiples remitentes por usuario, ideal para estrategias de prospección omnicanal.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿lemlist es difícil de configurar para alguien sin conocimientos técnicos?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para nada. La plataforma está diseñada con una interfaz visual e intuitiva (drag & drop) que permite crear secuencias complejas de forma sencilla. Ofrece plantillas predefinidas y una base de datos integrada para que puedas empezar a generar campañas en minutos, sin necesidad de conocimientos de programación.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Puedo integrar lemlist con mi CRM actual como HubSpot o Salesforce?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sí, lemlist se integra de forma nativa con los CRM más populares del mercado, incluyendo HubSpot, Salesforce y Pipedrive. Además, cuenta con una API robusta para crear integraciones personalizadas con otras herramientas de tu stack tecnológico, manteniendo todos tus datos sincronizados.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:es:lemlist:tutorial",
+    "source": "sdk-agent-blog-seo:mimo"
+  },
+  "published_at": "2026-06-12T04:43:11",
+  "locale": "es"
+}

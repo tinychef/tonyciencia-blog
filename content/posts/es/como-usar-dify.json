@@ -1,0 +1,807 @@
+{
+  "id": "post-como-usar-dify",
+  "slug": "como-usar-dify",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "ia",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "Dify tutorial: Crea apps con IA sin código en 7 pasos",
+    "excerpt": "Aprende a construir chatbots y agentes con Dify, la plataforma open-source que democratiza el desarrollo con LLM. Empieza aquí.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/como-usar-dify.jpg",
+        "alt": "Dify tutorial: Crea apps con IA sin código en 7 pasos",
+        "filename": "como-usar-dify.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "He probado decenas de plataformas para crear aplicaciones con inteligencia artificial. Muchas prometen simplicidad y terminan siendo un laberinto técnico. Dify cambió mi perspectiva. Es una plataforma open-source que, de verdad, te permite construir chatbots, agentes autónomos y pipelines de procesamiento de datos (RAG) sin escribir código avanzado. Si puedes arrastrar bloques y configurar menús, puedes crear una app con IA potente.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "En este tutorial, te guiaré paso a paso para crear tu primera aplicación. Olvídate de la configuración compleja; nos enfocaremos en la creación rápida y efectiva. ¿Listo para transformar una idea en una herramienta funcional?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1. El primer paso: Configuración y exploración",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://affiliate.dify.ai/ehm5uywvxx1s"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La interfaz de Dify es sorprendentemente limpia. Tras ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "registrarte en Dify",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", verás un panel de control. Mi consejo: explora primero la pestaña de \"Plantillas\". No empezar desde cero es un gran atajo. Elige una plantilla básica, como \"Chatbot Simple\", para entender el flujo. Verás cómo los componentes (el modelo de lenguaje, la base de conocimientos, la lógica) ya están conectados. Juega con ella, haz preguntas, observa las respuestas. Esta inmersión rápida te da una intuición valiosa para cuando construyas la tuya.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2. Diseña la lógica de tu agente: El flujo visual",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Aquí es donde Dify brilla. Crea una nueva aplicación y selecciona \"Agente\" o \"Chatbot\". Te encontrarás con un lienzo en blanco y un panel de herramientas a la izquierda. Es un editor visual arrastrar-y-soltar. Arrastra un nodo de \"Entrada del Usuario\" al lienzo. Luego, arrastra un nodo de \"LLM\" y conéctalos. En el nodo LLM, selecciona el proveedor y modelo (GPT-4, Claude, Llama, etc.) y define el \"System Prompt\". Este es el alma de tu aplicación: define su personalidad y reglas. Por ejemplo: \"Eres un experto en nutrición deportiva. Responde de forma clara y amigable, usando listas\". La claridad aquí es todo.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3. Dale memoria y conocimiento: Los bloques de contexto",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/dify-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Un chatbot sin memoria es un loro. Para hacerlo útil, arrastra un nodo de \"Memoria\" y conéctalo después del LLM. Esto le permite recordar conversaciones pasadas. La verdadera potencia, sin embargo, llega con el conocimiento externo. Arrastra un nodo de \"Base de Conocimiento\". Aquí puedes subir documentos (PDFs, txt), páginas web o enlaces. Dify los indexará usando técnicas RAG (Retrieval-Augmented Generation). Ahora, cuando el usuario pregunte \"¿Cuál es la política de devoluciones?\", el agente buscará en tu documento y responderá con precisión, citando la fuente. Es como darle una biblioteca a tu asistente. Para profundizar en esto, consulta nuestra guía sobre ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "casos de uso avanzados para Dify",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4. Integra acciones y APIs: El agente cobra vida",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/dify-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Un agente inteligente no solo habla; actúa. En el panel de herramientas, busca \"Herramientas API\". Puedes añadir integraciones predefinidas (como buscar en web) o crear las tuyas propias conectando endpoints REST. Imagina un agente de soporte técnico que, además de responder preguntas, pueda crear un ticket en Zendesk o revisar el estado de un pedido en tu base de datos. Configura los parámetros y la autenticación. Esta capacidad de orquestar acciones externas es lo que separa a un simple chatbot de un agente verdaderamente autónomo. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Explora las últimas funciones de agentes en Dify",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "5. Publica y comparte: Tu app en el mundo",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Satisfecho con tu creación. Ve a la pestaña \"Publicar\". Dify te ofrece varias opciones de integración. Puedes:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Obtener un enlace web único para compartir directamente.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Incrustar un widget de chat en tu sitio web con un simple fragmento de código (iframe o script).",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Desplegarlo como una API REST para integrarlo en cualquier aplicación móvil o de escritorio.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-dify"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La opción de widget de chat es fantástica para soporte al cliente o ventas. En menos de 5 minutos, puedes tener un asistente IA funcionando en tu página. Si buscas inspiración para tu próximo proyecto, lee ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "por qué elegir Dify",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " sobre otras alternativas.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "6. Funciones destacadas que aceleran tu trabajo",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Dify no se detiene en lo básico. Estas funciones me han ahorrado horas:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Depuración visual",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Puedes ver el flujo de la conversación nodo por nodo, identificando dónde falla la lógica o la recuperación de datos.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Versiones y rollback",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Cada vez que publicas, se guarda una versión. Si algo sale mal con una nueva integración, vuelve a la versión estable anterior con un clic.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Monitoreo y analíticas",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Un dashboard muestra métricas clave: peticiones, costos por modelo, tasa de conversación. Vital para optimizar y escalar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Soporte multi-idioma nativo",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Configura el prompt y las respuestas en diferentes idiomas sin duplicar flujos.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "7. ¿Para quién es ideal esta herramienta?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si te reconoces en alguno de estos perfiles, Dify es para ti:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Emprendedores y pequeñas empresas",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Quieren un chatbot de atención o ventas profesional sin contratar un equipo de desarrollo.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Equipos de producto y marketing",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Necesitan prototipar y testear ideas de funcionalidades con IA rápidamente, sin depender del departamento de TI.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Educadores y creadores de contenido",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Para crear tutores personalizados, asistentes de estudio o bots que resuman información de sus materiales.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Desarrolladores que valoran su tiempo",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Incluso siendo técnicos, usar Dify para la capa de orquestación de LLM es mucho más rápido que escribir todo desde cero en Python.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://affiliate.dify.ai/ehm5uywvxx1s"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Mi recomendación final es simple: ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "pruébala con un proyecto real, aunque sea pequeño",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". La curva de aprendizaje es suave y la satisfacción de ver tu primera app con IA funcionando es enorme. No hay mejor maestro que la práctica. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Empieza a construir tu primera app con Dify hoy mismo",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Es una puerta de entrada accesible al mundo del desarrollo con IA que no sabía que necesitaba.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "---",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "*Divulgación: Este artículo contiene enlaces de afiliado. Si realizas una compra a través de ellos, recibimos una pequeña comisión sin costo adicional para ti.*",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sigue leyendo en TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si disfrutaste este tutorial, aquí tienes más contenido para exprimir al máximo las herramientas de IA:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-dify"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Guía completa: Qué es Dify y para qué sirve exactamente",
+            "marks": [
+              "l5"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-dify"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Trucos y mejores formas de usar Dify como un profesional",
+            "marks": [
+              "l6"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-elevenlabs"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo usar ElevenLabs para dar voz a tus creaciones",
+            "marks": [
+              "l7"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-descript"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Edita tus videos de forma inteligente con Descript",
+            "marks": [
+              "l8"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-gamma"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Gamma: La forma más rápida de crear presentaciones impactantes",
+            "marks": [
+              "l9"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "Dify, LLM, Chatbot, Agente IA, RAG, Open Source",
+    "keywords": [
+      "dify tutorial",
+      "crear app ia sin codigo",
+      "plataforma open source LLM",
+      "chatbot personalizado",
+      "agentes inteligentes dify",
+      "pipeline rag"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/dify.ai as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A person collaborating with a friendly AI chatbot interface on a laptop, with visual lines connecting to database and cloud icons, in a clean modern office setting.. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Dify es realmente gratuito?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sí, Dify es de código abierto y ofrece un plan gratuito generoso en su nube (Dify Cloud) para empezar. Incluye un número limitado de peticiones al mes y modelos básico. Para necesidades mayores o despliegues privados, existen planes de pago escalables.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Necesito saber programar para usarlo?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "No. La interfaz es completamente visual, de arrastrar y soltar. Solo necesitas entender conceptos lógicos básicos (si-entonces) para crear flujos complejos. Configurar conexiones a APIs avanzadas puede requerir conocimientos técnicos, pero para el 90% de los casos comunes, no es necesario.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué modelos de lenguaje puedo usar en Dify?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Dify es compatible con una amplia gama de proveedores, incluyendo OpenAI (GPT-4, GPT-3.5), Anthropic (Claude), y modelos de código abierto a través de Hugging Face, Replicate o tu propia infraestructura. Esta flexibilidad es clave para optimizar costos y rendimiento según tu caso de uso.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:es:dify:tutorial",
+    "source": "sdk-agent-blog-seo:mimo"
+  },
+  "published_at": "2026-06-12T04:09:05",
+  "locale": "es"
+}

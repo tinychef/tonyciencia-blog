@@ -1,0 +1,1839 @@
+{
+ "id": "post-how-to-use-gamma",
+ "slug": "how-to-use-gamma",
+ "status": "published",
+ "bylines": [
+  {
+   "byline": "byline-tony"
+  }
+ ],
+ "taxonomies": {
+  "category": [
+   "ia",
+   "herramientas"
+  ],
+  "tag": [
+   "tutorial"
+  ]
+ },
+ "data": {
+  "title": "Gamma Tutorial: Create Stunning Presentations With AI",
+  "excerpt": "Learn how to create beautiful presentations, docs, and websites in seconds with Gamma AI. Step-by-step tutorial with tips, features, and real examples.",
+  "featured_image": {
+   "$media": {
+    "url": "https://tonyciencia.com/blog/how-to-use-gamma.jpg",
+    "alt": "Gamma Tutorial: Create Stunning Presentations With AI",
+    "filename": "how-to-use-gamma.jpg"
+   }
+  },
+  "content": [
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "*Disclosure: Some links in this post are affiliate links. I may earn a small commission if you sign up through them, at no extra cost to you.*",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [
+     {
+      "_key": "l0",
+      "_type": "link",
+      "href": "https://gamma.app"
+     }
+    ],
+    "children": [
+     {
+      "_type": "span",
+      "text": "I used to spend three hours agonizing over slide layouts. Choosing between \"Corporate Blue #2\" and \"Executive Teal\" while my actual message collected dust in a Word doc somewhere. Then I found ",
+      "marks": []
+     },
+     {
+      "_type": "span",
+      "text": "Gamma",
+      "marks": [
+       "l0"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " — and honestly, it changed how I think about creating presentations entirely.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Gamma is a web-based AI tool that turns a simple text prompt into polished presentations, documents, websites, and even social media posts. You type what you want. Gamma builds it. Not some ugly template dump — real, designed, ready-to-present slides with proper typography, layout, and visuals.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "This tutorial walks you through exactly how to use Gamma from zero to a finished deck. No fluff, no theory. Just the steps I actually follow every time I use it.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [
+     {
+      "_key": "l1",
+      "_type": "link",
+      "href": "https://try.gamma.app/wupcgyzfekir"
+     }
+    ],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Start creating with Gamma for free",
+      "marks": [
+       "l1"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " — no credit card needed.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "h2",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "What Exactly Is Gamma and Why Should You Care?",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Gamma sits in a category I'd call \"AI design partner.\" It's not a slide editor where you drag boxes around. It's not a template library either. You give it an idea — a paragraph, a topic, even a rough outline — and it generates a full visual presentation with:",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Structured slides with headers, body text, and imagery",
+      "marks": []
+     }
+    ],
+    "listItem": "bullet",
+    "level": 1
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Clean, modern design (think Notion meets Apple keynote)",
+      "marks": []
+     }
+    ],
+    "listItem": "bullet",
+    "level": 1
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Embedded media placeholders for videos, charts, and images",
+      "marks": []
+     }
+    ],
+    "listItem": "bullet",
+    "level": 1
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "One-click themes so you can change the entire look instantly",
+      "marks": []
+     }
+    ],
+    "listItem": "bullet",
+    "level": 1
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "The magic is in the speed. I've clocked myself: from typing a prompt to having a 10-slide deck I'd actually show a client — under 90 seconds. That includes the time I spent picking a theme color.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [
+     {
+      "_key": "l2",
+      "_type": "link",
+      "href": "https://tonyciencia.com/en/posts/what-is-gamma"
+     }
+    ],
+    "children": [
+     {
+      "_type": "span",
+      "text": "If you want a deeper dive into what makes this tool tick, check out our ",
+      "marks": []
+     },
+     {
+      "_type": "span",
+      "text": "full breakdown of what Gamma is",
+      "marks": [
+       "l2"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " and how it compares to traditional tools.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "h2",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Step 1: Sign Up and Claim Your Free Credits",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [
+     {
+      "_key": "l3",
+      "_type": "link",
+      "href": "https://try.gamma.app/wupcgyzfekir"
+     }
+    ],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Head to ",
+      "marks": []
+     },
+     {
+      "_type": "span",
+      "text": "gamma.app",
+      "marks": [
+       "l3"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " and click \"Start for free.\" You can sign up with Google, email, or a few other options. The whole process takes about 15 seconds.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Here's what you get on the free plan:",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "400 credits",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " right at signup",
+      "marks": []
+     }
+    ],
+    "listItem": "bullet",
+    "level": 1
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Up to 10 cards per prompt",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " (that's 10 slides or sections)",
+      "marks": []
+     }
+    ],
+    "listItem": "bullet",
+    "level": 1
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Import from PDF and PPTX",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " — great if you have old decks you want to revamp",
+      "marks": []
+     }
+    ],
+    "listItem": "bullet",
+    "level": 1
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Export to PDF, PPTX, PNG, and Google Slides",
+      "marks": [
+       "strong"
+      ]
+     }
+    ],
+    "listItem": "bullet",
+    "level": 1
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Access to presentations, documents, websites, social posts, and image generation",
+      "marks": []
+     }
+    ],
+    "listItem": "bullet",
+    "level": 1
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "400 credits go further than you'd think. Each generation uses roughly 10-40 credits depending on complexity, so you can realistically create 10-20 full presentations before needing to upgrade. That's more than enough to decide if Gamma fits your workflow.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Pro tip: don't create an account and forget about it. Use those credits in the first week. Gamma is one of those tools where the \"aha moment\" hits the moment you see your first AI-generated deck pop up on screen.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "h2",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Step 2: Write Your First Prompt",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "This is where most people overthink it. You don't need to write a novel. Gamma understands context remarkably well.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "When you click \"Create new,\" you'll see options for Presentations, Documents, or Websites. Pick Presentations.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Then you get a text box. Here's what works:",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Simple prompt (works great):",
+      "marks": [
+       "strong"
+      ]
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "> \"A pitch deck for a mobile app that helps people find local hiking trails\"",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Detailed prompt (even better):",
+      "marks": [
+       "strong"
+      ]
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "> \"A 10-slide pitch deck for TrailFinder, a mobile app for discovering local hiking trails. Include slides for: problem, solution, target market (millennials who hike), key features (GPS trails, offline maps, community reviews), business model (freemium with premium GPS features), traction, team, and ask.\"",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [
+     {
+      "_key": "l4",
+      "_type": "link",
+      "href": "https://tonyciencia.com/en/posts/gamma-tips"
+     }
+    ],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Notice the difference? The second one gives Gamma structural direction. It'll still add its own design intelligence, but you're steering the content. ",
+      "marks": []
+     },
+     {
+      "_type": "span",
+      "text": "Here are more tips and best practices",
+      "marks": [
+       "l4"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " for prompting effectively.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Gamma also lets you paste existing text, import a document, or even paste a URL. I've thrown entire blog posts at it and gotten clean presentation summaries back. The AI is genuinely good at distilling long-form content into slide-friendly chunks.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Hit \"Generate\" and watch it work. Seriously, the first time you see it happen in real time — slides materializing with proper layouts, icons, and color schemes — it feels like magic.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "h2",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Step 3: Customize Your Deck With Themes and Edits",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Your generated deck is a starting point, and Gamma makes editing incredibly smooth.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Changing themes:",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " Click the theme icon (top-right area). You'll see dozens of pre-built themes — minimalist, bold, corporate, playful. One click and your entire deck transforms. The layouts stay intact, but fonts, colors, and visual style shift completely.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Editing individual slides:",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " Click any text to edit it directly. No separate editing panel. It works like a modern doc editor — you're editing right on the slide.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Rearranging:",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " Drag and drop cards in the left sidebar. Want to move slide 7 to position 3? Grab it and go.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Adding new cards:",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " Hit the \"+\" button between any two slides. Gamma will generate a new card that matches the style and flow of your existing deck. This is brilliant — it maintains visual consistency without you doing anything.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Splitting and condensing:",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " If one slide feels too dense, Gamma can split it into two. If two slides feel thin, merge them. It adapts the layout intelligently every time.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "I've found the editing experience to be faster than Google Slides and less frustrating than Keynote. The AI-assisted design means I spend time on content decisions, not pixel-pushing.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [
+     {
+      "_key": "l5",
+      "_type": "link",
+      "href": "https://tonyciencia.com/en/posts/gamma-use-cases"
+     }
+    ],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Want to see what else Gamma can create beyond slides? Our guide on ",
+      "marks": []
+     },
+     {
+      "_type": "span",
+      "text": "Gamma use cases",
+      "marks": [
+       "l5"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " covers documents, websites, and social content.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "h2",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Step 4: Add Media, Charts, and Interactive Elements",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "This is where Gamma separates itself from every other AI presentation tool I've tried.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Images:",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " Gamma generates AI images inline, or you can upload your own. It also integrates with stock image libraries. The AI typically picks relevant images automatically during generation, but you can swap any image by clicking it and choosing \"Replace.\"",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Charts and data:",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " Paste a table or CSV snippet, and Gamma visualizes it. Bar charts, pie charts, line graphs — it picks the format that makes sense for your data. I used this for a quarterly report presentation last month, and the charts looked better than anything I'd manually built in Excel.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Embedded content:",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " You can embed YouTube videos, Loom recordings, Spotify playlists, Figma prototypes, and more. Just paste a link and Gamma handles the embed. This is particularly useful for pitch decks where you want a product demo video right in the slides.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Layout variations:",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " Each card can be switched between different layout options — image left/text right, full-bleed image, split columns, text-only. Click the layout icon on any card and preview alternatives instantly.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "LaTeX and code blocks:",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " For academic or technical presentations, Gamma supports LaTeX math notation and syntax-highlighted code blocks. A professor friend told me this alone saved her 5+ hours per lecture prep.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [
+     {
+      "_key": "l6",
+      "_type": "link",
+      "href": "https://tonyciencia.com/en/posts/how-to-use-invideo-ai"
+     }
+    ],
+    "children": [
+     {
+      "_type": "span",
+      "text": "The interactive elements are what sold me permanently. Traditional slides are static. Gamma decks can have embedded videos playing, clickable prototypes, and live data visualizations. When you present, it genuinely feels like a different medium. If you're also exploring AI for other content creation, check out our ",
+      "marks": []
+     },
+     {
+      "_type": "span",
+      "text": "InVideo AI tutorial",
+      "marks": [
+       "l6"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " for video presentations.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "h2",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Step 5: Present, Share, or Export",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "You've got a polished deck. Now what?",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Present directly in Gamma:",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " Hit the \"Present\" button (top-right). Gamma has its own presentation mode with smooth transitions. No need to export if you're presenting on your own device or sharing your screen on Zoom.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Share via link:",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " Click \"Share\" and you get a public or private link. Anyone can view your presentation in a browser — no account required. This is my go-to for sending pitch decks to clients. They get a beautiful, interactive presentation, not a static PDF email attachment.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Export options:",
+      "marks": [
+       "strong"
+      ]
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "PDF",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " — for print or email attachments",
+      "marks": []
+     }
+    ],
+    "listItem": "bullet",
+    "level": 1
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "PPTX",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " — open in PowerPoint or Google Slides",
+      "marks": []
+     }
+    ],
+    "listItem": "bullet",
+    "level": 1
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "PNG",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " — individual slide images for social media",
+      "marks": []
+     }
+    ],
+    "listItem": "bullet",
+    "level": 1
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Google Slides",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " — direct export for teams that live in Google Workspace",
+      "marks": []
+     }
+    ],
+    "listItem": "bullet",
+    "level": 1
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Presentation analytics:",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " On paid plans, you can see who viewed your presentation, how long they spent on each slide, and where they dropped off. This is incredibly valuable for sales decks — you know exactly which slides resonated and which ones lost people.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [
+     {
+      "_key": "l7",
+      "_type": "link",
+      "href": "https://tonyciencia.com/en/posts/why-choose-gamma"
+     }
+    ],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Collaboration:",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " Share editing access with teammates. Multiple people can edit simultaneously, similar to Google Docs. Changes appear in real time. ",
+      "marks": []
+     },
+     {
+      "_type": "span",
+      "text": "Read more about why teams choose Gamma",
+      "marks": [
+       "l7"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " for collaborative work.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "h2",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Gamma's Newest Features That Keep Getting Better",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Gamma ships updates constantly. Here's what's caught my attention recently:",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Social media content:",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " Generate Instagram carousels, LinkedIn posts, and Twitter/X threads directly from your presentation content. One prompt, repurposed for every platform. This turns a single idea into a week of social content without extra tools.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Website builder:",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " You can now publish your Gamma deck as a standalone website. Landing pages, portfolios, project showcases — all generated from the same prompt-based workflow. No code, no hosting headaches.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Graphics generation:",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " Standalone graphics creation for thumbnails, headers, and social images. It uses the same AI engine, so the design quality matches your presentations.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "API access:",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " For developers and teams with custom workflows, Gamma offers API integration. Build presentation generation into your own apps or automated pipelines.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Enhanced prompt understanding:",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " Recent model updates mean Gamma handles longer, more complex prompts with better accuracy. I've been giving it 300-400 word briefs and the results are remarkably close to what I had in my head.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [
+     {
+      "_key": "l8",
+      "_type": "link",
+      "href": "https://tonyciencia.com/en/posts/gamma-new-features"
+     }
+    ],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Keep up with all the latest features in our ",
+      "marks": []
+     },
+     {
+      "_type": "span",
+      "text": "Gamma new features roundup",
+      "marks": [
+       "l8"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": ".",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "h2",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Who Is Gamma Perfect For?",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "I've recommended Gamma to dozens of people. Here's who gets the most value:",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Startup founders and pitch deck creators.",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " If you need a compelling investor deck yesterday, Gamma delivers. The design quality is presentation-ready, and you can iterate on content in minutes instead of days.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Marketing teams.",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " Quarterly reports, campaign recaps, client presentations — Gamma handles the repetitive deck work so marketers can focus on strategy. The social media generation feature makes it even more valuable for content-heavy teams.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [
+     {
+      "_key": "l9",
+      "_type": "link",
+      "href": "https://tonyciencia.com/en/posts/gamma-use-cases"
+     }
+    ],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Educators and trainers.",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " Lecture slides, workshop materials, course content. The LaTeX support, video embedding, and fast generation make it ideal for anyone teaching regularly. Gamma has specific ",
+      "marks": []
+     },
+     {
+      "_type": "span",
+      "text": "solutions for educators",
+      "marks": [
+       "l9"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " built in.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Consultants and freelancers.",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " Client proposals, project updates, portfolios. The professional design quality makes you look polished without hiring a designer. And the presentation analytics tell you if clients actually read your proposals.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Anyone who makes presentations regularly and hates the process.",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " This is the honest one. If you've ever opened PowerPoint and felt dread, Gamma is your escape hatch. The AI handles the design heavy lifting. You handle the ideas.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Students.",
+      "marks": [
+       "strong"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " Group projects, thesis defenses, class presentations. The free tier is generous enough for academic use, and the export options mean you can hand off PPTX files to professors who require PowerPoint format.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "h2",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "My Honest Take After Months of Daily Use",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "I've used Gamma for everything from investor pitches to birthday party planning decks (yes, really). The speed is addictive. The quality is consistently good — not always perfect on the first generation, but always a strong starting point that takes seconds to refine.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "The free plan is genuinely usable. You're not locked out of core features behind a paywall. You get real presentations with real design quality, and 400 credits give you room to experiment.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "If you make presentations even once a month, try Gamma. The 60 seconds it takes to generate your first deck will show you more than any review could.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [
+     {
+      "_key": "l10",
+      "_type": "link",
+      "href": "https://try.gamma.app/wupcgyzfekir"
+     }
+    ],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Start building with Gamma today — completely free",
+      "marks": [
+       "l10"
+      ]
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "h2",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Frequently Asked Questions",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Is Gamma really free?",
+      "marks": [
+       "strong"
+      ]
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Yes. The free plan includes 400 credits, up to 10 cards per prompt, export to multiple formats, and access to all content types. Paid plans unlock more credits, longer decks, analytics, and remove Gamma branding.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Can I use Gamma presentations for commercial purposes?",
+      "marks": [
+       "strong"
+      ]
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Absolutely. Presentations created in Gamma are yours. Use them for client work, investor pitches, marketing materials — whatever you need. There are no usage restrictions on the content you create.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "How does Gamma compare to making slides manually?",
+      "marks": [
+       "strong"
+      ]
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Speed is the obvious difference — seconds versus hours. But the design quality is what surprised me. Gamma's layouts are genuinely well-designed, not generic template dumps. I've had professional designers compliment decks I made in Gamma, which still makes me laugh.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "h2",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Keep Reading on TonyCiencia",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [
+     {
+      "_key": "l11",
+      "_type": "link",
+      "href": "https://tonyciencia.com/en/posts/what-is-gamma"
+     }
+    ],
+    "children": [
+     {
+      "_type": "span",
+      "text": "What Is Gamma? Complete Beginner's Guide",
+      "marks": [
+       "l11"
+      ]
+     }
+    ],
+    "listItem": "bullet",
+    "level": 1
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [
+     {
+      "_key": "l12",
+      "_type": "link",
+      "href": "https://tonyciencia.com/en/posts/gamma-new-features"
+     }
+    ],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Gamma New Features: Everything You Need to Know",
+      "marks": [
+       "l12"
+      ]
+     }
+    ],
+    "listItem": "bullet",
+    "level": 1
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [
+     {
+      "_key": "l13",
+      "_type": "link",
+      "href": "https://tonyciencia.com/en/posts/why-choose-gamma"
+     }
+    ],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Why Choose Gamma Over Traditional Presentation Tools",
+      "marks": [
+       "l13"
+      ]
+     }
+    ],
+    "listItem": "bullet",
+    "level": 1
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [
+     {
+      "_key": "l14",
+      "_type": "link",
+      "href": "https://tonyciencia.com/en/posts/gamma-use-cases"
+     }
+    ],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Gamma Use Cases: Presentations, Docs, Websites & More",
+      "marks": [
+       "l14"
+      ]
+     }
+    ],
+    "listItem": "bullet",
+    "level": 1
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [
+     {
+      "_key": "l15",
+      "_type": "link",
+      "href": "https://tonyciencia.com/en/posts/gamma-tips"
+     }
+    ],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Gamma Tips and Best Practices for Better Results",
+      "marks": [
+       "l15"
+      ]
+     }
+    ],
+    "listItem": "bullet",
+    "level": 1
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [
+     {
+      "_key": "l16",
+      "_type": "link",
+      "href": "https://tonyciencia.com/en/posts/how-to-use-invideo-ai"
+     }
+    ],
+    "children": [
+     {
+      "_type": "span",
+      "text": "How to Use InVideo AI for Video Presentations",
+      "marks": [
+       "l16"
+      ]
+     }
+    ],
+    "listItem": "bullet",
+    "level": 1
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [
+     {
+      "_key": "l17",
+      "_type": "link",
+      "href": "https://tonyciencia.com/en/posts/how-to-use-descript"
+     }
+    ],
+    "children": [
+     {
+      "_type": "span",
+      "text": "How to Use Descript for Audio and Video Editing",
+      "marks": [
+       "l17"
+      ]
+     }
+    ],
+    "listItem": "bullet",
+    "level": 1
+   }
+  ],
+  "schema_type": "BlogPosting",
+  "key_entities": "Gamma, gamma.app, AI presentations, AI tools, PartnerStack",
+  "keywords": [
+   "Gamma AI",
+   "AI presentation maker",
+   "Gamma tutorial",
+   "AI slide generator",
+   "Gamma app review",
+   "create presentations with AI"
+  ],
+  "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/gamma.app as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A person sitting at a modern desk with a laptop, smiling at a beautifully designed presentation on screen with colorful slides and charts, soft natural lighting from a window. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+  "faq_items": [
+   {
+    "_type": "block",
+    "style": "h3",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "How much does Gamma cost?",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Gamma offers a free plan with 400 credits and up to 10 cards per prompt, plus access to all content types including presentations, documents, websites, and social posts. Paid plans start at a low monthly rate and unlock more credits, longer decks, presentation analytics, and removal of Gamma branding.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "h3",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Can I export Gamma presentations to PowerPoint?",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Yes. Gamma exports to PPTX format, which opens directly in Microsoft PowerPoint and Google Slides. You can also export to PDF, PNG images, and Google Slides. This means your Gamma presentations work seamlessly in any professional environment that requires specific file formats.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "h3",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Is Gamma good for professional pitch decks?",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Gamma is excellent for pitch decks. The AI generates clean, modern designs that look presentation-ready, and the speed means you can iterate on content and layout multiple times before your meeting. Many startup founders use Gamma specifically for investor presentations because the interactive elements — embedded videos, charts, and prototypes — make pitches more engaging than static slides.",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "h3",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "How many presentations can I create with the free plan?",
+      "marks": []
+     }
+    ]
+   },
+   {
+    "_type": "block",
+    "style": "normal",
+    "markDefs": [],
+    "children": [
+     {
+      "_type": "span",
+      "text": "With 400 free credits at signup and each generation typically using 10-40 credits, you can realistically create 10-20 full presentations on the free plan. This gives you plenty of room to explore the tool and decide if it fits your workflow before committing to a paid plan.",
+      "marks": []
+     }
+    ]
+   }
+  ],
+  "external_id": "tonyciencia-affiliate:en:gamma:tutorial",
+  "source": "sdk-agent-blog-seo:mimo",
+  "translation_of": "como-usar-gamma"
+ },
+ "published_at": "2026-06-12T03:54:01",
+ "locale": "en"
+}

@@ -1,0 +1,1452 @@
+{
+  "id": "post-como-usar-aisq",
+  "slug": "como-usar-aisq",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "ia",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "Tutorial AISQ: Automatiza tus reuniones y recupera horas",
+    "excerpt": "Aprende a usar AISQ paso a paso: graba, transcribe y resume reuniones en minutos. Tu asistente de IA para nunca más perder detalles.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/como-usar-aisq.jpg",
+        "alt": "Tutorial AISQ: Automatiza tus reuniones y recupera horas",
+        "filename": "como-usar-aisq.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Cansado de tomar notas en reuniones y luego buscar lo importante?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cuéntame si te suena: sales de una llamada clave, con la cabeza llena de ideas y tareas... pero sin haber anotado nada. O peor, pasas 20 minutos después buscando en grabaciones la frase exacta que mencionó el cliente. Ese dolor se acaba hoy.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Hoy te presento ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "AISQ",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", una herramienta de IA que se convierte en tu asistente silencioso durante todas tus reuniones. Graba, transcribe con precisión, resume los puntos clave y lista los action items. Es como tener a alguien tomando notas perfectas, pero sin la distracción.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://try.aisq.com/ktgws2gp8rd7"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Descubre cómo integrar AISQ en tu flujo de trabajo ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "aquí",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". (Divulgación: este es un enlace de afiliado, sin costo extra para ti). Te voy a guiar en un tutorial real, paso a paso, para que veas lo fácil que es.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué es AISQ y por qué es tu próximo aliado?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-aisq"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Antes de sumergirnos en el \"cómo\", aclaremos el \"qué\". AISQ (",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "más sobre qué es y para qué sirve aquí",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ") no es solo un grabador. Es un sistema inteligente que:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Graba tu audio y video",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " de llamadas en plataformas como Zoom, Google Meet, o Microsoft Teams.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Transcribe automáticamente",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " el diálogo, identificando quién habla. No más \"Persona 1: ...\".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Genera un resumen ejecutivo",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " en segundos con los puntos más relevantes.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Extrae los \"action items\"",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " o tareas pendientes mencionadas, a menudo con asignados y fechas.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "5.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Crea un documento estructurado",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " que puedes compartir o integrar con otras apps.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-aisq"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lo que lo hace brillar es su enfoque en la ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "acción",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". No solo te da una transcripción plana; te da la información procesada y lista para implementar. Para ver por qué tantos equipos están eligiendo esta solución, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "lee más aquí",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tutorial Paso a Paso: Tu Primera Reunión con AISQ",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Vamos a la práctica. Configurar tu primera reunión es sorprendentemente rápido.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 1: Creación de Cuenta y Conexión",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://try.aisq.com/ktgws2gp8rd7"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  Visita el sitio oficial de ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "AISQ",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " y crea tu cuenta. El proceso es directo, solo necesitas un email y contraseña.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  Una vez dentro, ve a la sección de \"Integraciones\" o \"Conexiones\".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  Conecta tu cuenta de la plataforma de videoconferencia que uses (Zoom, Google Meet, etc.). Esto es crucial para que AISQ pueda unirse automáticamente a tus llamadas programadas.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 2: Configuración de la Reunión",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Aquí es donde AISQ brilla. Tienes dos métodos:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Automático:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Si conectaste tu calendario (Google Calendar, Outlook), AISQ puede detectar reuniones nuevas y unirse a ellas sin que hagas nada. Simplemente asegúrate de que la opción \"Join & Record\" esté activada para las reuniones deseadas.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Manual:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Para una llamada no programada, puedes iniciar una sesión de grabación directamente desde el dashboard de AISQ, seleccionando la fuente de audio.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Consejo pro:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " En la configuración de la reunión, puedes activar o desactivar el resumen y los action items según el tipo de llamada. Para una lluvia de ideas rápida, quizás solo quieras la transcripción.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 3: Durante la Reunión",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Una vez que AISQ se une (aparecerá como un participante con nombre personalizable, como \"AISQ Notetaker\"), puedes olvidarte por completo de tomar notas. Concéntrate 100% en la conversación. El asistente de IA está trabajando en segundo plano. Puedes ver en tiempo real un indicador de que está procesando el audio.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 4: Revisión y Acción Post-Reunión",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Dentro de los 5-15 minutos posteriores a que la reunión termina (el tiempo varía según la duración), recibirás una notificación. Tu documento de reunión estará listo en tu dashboard. Este es el documento mágico y contiene:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Transcripción completa",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " con marcas de tiempo y nombres de los hablantes.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Resumen inteligente",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " de los puntos tratados.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Lista de Action Items",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " extraída automáticamente, que a menudo puedes convertir en una tarea con un clic.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/aisq-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Este flujo es lo que transforma una hora de charla en 10 minutos de lectura y claridad. Para explorar usos más avanzados y creativos, visita nuestros ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "casos de uso",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Funciones Nuevas y Destacadas que Debes Conocer",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/aisq-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "AISQ evoluciona. Estas son algunas características que llevan la experiencia al siguiente nivel (",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "novedades al detalle aquí",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "):",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Búsqueda Semántica:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " No busques por palabra clave. Pregúntale a AISQ: \"¿Qué dijo el cliente sobre el presupuesto en la última llamada?\" y la IA localizará el fragmento exacto en tu archivo de transcripciones.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Plantillas Personalizadas:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Configura diferentes formatos de resumen y extracción de acción para diferentes tipos de reuniones (ej.: ventas vs. stand-up diario vs. revisión con cliente).",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Integración con Apps de Productividad:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Envía los action items directamente a tu herramienta de gestión de tareas (como Asana, Trello o Notion) con un par de clics.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Soporte Multilingüe Mejorado:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " La precisión en español latinoamericano es notable, capturando matices regionales.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Para Quién es Ideal AISQ? (Spoiler: Probablemente para Ti)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Esta herramienta no es solo para ejecutivos. Su valor se multiplica en múltiples roles:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-aisq"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Gerentes y Líderes de Equipo:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Mantén a todos alineados. Los acuerdos quedan por escrito, eliminando el \"yo pensé que...\". La ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "eficiencia que aporta",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " es un multiplicador de productividad para tus reportes directos.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-elevenlabs"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ventas y Account Managers:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Captura cada detalle de las necesidades del cliente, objeciones y compromisos. Convierte una llamada de descubrimiento en la base perfecta para una propuesta. Si usas herramientas como ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "ElevenLabs",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " para crear audios, AISQ puede complementar tu flujo de contenido de audio.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Freelancers y Consultores:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Factura con precisión. Tienes una grabación y transcripción como respaldo de cada hora de consultoría, y los action items te aseguran entregar exactamente lo prometido.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-gamma"
+          },
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-descript"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cualquier Profesional que hace +5 llamadas por semana:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Si tu trabajo depende de acuerdos verbales, esta herramienta te ahorra tiempo y previene errores costosos. Es un complemento natural a herramientas de creación de contenido como ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Gamma",
+            "marks": [
+              "l8"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " para presentaciones o ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Descript",
+            "marks": [
+              "l9"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " para podcasts.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Consejos Prácticos para Sacar el Máximo Provecho",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-aisq"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para ser un usuario avanzado de AISQ, aplica estos trucos (",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "más trucos aquí",
+            "marks": [
+              "l10"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "):",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Nombra a los Participantes:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Antes de una reunión recurrente, asigna nombres reales a los \"Hablante 1\", \"Hablante 2\". La precisión de la transcripción y resumen aumenta significativamente.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Revisa y Edita Rápidamente:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Aunque la IA es precisa, dedica 2 minutos a escanear el resumen y los action items. Un pequeño ajuste humano hace el documento perfecto para compartir.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Crea una Biblioteca de Conocimiento:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Usa los transcripts para entrenar a nuevos miembros del equipo. Es una fuente real de \"cómo hablamos con los clientes\".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Usa los Filtros:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " No revises siempre todo. Filtra tus reuniones por cliente, proyecto o fecha para encontrar lo que necesitas al instante.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Conclusión: Deja que la IA Maneje los Detalles",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Recuperar el control de tu tiempo no siempre requiere trabajar más horas. A veces, se trata de trabajar de manera más inteligente, delegando las tareas repetitivas a la tecnología.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "AISQ elimina el trabajo pesado de la toma de notas y la organización post-reunión. Te permite estar presente en la conversación, seguro de que nada importante se perderá. Es una herramienta que, una vez que la pruebas, te preguntas cómo trabajabas antes.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Listo para transformar tus reuniones?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://try.aisq.com/ktgws2gp8rd7"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "**",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Prueba AISQ hoy mismo y olvídate de tomar notas para siempre",
+            "marks": [
+              "l11"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".**",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sigue leyendo en TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l12",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-aisq"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué hace única a esta plataforma? Descubre ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "qué es AISQ y para qué sirve",
+            "marks": [
+              "l12"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " en profundidad.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l13",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/aisq-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Conoce las ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "últimas funciones y novedades de AISQ",
+            "marks": [
+              "l13"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " que están cambiando el juego.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l14",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-aisq"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Aprende ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "trucos y mejores formas de usar AISQ",
+            "marks": [
+              "l14"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " como un experto.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l15",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/aisq-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Explora otros ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "casos de uso de AISQ",
+            "marks": [
+              "l15"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " que podrían aplicar a tu negocio.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l16",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-elevenlabs"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si te interesa la creación de contenido de voz, mira nuestro tutorial sobre ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "cómo usar ElevenLabs",
+            "marks": [
+              "l16"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l17",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-descript"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para editar podcasts o videos, revisa nuestra guía sobre ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "cómo usar Descript",
+            "marks": [
+              "l17"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "AISQ, PartnerStack, reuniones virtuales, transcripción automática, action items",
+    "keywords": [
+      "reuniones con IA",
+      "transcribir llamadas",
+      "asistente de reuniones",
+      "AISQ tutorial",
+      "automatizar reuniones"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/aisq.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). Professional in home office reviewing meeting notes on laptop with AI dashboard. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿AISQ guarda mis grabaciones y son seguras?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sí, AISQ almacena tus grabaciones y transcripciones de forma segura en la nube. Tienes control total sobre tus datos y puedes eliminarlos en cualquier momento. La seguridad es una prioridad en su arquitectura.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Funciona con todos los planes de Zoom y Google Meet?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "AISQ es compatible con la mayoría de los planes gratuitos y de pago de Zoom, Google Meet y Microsoft Teams. Requiere permisos de administrador para la integración más profunda, pero también ofrece una grabación manual simple para casos básicos.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Puedo probarlo antes de suscribirme?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¡Por supuesto! AISQ ofrece un período de prueba gratuito para que puedas experimentar todas sus funciones principales con tus propias reuniones. Es la mejor manera de evaluar el impacto en tu flujo de trabajo.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:es:aisq:tutorial",
+    "source": "sdk-agent-blog-seo:mimo"
+  },
+  "published_at": "2026-06-12T07:37:04",
+  "locale": "es"
+}

@@ -1,0 +1,1149 @@
+{
+  "id": "post-como-usar-databox",
+  "slug": "como-usar-databox",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "negocios",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "Databox: Tutorial paso a paso para dominar tus métricas",
+    "excerpt": "Aprende a configurar Databox desde cero. Este tutorial te guía para conectar tus datos y crear dashboards en minutos. ¡Toma decisiones con claridad!",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/como-usar-databox.jpg",
+        "alt": "Databox: Tutorial paso a paso para dominar tus métricas",
+        "filename": "como-usar-databox.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Cansado de saltar entre diez pestañas para entender el rendimiento de tu negocio?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Yo también lo estuve. Hoy, Databox se ha convertido en mi centro de mando. Es una plataforma que unifica todos tus datos de marketing, ventas y operaciones en un solo lugar. Olvídate de exportar CSVs y perder horas en hojas de cálculo. En este tutorial, te muestro paso a paso cómo configurar Databox para que tú también tomes el control.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://join.databox.com/vpct6npxonaf"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La misión es simple: tener todos tus indicadores clave (KPIs) visibles, en tiempo real y sin necesidad de un solo código. Si buscas una forma poderosa y visual de entender tu negocio, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "explora Databox aquí",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Es gratis para empezar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 1: Crear tu cuenta y dar los primeros pasos",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://databox.com"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "El registro es de lo más sencillo. Ve a ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "databox.com",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " y haz clic en \"Start Free\". No te pedirán tarjeta de crédito, lo cual es un gran alivio. El plan gratuito te permite conectar hasta 3 fuentes de datos y crear un dashboard, lo cual es perfecto para probarlo con tus métricas más importantes.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-databox"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Una vez dentro, te encontrarás con una interfaz limpia. Lo primero que noté es que no abruma. Databox te guía con un checklist inicial: conectar tus primeras fuentes de datos y ver tu primer dashboard. Sigue ese camino y tendrás valor en menos de 10 minutos. Para una inmersión más profunda en los conceptos, te recomiendo leer nuestro artículo ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "¿Qué es Databox y para qué sirve?",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 2: Conectar tus fuentes de datos (La magia empieza aquí)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Este es el corazón de Databox. La plataforma se integra con más de 100 herramientas de forma nativa. Busca la que necesites en la sección \"Data Manager\" y autoriza la conexión con un par de clics.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ejemplo concreto:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Yo conecté Google Analytics 4, HubSpot y LinkedIn Ads. En menos de 5 minutos, Databox ya estaba extrayendo visitas, leads y gasto publicitario. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Pro tip:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Empieza con las 3 fuentes más críticas para tu día a día. No intentes conectarlo todo de golpe; ve de lo esencial a lo secundario.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-clickup"
+          },
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-monday-com"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si usas herramientas populares como ClickUp o monday.com para la gestión de proyectos, la integración es igual de fluida. Te dejo los tutoriales específicos: ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Cómo usar ClickUp con analytics",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " y ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Integración de monday.com",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". La consistencia de los datos es brutal.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 3: Construir tu primer dashboard en minutos (Arrastra, suelta y listo)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "No necesitas ser un diseñador ni un analista de datos. Databox usa un editor de arrastrar y soltar con más de 20 tipos de gráficos (barras, líneas, embudos, mapas...).",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Selecciona una plantilla:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Databox tiene cientos de plantillas pre-diseñadas. Busca una que se parezca a tu negocio, como \"Google Analytics Overview\" o \"Sales Pipeline\". ¡Es un atajo genial!",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Arrastra tus métricas:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Desde el panel de la derecha, arrastra las métricas que importan (por ejemplo, \"Sesiones\", \"Tasa de conversión\", \"Deals ganados\") y suéltalas en un gráfico vacío.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Personaliza y organiza:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Cambia colores, añade títulos, organiza los widgets por secciones. En 15 minutos, tendrás un dashboard que refleja tu realidad operativa.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/databox-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Mi consejo:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Crea un dashboard ejecutivo con 5-7 métricas máximas. La claridad vence a la complejidad. Para inspirarte, revisa estos ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "casos de uso increíbles",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " de otras empresas.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 4: Usar la IA para obtener respuestas instantáneas (Función estrella)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Aquí es donde Databox se separa del paquete. Su asistente de IA, \"Genie\", es como tener un analista de datos a tu disposición 24/7. En la esquina inferior derecha, abre el chat y pregúntale en lenguaje natural:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "\"¿Cuál fue el tráfico orgánico la semana pasada?\"",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "\"Compara el costo por lead de Facebook y Google este mes.\"",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "\"¿Qué canal genera más ingresos?\"",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/databox-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Genie no solo te da el número; te genera un gráfico y un resumen claro al instante. Es una función que ahorra horas de reuniones y análisis. Sin duda, una de las ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "funciones nuevas más destacadas",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " de la plataforma.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 5: Automatizar reportes y compartir con tu equipo",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Olvida los viernes por la tarde creando reportes manuales. En Databox, programa envíos automáticos de tus dashboards o informes personalizados.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  En tu dashboard, haz clic en \"Schedule\".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  Elige la frecuencia (diaria, semanal, mensual).",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  Añade los correos de los destinatarios (tu jefe, tu equipo, clientes).",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4.  Personaliza el mensaje y el formato (PDF o enlace interactivo).",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-databox"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "El resultado:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Todos reciben la información actualizada en su bandeja de entrada, puntualmente. La transparencia y la alineación del equipo mejoran de forma inmediata. Si quieres llevar tus informes al siguiente nivel, no te pierdas nuestros ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "trucos y mejores prácticas para Databox",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Para quién es ideal Databox?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Databox brilla para equipos y líderes que necesitan datos para tomar decisiones rápidas, sin la complejidad de herramientas de BI tradicionales. Es perfecto para:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Directores y fundadores:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Que buscan una vista panorámica del negocio (\"single source of truth\").",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Equipos de marketing y ventas:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Para alinear esfuerzos y ver el impacto real de las campañas.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-databox"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Agencias:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Que gestionan múltiples clientes y necesitan reportes profesionales y personalizados. De hecho, tienen ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "planes específicos para agencias",
+            "marks": [
+              "l8"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " con funciones avanzadas de colaboración.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Profesionales y analistas:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Que quieren liberar tiempo de tareas manuales y centrarse en el análisis estratégico.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Funciones nuevas y destacadas que te encantarán",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Databox está en constante evolución. Además de su potente IA, algunas gemas recientes incluyen:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Objetivos y metas (Goal Tracking):",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Define metas numéricas directamente en tus dashboards. Visualiza tu progreso con indicadores visuales (verde, amarillo, rojo) y mantiene a todos enfocados en lo que importa.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Benchmarking competitivo:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Compara el rendimiento de tus KPIs (como tasa de conversión o costo por adquisición) contra promedios de la industria, directamente dentro de la plataforma.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "KPI Cards optimizadas para móvil:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " La app móvil es excelente. Las \"KPI Cards\" muestran tus métricas más urgentes de un vistazo, perfectas para cuando estás fuera de la oficina.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Conclusión: Tu centro de mando de datos, sin el dolor de cabeza",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Databox demuestra que la analítica potente no tiene que ser complicada. En un mundo inundado de datos, te da la estructura y la claridad para actuar. La combinación de integraciones nativas, un editor visual sin código y su asistente de IA lo hacen una herramienta extraordinariamente efectiva.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://join.databox.com/vpct6npxonaf"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si estás listo para dejar de adivinar y empezar a saber, no hay mejor momento para probarlo. El plan gratuito es generoso y te da una idea clara de su poder. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Empieza a construir tus dashboards hoy mismo",
+            "marks": [
+              "l9"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " y descubre lo que tus datos realmente están tratando de decirte.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "*Descargo de responsabilidad: Este artículo contiene enlaces de afiliado a Databox. Si realizas una compra a través de ellos, podemos recibir una comisión sin costo adicional para ti. Solo recomendamos herramientas que usamos y en las que creemos sinceramente.*",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sigue leyendo en TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-databox"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Profundiza en el porqué: ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "5 razones para elegir Databox",
+            "marks": [
+              "l10"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/databox-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Descubre ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "casos de uso avanzados para empresas",
+            "marks": [
+              "l11"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l12",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-apollo-io"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Aprende a ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "integrar Apollo.io para potenciar tu prospección",
+            "marks": [
+              "l12"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Preguntas frecuentes (FAQ)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Cuánto cuesta Databox después del plan gratuito?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Databox tiene planes escalables que empiezan en precios accesibles. Ofrecen un 20% de descuento al pagar anualmente. Lo mejor es que puedes iniciar con el plan gratuito para 3 fuentes de datos y 1 usuario, y escalar a medida que creces. Siempre hay un plan que se adapta.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Necesito saber programar o usar SQL?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para nada. Esa es una de sus mayores ventajas. Toda la configuración es visual, de arrastrar y soltar. Las integraciones se configuran con clics. Es 100% \"no-code\" en su uso diario.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué integraciones son las más populares?",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Las más utilizadas son con Google Analytics 4, HubSpot, Facebook Ads, LinkedIn Ads, Stripe, Salesforce y Shopify. La plataforma cubre las herramientas esenciales para marketing, ventas y finanzas de la gran mayoría de los negocios. La lista completa supera las 100 y sigue creciendo.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "Databox, business intelligence, analytics, KPIs, dashboards, informes, integraciones",
+    "keywords": [
+      "databox tutorial",
+      "dashboard de analytics",
+      "KPIs en tiempo real",
+      "plataforma de business intelligence",
+      "analítica sin código",
+      "informes automáticos"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/databox.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A bright, modern laptop screen displaying a clean, colorful dashboard with various charts and graphs, symbolizing data clarity and actionable insights.. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Cuánto cuesta Databox después del plan gratuito?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Databox tiene planes escalables que empiezan en precios accesibles. Ofrecen un 20% de descuento al pagar anualmente. Lo mejor es que puedes iniciar con el plan gratuito para 3 fuentes de datos y 1 usuario, y escalar a medida que creces. Siempre hay un plan que se adapta.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Necesito saber programar o usar SQL para usar Databox?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para nada. Esa es una de sus mayores ventajas. Toda la configuración es visual, de arrastrar y soltar. Las integraciones se configuran con clics. Es 100% \"no-code\" en su uso diario.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué integraciones son las más populares en Databox?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Las más utilizadas son con Google Analytics 4, HubSpot, Facebook Ads, LinkedIn Ads, Stripe, Salesforce y Shopify. La plataforma cubre las herramientas esenciales para marketing, ventas y finanzas de la gran mayoría de los negocios.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:es:databox:tutorial",
+    "source": "sdk-agent-blog-seo:mimo"
+  },
+  "published_at": "2026-06-12T07:25:12",
+  "locale": "es"
+}

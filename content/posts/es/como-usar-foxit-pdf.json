@@ -1,0 +1,950 @@
+{
+  "id": "post-como-usar-foxit-pdf",
+  "slug": "como-usar-foxit-pdf",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "negocios",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "Foxit PDF: Tutorial completo para editar, firmar y colaborar",
+    "excerpt": "Domina Foxit PDF en minutos. Sigue este tutorial paso a paso para editar, firmar y convertir documentos con IA. ¡Prueba la alternativa inteligente!",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/como-usar-foxit-pdf.jpg",
+        "alt": "Foxit PDF: Tutorial completo para editar, firmar y colaborar",
+        "filename": "como-usar-foxit-pdf.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "*(Disclosure: Este artículo contiene enlaces de afiliado. Si compras a través de ellos, puedo ganar una comisión sin costo extra para ti.)*",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-foxit-pdf"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Olvida la sensación de estar atrapado con un PDF inmodificable. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Foxit PDF",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " es esa suite profesional que convierte la gestión de documentos en una tarea fluida, e incluso inteligente. Ya sea que necesites ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "editar un contrato",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", añadir una firma legal o colaborar con tu equipo en tiempo real, esta herramienta tiene todo bajo control. Hoy, te guiaré paso a paso para que domines sus funciones principales y veas por qué está ganando tantos adeptos.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Introducción: ¿Qué hace especial a Foxit PDF?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-foxit-pdf"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Antes de sumergirnos en el tutorial, vale la pena entender su propuesta de valor. Foxit PDF Editor no es solo un lector; es un ecosistema completo para trabajar con documentos PDF. Su mayor ventaja frente a otras soluciones conocidas es su interfaz intuitiva y su integración de ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "herramientas de inteligencia artificial",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " que te ahorran horas de trabajo manual. Desde resumir textos hasta extraer datos de formularios, la IA trabaja para ti. Si buscas una opción potente y moderna, este es tu punto de partida. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Descubre aquí por qué muchos lo eligen como su editor principal",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tutorial Paso a Paso: Las 4 Acciones Clave en Foxit PDF",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Vamos al grano. Estas son las tareas más comunes que realizarás y cómo Foxit las simplifica.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 1: Editar texto e imágenes en un PDF",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Abre tu documento",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Haz clic en \"Archivo\" > \"Abrir\" y selecciona tu PDF.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Activa el modo Edición",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Ve a la pestaña \"Edición\" en la barra de herramientas superior y haz clic en \"Editar Texto\". Ahora, podrás hacer clic directamente sobre cualquier párrafo para corregirlo, cambiar la fuente, tamaño o color. Para editar una imagen, simplemente haz clic sobre ella y usa las asas de redimensionamiento o el panel de propiedades para ajustarla. Es tan intuitivo como usar un procesador de textos.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 2: Rellenar y firmar formularios (¡adiós al escáner!)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  Abre el formulario PDF que necesitas completar. Foxit detectará automáticamente los campos editables (casillas, campos de texto).",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/foxit-pdf-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  Simplemente haz clic en cada campo y escribe la información solicitada. Para firmar, ve a la pestaña \"Formulario\", haz clic en \"Firma\" y luego en \"Dibujar\". Puedes crear tu firma con el mouse, usar una imagen o incluso tu firma manuscrita guardada. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Conoce más usos creativos para profesionales aquí",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 3: Convertir PDFs a otros formatos (Word, Excel, etc.)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Necesitas editar un informe que solo tienes en PDF. No hay problema.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  Abre el PDF en Foxit.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  Ve a \"Archivo\" > \"Exportar\". Selecciona el formato de salida (por ejemplo, \"A Microsoft Word\").",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-foxit-pdf"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  Elige si quieres exportar todo el documento o solo páginas específicas y haz clic en \"Exportar\". El archivo resultante mantendrá el formato original de manera notable. Para un flujo de trabajo aún más integrado, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "aprovecha al máximo sus funciones avanzadas",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 4: Colaborar y comentar en equipo",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La revisión por email es un caos. Foxit lo soluciona.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  Abre el documento a revisar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  En la pestaña \"Comentarios\", encontrarás todas las herramientas: resaltadores, notas adhesivas, formas para marcar secciones y herramientas de dibujo. Incluso puedes asignar comentarios a personas específicas. Cuando termines, puedes aplanar todos los comentarios directamente en el PDF para su archivo final.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Funciones Nuevas y Destacadas que Enamoran",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/foxit-pdf-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Foxit no se queda quieto. Su versión más reciente integra IA de forma nativa, lo que marca una diferencia abismal. Entre las ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "novedades que debes probar",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " están:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Resumen IA",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Con un solo clic, obtienes un resumen conciso de documentos largos. Ideal para informes o artículos de investigación.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Extracción de datos con IA",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": ¿Tienes un PDF con una tabla de datos? La IA puede extraerla y convertirla en una hoja de cálculo editable, ahorrándote una tediosa tarea manual.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Asistente de Redacción",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Te ayuda a reformular frases o adaptar el tono del texto dentro del propio PDF, algo perfecto para contratos o comunicaciones formales.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Firma Electrónica Avanzada",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Integra flujos de trabajo de firma con seguimiento en tiempo real y notificaciones, cumpliendo con estándares legales.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://partnerstack.foxit.com/o5nr6k5k10v5"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Estas funciones no son gimmicks; son soluciones reales a problemas diarios. Si quieres empezar a experimentar con ellas ahora mismo, puedes ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "obtener Foxit PDF Editor y probarlo sin compromiso",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". La licencia es flexible y vale cada centavo por el tiempo que recuperarás.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Para Quién es Ideal Foxit PDF? (Spoiler: Para Más Gente de la que Crees)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Esta herramienta brilla para perfiles muy específicos:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Estudiantes y académicos",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Para editar papers, resumir bibliografía y gestionar tesis. La función de IA para resumir es un game-changer.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Profesionales legales y corporativos",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": La gestión de firmas electrónicas, la seguridad robusta y la colaboración en contratos hacen de Foxit un aliado indispensable.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Diseñadores y creativos",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Su capacidad para editar imágenes dentro del PDF sin perder calidad es superior a muchas alternativas.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-foxit-pdf"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Equipos de cualquier tamaño",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Su precio competitivo frente a soluciones más masivas, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "sumado a su potencia, lo convierten en una elección inteligente",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". No es una herramienta \"para pobres\", es una herramienta \"para listos\".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cualquier persona que reciba un PDF y necesite hacerle algo",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Desde rellenar un formulario de inscripción hasta extraer una página de un manual. Es universal.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Conclusión: Tu Nuevo Aliado en Productividad Documental",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Después de usar Foxit PDF Editor, entenderás por qué la considero una de las mejores inversiones en software de productividad. Elimina fricciones, automatiza lo tedioso y pone el control total de los documentos PDF en tus manos, con una interfaz limpia y moderna. No se trata solo de leer PDFs, sino de *trabajar con ellos* de manera inteligente.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://partnerstack.foxit.com/o5nr6k5k10v5"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Listo para transformar tu flujo de trabajo? **",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Haz clic aquí para visitar el sitio oficial de Foxit, descargar la prueba gratuita o adquirir tu licencia",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".** Da el paso y siente la diferencia desde el primer día.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sigue leyendo en TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/foxit-pdf-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Foxit PDF: Todas las novedades de su versión más reciente",
+            "marks": [
+              "l8"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-foxit-pdf"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Por qué elegir Foxit PDF sobre otras alternativas?",
+            "marks": [
+              "l9"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/foxit-pdf-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "5 casos de uso avanzados de Foxit PDF que no conocías",
+            "marks": [
+              "l10"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-foxit-pdf"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Trucos y mejores prácticas para usar Foxit PDF como un profesional",
+            "marks": [
+              "l11"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "Foxit PDF Editor, Adobe Acrobat, PartnerStack, herramientas IA, OCR",
+    "keywords": [
+      "Foxit PDF",
+      "editar PDFs",
+      "firmar documentos",
+      "convertir PDF",
+      "herramienta IA",
+      "tutorial PDF"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/foxit.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A person happily editing a PDF on a laptop with Foxit interface, documents and a coffee cup on a sunny desk.. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Foxit PDF Editor es realmente mejor que Adobe Acrobat?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Foxit PDF Editor es una alternativa excepcionalmente poderosa y moderna. Ofrece funciones de IA integradas, una interfaz más limpia y precios generalmente más competitivos para funcionalidades similares. Muchos profesionales lo prefieren por su agilidad y enfoque en la productividad. La 'mejor' herramienta dependerá de tus necesidades específicas, pero Foxit definitivamente merece una prueba seria.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Puedo usar Foxit PDF para firmar documentos legalmente?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sí, Foxit PDF Editor ofrece capacidades de firma electrónica que cumplen con los estándares legales necesarios en muchas jurisdicciones, incluyendo la Ley de Firmas Electrónicas. Te permite crear firmas manuscritas, usar certificados digitales y gestionar flujos de firma con seguimiento. Para usos en contextos legales muy estrictos, siempre es recomendable verificar los requisitos específicos de tu país o institución.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Es difícil aprender a usar Foxit PDF si vengo de otro editor?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para nada. La curva de aprendizaje es muy suave. Foxit ha diseñado su interfaz para ser intuitiva, con pestañas y herramientas claramente etiquetadas que resultarán familiares si has usado software de oficina o cualquier otro editor de PDF. En pocos minutos ya estarás realizando tareas básicas y descubriendo funciones avanzadas con facilidad.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:es:foxit-pdf:tutorial",
+    "source": "sdk-agent-blog-seo:mimo"
+  },
+  "published_at": "2026-06-12T13:23:27",
+  "locale": "es"
+}

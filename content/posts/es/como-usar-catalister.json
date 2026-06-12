@@ -1,0 +1,1131 @@
+{
+  "id": "post-como-usar-catalister",
+  "slug": "como-usar-catalister",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "negocios",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "Catalister: Tutorial paso a paso para organizar proyectos con IA",
+    "excerpt": "Descubre en este tutorial paso a paso cómo Catalister usa IA para simplificar la gestión de proyectos y tareas de tu equipo. ¡Optimiza tu flujo hoy!",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/como-usar-catalister.jpg",
+        "alt": "Catalister: Tutorial paso a paso para organizar proyectos con IA",
+        "filename": "como-usar-catalister.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si sientes que tu equipo navega entre hojas de cálculo, chats y correos para seguir un proyecto, este artículo es para ti. Hoy te presento ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Catalister",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", una plataforma de gestión de proyectos potenciada por IA que está cambiando la manera en que los equipos organizan y ejecutan su trabajo. Olvídate del caos; aquí te mostraré, paso a paso, cómo empezar a usarla para traer claridad y eficiencia a tus proyectos.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "*(Divulgación: Este artículo contiene enlaces de afiliado. Si realizas una compra a través de ellos, puedo obtener una comisión sin costo adicional para ti. Solo recomiendo herramientas que he investigado y en las que confío.)*",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué es Catalister y por qué destacar?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-catalister"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Antes de sumergirnos en el tutorial, aclaremos qué hace única a esta herramienta. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Catalister",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " no es solo otro gestor de tareas. Es una ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "plataforma de gestión de proyectos con inteligencia artificial integrada",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Su promesa es clara: ayudarte a organizar el trabajo en equipo, asignar tareas de forma inteligente y dar un seguimiento impecable a los proyectos, todo con una capa de automatización que realmente ahorra tiempo.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lo que me entusiasma de Catalister es cómo su IA va más allá de las etiquetas de colores. Puede sugerir asignaciones basadas en la carga de trabajo actual de los miembros del equipo, predecir cuellos de botella y hasta ayudar a priorizar tareas. Es como tener un asistente de proyecto digital que se anticipa a las necesidades.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-catalister"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si quieres profundizar en su propuesta de valor, te recomiendo leer ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "¿Por qué elegir Catalister?",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " en TonyCiencia.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tutorial Paso a Paso: De la Cuenta al Primer Proyecto Automatizado",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Vamos a la acción. Sigue estos pasos para configurar tu espacio de trabajo y ver la magia de la IA en funcionamiento.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 1: Registro y Configuración Inicial",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://join.catalister.com/grhgfwnglvsm"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ve a ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "catalister.com",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " y crea tu cuenta. El proceso es rápido. Una vez dentro, te pedirá que crees tu primer ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Espacio de Trabajo",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Piensa en este como el contenedor principal de tu organización (ej. \"Marketing Digital\" o \"Lanzamiento Producto X\"). Invita a los miembros de tu equipo desde aquí.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 2: Crea tu Primer Proyecto dentro del Espacio",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Dentro del Espacio de Trabajo, haz clic en \"Nuevo Proyecto\". Nómbralo (ej. \"Campaña Redes Sociales Q3\"). Aquí es donde Catalister brilla: al crear el proyecto, la IA te ofrecerá plantillas inteligentes basadas en el tipo de proyecto que elijas. Selecciona una y te ahorrarás horas en la configuración inicial de tareas y flujos.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 3: Define Tareas y Subtareas con Detalle",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Dentro del proyecto, crea las tareas principales. Por ejemplo: \"Diseñar gráficos para Instagram\", \"Redactar copy de publicaciones\". Lo genial es que al escribir el nombre de una tarea, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "la IA de Catalister puede sugerir subtareas lógicas",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Para \"Diseñar gráficos\", podría sugerir \"Buscar banco de imágenes\", \"Crear plantilla en Canva\", \"Diseñar 5 posts\". Solo tienes que aceptar o editar las sugerencias. Agrega descripciones, fechas límite y etiquetas para dar claridad.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 4: Asignación Inteligente de Tareas",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Aquí viene el primer gran beneficio. Al asignar una tarea, no solo ves la lista de tu equipo. Catalister muestra un indicador de ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "carga de trabajo",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " para cada miembro. Puedes asignar basándote en disponibilidad. Para ciertos tipos de tareas repetitivas, puedes configurar reglas para que se asignen automáticamente a la persona más adecuada o para que rotén entre el equipo.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 5: Establece Vistas y Automatizaciones",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Catalister ofrece múltiples vistas (Tablero Kanban, Lista, Calendario, Timeline). Para tu proyecto, elige la que mejor se adapte. Configura tu primer flujo de automatización simple: por ejemplo, \"Cuando una tarea se marque como 'Completada', moverla automáticamente a la lista 'Listo para Revisión' y notificar al director del proyecto\". Estas automatizaciones eliminan tareas manuales constantes.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 6: Supervisión con IA y Reportes",
+            "marks": [
+              "strong"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "El panel de IA te ofrece una vista resumida del estado del proyecto, destacando riesgos potenciales (ej. \"3 tareas críticas están cerca de su fecha límite\") y sugiriendo acciones. Genera reportes de progreso con un clic para compartir con stakeholders.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/catalister-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para inspirarte en aplicaciones prácticas, echa un vistazo a los ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "casos de uso de Catalister",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Funciones Nuevas y Destacadas de Catalister",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Catalister está en constante evolución. Entre sus características más potentes y recientes destacan:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Asistente de Proyecto IA Conversacional:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Puedes interactuar con un chat dentro de Catalister para pedirle cosas como \"Resúmeme el progreso de la semana\" o \"¿Qué tareas están bloqueadas?\" y te dará respuestas precisas extraídas de tus propios proyectos.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Integraciones Profundas:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Se conecta sin fricciones con herramientas como Google Workspace, Microsoft 365, Slack y Figma, centralizando la comunicación y los archivos relevantes directamente en las tareas.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Automatizaciones Avanzadas con Condiciones:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Crea flujos \"Si... entonces...\" complejos. Por ejemplo: \"Si la tarea 'Aprobar Diseño' está bloqueada por más de 2 días, enviar un recordatorio automático al responsable y escalarlo al manager\".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paneles Personalizados con Métricas de IA:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Crea dashboards que no solo muestren datos, sino que también incluyan predicciones de la IA sobre la fecha de finalización probable del proyecto o la distribución óptima de recursos.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/catalister-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para conocer las últimas novedades, visita nuestra sección de ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "novedades de Catalister",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Para Quién es Ideal Catalister?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Esta herramienta es un acierto para una amplia gama de usuarios, pero especialmente brilla en estos contextos:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Equipos de Marketing y Creativos:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Perfecta para gestionar campañas, donde las tareas dependen unas de otras y se requiere una coordinación fluida entre copy, diseño y gestión de redes.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Startups y Equipos de Producto:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Donde la agilidad es clave. La IA ayuda a priorizar el backlog, y las automatizaciones aceleran los sprints de desarrollo.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Agencias y Consultoras:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Ideal para manejar múltiples proyectos de clientes simultáneamente. La capacidad de crear plantillas reutilizables y los paneles de control por cliente son un salvavidas.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Departamentos Operativos (IT, RRHH, Finanzas):",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Para estandarizar procesos repetitivos (onboarding, solicitudes, reportes) y darles un seguimiento impecable con automatizaciones.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-clickup"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si buscas una alternativa potente a herramientas más genéricas, Catalister ofrece ese salto de calidad en organización. Mira cómo se compara en nuestro artículo ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Herramientas de Gestión: ClickUp vs. Catalister",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Optimiza tu Experiencia: Trucos y Mejores Prácticas",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para sacar el máximo provecho, ten en cuenta estos consejos:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Invierte Tiempo en la Configuración Inicial:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Dedica una tarde a crear tus plantillas de proyecto ideales con todas las tareas y subtareas estándar. Catalister aprenderá de esto y hará sugerencias cada vez más acertadas.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Utiliza los Comentarios con Menciones:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " En lugar de chats externos, comenta directamente en la tarea y menciona a los compañeros relevantes. Toda la comunicación queda contextualizada y se evita perder información.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Domina los Atajos de Teclado:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " La plataforma es muy ágil con atajos para crear tareas, cambiar vistas y buscar. Familiarízarte con ellos acelerará enormemente tu flujo de trabajo diario.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Revisa Semanalmente el Panel de IA:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Dedica 10 minutos cada lunes a revisar las alertas y sugerencias de la IA. Es el mejor momento para corregir el rumbo y redistribuir tareas antes de que haya problemas.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-catalister"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para más consejos avanzados, explora nuestros ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "trucos para usar Catalister como un profesional",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lleva tu Productividad al Siguiente Nivel",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Implementar Catalister es un paso concreto hacia un trabajo más inteligente y menos estresante. Su combinación de una interfaz intuitiva con una IA verdaderamente útil la convierte en una de las plataformas más completas para gestión de proyectos hoy en día. No se trata solo de listar tareas, sino de trabajar con un sistema que te ayuda a tomar mejores decisiones.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Listo para transformar la manera en que tu equipo trabaja?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://join.catalister.com/grhgfwnglvsm"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "**",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Empieza tu prueba gratuita de Catalister aquí y descubre el poder de la gestión asistida por IA",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".**",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sigue leyendo en TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/catalister-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Casos de uso: Así usan Catalister equipos reales",
+            "marks": [
+              "l8"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-catalister"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Guía completa: ¿Qué es y para qué sirve Catalister?",
+            "marks": [
+              "l9"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-catalister"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Comparativa positiva: ¿Por qué elegir Catalister sobre otras?",
+            "marks": [
+              "l10"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-monday-com"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tutorial: Cómo usar monday.com para gestión básica",
+            "marks": [
+              "l11"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l12",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-apollo-io"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Herramienta complementaria: Potencia tu prospección con Apollo.io",
+            "marks": [
+              "l12"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "Catalister, inteligencia artificial, gestión de proyectos, equipo, automatización, productividad",
+    "keywords": [
+      "gestión de proyectos con IA",
+      "herramienta de productividad",
+      "asignación de tareas equipo",
+      "plataforma de gestión de trabajo",
+      "Catalister tutorial",
+      "automatización de proyectos"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/catalister.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A diverse team collaborating around a laptop showing a clean project dashboard, with holographic AI task icons floating above it, in a modern, bright office.. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Catalister tiene una versión gratuita?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sí, Catalister ofrece un plan gratuito con funcionalidades básicas que es perfecto para equipos pequeños o para probar la plataforma antes de comprometerte. Los planes pagos desbloquean la IA avanzada, más automatizaciones y mayor almacenamiento.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿La IA de Catalister realmente aprende de mis proyectos?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sí, es uno de sus puntos fuertes. Cuanto más uses la plataforma, mejor entenderá los patrones de tu equipo: cómo asignas tareas, los tiempos habituales y los flujos de trabajo. Esto hace que sus sugerencias sean cada vez más relevantes y personalizadas.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Es seguro usar Catalister para datos sensibles de la empresa?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Catalister implementa estándares de seguridad empresarial, como cifrado de datos en tránsito y en reposo, y ofrece controles de acceso granulares. Te recomiendo revisar su página de seguridad para los detalles técnicos y certificaciones específicas que necesites para tu caso.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:es:catalister:tutorial",
+    "source": "sdk-agent-blog-seo:mimo"
+  },
+  "published_at": "2026-06-12T13:57:34",
+  "locale": "es"
+}

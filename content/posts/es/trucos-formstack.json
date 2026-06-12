@@ -1,0 +1,901 @@
+{
+  "id": "post-trucos-formstack",
+  "slug": "trucos-formstack",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "negocios",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "Trucos y mejores formas de usar Formstack para automatizarlo todo",
+    "excerpt": "Descubre cómo optimizar flujos de trabajo, crear formularios inteligentes y gestionar documentos sin papel con estos trucos para Formstack.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/trucos-formstack.jpg",
+        "alt": "Trucos y mejores formas de usar Formstack para automatizarlo todo",
+        "filename": "trucos-formstack.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si sientes que tu equipo pierde demasiado tiempo en tareas manuales, como rellenar formularios en papel, perseguir firmas o copiar datos de una hoja de cálculo a otra, necesitas conocer a fondo lo que Formstack puede hacer por ti. Esta plataforma no es solo para crear formularios bonitos; es un motor de automatización que transforma procesos caóticos en flujos de trabajo elegantes y sin intervención humana. En esta guía, compartiré los trucos que marcan la diferencia para sacarle el máximo partido.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://intellistack.partnerlinks.io/mhua7fhknizd"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La clave está en dejar de pensar en Formstack como una simple herramienta para recopilar respuestas. Es la columna vertebral digital de operaciones de RRHH, ventas, legal y marketing que quieren eliminar el papel y los errores. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Descubre cómo empezar con Formstack y transformar tu día a día",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Trucos para crear formularios que la gente quiere completar",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "El error más común es diseñar formularios pensando en lo que *nosotros* necesitamos, no en la experiencia del usuario. Con Formstack, aplicar estos trucos hace que las tasas de finalización se disparen:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-formstack"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Usa la lógica condicional de forma inteligente:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " No abrumes con preguntas irrelevantes. Si un usuario selecciona \"Soy cliente\", que la siguiente pregunta sea sobre su caso. Si selecciona \"Soy prospecto\", que aparezca otra diferente. Esto se configura visualmente en el builder y hace que el formulario parezca una conversación personalizada. Para un tutorial paso a paso, consulta ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "cómo usar Formstack y sus lógicas",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Implementa la validación en tiempo real:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Evita que envíen un formulario con errores. Formstack puede mostrar mensajes de ayuda (como \"El email debe tener un formato correcto\") justo cuando el usuario escribe. Este pequeño detalle ahorra intercambios de correo innecesarios.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Aprovecha las integraciones nativas para pre-llenar datos:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " ¿Tienes un CRM como Salesforce o HubSpot? Conecta Formstack para que, al escribir un email conocido, el formulario rellene automáticamente el nombre, la empresa y el teléfono. El usuario se siente valorado y tú evitas la duplicidad de datos.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Automatizaciones que prácticamente hacen el trabajo por ti",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Aquí es donde Formstack se vuelve realmente potente. Su constructor visual de flujos de trabajo (Workflow Suite) es donde la magia ocurre:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/formstack-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Crea rutas de aprobación con notificaciones automáticas:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Envía una solicitud de vacaciones. Formstack puede notificar automáticamente al manager por email, asignar un aprobador secundario si no responde en 24 horas, y enviar un calendario actualizado al empleado al aprobarse. Sin copiar a nadie en un correo, sin recordatorios manuales. Si quieres ver casos de uso más avanzados, este artículo sobre ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "casos de uso de Formstack",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " te dará ideas.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Genera documentos PDF al instante:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Imagina un formulario de onboarding. Al completarlo, Formstack puede crear automáticamente un contrato de trabajo o una bienvenida en PDF con todos los datos insertados, listo para firmar. Adiós al copiar-pegar en Word.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://intellistack.partnerlinks.io/mhua7fhknizd"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Configura alertas basadas en respuestas:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Si una encuesta de satisfacción da una puntuación baja, puedes configurar una alerta instantánea al equipo de soporte con el nombre del cliente y el comentario. Se actúa en proactivamente, no en reactivo. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Prueba estas automatizaciones en tu propia cuenta",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Funciones nuevas y destacadas que debes probar",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Formstack está en constante evolución. Algunas de sus incorporaciones más recientes potencian aún más su valor:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/formstack-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Formularios conversacionales:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Es una alternativa al formulario lineal tradicional. Presenta una pregunta a la vez en un formato de chat, ideal para interacciones más humanas en móviles y para reducir la tasa de abandono. Puedes ver ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "las novedades más recientes de Formstack",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " en su blog.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Mejoras en la firma electrónica (Formstack Sign):",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Ahora con opciones de autenticación más robustas y campos de firma que se pueden posicionar exactamente donde necesitas en un documento PDF, con total precisión. Es una alternativa sólida a servicios dedicados, especialmente porque vive en el mismo ecosistema que tus formularios.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Analítica avanzada en formularios:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " No solo te dice cuántos envíos hubo. Ahora puedes ver en qué campo la gente duda más tiempo, dónde abandona el formulario y qué dispositivos usan. Esto es oro para optimizar continuamente.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Para quién es ideal Formstack? (Spoiler: Para más equipos de los que crees)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si estás en uno de estos grupos, Formstack no es una opción, es una necesidad:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Equipos de Operaciones y Administración:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Si gestionas onboarding de empleados, solicitudes internas (compras, TI), o reportes de gastos, esta es tu herramienta central para eliminar el caos del email y el papel.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-formstack"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Departamentos de Marketing y Ventas:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Para capturar leads con formularios inteligentes que se integran directo a tu CRM, crear landing pages ágiles y automatizar el envío de materiales a cambio de información. Para entender el contexto completo, lee ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "por qué elegir Formstack frente a otras soluciones",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Consultoras y agencias:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Puedes crear plantillas de formularios y flujos de trabajo reutilizables para cada cliente, estandarizando procesos y ofreciendo un valor añadido tecnológico.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-monday-com"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cualquier equipo que trabaje con contratos o documentos legales:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Desde NDA hasta acuerdos de servicios, la firma electrónica integrada acelera cierres que antes tomaban días. Si buscas comparar con otras herramientas de productividad, hemos escrito sobre ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "cómo usar monday.com para flujos de trabajo similares",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", aunque Formstack brilla en la integración documento-firma.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo empezar hoy sin sentirte abrumado",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "No necesitas automatizar todo de golpe. Mi consejo es que empieces con el dolor más agudo. ¿Es el proceso de solicitud de vacaciones? ¿El onboarding de nuevos clientes? Elige UNO.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Regístrate para una prueba gratuita.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " La plataforma es intuitiva, pero dedicar una tarde a explorar el builder marca la diferencia.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Recrea tu proceso doloroso digitalmente.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Construye el formulario y luego añade, paso a paso, la automatización (notificación a X persona, creación de documento, etc.).",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3.  ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Pruébalo con tu equipo o un cliente piloto.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Observa dónde falla o qué preguntas surgen, y ajusta la lógica. La iteración es rápida.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La filosofía de Formstack es \"no-code\", pero eso no significa \"no-esfuerzo\". Significa que el esfuerzo se invierte en pensar bien el proceso, no en escribir código. Y eso lo puede hacer alguien que conoce el día a día del negocio, no solo el departamento de TI.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://intellistack.partnerlinks.io/mhua7fhknizd"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Listo para eliminar cientos de horas de trabajo manual al año y darle a tu equipo la fluidez que merece? ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Empieza a construir tus flujos de trabajo con Formstack hoy mismo",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " y experimenta la diferencia.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "*(Divulgación: Algunos enlaces en este artículo son de afiliado. Esto significa que si realizas una compra a través de ellos, recibimos una pequeña comisión sin costo adicional para ti. Solo recomendamos herramientas que usamos y en las que confiamos plenamente).*",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sigue leyendo en TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Profundiza aún más con estos artículos relacionados:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-formstack"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Qué es Formstack y para qué sirve exactamente",
+            "marks": [
+              "l8"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-formstack"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tutorial: Cómo usar Formstack desde cero",
+            "marks": [
+              "l9"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-clickup"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Guía comparativa: ClickUp vs monday.com para gestión de proyectos",
+            "marks": [
+              "l10"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-apollo-io"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Descubre Apollo.io para potenciar tu prospección de ventas",
+            "marks": [
+              "l11"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "Formstack, formularios digitales, automatización de documentos, e-signatures, flujo de trabajo sin papel",
+    "keywords": [
+      "Formstack automatización",
+      "mejores formas Formstack",
+      "trucos formularios digitales",
+      "workflow sin papel",
+      "formularios inteligentes"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/formstack.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A professional woman smiling while looking at a tablet showing a clean, automated workflow with green checkmarks and document icons.. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Formstack solo sirve para crear formularios?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para nada. Su potencial real está en la automatización de flujos de trabajo. Puedes conectar formularios a la generación automática de documentos (PDFs), aprobaciones electrónicas, firmas digitales y a cientos de integraciones con otras herramientas. Es una plataforma completa para eliminar procesos en papel.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Necesito saber programar para usar las funciones avanzadas de Formstack?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "No. Formstack está diseñado para ser una plataforma \"no-code\". Su constructor visual de flujos de trabajo (Workflow Suite) te permite crear automatizaciones complejas arrastrando y conectando bloques, como montar un rompecabezas, sin escribir una sola línea de código.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿La firma electrónica de Formstack es legalmente válida?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sí. Formstack Sign cumple con las leyes globales de firma electrónica, como la eIDAS en Europa y la ESIGN Act en EE.UU. Las firmas recopiladas tienen un registro de auditoría completo con sellos de tiempo, IP y verificación de identidad, lo que les da plena validez legal.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:es:formstack:trucos",
+    "source": "sdk-agent-blog-seo:mimo"
+  },
+  "published_at": "2026-06-12T08:01:04",
+  "locale": "es"
+}

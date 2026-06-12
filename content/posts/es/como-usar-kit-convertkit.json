@@ -1,0 +1,1202 @@
+{
+  "id": "post-como-usar-kit-convertkit",
+  "slug": "como-usar-kit-convertkit",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "ia",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "Kit Tutorial: Cómo configurar tu email marketing como un creador pro",
+    "excerpt": "Aprende paso a paso a usar Kit (ConvertKit): automatizaciones, páginas de suscripción y monetización en una plataforma hecha para creadores. Empieza gratis hoy.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/como-usar-kit-convertkit.jpg",
+        "alt": "Kit Tutorial: Cómo configurar tu email marketing como un creador pro",
+        "filename": "como-usar-kit-convertkit.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "*Este artículo contiene enlaces de afiliado. Si te suscribes a través de ellos, recibimos una pequeña comisión sin costo adicional para ti. ¡Gracias por tu apoyo!*",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Por qué Kit es el email marketing que necesitas",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-kit-convertkit"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "He probado decenas de herramientas, pero ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Kit",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " destaca por una razón: está 100% construida para creadores de contenido. Olvídate de interfaces complicadas pensadas para grandes corporaciones. Kit entiende que necesitas una lista comprometida, no solo números. Su plan gratuito no es un señuelo limitado; te permite tener hasta 1,000 suscriptores con funciones básicas de automatización y páginas de aterrizaje ilimitadas. Es el trampolín perfecto.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://partners.kit.com/v78kkgp588z9-uw04r"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Empieza tu prueba gratuita de 14 días con Kit aquí",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". No se requiere tarjeta de crédito.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tu primer paso: Crear tu cuenta y configurar lo esencial",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://partners.kit.com/v78kkgp588z9-uw04r"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Regístrate en 2 minutos",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Ve a ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "kit.com",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " y elige el plan \"Newsletter\" gratuito o el \"Creator\" para una prueba de 14 días. Solo necesitas email y contraseña.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Importa tu lista existente",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Si vienes de otra herramienta, Kit ofrece migración gratuita. Su equipo humano se encarga de mover tus contactos de forma segura. Es un detalle que valoré muchísimo.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Configura tu remitente",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": En \"Settings\" > \"Email\", añade tu nombre y dirección de correo profesional. Este paso es clave para que tus emails no caigan en spam.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Crea tu primer formulario",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Ve a \"Landing Pages & Forms\" y haz clic en \"Create New\". Elige entre un formulario embebido o una página de aterrizaje independiente. Los diseños son limpios y editables sin código.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Domina las automatizaciones visuales (Aquí brilla Kit)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Olvida las secuencias lineales aburridas. Kit tiene un constructor de automatizaciones *visual*. Arrastra y suelta acciones como \"Enviar secuencia de bienvenida\", \"Aplicar etiqueta\" o \"Mover a un segmento\". Por ejemplo:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Caso práctico",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Cuando alguien se suscribe a tu lead magnet \"Guía de Productividad\", automáticamente recibe una secuencia de 5 emails que le introduce a tu contenido. Al final, se le aplica la etiqueta \"Interesado en productividad\". Luego, puedes enviarle un email sobre tu curso avanzado solo a ese segmento. Todo fluye sin que tú toques un botón después del setup.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/kit-convertkit-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Las automatizaciones son ilimitadas en el plan de pago, y una básica viene en el gratuito. Para ver las ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "últimas funciones que lanzaron",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", como su nuevo Kit MCP (Creator Payments), visita su blog.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Monetiza directamente desde tu email con Kit",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Aquí es donde Kit se vuelve imprescindible. No necesitas integrar mil herramientas. Kit tiene ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "monetización integrada",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ":",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Vende productos digitales",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": PDFs, guías, ebooks, plantillas. Configura el producto en \"Commerce\", añade un precio y genera un enlace. Cuando alguien compra, el dinero va directo a tu cuenta (Stripe o PayPal), y Kit entrega el producto automáticamente y etiqueta al comprador.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ofrece suscripciones recurrentes",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Ideal para comunidades, acceso a contenido premium o mentorías. Kit gestiona los cobros recurrentes y los miembros dentro de tu lista.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Incorpora afiliados",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Puedes crear tu propio programa de afiliados dentro de Kit para que otros promocionen tus productos.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-kit-convertkit"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Esta integración nativa ahorra horas de configuración con plugins o pasarelas externas. Es un ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "gran motivo para elegir Kit",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Funciones nuevas y destacadas que debes probar",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Kit no se queda quieto. Algunas joyas recientes:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Kit MCP (Creator Payments)",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Una solución de pagos más robusta y optimizada para creadores, con mejor experiencia de compra para tu audiencia.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Segmentación avanzada con \"Tag Rules\"",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Crea segmentos dinámicos que se actualizan solos basados en el comportamiento (abrió email X pero no compró Y).",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Páginas de aterrizaje mejoradas",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Más plantillas, mayor personalización y mejores tasas de conversión probadas.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "A/B Testing en líneas de asunto",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Prueba dos variantes en una pequeña porción de tu lista antes de enviar al resto. Kit elige al ganador automáticamente.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/kit-convertkit-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Descubre todos los detalles en su ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "anuncio de 2026",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Para quién es ideal Kit? (Spoiler: Si lees esto, probablemente sí)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Kit es ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "perfecto",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " para:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Blogueros y creadores de contenido",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Que quieren convertir visitantes en una audiencia propia.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Autores y coaches",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Que necesitan vender libros, cursos o programas de mentoría.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Podcasters y youtubers",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Que buscan una conexión directa con su comunidad más allá de las plataformas algorítmicas.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/kit-convertkit-casos-de-uso"
+          },
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-gamma"
+          },
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-elevenlabs"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cualquiera que monetice su conocimiento",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Kit es una ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "herramienta clave en tu stack",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", especialmente si la combinas con ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Gamma",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " para tus presentaciones o ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "ElevenLabs",
+            "marks": [
+              "l8"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " para contenido de audio.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Trucos para exprimir al máximo Kit",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "1. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Usa \"Resend to Unopens\"",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": 48 horas después de enviar un broadcast, Kit puede reenviar el mismo email con una nueva línea de asunto a quienes no lo abrieron. Aumenta tu tasa de apertura con un clic.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "2. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Crea \"Páginas de Confirmación\" únicas",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": En lugar de la página por defecto, redirige a un video de bienvenida o una encuesta. Es tu primer punto de contacto; hazlo memorable.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "3. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Utiliza \"Link Triggers\"",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Enlaza una palabra clave dentro de un email a una acción (aplicar una etiqueta, iniciar una automatización). Es automatización microcontextual.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "4. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Explora \"Creator Network\"",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Conecta con otros creadores en la plataforma para promocionar cruzadamente newsletters. Kit facilita estas colaboraciones.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-kit-convertkit"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para más ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "trucos y mejores prácticas",
+            "marks": [
+              "l9"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", tenemos una guía completa en TonyCiencia.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sigue leyendo en TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/kit-convertkit-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Descubre todas las novedades de Kit en 2026",
+            "marks": [
+              "l10"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-kit-convertkit"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Razones definitivas para elegir Kit como tu plataforma",
+            "marks": [
+              "l11"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l12",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/kit-convertkit-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Casos de uso reales para creadores",
+            "marks": [
+              "l12"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l13",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-kit-convertkit"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Trucos avanzados para Kit",
+            "marks": [
+              "l13"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l14",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-kit-convertkit"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Qué es Kit y para qué sirve exactamente",
+            "marks": [
+              "l14"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l15",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-elevenlabs"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo usar ElevenLabs para tu contenido",
+            "marks": [
+              "l15"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l16",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-descript"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo usar Descript para editar podcasts",
+            "marks": [
+              "l16"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l17",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-gamma"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo usar Gamma para presentaciones",
+            "marks": [
+              "l17"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Kit transformó mi forma de comunicarme con mi audiencia y monetizar mi conocimiento. Es intuitiva, potente y está evolucionando constantemente. Si eres un creador serio, este es el centro de operaciones que buscabas.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l18",
+            "_type": "link",
+            "href": "https://partners.kit.com/v78kkgp588z9-uw04r"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "No lo pienses más: crea tu cuenta gratuita en Kit ahora mismo y empieza a construir tu negocio",
+            "marks": [
+              "l18"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "Kit, ConvertKit, email marketing, creadores, automatizaciones",
+    "keywords": [
+      "Kit ConvertKit tutorial",
+      "email marketing para creadores",
+      "automatización email Kit",
+      "plataforma email newsletter",
+      "cómo usar Kit email"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/kit.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A creator at a minimalist desk smiling at a laptop screen showing a Kit automation workflow, with a warm coffee beside them.. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Es realmente gratuito el plan de Kit?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sí, el plan \"Newsletter\" es 100% gratuito para hasta 1,000 suscriptores. Incluye páginas de aterrizaje ilimitadas, formularios y hasta una automatización básica. Es el mejor plan gratuito del mercado para creadores.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Puedo migrar mi lista de Mailchimp u otra plataforma?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¡Por supuesto! Kit ofrece un servicio de migración gratuita y gestionado por su equipo. Ellos se encargan de transferir tus suscriptores, formularios y automatizaciones de forma segura y sin perder datos.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Cómo monetizo mi audiencia con Kit?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Kit tiene comercio integrado. Puedes vender productos digitales (ebooks, cursos), ofrecer suscripciones recurrentes por membresías o contenido premium, e incluso configurar un programa de afiliados, todo desde la misma plataforma, sin necesidad de plugins externos.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:es:kit-convertkit:tutorial",
+    "source": "sdk-agent-blog-seo:mimo"
+  },
+  "published_at": "2026-06-12T04:34:02",
+  "locale": "es"
+}

@@ -1,0 +1,995 @@
+{
+  "id": "post-como-usar-prezi",
+  "slug": "como-usar-prezi",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "negocios",
+      "herramientas"
+    ],
+    "tag": [
+      "tutorial"
+    ]
+  },
+  "data": {
+    "title": "Prezi: Tutorial Paso a Paso para Crear Presentaciones Dinámicas",
+    "excerpt": "Aprende a crear presentaciones memorables con Prezi en este tutorial paso a paso. Descubre funciones clave y sorprende a tu audiencia.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/blog/como-usar-prezi.jpg",
+        "alt": "Prezi: Tutorial Paso a Paso para Crear Presentaciones Dinámicas",
+        "filename": "como-usar-prezi.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Olvida las presentaciones lineales y aburridas. Con ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Prezi",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", puedes crear experiencias visuales que cautivan desde el primer momento. Su sistema de zoom y movimiento no lineal te permite guiar a tu audiencia por una historia, enfocándote en lo que importa. En este tutorial, te mostraré paso a paso cómo empezar a usar esta potente herramienta y por qué se ha convertido en mi aliada para presentaciones que realmente impactan.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Por qué elegir Prezi para tus presentaciones?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-prezi"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lo primero que nota cualquiera que usa ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Prezi",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " es la diferencia visual. Mientras otras herramientas avanzan slide a slide, Prezi te da un lienzo infinito donde puedes conectar ideas de forma intuitiva. Esto es perfecto para:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Contar historias coherentes",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Muestras el panorama general y luego haces zoom en los detalles.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sorprender a tu audiencia",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": El movimiento fluido retiene la atención mucho más que una transición estática.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Mostrar relaciones entre conceptos",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Ideal para planes de negocio, estrategias o mapas mentales.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/prezi-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La plataforma se ha potenciado enormemente con la integración de IA. Descubre todas sus ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "funciones nuevas y destacadas",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " en nuestro artículo especial.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tutorial Prezi Paso a Paso: Crea tu primera presentación",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Empezar es más sencillo de lo que piensas. Sigue estos pasos y tendrás una base sólida en minutos.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 1: Regístrate y elige una plantilla",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l2",
+            "_type": "link",
+            "href": "https://try.prezi.com/ok37tgp9wyu0-qpqdwb"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Dirígete a ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Prezi.com",
+            "marks": [
+              "l2"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " y crea una cuenta gratuita. El plan gratuito ya te ofrece capacidades muy sólidas para empezar. Una vez dentro, te enfrentarás a la decisión más importante: la plantilla.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l3",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/prezi-casos-de-uso"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Consejo Pro",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": No elijas solo por estética. Busca la estructura que mejor se adapte a tu narrativa. ¿Necesitas un lienzo radial para ideas interconectadas? ¿O una línea de tiempo para un proceso? Prezi tiene plantillas para cada caso, desde informes de ventas hasta estrategias de marketing. Explora sus ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "casos de uso inspiradores",
+            "marks": [
+              "l3"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " para ver ejemplos reales.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 2: Conoce el lienzo (Canvas)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Esta es la interfaz principal. Aquí verás:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "El lienzo de fondo",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Tu espacio de trabajo infinito.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Los \"frames\"",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Son como slides, pero no tienen orden fijo. Puedes agrupar contenido dentro de ellos.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La línea de tiempo (Storyboard)",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": En la parte inferior, verás la secuencia de navegación que tú defines. Arrastra y suelta los frames para cambiar el orden.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "No te sientas abrumado. Empieza con un solo frame y ve construyendo.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Paso 3: Añade contenido y aplica zoom",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Arrastra texto, imágenes o íconos desde la barra lateral hacia tus frames. La magia ocurre cuando aplicas el ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "zoom",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Selecciona un frame y haz clic en \"Zoom\" en la barra de herramientas. Ahora, cuando tu presentación llegue a ese punto, hará un zoom espectacular hacia ese contenido, enfocando la atención de todos.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ejemplo concreto",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Si estás presentando los resultados de un trimestre, coloca el frame principal con el gráfico general. Luego, crea frames más pequeños con zoom a cada métrica clave (ingresos, nuevos clientes, etc.). La navegación será fluida y lógica.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Funciones que transforman tu flujo de trabajo",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Prezi va más allá de lo básico. Estas son las funciones que uso constantemente y que han simplificado enormemente la creación de presentaciones complejas:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Prezi AI",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Este es un cambio de juego. Puedes escribir una idea o un esquema, y la IA generará una presentación completa con estructura y contenido sugerido. Es como tener un asistente de diseño que entiende de narrativa visual. Te recomiendo probarla para borradores iniciales; ahorra horas.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l4",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-clickup"
+          },
+          {
+            "_key": "l5",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-monday-com"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Integración con otras herramientas",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Si usas plataformas de productividad como ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "ClickUp",
+            "marks": [
+              "l4"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " o ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "monday.com",
+            "marks": [
+              "l5"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", puedes incrustar tus tableros o tareas directamente en un Prezi, creando dashboards interactivos para reuniones de equipo.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Modo de presentación remota",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Prezi funciona de maravilla en videollamadas. Puedes compartir tu pantalla y todos verán los movimientos de zoom en tiempo real, haciendo que las presentaciones remotas sean tan dinámicas como las presenciales.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l6",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-prezi"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Descubre más ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "trucos y mejores prácticas",
+            "marks": [
+              "l6"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " para dominar estas herramientas.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Para quién es ideal Prezi?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Después de usarla con distintos equipos, puedo afirmar que brilla especialmente para:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Profesionales de ventas y marketing",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Las presentaciones de producto y propuestas comerciales se vuelven inolvidables. El formato no lineal es perfecto para \"volver\" a puntos clave durante una conversación.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Educadores y formadores",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Para explicar conceptos complejos, mostrar interrelaciones o crear recorridos de aprendizaje interactivos.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Equipos de startups y consultores",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": Cuando necesitas explicar una visión, un modelo de negocio o una estrategia de una forma que enganche a inversores o clientes.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l7",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/como-usar-apollo-io"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si trabajas con datos y necesitas conectar insights (quizás desde herramientas como ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Apollo.io",
+            "marks": [
+              "l7"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "), Prezi te permite visualizarlos en un contexto más amplio que una simple tabla.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lleva tus presentaciones al siguiente nivel: Prueba Prezi",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Crear con Prezi es un acto de creatividad. La herramienta elimina las restricciones técnicas y te deja enfocarte en el mensaje. La combinación de la libertad del lienzo con la potencia de la IA hace que incluso los diseños más complejos se sientan manejables.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l8",
+            "_type": "link",
+            "href": "https://try.prezi.com/ok37tgp9wyu0-qpqdwb"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Listo para dejar de presentar y empezar a impactar? ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Te invito a crear tu cuenta y tu primera presentación hoy mismo",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Empieza con una plantilla, experimenta con el zoom y descubre por qué tantos profesionales eligen Prezi para sus presentaciones más importantes. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Comienza tu viaje con Prezi aquí",
+            "marks": [
+              "l8"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Es gratis y el límite es tu imaginación.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "---",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "*Divulgación: Este artículo contiene enlaces de afiliación. Si realizas una compra a través de ellos, recibiré una pequeña comisión sin costo adicional para ti.*",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sigue leyendo en TonyCiencia",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l9",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/que-es-prezi"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Qué es Prezi y para qué sirve realmente",
+            "marks": [
+              "l9"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l10",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/por-que-elegir-prezi"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Por qué elegir Prezi sobre otras herramientas de presentaciones",
+            "marks": [
+              "l10"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l11",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/prezi-novedades"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Funciones nuevas de Prezi que debes probar",
+            "marks": [
+              "l11"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l12",
+            "_type": "link",
+            "href": "https://tonyciencia.com/posts/trucos-prezi"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Trucos avanzados para dominar Prezi",
+            "marks": [
+              "l12"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      }
+    ],
+    "schema_type": "BlogPosting",
+    "key_entities": "Prezi, presentaciones no lineales, zoom interactivo, Prezi AI",
+    "keywords": [
+      "Prezi tutorial",
+      "presentaciones dinámicas",
+      "cómo usar Prezi",
+      "Prezi AI",
+      "herramienta de presentaciones"
+    ],
+    "image_prompt": "Editorial tech thumbnail, 16:9. Incorporate the brand logo fetched from https://logo.clearbit.com/prezi.com as the clean focal element over a soft amber-to-cream gradient (Notion + Apple aesthetic). A dynamic presentation with zoom effects showing interconnected slides on a laptop screen. Glassmorphism cards, soft volumetric light, generous negative space for a title, no embedded text, no watermark. --ar 16:9 --style raw",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué es exactamente Prezi y cómo se diferencia de PowerPoint?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Prezi es una herramienta de presentaciones que utiliza un lienzo grande y un sistema de zoom en lugar de diapositivas estáticas. Esto te permite crear una narrativa no lineal y visualmente conectada, ideal para mostrar relaciones entre ideas y mantener la atención de la audiencia con movimientos fluidos.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Necesito saber diseño para usar Prezi?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para nada. Prezi ofrece miles de plantillas profesionales y, con Prezi AI, puedes generar una presentación completa desde una idea básica. Es intuitivo: solo arrastras y sueltas contenido. La estructura y el movimiento ya están integrados en las plantillas.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Puedo usar Prezi para presentaciones en equipo o en la nube?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sí, Prezi es una plataforma en la nube. Puedes compartir tu presentación con un enlace para que otros la vean o editen en tiempo real. Es excelente para equipos distribuidos que necesitan colaborar en una presentación antes de una reunión importante.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "tonyciencia-affiliate:es:prezi:tutorial",
+    "source": "sdk-agent-blog-seo:mimo"
+  },
+  "published_at": "2026-06-12T05:40:58",
+  "locale": "es"
+}
