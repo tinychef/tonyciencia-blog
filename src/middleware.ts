@@ -35,7 +35,11 @@ export const onRequest = defineMiddleware(async (context, next) => {
 	const { request, url } = context;
 	// @ts-expect-error runtime lo inyecta el adapter de Cloudflare
 	const runtime = context.locals?.runtime;
-	const cacheStore = (globalThis as { caches?: { default?: Cache } }).caches?.default;
+	// La Cache API de Cloudflare se expone por el runtime del adapter; globalThis
+	// es fallback (no siempre trae .default con nodejs_compat).
+	const cacheStore: Cache | undefined =
+		runtime?.caches?.default ??
+		(globalThis as { caches?: { default?: Cache } }).caches?.default;
 
 	if (request.method !== "GET" || !cacheStore || !isCacheableRoute(url.pathname)) {
 		return next();
