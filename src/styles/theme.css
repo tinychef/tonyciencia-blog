@@ -268,3 +268,106 @@ body {
 		width: 100%;
 	}
 }
+
+/* ════════════════════════════════════════════════════════════════
+   NOTION + APPLE TYPOGRAPHY LAYER · 2026
+   Aditivo y seguro: define una escala tipográfica fluida controlada
+   (clamp) y refina cuerpo, encabezados y lectura de artículo.
+   NO toca colores, glass, gradients, ripple ni el toggle dark/light.
+   Las clases de componente (.tc-section-title, etc.) conservan su
+   tamaño por mayor especificidad — esto solo afina texto base y prosa.
+   ════════════════════════════════════════════════════════════════ */
+:root {
+	/* Escala fluida — min nunca rompe en móvil, max controla en desktop */
+	--font-size-2xs: clamp(0.69rem, 0.67rem + 0.10vw, 0.74rem);
+	--font-size-xs:  clamp(0.78rem, 0.75rem + 0.14vw, 0.84rem);
+	--font-size-sm:  clamp(0.875rem, 0.85rem + 0.16vw, 0.94rem);
+	--font-size-base: clamp(1rem, 0.97rem + 0.22vw, 1.0625rem);   /* ~16→17px Apple */
+	--font-size-md:  clamp(1.125rem, 1.07rem + 0.34vw, 1.25rem);
+	--font-size-lg:  clamp(1.3rem, 1.18rem + 0.6vw, 1.55rem);
+	--font-size-xl:  clamp(1.62rem, 1.4rem + 1.1vw, 2.1rem);
+	--font-size-2xl: clamp(2rem, 1.62rem + 1.9vw, 2.85rem);
+	--font-size-3xl: clamp(2.5rem, 1.85rem + 3.2vw, 3.9rem);
+
+	/* Interlineado y tracking estilo Notion/Apple */
+	--leading-tight: 1.12;
+	--leading-snug: 1.3;
+	--leading-prose: 1.75;
+	--tracking-tight: -0.022em;
+	--tracking-tighter: -0.04em;
+
+	/* Pila de fuentes: Inter (cargada) + fallback Apple/Notion nativo */
+	--font-stack: var(--font-sans, "Inter"), -apple-system, BlinkMacSystemFont,
+		"SF Pro Text", "Segoe UI", system-ui, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+	font-family: var(--font-stack);
+	font-size: var(--font-size-base);
+	line-height: var(--leading-prose);
+	letter-spacing: -0.011em;
+	font-feature-settings: "cv11", "ss01", "calt", "kern";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Encabezados base (solo los SIN clase de componente, p.ej. prosa de artículo) */
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--font-stack);
+	font-weight: 700;
+	letter-spacing: var(--tracking-tight);
+	line-height: var(--leading-tight);
+	text-wrap: balance;
+	color: var(--color-text);
+}
+h1 { font-size: var(--font-size-3xl); letter-spacing: var(--tracking-tighter); }
+h2 { font-size: var(--font-size-2xl); letter-spacing: var(--tracking-tighter); }
+h3 { font-size: var(--font-size-xl); }
+h4 { font-size: var(--font-size-lg); }
+
+p { text-wrap: pretty; }
+
+/* ─── Lectura de artículo estilo Notion/Medium (scoped a <article>) ─── */
+article {
+	--measure: 46rem;
+}
+article p,
+article li {
+	font-size: var(--font-size-md);
+	line-height: 1.8;
+	color: var(--color-text);
+}
+article > p,
+article > h2,
+article > h3,
+article > ul,
+article > ol,
+article > blockquote,
+article > figure {
+	max-width: var(--measure);
+}
+article p { margin-block: 0 1.15em; }
+article h2 { margin-block: 1.9em 0.55em; }
+article h3 { margin-block: 1.4em 0.4em; }
+article a {
+	color: var(--color-text);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+	text-decoration-thickness: 1px;
+	text-decoration-color: color-mix(in srgb, var(--color-accent) 55%, transparent);
+	transition: text-decoration-color var(--transition-fast, 160ms ease), color var(--transition-fast, 160ms ease);
+}
+article a:hover {
+	color: var(--color-accent);
+	text-decoration-color: var(--color-accent);
+}
+article blockquote {
+	margin-inline: 0;
+	padding-inline-start: 1.1rem;
+	border-inline-start: 3px solid var(--color-accent);
+	color: var(--color-text-secondary);
+	font-style: normal;
+}
+
+/* Refinamiento de selección y números tabulares en datos */
+.tc-stat, [class*="stat"] { font-variant-numeric: tabular-nums; }
