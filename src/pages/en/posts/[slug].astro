@@ -89,58 +89,63 @@ const readingTime = getReadingTime(post.data.content as any);
 const translationSlug = post.data.translation_of;
 
 // Get other posts for "More posts" section
-// Strategy: shared categories first, then shared tags, then recent posts
+// Strategy: shared categories first, then shared tags, then recent posts.
+// PERF: en modo estático NO tocamos D1 (los queries se descartaban igual).
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let relatedPosts: any[] = [];
 
-const postCategories = isStaticPost ? [] : await getEntryTerms("posts", post.data.id, "category");
-for (const cat of postCategories) {
-	const { entries: catPosts } = await getEmDashCollection("posts", {
-		where: { category: cat.slug },
-		orderBy: { published_at: "desc" },
-		limit: 6,
-		locale: "en",
-	});
-	for (const cp of catPosts) {
-		if (cp.id !== post.id && !relatedPosts.find((r) => r.id === cp.id)) {
-			relatedPosts.push(cp);
-		}
-		if (relatedPosts.length >= 4) break;
-	}
-	if (relatedPosts.length >= 4) break;
-}
-
-if (relatedPosts.length < 4 && tags.length > 0) {
-	for (const tag of tags) {
-		const { entries: tagPosts } = await getEmDashCollection("posts", {
-			where: { tag: tag.slug },
+if (isStaticPost) {
+	relatedPosts = getStaticPosts("en")
+		.filter((candidate) => candidate.id !== post.id)
+		.slice(0, 4);
+} else {
+	const postCategories = await getEntryTerms("posts", post.data.id, "category");
+	for (const cat of postCategories) {
+		const { entries: catPosts } = await getEmDashCollection("posts", {
+			where: { category: cat.slug },
 			orderBy: { published_at: "desc" },
 			limit: 6,
 			locale: "en",
 		});
-		for (const tp of tagPosts) {
-			if (tp.id !== post.id && !relatedPosts.find((r) => r.id === tp.id)) {
-				relatedPosts.push(tp);
+		for (const cp of catPosts) {
+			if (cp.id !== post.id && !relatedPosts.find((r) => r.id === cp.id)) {
+				relatedPosts.push(cp);
 			}
 			if (relatedPosts.length >= 4) break;
 		}
 		if (relatedPosts.length >= 4) break;
 	}
-}
 
-if (isStaticPost) {
-	relatedPosts = getStaticPosts("en").filter((candidate) => candidate.id !== post.id).slice(0, 4);
-} else if (relatedPosts.length < 4) {
-	const { entries: recentPosts } = await getEmDashCollection("posts", {
-		orderBy: { published_at: "desc" },
-		limit: 8,
-		locale: "en",
-	});
-	for (const rp of recentPosts) {
-		if (rp.id !== post.id && !relatedPosts.find((r) => r.id === rp.id)) {
-			relatedPosts.push(rp);
+	if (relatedPosts.length < 4 && tags.length > 0) {
+		for (const tag of tags) {
+			const { entries: tagPosts } = await getEmDashCollection("posts", {
+				where: { tag: tag.slug },
+				orderBy: { published_at: "desc" },
+				limit: 6,
+				locale: "en",
+			});
+			for (const tp of tagPosts) {
+				if (tp.id !== post.id && !relatedPosts.find((r) => r.id === tp.id)) {
+					relatedPosts.push(tp);
+				}
+				if (relatedPosts.length >= 4) break;
+			}
+			if (relatedPosts.length >= 4) break;
 		}
-		if (relatedPosts.length >= 4) break;
+	}
+
+	if (relatedPosts.length < 4) {
+		const { entries: recentPosts } = await getEmDashCollection("posts", {
+			orderBy: { published_at: "desc" },
+			limit: 8,
+			locale: "en",
+		});
+		for (const rp of recentPosts) {
+			if (rp.id !== post.id && !relatedPosts.find((r) => r.id === rp.id)) {
+				relatedPosts.push(rp);
+			}
+			if (relatedPosts.length >= 4) break;
+		}
 	}
 }
 const otherPosts = relatedPosts.slice(0, 4);
