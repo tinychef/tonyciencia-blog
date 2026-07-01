@@ -1,12 +1,11 @@
 ---
-import type { MediaValue, ContentBylineCredit } from "emdash";
-import { Image } from "emdash/ui";
+import type { ContentBylineCredit } from "emdash";
 import { getLangFromUrl } from "../i18n/locales";
+import PostTitleCard from "./PostTitleCard.astro";
 
 interface Props {
 	title: string;
 	excerpt?: string;
-	featuredImage?: MediaValue | string | { src?: string; alt?: string; $media?: { url?: string; alt?: string } };
 	href: string;
 	date?: Date;
 	readingTime?: number;
@@ -17,7 +16,6 @@ interface Props {
 const {
 	title,
 	excerpt,
-	featuredImage,
 	href,
 	date,
 	readingTime,
@@ -36,36 +34,11 @@ const formattedDate = date
 			day: "numeric",
 		})
 	: null;
-
-function getImageData(image: Props["featuredImage"]) {
-	if (!image) return null;
-	if (typeof image === "string") return { src: image, alt: "" };
-	if (typeof image === "object") {
-		const media = image as { src?: string; alt?: string; $media?: { url?: string; alt?: string } };
-		if (media.src) return { src: media.src, alt: media.alt ?? "" };
-		if (media.$media?.url) return { src: media.$media.url, alt: media.$media.alt ?? "" };
-	}
-	return null;
-}
-
-const imageData = getImageData(featuredImage);
 ---
 
 <article class="post-card">
 	<a href={href} class="card-link">
-		{
-			imageData ? (
-				<div class="card-image">
-					<img src={imageData.src} alt={imageData.alt} loading="lazy" decoding="async" />
-				</div>
-			) : featuredImage ? (
-				<div class="card-image">
-					<Image image={featuredImage as MediaValue | string} />
-				</div>
-			) : (
-				<div class="card-placeholder" />
-			)
-		}
+		<PostTitleCard title={title} variant="card" />
 		<div class="card-body">
 			<div class="card-meta">
 				{
@@ -182,32 +155,7 @@ const imageData = getImageData(featuredImage);
 		color: inherit;
 	}
 
-	.card-image {
-		aspect-ratio: 16 / 10;
-		overflow: hidden;
-		border-radius: calc(var(--radius-xl) - 6px);
-		background: var(--color-surface);
-		margin-bottom: var(--spacing-4);
-	}
-
-	.card-image img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		transition: transform 0.3s ease;
-	}
-
-	.card-link:hover .card-image img {
-		transform: scale(1.03);
-	}
-
-	.card-placeholder {
-		aspect-ratio: 16 / 10;
-		border-radius: calc(var(--radius-xl) - 6px);
-		background:
-			var(--tc-grid),
-			linear-gradient(135deg, var(--color-surface), color-mix(in srgb, var(--color-accent) 10%, var(--color-surface)));
-		background-size: 30px 30px, auto;
+	.card-link :global(.title-render) {
 		margin-bottom: var(--spacing-4);
 	}
 

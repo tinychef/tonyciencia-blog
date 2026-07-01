@@ -67,7 +67,6 @@ const faqItems = locale === "en" ? [
 						<PostCard
 							title={post.data.title}
 							excerpt={post.data.excerpt}
-							featuredImage={post.data.featured_image}
 							href={`${postsRoute}/${post.id}`}
 							date={post.data.publishedAt ?? undefined}
 							readingTime={getReadingTime(post.data.content)}

@@ -1,8 +1,8 @@
 ---
 import { getEmDashCollection, getEntryTerms, getSiteSettings } from "emdash";
-import { Image } from "emdash/ui";
 import Base from "../../layouts/Base.astro";
 import PostCard from "../../components/PostCard.astro";
+import PostTitleCard from "../../components/PostTitleCard.astro";
 import ToolsMarquee from "../../components/ToolsMarquee.astro";
 import { getReadingTime } from "../../utils/reading-time";
 import { resolveBlogSiteIdentity } from "../../utils/site-identity";
@@ -201,15 +201,9 @@ const operatingSystem = locale === "en"
 					{featuredPost && (
 						<article class="featured-article tc-card">
 							<a href={`${postsRoute}/${featuredPost.id}`} class="featured-link">
-								{featuredPost.data.featured_image && (
-									<div class="featured-media">
-										{featuredPost.data.featured_image?.src ? (
-											<img src={featuredPost.data.featured_image.src} alt={featuredPost.data.featured_image.alt ?? featuredPost.data.title} loading="eager" decoding="async" />
-										) : (
-											<Image image={featuredPost.data.featured_image} />
-										)}
-									</div>
-								)}
+								<div class="featured-media">
+									<PostTitleCard title={featuredPost.data.title} variant="hero" />
+								</div>
 								<div class="featured-body">
 									<div class="featured-meta">
 										{featuredPost.data.publishedAt && <time>{formatDate(featuredPost.data.publishedAt)}</time>}
@@ -231,7 +225,6 @@ const operatingSystem = locale === "en"
 							<PostCard
 								title={post.data.title}
 								excerpt={post.data.excerpt}
-								featuredImage={post.data.featured_image}
 								href={`${postsRoute}/${post.id}`}
 								date={post.data.publishedAt ?? undefined}
 								readingTime={getReadingTime(post.data.content as any)}
@@ -595,6 +588,12 @@ const operatingSystem = locale === "en"
 		aspect-ratio: 16 / 10;
 		overflow: hidden;
 		border-bottom: 1px solid var(--color-border);
+	}
+
+	.featured-media :global(.title-render) {
+		width: 100%;
+		height: 100%;
+		aspect-ratio: auto;
 	}
 
 	.featured-media img {

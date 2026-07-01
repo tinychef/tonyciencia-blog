@@ -1,0 +1,56 @@
+---
+interface Props {
+	title: string;
+	variant?: "card" | "hero";
+}
+
+const { title, variant = "card" } = Astro.props;
+---
+
+<div class={`title-render title-render--${variant}`}>
+	<span class="title-render-text">{title}</span>
+</div>
+
+<style>
+	.title-render {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: var(--spacing-6);
+		background:
+			var(--tc-grid),
+			linear-gradient(135deg, var(--color-surface), color-mix(in srgb, var(--color-accent) 14%, var(--color-surface)));
+		background-size: 30px 30px, auto;
+		text-align: center;
+	}
+
+	.title-render--card {
+		aspect-ratio: 16 / 10;
+		border-radius: calc(var(--radius-xl) - 6px);
+	}
+
+	.title-render--hero {
+		aspect-ratio: 21 / 9;
+		min-height: 220px;
+	}
+
+	.title-render-text {
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		color: var(--color-text);
+		line-height: 1.15;
+		max-width: 90%;
+	}
+
+	.title-render--card .title-render-text {
+		font-size: var(--font-size-lg);
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+
+	.title-render--hero .title-render-text {
+		font-size: clamp(1.5rem, 4vw, 2.75rem);
+	}
+</style>
