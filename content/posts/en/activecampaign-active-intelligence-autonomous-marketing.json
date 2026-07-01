@@ -1,0 +1,636 @@
+{
+  "id": "post-activecampaign-active-intelligence-autonomous-marketing",
+  "slug": "activecampaign-active-intelligence-autonomous-marketing",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "herramientas"
+    ],
+    "tag": [
+      "opinion",
+      "caso-de-uso"
+    ]
+  },
+  "data": {
+    "title": "Autonomous Marketing Has Arrived: Inside ActiveCampaign's Active Intelligence and Its 25+ AI Agents",
+    "excerpt": "ActiveCampaign's Active Intelligence ships 25+ AI agents that build, run, and adjust marketing workflows on their own. Here's what it actually does, which agents matter most, and where it still needs a human.",
+    "featured_image": {
+      "$media": {
+        "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop",
+        "alt": "AI agents dashboard for autonomous marketing automation",
+        "filename": "activecampaign-active-intelligence-autonomous-marketing.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Disclosure: This post contains affiliate links. If you sign up for ActiveCampaign through a link in this article, I may earn a commission at no extra cost to you. I only recommend tools I've personally researched and tested.",
+            "marks": [
+              "em"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "For the last decade, \"marketing automation\" has actually meant one thing: you build the workflow, by hand, in a visual canvas, and the software just runs it. The platform never decided anything — it executed your decisions on a schedule. That's not automation in any meaningful sense; it's a very fancy if/then machine."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "That changed in 2026. "
+          },
+          {
+            "_type": "span",
+            "text": "ActiveCampaign",
+            "marks": [
+              "k15"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " rolled out Active Intelligence, a layer of more than 25 specialized AI agents — opened up to all customers in a Fall 2025 update that also shipped a remote MCP server — that don't wait for you to draw the workflow: they build it, run it, and adjust it based on live performance data. This is the first real attempt by a mainstream marketing platform to move from \"automation\" (you decide, software executes) to autonomous marketing (software decides, within guardrails you set, and tells you what it did)."
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "k15",
+            "_type": "link",
+            "href": "https://try.activecampaign.com/cbl88pxf0lmx-rvs4jt"
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "This post breaks down what Active Intelligence actually does, which agents matter most, and — honestly — where it still needs a human in the loop."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "children": [
+          {
+            "_type": "span",
+            "text": "What \"Autonomous Marketing\" Actually Means"
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Quick definition, because the term gets thrown around loosely: autonomous marketing means an AI system can complete a multi-step marketing task — building a campaign, designing a workflow, segmenting an audience — from a plain-language goal, without a human assembling every step manually. The human still sets the goal, the brand voice, and the guardrails. The agent does the construction work."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "That's a meaningfully different category from generative AI add-ons that just draft a subject line for you. A subject-line generator saves you five minutes. An agent that builds and launches a full lifecycle email sequence from a one-sentence prompt saves you an afternoon — and, more importantly, it can keep adjusting that sequence after launch in ways a human running weekly reports usually won't catch in time."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "children": [
+          {
+            "_type": "span",
+            "text": "The Agents That Matter Most"
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "ActiveCampaign's Active Intelligence ships with 25+ agents, but three do most of the heavy lifting for a typical business:"
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Campaigns Agent. ",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "You give it a goal in plain language — \"send a re-engagement campaign to contacts who haven't opened in 60 days\" — and it drafts the segment, the subject lines, the body copy, and the send schedule. You review and approve before it goes out; it doesn't email your list without a human checkpoint."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Automations Agent. ",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "This is the one that changes the math on automation builds. Instead of dragging triggers and conditions onto a canvas for an hour, you describe the multi-step flow you want — welcome series, cart abandonment, lead-score-based routing — and the agent assembles the branching logic, including if/else conditions and goal nodes, for you to review."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Insights Agent. ",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "This one runs in the background continuously. It benchmarks your account's performance against ActiveCampaign's aggregate data — described as analyzing billions of signals across the platform — and flags underperforming segments or sends before you go looking for them. This is the piece that most resembles genuine autonomy: it surfaces a recommendation you didn't ask for, because it noticed something you hadn't."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Personalization Agent. ",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "Tailors content per subscriber based on their individual behavior rather than a static segment rule — the difference between \"everyone in Segment B gets Email 3\" and \"this specific contact gets the version of Email 3 their own click history suggests they'll respond to.\""
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Beyond these four, the broader agent layer covers AI-suggested segments, predictive send-time optimization per contact, AI Behavior Customization (set your brand voice once, every agent inherits it — useful for agencies managing multiple client accounts), and AI Translations that auto-detect a contact's language and translate full campaigns accordingly. At its Spring 2026 Innovation Keynote, ActiveCampaign previewed the next step here — \"agent-to-user AI,\" where the platform proactively surfaces insights and recommendations without being asked, extending the Insights Agent's background-monitoring behavior further."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Why This Matters More Than It Sounds Like"
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "It's easy to read \"AI agents that build campaigns\" as another vendor AI feature checkbox. The reason this one is worth paying attention to is distribution and integration depth, not novelty."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "ActiveCampaign became the first marketing platform listed in Anthropic's official Claude connector directory, added in November 2025. In practice, that means a team already working inside Claude (or ChatGPT, or Cursor, via ActiveCampaign's MCP server) can read and write contacts, automations, deals, and campaigns directly from their AI workspace — no tab-switching into a separate marketing app required. That's a meaningfully different integration model than a vendor bolting a chat widget onto their own dashboard; it puts ActiveCampaign's data and actions inside the tools teams are already using to do the rest of their work."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "The scale claim worth citing here: ActiveCampaign reports roughly 6.3 billion automated customer experiences delivered per week across its platform — which is the dataset the Insights Agent's benchmarking is drawing from. An agent trained on that volume of cross-account signal can reasonably make a \"your open rate is below your industry's median for this segment\" call that a single business, looking only at its own data, can't make for itself."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Where It Still Needs a Human"
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Worth being honest about this: Active Intelligence is not a \"set it and forget it\" system, and it shouldn't be marketed as one."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Brand voice still needs calibration. ",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "AI Behavior Customization helps, but the first few agent-built campaigns in any new account need a human review pass before they sound right."
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Approval checkpoints matter. ",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "The Campaigns Agent drafts; it doesn't send unsupervised by default — and that's a feature, not a limitation. Full autonomy without a review step is a recipe for off-brand sends."
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Complex, highly regulated industries (healthcare, finance) still need compliance review ",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "on agent-generated copy before it goes out, the same as any AI-generated marketing content."
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "The Insights Agent's benchmarks are aggregate, not your specific audience. ",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "Treat its flags as a starting point for investigation, not an automatic action item."
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "None of that undercuts the core point — this is a genuinely different category of tool than a workflow builder with a chatbot bolted on — but it's not magic, and readers deserve that caveat."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Real Use Case: What This Looks Like in Practice"
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Here's where I'll speak from my own setup rather than a hypothetical. I build my funnels in Systeme.io and run "
+          },
+          {
+            "_type": "span",
+            "text": "ActiveCampaign",
+            "marks": [
+              "k16"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " behind it as the automation and AI layer — the two connect natively through Systeme.io's own Integrations panel (a direct API key connection, no Zapier needed), so every contact and tag created in a funnel lands in ActiveCampaign in real time. What that means in practice: I'm not the one manually building the follow-up sequence every time a new funnel goes live. I describe the flow I want to the Automations Agent — welcome series, tag-based branching depending on which Systeme.io funnel the contact came from — and it assembles the first version of the workflow for me to review, instead of me dragging conditions onto a canvas from scratch. The Insights Agent then keeps watching performance on those flows in the background, which is the part that used to be a weekly manual check on my end and now isn't."
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "k16",
+            "_type": "link",
+            "href": "https://try.activecampaign.com/cbl88pxf0lmx-rvs4jt"
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "\"I especially love their Active Intelligence, the AI features help generate reports, suggest subject lines, compare results, and more.\" — Marketing Director, SMB, via ",
+            "marks": [
+              "em"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "G2",
+            "marks": [
+              "k17",
+              "em"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", cited in ActiveCampaign's ",
+            "marks": [
+              "em"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "Spring 2026 G2 badge recap",
+            "marks": [
+              "k18",
+              "em"
+            ]
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "k17",
+            "_type": "link",
+            "href": "https://www.g2.com/products/activecampaign/reviews"
+          },
+          {
+            "_key": "k18",
+            "_type": "link",
+            "href": "https://www.activecampaign.com/blog/activecampaign-badges-in-g2-spring-2026-reports"
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "children": [
+          {
+            "_type": "span",
+            "text": "The Bottom Line"
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Most \"AI marketing features\" released over the last two years have been the same subject-line generator wearing a different vendor's logo. Active Intelligence is a different kind of product: agents that build, launch, and continuously evaluate marketing work, integrated deeply enough into the AI tools teams already use (via its Claude connector and MCP server) that it doesn't feel bolted on."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "It's not a replacement for marketing judgment — the brand voice, the approval checkpoints, and the strategic calls are still yours. But the hours-long task of manually assembling a branching automation workflow is no longer where your time has to go."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Try ActiveCampaign and Active Intelligence free for 14 days here",
+            "marks": [
+              "k19",
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " — describe a workflow in plain language and watch the Automations Agent build it."
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "k19",
+            "_type": "link",
+            "href": "https://try.activecampaign.com/cbl88pxf0lmx-rvs4jt"
+          }
+        ]
+      }
+    ],
+    "translation_of": "activecampaign-active-intelligence-marketing-autonomo",
+    "key_entities": "ActiveCampaign, Active Intelligence, AI agents, autonomous marketing, MCP, Claude connector, marketing automation, Systeme.io",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "children": [
+          {
+            "_type": "span",
+            "text": "What is Active Intelligence?"
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Active Intelligence is ActiveCampaign's AI agent layer, launched in 2026. It includes 25+ specialized agents that build campaigns, design automations, and surface performance insights — taking action inside your account rather than only generating draft copy."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Is Active Intelligence the same as a chatbot or AI writing assistant?"
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "No. A writing assistant drafts text you ask for. Active Intelligence's agents complete multi-step tasks — assembling a full automation workflow with branching logic, for example — from a goal you describe in plain language."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Does Active Intelligence send campaigns without my approval?"
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "By default, the Campaigns Agent drafts content and segments for your review before sending. You set the guardrails; the agent does the construction work underneath them."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Can I use Active Intelligence from Claude or ChatGPT instead of the ActiveCampaign dashboard?"
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Yes — ActiveCampaign has an MCP server and was the first marketing platform added to Anthropic's official Claude connector directory (November 2025), letting you read and write contacts, automations, deals, and campaigns from inside an AI workspace."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Is this only useful for large teams?"
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "No — the time savings are arguably larger for solo marketers and small teams, since the Automations Agent replaces work that would otherwise require either a dedicated automation specialist or hours of manual canvas-building."
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "children": [
+          {
+            "_type": "span",
+            "text": "How is this different from what Brevo or Kit offer?"
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "As of mid-2026, neither Brevo's Aura AI nor Kit's AI tools include an autonomous agent layer — both are assistive (they draft suggestions you act on) rather than agentic (completing multi-step tasks end-to-end). That's the core distinction Active Intelligence is built around."
+          }
+        ]
+      }
+    ],
+    "external_id": "editorial-2026:en:activecampaign-active-intelligence-autonomous-marketing",
+    "source": "editorial-activecampaign-2026"
+  },
+  "published_at": "2026-06-30T10:00:00",
+  "locale": "en"
+}

@@ -616,6 +616,1498 @@
     ],
     "posts": [
       {
+        "id": "post-activecampaign-active-intelligence-autonomous-marketing",
+        "slug": "activecampaign-active-intelligence-autonomous-marketing",
+        "status": "published",
+        "bylines": [
+          {
+            "byline": "byline-tony"
+          }
+        ],
+        "taxonomies": {
+          "category": [
+            "herramientas"
+          ],
+          "tag": [
+            "opinion",
+            "caso-de-uso"
+          ]
+        },
+        "data": {
+          "title": "Autonomous Marketing Has Arrived: Inside ActiveCampaign's Active Intelligence and Its 25+ AI Agents",
+          "excerpt": "ActiveCampaign's Active Intelligence ships 25+ AI agents that build, run, and adjust marketing workflows on their own. Here's what it actually does, which agents matter most, and where it still needs a human.",
+          "featured_image": {
+            "$media": {
+              "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop",
+              "alt": "AI agents dashboard for autonomous marketing automation",
+              "filename": "activecampaign-active-intelligence-autonomous-marketing.jpg"
+            }
+          },
+          "content": [
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Disclosure: This post contains affiliate links. If you sign up for ActiveCampaign through a link in this article, I may earn a commission at no extra cost to you. I only recommend tools I've personally researched and tested.",
+                  "marks": [
+                    "em"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "For the last decade, \"marketing automation\" has actually meant one thing: you build the workflow, by hand, in a visual canvas, and the software just runs it. The platform never decided anything — it executed your decisions on a schedule. That's not automation in any meaningful sense; it's a very fancy if/then machine."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "That changed in 2026. "
+                },
+                {
+                  "_type": "span",
+                  "text": "ActiveCampaign",
+                  "marks": [
+                    "k15"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " rolled out Active Intelligence, a layer of more than 25 specialized AI agents — opened up to all customers in a Fall 2025 update that also shipped a remote MCP server — that don't wait for you to draw the workflow: they build it, run it, and adjust it based on live performance data. This is the first real attempt by a mainstream marketing platform to move from \"automation\" (you decide, software executes) to autonomous marketing (software decides, within guardrails you set, and tells you what it did)."
+                }
+              ],
+              "markDefs": [
+                {
+                  "_key": "k15",
+                  "_type": "link",
+                  "href": "https://try.activecampaign.com/cbl88pxf0lmx-rvs4jt"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "This post breaks down what Active Intelligence actually does, which agents matter most, and — honestly — where it still needs a human in the loop."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "What \"Autonomous Marketing\" Actually Means"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Quick definition, because the term gets thrown around loosely: autonomous marketing means an AI system can complete a multi-step marketing task — building a campaign, designing a workflow, segmenting an audience — from a plain-language goal, without a human assembling every step manually. The human still sets the goal, the brand voice, and the guardrails. The agent does the construction work."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "That's a meaningfully different category from generative AI add-ons that just draft a subject line for you. A subject-line generator saves you five minutes. An agent that builds and launches a full lifecycle email sequence from a one-sentence prompt saves you an afternoon — and, more importantly, it can keep adjusting that sequence after launch in ways a human running weekly reports usually won't catch in time."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "The Agents That Matter Most"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "ActiveCampaign's Active Intelligence ships with 25+ agents, but three do most of the heavy lifting for a typical business:"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Campaigns Agent. ",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "You give it a goal in plain language — \"send a re-engagement campaign to contacts who haven't opened in 60 days\" — and it drafts the segment, the subject lines, the body copy, and the send schedule. You review and approve before it goes out; it doesn't email your list without a human checkpoint."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Automations Agent. ",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "This is the one that changes the math on automation builds. Instead of dragging triggers and conditions onto a canvas for an hour, you describe the multi-step flow you want — welcome series, cart abandonment, lead-score-based routing — and the agent assembles the branching logic, including if/else conditions and goal nodes, for you to review."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Insights Agent. ",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "This one runs in the background continuously. It benchmarks your account's performance against ActiveCampaign's aggregate data — described as analyzing billions of signals across the platform — and flags underperforming segments or sends before you go looking for them. This is the piece that most resembles genuine autonomy: it surfaces a recommendation you didn't ask for, because it noticed something you hadn't."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Personalization Agent. ",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "Tailors content per subscriber based on their individual behavior rather than a static segment rule — the difference between \"everyone in Segment B gets Email 3\" and \"this specific contact gets the version of Email 3 their own click history suggests they'll respond to.\""
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Beyond these four, the broader agent layer covers AI-suggested segments, predictive send-time optimization per contact, AI Behavior Customization (set your brand voice once, every agent inherits it — useful for agencies managing multiple client accounts), and AI Translations that auto-detect a contact's language and translate full campaigns accordingly. At its Spring 2026 Innovation Keynote, ActiveCampaign previewed the next step here — \"agent-to-user AI,\" where the platform proactively surfaces insights and recommendations without being asked, extending the Insights Agent's background-monitoring behavior further."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Why This Matters More Than It Sounds Like"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "It's easy to read \"AI agents that build campaigns\" as another vendor AI feature checkbox. The reason this one is worth paying attention to is distribution and integration depth, not novelty."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "ActiveCampaign became the first marketing platform listed in Anthropic's official Claude connector directory, added in November 2025. In practice, that means a team already working inside Claude (or ChatGPT, or Cursor, via ActiveCampaign's MCP server) can read and write contacts, automations, deals, and campaigns directly from their AI workspace — no tab-switching into a separate marketing app required. That's a meaningfully different integration model than a vendor bolting a chat widget onto their own dashboard; it puts ActiveCampaign's data and actions inside the tools teams are already using to do the rest of their work."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "The scale claim worth citing here: ActiveCampaign reports roughly 6.3 billion automated customer experiences delivered per week across its platform — which is the dataset the Insights Agent's benchmarking is drawing from. An agent trained on that volume of cross-account signal can reasonably make a \"your open rate is below your industry's median for this segment\" call that a single business, looking only at its own data, can't make for itself."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Where It Still Needs a Human"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Worth being honest about this: Active Intelligence is not a \"set it and forget it\" system, and it shouldn't be marketed as one."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Brand voice still needs calibration. ",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "AI Behavior Customization helps, but the first few agent-built campaigns in any new account need a human review pass before they sound right."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Approval checkpoints matter. ",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "The Campaigns Agent drafts; it doesn't send unsupervised by default — and that's a feature, not a limitation. Full autonomy without a review step is a recipe for off-brand sends."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Complex, highly regulated industries (healthcare, finance) still need compliance review ",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "on agent-generated copy before it goes out, the same as any AI-generated marketing content."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "The Insights Agent's benchmarks are aggregate, not your specific audience. ",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "Treat its flags as a starting point for investigation, not an automatic action item."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "None of that undercuts the core point — this is a genuinely different category of tool than a workflow builder with a chatbot bolted on — but it's not magic, and readers deserve that caveat."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Real Use Case: What This Looks Like in Practice"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Here's where I'll speak from my own setup rather than a hypothetical. I build my funnels in Systeme.io and run "
+                },
+                {
+                  "_type": "span",
+                  "text": "ActiveCampaign",
+                  "marks": [
+                    "k16"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " behind it as the automation and AI layer — the two connect natively through Systeme.io's own Integrations panel (a direct API key connection, no Zapier needed), so every contact and tag created in a funnel lands in ActiveCampaign in real time. What that means in practice: I'm not the one manually building the follow-up sequence every time a new funnel goes live. I describe the flow I want to the Automations Agent — welcome series, tag-based branching depending on which Systeme.io funnel the contact came from — and it assembles the first version of the workflow for me to review, instead of me dragging conditions onto a canvas from scratch. The Insights Agent then keeps watching performance on those flows in the background, which is the part that used to be a weekly manual check on my end and now isn't."
+                }
+              ],
+              "markDefs": [
+                {
+                  "_key": "k16",
+                  "_type": "link",
+                  "href": "https://try.activecampaign.com/cbl88pxf0lmx-rvs4jt"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "\"I especially love their Active Intelligence, the AI features help generate reports, suggest subject lines, compare results, and more.\" — Marketing Director, SMB, via ",
+                  "marks": [
+                    "em"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "G2",
+                  "marks": [
+                    "k17",
+                    "em"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": ", cited in ActiveCampaign's ",
+                  "marks": [
+                    "em"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "Spring 2026 G2 badge recap",
+                  "marks": [
+                    "k18",
+                    "em"
+                  ]
+                }
+              ],
+              "markDefs": [
+                {
+                  "_key": "k17",
+                  "_type": "link",
+                  "href": "https://www.g2.com/products/activecampaign/reviews"
+                },
+                {
+                  "_key": "k18",
+                  "_type": "link",
+                  "href": "https://www.activecampaign.com/blog/activecampaign-badges-in-g2-spring-2026-reports"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "The Bottom Line"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Most \"AI marketing features\" released over the last two years have been the same subject-line generator wearing a different vendor's logo. Active Intelligence is a different kind of product: agents that build, launch, and continuously evaluate marketing work, integrated deeply enough into the AI tools teams already use (via its Claude connector and MCP server) that it doesn't feel bolted on."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "It's not a replacement for marketing judgment — the brand voice, the approval checkpoints, and the strategic calls are still yours. But the hours-long task of manually assembling a branching automation workflow is no longer where your time has to go."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Try ActiveCampaign and Active Intelligence free for 14 days here",
+                  "marks": [
+                    "k19",
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " — describe a workflow in plain language and watch the Automations Agent build it."
+                }
+              ],
+              "markDefs": [
+                {
+                  "_key": "k19",
+                  "_type": "link",
+                  "href": "https://try.activecampaign.com/cbl88pxf0lmx-rvs4jt"
+                }
+              ]
+            }
+          ],
+          "translation_of": "activecampaign-active-intelligence-marketing-autonomo",
+          "key_entities": "ActiveCampaign, Active Intelligence, AI agents, autonomous marketing, MCP, Claude connector, marketing automation, Systeme.io",
+          "faq_items": [
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "What is Active Intelligence?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Active Intelligence is ActiveCampaign's AI agent layer, launched in 2026. It includes 25+ specialized agents that build campaigns, design automations, and surface performance insights — taking action inside your account rather than only generating draft copy."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Is Active Intelligence the same as a chatbot or AI writing assistant?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "No. A writing assistant drafts text you ask for. Active Intelligence's agents complete multi-step tasks — assembling a full automation workflow with branching logic, for example — from a goal you describe in plain language."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Does Active Intelligence send campaigns without my approval?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "By default, the Campaigns Agent drafts content and segments for your review before sending. You set the guardrails; the agent does the construction work underneath them."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Can I use Active Intelligence from Claude or ChatGPT instead of the ActiveCampaign dashboard?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Yes — ActiveCampaign has an MCP server and was the first marketing platform added to Anthropic's official Claude connector directory (November 2025), letting you read and write contacts, automations, deals, and campaigns from inside an AI workspace."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Is this only useful for large teams?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "No — the time savings are arguably larger for solo marketers and small teams, since the Automations Agent replaces work that would otherwise require either a dedicated automation specialist or hours of manual canvas-building."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "How is this different from what Brevo or Kit offer?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "As of mid-2026, neither Brevo's Aura AI nor Kit's AI tools include an autonomous agent layer — both are assistive (they draft suggestions you act on) rather than agentic (completing multi-step tasks end-to-end). That's the core distinction Active Intelligence is built around."
+                }
+              ]
+            }
+          ],
+          "external_id": "editorial-2026:en:activecampaign-active-intelligence-autonomous-marketing",
+          "source": "editorial-activecampaign-2026"
+        },
+        "published_at": "2026-06-30T10:00:00",
+        "locale": "en"
+      },
+      {
+        "id": "post-activecampaign-vs-brevo-vs-kit-2026",
+        "slug": "activecampaign-vs-brevo-vs-kit-2026",
+        "status": "published",
+        "bylines": [
+          {
+            "byline": "byline-tony"
+          }
+        ],
+        "taxonomies": {
+          "category": [
+            "herramientas"
+          ],
+          "tag": [
+            "opinion",
+            "caso-de-uso"
+          ]
+        },
+        "data": {
+          "title": "ActiveCampaign vs Brevo vs Kit (2026): Which Email Marketing Platform Actually Wins?",
+          "excerpt": "ActiveCampaign, Brevo, and Kit are the three names that keep showing up in every 2026 email marketing comparison. Here's the honest breakdown on pricing, automation, deliverability, and where each one genuinely wins.",
+          "featured_image": {
+            "$media": {
+              "url": "https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?w=1200&h=800&fit=crop",
+              "alt": "Email marketing automation dashboard comparison",
+              "filename": "activecampaign-vs-brevo-vs-kit-2026.jpg"
+            }
+          },
+          "content": [
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Disclosure: This post contains affiliate links. If you sign up for ActiveCampaign through a link in this article, I may earn a commission at no extra cost to you. I only recommend tools I've personally researched and tested.",
+                  "marks": [
+                    "em"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "If you've spent any time comparing email marketing platforms in 2026, you've probably noticed the same three names keep showing up next to each other: ActiveCampaign, Brevo, and Kit (formerly ConvertKit). All three are legitimate, well-funded tools with loyal user bases — which is exactly why picking the wrong one is so easy to do."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "This isn't a \"everything is great, buy whatever\" comparison. Brevo has a real edge if you want a free CRM bolted onto your inbox. Kit is genuinely the best tool on this list if your business "
+                },
+                {
+                  "_type": "span",
+                  "text": "is",
+                  "marks": [
+                    "em"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " your newsletter. But after digging into pricing pages, automation builders, and — critically — how each platform is using AI in 2026, ActiveCampaign comes out ahead for one specific reason: it's the only one of the three that's shipped a real autonomous marketing layer, called "
+                },
+                {
+                  "_type": "span",
+                  "text": "Active Intelligence",
+                  "marks": [
+                    "k1"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": ", instead of just bolting a chatbot onto an old editor."
+                }
+              ],
+              "markDefs": [
+                {
+                  "_key": "k1",
+                  "_type": "link",
+                  "href": "https://try.activecampaign.com/cbl88pxf0lmx-rvs4jt"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Here's the full breakdown, including where Brevo and Kit genuinely beat ActiveCampaign — because pretending they don't would make this comparison useless to you."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Quick Verdict: Choose Based on What You Actually Need"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Choose ActiveCampaign if ",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "you're running real marketing funnels — multi-step automations, lead scoring, a sales pipeline, ecommerce recovery flows — and you want AI agents that build and optimize that work for you instead of you building it by hand."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Choose Brevo if ",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "you want a genuinely free CRM, multichannel messaging (SMS, WhatsApp, live chat) under one roof, and you send a moderate volume where pay-per-volume pricing beats pay-per-contact."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Choose Kit if ",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "your business model is monetizing a newsletter or creator audience directly — tip jars, paid subscriptions, a creator referral network — and you don't need a CRM or deep multi-branch automation."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Comparison Table: ActiveCampaign vs Brevo vs Kit (June 2026)"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Pricing model — ActiveCampaign: per contact plus add-ons. Brevo: per email volume sent. Kit: per subscriber."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Entry-level paid plan — ActiveCampaign: ~$15/mo. Brevo: $9/mo. Kit: $39/mo."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Free plan — ActiveCampaign: none (14-day trial). Brevo: yes, 300 emails/day. Kit: yes, up to 10,000 subscribers."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "AI agents / autonomous workflows — ActiveCampaign: 25+ agents (Active Intelligence). Brevo: Aura AI (assistive, not autonomous). Kit: basic AI, no agent layer."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Native CRM / sales pipeline — ActiveCampaign: yes, add-on, full-featured. Brevo: yes, free, lighter-weight. Kit: no, tags only."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "WhatsApp — ActiveCampaign: native (via Hilos acquisition). Brevo: Professional+ only. Kit: not available."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Integrations — ActiveCampaign: 950+. Brevo: ~66. Kit: 100+."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Deliverability (3rd-party test) — ActiveCampaign: 93.4%. Brevo: 74.7%. Kit: self-reported ~99.8%."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Built for — ActiveCampaign: funnels, automation, sales teams. Brevo: multichannel SMB. Kit: creators monetizing an audience."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Per EmailTooltester ranking data, as cited in ActiveCampaign's own current competitive materials.",
+                  "marks": [
+                    "em"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "1. Automation & AI: Where ActiveCampaign Pulls Ahead"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "This is the category that actually separates these three platforms in 2026, and it's not close."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Brevo's Aura AI is genuinely useful — it can draft subject lines, build a full campaign from a blog URL, and (in the Professional plan) suggest audience segments. But it's assistive: a human still has to ask the right question and approve the output at every step."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Kit's AI is the weakest of the three. It can suggest subject lines based on your own past copy, and that's roughly it — there's no agent layer, no predictive scoring, no autonomous campaign building. For a tool built for creators, that's a fair trade-off (text-first design helps deliverability), but it means Kit users are doing automation manually."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "ActiveCampaign's Active Intelligence is a different category of product. It ships with more than 25 AI agents that don't just suggest — they execute: a Campaigns Agent that builds a full send from a prompt, an Automations Agent that designs multi-step workflows, and an Insights Agent that reads your account's performance against industry-wide benchmark data and adjusts targeting without being asked. ActiveCampaign also became the first marketing platform listed in Anthropic's official Claude connector directory in November 2025, which matters if your team is already working inside Claude or ChatGPT and wants to manage campaigns from there instead of switching tabs."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "To be fair to the competition: ",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "Brevo's Aura is faster to learn and less likely to do something you didn't expect, which matters for small teams that don't want a black box making decisions. If you want assistance, not autonomy, Brevo is the safer pick."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "2. Pricing: Brevo Wins on Sticker Price, ActiveCampaign Wins on Value Per Dollar"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Brevo's entry plan starts at $9/month with no contact cap — that's a real advantage if you have a large list but send infrequently. Kit's Creator plan starts at $39/month for just 1,000 subscribers, and that price climbs fast as your list grows (it jumped roughly 34–35% in an October 2025 repricing)."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "ActiveCampaign's entry plan sits around $15/month, which is cheaper than Kit and close to Brevo — but the honest caveat here is add-on stacking. The CRM/Pipelines add-on, SMS credits, and Custom Reporting are all separate line items, and a $99/month plan can realistically land closer to $450+/month once you add what a real sales team needs. Brevo's CRM, by contrast, is free on every plan including its free tier."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Where this nets out: ",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "if all you need is email, Brevo is cheaper. If you need automation depth plus a sales pipeline, ActiveCampaign's all-in cost is still usually lower than buying a separate CRM and a separate automation tool — which is the real comparison most growing businesses should be making."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "3. Deliverability: A Real Gap, With One Honest Caveat"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "ActiveCampaign's deliverability rate sits at 93.4%, ranked #1 in EmailTooltester's panel, against 74.7% for Brevo — a meaningful gap, and the figure ActiveCampaign itself leads with in its competitive materials."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Worth being straight with readers on one point: Kit self-reports inbox placement near 99.8%, largely because its text-first, image-light templates are easier for spam filters to trust — that's a real strength of Kit's format, not a number to dismiss. Deliverability also depends heavily on your own list hygiene, not just platform infrastructure, so treat any published number as directional rather than a guarantee for your specific list."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "4. CRM and Sales Pipeline: Brevo Free vs. ActiveCampaign Deep"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "If you need any CRM and don't want to pay for one, Brevo wins outright — every plan, including Free, includes pipelines, deal stages, and up to 50 open deals at no cost. Kit has no CRM at all; it uses tags, which is fine for segmentation but won't replace a sales pipeline."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "ActiveCampaign's CRM is the most capable of the three — win probability scoring, sentiment analysis, multichannel sales sequences (email, native calling, LinkedIn, SMS) — but it's an add-on (Pipelines starts around $68/month, Sales Engagement around $111/month), not included in the base price. For a solo creator or small team, Brevo's free CRM is the pragmatic choice. For a business with a dedicated sales team working a real pipeline, ActiveCampaign's depth justifies the add-on cost."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "5. Integrations & Ecosystem"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "ActiveCampaign connects to 950+ apps, including deep, native ecommerce integrations (Shopify, WooCommerce, BigCommerce, Square) with abandoned cart and post-purchase flows built in. Brevo sits around 66 integrations, and Kit around 100+, both leaning on Zapier/Make for anything outside their core list. If your stack includes a lot of specialized tools — a CRM, a help desk, multiple storefronts — ActiveCampaign's native connection count meaningfully reduces the number of workarounds you'll need to build."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "My own experience here, for what it's worth: ",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "I run "
+                },
+                {
+                  "_type": "span",
+                  "text": "ActiveCampaign",
+                  "marks": [
+                    "k2"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " alongside Systeme.io as my funnel/checkout builder, and the two connect natively — no Zapier or Make in between. It's a straight API key connection under Systeme.io's own Settings > Integrations panel: every contact and tag created inside a Systeme.io funnel syncs directly into ActiveCampaign, where the actual automation and AI-driven follow-up happens. For anyone building funnels in Systeme.io and wanting real automation depth on top, this is the one integration I'd point to first — it's the reason I didn't need to migrate my funnel builder just to get ActiveCampaign's automation engine."
+                }
+              ],
+              "markDefs": [
+                {
+                  "_key": "k2",
+                  "_type": "link",
+                  "href": "https://try.activecampaign.com/cbl88pxf0lmx-rvs4jt"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "6. Multichannel: WhatsApp and SMS"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "ActiveCampaign added native WhatsApp messaging in mid-2025 through its acquisition of Hilos, putting it on par with Brevo's multichannel suite (which has had WhatsApp, SMS, live chat, and social inboxes for longer, unified in one \"Conversations\" view). Kit has no native SMS or WhatsApp — creators who want it have to bolt on a third-party tool. If multichannel messaging from one dashboard is a priority, Brevo still has the most mature unified inbox; ActiveCampaign has caught up on channel coverage but ties it back into its automation engine, which Brevo's chat tools don't do as deeply."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "What Real Users Say"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "ActiveCampaign holds a 4.4-star rating across more than 14,600 verified "
+                },
+                {
+                  "_type": "span",
+                  "text": "G2 reviews",
+                  "marks": [
+                    "k3"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " as of 2026, and earned 300+ G2 badges in the Spring 2026 report cycle. Two quotes ActiveCampaign itself surfaced from that review set, verified against the G2 review platform:"
+                }
+              ],
+              "markDefs": [
+                {
+                  "_key": "k3",
+                  "_type": "link",
+                  "href": "https://www.g2.com/products/activecampaign/reviews"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "\"I especially love their Active Intelligence, the AI features help generate reports, suggest subject lines, compare results, and more. A great platform for any team looking to grow without the overwhelm!\" — Marketing Director, SMB, via ",
+                  "marks": [
+                    "em"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "G2",
+                  "marks": [
+                    "k4",
+                    "em"
+                  ]
+                }
+              ],
+              "markDefs": [
+                {
+                  "_key": "k4",
+                  "_type": "link",
+                  "href": "https://www.g2.com/products/activecampaign/reviews"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "\"ActiveCampaign is the lifeblood of my business... Active Intelligence is like having a market researcher, copywriter, graphic designer, and consultant on my marketing team.\" — verified G2 reviewer, cited in ActiveCampaign's ",
+                  "marks": [
+                    "em"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "Spring 2026 G2 badge recap",
+                  "marks": [
+                    "k5",
+                    "em"
+                  ]
+                }
+              ],
+              "markDefs": [
+                {
+                  "_key": "k5",
+                  "_type": "link",
+                  "href": "https://www.activecampaign.com/blog/activecampaign-badges-in-g2-spring-2026-reports"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "At platform scale, ActiveCampaign reports roughly 6.3 billion automated customer experiences delivered per week — confirmed in its own "
+                },
+                {
+                  "_type": "span",
+                  "text": "2026 Email Marketing Software Comparison Guide",
+                  "marks": [
+                    "k6"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " — which is the aggregate signal Active Intelligence's Insights Agent benchmarks individual accounts against."
+                }
+              ],
+              "markDefs": [
+                {
+                  "_key": "k6",
+                  "_type": "link",
+                  "href": "https://www.activecampaign.com/blog/email-marketing-software-comparison-guide"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "The Bottom Line"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Brevo and Kit are both strong, honestly-built tools — Brevo if you want a free CRM and multichannel messaging without enterprise pricing, Kit if your business is your audience and you want to monetize it directly. Neither is a bad choice for the use case it's built for."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "But if you're past the point of needing \"an email tool\" and you actually need a system that builds, runs, and improves your marketing with less manual work — automation depth, a real sales pipeline, and an AI layer that takes action instead of just drafting suggestions — ActiveCampaign is the platform built for that job in 2026."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Start your ActiveCampaign free trial here",
+                  "marks": [
+                    "k7",
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " — see Active Intelligence in action with your own data."
+                }
+              ],
+              "markDefs": [
+                {
+                  "_key": "k7",
+                  "_type": "link",
+                  "href": "https://try.activecampaign.com/cbl88pxf0lmx-rvs4jt"
+                }
+              ]
+            }
+          ],
+          "translation_of": "activecampaign-vs-brevo-vs-kit-comparativa-2026",
+          "key_entities": "ActiveCampaign, Brevo, Kit, ConvertKit, email marketing, marketing automation, Active Intelligence, CRM, deliverability",
+          "faq_items": [
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Is ActiveCampaign better than Brevo?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "It depends on what \"better\" means for you. ActiveCampaign is better for businesses that need deep, branching automation and a serious sales CRM. Brevo is better if you want a genuinely free CRM and multichannel messaging without paying for automation depth you won't use."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Is Kit better than ActiveCampaign for newsletters?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "For a pure newsletter business monetized through subscriptions, tips, or a creator referral network, Kit's tools are purpose-built in a way ActiveCampaign's aren't. ActiveCampaign pulls ahead the moment you need multi-step funnels, lead scoring, or a CRM."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "What is Active Intelligence?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Active Intelligence is ActiveCampaign's AI agent layer, launched as part of its 2026 platform updates. It includes more than 25 specialized agents — for campaign creation, automation building, and performance insights — that take action inside your account rather than just suggesting copy."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Does Brevo or Kit have anything like Active Intelligence?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Not yet. Brevo's Aura AI is assistive (drafts and suggestions you approve); Kit's AI is limited to subject-line suggestions. Neither has shipped an autonomous agent layer as of June 2026."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Which platform is cheapest to start with?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Brevo, at $9/month with no contact cap. ActiveCampaign's entry plan is around $15/month. Kit's entry paid plan starts around $39/month for just 1,000 subscribers."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Can I switch from Brevo or Kit to ActiveCampaign without losing my automations?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "ActiveCampaign's migration team supports list and template imports from most major platforms; complex automation logic typically needs to be rebuilt manually since automation logic doesn't transfer 1:1 between platforms — budget time for this in any migration plan."
+                }
+              ]
+            }
+          ],
+          "external_id": "editorial-2026:en:activecampaign-vs-brevo-vs-kit",
+          "source": "editorial-activecampaign-2026"
+        },
+        "published_at": "2026-06-30T09:00:00",
+        "locale": "en"
+      },
+      {
         "id": "post-ai-agents-enterprise-governance-2026",
         "slug": "ai-agents-enterprise-governance-2026",
         "status": "published",
@@ -3587,6 +5079,1496 @@
         },
         "published_at": "2026-05-18T09:10:00",
         "locale": "en"
+      },
+      {
+        "id": "post-activecampaign-active-intelligence-marketing-autonomo",
+        "slug": "activecampaign-active-intelligence-marketing-autonomo",
+        "status": "published",
+        "bylines": [
+          {
+            "byline": "byline-tony"
+          }
+        ],
+        "taxonomies": {
+          "category": [
+            "herramientas"
+          ],
+          "tag": [
+            "opinion",
+            "caso-de-uso"
+          ]
+        },
+        "data": {
+          "title": "Llegó el Marketing Autónomo: Dentro de Active Intelligence de ActiveCampaign y sus 25+ Agentes de IA",
+          "excerpt": "Active Intelligence de ActiveCampaign lanza 25+ agentes de IA que construyen, ejecutan y ajustan flujos de marketing por su cuenta. Que hace realmente, cuales agentes importan mas y donde todavia necesita un humano.",
+          "featured_image": {
+            "$media": {
+              "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop",
+              "alt": "Panel de agentes de IA para automatizacion autonoma de marketing",
+              "filename": "activecampaign-active-intelligence-marketing-autonomo.jpg"
+            }
+          },
+          "content": [
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Aviso: este articulo incluye enlaces de afiliado. Si te registras en ActiveCampaign a traves de un enlace de este articulo, puedo recibir una comision sin costo adicional para ti. Solo recomiendo herramientas que he investigado y probado personalmente.",
+                  "marks": [
+                    "em"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Durante la ultima decada, \"automatizacion de marketing\" en realidad significo una sola cosa: tu armas el flujo, a mano, en un lienzo visual, y el software simplemente lo ejecuta. La plataforma nunca decidia nada, solo ejecutaba tus decisiones en un horario. Eso no es automatizacion en un sentido real; es una maquina de si/entonces muy elaborada."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Eso cambio en 2026. "
+                },
+                {
+                  "_type": "span",
+                  "text": "ActiveCampaign",
+                  "marks": [
+                    "k20"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " lanzo Active Intelligence, una capa de mas de 25 agentes de IA especializados (abierta a todos los clientes en una actualizacion de otono 2025 que tambien incluyo un servidor MCP remoto) que no esperan a que dibujes el flujo: lo construyen, lo ejecutan y lo ajustan segun datos de desempeno en vivo. Es el primer intento real de una plataforma de marketing masiva de pasar de \"automatizacion\" (tu decides, el software ejecuta) a marketing autonomo (el software decide, dentro de los limites que tu defines, y te cuenta que hizo)."
+                }
+              ],
+              "markDefs": [
+                {
+                  "_key": "k20",
+                  "_type": "link",
+                  "href": "https://try.activecampaign.com/cbl88pxf0lmx-rvs4jt"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Este articulo desglosa que hace realmente Active Intelligence, cuales agentes importan mas y, honestamente, donde todavia necesita un humano en el proceso."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Que Significa Realmente el 'Marketing Autonomo'"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Definicion rapida, porque el termino se usa con bastante libertad: marketing autonomo significa que un sistema de IA puede completar una tarea de marketing de varios pasos (armar una campana, disenar un flujo, segmentar una audiencia) a partir de un objetivo en lenguaje simple, sin que un humano arme cada paso manualmente. El humano sigue definiendo el objetivo, la voz de marca y los limites. El agente hace el trabajo de construccion."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Esa es una categoria significativamente distinta de los complementos de IA generativa que solo redactan un asunto por ti. Un generador de asuntos te ahorra cinco minutos. Un agente que construye y lanza una secuencia de email de ciclo completo a partir de un prompt de una sola frase te ahorra una tarde, y lo mas importante, puede seguir ajustando esa secuencia despues del lanzamiento de formas que un humano revisando reportes semanales normalmente no detecta a tiempo."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Los Agentes que Mas Importan"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Active Intelligence de ActiveCampaign viene con 25+ agentes, pero tres hacen la mayor parte del trabajo pesado para un negocio tipico:"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Agente de Campanas. ",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "Le das un objetivo en lenguaje simple (\"envia una campana de reactivacion a contactos que no han abierto en 60 dias\") y redacta el segmento, los asuntos, el cuerpo del texto y el horario de envio. Tu revisas y apruebas antes de que salga; no le envia correo a tu lista sin un punto de control humano."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Agente de Automatizaciones. ",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "Este es el que cambia la ecuacion en la construccion de automatizaciones. En lugar de arrastrar disparadores y condiciones en un lienzo durante una hora, describes el flujo de varios pasos que quieres (serie de bienvenida, carrito abandonado, enrutamiento por puntuacion de leads) y el agente arma la logica de ramificacion, incluyendo condiciones if/else y nodos de meta, para que tu la revises."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Agente de Insights. ",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "Este corre en segundo plano de forma continua. Compara el desempeno de tu cuenta contra los datos agregados de ActiveCampaign (descrito como el analisis de miles de millones de senales en toda la plataforma) y marca segmentos o envios de bajo rendimiento antes de que tu los busques. Esta es la pieza que mas se parece a la autonomia genuina: presenta una recomendacion que no pediste, porque noto algo que tu no habias notado."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Agente de Personalizacion. ",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "Adapta el contenido por suscriptor segun su comportamiento individual en lugar de una regla de segmento estatica: la diferencia entre \"todos en el Segmento B reciben el Email 3\" y \"este contacto especifico recibe la version del Email 3 que su propio historial de clics sugiere que respondera mejor.\""
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Mas alla de estos cuatro, la capa de agentes mas amplia cubre segmentos sugeridos por IA, optimizacion predictiva del horario de envio por contacto, Personalizacion de Comportamiento de IA (defines tu voz de marca una vez y todos los agentes la heredan, util para agencias que gestionan varias cuentas de clientes), y Traducciones de IA que detectan automaticamente el idioma de un contacto y traducen campanas completas en consecuencia. En su Keynote de Innovacion de Primavera 2026, ActiveCampaign adelanto el siguiente paso aqui: \"IA de agente a usuario\", donde la plataforma presenta proactivamente insights y recomendaciones sin que se le pida, extendiendo aun mas el comportamiento de monitoreo en segundo plano del Agente de Insights."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Por Que Esto Importa Mas de lo que Parece"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Es facil leer \"agentes de IA que construyen campanas\" como otra casilla de funcion de IA de un proveedor mas. La razon por la que este vale la pena atender es la distribucion y la profundidad de integracion, no la novedad."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "ActiveCampaign se convirtio en la primera plataforma de marketing listada en el directorio oficial de conectores de Claude de Anthropic, agregada en noviembre de 2025. En la practica, eso significa que un equipo que ya trabaja dentro de Claude (o ChatGPT, o Cursor, via el servidor MCP de ActiveCampaign) puede leer y escribir contactos, automatizaciones, negociaciones y campanas directamente desde su espacio de trabajo de IA, sin cambiar de pestana a una app de marketing separada. Ese es un modelo de integracion significativamente distinto al de un proveedor que le pega un widget de chat a su propio panel; pone los datos y las acciones de ActiveCampaign dentro de las herramientas que los equipos ya usan para el resto de su trabajo."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "El dato de escala que vale la pena citar aqui: ActiveCampaign reporta aproximadamente 6.3 mil millones de experiencias de cliente automatizadas entregadas por semana en toda su plataforma, que es el conjunto de datos del que se nutre la comparacion del Agente de Insights. Un agente entrenado con ese volumen de senal entre cuentas puede razonablemente hacer una afirmacion tipo \"tu tasa de apertura esta por debajo de la mediana de tu industria para este segmento\" que un solo negocio, mirando solo sus propios datos, no puede hacer por si mismo."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Donde Todavia Necesita un Humano"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Vale la pena ser honesto en esto: Active Intelligence no es un sistema de \"configuralo y olvidalo\", y no deberia venderse como tal."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "La voz de marca todavia necesita calibracion. ",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "La Personalizacion de Comportamiento de IA ayuda, pero las primeras campanas armadas por agentes en cualquier cuenta nueva necesitan una revision humana antes de sonar bien."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Los puntos de aprobacion importan. ",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "El Agente de Campanas redacta; no envia sin supervision por defecto, y eso es una funcion, no una limitacion. La autonomia total sin un paso de revision es receta para envios fuera de marca."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Las industrias complejas y muy reguladas (salud, finanzas) todavia necesitan revision de cumplimiento ",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "sobre el texto generado por agentes antes de salir, igual que cualquier contenido de marketing generado por IA."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Los benchmarks del Agente de Insights son agregados, no tu audiencia especifica. ",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "Trata sus alertas como punto de partida para investigar, no como una accion automatica."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Nada de esto le quita valor al punto central: es una categoria de herramienta genuinamente distinta a un constructor de flujos con un chatbot pegado encima, pero no es magia, y los lectores merecen esa advertencia."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Caso de Uso Real: Como se Ve Esto en la Practica"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Aqui hablare desde mi propia configuracion en lugar de un caso hipotetico. Armo mis funnels en Systeme.io y corro "
+                },
+                {
+                  "_type": "span",
+                  "text": "ActiveCampaign",
+                  "marks": [
+                    "k21"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " detras como la capa de automatizacion e IA: ambos se conectan de forma nativa a traves del propio panel de Integraciones de Systeme.io (una conexion directa por API key, sin necesidad de Zapier), asi que cada contacto y etiqueta creada en un funnel llega a ActiveCampaign en tiempo real. Lo que eso significa en la practica: no soy yo quien arma manualmente la secuencia de seguimiento cada vez que un funnel nuevo sale en vivo. Le describo al Agente de Automatizaciones el flujo que quiero (serie de bienvenida, ramificacion por etiquetas segun de que funnel de Systeme.io vino el contacto) y arma la primera version del flujo para que yo la revise, en lugar de que yo arrastre condiciones en un lienzo desde cero. El Agente de Insights se queda observando el desempeno de esos flujos en segundo plano, algo que antes era una revision manual semanal de mi parte y ya no lo es."
+                }
+              ],
+              "markDefs": [
+                {
+                  "_key": "k21",
+                  "_type": "link",
+                  "href": "https://try.activecampaign.com/cbl88pxf0lmx-rvs4jt"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "\"Me encanta especialmente su Active Intelligence, las funciones de IA ayudan a generar reportes, sugerir asuntos, comparar resultados y mas.\" — Directora de Marketing, pyme, via ",
+                  "marks": [
+                    "em"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "G2",
+                  "marks": [
+                    "k22",
+                    "em"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": ", citado en el ",
+                  "marks": [
+                    "em"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "resumen de insignias de G2 de primavera 2026 de ActiveCampaign",
+                  "marks": [
+                    "k23",
+                    "em"
+                  ]
+                }
+              ],
+              "markDefs": [
+                {
+                  "_key": "k22",
+                  "_type": "link",
+                  "href": "https://www.g2.com/products/activecampaign/reviews"
+                },
+                {
+                  "_key": "k23",
+                  "_type": "link",
+                  "href": "https://www.activecampaign.com/blog/activecampaign-badges-in-g2-spring-2026-reports"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Conclusion"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "La mayoria de las \"funciones de IA de marketing\" lanzadas en los ultimos dos anos han sido el mismo generador de asuntos con el logo de un proveedor distinto. Active Intelligence es un tipo de producto diferente: agentes que construyen, lanzan y evaluan continuamente el trabajo de marketing, integrados con suficiente profundidad en las herramientas de IA que los equipos ya usan (via su conector de Claude y su servidor MCP) que no se siente pegado con cinta."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "No es un reemplazo del criterio de marketing: la voz de marca, los puntos de aprobacion y las decisiones estrategicas siguen siendo tuyas. Pero la tarea de horas de armar manualmente un flujo de automatizacion ramificado ya no tiene que ocupar tu tiempo."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Prueba ActiveCampaign y Active Intelligence gratis por 14 dias aqui",
+                  "marks": [
+                    "k24",
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " — describe un flujo en lenguaje simple y mira al Agente de Automatizaciones construirlo."
+                }
+              ],
+              "markDefs": [
+                {
+                  "_key": "k24",
+                  "_type": "link",
+                  "href": "https://try.activecampaign.com/cbl88pxf0lmx-rvs4jt"
+                }
+              ]
+            }
+          ],
+          "key_entities": "ActiveCampaign, Active Intelligence, agentes de IA, marketing autonomo, MCP, conector de Claude, automatizacion de marketing, Systeme.io",
+          "faq_items": [
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Que es Active Intelligence?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Active Intelligence es la capa de agentes de IA de ActiveCampaign, lanzada en 2026. Incluye 25+ agentes especializados que construyen campanas, disenan automatizaciones y presentan insights de desempeno, actuando dentro de tu cuenta en lugar de solo generar borradores de texto."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Es Active Intelligence lo mismo que un chatbot o un asistente de escritura con IA?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "No. Un asistente de escritura redacta el texto que le pides. Los agentes de Active Intelligence completan tareas de varios pasos (armar un flujo de automatizacion completo con logica de ramificacion, por ejemplo) a partir de un objetivo que describes en lenguaje simple."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Envia Active Intelligence campanas sin mi aprobacion?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Por defecto, el Agente de Campanas redacta contenido y segmentos para que los revises antes de enviar. Tu defines los limites; el agente hace el trabajo de construccion dentro de ellos."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Puedo usar Active Intelligence desde Claude o ChatGPT en lugar del panel de ActiveCampaign?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Si. ActiveCampaign tiene un servidor MCP y fue la primera plataforma de marketing agregada al directorio oficial de conectores de Claude de Anthropic (noviembre de 2025), lo que permite leer y escribir contactos, automatizaciones, negociaciones y campanas desde dentro de un espacio de trabajo de IA."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Esto solo sirve para equipos grandes?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "No. El ahorro de tiempo es incluso mayor para marketers solos y equipos pequenos, ya que el Agente de Automatizaciones reemplaza trabajo que de otra forma requeriria un especialista dedicado en automatizacion u horas de construccion manual en el lienzo."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "En que se diferencia esto de lo que ofrecen Brevo o Kit?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "A mediados de 2026, ni Aura AI de Brevo ni las herramientas de IA de Kit incluyen una capa de agentes autonomos; ambas son asistivas (redactan sugerencias que tu ejecutas) en lugar de agenticas (completan tareas de varios pasos de principio a fin). Esa es la distincion central sobre la que esta construida Active Intelligence."
+                }
+              ]
+            }
+          ],
+          "external_id": "editorial-2026:es:activecampaign-active-intelligence-marketing-autonomo",
+          "source": "editorial-activecampaign-2026"
+        },
+        "published_at": "2026-06-30T10:00:00",
+        "locale": "es"
+      },
+      {
+        "id": "post-activecampaign-vs-brevo-vs-kit-comparativa-2026",
+        "slug": "activecampaign-vs-brevo-vs-kit-comparativa-2026",
+        "status": "published",
+        "bylines": [
+          {
+            "byline": "byline-tony"
+          }
+        ],
+        "taxonomies": {
+          "category": [
+            "herramientas"
+          ],
+          "tag": [
+            "opinion",
+            "caso-de-uso"
+          ]
+        },
+        "data": {
+          "title": "ActiveCampaign vs Brevo vs Kit (2026): Cual Plataforma de Email Marketing Gana Realmente?",
+          "excerpt": "ActiveCampaign, Brevo y Kit son los tres nombres que aparecen en cada comparativa de email marketing de 2026. Aqui esta el desglose honesto de precios, automatizacion, entregabilidad y donde cada una realmente gana.",
+          "featured_image": {
+            "$media": {
+              "url": "https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?w=1200&h=800&fit=crop",
+              "alt": "Comparativa de dashboards de automatizacion de email marketing",
+              "filename": "activecampaign-vs-brevo-vs-kit-comparativa-2026.jpg"
+            }
+          },
+          "content": [
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Aviso: este articulo incluye enlaces de afiliado. Si te registras en ActiveCampaign a traves de un enlace de este articulo, puedo recibir una comision sin costo adicional para ti. Solo recomiendo herramientas que he investigado y probado personalmente.",
+                  "marks": [
+                    "em"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Si has pasado tiempo comparando plataformas de email marketing en 2026, seguro notaste que los mismos tres nombres aparecen una y otra vez: ActiveCampaign, Brevo y Kit (antes ConvertKit). Las tres son herramientas legitimas, bien financiadas y con base de usuarios fiel, lo cual es exactamente la razon por la que es tan facil elegir la equivocada."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Esta no es una comparativa de \"todo es genial, elige cualquiera\". Brevo tiene una ventaja real si quieres un CRM gratuito integrado en tu bandeja de entrada. Kit es, honestamente, la mejor herramienta de esta lista si tu negocio "
+                },
+                {
+                  "_type": "span",
+                  "text": "es",
+                  "marks": [
+                    "em"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " tu newsletter. Pero despues de revisar paginas de precios, constructores de automatizacion y, lo mas importante, como cada plataforma usa IA en 2026, ActiveCampaign queda arriba por una razon especifica: es la unica de las tres que lanzo una capa real de marketing autonomo, llamada "
+                },
+                {
+                  "_type": "span",
+                  "text": "Active Intelligence",
+                  "marks": [
+                    "k8"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": ", en lugar de solo pegarle un chatbot a un editor viejo."
+                }
+              ],
+              "markDefs": [
+                {
+                  "_key": "k8",
+                  "_type": "link",
+                  "href": "https://try.activecampaign.com/cbl88pxf0lmx-rvs4jt"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Aqui va el desglose completo, incluyendo donde Brevo y Kit realmente superan a ActiveCampaign, porque fingir que no lo hacen dejaria esta comparativa inutil para ti."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Veredicto Rapido: Elige Segun lo que Realmente Necesitas"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Elige ActiveCampaign si ",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "estas corriendo funnels de marketing reales: automatizaciones de varios pasos, lead scoring, un pipeline de ventas, flujos de recuperacion de carritos, y quieres agentes de IA que construyan y optimicen ese trabajo por ti en lugar de armarlo a mano."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Elige Brevo si ",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "quieres un CRM genuinamente gratuito, mensajeria multicanal (SMS, WhatsApp, chat en vivo) bajo un mismo techo, y envias un volumen moderado donde el precio por volumen de envio te conviene mas que el precio por contacto."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Elige Kit si ",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "tu modelo de negocio es monetizar directamente una newsletter o audiencia de creador (propinas, suscripciones pagas, una red de referidos de creadores) y no necesitas un CRM ni automatizacion profunda con muchas ramificaciones."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Tabla Comparativa: ActiveCampaign vs Brevo vs Kit (junio 2026)"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Modelo de precio — ActiveCampaign: por contacto mas complementos. Brevo: por volumen de emails enviados. Kit: por suscriptor."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Plan pago de entrada — ActiveCampaign: ~15 USD/mes. Brevo: 9 USD/mes. Kit: 39 USD/mes."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Plan gratuito — ActiveCampaign: no tiene (prueba de 14 dias). Brevo: si, 300 emails/dia. Kit: si, hasta 10,000 suscriptores."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Agentes de IA / flujos autonomos — ActiveCampaign: 25+ agentes (Active Intelligence). Brevo: Aura AI (asistente, no autonomo). Kit: IA basica, sin capa de agentes."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "CRM nativo / pipeline de ventas — ActiveCampaign: si, complemento, muy completo. Brevo: si, gratuito, mas ligero. Kit: no, solo etiquetas."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "WhatsApp — ActiveCampaign: nativo (via adquisicion de Hilos). Brevo: solo en plan Professional o superior. Kit: no disponible."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Integraciones — ActiveCampaign: 950+. Brevo: ~66. Kit: 100+."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Entregabilidad (prueba de terceros) — ActiveCampaign: 93.4%. Brevo: 74.7%. Kit: autoreportado ~99.8%."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Pensado para — ActiveCampaign: funnels, automatizacion, equipos de ventas. Brevo: pymes multicanal. Kit: creadores que monetizan una audiencia."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Segun datos del ranking de EmailTooltester, citados en el material competitivo actual de la propia ActiveCampaign.",
+                  "marks": [
+                    "em"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "1. Automatizacion e IA: Donde ActiveCampaign se Adelanta"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Esta es la categoria que realmente separa a estas tres plataformas en 2026, y no es una diferencia pequena."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Aura AI de Brevo es genuinamente util: puede redactar asuntos, armar una campana completa a partir de la URL de un blog y, en el plan Professional, sugerir segmentos de audiencia. Pero es asistiva: un humano todavia tiene que hacer la pregunta correcta y aprobar el resultado en cada paso."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "La IA de Kit es la mas debil de las tres. Puede sugerir asuntos basandose en tus propios textos anteriores, y eso es practicamente todo: no hay capa de agentes, no hay puntuacion predictiva, no hay creacion autonoma de campanas. Para una herramienta pensada para creadores, es un compromiso razonable (el diseno centrado en texto ayuda a la entregabilidad), pero significa que los usuarios de Kit hacen la automatizacion de forma manual."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Active Intelligence de ActiveCampaign es una categoria distinta de producto. Viene con mas de 25 agentes de IA que no solo sugieren, sino que ejecutan: un Agente de Campanas que arma un envio completo a partir de un prompt, un Agente de Automatizaciones que disena flujos de varios pasos, y un Agente de Insights que lee el desempeno de tu cuenta contra datos de referencia de toda la industria y ajusta la segmentacion sin que se lo pidas. ActiveCampaign tambien se convirtio en la primera plataforma de marketing listada en el directorio oficial de conectores de Claude de Anthropic en noviembre de 2025, algo relevante si tu equipo ya trabaja dentro de Claude o ChatGPT y quiere gestionar campanas desde ahi en lugar de cambiar de pestana."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Para ser justos con la competencia: ",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "Aura de Brevo es mas rapida de aprender y menos propensa a hacer algo que no esperabas, algo relevante para equipos pequenos que no quieren una caja negra tomando decisiones. Si buscas asistencia y no autonomia, Brevo es la opcion mas segura."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "2. Precios: Brevo Gana en Precio de Lista, ActiveCampaign Gana en Valor por Dolar"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "El plan de entrada de Brevo arranca en 9 USD/mes sin limite de contactos, una ventaja real si tienes una lista grande pero envias con poca frecuencia. El plan Creator de Kit arranca en 39 USD/mes por solo 1,000 suscriptores, y ese precio sube rapido conforme crece tu lista (subio aproximadamente 34-35% en un reajuste de octubre de 2025)."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "El plan de entrada de ActiveCampaign ronda los 15 USD/mes, mas barato que Kit y cercano a Brevo, pero la advertencia honesta aqui es la acumulacion de complementos. El complemento de CRM/Pipelines, los creditos de SMS y los Reportes Personalizados son partidas separadas, y un plan de 99 USD/mes puede terminar costando realisticamente mas de 450 USD/mes una vez que agregas lo que un equipo de ventas real necesita. El CRM de Brevo, en cambio, es gratis en todos los planes, incluido el gratuito."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "La conclusion practica: ",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "si solo necesitas email, Brevo es mas barato. Si necesitas profundidad de automatizacion mas un pipeline de ventas, el costo total de ActiveCampaign suele ser menor que comprar un CRM aparte y una herramienta de automatizacion aparte, que es la comparacion real que la mayoria de los negocios en crecimiento deberia hacer."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "3. Entregabilidad: Una Brecha Real, con Una Advertencia Honesta"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "La tasa de entregabilidad de ActiveCampaign se ubica en 93.4%, en el puesto #1 del panel de EmailTooltester, contra 74.7% de Brevo: una brecha significativa, y la cifra con la que ActiveCampaign encabeza su propio material competitivo."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Vale la pena ser honesto en un punto: Kit autoreporta una tasa de entrega cercana al 99.8%, en gran parte porque sus plantillas centradas en texto y con pocas imagenes son mas faciles de confiar para los filtros de spam, una fortaleza real del formato de Kit, no una cifra para descartar. La entregabilidad tambien depende mucho de la higiene de tu propia lista, no solo de la infraestructura de la plataforma, asi que trata cualquier cifra publicada como orientativa y no como una garantia para tu lista especifica."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "4. CRM y Pipeline de Ventas: Brevo Gratis vs. ActiveCampaign Profundo"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Si necesitas cualquier CRM y no quieres pagar por uno, Brevo gana claramente: todos los planes, incluido el gratuito, incluyen pipelines, etapas de negociacion y hasta 50 negociaciones abiertas sin costo. Kit no tiene CRM en absoluto; usa etiquetas, lo cual esta bien para segmentacion pero no reemplaza un pipeline de ventas."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "El CRM de ActiveCampaign es el mas completo de los tres: puntuacion de probabilidad de cierre, analisis de sentimiento, secuencias de ventas multicanal (email, llamadas nativas, LinkedIn, SMS), pero es un complemento (Pipelines arranca en unos 68 USD/mes, Sales Engagement en unos 111 USD/mes), no incluido en el precio base. Para un creador solo o un equipo pequeno, el CRM gratuito de Brevo es la opcion pragmatica. Para un negocio con un equipo de ventas dedicado trabajando un pipeline real, la profundidad de ActiveCampaign justifica el costo del complemento."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "5. Integraciones y Ecosistema"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "ActiveCampaign se conecta con mas de 950 aplicaciones, incluyendo integraciones nativas y profundas de ecommerce (Shopify, WooCommerce, BigCommerce, Square) con flujos de carrito abandonado y post-compra ya integrados. Brevo tiene alrededor de 66 integraciones y Kit unas 100+, ambos apoyandose en Zapier/Make para todo lo que quede fuera de su lista principal. Si tu stack incluye muchas herramientas especializadas (un CRM, una mesa de ayuda, varias tiendas), la cantidad de conexiones nativas de ActiveCampaign reduce de forma significativa la cantidad de soluciones alternas que tendras que armar."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Mi propia experiencia aqui, para lo que valga: ",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "yo uso "
+                },
+                {
+                  "_type": "span",
+                  "text": "ActiveCampaign",
+                  "marks": [
+                    "k9"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " junto con Systeme.io como mi constructor de funnels y checkout, y ambos se conectan de forma nativa, sin Zapier ni Make de por medio. Es una conexion directa por API key desde el propio panel de Ajustes > Integraciones de Systeme.io: cada contacto y etiqueta creada dentro de un funnel de Systeme.io se sincroniza directo con ActiveCampaign, donde ocurre la automatizacion real y el seguimiento impulsado por IA. Para cualquiera que arme funnels en Systeme.io y quiera profundidad real de automatizacion encima, esta es la primera integracion que recomendaria: es la razon por la que no tuve que migrar mi constructor de funnels solo para obtener el motor de automatizacion de ActiveCampaign."
+                }
+              ],
+              "markDefs": [
+                {
+                  "_key": "k9",
+                  "_type": "link",
+                  "href": "https://try.activecampaign.com/cbl88pxf0lmx-rvs4jt"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "6. Multicanal: WhatsApp y SMS"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "ActiveCampaign agrego mensajeria nativa de WhatsApp a mediados de 2025 mediante su adquisicion de Hilos, poniendose a la par de la suite multicanal de Brevo (que lleva mas tiempo con WhatsApp, SMS, chat en vivo e inboxes sociales, unificados en una vista de \"Conversaciones\"). Kit no tiene SMS ni WhatsApp nativos: los creadores que lo quieren tienen que agregar una herramienta de terceros. Si la mensajeria multicanal desde un solo panel es una prioridad, Brevo sigue teniendo el inbox unificado mas maduro; ActiveCampaign se puso al dia en cobertura de canales pero la conecta con su motor de automatizacion, algo que las herramientas de chat de Brevo no hacen con la misma profundidad."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Lo que Dicen los Usuarios Reales"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "ActiveCampaign tiene una calificacion de 4.4 estrellas en mas de 14,600 "
+                },
+                {
+                  "_type": "span",
+                  "text": "resenas verificadas de G2",
+                  "marks": [
+                    "k10"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " a 2026, y obtuvo mas de 300 insignias de G2 en el ciclo de reportes de primavera 2026. Dos citas que la propia ActiveCampaign destaco de ese conjunto de resenas, verificadas contra la plataforma de resenas de G2:"
+                }
+              ],
+              "markDefs": [
+                {
+                  "_key": "k10",
+                  "_type": "link",
+                  "href": "https://www.g2.com/products/activecampaign/reviews"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "\"Me encanta especialmente su Active Intelligence, las funciones de IA ayudan a generar reportes, sugerir asuntos, comparar resultados y mas. Una gran plataforma para cualquier equipo que busque crecer sin agobiarse!\" — Directora de Marketing, pyme, via ",
+                  "marks": [
+                    "em"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "G2",
+                  "marks": [
+                    "k11",
+                    "em"
+                  ]
+                }
+              ],
+              "markDefs": [
+                {
+                  "_key": "k11",
+                  "_type": "link",
+                  "href": "https://www.g2.com/products/activecampaign/reviews"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "\"ActiveCampaign es el motor de mi negocio... Active Intelligence es como tener un investigador de mercado, un redactor, un disenador grafico y un consultor en mi equipo de marketing.\" — resenador verificado de G2, citado en el ",
+                  "marks": [
+                    "em"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "resumen de insignias de G2 de primavera 2026 de ActiveCampaign",
+                  "marks": [
+                    "k12",
+                    "em"
+                  ]
+                }
+              ],
+              "markDefs": [
+                {
+                  "_key": "k12",
+                  "_type": "link",
+                  "href": "https://www.activecampaign.com/blog/activecampaign-badges-in-g2-spring-2026-reports"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "A escala de plataforma, ActiveCampaign reporta aproximadamente 6.3 mil millones de experiencias de cliente automatizadas entregadas por semana, confirmado en su propia "
+                },
+                {
+                  "_type": "span",
+                  "text": "Guia Comparativa de Software de Email Marketing 2026",
+                  "marks": [
+                    "k13"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": ", que es la senal agregada contra la que el Agente de Insights de Active Intelligence compara cuentas individuales."
+                }
+              ],
+              "markDefs": [
+                {
+                  "_key": "k13",
+                  "_type": "link",
+                  "href": "https://www.activecampaign.com/blog/email-marketing-software-comparison-guide"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Conclusion"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Brevo y Kit son herramientas solidas y honestamente construidas: Brevo si quieres un CRM gratuito y mensajeria multicanal sin precios empresariales, Kit si tu negocio es tu audiencia y quieres monetizarla directamente. Ninguna es una mala eleccion para el caso de uso para el que fue construida."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Pero si ya superaste la necesidad de \"una herramienta de email\" y realmente necesitas un sistema que construya, ejecute y mejore tu marketing con menos trabajo manual (profundidad de automatizacion, un pipeline de ventas real y una capa de IA que actua en lugar de solo sugerir), ActiveCampaign es la plataforma construida para ese trabajo en 2026."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Empieza tu prueba gratuita de ActiveCampaign aqui",
+                  "marks": [
+                    "k14",
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " y mira Active Intelligence en accion con tus propios datos."
+                }
+              ],
+              "markDefs": [
+                {
+                  "_key": "k14",
+                  "_type": "link",
+                  "href": "https://try.activecampaign.com/cbl88pxf0lmx-rvs4jt"
+                }
+              ]
+            }
+          ],
+          "key_entities": "ActiveCampaign, Brevo, Kit, ConvertKit, email marketing, automatizacion de marketing, Active Intelligence, CRM, entregabilidad",
+          "faq_items": [
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Es ActiveCampaign mejor que Brevo?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Depende de que signifique \"mejor\" para ti. ActiveCampaign es mejor para negocios que necesitan automatizacion profunda y ramificada, y un CRM de ventas serio. Brevo es mejor si quieres un CRM genuinamente gratuito y mensajeria multicanal sin pagar por una profundidad de automatizacion que no usaras."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Es Kit mejor que ActiveCampaign para newsletters?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Para un negocio de newsletter puro, monetizado con suscripciones, propinas o una red de referidos de creadores, las herramientas de Kit estan pensadas de una forma en que las de ActiveCampaign no lo estan. ActiveCampaign se adelanta en el momento en que necesitas funnels de varios pasos, lead scoring o un CRM."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Que es Active Intelligence?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Active Intelligence es la capa de agentes de IA de ActiveCampaign, lanzada como parte de sus actualizaciones de plataforma 2026. Incluye mas de 25 agentes especializados (para creacion de campanas, construccion de automatizaciones e insights de desempeno) que actuan dentro de tu cuenta en lugar de solo sugerir texto."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Brevo o Kit tienen algo como Active Intelligence?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Todavia no. Aura AI de Brevo es asistiva (borradores y sugerencias que apruebas); la IA de Kit se limita a sugerencias de asunto. Ninguna ha lanzado una capa de agentes autonomos a junio de 2026."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Cual plataforma es mas barata para empezar?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Brevo, a 9 USD/mes sin limite de contactos. El plan de entrada de ActiveCampaign ronda los 15 USD/mes. El plan pago de entrada de Kit arranca en unos 39 USD/mes por solo 1,000 suscriptores."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Puedo cambiarme de Brevo o Kit a ActiveCampaign sin perder mis automatizaciones?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "El equipo de migracion de ActiveCampaign soporta importacion de listas y plantillas desde la mayoria de plataformas principales; la logica de automatizacion compleja normalmente hay que reconstruirla a mano, ya que no se transfiere 1:1 entre plataformas. Presupuesta tiempo para esto en cualquier plan de migracion."
+                }
+              ]
+            }
+          ],
+          "external_id": "editorial-2026:es:activecampaign-vs-brevo-vs-kit",
+          "source": "editorial-activecampaign-2026"
+        },
+        "published_at": "2026-06-30T09:00:00",
+        "locale": "es"
       },
       {
         "id": "post-agentes-ia-gobierno-empresarial-2026",
