@@ -47,9 +47,6 @@ package-lock.json
 check_db.py
 *.bat
 
-# Internal docs / guides
-docs/
-
 # QA / local artifacts (not versioned)
 .playwright-mcp/
 /desktop.ini
