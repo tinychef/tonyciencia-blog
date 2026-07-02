@@ -476,12 +476,7 @@ const monthlyFeatures = [
     text-align: center;
   }
   .eia-hero-orb {
-    position: absolute;
-    border-radius: 50%;
-    pointer-events: none;
-    filter: blur(80px);
-    opacity: 0.35;
-    animation: orb-float 8s ease-in-out infinite alternate;
+    display: none;
   }
   .eia-hero-orb--1 {
     width: 420px; height: 420px;
@@ -595,7 +590,7 @@ const monthlyFeatures = [
   .eia-who-card:hover {
     border-color: var(--color-accent);
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(200, 146, 42, 0.1);
+    box-shadow: 4px 4px 0 var(--color-accent);
   }
   .eia-who-icon {
     display: flex;
@@ -759,10 +754,10 @@ const monthlyFeatures = [
     transition: transform 0.25s ease, box-shadow 0.25s ease;
     margin-bottom: var(--spacing-6);
   }
-  .eia-price-card:hover { transform: scale(1.01); box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08); }
+  .eia-price-card:hover { transform: scale(1.01); box-shadow: 4px 4px 0 var(--color-border); }
   .eia-price-card--featured {
     border-color: var(--color-accent);
-    box-shadow: 0 4px 24px rgba(200, 146, 42, 0.15);
+    box-shadow: 4px 4px 0 var(--color-accent);
   }
   .eia-price-badge {
     display: inline-block;

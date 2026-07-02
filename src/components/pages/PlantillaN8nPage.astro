@@ -331,7 +331,7 @@ const benefitIcons = [
     padding: 5px 14px;
     background: rgba(200, 146, 42, 0.1);
     border: 1px solid rgba(200, 146, 42, 0.25);
-    border-radius: 100px;
+    border-radius: var(--radius);
     font-size: var(--font-size-xs);
     font-weight: 700;
     color: var(--color-accent);
@@ -363,14 +363,14 @@ const benefitIcons = [
     font-weight: 700;
     font-size: var(--font-size-base);
     padding: 14px 28px;
-    border-radius: 100px;
+    border-radius: var(--radius);
     text-decoration: none;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
   .n8n-btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(200, 146, 42, 0.35);
+    box-shadow: 4px 4px 0 var(--color-accent);
     color: #fff;
   }
 
@@ -381,7 +381,7 @@ const benefitIcons = [
     font-weight: 600;
     font-size: var(--font-size-base);
     padding: 14px 24px;
-    border-radius: 100px;
+    border-radius: var(--radius);
     text-decoration: none;
     border: 1px solid var(--color-border);
     transition: border-color 0.2s ease, color 0.2s ease;
@@ -401,11 +401,7 @@ const benefitIcons = [
   }
 
   .n8n-hero-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.12;
-    pointer-events: none;
+    display: none;
   }
 
   .n8n-hero-orb--1 {
@@ -467,7 +463,7 @@ const benefitIcons = [
     padding: 6px 14px;
     background: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: 100px;
+    border-radius: var(--radius);
     font-size: var(--font-size-sm);
     font-weight: 600;
     color: var(--color-text);
@@ -496,7 +492,7 @@ const benefitIcons = [
     justify-content: center;
     gap: 6px;
     padding: 8px 18px;
-    border-radius: 100px;
+    border-radius: var(--radius);
     text-decoration: none;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     height: 44px;
@@ -504,12 +500,12 @@ const benefitIcons = [
 
   .n8n-logo-pill--amber {
     background: var(--tc-gradient);
-    box-shadow: 0 2px 10px rgba(200, 146, 42, 0.25);
+    box-shadow: 4px 4px 0 var(--color-accent);
   }
 
   .n8n-logo-pill--amber:hover {
     transform: translateY(-1px);
-    box-shadow: 0 5px 18px rgba(200, 146, 42, 0.4);
+    box-shadow: 4px 4px 0 var(--color-accent);
   }
 
   .n8n-logo-pill--dark {
@@ -683,14 +679,14 @@ const benefitIcons = [
 
   .n8n-affiliate-card:hover {
     border-color: var(--color-accent);
-    box-shadow: 0 4px 16px rgba(200, 146, 42, 0.12);
+    box-shadow: 4px 4px 0 var(--color-accent);
   }
 
   .n8n-affiliate-icon {
     flex-shrink: 0;
     min-width: 80px;
     height: 44px;
-    border-radius: 100px;
+    border-radius: var(--radius);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -699,7 +695,7 @@ const benefitIcons = [
 
   .n8n-affiliate-icon--amber {
     background: var(--tc-gradient);
-    box-shadow: 0 2px 8px rgba(200, 146, 42, 0.3);
+    box-shadow: 4px 4px 0 var(--color-accent);
   }
 
   .n8n-affiliate-logo {
@@ -748,7 +744,7 @@ const benefitIcons = [
   .n8n-capture-box {
     background: var(--color-bg-subtle);
     border: 1px solid var(--color-border);
-    border-radius: 16px;
+    border-radius: var(--radius-lg);
     padding: var(--spacing-12) var(--spacing-10);
     text-align: center;
   }
@@ -844,7 +840,7 @@ const benefitIcons = [
     font-size: var(--font-size-base);
     font-weight: 700;
     border: none;
-    border-radius: 100px;
+    border-radius: var(--radius);
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
     font-family: var(--font-sans);
@@ -852,7 +848,7 @@ const benefitIcons = [
 
   .n8n-submit:hover:not(:disabled) {
     transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(200, 146, 42, 0.35);
+    box-shadow: 4px 4px 0 var(--color-accent);
   }
 
   .n8n-submit:disabled {

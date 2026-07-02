@@ -556,15 +556,13 @@ const isLoggedIn = !!Astro.locals.user;
 				color: #fff;
 			}
 
-			/* ── HEADER — Glassmorphic ─────────────────────── */
+			/* ── HEADER — solid, hard-bordered ─────────────── */
 			.site-header {
 				position: sticky;
 				top: 0;
 				z-index: 100;
 				background: var(--glass-bg);
-				backdrop-filter: blur(var(--glass-blur));
-				-webkit-backdrop-filter: blur(var(--glass-blur));
-				border-bottom: 1px solid var(--glass-border);
+				border-bottom: 2px solid var(--glass-border);
 			}
 
 			.nav {
@@ -862,8 +860,7 @@ const isLoggedIn = !!Astro.locals.user;
 				bottom: 0;
 				z-index: 105;
 				background: var(--glass-bg);
-				backdrop-filter: blur(24px);
-				-webkit-backdrop-filter: blur(24px);
+				border-bottom: 2px solid var(--glass-border);
 				opacity: 0;
 				pointer-events: none;
 				transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -929,9 +926,9 @@ const isLoggedIn = !!Astro.locals.user;
 				justify-content: center;
 				width: 44px;
 				height: 44px;
-				border-radius: 50%;
+				border-radius: var(--radius);
 				background: var(--color-surface);
-				border: 1px solid var(--color-border);
+				border: 2px solid var(--color-border);
 				color: var(--color-muted);
 				text-decoration: none;
 				transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
@@ -945,7 +942,7 @@ const isLoggedIn = !!Astro.locals.user;
 			@media (max-width: 640px) {
 				.site-header {
 					position: sticky;
-					border-bottom: 1px solid var(--glass-border);
+					border-bottom: 2px solid var(--glass-border);
 				}
 
 				.nav {

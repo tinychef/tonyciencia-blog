@@ -235,7 +235,7 @@ const resources: Resource[] = isEs
     transition: box-shadow var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast);
   }
   .resource-card:hover {
-    box-shadow: 0 8px 32px rgba(200, 146, 42, 0.12);
+    box-shadow: 4px 4px 0 var(--color-accent);
     transform: translateY(-2px);
     border-color: var(--color-accent);
   }
@@ -261,7 +261,7 @@ const resources: Resource[] = isEs
   .card-badge {
     font-size: var(--font-size-xs); font-weight: 700;
     text-transform: uppercase; letter-spacing: 0.08em;
-    padding: 4px 10px; border-radius: 100px;
+    padding: 4px 10px; border-radius: var(--radius);
   }
   .badge-free  { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
   .badge-paid  { background: #fdf3e0; color: #c8922a; border: 1px solid #f5d99a; }
@@ -280,7 +280,7 @@ const resources: Resource[] = isEs
   .card-tags { display: flex; flex-wrap: wrap; gap: var(--spacing-2); }
   .tag {
     font-size: var(--font-size-xs); font-weight: 600;
-    padding: 3px 10px; border-radius: 100px;
+    padding: 3px 10px; border-radius: var(--radius);
     background: var(--color-bg-subtle); border: 1px solid var(--color-border);
     color: var(--color-muted);
   }
@@ -294,7 +294,7 @@ const resources: Resource[] = isEs
     transition: transform var(--transition-fast), box-shadow var(--transition-fast);
     align-self: flex-start;
   }
-  .card-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(200, 146, 42, 0.35); color: white; }
+  .card-cta:hover { transform: translateY(-1px); box-shadow: 4px 4px 0 var(--color-accent); color: white; }
   .card-cta--disabled {
     background: var(--color-bg-subtle);
     color: var(--color-muted);
@@ -323,7 +323,7 @@ const resources: Resource[] = isEs
     font-size: var(--font-size-base); border-radius: var(--radius-lg);
     text-decoration: none; transition: transform var(--transition-fast), box-shadow var(--transition-fast);
   }
-  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(200, 146, 42, 0.35); color: white; }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 4px 4px 0 var(--color-accent); color: white; }
   .btn-primary.btn-large { padding: 16px 40px; font-size: var(--font-size-lg); border-radius: var(--radius-xl); }
 
   @media (max-width: 640px) {

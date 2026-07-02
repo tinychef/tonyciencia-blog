@@ -54,6 +54,13 @@ export default defineConfig({
 			weights: [400, 500],
 			fallbacks: ["monospace"],
 		},
+		{
+			provider: fontProviders.google(),
+			name: "Silkscreen",
+			cssVariable: "--font-pixel",
+			weights: [400, 700],
+			fallbacks: ["monospace"],
+		},
 	],
 	devToolbar: { enabled: false },
 });

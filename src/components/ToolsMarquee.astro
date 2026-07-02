@@ -195,7 +195,7 @@ const sectionLabel = locale === "en" ? "Tools we recommend" : "Herramientas que 
     padding: 0.5rem 1rem 0.5rem 0.625rem;
     background: var(--color-bg);
     border: 1px solid var(--color-border);
-    border-radius: 50px;
+    border-radius: var(--radius);
     text-decoration: none;
     color: var(--color-text);
     white-space: nowrap;
@@ -205,7 +205,7 @@ const sectionLabel = locale === "en" ? "Tools we recommend" : "Herramientas que 
 
   .tool-card:hover {
     border-color: var(--color-accent);
-    box-shadow: 0 2px 12px rgba(200, 146, 42, 0.15);
+    box-shadow: 4px 4px 0 var(--color-accent);
     transform: translateY(-1px);
   }
 
