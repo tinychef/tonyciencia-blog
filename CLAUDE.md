@@ -25,15 +25,21 @@ npx emdash seed seed/seed.json --validate  # Validar seed sin aplicar
 
 ## Arquitectura
 
-**Stack:** Astro 6 (output: server) + EmDash 0.10.0 CMS + Cloudflare Workers
+**Stack:** Astro 7 (output: server) + EmDash 0.23.0 CMS + Cloudflare Workers
+**Node:** 22.x (fijado en `.node-version`, igual que CI). No usar el Node "system" si es una versión mucho más nueva — provocó fallos de compilación nativa de `better-sqlite3` con toolchains de Visual Studio recientes.
 
-### Capa de contenido (EmDash)
-- Acceso SOLO via `emdash:content` API — nunca query directo a D1
+### Capa de contenido (EmDash) — NO depende de un JSON único
+- Cada post vive en su propio archivo: `content/posts/es/<slug>.json` y `content/posts/en/<slug>.json`
+- `scripts/build-seed.mjs` ensambla `seed/base/*.json` + `content/posts/**/*.json` → `seed/seed.json` (artefacto de *bootstrap*, versionado, pero NO la fuente de verdad en runtime)
+- La fuente de verdad en runtime es **D1**, accedida solo vía `emdash:content` API — nunca query directo a D1
+- `emdash seed` aplica el JSON a D1 de forma idempotente (`onConflict: "skip"`) — no pisa contenido ya editado directamente en el Admin UI
+- Pipeline real de publicación: n8n escribe un JSON por post vía PR a GitHub → `seed-validate.yml`/`deploy.yml` reconstruyen `seed/seed.json` → deploy. El Admin UI de EmDash también puede escribir directo a D1, sin pasar por el JSON
 - Colecciones activas: `posts`, `pages`, `legal` (ver `seed/seed.json` para schema completo)
 - `entry.id` = slug (para URLs). `entry.data.id` = ULID de la DB (para `getEntryTerms` y otras llamadas API)
 - Siempre llamar `Astro.cache.set(cacheHint)` en páginas que consultan contenido
 - Taxonomías en queries deben coincidir exactamente con el campo `"name"` del seed (`"category"`, `"tag"`)
 - `emdash-env.d.ts` → tipos auto-generados; se regeneran al iniciar el dev server
+- **Nota de escalabilidad:** si el catálogo crece a cientos/miles de posts, revisar el costo de reconstruir `seed/seed.json` completo en cada PR y el bulk insert vía `emdash seed` — no es un problema hoy (28 posts, ~490KB) pero puede serlo a mayor escala
 
 ### Routing de páginas
 - Todas las páginas son server-rendered — nunca usar `getStaticPaths()` para contenido CMS
@@ -50,11 +56,12 @@ npx emdash seed seed/seed.json --validate  # Validar seed sin aplicar
 - Claves de traducción definidas en `src/i18n/es.ts` (fuente de verdad) + `src/i18n/en.ts`
 - El campo `translation_of` en Posts vincula traducciones por slug
 
-### Estilos
-- **CSS vanilla con variables** — sistema de diseño en `src/layouts/Base.astro` (`:root` con tokens) y `src/styles/theme.css`
-- Colores en CSS custom properties (`--color-bg`, `--color-text`, `--color-accent`, etc.)
+### Estilos — Retro Pixel Design System
+- **CSS vanilla con variables** — `src/layouts/Base.astro` define un reset/tokens base dentro de `@layer base` (baja prioridad a propósito); `src/styles/theme.css` NO está en ninguna capa (`@layer`), por lo que sus tokens **siempre ganan** sobre los de Base.astro sin importar el orden de origen — así es como el ámbar de marca (`theme.css`) sustituye limpiamente al azul genérico del reset (`Base.astro`). No romper este orden de capas al editar CSS.
+- **`theme.css` es la fuente de verdad del color de marca**: `--color-accent: #c8922a` (ámbar). No usar la skill global `tonyciencia-brand` como referencia de color — está desactualizada (documenta azul `#0274be`).
+- Identidad visual: bordes duros (`--radius: 3px`, sin pills de 100px+), sombras "pixel" con offset sólido y sin blur (`--shadow-*: Npx Npx 0 color`), sin `backdrop-filter`/glassmorphism, textura de puntos retro (`--tc-dots`) en vez de gradientes de ruido. Tipografía pixel (`--font-pixel`, Silkscreen) reservada a eyebrows/badges — nunca en cuerpo de texto o encabezados de artículo (legibilidad).
+- **`--color-on-accent`**: texto blanco sobre el ámbar de marca falla WCAG AA (~2.6:1). Usar siempre `var(--color-on-accent)` (definido en `theme.css` como texto oscuro, ~6.3:1) en vez de hardcodear `color: white` sobre fondos de acento.
 - Dark mode: clase `.dark` en `<html>` persistida en cookie `theme`; fallback a `prefers-color-scheme`
-- Color accent por defecto: azul (`#0066cc`). El amber de Tony Ciencia (`#c8922a`) se usa para gradients (`--tc-gradient`)
 - Nunca usar `<style is:global>` sin justificación — extender los tokens existentes
 - Plugins EmDash usan prefijos `.emdash-` y `.ec-` — no colisionan con estilos del tema
 
@@ -68,6 +75,10 @@ npx emdash seed seed/seed.json --validate  # Validar seed sin aplicar
 ### Plugins instalados
 - `@emdash-cms/plugin-forms` — formularios de contacto
 - `@emdash-cms/plugin-webhook-notifier` — notifica a n8n al publicar posts
+
+### Favicon
+- Set completo en `public/` (`favicon.ico`, `favicon-16x16.png`, `favicon-32x32.png`, `apple-touch-icon.png`, `icon-192.png`, `icon-512.png`, `site.webmanifest`), generado desde `src/assets/brand/logo-tonyciencia-negro-source.png`
+- `Base.astro` usa `siteFavicon` del CMS como override si está seteado; si no, cae al `/favicon.ico` estático — el sitio nunca queda sin favicon
 
 ## Configuración de Cloudflare
 

@@ -107,35 +107,19 @@ const formattedDate = date
 			position: relative;
 			display: flex;
 			flex-direction: column;
-			border: 1px solid var(--color-border);
-			border-radius: var(--radius-xl);
+			border: 2px solid var(--color-border);
+			border-radius: var(--radius-lg);
 			padding: var(--spacing-4);
-			background:
-				linear-gradient(180deg, color-mix(in srgb, var(--color-bg) 92%, transparent), color-mix(in srgb, var(--color-bg-subtle) 86%, transparent)),
-				var(--color-bg);
+			background: var(--color-bg);
 			box-shadow: var(--shadow-sm);
 			overflow: hidden;
 			transition: border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
 		}
 
-		.post-card::before {
-			content: "";
-			position: absolute;
-			inset: 0;
-			pointer-events: none;
-			background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), transparent 36%, var(--color-accent-muted));
-			opacity: 0;
-			transition: opacity var(--transition-base);
-		}
-
 		.post-card:hover {
 			border-color: var(--color-accent);
-			box-shadow: var(--shadow-premium);
-			transform: translateY(-4px);
-		}
-
-		.post-card:hover::before {
-			opacity: 1;
+			box-shadow: 4px 4px 0 var(--color-accent);
+			transform: translate(-2px, -2px);
 		}
 
 		@media (prefers-reduced-motion: reduce) {

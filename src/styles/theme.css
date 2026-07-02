@@ -1,22 +1,28 @@
 /*
-  theme.css — Tony Ciencia · 2026 Enterprise AI Edition
+  theme.css — Tony Ciencia · Retro Pixel Edition
   This file can evolve the visual system, but the dark/light toggle logic and
   ripple transition live in Base.astro and must remain untouched.
+  Unlayered on purpose — it must always win over Base.astro's `@layer base`
+  reset tokens regardless of source order (see the @layer comment there).
 */
 
 :root {
-	/* Tony Ciencia brand accent — Amber */
+	/* Tony Ciencia brand accent — Amber, flattened for a retro palette */
 	--color-accent: #c8922a;
 	--color-accent-hover: #e0a832;
+	--color-accent-shadow: #7a5a13;
+	--color-accent-highlight: #ffd873;
 	--color-accent-muted: rgba(200, 146, 42, 0.15);
 	--color-accent-ring: color-mix(in srgb, #c8922a 25%, transparent);
+	/* Dark text reads ~6.3:1 on the amber accent; white only reads ~2.6:1 (fails AA) */
+	--color-on-accent: #1a1a1a;
 
 	/* ─── Light Mode ─────────────────────────────── */
-	--color-bg: #fafaf9;
-	--color-bg-subtle: #f5f4f0;
-	--color-surface: #eeedea;
-	--color-border: #e0dfdb;
-	--color-border-subtle: #eae9e5;
+	--color-bg: #faf8f2;
+	--color-bg-subtle: #f2efe4;
+	--color-surface: #ece7d8;
+	--color-border: #1a1a1a;
+	--color-border-subtle: #d8d2bd;
 
 	--color-text: #1a1a1a;
 	--color-text-secondary: #52524e;
@@ -27,47 +33,45 @@
 	--color-warning: #f59e0b;
 	--color-error: #ef4444;
 
-	/* Brand gradients */
-	--tc-gradient: linear-gradient(135deg, #e0a832 0%, #c8922a 50%, #b07a1e 100%);
-	--tc-gradient-subtle: linear-gradient(135deg, rgba(200, 146, 42, 0.08) 0%, rgba(224, 168, 50, 0.04) 100%);
-	--tc-gradient-dark: linear-gradient(135deg, #ab7517 0%, #8f5c09 100%);
-	--tc-gradient-text: linear-gradient(135deg, #f0c96e 0%, #c8922a 100%);
-	--tc-ink-gradient: linear-gradient(135deg, var(--color-text) 0%, color-mix(in srgb, var(--color-text) 72%, var(--color-accent)) 100%);
-	--tc-signal-gradient: conic-gradient(from 210deg at 50% 50%, rgba(200, 146, 42, 0), rgba(200, 146, 42, 0.42), rgba(255, 255, 255, 0.16), rgba(200, 146, 42, 0));
-	--tc-grid: linear-gradient(var(--color-border-subtle) 1px, transparent 1px), linear-gradient(90deg, var(--color-border-subtle) 1px, transparent 1px);
-	--tc-noise: radial-gradient(circle at 20% 15%, rgba(200, 146, 42, 0.12), transparent 28%), radial-gradient(circle at 78% 18%, rgba(224, 168, 50, 0.08), transparent 24%), radial-gradient(circle at 50% 95%, rgba(200, 146, 42, 0.08), transparent 32%);
+	/* Brand gradient — kept only for the one hero accent that still wants it */
+	--tc-gradient: linear-gradient(135deg, #e0a832 0%, #c8922a 100%);
+	--tc-ink-gradient: var(--color-text);
+	--tc-gradient-text: var(--color-accent);
+	--tc-gradient-subtle: var(--color-accent-muted);
 
-	/* Radii — rounded pill aesthetic */
-	--radius: 8px;
-	--radius-lg: 14px;
-	--radius-xl: 20px;
-	--radius-pill: 100px;
+	/* Retro dot-grid texture — hard-edged, no blur, replaces the old soft noise/orb */
+	--tc-dots: radial-gradient(var(--color-border-subtle) 1.5px, transparent 1.5px);
+	--tc-dots-size: 16px 16px;
+	--tc-noise: var(--tc-dots);
+	--tc-grid: linear-gradient(var(--color-border-subtle) 1px, transparent 1px), linear-gradient(90deg, var(--color-border-subtle) 1px, transparent 1px);
+
+	/* Opaque header/panel background — replaces glassmorphism, no blur */
+	--glass-bg: var(--color-bg);
+	--glass-border: var(--color-border);
+
+	/* Radii — chunky pixel corners, no soft pills */
+	--radius: 3px;
+	--radius-lg: 3px;
+	--radius-xl: 4px;
+	--radius-pill: 4px;
 
 	/* Wider layout */
 	--wide-width: 1200px;
 	--content-width: 720px;
 
-	/* Glass effect */
-	--glass-bg: color-mix(in srgb, var(--color-bg) 72%, transparent);
-	--glass-border: color-mix(in srgb, var(--color-border) 60%, transparent);
-	--glass-blur: 16px;
-
 	/* Transitions */
 	--transition-slow: 400ms ease;
 
-	/* Shadows */
-	--shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
-	--shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-	--shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12);
-	--shadow-premium: 0 24px 80px rgba(22, 17, 9, 0.12);
-	--shadow-premium-dark: 0 24px 80px rgba(0, 0, 0, 0.34);
+	/* Hard "pixel" shadows — flat offset, zero blur */
+	--shadow-sm: 2px 2px 0 var(--color-border);
+	--shadow-md: 3px 3px 0 var(--color-border);
+	--shadow-lg: 4px 4px 0 var(--color-border);
+	--shadow-premium: 5px 5px 0 var(--color-accent-shadow);
+	--shadow-premium-dark: 5px 5px 0 #000;
 
 	/* Marquee / carousel */
 	--marquee-gap: 3rem;
 	--marquee-speed: 40s;
-
-	/* Glow orbs */
-	--orb-color: var(--color-accent);
 
 	/* Extended spacing for large sections */
 	--spacing-32: 8rem;
@@ -92,11 +96,10 @@
 
 		--color-accent: #e0a832;
 		--color-accent-hover: #f0c96e;
+		--color-accent-shadow: #4d3809;
+		--color-accent-highlight: #ffe9b3;
 		--color-accent-muted: rgba(224, 168, 50, 0.12);
-
-		--glass-bg: rgba(9, 9, 11, 0.72);
-		--glass-border: rgba(39, 39, 42, 0.5);
-		--tc-noise: radial-gradient(circle at 20% 15%, rgba(224, 168, 50, 0.16), transparent 28%), radial-gradient(circle at 78% 18%, rgba(224, 168, 50, 0.09), transparent 24%), radial-gradient(circle at 50% 95%, rgba(224, 168, 50, 0.10), transparent 32%);
+		--color-border: #2a2a2a;
 	}
 }
 
@@ -105,7 +108,7 @@
 	--color-bg: #09090b;
 	--color-bg-subtle: #111113;
 	--color-surface: #18181b;
-	--color-border: #27272a;
+	--color-border: #2a2a2a;
 	--color-border-subtle: #1e1e21;
 
 	--color-text: #fafaf9;
@@ -114,11 +117,9 @@
 
 	--color-accent: #e0a832;
 	--color-accent-hover: #f0c96e;
+	--color-accent-shadow: #4d3809;
+	--color-accent-highlight: #ffe9b3;
 	--color-accent-muted: rgba(224, 168, 50, 0.12);
-
-	--glass-bg: rgba(9, 9, 11, 0.72);
-	--glass-border: rgba(39, 39, 42, 0.5);
-	--tc-noise: radial-gradient(circle at 20% 15%, rgba(224, 168, 50, 0.16), transparent 28%), radial-gradient(circle at 78% 18%, rgba(224, 168, 50, 0.09), transparent 24%), radial-gradient(circle at 50% 95%, rgba(224, 168, 50, 0.10), transparent 32%);
 }
 
 html {
@@ -156,24 +157,26 @@ body {
 	align-items: center;
 	gap: 0.55rem;
 	width: fit-content;
-	padding: 0.45rem 0.8rem;
-	border: 1px solid var(--color-border);
-	border-radius: var(--radius-pill);
-	background: color-mix(in srgb, var(--color-bg) 82%, transparent);
+	padding: 0.4rem 0.7rem;
+	border: 2px solid var(--color-border);
+	border-radius: var(--radius);
+	background: var(--color-bg);
+	box-shadow: 2px 2px 0 var(--color-border);
 	color: var(--color-text-secondary);
-	font-size: var(--font-size-xs);
-	font-weight: 700;
-	letter-spacing: 0.12em;
+	font-family: var(--font-pixel, var(--font-mono, monospace));
+	font-size: var(--font-size-2xs);
+	font-weight: 400;
+	letter-spacing: 0.06em;
 	text-transform: uppercase;
 }
 
 .tc-eyebrow::before {
 	content: "";
-	width: 0.45rem;
-	height: 0.45rem;
-	border-radius: 999px;
+	width: 0.5rem;
+	height: 0.5rem;
+	border-radius: 0;
 	background: var(--color-accent);
-	box-shadow: 0 0 18px var(--color-accent);
+	box-shadow: 1px 1px 0 var(--color-accent-shadow);
 }
 
 .tc-gradient-text {
@@ -185,26 +188,16 @@ body {
 
 .tc-card {
 	position: relative;
-	border: 1px solid var(--color-border);
-	border-radius: var(--radius-xl);
-	background:
-		linear-gradient(180deg, color-mix(in srgb, var(--color-bg) 94%, transparent), color-mix(in srgb, var(--color-bg-subtle) 88%, transparent)),
-		var(--color-bg);
+	border: 2px solid var(--color-border);
+	border-radius: var(--radius-lg);
+	background: var(--color-bg);
 	box-shadow: var(--shadow-premium);
 	overflow: hidden;
+	transition: transform var(--transition-fast, 160ms ease), box-shadow var(--transition-fast, 160ms ease);
 }
 
 :root.dark .tc-card {
 	box-shadow: var(--shadow-premium-dark);
-}
-
-.tc-card::after {
-	content: "";
-	position: absolute;
-	inset: 0;
-	pointer-events: none;
-	background: linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 34%, rgba(200, 146, 42, 0.08));
-	opacity: 0.55;
 }
 
 .tc-btn {
@@ -214,32 +207,39 @@ body {
 	gap: 0.55rem;
 	min-height: 46px;
 	padding: 0.85rem 1.25rem;
-	border-radius: var(--radius-pill);
-	border: 1px solid transparent;
+	border-radius: var(--radius);
+	border: 2px solid var(--color-border);
 	font-weight: 800;
 	text-decoration: none;
 	transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
 }
 
 .tc-btn:hover {
-	transform: translateY(-2px);
+	transform: translate(-2px, -2px);
 }
 
 .tc-btn--primary {
-	background: var(--tc-gradient);
+	background: var(--color-accent);
+	border-color: var(--color-border);
 	color: var(--color-on-accent) !important;
-	box-shadow: 0 14px 32px rgba(200, 146, 42, 0.28);
+	box-shadow: 3px 3px 0 var(--color-border);
+}
+
+.tc-btn--primary:hover {
+	box-shadow: 5px 5px 0 var(--color-border);
 }
 
 .tc-btn--secondary {
-	background: color-mix(in srgb, var(--color-bg) 76%, transparent);
+	background: var(--color-bg);
 	border-color: var(--color-border);
 	color: var(--color-text) !important;
+	box-shadow: 3px 3px 0 var(--color-border);
 }
 
 .tc-btn--secondary:hover {
 	border-color: var(--color-accent);
 	color: var(--color-accent) !important;
+	box-shadow: 5px 5px 0 var(--color-border);
 }
 
 .tc-section {
@@ -364,9 +364,21 @@ article a:hover {
 article blockquote {
 	margin-inline: 0;
 	padding-inline-start: 1.1rem;
-	border-inline-start: 3px solid var(--color-accent);
+	border-inline-start: 4px solid var(--color-accent);
 	color: var(--color-text-secondary);
 	font-style: normal;
+}
+
+article img,
+article :where(figure) img {
+	border: 2px solid var(--color-border);
+	border-radius: var(--radius);
+}
+
+article pre {
+	border: 2px solid var(--color-border);
+	border-radius: var(--radius);
+	box-shadow: 3px 3px 0 var(--color-border);
 }
 
 /* Refinamiento de selección y números tabulares en datos */

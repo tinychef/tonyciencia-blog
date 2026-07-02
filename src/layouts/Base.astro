@@ -119,7 +119,11 @@ const isLoggedIn = !!Astro.locals.user;
 		<meta name="twitter:title" content={pageTitle ?? title} />
 		<meta name="twitter:description" content={description ?? ""} />
 		<meta name="twitter:image" content={image ?? `${Astro.site ?? Astro.url.origin}/assets/og-default.webp`} />
-		{siteFavicon && <link rel="icon" href={siteFavicon} />}
+		<link rel="icon" href={siteFavicon || "/favicon.ico"} sizes="any" />
+		<link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+		<link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="manifest" href="/site.webmanifest" />
 		<SchemaOrg type={type} title={fullTitle} description={description} url={canonicalUrl} image={image} locale={locale} publishedTime={publishedTime} modifiedTime={modifiedTime} author={author} breadcrumbs={breadcrumbs} schemaType={schemaType} faqItems={faqItems} readingTime={readingTime} />
 		<EmDashHead page={pageCtx} />
 		<link rel="dns-prefetch" href="https://www.youtube.com" />
@@ -165,7 +169,7 @@ const isLoggedIn = !!Astro.locals.user;
 						<a href={locale === "en" ? "/en/contact" : "/contacto"}>{t("nav.contact")}</a>
 					</div>
 					<div class="theme-switcher">
-						<button type="button" class="theme-toggle" aria-label="Toggle theme">
+						<button type="button" class="theme-toggle" aria-label="Toggle theme" aria-pressed="false">
 							<svg class="sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
 							<svg class="moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
 						</button>
@@ -242,6 +246,7 @@ const isLoggedIn = !!Astro.locals.user;
 				setCookie("theme", theme);
 				root.classList.remove("light", "dark");
 				root.classList.add(theme);
+				themeToggle?.setAttribute("aria-pressed", String(theme === "dark"));
 			}
 
 			// Initialize
@@ -524,7 +529,7 @@ const isLoggedIn = !!Astro.locals.user;
 
 				::selection {
 					background: var(--color-accent);
-					color: white;
+					color: var(--color-on-accent);
 				}
 			}
 		</style>
@@ -552,15 +557,13 @@ const isLoggedIn = !!Astro.locals.user;
 				color: #fff;
 			}
 
-			/* ── HEADER — Glassmorphic ─────────────────────── */
+			/* ── HEADER — solid, hard-bordered ─────────────── */
 			.site-header {
 				position: sticky;
 				top: 0;
 				z-index: 100;
 				background: var(--glass-bg);
-				backdrop-filter: blur(var(--glass-blur));
-				-webkit-backdrop-filter: blur(var(--glass-blur));
-				border-bottom: 1px solid var(--glass-border);
+				border-bottom: 2px solid var(--glass-border);
 			}
 
 			.nav {
@@ -799,7 +802,7 @@ const isLoggedIn = !!Astro.locals.user;
 				align-items: center;
 				padding: 8px 18px;
 				background: var(--tc-gradient);
-				color: white !important;
+				color: var(--color-on-accent) !important;
 				font-size: var(--font-size-sm);
 				font-weight: 600;
 				border-radius: var(--radius-pill);
@@ -858,8 +861,7 @@ const isLoggedIn = !!Astro.locals.user;
 				bottom: 0;
 				z-index: 105;
 				background: var(--glass-bg);
-				backdrop-filter: blur(24px);
-				-webkit-backdrop-filter: blur(24px);
+				border-bottom: 2px solid var(--glass-border);
 				opacity: 0;
 				pointer-events: none;
 				transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -925,9 +927,9 @@ const isLoggedIn = !!Astro.locals.user;
 				justify-content: center;
 				width: 44px;
 				height: 44px;
-				border-radius: 50%;
+				border-radius: var(--radius);
 				background: var(--color-surface);
-				border: 1px solid var(--color-border);
+				border: 2px solid var(--color-border);
 				color: var(--color-muted);
 				text-decoration: none;
 				transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
@@ -941,7 +943,7 @@ const isLoggedIn = !!Astro.locals.user;
 			@media (max-width: 640px) {
 				.site-header {
 					position: sticky;
-					border-bottom: 1px solid var(--glass-border);
+					border-bottom: 2px solid var(--glass-border);
 				}
 
 				.nav {

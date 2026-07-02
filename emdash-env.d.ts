@@ -3,7 +3,7 @@
 
 /// <reference types="emdash/locals" />
 
-import type { ContentBylineCredit, PortableTextBlock } from "emdash";
+import type { ContentBylineCredit, TaxonomyTerm, PortableTextBlock } from "emdash";
 
 export interface LegalPage {
   id: string;
@@ -16,6 +16,7 @@ export interface LegalPage {
   updatedAt: Date;
   publishedAt: Date | null;
   bylines?: ContentBylineCredit[];
+  terms?: Record<string, TaxonomyTerm[]>;
 }
 
 export interface Page {
@@ -28,6 +29,7 @@ export interface Page {
   updatedAt: Date;
   publishedAt: Date | null;
   bylines?: ContentBylineCredit[];
+  terms?: Record<string, TaxonomyTerm[]>;
 }
 
 export interface Post {
@@ -48,6 +50,7 @@ export interface Post {
   updatedAt: Date;
   publishedAt: Date | null;
   bylines?: ContentBylineCredit[];
+  terms?: Record<string, TaxonomyTerm[]>;
 }
 
 declare module "emdash" {

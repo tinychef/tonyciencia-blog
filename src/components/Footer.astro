@@ -194,7 +194,7 @@ const year = new Date().getFullYear();
 <style>
   .site-footer {
     background: var(--color-bg-subtle);
-    border-top: 1px solid var(--color-border-subtle);
+    border-top: 2px solid var(--color-border);
     padding: 4rem 0 0;
   }
 
@@ -258,9 +258,9 @@ const year = new Date().getFullYear();
     justify-content: center;
     width: 36px;
     height: 36px;
-    border-radius: 50%;
+    border-radius: var(--radius);
     background: var(--color-surface);
-    border: 1px solid var(--color-border);
+    border: 2px solid var(--color-border);
     color: var(--color-muted);
     text-decoration: none;
     transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
@@ -319,9 +319,11 @@ const year = new Date().getFullYear();
     align-items: center;
     justify-content: center;
     padding: 10px 24px;
-    background: var(--tc-gradient);
-    color: white;
-    border-radius: var(--radius-lg);
+    background: var(--color-accent);
+    color: var(--color-on-accent);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: 3px 3px 0 var(--color-border);
     font-size: var(--font-size-sm);
     font-weight: 600;
     text-decoration: none;
@@ -330,9 +332,9 @@ const year = new Date().getFullYear();
   }
 
   .newsletter-cta-btn:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(200, 146, 42, 0.3);
-    color: white;
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 var(--color-border);
+    color: var(--color-on-accent);
   }
 
   /* ── 4-column Grid ── */
