@@ -288,13 +288,13 @@ const resources: Resource[] = isEs
   .card-cta {
     display: inline-flex; align-items: center;
     padding: 11px 24px;
-    background: var(--tc-gradient); color: white;
+    background: var(--tc-gradient); color: var(--color-on-accent);
     font-weight: 600; font-size: var(--font-size-base);
     border-radius: var(--radius-lg); text-decoration: none;
     transition: transform var(--transition-fast), box-shadow var(--transition-fast);
     align-self: flex-start;
   }
-  .card-cta:hover { transform: translateY(-1px); box-shadow: 4px 4px 0 var(--color-accent); color: white; }
+  .card-cta:hover { transform: translateY(-1px); box-shadow: 4px 4px 0 var(--color-accent); color: var(--color-on-accent); }
   .card-cta--disabled {
     background: var(--color-bg-subtle);
     color: var(--color-muted);
@@ -319,11 +319,11 @@ const resources: Resource[] = isEs
 
   .btn-primary {
     display: inline-flex; align-items: center; padding: 13px 28px;
-    background: var(--tc-gradient); color: white; font-weight: 600;
+    background: var(--tc-gradient); color: var(--color-on-accent); font-weight: 600;
     font-size: var(--font-size-base); border-radius: var(--radius-lg);
     text-decoration: none; transition: transform var(--transition-fast), box-shadow var(--transition-fast);
   }
-  .btn-primary:hover { transform: translateY(-1px); box-shadow: 4px 4px 0 var(--color-accent); color: white; }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 4px 4px 0 var(--color-accent); color: var(--color-on-accent); }
   .btn-primary.btn-large { padding: 16px 40px; font-size: var(--font-size-lg); border-radius: var(--radius-xl); }
 
   @media (max-width: 640px) {

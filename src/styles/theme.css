@@ -14,6 +14,8 @@
 	--color-accent-highlight: #ffd873;
 	--color-accent-muted: rgba(200, 146, 42, 0.15);
 	--color-accent-ring: color-mix(in srgb, #c8922a 25%, transparent);
+	/* Dark text reads ~6.3:1 on the amber accent; white only reads ~2.6:1 (fails AA) */
+	--color-on-accent: #1a1a1a;
 
 	/* ─── Light Mode ─────────────────────────────── */
 	--color-bg: #faf8f2;
