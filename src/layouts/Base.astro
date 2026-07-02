@@ -119,7 +119,11 @@ const isLoggedIn = !!Astro.locals.user;
 		<meta name="twitter:title" content={pageTitle ?? title} />
 		<meta name="twitter:description" content={description ?? ""} />
 		<meta name="twitter:image" content={image ?? `${Astro.site ?? Astro.url.origin}/assets/og-default.webp`} />
-		{siteFavicon && <link rel="icon" href={siteFavicon} />}
+		<link rel="icon" href={siteFavicon || "/favicon.ico"} sizes="any" />
+		<link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+		<link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="manifest" href="/site.webmanifest" />
 		<SchemaOrg type={type} title={fullTitle} description={description} url={canonicalUrl} image={image} locale={locale} publishedTime={publishedTime} modifiedTime={modifiedTime} author={author} breadcrumbs={breadcrumbs} schemaType={schemaType} faqItems={faqItems} readingTime={readingTime} />
 		<EmDashHead page={pageCtx} />
 		<link rel="dns-prefetch" href="https://www.youtube.com" />
