@@ -9,7 +9,7 @@ Blog bilingüe (ES/EN) sobre inteligencia artificial, automatización y negocios
 | Componente | Tecnología |
 |---|---|
 | CMS | EmDash |
-| Framework | Astro 6 |
+| Framework | Astro 7 |
 | Runtime | Cloudflare Workers |
 | Base de datos | Cloudflare D1 |
 | Almacenamiento | Cloudflare R2 |

@@ -270,9 +270,13 @@ body {
 }
 
 /* ════════════════════════════════════════════════════════════════
-   NOTION + APPLE TYPOGRAPHY LAYER · 2026
-   Aditivo y seguro: define una escala tipográfica fluida controlada
-   (clamp) y refina cuerpo, encabezados y lectura de artículo.
+   TYPE SCALE — fuente de verdad única
+   Define la escala tipográfica fluida (clamp), tracking/leading y
+   refina cuerpo, encabezados y lectura de artículo. Al estar sin
+   @layer, estas variables SIEMPRE ganan sobre el reset de
+   Base.astro (@layer base) — por eso Base.astro ya no redeclara
+   --font-size-xs..3xl ni --tracking-tight/--leading-tight: serían
+   código muerto. Si necesitas tocar el type scale, es acá.
    NO toca colores, glass, gradients, ripple ni el toggle dark/light.
    Las clases de componente (.tc-section-title, etc.) conservan su
    tamaño por mayor especificidad — esto solo afina texto base y prosa.

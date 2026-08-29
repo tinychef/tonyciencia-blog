@@ -12,6 +12,7 @@ import { getLangFromUrl, getAlternateLocale, getLocalePath, useTranslations } fr
 import SchemaOrg from "../components/SchemaOrg.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import CookieConsent from "../components/CookieConsent.astro";
+import Analytics from "../components/Analytics.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/theme.css";
 
@@ -126,6 +127,7 @@ const isLoggedIn = !!Astro.locals.user;
 		<link rel="manifest" href="/site.webmanifest" />
 		<SchemaOrg type={type} title={fullTitle} description={description} url={canonicalUrl} image={image} locale={locale} publishedTime={publishedTime} modifiedTime={modifiedTime} author={author} breadcrumbs={breadcrumbs} schemaType={schemaType} faqItems={faqItems} readingTime={readingTime} />
 		<EmDashHead page={pageCtx} />
+		<Analytics />
 		<link rel="dns-prefetch" href="https://www.youtube.com" />
 		<link rel="dns-prefetch" href="https://www.linkedin.com" />
 		<link rel="dns-prefetch" href="https://cdn.instagram.com" />
@@ -368,19 +370,13 @@ const isLoggedIn = !!Astro.locals.user;
 					--emdash-search-hover: var(--color-surface);
 					--emdash-search-highlight: var(--color-text);
 
-					/* Type scale - more refined */
-					--font-size-xs: 0.8125rem;
-					--font-size-sm: 0.875rem;
-					--font-size-base: 1rem;
-					--font-size-lg: 1.125rem;
-					--font-size-xl: 1.25rem;
-					--font-size-2xl: 1.5rem;
-					--font-size-3xl: 2rem;
+					/* Type scale — xs through 3xl live in theme.css (unlayered, always wins
+					   over this reset); only the sizes theme.css doesn't touch stay here. */
 					--font-size-4xl: 2.5rem;
 					--font-size-5xl: 3.5rem;
 
-					/* Line heights */
-					--leading-tight: 1.15;
+					/* Line heights — leading-tight is set in theme.css (unlayered, wins over
+					   this reset); only what it doesn't touch stays here. */
 					--leading-snug: 1.3;
 					--leading-normal: 1.5;
 					--leading-relaxed: 1.7;
@@ -435,8 +431,8 @@ const isLoggedIn = !!Astro.locals.user;
 					--avatar-size-md: 24px;
 					--avatar-size-lg: 32px;
 
-					/* Letter spacing */
-					--tracking-tight: -0.03em;
+					/* Letter spacing — tracking-tight lives in theme.css (unlayered, wins
+					   over this reset); only what it doesn't touch stays here. */
 					--tracking-snug: -0.02em;
 					--tracking-wide: 0.06em;
 					--tracking-wider: 0.08em;

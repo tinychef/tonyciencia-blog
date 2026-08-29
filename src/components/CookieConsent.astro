@@ -4,6 +4,7 @@ import { getLangFromUrl, useTranslations } from "../i18n/locales";
 const locale = getLangFromUrl(Astro.url);
 const t = useTranslations(locale);
 const cookiePolicyUrl = locale === "en" ? "/en/legal/cookies-en" : "/legal/cookies";
+const rejectLabel = locale === "en" ? "Reject" : "Rechazar";
 ---
 
 <div class="cookie-consent" id="cookie-consent" role="alert" aria-live="polite" hidden>
@@ -11,6 +12,9 @@ const cookiePolicyUrl = locale === "en" ? "/en/legal/cookies-en" : "/legal/cooki
 		<p class="cookie-message">{t("cookies.message")}</p>
 		<div class="cookie-actions">
 			<a href={cookiePolicyUrl} class="cookie-link">{t("cookies.learnMore")}</a>
+			<button type="button" class="cookie-reject" id="cookie-reject-btn">
+				{rejectLabel}
+			</button>
 			<button type="button" class="cookie-accept" id="cookie-accept-btn">
 				{t("cookies.accept")}
 			</button>
@@ -19,18 +23,33 @@ const cookiePolicyUrl = locale === "en" ? "/en/legal/cookies-en" : "/legal/cooki
 </div>
 
 <script>
-	const banner = document.getElementById("cookie-consent");
-	const btn = document.getElementById("cookie-accept-btn");
+	// Consent gate for third-party scripts (Analytics.astro reads this cookie
+	// before deciding whether to grant Google Consent Mode / Meta Pixel consent).
+	// Values: "accepted" | "rejected". No cookie yet = undecided.
+	const COOKIE_NAME = "cookie_consent";
 
-	if (banner && btn) {
-		// Show if no consent cookie
-		if (!document.cookie.includes("cookie_consent=")) {
+	function setConsentCookie(value: "accepted" | "rejected") {
+		const secure = location.protocol === "https:" ? "; Secure" : "";
+		document.cookie = `${COOKIE_NAME}=${value}; path=/; max-age=31536000; SameSite=Lax${secure}`;
+		window.dispatchEvent(new CustomEvent("tc:consent", { detail: { value } }));
+	}
+
+	const banner = document.getElementById("cookie-consent");
+	const acceptBtn = document.getElementById("cookie-accept-btn");
+	const rejectBtn = document.getElementById("cookie-reject-btn");
+
+	if (banner && acceptBtn && rejectBtn) {
+		if (!document.cookie.includes(`${COOKIE_NAME}=`)) {
 			banner.hidden = false;
 		}
 
-		btn.addEventListener("click", () => {
-			const secure = location.protocol === "https:" ? "; Secure" : "";
-			document.cookie = `cookie_consent=accepted; path=/; max-age=31536000; SameSite=Lax${secure}`;
+		acceptBtn.addEventListener("click", () => {
+			setConsentCookie("accepted");
+			banner.hidden = true;
+		});
+
+		rejectBtn.addEventListener("click", () => {
+			setConsentCookie("rejected");
 			banner.hidden = true;
 		});
 	}
@@ -87,17 +106,31 @@ const cookiePolicyUrl = locale === "en" ? "/en/legal/cookies-en" : "/legal/cooki
 		color: var(--color-text);
 	}
 
+	.cookie-reject,
 	.cookie-accept {
 		padding: 8px 20px;
-		background: var(--color-accent);
-		color: #fff;
-		border: none;
 		border-radius: var(--radius-pill);
 		font-family: var(--font-sans);
 		font-size: var(--font-size-sm);
 		font-weight: 600;
 		cursor: pointer;
 		transition: all 200ms ease;
+	}
+
+	.cookie-reject {
+		background: transparent;
+		color: var(--color-text);
+		border: 1px solid var(--color-border);
+	}
+
+	.cookie-reject:hover {
+		border-color: var(--color-text);
+	}
+
+	.cookie-accept {
+		background: var(--color-accent);
+		color: var(--color-on-accent, #fff);
+		border: 1px solid transparent;
 	}
 
 	.cookie-accept:hover {

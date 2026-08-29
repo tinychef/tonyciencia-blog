@@ -1,0 +1,72 @@
+---
+// Google tag (GA4 / Ads) + Meta Pixel, gated by the visitor's choice in
+// CookieConsent.astro. Both libraries load unconditionally (industry-standard
+// Consent Mode approach — Google can still model conversions), but tracking
+// storage stays denied until the visitor accepts, and is revoked again if
+// they reject. No IDs set = this component renders nothing.
+//
+// Set PUBLIC_GA_ID / PUBLIC_META_PIXEL_ID in .env (local) and as build vars
+// in the Cloudflare Pages/Workers project + GitHub Actions (deploy.yml runs
+// `astro build`, which is when these get inlined).
+const gaId = import.meta.env.PUBLIC_GA_ID as string | undefined;
+const metaPixelId = import.meta.env.PUBLIC_META_PIXEL_ID as string | undefined;
+---
+
+{gaId && (
+	<script async is:inline src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+	<script define:vars={{ gaId }} is:inline>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		// @ts-ignore
+		window.gtag = gtag;
+		gtag("js", new Date());
+		// Consent Mode v2 — denied by default, updated once the visitor decides.
+		gtag("consent", "default", {
+			ad_storage: "denied",
+			ad_user_data: "denied",
+			ad_personalization: "denied",
+			analytics_storage: "denied",
+		});
+		gtag("config", gaId);
+	</script>
+)}
+
+{metaPixelId && (
+	<script define:vars={{ metaPixelId }} is:inline>
+		!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+		n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+		n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;
+		t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+		document,"script","https://connect.facebook.net/en_US/fbevents.js");
+		fbq("consent", "revoke");
+		fbq("init", metaPixelId);
+		fbq("track", "PageView");
+	</script>
+	<noscript>
+		<img height="1" width="1" style="display:none" src={`https://www.facebook.com/tr?id=${metaPixelId}&ev=PageView&noscript=1`} alt="" />
+	</noscript>
+)}
+
+{(gaId || metaPixelId) && (
+	<script define:vars={{ hasGa: !!gaId, hasMeta: !!metaPixelId }} is:inline>
+		function applyConsent(value) {
+			const granted = value === "accepted";
+			if (hasGa && window.gtag) {
+				window.gtag("consent", "update", {
+					ad_storage: granted ? "granted" : "denied",
+					ad_user_data: granted ? "granted" : "denied",
+					ad_personalization: granted ? "granted" : "denied",
+					analytics_storage: granted ? "granted" : "denied",
+				});
+			}
+			if (hasMeta && window.fbq) {
+				window.fbq("consent", granted ? "grant" : "revoke");
+			}
+		}
+
+		const existing = document.cookie.match(/cookie_consent=([^;]+)/);
+		if (existing) applyConsent(existing[1]);
+
+		window.addEventListener("tc:consent", (e) => applyConsent(e.detail.value));
+	</script>
+)}
