@@ -3,19 +3,14 @@ import { getEmDashCollection, getEntryTerms, getSiteSettings } from "emdash";
 import Base from "../../layouts/Base.astro";
 import PostCard from "../../components/PostCard.astro";
 import PostTitleCard from "../../components/PostTitleCard.astro";
-import PartnerBadge from "../../components/PartnerBadge.astro";
-import ProductCard from "../../components/ProductCard.astro";
-import GhlBand from "../../components/GhlBand.astro";
-import CategoryMarquee from "../../components/CategoryMarquee.astro";
-import LeadMagnet from "../../components/LeadMagnet.astro";
+import ToolsMarquee from "../../components/ToolsMarquee.astro";
 import { getReadingTime } from "../../utils/reading-time";
 import { resolveBlogSiteIdentity } from "../../utils/site-identity";
 import { getStaticPosts, getStaticTags } from "../../utils/static-posts";
-import { partners } from "../../data/partners.generated";
+import { getLangFromUrl, useTranslations } from "../../i18n/locales";
 
-// Home ES-only — ver src/components/pages/HomePageEn.astro para la home en inglés
-// (intacta, sirve /en/). No hay ramas de idioma acá a propósito.
-const locale = "es";
+const locale = getLangFromUrl(Astro.url);
+const t = useTranslations(locale);
 
 const { entries: cmsPosts, cacheHint } = await getEmDashCollection("posts", { locale });
 const { siteTitle, siteTagline } = resolveBlogSiteIdentity(await getSiteSettings());
@@ -34,6 +29,9 @@ const sortedPosts = posts.toSorted((a, b) => {
 
 const featuredPost = sortedPosts[0];
 const gridPosts = sortedPosts.slice(1, 5);
+const postsRoute = locale === "en" ? "/en/posts" : "/posts";
+const servicesRoute = locale === "en" ? "/en/services" : "/servicios";
+const contactRoute = locale === "en" ? "/en/contact" : "/contacto";
 
 const featuredTags = featuredPost
 	? getStaticTags(featuredPost).length > 0
@@ -51,32 +49,25 @@ const gridPostsWithTags = await Promise.all(
 );
 
 const formatDate = (date: Date | null | undefined) =>
-	date?.toLocaleDateString("es-ES", { year: "numeric", month: "short", day: "numeric" });
+	date?.toLocaleDateString(locale === "en" ? "en-US" : "es-ES", {
+		year: "numeric",
+		month: "short",
+		day: "numeric",
+	});
 
-const operatingSystem = [
-	["Auditar", "Mapeamos trabajo repetitivo, brechas de datos y decisiones listas para IA."],
-	["Construir", "Desplegamos automatizaciones y agentes conectados a tus herramientas reales."],
-	["Controlar", "Documentamos reglas, escalamiento y puntos de revisión humana."],
-	["Escalar", "Medimos impacto y expandimos solo donde el caso de negocio es real."],
-];
-
-// Carrusel curado — 6 categorías más relevantes para el ICP B2B. El catálogo
-// completo (139 partners activos / 29 categorías) vive en /herramientas.
-const CURATED_CATEGORIES = [
-	"CRM y Ventas",
-	"Marketing y Funnels",
-	"Email Marketing y Ventas por Correo",
-	"IA — Agentes y Automatización",
-	"Productividad y Gestión de Proyectos",
-	"Comunicación — Telefonía y Atención",
-];
-
-const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
-	category,
-	partners: partners.filter((p) => p.category === category),
-	direction: (index % 2 === 0 ? "left" : "right") as "left" | "right",
-	durationSeconds: index % 2 === 0 ? 32 : 36,
-}));
+const operatingSystem = locale === "en"
+	? [
+			["Audit", "We map repetitive work, data gaps, and AI-ready decisions."],
+			["Build", "We deploy automations and agents connected to your actual tools."],
+			["Control", "We document rules, escalation paths, and human review points."],
+			["Scale", "We measure impact and expand only where the business case is real."],
+		]
+	: [
+			["Auditar", "Mapeamos trabajo repetitivo, brechas de datos y decisiones listas para IA."],
+			["Construir", "Desplegamos automatizaciones y agentes conectados a tus herramientas reales."],
+			["Controlar", "Documentamos reglas, escalamiento y puntos de revisión humana."],
+			["Escalar", "Medimos impacto y expandimos solo donde el caso de negocio es real."],
+		];
 ---
 
 <Base title={siteTitle} description={siteTagline}>
@@ -84,134 +75,98 @@ const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
 		<div class="hero-grid-bg" aria-hidden="true"></div>
 		<div class="tc-shell hero-shell">
 			<div class="hero-copy">
-				<span class="tc-eyebrow">Solo empresas</span>
+				<span class="tc-eyebrow">{t("services.label")}</span>
 				<h1 class="hero-title">
-					Implementa IA,<br />
-					<span class="tc-gradient-text">Avanza.</span>
+					{t("hero.title.line1")}<br />
+					<span class="tc-gradient-text">{t("hero.title.line2")}</span>
 				</h1>
-				<p class="hero-subtitle">Muchos hablan de IA. Pocos construyen con ella.</p>
+				<p class="hero-subtitle">{t("hero.subtitle")}</p>
 				<div class="hero-actions">
-					<a href="/servicios" class="tc-btn tc-btn--primary">Ver servicios</a>
-					<a href="/posts" class="tc-btn tc-btn--secondary">Leer el blog</a>
+					<a href={servicesRoute} class="tc-btn tc-btn--primary">{t("hero.cta.primary")}</a>
+					<a href={postsRoute} class="tc-btn tc-btn--secondary">{t("hero.cta.secondary")}</a>
 				</div>
-				<div class="hero-proof" aria-label="Prueba de negocio">
+				<div class="hero-proof" aria-label="Business proof">
 					<div>
 						<strong>3</strong>
-						<span>servicios B2B</span>
+						<span>{locale === "en" ? "B2B services" : "servicios B2B"}</span>
 					</div>
 					<div>
 						<strong>24/7</strong>
-						<span>lógica automatizada</span>
+						<span>{locale === "en" ? "automation logic" : "lógica automatizada"}</span>
 					</div>
 					<div>
 						<strong>0</strong>
-						<span>improvisación con IA</span>
+						<span>{locale === "en" ? "AI improvisation" : "improvisación con IA"}</span>
 					</div>
 				</div>
 			</div>
 
-			<div class="hero-console tc-card" aria-label="Consola de implementación IA">
+			<div class="hero-console tc-card" aria-label="AI implementation console">
 				<div class="console-top">
 					<span></span><span></span><span></span>
-					<p>Capa operativa IA</p>
+					<p>{locale === "en" ? "AI operating layer" : "Capa operativa IA"}</p>
 				</div>
 				<div class="console-flow">
-					<div class="flow-node active">Lead CRM</div>
+					<div class="flow-node active">{locale === "en" ? "CRM Lead" : "Lead CRM"}</div>
 					<div class="flow-line"></div>
-					<div class="flow-node">Agente IA</div>
+					<div class="flow-node">{locale === "en" ? "AI Agent" : "Agente IA"}</div>
 					<div class="flow-line"></div>
-					<div class="flow-node">Revisión humana</div>
+					<div class="flow-node">{locale === "en" ? "Human Review" : "Revisión humana"}</div>
 				</div>
 				<div class="console-panel">
-					<p class="panel-label">Regla empresarial</p>
-					<p>Escala leads de alto valor, documenta cada decisión y mantiene al equipo en control.</p>
+					<p class="panel-label">{locale === "en" ? "Business rule" : "Regla empresarial"}</p>
+					<p>{locale === "en" ? "Escalate high-value leads, document every decision, and keep the team in control." : "Escala leads de alto valor, documenta cada decisión y mantiene al equipo en control."}</p>
 				</div>
 				<div class="console-metrics">
-					<div><strong>01</strong><span>Automatizaciones</span></div>
-					<div><strong>02</strong><span>Agentes IA</span></div>
-					<div><strong>03</strong><span>Mentoría</span></div>
+					<div><strong>01</strong><span>{t("services.automation.title")}</span></div>
+					<div><strong>02</strong><span>{t("services.courses.title")}</span></div>
+					<div><strong>03</strong><span>{t("services.apps.title")}</span></div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<PartnerBadge
-		imgSrc="https://www.claudeaimalaysia.com/uploads/claude_partner_network.png"
-		imgAlt="Anthropic Claude Partner Network"
-		label="Anthropic Claude Partner Network"
-	/>
+	<ToolsMarquee />
 
 	<section class="tc-section services-2026">
 		<div class="tc-shell">
 			<div class="section-split">
 				<div>
-					<span class="tc-eyebrow">Solo Empresas</span>
-					<h2 class="tc-section-title">Implementa IA en operaciones reales</h2>
+					<span class="tc-eyebrow">{t("services.label")}</span>
+					<h2 class="tc-section-title">{t("services.heading")}</h2>
 				</div>
-				<p class="tc-section-copy">Tres servicios para empresas que quieren pasar de probar herramientas a operar con sistemas de IA útiles, medibles y mantenibles.</p>
+				<p class="tc-section-copy">{t("services.sub")}</p>
 			</div>
 
 			<div class="service-matrix">
-				<a href="/servicios#automatizacion" class="matrix-card tc-card">
+				<a href={`${servicesRoute}#automatizacion`} class="matrix-card tc-card">
 					<span class="matrix-index">01</span>
-					<h3>Automatizaciones</h3>
-					<p>Conectamos CRM, formularios, WhatsApp, email, hojas de cálculo y APIs para reducir trabajo manual y errores operativos.</p>
-					<strong>Automatizar procesos →</strong>
+					<h3>{t("services.automation.title")}</h3>
+					<p>{t("services.automation.desc")}</p>
+					<strong>{t("services.automation.link")}</strong>
 				</a>
-				<a href="/servicios#agentes-ia" class="matrix-card tc-card matrix-card--prime">
+				<a href={`${servicesRoute}#agentes-ia`} class="matrix-card tc-card matrix-card--prime">
 					<span class="matrix-index">02</span>
-					<small>Solo Empresas</small>
-					<h3>Agentes IA</h3>
-					<p>Diseñamos agentes que atienden, clasifican, registran, consultan datos y escalan casos con reglas claras para tu equipo.</p>
-					<strong>Crear agentes IA →</strong>
+					<small>{t("services.courses.badge")}</small>
+					<h3>{t("services.courses.title")}</h3>
+					<p>{t("services.courses.desc")}</p>
+					<strong>{t("services.courses.link")}</strong>
 				</a>
-				<a href="/servicios#mentoria" class="matrix-card tc-card">
+				<a href={`${servicesRoute}#mentoria`} class="matrix-card tc-card">
 					<span class="matrix-index">03</span>
-					<h3>Mentoría</h3>
-					<p>Acompañamos a dirección y equipos para elegir casos de uso, priorizar implementación y evitar gasto en IA sin retorno.</p>
-					<strong>Solicitar mentoría →</strong>
+					<h3>{t("services.apps.title")}</h3>
+					<p>{t("services.apps.desc")}</p>
+					<strong>{t("services.apps.link")}</strong>
 				</a>
 			</div>
 		</div>
 	</section>
-
-	<section class="tc-section product-section">
-		<div class="tc-shell">
-			<div class="section-split">
-				<div>
-					<span class="tc-eyebrow">Suscripción</span>
-					<h2 class="tc-section-title">Agentes que trabajan por vos.</h2>
-				</div>
-				<p class="tc-section-copy">Uno es un agente de atención al cliente. El otro es un agente de marketing.</p>
-			</div>
-			<div class="product-grid">
-				<ProductCard
-					name="Agente Mía"
-					tagline="Atiende tu CRM, califica leads y agenda citas — para que ningún cliente se quede sin respuesta."
-					ctaLabel="Hablar por WhatsApp →"
-					ctaHref="https://wa.me/56976424523"
-					accent="cyan"
-				/>
-				<ProductCard
-					name="Agente Peitho"
-					tagline="Tu estratega de marketing con IA — investiga tu marca, tu competencia y genera tu próxima campaña."
-					ctaLabel="Conocer Peitho →"
-					ctaHref="https://adsinfinitos.tonyciencia.com"
-					accent="purple"
-				/>
-			</div>
-		</div>
-	</section>
-
-	<GhlBand />
-
-	<CategoryMarquee rows={marqueeRows} sectionLabel="Herramientas que recomendamos" />
 
 	<section class="tc-section operating-section">
 		<div class="tc-shell operating-grid">
 			<div>
-				<span class="tc-eyebrow">Método</span>
-				<h2 class="tc-section-title">IA que funciona como sistema operativo.</h2>
+				<span class="tc-eyebrow">{locale === "en" ? "Method" : "Método"}</span>
+				<h2 class="tc-section-title">{locale === "en" ? "AI that works like an operating system." : "IA que funciona como sistema operativo."}</h2>
 			</div>
 			<div class="operating-list">
 				{operatingSystem.map(([title, copy], index) => (
@@ -227,43 +182,32 @@ const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
 		</div>
 	</section>
 
-	<section class="tc-section resources-section">
-		<div class="tc-shell">
-			<LeadMagnet
-				title="Recursos gratuitos para implementar IA"
-				description="Plantillas, checklists y guías listas para usar en tu negocio. Directo a tu correo, sin relleno."
-				cta="Quiero los recursos"
-				badge="Gratis"
-			/>
-		</div>
-	</section>
-
 	<section class="tc-section blog-radar">
 		<div class="tc-shell">
 			<div class="section-split">
 				<div>
-					<span class="tc-eyebrow">Radar IA</span>
-					<h2 class="tc-section-title">Últimos artículos</h2>
+					<span class="tc-eyebrow">{locale === "en" ? "AI Radar" : "Radar IA"}</span>
+					<h2 class="tc-section-title">{t("blog.latest")}</h2>
 				</div>
-				<a href="/posts" class="tc-btn tc-btn--secondary">Ver todos</a>
+				<a href={postsRoute} class="tc-btn tc-btn--secondary">{t("blog.viewAll")}</a>
 			</div>
 
 			{sortedPosts.length === 0 ? (
 				<div class="empty-state">
-					<p>Sin artículos aún</p>
+					<p>{t("blog.noPostsYet")}</p>
 				</div>
 			) : (
 				<div class="blog-radar-grid">
 					{featuredPost && (
 						<article class="featured-article tc-card">
-							<a href={`/posts/${featuredPost.id}`} class="featured-link">
+							<a href={`${postsRoute}/${featuredPost.id}`} class="featured-link">
 								<div class="featured-media">
 									<PostTitleCard title={featuredPost.data.title} variant="hero" />
 								</div>
 								<div class="featured-body">
 									<div class="featured-meta">
 										{featuredPost.data.publishedAt && <time>{formatDate(featuredPost.data.publishedAt)}</time>}
-										<span>{getReadingTime(featuredPost.data.content as any)} min de lectura</span>
+										<span>{getReadingTime(featuredPost.data.content as any)} {t("blog.minRead")}</span>
 									</div>
 									<h3>{featuredPost.data.title}</h3>
 									{featuredPost.data.excerpt && <p>{featuredPost.data.excerpt}</p>}
@@ -281,7 +225,7 @@ const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
 							<PostCard
 								title={post.data.title}
 								excerpt={post.data.excerpt}
-								href={`/posts/${post.id}`}
+								href={`${postsRoute}/${post.id}`}
 								date={post.data.publishedAt ?? undefined}
 								readingTime={getReadingTime(post.data.content as any)}
 								tags={tags}
@@ -296,10 +240,10 @@ const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
 	<section class="final-cta">
 		<div class="tc-shell">
 			<div class="final-cta-card tc-card">
-				<span class="tc-eyebrow">Orientación 1:1</span>
-				<h2>¿Listo para implementar IA sin improvisar?</h2>
-				<p>Agenda una orientación 1:1 gratuita de 30 minutos y te mostramos exactamente qué automatizaciones tienen más impacto para tu negocio.</p>
-				<a href="/contacto" class="tc-btn tc-btn--primary">Agenda tu orientación 1:1 →</a>
+				<span class="tc-eyebrow">{t("cta.social_proof")}</span>
+				<h2>{t("cta.title")}</h2>
+				<p>{t("cta.sub")}</p>
+				<a href={contactRoute} class="tc-btn tc-btn--primary">{t("cta.button")}</a>
 			</div>
 		</div>
 	</section>
@@ -308,7 +252,7 @@ const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
 <script>
 	(function () {
 		const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-		const targets = document.querySelectorAll(".service-matrix > *, .product-grid > *, .operating-item, .blog-radar-grid, .final-cta-card");
+		const targets = document.querySelectorAll(".service-matrix > *, .operating-item, .blog-radar-grid, .final-cta-card");
 		targets.forEach((target) => target.classList.add("scroll-reveal"));
 		if (prefersReduced) {
 			targets.forEach((target) => target.classList.add("is-visible"));
@@ -360,8 +304,8 @@ const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
 	.hero-title {
 		font-size: clamp(3.2rem, 9vw, 7.4rem);
 		line-height: 0.88;
-		letter-spacing: -0.02em;
-		max-width: 11ch;
+		letter-spacing: -0.085em;
+		max-width: 9ch;
 	}
 
 	.hero-subtitle {
@@ -382,7 +326,7 @@ const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
 		width: 100%;
 		margin-top: var(--spacing-4);
 		padding-top: var(--spacing-6);
-		border-top: 2px solid var(--color-border);
+		border-top: 1px solid var(--color-border);
 	}
 
 	.hero-proof div {
@@ -393,8 +337,8 @@ const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
 	}
 
 	.hero-proof strong {
-		font-family: var(--font-heading-stack);
 		font-size: clamp(1.7rem, 3vw, 2.4rem);
+		letter-spacing: -0.05em;
 	}
 
 	.hero-proof span {
@@ -404,6 +348,7 @@ const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
 
 	.hero-console {
 		padding: clamp(1.2rem, 2vw, 1.6rem);
+		transform: rotate(1.2deg);
 	}
 
 	.console-top,
@@ -423,14 +368,13 @@ const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
 	.console-top span {
 		width: 0.65rem;
 		height: 0.65rem;
-		border-radius: var(--radius-full);
+		border-radius: var(--radius);
 		background: var(--color-border);
 	}
 
 	.console-top p {
 		margin-left: auto;
 		color: var(--color-muted);
-		font-family: var(--font-mono);
 		font-size: var(--font-size-xs);
 		font-weight: 700;
 		text-transform: uppercase;
@@ -447,7 +391,8 @@ const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
 
 	.flow-node {
 		padding: 0.85rem;
-		border: 2px solid var(--color-border);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-lg);
 		background: var(--color-bg);
 		text-align: center;
 		font-size: var(--font-size-sm);
@@ -456,12 +401,12 @@ const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
 
 	.flow-node.active {
 		border-color: var(--color-accent);
-		box-shadow: 3px 3px 0 var(--color-accent);
+		box-shadow: 0 0 0 4px var(--color-accent-muted);
 	}
 
 	.flow-line {
 		width: 2rem;
-		height: 2px;
+		height: 1px;
 		background: var(--color-border);
 	}
 
@@ -469,7 +414,8 @@ const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
 		position: relative;
 		z-index: 1;
 		padding: var(--spacing-5);
-		border: 2px solid var(--color-border-subtle);
+		border: 1px solid var(--color-border-subtle);
+		border-radius: var(--radius-xl);
 		background: var(--color-bg-subtle);
 		color: var(--color-text-secondary);
 		line-height: 1.6;
@@ -477,8 +423,7 @@ const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
 
 	.panel-label {
 		margin-bottom: var(--spacing-2);
-		color: var(--color-accent-shadow);
-		font-family: var(--font-mono);
+		color: var(--color-accent);
 		font-size: var(--font-size-xs);
 		font-weight: 800;
 		text-transform: uppercase;
@@ -494,7 +439,9 @@ const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
 
 	.console-metrics div {
 		padding: var(--spacing-4);
-		border: 2px solid var(--color-border-subtle);
+		border-radius: var(--radius-lg);
+		background: color-mix(in srgb, var(--color-bg) 72%, transparent);
+		border: 1px solid var(--color-border-subtle);
 	}
 
 	.console-metrics strong,
@@ -503,7 +450,7 @@ const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
 	}
 
 	.console-metrics strong {
-		color: var(--color-text);
+		color: var(--color-accent);
 		font-family: var(--font-mono);
 	}
 
@@ -521,7 +468,7 @@ const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
 	}
 
 	.services-2026 {
-		background: var(--color-bg-subtle);
+		background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--color-bg-subtle) 72%, transparent), transparent);
 	}
 
 	.service-matrix {
@@ -538,20 +485,22 @@ const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
 		padding: clamp(1.4rem, 2.5vw, 2rem);
 		color: inherit;
 		text-decoration: none;
-		transition: transform var(--transition-base), box-shadow var(--transition-base);
+		transition: transform var(--transition-base), border-color var(--transition-base);
 	}
 
 	.matrix-card:hover {
-		transform: translate(-3px, -3px);
-		box-shadow: var(--shadow-xl);
+		transform: translateY(-8px);
+		border-color: var(--color-accent);
 	}
 
 	.matrix-card--prime {
-		background: var(--color-accent-muted);
+		background:
+			linear-gradient(140deg, var(--color-bg), color-mix(in srgb, var(--color-accent) 10%, var(--color-bg))),
+			var(--color-bg);
 	}
 
 	.matrix-index {
-		color: var(--color-accent-shadow);
+		color: var(--color-accent);
 		font-family: var(--font-mono);
 		font-weight: 900;
 	}
@@ -559,10 +508,10 @@ const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
 	.matrix-card small {
 		width: fit-content;
 		padding: 0.3rem 0.65rem;
-		background: var(--color-accent);
-		color: var(--color-on-accent);
-		font-family: var(--font-mono);
-		font-weight: 800;
+		border-radius: var(--radius-pill);
+		background: var(--color-accent-muted);
+		color: var(--color-accent);
+		font-weight: 900;
 		text-transform: uppercase;
 		letter-spacing: 0.08em;
 	}
@@ -570,6 +519,7 @@ const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
 	.matrix-card h3 {
 		margin-top: auto;
 		font-size: clamp(1.8rem, 4vw, 3rem);
+		letter-spacing: -0.055em;
 	}
 
 	.matrix-card p {
@@ -579,14 +529,7 @@ const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
 	}
 
 	.matrix-card strong {
-		color: var(--color-text);
-		font-family: var(--font-mono);
-	}
-
-	.product-grid {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: var(--spacing-5);
+		color: var(--color-accent);
 	}
 
 	.operating-grid {
@@ -606,12 +549,13 @@ const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
 		grid-template-columns: auto 1fr;
 		gap: var(--spacing-4);
 		padding: var(--spacing-5);
-		border: 2px solid var(--color-border);
-		background: var(--color-bg);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-xl);
+		background: color-mix(in srgb, var(--color-bg) 82%, transparent);
 	}
 
 	.operating-item span {
-		color: var(--color-accent-shadow);
+		color: var(--color-accent);
 		font-family: var(--font-mono);
 		font-weight: 900;
 	}
@@ -623,10 +567,6 @@ const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
 	.operating-item p {
 		color: var(--color-text-secondary);
 		line-height: 1.65;
-	}
-
-	.resources-section {
-		background: var(--color-bg-subtle);
 	}
 
 	.blog-radar-grid {
@@ -647,7 +587,7 @@ const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
 		z-index: 1;
 		aspect-ratio: 16 / 10;
 		overflow: hidden;
-		border-bottom: 2px solid var(--color-border);
+		border-bottom: 1px solid var(--color-border);
 	}
 
 	.featured-media :global(.title-render) {
@@ -679,7 +619,6 @@ const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
 		flex-wrap: wrap;
 		gap: var(--spacing-2);
 		color: var(--color-muted);
-		font-family: var(--font-mono);
 		font-size: var(--font-size-sm);
 	}
 
@@ -687,6 +626,7 @@ const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
 		margin: var(--spacing-4) 0;
 		font-size: clamp(1.8rem, 4vw, 3.2rem);
 		line-height: 1;
+		letter-spacing: -0.055em;
 	}
 
 	.featured-body p {
@@ -700,7 +640,8 @@ const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
 
 	.featured-tags span {
 		padding: 0.28rem 0.65rem;
-		border: 2px solid var(--color-border);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-pill);
 	}
 
 	.post-stack {
@@ -725,6 +666,7 @@ const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
 		max-width: 760px;
 		font-size: clamp(2.3rem, 6vw, 5rem);
 		line-height: 0.95;
+		letter-spacing: -0.07em;
 	}
 
 	.final-cta-card p {
@@ -753,8 +695,11 @@ const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
 			grid-template-columns: 1fr;
 		}
 
-		.service-matrix,
-		.product-grid {
+		.hero-console {
+			transform: none;
+		}
+
+		.service-matrix {
 			grid-template-columns: 1fr;
 		}
 	}
@@ -769,7 +714,7 @@ const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
 		}
 
 		.flow-line {
-			width: 2px;
+			width: 1px;
 			height: 1.5rem;
 			margin-inline: auto;
 		}

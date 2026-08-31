@@ -193,7 +193,10 @@ const resources: Resource[] = isEs
   }
   .title-gradient {
     background: var(--tc-gradient);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    color: var(--color-on-accent);
+    padding: 0 0.15em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
   }
   .page-subtitle {
     font-size: var(--font-size-lg); color: var(--color-text-secondary);
@@ -208,7 +211,10 @@ const resources: Resource[] = isEs
   .stat-num {
     font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700;
     background: var(--tc-gradient);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    color: var(--color-on-accent);
+    padding: 0 0.15em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
   }
   .stat-lbl { font-size: var(--font-size-sm); color: var(--color-muted); }
   .stat-divider { width: 1px; height: 40px; background: var(--color-border); }

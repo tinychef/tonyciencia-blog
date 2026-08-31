@@ -1,0 +1,187 @@
+---
+import type { Partner } from "../data/partners.generated";
+import { accentAt } from "../utils/accents";
+
+interface Row {
+	category: string;
+	partners: Partner[];
+	direction: "left" | "right";
+	durationSeconds: number;
+}
+
+interface Props {
+	rows: Row[];
+	sectionLabel?: string;
+}
+
+const { rows, sectionLabel = "Herramientas que recomendamos" } = Astro.props;
+---
+
+<section class="category-marquee" aria-label={sectionLabel}>
+	<p class="marquee-label">{sectionLabel}</p>
+
+	{rows.map((row, rowIndex) => (
+		<div class="marquee-row" style={`--accent: var(--color-neo-${accentAt(rowIndex)});`}>
+			<p class="row-category">{row.category}</p>
+			<div class="marquee-wrapper">
+				<div
+					class="track"
+					style={`--duration: ${row.durationSeconds}s; --direction: ${row.direction === "right" ? "reverse" : "normal"};`}
+				>
+					{[...row.partners, ...row.partners].map((partner, i) => (
+						<a
+							href={partner.affiliateLink}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="tool-card"
+							aria-label={`${partner.name} — ${row.category}`}
+							aria-hidden={i >= row.partners.length ? "true" : undefined}
+							tabindex={i >= row.partners.length ? -1 : 0}
+						>
+							<div class="tool-logo">
+								<img
+									src={partner.logoUrl}
+									alt={`${partner.name} logo`}
+									width="24"
+									height="24"
+									loading="lazy"
+									decoding="async"
+									onerror="this.style.display='none'"
+								/>
+							</div>
+							<span class="tool-name">{partner.name}</span>
+						</a>
+					))}
+				</div>
+			</div>
+		</div>
+	))}
+</section>
+
+<style>
+	.category-marquee {
+		padding: 2.5rem 0 3rem;
+		border-top: var(--border-width-thick) solid var(--color-border);
+		border-bottom: var(--border-width-thick) solid var(--color-border);
+		background: var(--color-bg-subtle);
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.marquee-label {
+		text-align: center;
+		font-family: var(--font-mono);
+		font-size: var(--font-size-xs);
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		color: var(--color-text-secondary);
+		margin: 0;
+	}
+
+	.marquee-row {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.row-category {
+		margin: 0 var(--spacing-6);
+		font-family: var(--font-mono);
+		font-size: var(--font-size-2xs);
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: var(--accent);
+	}
+
+	.marquee-wrapper {
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		display: flex;
+		mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+		-webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+	}
+
+	.track {
+		display: flex;
+		flex-wrap: nowrap;
+		align-items: center;
+		gap: 0.75rem;
+		width: max-content;
+		min-width: 100%;
+		padding: 0.25rem 0;
+		flex-shrink: 0;
+		animation: scroll-x var(--duration, 34s) linear infinite;
+		animation-direction: var(--direction, normal);
+	}
+
+	.marquee-wrapper:hover .track {
+		animation-play-state: paused;
+	}
+
+	@keyframes scroll-x {
+		from { transform: translateX(0); }
+		to { transform: translateX(-50%); }
+	}
+
+	.tool-card {
+		display: flex;
+		align-items: center;
+		gap: 0.625rem;
+		padding: 0.5rem 1rem 0.5rem 0.625rem;
+		background: var(--color-bg);
+		border: 2px solid var(--color-border);
+		border-radius: var(--radius);
+		text-decoration: none;
+		color: var(--color-text);
+		white-space: nowrap;
+		flex-shrink: 0;
+		transition: box-shadow 0.2s ease, transform 0.15s ease;
+	}
+
+	.tool-card:hover {
+		box-shadow: 4px 4px 0 var(--accent);
+		transform: translate(-2px, -2px);
+	}
+
+	.tool-logo {
+		width: 24px;
+		height: 24px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+	}
+
+	.tool-logo img {
+		width: 24px;
+		height: 24px;
+		object-fit: contain;
+	}
+
+	.tool-name {
+		font-size: 0.8125rem;
+		font-weight: 700;
+		color: var(--color-text);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.track {
+			animation: none;
+		}
+
+		.marquee-wrapper {
+			overflow-x: auto;
+			mask-image: none;
+			-webkit-mask-image: none;
+		}
+
+		.track {
+			min-width: unset;
+		}
+	}
+</style>

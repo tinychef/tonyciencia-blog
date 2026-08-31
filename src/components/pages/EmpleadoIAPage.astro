@@ -461,10 +461,11 @@ const monthlyFeatures = [
   .eia-gradient-text {
     display: block;
     background: var(--tc-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+color: var(--color-on-accent);
+padding: 0 0.15em;
+box-decoration-break: clone;
+-webkit-box-decoration-break: clone;
+}
 
   /* ── 1. HERO ── */
   .eia-hero {

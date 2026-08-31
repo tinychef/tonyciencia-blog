@@ -14,7 +14,8 @@
     "deploy": "pnpm build && wrangler deploy",
     "typecheck": "astro check",
     "bootstrap": "pnpm build:seed && emdash init && emdash seed",
-    "seed": "pnpm build:seed && emdash seed"
+    "seed": "pnpm build:seed && emdash seed",
+    "generate:partners": "node scripts/generate-partners-data.mjs"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^14.1.0",

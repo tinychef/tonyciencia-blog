@@ -42,23 +42,23 @@ export default defineConfig({
 	fonts: [
 		{
 			provider: fontProviders.google(),
-			name: "Inter",
+			name: "Anton",
+			cssVariable: "--font-heading",
+			weights: [400],
+			fallbacks: ["sans-serif"],
+		},
+		{
+			provider: fontProviders.google(),
+			name: "Plus Jakarta Sans",
 			cssVariable: "--font-sans",
-			weights: [400, 500, 600, 700],
+			weights: [500, 700, 800, 900],
 			fallbacks: ["sans-serif"],
 		},
 		{
 			provider: fontProviders.google(),
 			name: "JetBrains Mono",
 			cssVariable: "--font-mono",
-			weights: [400, 500],
-			fallbacks: ["monospace"],
-		},
-		{
-			provider: fontProviders.google(),
-			name: "Silkscreen",
-			cssVariable: "--font-pixel",
-			weights: [400, 700],
+			weights: [500, 700, 800],
 			fallbacks: ["monospace"],
 		},
 	],
