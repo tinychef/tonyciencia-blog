@@ -1,0 +1,9 @@
+{
+	"$schema": "https://developers.cloudflare.com/workers/wrangler/config-schema.json",
+	"name": "tonyciencia-email-capture",
+	"main": "index.js",
+	"compatibility_date": "2026-02-24",
+	"kv_namespaces": [
+		{ "binding": "LEADS", "id": "0f87ad00b5c044a08e9b725fb5df270d" }
+	]
+}

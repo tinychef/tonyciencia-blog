@@ -1,0 +1,250 @@
+---
+import Base from "../../layouts/Base.astro";
+import { partners } from "../../data/partners.generated";
+
+const categories = [...new Set(partners.map((p) => p.category))].sort((a, b) => a.localeCompare(b, "es"));
+
+const title = "Herramientas que recomendamos — Tony Ciencia";
+const description = `Catálogo completo de ${partners.length} herramientas de IA, automatización y marketing que uso y recomiendo, organizadas en ${categories.length} categorías.`;
+---
+
+<Base title={title} description={description}>
+	<section class="page-hero">
+		<div class="page-hero-inner">
+			<div class="page-breadcrumb">
+				<a href="/">Tony Ciencia</a>
+				<span>→</span>
+				<span>Herramientas</span>
+			</div>
+			<h1 class="page-title">Herramientas que recomendamos</h1>
+			<p class="page-subtitle">El catálogo completo de software que uso y recomiendo para IA, automatización, marketing y operaciones — el mismo que verías si trabajáramos juntos.</p>
+			<div class="hero-stats">
+				<div class="stat-item">
+					<span class="stat-num">{partners.length}</span>
+					<span class="stat-lbl">herramientas activas</span>
+				</div>
+				<div class="stat-divider"></div>
+				<div class="stat-item">
+					<span class="stat-num">{categories.length}</span>
+					<span class="stat-lbl">categorías</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="filter-section">
+		<div class="filter-inner">
+			<div class="chip-row" role="group" aria-label="Filtrar por categoría">
+				<button type="button" class="chip is-active" data-filter="todas">Todas</button>
+				{categories.map((category) => (
+					<button type="button" class="chip" data-filter={category}>{category}</button>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="catalog-section">
+		<div class="catalog-inner">
+			<div class="catalog-grid">
+				{partners.map((partner) => (
+					<a
+						href={partner.affiliateLink}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="partner-card"
+						data-category={partner.category}
+					>
+						<div class="partner-logo">
+							<img
+								src={partner.logoUrl}
+								alt={`${partner.name} logo`}
+								width="32"
+								height="32"
+								loading="lazy"
+								decoding="async"
+								onerror="this.style.display='none'"
+							/>
+						</div>
+						<div class="partner-info">
+							<span class="partner-name">{partner.name}</span>
+							<span class="partner-category">{partner.category}</span>
+						</div>
+					</a>
+				))}
+			</div>
+			<p class="empty-filter-state" hidden>No hay herramientas en esta categoría todavía.</p>
+		</div>
+	</section>
+</Base>
+
+<script>
+	const chips = document.querySelectorAll<HTMLButtonElement>(".chip");
+	const cards = document.querySelectorAll<HTMLAnchorElement>(".partner-card");
+	const emptyState = document.querySelector<HTMLElement>(".empty-filter-state");
+
+	chips.forEach((chip) => {
+		chip.addEventListener("click", () => {
+			chips.forEach((c) => c.classList.remove("is-active"));
+			chip.classList.add("is-active");
+
+			const filter = chip.dataset.filter;
+			let visibleCount = 0;
+
+			cards.forEach((card) => {
+				const matches = filter === "todas" || card.dataset.category === filter;
+				card.hidden = !matches;
+				if (matches) visibleCount++;
+			});
+
+			if (emptyState) emptyState.hidden = visibleCount > 0;
+		});
+	});
+</script>
+
+<style>
+	.page-hero {
+		padding: clamp(4rem, 8vw, 7rem) var(--spacing-6) clamp(3rem, 6vw, 5rem);
+		background: var(--color-bg);
+		border-bottom: var(--border-width-thick) solid var(--color-border);
+	}
+	.page-hero-inner { max-width: var(--wide-width); margin: 0 auto; }
+
+	.page-breadcrumb {
+		display: flex; align-items: center; gap: var(--spacing-2);
+		font-family: var(--font-mono);
+		font-size: var(--font-size-sm); color: var(--color-muted); margin-bottom: var(--spacing-6);
+	}
+	.page-breadcrumb a { color: var(--color-muted); text-decoration: none; }
+	.page-breadcrumb a:hover { color: var(--color-accent-shadow); }
+
+	.page-title {
+		font-size: clamp(2.25rem, 6vw, 4rem);
+		line-height: 0.98;
+		margin: 0 0 var(--spacing-6);
+	}
+	.page-subtitle {
+		font-size: var(--font-size-lg); color: var(--color-text-secondary);
+		line-height: 1.65; max-width: 640px; margin: 0 0 var(--spacing-10);
+	}
+
+	.hero-stats {
+		display: flex; align-items: center; gap: var(--spacing-8);
+		flex-wrap: wrap;
+	}
+	.stat-item { display: flex; flex-direction: column; gap: 2px; }
+	.stat-num {
+		font-family: var(--font-heading-stack);
+		font-size: clamp(1.8rem, 3vw, 2.4rem);
+		color: var(--color-accent-shadow);
+	}
+	.stat-lbl { font-family: var(--font-mono); font-size: var(--font-size-sm); color: var(--color-muted); }
+	.stat-divider { width: 2px; height: 40px; background: var(--color-border); }
+
+	.filter-section {
+		padding: var(--spacing-6) var(--spacing-6);
+		background: var(--color-bg-subtle);
+		border-bottom: 2px solid var(--color-border-subtle);
+		position: sticky;
+		top: var(--nav-height, 64px);
+		z-index: 10;
+	}
+	.filter-inner { max-width: var(--wide-width); margin: 0 auto; }
+
+	.chip-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--spacing-2);
+	}
+
+	.chip {
+		font-family: var(--font-mono);
+		font-size: var(--font-size-2xs);
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		padding: 0.4rem 0.75rem;
+		background: var(--color-bg);
+		border: 2px solid var(--color-border);
+		color: var(--color-text-secondary);
+		cursor: pointer;
+		transition: transform 120ms ease, box-shadow 120ms ease;
+	}
+	.chip:hover {
+		transform: translate(-1px, -1px);
+		box-shadow: 2px 2px 0 var(--color-border);
+	}
+	.chip.is-active {
+		background: var(--color-accent);
+		color: var(--color-on-accent);
+		border-color: var(--color-border);
+	}
+
+	.catalog-section {
+		padding: clamp(3rem, 6vw, 5rem) var(--spacing-6);
+		background: var(--color-bg);
+	}
+	.catalog-inner { max-width: var(--wide-width); margin: 0 auto; }
+
+	.catalog-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+		gap: var(--spacing-4);
+	}
+
+	.partner-card {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-3);
+		padding: var(--spacing-4);
+		background: var(--color-bg);
+		border: 2px solid var(--color-border);
+		text-decoration: none;
+		color: var(--color-text);
+		transition: transform 120ms ease, box-shadow 120ms ease;
+	}
+	.partner-card:hover {
+		transform: translate(-2px, -2px);
+		box-shadow: var(--shadow-md);
+	}
+
+	.partner-logo {
+		width: 32px; height: 32px;
+		display: flex; align-items: center; justify-content: center;
+		flex-shrink: 0;
+	}
+	.partner-logo img { width: 32px; height: 32px; object-fit: contain; }
+
+	.partner-info {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+		min-width: 0;
+	}
+	.partner-name {
+		font-size: var(--font-size-sm);
+		font-weight: 700;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.partner-category {
+		font-family: var(--font-mono);
+		font-size: var(--font-size-2xs);
+		color: var(--color-muted);
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.empty-filter-state {
+		text-align: center;
+		padding: var(--spacing-16) 0;
+		color: var(--color-muted);
+		font-family: var(--font-mono);
+	}
+
+	@media (max-width: 640px) {
+		.catalog-grid { grid-template-columns: 1fr 1fr; }
+		.hero-stats { gap: var(--spacing-5); }
+	}
+</style>

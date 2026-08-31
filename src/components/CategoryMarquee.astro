@@ -12,51 +12,84 @@ interface Row {
 interface Props {
 	rows: Row[];
 	sectionLabel?: string;
+	catalogHref?: string;
+	catalogLabel?: string;
 }
 
-const { rows, sectionLabel = "Herramientas que recomendamos" } = Astro.props;
+const { rows, sectionLabel = "Herramientas que recomendamos", catalogHref, catalogLabel = "Ver el catálogo completo →" } = Astro.props;
 ---
 
 <section class="category-marquee" aria-label={sectionLabel}>
-	<p class="marquee-label">{sectionLabel}</p>
+	<div class="marquee-heading">
+		<p class="marquee-label">{sectionLabel}</p>
+		{catalogHref && <a href={catalogHref} class="marquee-catalog-link">{catalogLabel}</a>}
+	</div>
 
 	{rows.map((row, rowIndex) => (
-		<div class="marquee-row" style={`--accent: var(--color-neo-${accentAt(rowIndex)});`}>
-			<p class="row-category">{row.category}</p>
-			<div class="marquee-wrapper">
-				<div
-					class="track"
-					style={`--duration: ${row.durationSeconds}s; --direction: ${row.direction === "right" ? "reverse" : "normal"};`}
-				>
-					{[...row.partners, ...row.partners].map((partner, i) => (
-						<a
-							href={partner.affiliateLink}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="tool-card"
-							aria-label={`${partner.name} — ${row.category}`}
-							aria-hidden={i >= row.partners.length ? "true" : undefined}
-							tabindex={i >= row.partners.length ? -1 : 0}
+		<div class={`marquee-row${rowIndex === 0 ? " is-open" : ""}`} style={`--accent: var(--color-neo-${accentAt(rowIndex)});`}>
+			<button
+				type="button"
+				class="row-header"
+				aria-expanded={rowIndex === 0 ? "true" : "false"}
+				aria-controls={`row-content-${rowIndex}`}
+			>
+				<span class="row-category">{row.category}</span>
+				<span class="row-count">{row.partners.length} herramientas</span>
+				<svg class="row-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<polyline points="6 9 12 15 18 9"></polyline>
+				</svg>
+			</button>
+
+			<div class="row-content" id={`row-content-${rowIndex}`}>
+				<div class="row-content-inner">
+					<div class="marquee-wrapper">
+						<div
+							class="track"
+							style={`--duration: ${row.durationSeconds}s; --direction: ${row.direction === "right" ? "reverse" : "normal"};`}
 						>
-							<div class="tool-logo">
-								<img
-									src={partner.logoUrl}
-									alt={`${partner.name} logo`}
-									width="24"
-									height="24"
-									loading="lazy"
-									decoding="async"
-									onerror="this.style.display='none'"
-								/>
-							</div>
-							<span class="tool-name">{partner.name}</span>
-						</a>
-					))}
+							{[...row.partners, ...row.partners].map((partner, i) => (
+								<a
+									href={partner.affiliateLink}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="tool-card"
+									aria-label={`${partner.name} — ${row.category}`}
+									aria-hidden={i >= row.partners.length ? "true" : undefined}
+									tabindex={i >= row.partners.length ? -1 : 0}
+								>
+									<div class="tool-logo">
+										<img
+											src={partner.logoUrl}
+											alt={`${partner.name} logo`}
+											width="24"
+											height="24"
+											loading="lazy"
+											decoding="async"
+											onerror="this.style.display='none'"
+										/>
+									</div>
+									<span class="tool-name">{partner.name}</span>
+								</a>
+							))}
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	))}
 </section>
+
+<script>
+	document.querySelectorAll(".category-marquee .row-header").forEach((btn) => {
+		btn.addEventListener("click", () => {
+			const row = btn.closest(".marquee-row");
+			if (!row) return;
+			const expanded = btn.getAttribute("aria-expanded") === "true";
+			btn.setAttribute("aria-expanded", String(!expanded));
+			row.classList.toggle("is-open", !expanded);
+		});
+	});
+</script>
 
 <style>
 	.category-marquee {
@@ -67,11 +100,19 @@ const { rows, sectionLabel = "Herramientas que recomendamos" } = Astro.props;
 		overflow: hidden;
 		display: flex;
 		flex-direction: column;
-		gap: 1.5rem;
+		gap: 1rem;
+	}
+
+	.marquee-heading {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: var(--spacing-4);
+		flex-wrap: wrap;
+		margin: 0 var(--spacing-6) 0.5rem;
 	}
 
 	.marquee-label {
-		text-align: center;
 		font-family: var(--font-mono);
 		font-size: var(--font-size-xs);
 		font-weight: 700;
@@ -81,14 +122,40 @@ const { rows, sectionLabel = "Herramientas que recomendamos" } = Astro.props;
 		margin: 0;
 	}
 
+	.marquee-catalog-link {
+		font-family: var(--font-mono);
+		font-size: var(--font-size-xs);
+		font-weight: 700;
+		color: var(--color-text);
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	.marquee-catalog-link:hover {
+		color: var(--color-accent-shadow);
+	}
+
 	.marquee-row {
+		margin: 0 var(--spacing-6);
+		border: 2px solid var(--color-border);
+		background: var(--color-bg);
+	}
+
+	.row-header {
+		width: 100%;
 		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
+		align-items: center;
+		gap: var(--spacing-3);
+		padding: 0.85rem 1rem;
+		background: none;
+		border: none;
+		cursor: pointer;
+		text-align: left;
+		font-family: inherit;
+		color: var(--color-text);
 	}
 
 	.row-category {
-		margin: 0 var(--spacing-6);
 		font-family: var(--font-mono);
 		font-size: var(--font-size-2xs);
 		font-weight: 700;
@@ -97,11 +164,56 @@ const { rows, sectionLabel = "Herramientas que recomendamos" } = Astro.props;
 		color: var(--accent);
 	}
 
+	.row-count {
+		margin-left: auto;
+		font-family: var(--font-mono);
+		font-size: var(--font-size-2xs);
+		color: var(--color-muted);
+	}
+
+	.row-arrow {
+		flex-shrink: 0;
+		transition: transform 250ms ease;
+	}
+
+	.marquee-row.is-open .row-arrow {
+		transform: rotate(180deg);
+	}
+
+	/* Affordance: la flecha de las filas colapsadas rebota suave para
+	   avisar que se pueden abrir, sin necesitar texto explicativo. */
+	@keyframes arrow-pulse {
+		0%, 100% { transform: translateY(0); }
+		50% { transform: translateY(3px); }
+	}
+
+	.marquee-row:not(.is-open) .row-arrow {
+		animation: arrow-pulse 1.6s ease-in-out infinite;
+	}
+
+	.row-content {
+		display: grid;
+		grid-template-rows: 0fr;
+		transition: grid-template-rows 320ms ease;
+		border-top: 0 solid var(--color-border);
+	}
+
+	.marquee-row.is-open .row-content {
+		grid-template-rows: 1fr;
+		border-top-width: 2px;
+	}
+
+	.row-content-inner {
+		overflow: hidden;
+		min-height: 0;
+	}
+
 	.marquee-wrapper {
 		position: relative;
 		overflow: hidden;
 		width: 100%;
 		display: flex;
+		padding: 0.75rem 0;
 		mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
 		-webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
 	}
@@ -113,13 +225,14 @@ const { rows, sectionLabel = "Herramientas que recomendamos" } = Astro.props;
 		gap: 0.75rem;
 		width: max-content;
 		min-width: 100%;
-		padding: 0.25rem 0;
+		padding: 0.25rem 1rem;
 		flex-shrink: 0;
 		animation: scroll-x var(--duration, 34s) linear infinite;
 		animation-direction: var(--direction, normal);
 	}
 
-	.marquee-wrapper:hover .track {
+	.marquee-wrapper:hover .track,
+	.marquee-row:not(.is-open) .track {
 		animation-play-state: paused;
 	}
 
@@ -171,6 +284,14 @@ const { rows, sectionLabel = "Herramientas que recomendamos" } = Astro.props;
 
 	@media (prefers-reduced-motion: reduce) {
 		.track {
+			animation: none;
+		}
+
+		.row-content {
+			transition: none;
+		}
+
+		.marquee-row:not(.is-open) .row-arrow {
 			animation: none;
 		}
 

@@ -1,0 +1,139 @@
+---
+interface Props {
+	title?: string;
+	description?: string;
+	source?: string;
+}
+
+const {
+	title = "Obtén recursos gratuitos",
+	description = "Plantillas, checklists y guías listas para usar en tu negocio. Directo a tu correo, sin relleno.",
+	source = "home",
+} = Astro.props;
+---
+
+<div class="email-capture tc-card">
+	<span class="tc-eyebrow">Gratis</span>
+	<h2 class="capture-title">{title}</h2>
+	<p class="capture-desc">{description}</p>
+
+	<form class="capture-form" data-source={source}>
+		<input type="email" name="email" required placeholder="tu@email.com" aria-label="Tu email" class="capture-input" />
+		<button type="submit" class="tc-btn tc-btn--primary capture-submit">Quiero los recursos</button>
+	</form>
+	<p class="capture-status" role="status" aria-live="polite"></p>
+
+	<div class="capture-trust">
+		<span>✓ Gratis</span>
+		<span>✓ Sin spam</span>
+		<span>✓ Entrega inmediata</span>
+	</div>
+</div>
+
+<script>
+	const CAPTURE_ENDPOINT = "https://tonyciencia-email-capture.antonioduquejuliao.workers.dev";
+
+	document.querySelectorAll<HTMLFormElement>(".capture-form").forEach((form) => {
+		form.addEventListener("submit", async (e) => {
+			e.preventDefault();
+			const input = form.querySelector<HTMLInputElement>(".capture-input");
+			const status = form.parentElement?.querySelector<HTMLElement>(".capture-status");
+			const submitBtn = form.querySelector<HTMLButtonElement>(".capture-submit");
+			if (!input || !status || !submitBtn) return;
+
+			const email = input.value.trim();
+			submitBtn.disabled = true;
+			status.textContent = "Enviando...";
+
+			try {
+				const res = await fetch(CAPTURE_ENDPOINT, {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ email, source: form.dataset.source ?? "home" }),
+				});
+				if (!res.ok) throw new Error("request_failed");
+				status.textContent = "Listo — revisa tu correo.";
+				form.reset();
+			} catch {
+				status.textContent = "Algo falló. Intenta de nuevo en un momento.";
+			} finally {
+				submitBtn.disabled = false;
+			}
+		});
+	});
+</script>
+
+<style>
+	.email-capture {
+		padding: clamp(2rem, 4vw, 3rem);
+		max-width: 640px;
+		margin: 0 auto;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: var(--spacing-4);
+	}
+
+	.capture-title {
+		font-size: clamp(1.8rem, 4vw, 2.6rem);
+		margin: 0;
+	}
+
+	.capture-desc {
+		color: var(--color-text-secondary);
+		font-size: var(--font-size-base);
+		line-height: 1.6;
+		margin: 0;
+		max-width: 48ch;
+	}
+
+	.capture-form {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--spacing-3);
+		justify-content: center;
+		width: 100%;
+		margin-top: var(--spacing-2);
+	}
+
+	.capture-input {
+		flex: 1;
+		min-width: 220px;
+		padding: 0.85rem 1rem;
+		border: var(--border-width-thick) solid var(--color-border);
+		background: var(--color-bg);
+		color: var(--color-text);
+		font-family: inherit;
+		font-size: var(--font-size-base);
+	}
+
+	.capture-input:focus-visible {
+		outline: 2px solid var(--color-accent);
+		outline-offset: 2px;
+	}
+
+	.capture-status {
+		min-height: 1.2em;
+		font-family: var(--font-mono);
+		font-size: var(--font-size-sm);
+		color: var(--color-text-secondary);
+		margin: 0;
+	}
+
+	.capture-trust {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: var(--spacing-4);
+		font-family: var(--font-mono);
+		font-size: var(--font-size-xs);
+		color: var(--color-muted);
+	}
+
+	@media (max-width: 480px) {
+		.capture-form {
+			flex-direction: column;
+		}
+	}
+</style>

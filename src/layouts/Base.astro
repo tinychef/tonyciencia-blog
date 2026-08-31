@@ -168,6 +168,7 @@ const isLoggedIn = !!Astro.locals.user;
 					<div class="nav-links">
 						<a href={locale === "en" ? "/en/posts" : "/posts"}>{t("nav.blog")}</a>
 						<a href={locale === "en" ? "/en/services" : "/servicios"}>{t("nav.services")}</a>
+						{locale === "es" && <a href="/herramientas">Herramientas</a>}
 						<a href={locale === "en" ? "/en/about" : "/about"}>{t("nav.about")}</a>
 						<a href={locale === "en" ? "/en/contact" : "/contacto"}>{t("nav.contact")}</a>
 					</div>
@@ -197,6 +198,7 @@ const isLoggedIn = !!Astro.locals.user;
 			<div class="mobile-menu-inner">
 				<a href={locale === "en" ? "/en/posts" : "/posts"} class="mobile-menu-link">{t("nav.blog")}</a>
 				<a href={locale === "en" ? "/en/services" : "/servicios"} class="mobile-menu-link">{t("nav.services")}</a>
+				{locale === "es" && <a href="/herramientas" class="mobile-menu-link">Herramientas</a>}
 				<a href={locale === "en" ? "/en/about" : "/about"} class="mobile-menu-link">{t("nav.about")}</a>
 				<a href={locale === "en" ? "/en/contact" : "/contacto"} class="mobile-menu-link">{t("nav.contact")}</a>
 				<div class="mobile-menu-divider"></div>
@@ -899,6 +901,7 @@ const isLoggedIn = !!Astro.locals.user;
 			.mobile-menu.is-open .mobile-menu-link:nth-child(2) { transition-delay: 0.1s; }
 			.mobile-menu.is-open .mobile-menu-link:nth-child(3) { transition-delay: 0.15s; }
 			.mobile-menu.is-open .mobile-menu-link:nth-child(4) { transition-delay: 0.2s; }
+			.mobile-menu.is-open .mobile-menu-link:nth-child(5) { transition-delay: 0.25s; }
 
 			.mobile-menu-link:hover {
 				background: var(--color-surface);

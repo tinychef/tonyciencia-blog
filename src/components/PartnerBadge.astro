@@ -2,16 +2,15 @@
 interface Props {
 	imgSrc: string;
 	imgAlt: string;
-	label: string;
+	label?: string;
 }
 
 const { imgSrc, imgAlt, label } = Astro.props;
 ---
 
-<section class="partner-badge-band">
+<section class="partner-badge-band" aria-label={label}>
 	<div class="tc-shell partner-badge-inner">
 		<img src={imgSrc} alt={imgAlt} class="partner-badge-img" width="180" height="60" loading="lazy" />
-		<span class="partner-badge-label">{label}</span>
 	</div>
 </section>
 
@@ -25,22 +24,11 @@ const { imgSrc, imgAlt, label } = Astro.props;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: var(--spacing-4);
-		flex-wrap: wrap;
 	}
 
 	.partner-badge-img {
 		height: 40px;
 		width: auto;
 		object-fit: contain;
-	}
-
-	.partner-badge-label {
-		font-family: var(--font-mono);
-		font-size: var(--font-size-xs);
-		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: 0.08em;
-		color: var(--color-text-secondary);
 	}
 </style>
