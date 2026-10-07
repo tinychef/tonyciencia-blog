@@ -1,17 +1,12 @@
 ---
-import { getEmDashCollection, getEntryTerms, getSiteSettings } from "emdash";
+import { getEmDashCollection, getSiteSettings } from "emdash";
 import Base from "../../layouts/Base.astro";
-import PostCard from "../../components/PostCard.astro";
-import PostTitleCard from "../../components/PostTitleCard.astro";
-import PartnerBadge from "../../components/PartnerBadge.astro";
-import ProductCard from "../../components/ProductCard.astro";
-import GhlBand from "../../components/GhlBand.astro";
-import CategoryMarquee from "../../components/CategoryMarquee.astro";
+import ToolsStack from "../../components/ToolsStack.astro";
 import EmailCapture from "../../components/EmailCapture.astro";
-import { getReadingTime } from "../../utils/reading-time";
 import { resolveBlogSiteIdentity } from "../../utils/site-identity";
-import { getStaticPosts, getStaticTags } from "../../utils/static-posts";
+import { getStaticPosts } from "../../utils/static-posts";
 import { partners } from "../../data/partners.generated";
+import { services } from "../../data/services";
 
 // Home ES-only — ver src/components/pages/HomePageEn.astro para la home en inglés
 // (intacta, sirve /en/). No hay ramas de idioma acá a propósito.
@@ -26,42 +21,20 @@ const staticPosts = getStaticPosts(locale);
 const cmsSlugs = new Set(cmsPosts.map((post) => post.id));
 const posts = [...staticPosts.filter((post) => !cmsSlugs.has(post.id)), ...cmsPosts] as any[];
 
-const sortedPosts = posts.toSorted((a, b) => {
-	const dateA = a.data.publishedAt?.getTime() ?? 0;
-	const dateB = b.data.publishedAt?.getTime() ?? 0;
-	return dateB - dateA;
-});
-
-const featuredPost = sortedPosts[0];
-const gridPosts = sortedPosts.slice(1, 5);
-
-const featuredTags = featuredPost
-	? getStaticTags(featuredPost).length > 0
-		? getStaticTags(featuredPost)
-		: (await getEntryTerms("posts", featuredPost.data.id, "tag")).map((tag) => ({ slug: tag.slug, label: tag.label }))
-	: [];
-
-const gridPostsWithTags = await Promise.all(
-	gridPosts.map(async (post) => ({
-		post,
-		tags: getStaticTags(post).length > 0
-			? getStaticTags(post)
-			: (await getEntryTerms("posts", post.data.id, "tag")).map((tag) => ({ slug: tag.slug, label: tag.label })),
-	}))
-);
+const latestPosts = posts
+	.toSorted((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0))
+	.slice(0, 4);
 
 const formatDate = (date: Date | null | undefined) =>
-	date?.toLocaleDateString("es-ES", { year: "numeric", month: "short", day: "numeric" });
+	date?.toLocaleDateString("es-ES", { day: "numeric", month: "short", year: "numeric" });
 
-const operatingSystem = [
-	["Auditar", "Mapeamos trabajo repetitivo, brechas de datos y decisiones listas para IA."],
-	["Construir", "Desplegamos automatizaciones y agentes conectados a tus herramientas reales."],
-	["Controlar", "Documentamos reglas, escalamiento y puntos de revisión humana."],
-	["Escalar", "Medimos impacto y expandimos solo donde el caso de negocio es real."],
+const products = [
+	{ name: "Agente Mía", line: "Atención al cliente con IA", href: "https://wa.me/56976424523" },
+	{ name: "Agente Peitho", line: "Estratega de marketing con IA", href: "https://adsinfinitos.tonyciencia.com" },
 ];
 
-// Carrusel curado — 6 categorías más relevantes para el ICP B2B. El catálogo
-// completo (139 partners activos / 29 categorías) vive en /herramientas.
+// Carruseles curados — 6 categorías más relevantes para el ICP B2B. El catálogo
+// completo vive en /herramientas.
 const CURATED_CATEGORIES = [
 	"CRM y Ventas",
 	"Marketing y Funnels",
@@ -71,539 +44,284 @@ const CURATED_CATEGORIES = [
 	"Comunicación — Telefonía y Atención",
 ];
 
-const marqueeRows = CURATED_CATEGORIES.map((category, index) => ({
+const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 	category,
 	partners: partners.filter((p) => p.category === category),
 	direction: (index % 2 === 0 ? "left" : "right") as "left" | "right",
-	durationSeconds: index % 2 === 0 ? 32 : 36,
-}));
+	durationSeconds: 34 + (index % 3) * 4,
+})).filter((row) => row.partners.length > 0);
 ---
 
 <Base title={siteTitle} description={siteTagline}>
-	<section class="hero-2026">
-		<div class="hero-grid-bg" aria-hidden="true"></div>
-		<div class="tc-shell hero-shell">
-			<div class="hero-copy">
-				<span class="tc-eyebrow">Solo empresas</span>
-				<h1 class="hero-title">
-					Implementa IA,<br />
-					<span class="tc-gradient-text">Avanza.</span>
-				</h1>
-				<p class="hero-subtitle">Muchos hablan de IA. Pocos construyen con ella.</p>
-				<div class="hero-actions">
-					<a href="/servicios" class="tc-btn tc-btn--primary">Ver servicios</a>
-					<a href="/posts" class="tc-btn tc-btn--secondary">Leer el blog</a>
-				</div>
+	<section class="hero">
+		<div class="tc-column">
+			<h1 class="hero-title">
+				Implementa IA.<br />
+				<span class="tc-gradient-text">Avanza.</span>
+			</h1>
+			<p class="hero-sub">Automatizaciones y agentes de IA operando dentro de tu empresa.</p>
+			<div class="hero-actions">
+				<a href="/contacto" class="tc-btn tc-btn--primary">Agendar llamada</a>
+				<a href="/servicios" class="tc-btn tc-btn--secondary">Ver servicios</a>
 			</div>
+			<p class="hero-credential">Anthropic Claude Partner Network</p>
 		</div>
 	</section>
 
-	<PartnerBadge
-		imgSrc="https://www.claudeaimalaysia.com/uploads/claude_partner_network.png"
-		imgAlt="Anthropic Claude Partner Network"
-		label="Anthropic Claude Partner Network"
-	/>
-
-	<section class="tc-section services-2026">
-		<div class="tc-shell">
-			<div class="section-split">
-				<div>
-					<span class="tc-eyebrow">Solo Empresas</span>
-					<h2 class="tc-section-title">Implementa IA en operaciones reales</h2>
-				</div>
-				<p class="tc-section-copy">Tres servicios para empresas que quieren pasar de probar herramientas a operar con sistemas de IA útiles, medibles y mantenibles.</p>
-			</div>
-
-			<div class="service-matrix">
-				<a href="/servicios#automatizacion" class="matrix-card tc-card">
-					<span class="matrix-index">01</span>
-					<h3>Automatizaciones</h3>
-					<p>Conectamos CRM, formularios, WhatsApp, email, hojas de cálculo y APIs para reducir trabajo manual y errores operativos.</p>
-					<strong>Automatizar procesos →</strong>
-				</a>
-				<a href="/servicios#agentes-ia" class="matrix-card tc-card matrix-card--prime">
-					<span class="matrix-index">02</span>
-					<small>Solo Empresas</small>
-					<h3>Agentes IA</h3>
-					<p>Diseñamos agentes que atienden, clasifican, registran, consultan datos y escalan casos con reglas claras para tu equipo.</p>
-					<strong>Crear agentes IA →</strong>
-				</a>
-				<a href="/servicios#mentoria" class="matrix-card tc-card">
-					<span class="matrix-index">03</span>
-					<h3>Mentoría</h3>
-					<p>Acompañamos a dirección y equipos para elegir casos de uso, priorizar implementación y evitar gasto en IA sin retorno.</p>
-					<strong>Solicitar mentoría →</strong>
-				</a>
-			</div>
-		</div>
-	</section>
-
-	<section class="tc-section product-section">
-		<div class="tc-shell">
-			<div class="section-split">
-				<div>
-					<span class="tc-eyebrow">Suscripción</span>
-					<h2 class="tc-section-title">Agentes que trabajan por vos.</h2>
-				</div>
-				<p class="tc-section-copy">Uno es un agente de atención al cliente. El otro es un agente de marketing.</p>
-			</div>
-			<div class="product-grid">
-				<ProductCard
-					name="Agente Mía"
-					tagline="Atiende tu CRM, califica leads y agenda citas — para que ningún cliente se quede sin respuesta."
-					ctaLabel="Hablar por WhatsApp →"
-					ctaHref="https://wa.me/56976424523"
-					accent="cyan"
-				/>
-				<ProductCard
-					name="Agente Peitho"
-					tagline="Tu estratega de marketing con IA — investiga tu marca, tu competencia y genera tu próxima campaña."
-					ctaLabel="Conocer Peitho →"
-					ctaHref="https://adsinfinitos.tonyciencia.com"
-					accent="purple"
-				/>
-			</div>
-		</div>
-	</section>
-
-	<GhlBand />
-
-	<CategoryMarquee rows={marqueeRows} sectionLabel="Herramientas que recomendamos" catalogHref="/herramientas" />
-
-	<section class="tc-section operating-section">
-		<div class="tc-shell operating-grid">
-			<div>
-				<span class="tc-eyebrow">Método</span>
-				<h2 class="tc-section-title">IA que funciona como sistema operativo.</h2>
-			</div>
-			<div class="operating-list">
-				{operatingSystem.map(([title, copy], index) => (
-					<div class="operating-item">
-						<span>{String(index + 1).padStart(2, "0")}</span>
-						<div>
-							<h3>{title}</h3>
-							<p>{copy}</p>
-						</div>
-					</div>
+	<section class="tc-section block" data-reveal>
+		<div class="tc-column">
+			<h2 class="block-title">Servicios</h2>
+			<ul class="line-list">
+				{services.map((service, index) => (
+					<li>
+						<a href={`/servicios#${service.id}`} class="line-item">
+							<span class="line-index">{String(index + 1).padStart(2, "0")}</span>
+							<span class="line-main">
+								<strong>{service.name}</strong>
+								<span>{service.summary}</span>
+							</span>
+							<span class="line-arrow" aria-hidden="true">→</span>
+						</a>
+					</li>
 				))}
-			</div>
+			</ul>
 		</div>
 	</section>
 
-	<section class="tc-section resources-section">
-		<div class="tc-shell">
-			<EmailCapture />
+	<section class="tc-section block block--flush" data-reveal>
+		<div class="tc-column">
+			<h2 class="block-title">Productos</h2>
+			<ul class="line-list">
+				{products.map((product) => (
+					<li>
+						<a href={product.href} target="_blank" rel="noopener noreferrer" class="line-item">
+							<span class="line-main">
+								<strong>{product.name}</strong>
+								<span>{product.line}</span>
+							</span>
+							<span class="line-arrow" aria-hidden="true">↗</span>
+						</a>
+					</li>
+				))}
+			</ul>
 		</div>
 	</section>
 
-	<section class="tc-section blog-radar">
-		<div class="tc-shell">
-			<div class="section-split">
-				<div>
-					<span class="tc-eyebrow">Radar IA</span>
-					<h2 class="tc-section-title">Últimos artículos</h2>
-				</div>
-				<a href="/posts" class="tc-btn tc-btn--secondary">Ver todos</a>
-			</div>
+	<ToolsStack rows={toolRows} catalogHref="/herramientas" />
 
-			{sortedPosts.length === 0 ? (
-				<div class="empty-state">
-					<p>Sin artículos aún</p>
-				</div>
-			) : (
-				<div class="blog-radar-grid">
-					{featuredPost && (
-						<article class="featured-article tc-card">
-							<a href={`/posts/${featuredPost.id}`} class="featured-link">
-								<div class="featured-media">
-									<PostTitleCard title={featuredPost.data.title} variant="hero" />
-								</div>
-								<div class="featured-body">
-									<div class="featured-meta">
-										{featuredPost.data.publishedAt && <time>{formatDate(featuredPost.data.publishedAt)}</time>}
-										<span>{getReadingTime(featuredPost.data.content as any)} min de lectura</span>
-									</div>
-									<h3>{featuredPost.data.title}</h3>
-									{featuredPost.data.excerpt && <p>{featuredPost.data.excerpt}</p>}
-									{featuredTags.length > 0 && (
-										<div class="featured-tags">
-											{featuredTags.slice(0, 3).map((tag) => <span>{tag.label}</span>)}
-										</div>
-									)}
-								</div>
+	<section class="tc-section block" data-reveal>
+		<div class="tc-column">
+			<div class="block-head">
+				<h2 class="block-title">Radar IA</h2>
+				<a href="/posts" class="block-link">Ver todo</a>
+			</div>
+			{latestPosts.length > 0 && (
+				<ul class="line-list">
+					{latestPosts.map((post) => (
+						<li>
+							<a href={`/posts/${post.id}`} class="line-item">
+								<span class="line-main">
+									<strong>{post.data.title}</strong>
+									{post.data.publishedAt && <time>{formatDate(post.data.publishedAt)}</time>}
+								</span>
+								<span class="line-arrow" aria-hidden="true">→</span>
 							</a>
-						</article>
-					)}
-					<div class="post-stack">
-						{gridPostsWithTags.map(({ post, tags }) => (
-							<PostCard
-								title={post.data.title}
-								excerpt={post.data.excerpt}
-								href={`/posts/${post.id}`}
-								date={post.data.publishedAt ?? undefined}
-								readingTime={getReadingTime(post.data.content as any)}
-								tags={tags}
-							/>
-						))}
-					</div>
-				</div>
+						</li>
+					))}
+				</ul>
 			)}
 		</div>
 	</section>
 
-	<section class="final-cta">
-		<div class="tc-shell">
-			<div class="final-cta-card tc-card">
-				<span class="tc-eyebrow">Orientación 1:1</span>
-				<h2>¿Listo para implementar IA sin improvisar?</h2>
-				<p>Agenda una orientación 1:1 gratuita de 30 minutos y te mostramos exactamente qué automatizaciones tienen más impacto para tu negocio.</p>
-				<a href="/contacto" class="tc-btn tc-btn--primary">Agenda tu orientación 1:1 →</a>
-			</div>
+	<section class="tc-section block block--flush" data-reveal>
+		<div class="tc-column">
+			<EmailCapture />
+		</div>
+	</section>
+
+	<section class="tc-section closing" data-reveal>
+		<div class="tc-column">
+			<h2 class="closing-title">Hablemos de tu operación.</h2>
+			<a href="/contacto" class="tc-btn tc-btn--primary">Agendar llamada</a>
 		</div>
 	</section>
 </Base>
 
 <script>
 	(function () {
-		const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-		const targets = document.querySelectorAll(".service-matrix > *, .product-grid > *, .operating-item, .blog-radar-grid, .final-cta-card");
-		targets.forEach((target) => target.classList.add("scroll-reveal"));
-		if (prefersReduced) {
-			targets.forEach((target) => target.classList.add("is-visible"));
-			return;
-		}
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach((entry) => {
-				if (!entry.isIntersecting) return;
-				entry.target.classList.add("is-visible");
-				observer.unobserve(entry.target);
-			});
-		}, { threshold: 0.14 });
+		const targets = document.querySelectorAll("[data-reveal]");
+		if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+		targets.forEach((target) => target.classList.add("reveal"));
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (!entry.isIntersecting) return;
+					entry.target.classList.add("is-visible");
+					observer.unobserve(entry.target);
+				});
+			},
+			{ threshold: 0.12 }
+		);
 		targets.forEach((target) => observer.observe(target));
 	})();
 </script>
 
 <style>
-	.hero-2026 {
-		position: relative;
-		isolation: isolate;
-		overflow: hidden;
-		padding: clamp(4.5rem, 9vw, 8rem) 0 clamp(4rem, 7vw, 6rem);
-	}
-
-	.hero-grid-bg {
-		position: absolute;
-		inset: 0;
-		z-index: -1;
-		background-image: var(--tc-grid);
-		background-size: 46px 46px;
-		mask-image: radial-gradient(ellipse 72% 62% at 50% 20%, black 0%, transparent 72%);
-		opacity: 0.48;
-	}
-
-	.hero-shell {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-	}
-
-	.hero-copy {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		gap: var(--spacing-6);
-		max-width: 900px;
+	.hero {
+		padding: clamp(6rem, 18vw, 11rem) 0 clamp(5rem, 12vw, 8rem);
 	}
 
 	.hero-title {
-		font-size: clamp(3.2rem, 9vw, 7.4rem);
-		line-height: 0.88;
-		letter-spacing: -0.02em;
-		max-width: 11ch;
+		font-size: clamp(3rem, 10vw, 5.75rem);
+		font-weight: 600;
+		line-height: 0.98;
+		letter-spacing: -0.055em;
 	}
 
-	.hero-subtitle {
-		max-width: 62ch;
+	.hero-sub {
+		max-width: 34ch;
+		margin-top: var(--spacing-6);
 		color: var(--color-text-secondary);
-		font-size: clamp(1.1rem, 1.4vw, 1.3rem);
-		line-height: 1.75;
+		font-size: var(--font-size-lg);
+		line-height: 1.45;
+		letter-spacing: -0.015em;
 	}
 
 	.hero-actions {
 		display: flex;
 		flex-wrap: wrap;
 		gap: var(--spacing-3);
+		margin-top: var(--spacing-10);
 	}
 
-	.section-split {
-		display: grid;
-		grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.7fr);
-		gap: var(--spacing-10);
-		align-items: end;
-		margin-bottom: clamp(2rem, 5vw, 4rem);
-	}
-
-	.services-2026 {
-		background: var(--color-bg-subtle);
-	}
-
-	.service-matrix {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: var(--spacing-5);
-	}
-
-	.matrix-card {
-		display: flex;
-		min-height: 390px;
-		flex-direction: column;
-		justify-content: space-between;
-		padding: clamp(1.4rem, 2.5vw, 2rem);
-		color: inherit;
-		text-decoration: none;
-		transition: transform var(--transition-base), box-shadow var(--transition-base);
-	}
-
-	.matrix-card:hover {
-		transform: translate(-3px, -3px);
-		box-shadow: var(--shadow-xl);
-	}
-
-	.matrix-card--prime {
-		background: var(--color-accent-muted);
-	}
-
-	.matrix-index {
-		color: var(--color-accent-shadow);
-		font-family: var(--font-mono);
-		font-weight: 900;
-	}
-
-	.matrix-card small {
-		width: fit-content;
-		padding: 0.3rem 0.65rem;
-		background: var(--color-accent);
-		color: var(--color-on-accent);
-		font-family: var(--font-mono);
-		font-weight: 800;
-		text-transform: uppercase;
-		letter-spacing: 0.08em;
-	}
-
-	.matrix-card h3 {
-		margin-top: auto;
-		font-size: clamp(1.8rem, 4vw, 3rem);
-	}
-
-	.matrix-card p {
-		margin: var(--spacing-4) 0 var(--spacing-6);
-		color: var(--color-text-secondary);
-		line-height: 1.65;
-	}
-
-	.matrix-card strong {
-		color: var(--color-text);
-		font-family: var(--font-mono);
-	}
-
-	.product-grid {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: var(--spacing-5);
-	}
-
-	.operating-grid {
-		display: grid;
-		grid-template-columns: minmax(0, 0.78fr) minmax(320px, 1fr);
-		gap: clamp(2rem, 6vw, 5rem);
-		align-items: start;
-	}
-
-	.operating-list {
-		display: grid;
-		gap: var(--spacing-3);
-	}
-
-	.operating-item {
-		display: grid;
-		grid-template-columns: auto 1fr;
-		gap: var(--spacing-4);
-		padding: var(--spacing-5);
-		border: 2px solid var(--color-border);
-		background: var(--color-bg);
-	}
-
-	.operating-item span {
-		color: var(--color-accent-shadow);
-		font-family: var(--font-mono);
-		font-weight: 900;
-	}
-
-	.operating-item h3 {
-		font-size: var(--font-size-xl);
-	}
-
-	.operating-item p {
-		color: var(--color-text-secondary);
-		line-height: 1.65;
-	}
-
-	.resources-section {
-		background: var(--color-bg-subtle);
-	}
-
-	.blog-radar-grid {
-		display: grid;
-		grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.9fr);
-		gap: var(--spacing-6);
-		align-items: start;
-	}
-
-	.featured-link {
-		display: grid;
-		color: inherit;
-		text-decoration: none;
-	}
-
-	.featured-media {
-		position: relative;
-		z-index: 1;
-		aspect-ratio: 16 / 10;
-		overflow: hidden;
-		border-bottom: 2px solid var(--color-border);
-	}
-
-	.featured-media :global(.title-render) {
-		width: 100%;
-		height: 100%;
-		aspect-ratio: auto;
-	}
-
-	.featured-media img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		transition: transform var(--transition-slow);
-	}
-
-	.featured-link:hover img {
-		transform: scale(1.035);
-	}
-
-	.featured-body {
-		position: relative;
-		z-index: 1;
-		padding: clamp(1.4rem, 2.5vw, 2rem);
-	}
-
-	.featured-meta,
-	.featured-tags {
-		display: flex;
-		flex-wrap: wrap;
-		gap: var(--spacing-2);
+	.hero-credential {
+		margin-top: var(--spacing-10);
 		color: var(--color-muted);
-		font-family: var(--font-mono);
-		font-size: var(--font-size-sm);
+		font-size: var(--font-size-xs);
+		letter-spacing: 0.01em;
 	}
 
-	.featured-body h3 {
-		margin: var(--spacing-4) 0;
-		font-size: clamp(1.8rem, 4vw, 3.2rem);
-		line-height: 1;
+	.block {
+		border-top: 1px solid var(--color-border-subtle);
 	}
 
-	.featured-body p {
-		color: var(--color-text-secondary);
-		line-height: 1.7;
+	.block--flush {
+		padding-top: 0;
+		border-top: 0;
 	}
 
-	.featured-tags {
-		margin-top: var(--spacing-5);
-	}
-
-	.featured-tags span {
-		padding: 0.28rem 0.65rem;
-		border: 2px solid var(--color-border);
-	}
-
-	.post-stack {
-		display: grid;
+	.block-head {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
 		gap: var(--spacing-4);
 	}
 
-	.final-cta {
-		padding: 0 0 clamp(4rem, 8vw, 7rem);
+	.block-title {
+		margin-bottom: clamp(1.25rem, 3vw, 2rem);
+		font-size: clamp(1.6rem, 3.6vw, 2.4rem);
+		letter-spacing: -0.035em;
 	}
 
-	.final-cta-card {
+	.block-link {
+		color: var(--color-text-secondary);
+		font-size: var(--font-size-sm);
+		text-decoration: none;
+	}
+
+	.block-link:hover {
+		color: var(--color-text);
+	}
+
+	/* ── Lista de líneas: el patrón único de la home ── */
+	.line-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		border-top: 1px solid var(--color-border-subtle);
+	}
+
+	.line-list li {
+		border-bottom: 1px solid var(--color-border-subtle);
+	}
+
+	.line-item {
 		display: flex;
-		flex-direction: column;
 		align-items: center;
-		gap: var(--spacing-5);
-		padding: clamp(2rem, 6vw, 5rem);
+		gap: var(--spacing-4);
+		padding: 1.25rem 0;
+		color: var(--color-text);
+		text-decoration: none;
+	}
+
+	.line-index {
+		flex-shrink: 0;
+		width: 1.75rem;
+		align-self: flex-start;
+		padding-top: 0.2rem;
+		color: var(--color-muted);
+		font-size: var(--font-size-xs);
+		font-variant-numeric: tabular-nums;
+	}
+
+	.line-main {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		gap: 0.2rem;
+		min-width: 0;
+	}
+
+	.line-main strong {
+		font-size: var(--font-size-md);
+		font-weight: 500;
+		letter-spacing: -0.015em;
+		line-height: 1.35;
+	}
+
+	.line-main span,
+	.line-main time {
+		color: var(--color-muted);
+		font-size: var(--font-size-sm);
+		line-height: 1.5;
+	}
+
+	.line-arrow {
+		flex-shrink: 0;
+		color: var(--color-muted);
+		transition: transform 200ms var(--ease-out), color 200ms ease;
+	}
+
+	.line-item:hover .line-arrow {
+		color: var(--color-text);
+		transform: translateX(3px);
+	}
+
+	.closing {
+		border-top: 1px solid var(--color-border-subtle);
 		text-align: center;
 	}
 
-	.final-cta-card h2 {
-		max-width: 760px;
-		font-size: clamp(2.3rem, 6vw, 5rem);
-		line-height: 0.95;
+	.closing-title {
+		margin-bottom: var(--spacing-8);
+		font-size: clamp(2rem, 5vw, 3.2rem);
+		letter-spacing: -0.045em;
 	}
 
-	.final-cta-card p {
-		max-width: 640px;
-		color: var(--color-text-secondary);
-		font-size: var(--font-size-lg);
-		line-height: 1.7;
-	}
-
-	.scroll-reveal {
+	.reveal {
 		opacity: 0;
-		transform: translateY(24px);
-		transition: opacity 0.7s ease, transform 0.7s ease;
+		transform: translateY(16px);
+		transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out);
 	}
 
-	.scroll-reveal.is-visible {
+	.reveal.is-visible {
 		opacity: 1;
-		transform: translateY(0);
-	}
-
-	@media (max-width: 980px) {
-		.section-split,
-		.operating-grid,
-		.blog-radar-grid {
-			grid-template-columns: 1fr;
-		}
-
-		.service-matrix,
-		.product-grid {
-			grid-template-columns: 1fr;
-		}
+		transform: none;
 	}
 
 	@media (max-width: 640px) {
 		.hero-actions {
 			flex-direction: column;
-		}
-
-		.matrix-card {
-			min-height: 310px;
-		}
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.scroll-reveal,
-		.matrix-card,
-		.featured-media img {
-			transition: none;
-		}
-		.scroll-reveal {
-			opacity: 1;
-			transform: none;
-		}
-		.matrix-card:hover,
-		.tc-btn:hover {
-			transform: none;
 		}
 	}
 </style>

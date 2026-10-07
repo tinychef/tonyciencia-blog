@@ -1,0 +1,480 @@
+---
+/*
+  ToolsStack — herramientas recomendadas como pila de carruseles.
+
+  Con scroll: la sección se fija en pantalla y, a medida que el visitante baja,
+  cada categoría se abre como carrusel en movimiento y se cierra cuando se abre
+  la siguiente. Al tacto/clic: tocar una categoría la abre (y mueve el scroll a
+  su tramo, así scroll y toque nunca se contradicen).
+
+  Sin JS o con prefers-reduced-motion: acordeón normal, sin fijar la pantalla
+  y sin animación del carrusel (se desliza a mano).
+*/
+import type { Partner } from "../data/partners.generated";
+
+interface Row {
+	category: string;
+	partners: Partner[];
+	direction: "left" | "right";
+	durationSeconds: number;
+}
+
+interface Props {
+	rows: Row[];
+	title?: string;
+	catalogHref?: string;
+}
+
+const { rows, title = "Herramientas que recomiendo", catalogHref } = Astro.props;
+
+// Repite la lista hasta tener suficientes ítems para llenar pantallas anchas
+// y luego la duplica: el carrusel se desplaza -50% en bucle sin saltos.
+const MIN_LOOP_ITEMS = 12;
+const loops = rows.map((row) => {
+	const base: Partner[] = [];
+	while (row.partners.length > 0 && base.length < MIN_LOOP_ITEMS) base.push(...row.partners);
+	return { base, all: [...base, ...base] };
+});
+const pad = (n: number) => String(n).padStart(2, "0");
+---
+
+<section class="tools-stack" aria-label={title} style={`--rows: ${rows.length};`} data-tools-stack>
+	<div class="tools-stack__track">
+		<div class="tools-stack__pin">
+			<div class="tc-column tools-stack__inner">
+				<header class="tools-stack__head">
+					<h2 class="tools-stack__title">{title}</h2>
+					<p class="tools-stack__progress" aria-hidden="true">
+						<span data-progress-current>01</span> / {pad(rows.length)}
+					</p>
+				</header>
+
+				<ol class="tools-stack__list">
+					{rows.map((row, i) => (
+						<li class:list={["tool-row", { "is-active": i === 0 }]} style={`--i: ${i};`} data-row={i}>
+							<button
+								type="button"
+								class="tool-row__head"
+								aria-expanded={i === 0 ? "true" : "false"}
+								aria-controls={`tool-row-${i}`}
+							>
+								<span class="tool-row__index">{pad(i + 1)}</span>
+								<span class="tool-row__name">{row.category}</span>
+								<span class="tool-row__count">{row.partners.length}</span>
+							</button>
+							<div class="tool-row__body" id={`tool-row-${i}`} role="region" aria-label={row.category}>
+								<div class="tool-row__clip">
+									<div class="tool-row__viewport">
+										<div
+											class="tool-row__lane"
+											style={`--duration: ${row.durationSeconds}s; --direction: ${row.direction === "right" ? "reverse" : "normal"};`}
+										>
+											{loops[i].all.map((partner, j) => {
+												const isCopy = j >= row.partners.length;
+												return (
+													<a
+														href={partner.affiliateLink}
+														target="_blank"
+														rel="noopener noreferrer sponsored"
+														class="tool-chip"
+														aria-hidden={isCopy ? "true" : undefined}
+														tabindex={isCopy ? -1 : undefined}
+													>
+														<img
+															src={partner.logoUrl}
+															alt=""
+															width="20"
+															height="20"
+															loading="lazy"
+															decoding="async"
+															onerror="this.style.visibility='hidden'"
+														/>
+														<span>{partner.name}</span>
+													</a>
+												);
+											})}
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					))}
+				</ol>
+
+				{catalogHref && (
+					<a href={catalogHref} class="tools-stack__catalog">Ver catálogo completo</a>
+				)}
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	function initToolsStack(section: HTMLElement) {
+		const track = section.querySelector<HTMLElement>(".tools-stack__track");
+		const pin = section.querySelector<HTMLElement>(".tools-stack__pin");
+		const rows = Array.from(section.querySelectorAll<HTMLElement>(".tool-row"));
+		const progressEl = section.querySelector<HTMLElement>("[data-progress-current]");
+		if (!track || !pin || rows.length === 0) return;
+		section.dataset.ready = "";
+
+		const pinnedQuery = window.matchMedia("(prefers-reduced-motion: no-preference) and (min-height: 600px)");
+		let pinned = false;
+		let active = 0;
+		// Mientras el scroll suave viaja hacia el tramo de una fila tocada,
+		// no dejar que las filas intermedias se abran y cierren al pasar.
+		let lockedIndex: number | null = null;
+		let lockTimer = 0;
+		let ticking = false;
+
+		function setActive(index: number) {
+			if (index === active && rows[index].classList.contains("is-active")) return;
+			active = index;
+			rows.forEach((row, i) => {
+				const on = i === index;
+				row.classList.toggle("is-active", on);
+				row.querySelector(".tool-row__head")?.setAttribute("aria-expanded", String(on));
+			});
+			if (progressEl) progressEl.textContent = String(index + 1).padStart(2, "0");
+		}
+
+		// Recorrido de scroll disponible mientras la sección está fija
+		function scrollRange() {
+			return Math.max(1, track!.offsetHeight - pin!.offsetHeight);
+		}
+
+		function indexFromScroll() {
+			const travelled = -track!.getBoundingClientRect().top;
+			const progress = Math.min(0.9999, Math.max(0, travelled / scrollRange()));
+			return Math.floor(progress * rows.length);
+		}
+
+		function onScroll() {
+			if (!pinned || ticking) return;
+			ticking = true;
+			requestAnimationFrame(() => {
+				ticking = false;
+				if (lockedIndex !== null) return;
+				setActive(indexFromScroll());
+			});
+		}
+
+		function releaseLock() {
+			lockedIndex = null;
+			window.clearTimeout(lockTimer);
+		}
+
+		function goTo(index: number) {
+			if (!pinned) {
+				// Acordeón: tocar la fila abierta la cierra
+				if (index === active && rows[index].classList.contains("is-active")) {
+					rows[index].classList.remove("is-active");
+					rows[index].querySelector(".tool-row__head")?.setAttribute("aria-expanded", "false");
+					return;
+				}
+				setActive(index);
+				return;
+			}
+			setActive(index);
+			lockedIndex = index;
+			const trackTop = track!.getBoundingClientRect().top + window.scrollY;
+			const target = trackTop + ((index + 0.5) / rows.length) * scrollRange();
+			window.scrollTo({ top: target, behavior: "smooth" });
+			window.clearTimeout(lockTimer);
+			lockTimer = window.setTimeout(releaseLock, 1200);
+		}
+
+		function applyMode() {
+			pinned = pinnedQuery.matches;
+			section.classList.toggle("is-pinned", pinned);
+			if (pinned) setActive(indexFromScroll());
+		}
+
+		rows.forEach((row, i) => {
+			row.querySelector(".tool-row__head")?.addEventListener("click", () => goTo(i));
+
+			// Al tacto: mantener presionado el carrusel lo pausa para elegir
+			const viewport = row.querySelector<HTMLElement>(".tool-row__viewport");
+			viewport?.addEventListener("pointerdown", () => row.classList.add("is-held"));
+			["pointerup", "pointercancel", "pointerleave"].forEach((type) =>
+				viewport?.addEventListener(type, () => row.classList.remove("is-held"))
+			);
+		});
+
+		window.addEventListener("scroll", onScroll, { passive: true });
+		window.addEventListener("scrollend", releaseLock);
+		window.addEventListener("resize", onScroll, { passive: true });
+		pinnedQuery.addEventListener("change", applyMode);
+		applyMode();
+
+		// Entrada: las filas aparecen escalonadas al llegar a la sección
+		const revealer = new IntersectionObserver(
+			(entries) => {
+				if (!entries.some((entry) => entry.isIntersecting)) return;
+				section.classList.add("is-in");
+				revealer.disconnect();
+			},
+			{ threshold: 0.15 }
+		);
+		revealer.observe(section);
+	}
+
+	document.querySelectorAll<HTMLElement>("[data-tools-stack]").forEach(initToolsStack);
+</script>
+
+<style>
+	.tools-stack {
+		--row-step: 60svh;
+		border-top: 1px solid var(--color-border-subtle);
+	}
+
+	/* Modo fijo: la pista es alta y el contenido se queda pegado arriba */
+	.tools-stack.is-pinned .tools-stack__track {
+		height: calc(100svh - var(--nav-height, 64px) + var(--rows) * var(--row-step));
+	}
+
+	.tools-stack.is-pinned .tools-stack__pin {
+		position: sticky;
+		top: var(--nav-height, 64px);
+		height: calc(100svh - var(--nav-height, 64px));
+		display: flex;
+		align-items: center;
+	}
+
+	.tools-stack__pin {
+		padding-block: clamp(3.5rem, 8vw, 6rem);
+	}
+
+	.tools-stack.is-pinned .tools-stack__pin {
+		padding-block: 1.5rem;
+	}
+
+	.tools-stack__inner {
+		width: 100%;
+	}
+
+	.tools-stack__head {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: var(--spacing-4);
+		margin-bottom: clamp(1.25rem, 3vw, 2rem);
+	}
+
+	.tools-stack__title {
+		font-size: clamp(1.6rem, 3.6vw, 2.4rem);
+		letter-spacing: -0.035em;
+	}
+
+	.tools-stack__progress {
+		flex-shrink: 0;
+		color: var(--color-muted);
+		font-size: var(--font-size-sm);
+		font-variant-numeric: tabular-nums;
+	}
+
+	.tools-stack__progress span {
+		color: var(--color-text);
+	}
+
+	.tools-stack__list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		border-top: 1px solid var(--color-border-subtle);
+	}
+
+	/* ── Fila ─────────────────────────────────────── */
+	.tool-row {
+		border-bottom: 1px solid var(--color-border-subtle);
+	}
+
+	/* Entrada escalonada (solo con JS: data-ready e .is-in los pone el script) */
+	.tools-stack[data-ready]:not(.is-in) .tool-row {
+		opacity: 0;
+		transform: translateY(14px);
+	}
+
+	.tool-row {
+		transition:
+			opacity 600ms var(--ease-out),
+			transform 600ms var(--ease-out);
+		transition-delay: calc(var(--i) * 70ms);
+	}
+
+	.tool-row__head {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-4);
+		width: 100%;
+		min-height: 52px;
+		padding: 0.75rem 0;
+		background: none;
+		border: 0;
+		color: var(--color-muted);
+		text-align: left;
+		cursor: pointer;
+		transition: color 240ms ease;
+	}
+
+	.tool-row__head:hover,
+	.tool-row.is-active .tool-row__head {
+		color: var(--color-text);
+	}
+
+	.tool-row__index {
+		flex-shrink: 0;
+		width: 1.75rem;
+		font-size: var(--font-size-xs);
+		font-variant-numeric: tabular-nums;
+		color: var(--color-muted);
+	}
+
+	.tool-row__name {
+		flex: 1;
+		font-size: var(--font-size-md);
+		font-weight: 500;
+		letter-spacing: -0.015em;
+	}
+
+	.tool-row__count {
+		flex-shrink: 0;
+		font-size: var(--font-size-xs);
+		color: var(--color-muted);
+		font-variant-numeric: tabular-nums;
+	}
+
+	/* Apertura/cierre suave sin medir alturas: grid 0fr → 1fr */
+	.tool-row__body {
+		display: grid;
+		grid-template-rows: 0fr;
+		transition: grid-template-rows 520ms var(--ease-out);
+	}
+
+	.tool-row.is-active .tool-row__body {
+		grid-template-rows: 1fr;
+	}
+
+	.tool-row__clip {
+		min-height: 0;
+		overflow: hidden;
+	}
+
+	.tool-row__viewport {
+		overflow: hidden;
+		padding: 0.25rem 0 1.1rem;
+		opacity: 0;
+		transition: opacity 360ms ease;
+		mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+		-webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+		touch-action: pan-y;
+	}
+
+	.tool-row.is-active .tool-row__viewport {
+		opacity: 1;
+		transition-delay: 160ms;
+	}
+
+	.tool-row__lane {
+		display: flex;
+		gap: 0.6rem;
+		width: max-content;
+		animation: tools-lane var(--duration, 32s) linear infinite;
+		animation-direction: var(--direction, normal);
+		animation-play-state: paused;
+	}
+
+	/* Solo el carrusel abierto se mueve; hover o mantener presionado lo pausa */
+	.tool-row.is-active .tool-row__lane {
+		animation-play-state: running;
+	}
+
+	.tool-row.is-active .tool-row__viewport:hover .tool-row__lane,
+	.tool-row.is-held .tool-row__lane {
+		animation-play-state: paused;
+	}
+
+	@keyframes tools-lane {
+		from { transform: translateX(0); }
+		to { transform: translateX(-50%); }
+	}
+
+	.tool-chip {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.55rem;
+		flex-shrink: 0;
+		height: 40px;
+		padding: 0 1rem 0 0.7rem;
+		border: 1px solid var(--color-border-subtle);
+		border-radius: var(--radius-pill);
+		background: var(--color-bg-subtle);
+		color: var(--color-text-secondary);
+		font-size: var(--font-size-sm);
+		white-space: nowrap;
+		text-decoration: none;
+		transition: color 160ms ease, border-color 160ms ease;
+	}
+
+	.tool-chip img {
+		width: 20px;
+		height: 20px;
+		border-radius: 5px;
+		object-fit: contain;
+		filter: grayscale(1);
+		opacity: 0.85;
+		transition: filter 160ms ease, opacity 160ms ease;
+	}
+
+	.tool-chip:hover {
+		color: var(--color-text);
+		border-color: var(--color-border);
+	}
+
+	.tool-chip:hover img {
+		filter: none;
+		opacity: 1;
+	}
+
+	.tools-stack__catalog {
+		display: inline-block;
+		margin-top: clamp(1.25rem, 3vw, 2rem);
+		color: var(--color-text-secondary);
+		font-size: var(--font-size-sm);
+		text-decoration: none;
+		transition: color 160ms ease;
+	}
+
+	.tools-stack__catalog::after {
+		content: " →";
+	}
+
+	.tools-stack__catalog:hover {
+		color: var(--color-text);
+	}
+
+	/* Sin movimiento: acordeón quieto, carrusel deslizable a mano */
+	@media (prefers-reduced-motion: reduce) {
+		.tool-row,
+		.tool-row__body,
+		.tool-row__viewport {
+			transition: none;
+		}
+
+		.tools-stack[data-ready]:not(.is-in) .tool-row {
+			opacity: 1;
+			transform: none;
+		}
+
+		.tool-row__lane {
+			animation: none;
+		}
+
+		.tool-row__viewport {
+			overflow-x: auto;
+			mask-image: none;
+			-webkit-mask-image: none;
+			touch-action: auto;
+		}
+	}
+</style>

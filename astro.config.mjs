@@ -42,23 +42,16 @@ export default defineConfig({
 	fonts: [
 		{
 			provider: fontProviders.google(),
-			name: "Anton",
-			cssVariable: "--font-heading",
-			weights: [400],
-			fallbacks: ["sans-serif"],
-		},
-		{
-			provider: fontProviders.google(),
-			name: "Plus Jakarta Sans",
+			name: "Inter",
 			cssVariable: "--font-sans",
-			weights: [500, 700, 800, 900],
+			weights: [400, 500, 600, 700],
 			fallbacks: ["sans-serif"],
 		},
 		{
 			provider: fontProviders.google(),
 			name: "JetBrains Mono",
 			cssVariable: "--font-mono",
-			weights: [500, 700, 800],
+			weights: [500],
 			fallbacks: ["monospace"],
 		},
 	],

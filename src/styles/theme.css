@@ -1,136 +1,123 @@
 /*
-  theme.css — Tony Ciencia · Neo-Brutalist Edition
-  Paleta y tipografía extraídas del código fuente real del Worker "adsinfinitos"
-  (Agente Peitho, mismo dueño) — valores verificados, no estimados.
-  This file can evolve the visual system, but the dark/light toggle logic and
-  ripple transition live in Base.astro and must remain untouched.
+  theme.css — Tony Ciencia · Minimal Premium Edition
+  Monocromático, oscuro por defecto (Tesla / Apple): negro-grafito, superficies
+  gris oscuro, texto blanco y grises, bordes de 1px casi invisibles, sin sombras.
+  Regla maestra: menos elementos, más claridad.
+
+  Oscuro es el default (:root). El claro solo aplica si el visitante lo eligió
+  con el toggle (clase .light en <html>, ver Base.astro).
   Unlayered on purpose — it must always win over Base.astro's `@layer base`
   reset tokens regardless of source order (see the @layer comment there).
 */
 
+:root,
+:root.dark {
+	/* Superficies */
+	--color-bg: #0a0a0b;
+	--color-bg-subtle: #111113;
+	--color-surface: #17171a;
+	--color-border: #2a2a2e;
+	--color-border-subtle: #1d1d20;
+
+	/* Texto */
+	--color-text: #f5f5f7;
+	--color-text-secondary: #a1a1a6;
+	--color-muted: #6e6e73;
+
+	/* "Acento" = blanco. El color de marca es el contraste, no un tono. */
+	--color-accent: #f5f5f7;
+	--color-accent-hover: #ffffff;
+	--color-accent-shadow: var(--color-muted);
+	--color-accent-highlight: #ffffff;
+	--color-accent-muted: rgba(245, 245, 247, 0.06);
+	--color-accent-ring: rgba(62, 106, 225, 0.45);
+	--color-on-accent: #0a0a0b;
+
+	/* Único color funcional: foco y estados activos */
+	--color-signal: #3e6ae1;
+
+	--glass-bg: rgba(10, 10, 11, 0.78);
+	--glass-border: var(--color-border-subtle);
+
+	color-scheme: dark;
+}
+
+:root.light {
+	--color-bg: #ffffff;
+	--color-bg-subtle: #f5f5f7;
+	--color-surface: #fafafa;
+	--color-border: #d9d9de;
+	--color-border-subtle: #ececf0;
+
+	--color-text: #1d1d1f;
+	--color-text-secondary: #515154;
+	--color-muted: #86868b;
+
+	--color-accent: #1d1d1f;
+	--color-accent-hover: #000000;
+	--color-accent-highlight: #000000;
+	--color-accent-muted: rgba(29, 29, 31, 0.05);
+	--color-on-accent: #ffffff;
+
+	--glass-bg: rgba(255, 255, 255, 0.8);
+
+	color-scheme: light;
+}
+
 :root {
-	/* Tony Ciencia brand accent — neo-yellow. ÚNICO uso: CTAs/highlights (regla 60/30/10) */
-	--color-accent: #f5e400;
-	--color-accent-hover: #e0d000;
-	--color-accent-shadow: #1d1c10;
-	--color-accent-highlight: #fff98f;
-	--color-accent-muted: rgba(245, 228, 0, 0.18);
-	--color-accent-ring: color-mix(in srgb, #f5e400 35%, transparent);
-	/* Texto oscuro (neo-ink) sobre amarillo da buen contraste; blanco falla AA */
-	--color-on-accent: #1d1c10;
+	/* Acentos heredados (categorías, productos): neutralizados a gris a propósito */
+	--color-neo-pink: var(--color-text-secondary);
+	--color-neo-cyan: var(--color-text-secondary);
+	--color-neo-purple: var(--color-text-secondary);
+	--color-neo-orange: var(--color-text-secondary);
 
-	/* Acentos secundarios (rotan por categoría/índice, nunca como color dominante) */
-	--color-neo-pink: #ff5964;
-	--color-neo-cyan: #20e2d7;
-	--color-neo-purple: #b185ff;
-	--color-neo-orange: #ff914d;
+	/* Estados semánticos */
+	--color-success: #30d158;
+	--color-warning: #ffd60a;
+	--color-error: #ff453a;
+	--color-success-bg: rgba(48, 209, 88, 0.1);
+	--color-error-bg: rgba(255, 69, 58, 0.1);
 
-	/* ─── Light Mode ─────────────────────────────── */
-	--color-bg: #fff9e5;
-	--color-bg-subtle: #f7f0d0;
-	--color-surface: #f0e6bd;
-	--color-border: #1d1c10;
-	--color-border-subtle: #ded4ab;
-
-	--color-text: #1d1c10;
-	--color-text-secondary: #4a4736;
-	--color-muted: #8c8874;
-
-	/* Semantic states */
-	--color-success: #22c55e;
-	--color-warning: #f59e0b;
-	--color-error: #ef4444;
-	--color-success-bg: #f0fff4;
-	--color-error-bg: #fff0f0;
-
-	/* Sin gradientes reales — tokens conservados por compatibilidad, ahora planos */
+	/* Sin gradientes, sin texturas — tokens conservados por compatibilidad */
 	--tc-gradient: var(--color-accent);
 	--tc-ink-gradient: var(--color-text);
-	--tc-gradient-text: var(--color-accent);
+	--tc-gradient-text: none;
 	--tc-gradient-subtle: var(--color-accent-muted);
+	--tc-dots: none;
+	--tc-dots-size: auto;
+	--tc-noise: none;
+	--tc-grid: none;
 
-	/* Retro dot-grid texture — hard-edged, no blur */
-	--tc-dots: radial-gradient(var(--color-border-subtle) 1.5px, transparent 1.5px);
-	--tc-dots-size: 16px 16px;
-	--tc-noise: var(--tc-dots);
-	--tc-grid: linear-gradient(var(--color-border-subtle) 1px, transparent 1px), linear-gradient(90deg, var(--color-border-subtle) 1px, transparent 1px);
-
-	/* Opaque header/panel background — no blur, nunca hubo glassmorphism real */
-	--glass-bg: var(--color-bg);
-	--glass-border: var(--color-border);
-
-	/* Radii — cero en todo (cards, botones, chips). Excepción: dots de estado diminutos */
-	--radius: 0;
-	--radius-lg: 0;
-	--radius-xl: 0;
-	--radius-pill: 0;
+	/* Radios suaves y consistentes */
+	--radius: 8px;
+	--radius-lg: 14px;
+	--radius-xl: 20px;
+	--radius-pill: 999px;
 	--radius-full: 999px;
 
-	/* Grosor de borde para elementos "boxeados" (cards, botones) */
-	--border-width-thick: 3px;
+	--border-width-thick: 1px;
 
-	/* Wider layout */
-	--wide-width: 1200px;
-	--content-width: 720px;
+	--wide-width: 1120px;
+	--content-width: 680px;
+	/* Columna única compacta para home y páginas de producto */
+	--column-width: 760px;
 
-	/* Transitions */
-	--transition-slow: 400ms ease;
+	--transition-slow: 400ms cubic-bezier(0.2, 0, 0, 1);
+	--ease-out: cubic-bezier(0.2, 0, 0, 1);
 
-	/* Sombras neo-brutalistas — offset sólido, color ink (no negro puro), sin blur */
-	--shadow-sm: 2px 2px 0 var(--color-border);
-	--shadow-md: 4px 4px 0 var(--color-border);
-	--shadow-lg: 6px 6px 0 var(--color-border);
-	--shadow-xl: 8px 8px 0 var(--color-border);
-	--shadow-2xl: 12px 12px 0 var(--color-border);
-	--shadow-premium: 5px 5px 0 var(--color-border);
+	/* Sombras: casi inexistentes */
+	--shadow-sm: none;
+	--shadow-md: none;
+	--shadow-lg: none;
+	--shadow-xl: none;
+	--shadow-2xl: none;
+	--shadow-premium: none;
 
-	/* Marquee / carousel */
-	--marquee-gap: 3rem;
+	--marquee-gap: 2rem;
 	--marquee-speed: 40s;
 
-	/* Extended spacing for large sections */
 	--spacing-32: 8rem;
 	--spacing-40: 10rem;
-
-	/* Color scheme hint for native form controls */
-	color-scheme: light dark;
-}
-
-/* ─── Dark Mode (system preference) ──────────────
-   Propuesta extrapolada — Peitho (la referencia) es 100% claro, sin dark mode.
-   Truco: invertir --color-border a cream hace que TODAS las sombras (que
-   referencian var(--color-border)) se aclaren automáticamente sin tocarlas
-   una por una. --color-accent se mantiene igual — ya es suficientemente
-   saturado para leerse sobre fondo oscuro. */
-@media (prefers-color-scheme: dark) {
-	:root:not(.light) {
-		--color-bg: #1d1c10;
-		--color-bg-subtle: #262316;
-		--color-surface: #2e2b1e;
-		--color-border: #fff9e5;
-		--color-border-subtle: #4a4736;
-
-		--color-text: #fff9e5;
-		--color-text-secondary: #c9c4a8;
-		--color-muted: #8f8a72;
-
-		--color-accent-shadow: #fff9e5;
-	}
-}
-
-/* ─── Dark Mode (explicit class toggle) ────────── */
-:root.dark {
-	--color-bg: #1d1c10;
-	--color-bg-subtle: #262316;
-	--color-surface: #2e2b1e;
-	--color-border: #fff9e5;
-	--color-border-subtle: #4a4736;
-
-	--color-text: #fff9e5;
-	--color-text-secondary: #c9c4a8;
-	--color-muted: #8f8a72;
-
-	--color-accent-shadow: #fff9e5;
 }
 
 html {
@@ -138,14 +125,12 @@ html {
 }
 
 body {
-	background:
-		var(--tc-noise),
-		var(--color-bg);
+	background: var(--color-bg);
 }
 
 :where(a, button, input, textarea, select, summary):focus-visible {
-	outline: 2px solid var(--color-accent);
-	outline-offset: 4px;
+	outline: 2px solid var(--color-signal);
+	outline-offset: 3px;
 }
 
 :where(button, input, textarea, select) {
@@ -153,8 +138,8 @@ body {
 }
 
 ::selection {
-	background: var(--color-accent);
-	color: var(--color-on-accent);
+	background: var(--color-text);
+	color: var(--color-bg);
 }
 
 .tc-shell {
@@ -163,129 +148,96 @@ body {
 	padding-inline: var(--spacing-6);
 }
 
+/* Columna única compacta */
+.tc-column {
+	max-width: var(--column-width);
+	margin-inline: auto;
+	padding-inline: var(--spacing-6);
+}
+
+/* Eyebrow: texto pequeño gris, sin caja ni punto */
 .tc-eyebrow {
-	display: inline-flex;
-	align-items: center;
-	gap: 0.55rem;
+	display: inline-block;
 	width: fit-content;
-	padding: 0.4rem 0.7rem;
-	border: 2px solid var(--color-border);
-	border-radius: var(--radius);
-	background: var(--color-bg);
-	box-shadow: 2px 2px 0 var(--color-border);
-	color: var(--color-text-secondary);
-	font-family: var(--font-mono, monospace);
-	font-size: var(--font-size-2xs);
-	font-weight: 700;
-	letter-spacing: 0.06em;
-	text-transform: uppercase;
+	color: var(--color-muted);
+	font-size: var(--font-size-xs);
+	font-weight: 500;
+	letter-spacing: 0.02em;
 }
 
-.tc-eyebrow::before {
-	content: "";
-	width: 0.5rem;
-	height: 0.5rem;
-	border-radius: 0;
-	background: var(--color-accent);
-	box-shadow: 1px 1px 0 var(--color-accent-shadow);
-}
-
-/* Resaltador estilo marcador (patrón real de Peitho: amarillo como fondo
-   detrás de texto oscuro, nunca como color de texto — el amarillo como
-   color de fuente falla contraste sobre el fondo crema). */
+/* Segunda línea en gris — jerarquía por contraste, no por color */
 .tc-gradient-text {
-	background: var(--tc-gradient-text);
-	color: var(--color-on-accent);
-	padding: 0 0.15em;
-	box-decoration-break: clone;
-	-webkit-box-decoration-break: clone;
+	color: var(--color-muted);
 }
 
 .tc-card {
 	position: relative;
-	border: var(--border-width-thick) solid var(--color-border);
+	border: 1px solid var(--color-border-subtle);
 	border-radius: var(--radius-lg);
-	background: var(--color-bg);
-	box-shadow: var(--shadow-premium);
+	background: var(--color-bg-subtle);
 	overflow: hidden;
-	transition: transform var(--transition-fast, 160ms ease), box-shadow var(--transition-fast, 160ms ease);
+	transition: border-color var(--transition-fast, 160ms ease), background var(--transition-fast, 160ms ease);
 }
 
 .tc-btn {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	gap: 0.55rem;
-	min-height: 46px;
-	padding: 0.85rem 1.25rem;
-	border-radius: var(--radius);
-	border: var(--border-width-thick) solid var(--color-border);
-	font-weight: 800;
+	gap: 0.5rem;
+	min-height: 44px;
+	padding: 0.7rem 1.4rem;
+	border-radius: var(--radius-pill);
+	border: 1px solid transparent;
+	font-size: var(--font-size-sm);
+	font-weight: 500;
+	letter-spacing: -0.005em;
 	text-decoration: none;
-	transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
-}
-
-/* Interacción "botón físico" — se levanta y la sombra crece al hover;
-   se hunde hacia la sombra (casi desaparece) al presionar. */
-.tc-btn:hover {
-	transform: translate(-2px, -2px);
+	transition: background 160ms ease, border-color 160ms ease, color 160ms ease, opacity 160ms ease;
 }
 
 .tc-btn:active {
-	transform: translate(2px, 2px);
-	box-shadow: 1px 1px 0 var(--color-border) !important;
-}
-
-@media (prefers-reduced-motion: reduce) {
-	.tc-btn:hover,
-	.tc-btn:active {
-		transform: none;
-	}
+	opacity: 0.8;
 }
 
 .tc-btn--primary {
 	background: var(--color-accent);
-	border-color: var(--color-border);
 	color: var(--color-on-accent) !important;
-	box-shadow: var(--shadow-md);
 }
 
 .tc-btn--primary:hover {
-	box-shadow: var(--shadow-lg);
+	background: var(--color-accent-hover);
 }
 
 .tc-btn--secondary {
-	background: var(--color-bg);
+	background: transparent;
 	border-color: var(--color-border);
 	color: var(--color-text) !important;
-	box-shadow: var(--shadow-md);
 }
 
 .tc-btn--secondary:hover {
-	border-color: var(--color-accent);
-	color: var(--color-accent) !important;
-	box-shadow: var(--shadow-lg);
+	border-color: var(--color-text-secondary);
 }
 
 .tc-section {
-	padding-block: clamp(4rem, 8vw, 7rem);
+	padding-block: clamp(4.5rem, 10vw, 8rem);
 }
 
 .tc-section-title {
-	font-size: clamp(2.1rem, 5vw, 4.5rem);
-	line-height: 0.98;
-	letter-spacing: -0.02em;
+	font-size: clamp(2rem, 4.6vw, 3.4rem);
+	line-height: 1.04;
+	letter-spacing: -0.04em;
 }
 
 .tc-section-copy {
-	max-width: 68ch;
+	max-width: 60ch;
 	color: var(--color-text-secondary);
-	font-size: clamp(1.02rem, 1.2vw, 1.2rem);
-	line-height: 1.75;
+	font-size: var(--font-size-md);
+	line-height: 1.6;
 }
 
 @media (max-width: 640px) {
-	.tc-shell {
+	.tc-shell,
+	.tc-column {
 		padding-inline: var(--spacing-4);
 	}
 
@@ -296,45 +248,35 @@ body {
 
 /* ════════════════════════════════════════════════════════════════
    TYPE SCALE — fuente de verdad única
-   Define la escala tipográfica fluida (clamp), tracking/leading y
-   refina cuerpo, encabezados y lectura de artículo. Al estar sin
-   @layer, estas variables SIEMPRE ganan sobre el reset de
-   Base.astro (@layer base) — por eso Base.astro ya no redeclara
-   --font-size-xs..3xl ni --tracking-tight/--leading-tight: serían
-   código muerto. Si necesitas tocar el type scale, es acá.
-   NO toca colores, glass, gradients, ripple ni el toggle dark/light.
-   Las clases de componente (.tc-section-title, etc.) conservan su
-   tamaño por mayor especificidad — esto solo afina texto base y prosa.
+   Base.astro (@layer base) ya no redeclara --font-size-xs..3xl ni
+   --tracking-tight/--leading-tight. Si necesitas tocar el type scale, es acá.
    ════════════════════════════════════════════════════════════════ */
 :root {
-	/* Escala fluida — min nunca rompe en móvil, max controla en desktop */
 	--font-size-2xs: clamp(0.69rem, 0.67rem + 0.10vw, 0.74rem);
 	--font-size-xs:  clamp(0.78rem, 0.75rem + 0.14vw, 0.84rem);
 	--font-size-sm:  clamp(0.875rem, 0.85rem + 0.16vw, 0.94rem);
 	--font-size-base: clamp(1rem, 0.97rem + 0.22vw, 1.0625rem);
-	--font-size-md:  clamp(1.125rem, 1.07rem + 0.34vw, 1.25rem);
-	--font-size-lg:  clamp(1.3rem, 1.18rem + 0.6vw, 1.55rem);
-	--font-size-xl:  clamp(1.62rem, 1.4rem + 1.1vw, 2.1rem);
-	--font-size-2xl: clamp(2rem, 1.62rem + 1.9vw, 2.85rem);
-	--font-size-3xl: clamp(2.5rem, 1.85rem + 3.2vw, 3.9rem);
+	--font-size-md:  clamp(1.0625rem, 1.03rem + 0.24vw, 1.1875rem);
+	--font-size-lg:  clamp(1.25rem, 1.15rem + 0.5vw, 1.45rem);
+	--font-size-xl:  clamp(1.5rem, 1.32rem + 0.9vw, 1.95rem);
+	--font-size-2xl: clamp(1.9rem, 1.55rem + 1.7vw, 2.7rem);
+	--font-size-3xl: clamp(2.4rem, 1.8rem + 3vw, 3.75rem);
 
-	/* Interlineado y tracking */
-	--leading-tight: 1.05;
+	--leading-tight: 1.06;
 	--leading-snug: 1.3;
-	--leading-prose: 1.75;
-	--tracking-tight: -0.02em;
-	--tracking-tighter: -0.045em;
+	--leading-prose: 1.7;
+	--tracking-tight: -0.025em;
+	--tracking-tighter: -0.04em;
 
-	/* Cuerpo: Plus Jakarta Sans (500-900, sin peso 400) */
-	--font-stack: var(--font-sans, "Plus Jakarta Sans"), -apple-system, BlinkMacSystemFont,
+	--font-stack: var(--font-sans, "Inter"), -apple-system, BlinkMacSystemFont, "SF Pro Text",
 		"Segoe UI", system-ui, "Helvetica Neue", Arial, sans-serif;
-	/* Titulares: Anton — un solo peso (400), condensada/display, siempre mayúscula */
-	--font-heading-stack: var(--font-heading, "Anton"), Impact, "Arial Narrow", sans-serif;
+	--font-heading-stack: var(--font-sans, "Inter"), -apple-system, BlinkMacSystemFont,
+		"SF Pro Display", "Segoe UI", system-ui, sans-serif;
 }
 
 body {
 	font-family: var(--font-stack);
-	font-weight: 500;
+	font-weight: 400;
 	font-size: var(--font-size-base);
 	line-height: var(--leading-prose);
 	letter-spacing: -0.011em;
@@ -343,15 +285,12 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-/* Encabezados — Anton, mayúscula, tracking negativo. Las clases de componente
-   (.tc-section-title, .hero-title, etc.) heredan la tipografía de acá y solo
-   sobreescriben tamaño/tracking puntual por mayor especificidad. */
 h1, h2, h3, h4, h5, h6 {
 	font-family: var(--font-heading-stack);
-	font-weight: 400;
+	font-weight: 600;
 	letter-spacing: var(--tracking-tight);
 	line-height: var(--leading-tight);
-	text-transform: uppercase;
+	text-transform: none;
 	text-wrap: balance;
 	color: var(--color-text);
 }
@@ -364,12 +303,12 @@ p { text-wrap: pretty; }
 
 /* ─── Lectura de artículo (scoped a <article>) ─── */
 article {
-	--measure: 46rem;
+	--measure: 42rem;
 }
 article p,
 article li {
 	font-size: var(--font-size-md);
-	line-height: 1.8;
+	line-height: 1.75;
 	color: var(--color-text);
 }
 article > p,
@@ -389,32 +328,29 @@ article a {
 	text-decoration: underline;
 	text-underline-offset: 3px;
 	text-decoration-thickness: 1px;
-	text-decoration-color: color-mix(in srgb, var(--color-accent) 55%, transparent);
-	transition: text-decoration-color var(--transition-fast, 160ms ease), color var(--transition-fast, 160ms ease);
+	text-decoration-color: var(--color-muted);
+	transition: text-decoration-color 160ms ease;
 }
 article a:hover {
-	color: var(--color-text);
-	background: var(--color-accent);
+	text-decoration-color: var(--color-text);
 }
 article blockquote {
 	margin-inline: 0;
 	padding-inline-start: 1.1rem;
-	border-inline-start: 4px solid var(--color-accent);
+	border-inline-start: 2px solid var(--color-border);
 	color: var(--color-text-secondary);
 	font-style: normal;
 }
 
 article img,
 article :where(figure) img {
-	border: 2px solid var(--color-border);
-	border-radius: var(--radius);
+	border: 1px solid var(--color-border-subtle);
+	border-radius: var(--radius-lg);
 }
 
 article pre {
-	border: 2px solid var(--color-border);
-	border-radius: var(--radius);
-	box-shadow: var(--shadow-md);
+	border: 1px solid var(--color-border-subtle);
+	border-radius: var(--radius-lg);
 }
 
-/* Refinamiento de selección y números tabulares en datos */
 .tc-stat, [class*="stat"] { font-variant-numeric: tabular-nums; }

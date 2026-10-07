@@ -93,7 +93,6 @@ const isLoggedIn = !!Astro.locals.user;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<Font cssVariable="--font-heading" preload />
 		<Font cssVariable="--font-sans" preload />
 		<Font cssVariable="--font-mono" />
 		<title>{fullTitle}</title>
@@ -142,16 +141,13 @@ const isLoggedIn = !!Astro.locals.user;
 			}]
 		})} />
 		<script is:inline>
-			// Apply theme immediately to prevent flash
+			// Apply theme immediately to prevent flash — oscuro por defecto;
+			// claro solo si el visitante lo eligió (cookie)
 			(function () {
 				var c = document.cookie;
 				var i = c.indexOf("theme=");
 				var theme = i >= 0 ? c.slice(i + 6).split(";")[0] : null;
-				if (theme === "dark" || theme === "light") {
-					document.documentElement.classList.add(theme);
-				} else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-					document.documentElement.classList.add("dark");
-				}
+				document.documentElement.classList.add(theme === "light" ? "light" : "dark");
 			})();
 		</script>
 	</head>
@@ -244,19 +240,20 @@ const isLoggedIn = !!Astro.locals.user;
 			function getStoredTheme(): "light" | "dark" {
 				const match = document.cookie.match(THEME_REGEX);
 				if (match?.[1] === "dark" || match?.[1] === "light") return match[1];
-				return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+				return "dark";
 			}
 
-			function setTheme(theme: "light" | "dark") {
-				setCookie("theme", theme);
+			function setTheme(theme: "light" | "dark", persist = true) {
+				if (persist) setCookie("theme", theme);
 				root.classList.remove("light", "dark");
 				root.classList.add(theme);
 				themeToggle?.setAttribute("aria-pressed", String(theme === "dark"));
 			}
 
 			// Initialize
-			const storedTheme = getStoredTheme();
-			setTheme(storedTheme);
+			// Sin elección explícita no se escribe cookie: así el default oscuro
+			// sigue aplicando y no queda "pegado" un tema que nadie eligió.
+			setTheme(getStoredTheme(), Boolean(document.cookie.match(THEME_REGEX)));
 
 			if (themeToggle) {
 				themeToggle.addEventListener("click", (e) => {
@@ -279,14 +276,6 @@ const isLoggedIn = !!Astro.locals.user;
 				});
 			}
 
-			// Listen for system preference changes
-			window
-				.matchMedia("(prefers-color-scheme: dark)")
-				.addEventListener("change", (e) => {
-					if (!document.cookie.match(THEME_REGEX)) {
-						root.classList.toggle("dark", e.matches);
-					}
-				});
 		</script>
 
 		<style is:global>
@@ -562,7 +551,9 @@ const isLoggedIn = !!Astro.locals.user;
 				top: 0;
 				z-index: 100;
 				background: var(--glass-bg);
-				border-bottom: 2px solid var(--glass-border);
+				border-bottom: 1px solid var(--glass-border);
+				backdrop-filter: saturate(180%) blur(20px);
+				-webkit-backdrop-filter: saturate(180%) blur(20px);
 			}
 
 			.nav {
