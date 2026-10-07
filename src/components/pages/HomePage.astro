@@ -28,11 +28,6 @@ const latestPosts = posts
 const formatDate = (date: Date | null | undefined) =>
 	date?.toLocaleDateString("es-ES", { day: "numeric", month: "short", year: "numeric" });
 
-const products = [
-	{ name: "Agente Mía", line: "Atención al cliente con IA", href: "https://wa.me/56976424523" },
-	{ name: "Agente Peitho", line: "Estratega de marketing con IA", href: "https://adsinfinitos.tonyciencia.com" },
-];
-
 // Carruseles curados — 6 categorías más relevantes para el ICP B2B. El catálogo
 // completo vive en /herramientas.
 const CURATED_CATEGORIES = [
@@ -62,42 +57,23 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 			<p class="hero-sub">Automatizaciones y agentes de IA operando dentro de tu empresa.</p>
 			<div class="hero-actions">
 				<a href="/contacto" class="tc-btn tc-btn--primary">Agendar llamada</a>
-				<a href="/servicios" class="tc-btn tc-btn--secondary">Ver servicios</a>
+				<a href="#servicios" class="tc-btn tc-btn--secondary">Ver servicios</a>
 			</div>
 			<p class="hero-credential">Anthropic Claude Partner Network</p>
 		</div>
 	</section>
 
-	<section class="tc-section block" data-reveal>
+	<section class="tc-section block" id="servicios" data-reveal>
 		<div class="tc-column">
 			<h2 class="block-title">Servicios</h2>
 			<ul class="line-list">
 				{services.map((service, index) => (
 					<li>
-						<a href={`/servicios#${service.id}`} class="line-item">
+						<a href={service.href} target="_blank" rel="noopener" class="line-item">
 							<span class="line-index">{String(index + 1).padStart(2, "0")}</span>
 							<span class="line-main">
 								<strong>{service.name}</strong>
 								<span>{service.summary}</span>
-							</span>
-							<span class="line-arrow" aria-hidden="true">→</span>
-						</a>
-					</li>
-				))}
-			</ul>
-		</div>
-	</section>
-
-	<section class="tc-section block block--flush" data-reveal>
-		<div class="tc-column">
-			<h2 class="block-title">Productos</h2>
-			<ul class="line-list">
-				{products.map((product) => (
-					<li>
-						<a href={product.href} target="_blank" rel="noopener noreferrer" class="line-item">
-							<span class="line-main">
-								<strong>{product.name}</strong>
-								<span>{product.line}</span>
 							</span>
 							<span class="line-arrow" aria-hidden="true">↗</span>
 						</a>

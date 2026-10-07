@@ -1,51 +1,30 @@
-// Catálogo de servicios (ES) — fuente única para la home y /servicios.
-// `id` es el ancla en /servicios (#id): no cambiarlo sin revisar enlaces externos.
+// Servicios (ES) que muestra la home. Cada uno vive en su propio sitio.
 
 export interface Service {
 	id: string;
 	name: string;
-	/** Una línea: qué resuelve. Se muestra en la home. */
+	/** Una línea: qué resuelve. */
 	summary: string;
-	/** Lo que incluye, en frases cortas. Se muestra en /servicios. */
-	includes: string[];
-	cta: string;
+	href: string;
 }
 
 export const services: Service[] = [
 	{
-		id: "automatizacion",
-		name: "Automatizaciones",
-		summary: "Tus sistemas conectados. Cero tareas repetitivas.",
-		includes: [
-			"Leads, CRM y formularios",
-			"Workflows con n8n, APIs y webhooks",
-			"WhatsApp, email y herramientas internas",
-			"Reportes automáticos",
-		],
-		cta: "Automatizar procesos",
+		id: "ads-performance",
+		name: "ADS Performance",
+		summary: "Pauta en Meta, Google y TikTok con agente de IA y CRM.",
+		href: "https://adsperformance.tonyciencia.com",
 	},
 	{
-		id: "agentes-ia",
-		name: "Agentes IA",
-		summary: "Agentes que atienden, consultan y escalan con reglas claras.",
-		includes: [
-			"Soporte, ventas y operaciones",
-			"Conectados a la información de tu negocio",
-			"Reglas de tono, seguridad y escalamiento",
-			"Pruebas controladas antes de producción",
-		],
-		cta: "Diseñar un agente",
+		id: "merkhify",
+		name: "Merkhify",
+		summary: "Agente de ventas con IA en WhatsApp, 24/7.",
+		href: "https://merkhify.com",
 	},
 	{
-		id: "mentoria",
-		name: "Mentoría",
-		summary: "Qué automatizar primero y cómo medir el impacto.",
-		includes: [
-			"Diagnóstico de procesos",
-			"Priorización por impacto y costo",
-			"Roadmap de implementación por fases",
-			"Acompañamiento en decisiones técnicas",
-		],
-		cta: "Solicitar mentoría",
+		id: "anuncios-infinitos",
+		name: "Anuncios Infinitos",
+		summary: "Estrategia y creativos para tus anuncios, generados con IA.",
+		href: "https://adsinfinitos.tonyciencia.com",
 	},
 ];
