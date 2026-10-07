@@ -207,16 +207,20 @@ const pad = (n: number) => String(n).padStart(2, "0");
 		pinnedQuery.addEventListener("change", applyMode);
 		applyMode();
 
-		// Entrada: las filas aparecen escalonadas al llegar a la sección
+		// Entrada: las filas aparecen escalonadas al llegar a la sección. Se observa
+		// la lista y no la sección: en modo fijo la sección mide varias pantallas y
+		// un umbral relativo a su alto podría no alcanzarse nunca.
+		const list = section.querySelector(".tools-stack__list");
 		const revealer = new IntersectionObserver(
 			(entries) => {
 				if (!entries.some((entry) => entry.isIntersecting)) return;
 				section.classList.add("is-in");
 				revealer.disconnect();
 			},
-			{ threshold: 0.15 }
+			{ rootMargin: "0px 0px -15% 0px" }
 		);
-		revealer.observe(section);
+		if (list) revealer.observe(list);
+		else section.classList.add("is-in");
 	}
 
 	document.querySelectorAll<HTMLElement>("[data-tools-stack]").forEach(initToolsStack);
