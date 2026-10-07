@@ -142,12 +142,12 @@ const isLoggedIn = !!Astro.locals.user;
 		})} />
 		<script is:inline>
 			// Apply theme immediately to prevent flash — oscuro por defecto;
-			// claro solo si el visitante lo eligió (cookie)
+			// claro solo si el visitante lo eligió con el toggle (cookie "scheme").
+			// La cookie vieja "theme" se ignora: la versión anterior la escribía en
+			// cada visita aunque nadie eligiera nada.
 			(function () {
-				var c = document.cookie;
-				var i = c.indexOf("theme=");
-				var theme = i >= 0 ? c.slice(i + 6).split(";")[0] : null;
-				document.documentElement.classList.add(theme === "light" ? "light" : "dark");
+				var m = document.cookie.match(/(?:^|; )scheme=([^;]+)/);
+				document.documentElement.classList.add(m && m[1] === "light" ? "light" : "dark");
 			})();
 		</script>
 	</head>
@@ -224,7 +224,7 @@ const isLoggedIn = !!Astro.locals.user;
 
 		<script>
 			// Theme switcher
-			const THEME_REGEX = /theme=([^;]+)/;
+			const THEME_REGEX = /(?:^|; )scheme=([^;]+)/;
 			const themeToggle = document.querySelector(".theme-toggle");
 			const root = document.documentElement;
 
@@ -244,7 +244,7 @@ const isLoggedIn = !!Astro.locals.user;
 			}
 
 			function setTheme(theme: "light" | "dark", persist = true) {
-				if (persist) setCookie("theme", theme);
+				if (persist) setCookie("scheme", theme);
 				root.classList.remove("light", "dark");
 				root.classList.add(theme);
 				themeToggle?.setAttribute("aria-pressed", String(theme === "dark"));
