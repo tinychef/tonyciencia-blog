@@ -28,6 +28,8 @@ const latestPosts = posts
 const formatDate = (date: Date | null | undefined) =>
 	date?.toLocaleDateString("es-ES", { day: "numeric", month: "short", year: "numeric" });
 
+const GHL_URL = "https://www.gohighlevel.com/highlevel-bootcamp?fp_ref=tony-ciencia-llc-57";
+
 // Carruseles curados — 6 categorías más relevantes para el ICP B2B. El catálogo
 // completo vive en /herramientas.
 const CURATED_CATEGORIES = [
@@ -50,6 +52,14 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 <Base title={siteTitle} description={siteTagline}>
 	<section class="hero">
 		<div class="tc-column">
+			<img
+				src="/assets/partners/claude-partner-network.webp"
+				alt="Claude Partner Network — partner oficial"
+				class="partner-badge"
+				width="512"
+				height="214"
+				fetchpriority="high"
+			/>
 			<h1 class="hero-title">
 				Implementa IA.<br />
 				<span class="tc-gradient-text">Avanza.</span>
@@ -59,7 +69,6 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 				<a href="/contacto" class="tc-btn tc-btn--primary">Agendar llamada</a>
 				<a href="#servicios" class="tc-btn tc-btn--secondary">Ver servicios</a>
 			</div>
-			<p class="hero-credential">Anthropic Claude Partner Network</p>
 		</div>
 	</section>
 
@@ -80,6 +89,13 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 					</li>
 				))}
 			</ul>
+
+			<a href={GHL_URL} target="_blank" rel="sponsored noopener" class="crm-pick">
+				<span class="crm-pick__label">CRM favorito 2026</span>
+				<img src="/assets/partners/highlevel-white.webp" alt="HighLevel" class="crm-pick__logo crm-pick__logo--dark" width="480" height="108" loading="lazy" />
+				<img src="/assets/partners/highlevel-blue.webp" alt="" aria-hidden="true" class="crm-pick__logo crm-pick__logo--light" width="480" height="108" loading="lazy" />
+				<span class="crm-pick__cta">Probar gratis <span aria-hidden="true">↗</span></span>
+			</a>
 		</div>
 	</section>
 
@@ -170,11 +186,68 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 		margin-top: var(--spacing-10);
 	}
 
-	.hero-credential {
-		margin-top: var(--spacing-10);
+	/* Badge oficial: arte propio de Anthropic, no se recolorea ni deforma */
+	.partner-badge {
+		display: block;
+		width: auto;
+		height: 52px;
+		margin-bottom: var(--spacing-8);
+		border-radius: 10px;
+	}
+
+	/* HighLevel — recomendación discreta bajo los servicios */
+	.crm-pick {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-4);
+		margin-top: var(--spacing-8);
+		padding: 0.9rem 1.1rem;
+		border: 1px solid var(--color-border-subtle);
+		border-radius: var(--radius-lg);
 		color: var(--color-muted);
 		font-size: var(--font-size-xs);
-		letter-spacing: 0.01em;
+		text-decoration: none;
+		transition: border-color 200ms ease, color 200ms ease;
+	}
+
+	.crm-pick:hover {
+		border-color: var(--color-border);
+		color: var(--color-text-secondary);
+	}
+
+	.crm-pick__logo {
+		width: auto;
+		height: 20px;
+		opacity: 0.85;
+		transition: opacity 200ms ease;
+	}
+
+	.crm-pick:hover .crm-pick__logo {
+		opacity: 1;
+	}
+
+	.crm-pick__logo--light {
+		display: none;
+	}
+
+	:global(:root.light) .crm-pick__logo--dark {
+		display: none;
+	}
+
+	:global(:root.light) .crm-pick__logo--light {
+		display: block;
+	}
+
+	.crm-pick__cta {
+		margin-left: auto;
+		white-space: nowrap;
+	}
+
+	/* En móvil la fila completa sigue siendo el enlace; sobra el texto "Probar" */
+	@media (max-width: 480px) {
+		.crm-pick__cta {
+			display: none;
+		}
 	}
 
 	.block {
