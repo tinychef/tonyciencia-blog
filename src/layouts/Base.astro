@@ -33,6 +33,9 @@ interface Props {
 	faqItems?: Array<{ question: string; answer: string }> | null;
 	readingTime?: number | null;
 	alternatePath?: string | null;
+	/** Página sin traducción: el botón de idioma lleva aquí, pero no se declara
+	 *  hreflang (no es una versión equivalente). */
+	languageFallback?: string | null;
 	/** Pass content reference for plugin page contributions on content pages */
 	content?: { collection: string; id: string; slug?: string | null };
 }
@@ -53,6 +56,7 @@ const {
 	faqItems,
 	readingTime,
 	alternatePath,
+	languageFallback,
 	content,
 } = Astro.props;
 const { siteTitle, siteFavicon } = resolveBlogSiteIdentity(await getSiteSettings());
@@ -63,10 +67,11 @@ const fullTitle = title.includes(siteTitle) ? title : `${title} — ${siteTitle}
 const locale = getLangFromUrl(Astro.url);
 const altLocale = getAlternateLocale(locale);
 const t = useTranslations(locale);
-const altPath = alternatePath || getLocalePath(Astro.url.pathname, altLocale);
+const hasTranslation = !languageFallback;
+const altPath = languageFallback || alternatePath || getLocalePath(Astro.url.pathname, altLocale);
 const canonicalUrl = canonical || new URL(Astro.url.pathname, Astro.site || Astro.url.origin).href;
 const altUrl = new URL(altPath, Astro.site || Astro.url.origin).href;
-const xDefaultUrl = locale === "en" ? altUrl : canonicalUrl;
+const xDefaultUrl = locale === "en" && hasTranslation ? altUrl : canonicalUrl;
 
 // Build public page context for plugin contributions
 // SEO data is passed here and rendered securely by EmDashHead
@@ -101,7 +106,7 @@ const isLoggedIn = !!Astro.locals.user;
 		<meta name="author" content="Antonio Duque — Tony Ciencia" />
 		<link rel="canonical" href={canonicalUrl} />
 		<link rel="alternate" hreflang={locale} href={canonicalUrl} />
-		<link rel="alternate" hreflang={altLocale} href={altUrl} />
+		{hasTranslation && <link rel="alternate" hreflang={altLocale} href={altUrl} />}
 		<link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
 		<link rel="alternate" type="application/rss+xml" title={siteTitle} href={`${Astro.url.origin}/rss.xml`} />
 		{locale === "en" && <link rel="alternate" type="application/rss+xml" title={`${siteTitle} (EN)`} href={`${Astro.url.origin}/en/rss.xml`} />}
