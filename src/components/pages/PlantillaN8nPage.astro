@@ -54,7 +54,7 @@ const benefitIcons = [
     <div class="n8n-inner">
       <span class="n8n-badge" data-animate data-delay="0">Plantilla Gratuita</span>
       <h1 class="n8n-hero-title" data-animate data-delay="1">
-        Automatiza tus conversaciones de WhatsApp con
+        Automatiza tus conversaciones de WhatsApp con{" "}
         <span class="n8n-gradient-text">n8n + yCloud + Go High Level</span>
       </h1>
       <p class="n8n-hero-sub" data-animate data-delay="2">
@@ -78,7 +78,7 @@ const benefitIcons = [
         </span>
         <span class="n8n-tool-sep" aria-hidden="true">×</span>
         <a href={GHL_URL} target="_blank" rel="noopener noreferrer" class="n8n-logo-pill n8n-logo-pill--amber" aria-label="Go High Level">
-          <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/knES3eSWYIsc5YSZ3YLl/media/68dc14d7a969ba71daf21593.png" alt="Go High Level" class="n8n-logo-img n8n-logo-img--light" width="120" height="28" />
+          <img src="/assets/partners/highlevel-blue.webp" alt="HighLevel" class="n8n-logo-img" width="98" height="22" />
         </a>
       </div>
     </div>
@@ -135,7 +135,7 @@ const benefitIcons = [
         </a>
         <a href={GHL_URL} target="_blank" rel="noopener noreferrer" class="n8n-affiliate-card">
           <div class="n8n-affiliate-icon n8n-affiliate-icon--amber">
-            <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/knES3eSWYIsc5YSZ3YLl/media/68dc14d7a969ba71daf21593.png" alt="Go High Level" class="n8n-affiliate-logo n8n-affiliate-logo--light" width="80" height="20" />
+            <img src="/assets/partners/highlevel-blue.webp" alt="HighLevel" class="n8n-affiliate-logo" width="80" height="18" />
           </div>
           <div>
             <strong class="n8n-affiliate-name">Go High Level</strong>
@@ -496,8 +496,10 @@ const benefitIcons = [
     height: 44px;
   }
 
+  /* Fondo blanco fijo: los logos oficiales (negro, azul) lo necesitan en ambos temas */
   .n8n-logo-pill--amber {
-    background: var(--tc-gradient);
+    background: #ffffff;
+    border: 1px solid var(--color-border-subtle);
     box-shadow: none;
   }
 
@@ -691,8 +693,10 @@ const benefitIcons = [
     padding: 0 14px;
   }
 
+  /* Fondo blanco fijo: los logos oficiales (negro, azul) lo necesitan en ambos temas */
   .n8n-affiliate-icon--amber {
-    background: var(--tc-gradient);
+    background: #ffffff;
+    border: 1px solid var(--color-border-subtle);
     box-shadow: none;
   }
 
