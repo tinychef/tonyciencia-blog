@@ -15,6 +15,8 @@ export interface LegalSection {
 	heading: string;
 	paragraphs?: string[];
 	list?: string[];
+	/** Se muestra después de la lista. */
+	note?: string;
 }
 
 export interface LegalDoc {
@@ -214,9 +216,7 @@ const es: LegalDoc[] = [
 					"Google Analytics (_ga, _ga_*) — medición de visitas.",
 					"Meta Pixel (_fbp) — medición de campañas publicitarias.",
 				],
-				paragraphs: [
-					"Mientras no las aceptes, estas herramientas funcionan con el consentimiento denegado y no guardan cookies de seguimiento. Además usamos Cloudflare Web Analytics, que mide visitas de forma agregada sin usar cookies.",
-				],
+				note: "Mientras no las aceptes, estas herramientas funcionan con el consentimiento denegado y no guardan cookies de seguimiento. Además usamos Cloudflare Web Analytics, que mide visitas de forma agregada sin usar cookies.",
 			},
 			{
 				heading: "Cómo gestionarlas",
@@ -491,9 +491,7 @@ const en: LegalDoc[] = [
 			{
 				heading: "Analytics and advertising cookies (only with your consent)",
 				list: ["Google Analytics (_ga, _ga_*) — visit measurement.", "Meta Pixel (_fbp) — advertising campaign measurement."],
-				paragraphs: [
-					"Until you accept them, these tools run with consent denied and store no tracking cookies. We also use Cloudflare Web Analytics, which measures visits in aggregate without cookies.",
-				],
+				note: "Until you accept them, these tools run with consent denied and store no tracking cookies. We also use Cloudflare Web Analytics, which measures visits in aggregate without cookies.",
 			},
 			{
 				heading: "Managing cookies",
