@@ -34,9 +34,7 @@ Astro.cache.set({ maxAge: 3600 });
 		font-size: clamp(4rem, 12vw, 8rem);
 		font-weight: 700;
 		letter-spacing: -0.06em;
-		background: var(--tc-gradient-text);
-		color: var(--color-on-accent);
-		padding: 0 0.15em;
+		color: var(--color-muted);
 		display: inline-block;
 		line-height: 1;
 	}
@@ -56,7 +54,7 @@ Astro.cache.set({ maxAge: 3600 });
 		display: inline-flex;
 		padding: 14px 32px;
 		background: var(--color-accent);
-		color: #fff;
+		color: var(--color-on-accent);
 		font-weight: 600;
 		border-radius: var(--radius-pill);
 		text-decoration: none;
@@ -65,7 +63,6 @@ Astro.cache.set({ maxAge: 3600 });
 
 	.btn-primary:hover {
 		transform: translateY(-2px);
-		box-shadow: 0 8px 30px rgba(200, 146, 42, 0.4);
-		color: #fff;
+		color: var(--color-on-accent);
 	}
 </style>

@@ -1,24 +1,53 @@
 ---
 interface Props {
+	locale?: "es" | "en";
 	title?: string;
 	description?: string;
 	source?: string;
 }
 
-const {
-	title = "Obtén recursos gratuitos",
-	description = "Plantillas, checklists y guías listas para usar en tu negocio. Directo a tu correo, sin relleno.",
-	source = "home",
-} = Astro.props;
+const COPY = {
+	es: {
+		title: "Obtén recursos gratuitos",
+		description: "Plantillas, checklists y guías listas para usar en tu negocio. Directo a tu correo, sin relleno.",
+		placeholder: "tu@email.com",
+		label: "Tu email",
+		submit: "Recibir",
+		sending: "Enviando...",
+		done: "Listo — revisa tu correo.",
+		error: "Algo falló. Intenta de nuevo en un momento.",
+	},
+	en: {
+		title: "Get free resources",
+		description: "Templates, checklists and guides ready to use in your business. Straight to your inbox, no fluff.",
+		placeholder: "you@email.com",
+		label: "Your email",
+		submit: "Send me",
+		sending: "Sending...",
+		done: "Done — check your inbox.",
+		error: "Something went wrong. Please try again in a moment.",
+	},
+};
+
+const { locale = "es", source = "home" } = Astro.props;
+const copy = COPY[locale];
+const title = Astro.props.title ?? copy.title;
+const description = Astro.props.description ?? copy.description;
 ---
 
 <div class="email-capture">
 	<h2 class="capture-title">{title}</h2>
 	<p class="capture-desc">{description}</p>
 
-	<form class="capture-form" data-source={source}>
-		<input type="email" name="email" required placeholder="tu@email.com" aria-label="Tu email" class="capture-input" />
-		<button type="submit" class="tc-btn tc-btn--primary capture-submit">Recibir</button>
+	<form
+		class="capture-form"
+		data-source={source}
+		data-sending={copy.sending}
+		data-done={copy.done}
+		data-error={copy.error}
+	>
+		<input type="email" name="email" required placeholder={copy.placeholder} aria-label={copy.label} class="capture-input" />
+		<button type="submit" class="tc-btn tc-btn--primary capture-submit">{copy.submit}</button>
 	</form>
 	<p class="capture-status" role="status" aria-live="polite"></p>
 </div>
@@ -36,7 +65,7 @@ const {
 
 			const email = input.value.trim();
 			submitBtn.disabled = true;
-			status.textContent = "Enviando...";
+			status.textContent = form.dataset.sending ?? "";
 
 			try {
 				const res = await fetch(CAPTURE_ENDPOINT, {
@@ -45,10 +74,10 @@ const {
 					body: JSON.stringify({ email, source: form.dataset.source ?? "home" }),
 				});
 				if (!res.ok) throw new Error("request_failed");
-				status.textContent = "Listo — revisa tu correo.";
+				status.textContent = form.dataset.done ?? "";
 				form.reset();
 			} catch {
-				status.textContent = "Algo falló. Intenta de nuevo en un momento.";
+				status.textContent = form.dataset.error ?? "";
 			} finally {
 				submitBtn.disabled = false;
 			}

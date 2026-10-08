@@ -57,6 +57,19 @@ const options = [
 		color: var(--color-text);
 	}
 
+	/* Área táctil de 44px sin agrandar el control visible */
+	@media (pointer: coarse) {
+		.lang-option {
+			position: relative;
+		}
+
+		.lang-option::after {
+			content: "";
+			position: absolute;
+			inset: -8px -2px;
+		}
+	}
+
 	.lang-option.is-current {
 		background: var(--color-text);
 		color: var(--color-bg);

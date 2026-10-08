@@ -437,7 +437,7 @@ const publishDate =
 				const scrollTop = window.scrollY;
 				const docHeight = document.documentElement.scrollHeight - window.innerHeight;
 				const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-				bar.style.width = progress + "%";
+				bar.style.transform = `scaleX(${progress / 100})`;
 				ticking = false;
 			}
 			window.addEventListener("scroll", () => {
@@ -808,7 +808,7 @@ const publishDate =
 	.article-content :global(blockquote) {
 		margin: 2em 0;
 		padding: var(--spacing-4) var(--spacing-6);
-		border-left: 3px solid var(--color-border);
+		border-left: 1px solid var(--color-border-subtle);
 		background: var(--color-bg-subtle);
 		border-radius: 0 var(--radius) var(--radius) 0;
 		color: var(--color-text-secondary);
@@ -1244,11 +1244,13 @@ const publishDate =
 		position: fixed;
 		top: 0;
 		left: 0;
-		height: 3px;
-		width: 0%;
+		height: 2px;
+		width: 100%;
+		transform: scaleX(0);
+		transform-origin: left center;
 		background: var(--color-accent);
 		z-index: 101;
-		transition: width 0.1s linear;
+		transition: transform 0.1s linear;
 	}
 
 	@media (prefers-reduced-motion: reduce) {

@@ -23,9 +23,19 @@ interface Props {
 	rows: Row[];
 	title?: string;
 	catalogHref?: string;
+	catalogLabel?: string;
+	/** Nombre visible por categoría (p. ej. traducciones); por defecto, row.category */
+	categoryLabels?: Record<string, string>;
 }
 
-const { rows, title = "Herramientas que recomiendo", catalogHref } = Astro.props;
+const {
+	rows,
+	title = "Herramientas que recomiendo",
+	catalogHref,
+	catalogLabel = "Ver catálogo completo",
+	categoryLabels = {},
+} = Astro.props;
+const labelOf = (category: string) => categoryLabels[category] ?? category;
 
 // Repite la lista hasta tener suficientes ítems para llenar pantallas anchas
 // y luego la duplica: el carrusel se desplaza -50% en bucle sin saltos.
@@ -59,10 +69,10 @@ const pad = (n: number) => String(n).padStart(2, "0");
 								aria-controls={`tool-row-${i}`}
 							>
 								<span class="tool-row__index">{pad(i + 1)}</span>
-								<span class="tool-row__name">{row.category}</span>
+								<span class="tool-row__name">{labelOf(row.category)}</span>
 								<span class="tool-row__count">{row.partners.length}</span>
 							</button>
-							<div class="tool-row__body" id={`tool-row-${i}`} role="region" aria-label={row.category}>
+							<div class="tool-row__body" id={`tool-row-${i}`} role="region" aria-label={labelOf(row.category)}>
 								<div class="tool-row__clip">
 									<div class="tool-row__viewport">
 										<div
@@ -102,7 +112,7 @@ const pad = (n: number) => String(n).padStart(2, "0");
 				</ol>
 
 				{catalogHref && (
-					<a href={catalogHref} class="tools-stack__catalog">Ver catálogo completo</a>
+					<a href={catalogHref} class="tools-stack__catalog">{catalogLabel}</a>
 				)}
 			</div>
 		</div>
@@ -127,14 +137,19 @@ const pad = (n: number) => String(n).padStart(2, "0");
 		let lockTimer = 0;
 		let ticking = false;
 
-		function setActive(index: number) {
-			if (index === active && rows[index].classList.contains("is-active")) return;
+		// Una fila cerrada queda fuera del orden de tabulación (inert): sus enlaces
+		// están ocultos y no deben recibir foco.
+		function setRowOpen(row: HTMLElement, open: boolean) {
+			row.classList.toggle("is-active", open);
+			row.querySelector(".tool-row__head")?.setAttribute("aria-expanded", String(open));
+			const body = row.querySelector<HTMLElement>(".tool-row__body");
+			if (body) body.inert = !open;
+		}
+
+		function setActive(index: number, force = false) {
+			if (!force && index === active && rows[index].classList.contains("is-active")) return;
 			active = index;
-			rows.forEach((row, i) => {
-				const on = i === index;
-				row.classList.toggle("is-active", on);
-				row.querySelector(".tool-row__head")?.setAttribute("aria-expanded", String(on));
-			});
+			rows.forEach((row, i) => setRowOpen(row, i === index));
 			if (progressEl) progressEl.textContent = String(index + 1).padStart(2, "0");
 		}
 
@@ -168,8 +183,7 @@ const pad = (n: number) => String(n).padStart(2, "0");
 			if (!pinned) {
 				// Acordeón: tocar la fila abierta la cierra
 				if (index === active && rows[index].classList.contains("is-active")) {
-					rows[index].classList.remove("is-active");
-					rows[index].querySelector(".tool-row__head")?.setAttribute("aria-expanded", "false");
+					setRowOpen(rows[index], false);
 					return;
 				}
 				setActive(index);
@@ -187,7 +201,7 @@ const pad = (n: number) => String(n).padStart(2, "0");
 		function applyMode() {
 			pinned = pinnedQuery.matches;
 			section.classList.toggle("is-pinned", pinned);
-			if (pinned) setActive(indexFromScroll());
+			setActive(pinned ? indexFromScroll() : active, true);
 		}
 
 		rows.forEach((row, i) => {

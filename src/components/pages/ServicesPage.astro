@@ -1,587 +1,260 @@
 ---
 import Base from "../../layouts/Base.astro";
-import { getLangFromUrl, useTranslations } from "../../i18n/locales";
+import { getLangFromUrl } from "../../i18n/locales";
+import { services } from "../../data/services";
 
 const locale = getLangFromUrl(Astro.url);
-const t = useTranslations(locale);
 
 Astro.cache.set({ maxAge: 3600 });
 
-const title = locale === "en" ? "AI Services for Companies — Tony Ciencia" : "Servicios IA para Empresas — Tony Ciencia";
-const description = locale === "en"
-	? "AI automations, AI agents, and business mentorship for companies that need implementation, not experiments."
-	: "Automatizaciones, agentes IA y mentoría empresarial para compañías que necesitan implementación, no experimentos.";
-
-const contactRoute = locale === "en" ? "/en/contact" : "/contacto";
-
-const services = [
-	{
-		id: "automatizacion",
-		index: "01",
-		tag: t("services.block1.tag"),
-		title: t("services.block1.title"),
-		desc: t("services.block1.desc"),
-		features: [t("services.block1.f1"), t("services.block1.f2"), t("services.block1.f3"), t("services.block1.f4"), t("services.block1.f5")],
-		btn: t("services.block1.btn"),
-		stat: t("services.block1.statVal"),
-		statLabel: t("services.block1.statLbl"),
+const COPY = {
+	es: {
+		title: "Servicios IA para Empresas — Tony Ciencia",
+		description: "ADS Performance, Merkhify y Anuncios Infinitos: pauta, agentes de IA y creativos para empresas que quieren crecer con sistemas, no con experimentos.",
+		eyebrow: "Servicios",
+		h1A: "Tres sistemas.",
+		h1B: "Un objetivo: más clientes.",
+		sub: "Cada servicio resuelve una parte del crecimiento: atraer, responder y convertir.",
+		for: "Para",
+		includes: "Incluye",
+		closing: "¿No sabes cuál necesitas?",
+		closingSub: "Agenda una llamada de 30 minutos y te decimos por dónde empezar.",
+		book: "Agendar llamada",
+		contact: "/contacto",
 	},
-	{
-		id: "agentes-ia",
-		index: "02",
-		tag: t("services.block2.tag"),
-		title: t("services.block2.title"),
-		desc: t("services.block2.desc"),
-		features: [t("services.block2.f1"), t("services.block2.f2"), t("services.block2.f3"), t("services.block2.f4"), t("services.block2.f5")],
-		btn: t("services.block2.btn"),
-		stat: t("services.block2.statVal"),
-		statLabel: t("services.block2.statLbl"),
+	en: {
+		title: "AI Services for Companies — Tony Ciencia",
+		description: "ADS Performance, Merkhify and Anuncios Infinitos: ads, AI agents and creatives for companies that want to grow with systems, not experiments.",
+		eyebrow: "Services",
+		h1A: "Three systems.",
+		h1B: "One goal: more customers.",
+		sub: "Each service solves one part of growth: attract, respond and convert.",
+		for: "For",
+		includes: "Includes",
+		closing: "Not sure which one you need?",
+		closingSub: "Book a 30-minute call and we'll tell you where to start.",
+		book: "Book a call",
+		contact: "/en/contact",
 	},
-	{
-		id: "mentoria",
-		index: "03",
-		tag: t("services.block3.tag"),
-		title: t("services.block3.title"),
-		desc: t("services.block3.desc"),
-		features: [t("services.block3.f1"), t("services.block3.f2"), t("services.block3.f3"), t("services.block3.f4"), t("services.block3.f5")],
-		btn: t("services.block3.btn"),
-		stat: t("services.block3.statVal"),
-		statLabel: t("services.block3.statLbl"),
-	},
-];
-
-const outcomes = locale === "en"
-	? ["Clear use-case roadmap", "Production-ready workflows", "Human review and governance", "Measurable operational impact"]
-	: ["Roadmap claro de casos de uso", "Workflows listos para producción", "Revisión humana y gobierno", "Impacto operativo medible"];
+}[locale];
 ---
 
-<Base title={title} description={description}>
-	<section class="services-hero">
-		<div class="tc-shell services-hero-grid">
-			<div class="services-hero-copy">
-				<div class="page-breadcrumb">
-					<a href={locale === "en" ? "/en" : "/"}>Tony Ciencia</a>
-					<span>/</span>
-					<span>{t("nav.services")}</span>
-				</div>
-				<span class="tc-eyebrow">{t("services.label")}</span>
-				<h1>
-					{t("services.page.title.line1")}<br />
-					<span class="tc-gradient-text">{t("services.page.title.line2")}</span>
-				</h1>
-				<p>{t("services.page.subtitle")}</p>
-				<a href={contactRoute} class="tc-btn tc-btn--primary">{t("services.cta.btn")}</a>
-			</div>
-			<div class="services-command tc-card">
-				<p class="command-label">{locale === "en" ? "Implementation stack" : "Stack de implementación"}</p>
-				<div class="command-line"><span>01</span> n8n + APIs + webhooks</div>
-				<div class="command-line"><span>02</span> OpenAI / Claude / Gemini</div>
-				<div class="command-line"><span>03</span> Cloudflare Workers + D1 + R2</div>
-				<div class="command-line"><span>04</span> CRM + WhatsApp + reporting</div>
-			</div>
+<Base title={COPY.title} description={COPY.description}>
+	<section class="svc-hero">
+		<div class="tc-column">
+			<p class="tc-eyebrow">{COPY.eyebrow}</p>
+			<h1>
+				{COPY.h1A}<br />
+				<span class="tc-gradient-text">{COPY.h1B}</span>
+			</h1>
+			<p class="svc-sub">{COPY.sub}</p>
 		</div>
 	</section>
 
-	<section class="outcomes-strip">
-		<div class="tc-shell outcomes-grid">
-			{outcomes.map((outcome, index) => (
-				<div class="outcome-item">
-					<span>{String(index + 1).padStart(2, "0")}</span>
-					<strong>{outcome}</strong>
-				</div>
-			))}
-		</div>
-	</section>
+	<div class="tc-column svc-list">
+		{services.map((service, index) => (
+			<article id={service.id} class="svc" data-reveal>
+				<header class="svc-head">
+					<span class="svc-index">{String(index + 1).padStart(2, "0")}</span>
+					<h2>{service.name}</h2>
+					<p class="svc-summary">{service.summary[locale]}</p>
+				</header>
 
-	<section class="service-suite">
-		<div class="tc-shell">
-			{services.map((service, index) => (
-				<article id={service.id} class:list={["service-panel", "tc-card", { "service-panel--reverse": index % 2 === 1 }]}>
-					<div class="service-copy">
-						<span class="service-tag">{service.tag}</span>
-						<h2>{service.title}</h2>
-						<p>{service.desc}</p>
-						<ul>
-							{service.features.map((feature) => <li>{feature}</li>)}
-						</ul>
-						<a href={contactRoute} class="tc-btn tc-btn--primary">{service.btn}</a>
+				<dl class="svc-meta">
+					<div>
+						<dt>{COPY.for}</dt>
+						<dd>{service.audience[locale]}</dd>
 					</div>
-					<div class="service-visual">
-						<div class="service-number">{service.index}</div>
-						<div class="service-stat">
-							<strong>{service.stat}</strong>
-							<span>{service.statLabel}</span>
-						</div>
-						<div class="service-routing" aria-hidden="true">
-							<span></span>
-							<span></span>
-							<span></span>
-						</div>
+					<div>
+						<dt>{COPY.includes}</dt>
+						<dd>
+							<ul>
+								{service.includes[locale].map((item) => <li>{item}</li>)}
+							</ul>
+						</dd>
 					</div>
-				</article>
-			))}
-		</div>
-	</section>
+				</dl>
 
-	<section class="service-process">
-		<div class="tc-shell process-grid">
-			<div>
-				<span class="tc-eyebrow">{locale === "en" ? "Engagement model" : "Modelo de trabajo"}</span>
-				<h2 class="tc-section-title">{locale === "en" ? "From diagnosis to operational AI." : "Del diagnóstico a IA operando."}</h2>
-			</div>
-			<div class="process-list">
-				<div><strong>1</strong><span>{locale === "en" ? "Process audit and business objective" : "Auditoría de procesos y objetivo de negocio"}</span></div>
-				<div><strong>2</strong><span>{locale === "en" ? "Prototype with real data and clear limits" : "Prototipo con datos reales y límites claros"}</span></div>
-				<div><strong>3</strong><span>{locale === "en" ? "Deployment, documentation, and team handoff" : "Despliegue, documentación y handoff al equipo"}</span></div>
-				<div><strong>4</strong><span>{locale === "en" ? "Measurement and controlled expansion" : "Medición y expansión controlada"}</span></div>
-			</div>
-		</div>
-	</section>
+				<a href={service.href} target="_blank" rel="noopener" class="tc-btn tc-btn--secondary">
+					{service.cta[locale]} <span aria-hidden="true">↗</span>
+				</a>
+			</article>
+		))}
+	</div>
 
-	<section class="page-cta">
-		<div class="tc-shell">
-			<div class="page-cta-inner tc-card">
-				<h2>{t("services.cta.title")}</h2>
-				<p>{t("services.cta.sub")}</p>
-				<a href={contactRoute} class="tc-btn tc-btn--primary">{t("services.cta.btn")}</a>
-			</div>
-		</div>
-	</section>
-
-	<section class="brand-collab">
-		<div class="tc-shell">
-			<p class="brand-collab-note">
-				<span class="brand-collab-dot" aria-hidden="true"></span>
-				{locale === "en"
-					? "Brand collaborations & sponsorships — selective partnerships with tools I genuinely use."
-					: "Colaboraciones con marcas y patrocinios — alianzas selectivas con herramientas que uso de verdad."}
-				<a href={contactRoute}>{locale === "en" ? "Get in touch" : "Escríbeme"}</a>
-			</p>
+	<section class="tc-section svc-closing" data-reveal>
+		<div class="tc-column">
+			<h2>{COPY.closing}</h2>
+			<p>{COPY.closingSub}</p>
+			<a href={COPY.contact} class="tc-btn tc-btn--primary">{COPY.book}</a>
 		</div>
 	</section>
 </Base>
 
 <script>
 	(function () {
-		const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-		const targets = document.querySelectorAll(".outcome-item, .service-panel, .process-list > div, .page-cta-inner");
-		targets.forEach((target) => target.classList.add("scroll-reveal"));
-		if (prefersReduced) {
-			targets.forEach((target) => target.classList.add("is-visible"));
-			return;
-		}
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach((entry) => {
-				if (!entry.isIntersecting) return;
-				entry.target.classList.add("is-visible");
-				observer.unobserve(entry.target);
-			});
-		}, { threshold: 0.12 });
+		const targets = document.querySelectorAll("[data-reveal]");
+		if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+		targets.forEach((target) => target.classList.add("reveal"));
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (!entry.isIntersecting) return;
+					entry.target.classList.add("is-visible");
+					observer.unobserve(entry.target);
+				});
+			},
+			{ threshold: 0.12 }
+		);
 		targets.forEach((target) => observer.observe(target));
 	})();
 </script>
 
 <style>
-	.services-hero {
-		padding: clamp(4.5rem, 8vw, 7rem) 0;
-		border-bottom: 1px solid var(--color-border-subtle);
-		background:
-			linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 12%, transparent), transparent 34%),
-			var(--color-bg);
-		overflow: hidden;
+	.svc-hero {
+		padding: clamp(5rem, 14vw, 9rem) 0 clamp(3rem, 8vw, 5rem);
 	}
 
-	.services-hero-grid,
-	.process-grid {
-		display: grid;
-		grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
-		gap: clamp(2rem, 6vw, 5rem);
-		align-items: center;
+	.svc-hero h1 {
+		margin-top: var(--spacing-4);
+		font-size: clamp(2.6rem, 8vw, 4.6rem);
+		line-height: 1.02;
+		letter-spacing: -0.05em;
 	}
 
-	.services-hero-copy {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		gap: var(--spacing-5);
-	}
-
-	.page-breadcrumb {
-		display: flex;
-		align-items: center;
-		gap: var(--spacing-2);
-		color: var(--color-muted);
-		font-size: var(--font-size-sm);
-	}
-
-	.page-breadcrumb a {
-		color: var(--color-muted);
-		text-decoration: none;
-	}
-
-	.page-breadcrumb a:hover {
-		color: var(--color-accent);
-	}
-
-	.services-hero h1 {
-		font-size: clamp(3rem, 8vw, 6.6rem);
-		line-height: 0.9;
-		letter-spacing: -0.08em;
-	}
-
-	.services-hero p {
-		max-width: 62ch;
-		color: var(--color-text-secondary);
-		font-size: clamp(1.05rem, 1.4vw, 1.28rem);
-		line-height: 1.75;
-	}
-
-	.services-command {
-		padding: clamp(1.3rem, 3vw, 2rem);
-	}
-
-	.command-label {
-		position: relative;
-		z-index: 1;
-		margin-bottom: var(--spacing-5);
-		color: var(--color-accent);
-		font-size: var(--font-size-xs);
-		font-weight: 900;
-		text-transform: uppercase;
-		letter-spacing: 0.12em;
-	}
-
-	.command-line {
-		position: relative;
-		z-index: 1;
-		display: flex;
-		gap: var(--spacing-3);
-		padding: var(--spacing-4);
-		border-top: 1px solid var(--color-border-subtle);
-		color: var(--color-text-secondary);
-		font-family: var(--font-mono);
-		font-size: var(--font-size-sm);
-	}
-
-	.command-line span {
-		color: var(--color-accent);
-	}
-
-	.outcomes-strip {
-		padding: var(--spacing-5) 0;
-		border-bottom: 1px solid var(--color-border-subtle);
-		background: color-mix(in srgb, var(--color-bg-subtle) 82%, transparent);
-	}
-
-	.outcomes-grid {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		gap: var(--spacing-3);
-	}
-
-	.outcome-item {
-		display: flex;
-		align-items: center;
-		gap: var(--spacing-3);
-		padding: var(--spacing-4);
-		border: 1px solid var(--color-border-subtle);
-		border-radius: var(--radius-lg);
-		background: var(--color-bg);
-	}
-
-	.outcome-item span {
-		color: var(--color-accent);
-		font-family: var(--font-mono);
-		font-weight: 900;
-	}
-
-	.service-suite {
-		padding: clamp(4rem, 8vw, 7rem) 0;
-	}
-
-	.service-suite .tc-shell {
-		display: grid;
-		gap: var(--spacing-6);
-	}
-
-	.service-panel {
-		display: grid;
-		grid-template-columns: minmax(0, 1fr) minmax(300px, 0.62fr);
-		gap: clamp(2rem, 5vw, 4rem);
-		align-items: stretch;
-		padding: clamp(1.5rem, 4vw, 3rem);
-	}
-
-	.service-panel--reverse {
-		grid-template-columns: minmax(300px, 0.62fr) minmax(0, 1fr);
-	}
-
-	.service-panel--reverse .service-copy {
-		order: 2;
-	}
-
-	.service-panel--reverse .service-visual {
-		order: 1;
-	}
-
-	.service-copy,
-	.service-visual {
-		position: relative;
-		z-index: 1;
-	}
-
-	.service-copy {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		gap: var(--spacing-5);
-	}
-
-	.service-tag {
-		color: var(--color-accent);
-		font-size: var(--font-size-xs);
-		font-weight: 900;
-		text-transform: uppercase;
-		letter-spacing: 0.12em;
-	}
-
-	.service-copy h2 {
-		font-size: clamp(2.3rem, 5vw, 4.4rem);
-		line-height: 0.96;
-		letter-spacing: -0.07em;
-	}
-
-	.service-copy p {
-		max-width: 64ch;
+	.svc-sub {
+		max-width: 40ch;
+		margin-top: var(--spacing-6);
 		color: var(--color-text-secondary);
 		font-size: var(--font-size-lg);
-		line-height: 1.75;
+		line-height: 1.45;
 	}
 
-	.service-copy ul {
+	.svc-list {
+		display: grid;
+	}
+
+	.svc {
+		display: grid;
+		gap: var(--spacing-8);
+		padding: clamp(3rem, 7vw, 4.5rem) 0;
+		border-top: 1px solid var(--color-border-subtle);
+		scroll-margin-top: calc(var(--nav-height, 64px) + 1rem);
+	}
+
+	.svc-head {
 		display: grid;
 		gap: var(--spacing-3);
-		list-style: none;
 	}
 
-	.service-copy li {
-		display: flex;
-		gap: var(--spacing-3);
+	.svc-index {
+		color: var(--color-muted);
+		font-size: var(--font-size-xs);
+		font-variant-numeric: tabular-nums;
+	}
+
+	.svc-head h2 {
+		font-size: clamp(2rem, 5vw, 3rem);
+		letter-spacing: -0.045em;
+	}
+
+	.svc-summary {
 		color: var(--color-text-secondary);
+		font-size: var(--font-size-lg);
+		line-height: 1.45;
+	}
+
+	.svc-meta {
+		display: grid;
+		gap: var(--spacing-6);
+		margin: 0;
+	}
+
+	.svc-meta > div {
+		display: grid;
+		grid-template-columns: 7rem 1fr;
+		gap: var(--spacing-4);
+	}
+
+	.svc-meta dt {
+		padding-top: 0.15rem;
+		color: var(--color-muted);
+		font-size: var(--font-size-xs);
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+
+	.svc-meta dd {
+		margin: 0;
+		color: var(--color-text);
 		line-height: 1.6;
 	}
 
-	.service-copy li::before {
-		content: "";
-		flex: 0 0 0.55rem;
-		width: 0.55rem;
-		height: 0.55rem;
-		margin-top: 0.55rem;
-		border-radius: var(--radius);
-		background: var(--color-accent);
-		box-shadow: 0 0 14px var(--color-accent);
-	}
-
-	.service-visual {
-		min-height: 360px;
+	.svc-meta ul {
 		display: grid;
-		align-content: space-between;
-		padding: var(--spacing-6);
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-xl);
-		background:
-			var(--tc-grid),
-			linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 13%, var(--color-bg)), var(--color-bg));
-		background-size: 36px 36px, auto;
-		overflow: hidden;
-	}
-
-	.service-number {
-		color: color-mix(in srgb, var(--color-text) 8%, transparent);
-		font-size: clamp(6rem, 12vw, 10rem);
-		font-weight: 900;
-		line-height: 0.8;
-		letter-spacing: -0.12em;
-	}
-
-	.service-stat strong,
-	.service-stat span {
-		display: block;
-	}
-
-	.service-stat strong {
-		color: var(--color-accent);
-		font-size: clamp(2rem, 5vw, 3.4rem);
-		letter-spacing: -0.06em;
-	}
-
-	.service-stat span {
-		color: var(--color-text-secondary);
-	}
-
-	.service-routing {
-		position: absolute;
-		inset: auto var(--spacing-6) var(--spacing-6) auto;
-		display: flex;
 		gap: var(--spacing-2);
+		margin: 0;
+		padding: 0;
+		list-style: none;
 	}
 
-	.service-routing span {
-		width: 2rem;
-		height: 2rem;
-		border-radius: var(--radius);
-		border: 1px solid var(--color-border);
-		background: var(--color-bg);
-	}
-
-	.service-process,
-	.page-cta {
-		padding: clamp(4rem, 8vw, 7rem) 0;
-		border-top: 1px solid var(--color-border-subtle);
-		background: color-mix(in srgb, var(--color-bg-subtle) 74%, transparent);
-	}
-
-	.process-list {
-		display: grid;
-		gap: var(--spacing-3);
-	}
-
-	.process-list div {
-		display: grid;
-		grid-template-columns: auto 1fr;
-		gap: var(--spacing-4);
-		align-items: center;
-		padding: var(--spacing-5);
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-xl);
-		background: var(--color-bg);
-	}
-
-	.process-list strong {
-		display: grid;
-		place-items: center;
-		width: 2.4rem;
-		height: 2.4rem;
-		border-radius: var(--radius);
-		background: var(--color-accent-muted);
-		color: var(--color-accent);
-	}
-
-	.process-list span {
-		color: var(--color-text-secondary);
-		font-weight: 700;
-	}
-
-	.page-cta {
-		background: transparent;
-	}
-
-	.page-cta-inner {
+	.svc-meta li {
+		padding-left: 1.1rem;
 		position: relative;
-		z-index: 1;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: var(--spacing-5);
-		padding: clamp(2rem, 6vw, 4.5rem);
+		color: var(--color-text-secondary);
+	}
+
+	.svc-meta li::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0.7em;
+		width: 5px;
+		height: 5px;
+		border-radius: 50%;
+		background: var(--color-muted);
+	}
+
+	.svc .tc-btn {
+		justify-self: start;
+	}
+
+	.svc-closing {
+		border-top: 1px solid var(--color-border-subtle);
 		text-align: center;
 	}
 
-	.page-cta-inner h2 {
-		max-width: 760px;
-		font-size: clamp(2.3rem, 6vw, 4.5rem);
-		line-height: 0.95;
-		letter-spacing: -0.07em;
+	.svc-closing h2 {
+		font-size: clamp(1.9rem, 5vw, 3rem);
+		letter-spacing: -0.045em;
 	}
 
-	.page-cta-inner p {
-		max-width: 640px;
+	.svc-closing p {
+		max-width: 44ch;
+		margin: var(--spacing-4) auto var(--spacing-8);
 		color: var(--color-text-secondary);
-		font-size: var(--font-size-lg);
-		line-height: 1.7;
 	}
 
-	.scroll-reveal {
+	.reveal {
 		opacity: 0;
-		transform: translateY(24px);
-		transition: opacity 0.7s ease, transform 0.7s ease;
+		transform: translateY(16px);
+		transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out);
 	}
 
-	.scroll-reveal.is-visible {
+	.reveal.is-visible {
 		opacity: 1;
-		transform: translateY(0);
-	}
-
-	@media (max-width: 980px) {
-		.services-hero-grid,
-		.process-grid,
-		.service-panel,
-		.service-panel--reverse {
-			grid-template-columns: 1fr;
-		}
-
-		.service-panel--reverse .service-copy,
-		.service-panel--reverse .service-visual {
-			order: initial;
-		}
-
-		.outcomes-grid {
-			grid-template-columns: repeat(2, 1fr);
-		}
+		transform: none;
 	}
 
 	@media (max-width: 640px) {
-		.outcomes-grid {
+		.svc-meta > div {
 			grid-template-columns: 1fr;
+			gap: var(--spacing-2);
 		}
 
-		.service-visual {
-			min-height: 260px;
+		.svc .tc-btn {
+			justify-self: stretch;
 		}
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.scroll-reveal {
-			opacity: 1;
-			transform: none;
-			transition: none;
-		}
-	}
-
-	/* Colaboraciones con marcas — discreto, sobrio */
-	.brand-collab {
-		padding-block: 0 clamp(3rem, 6vw, 5rem);
-	}
-	.brand-collab-note {
-		display: flex;
-		align-items: center;
-		gap: 0.6rem;
-		flex-wrap: wrap;
-		justify-content: center;
-		max-width: 64ch;
-		margin-inline: auto;
-		padding: 0.9rem 1.25rem;
-		border: 1px dashed var(--color-border);
-		border-radius: var(--radius-pill);
-		background: color-mix(in srgb, var(--color-bg) 80%, transparent);
-		color: var(--color-muted);
-		font-size: var(--font-size-sm);
-		text-align: center;
-	}
-	.brand-collab-dot {
-		width: 0.4rem;
-		height: 0.4rem;
-		border-radius: var(--radius);
-		background: var(--color-accent);
-		box-shadow: 0 0 12px var(--color-accent);
-	}
-	.brand-collab-note a {
-		color: var(--color-text-secondary);
-		text-decoration: underline;
-		text-underline-offset: 3px;
-		font-weight: 600;
-	}
-	.brand-collab-note a:hover {
-		color: var(--color-accent);
 	}
 </style>

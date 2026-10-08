@@ -105,13 +105,12 @@ const description = `Catálogo completo de ${partners.length} herramientas de IA
 	.page-hero {
 		padding: clamp(4rem, 8vw, 7rem) var(--spacing-6) clamp(3rem, 6vw, 5rem);
 		background: var(--color-bg);
-		border-bottom: var(--border-width-thick) solid var(--color-border);
+		border-bottom: 1px solid var(--color-border-subtle);
 	}
 	.page-hero-inner { max-width: var(--wide-width); margin: 0 auto; }
 
 	.page-breadcrumb {
 		display: flex; align-items: center; gap: var(--spacing-2);
-		font-family: var(--font-mono);
 		font-size: var(--font-size-sm); color: var(--color-muted); margin-bottom: var(--spacing-6);
 	}
 	.page-breadcrumb a { color: var(--color-muted); text-decoration: none; }
@@ -133,17 +132,20 @@ const description = `Catálogo completo de ${partners.length} herramientas de IA
 	}
 	.stat-item { display: flex; flex-direction: column; gap: 2px; }
 	.stat-num {
-		font-family: var(--font-heading-stack);
 		font-size: clamp(1.8rem, 3vw, 2.4rem);
-		color: var(--color-accent-shadow);
+		font-weight: 600;
+		letter-spacing: -0.03em;
+		color: var(--color-text);
 	}
-	.stat-lbl { font-family: var(--font-mono); font-size: var(--font-size-sm); color: var(--color-muted); }
-	.stat-divider { width: 2px; height: 40px; background: var(--color-border); }
+	.stat-lbl { font-size: var(--font-size-sm); color: var(--color-muted); }
+	.stat-divider { width: 1px; height: 40px; background: var(--color-border); }
 
 	.filter-section {
 		padding: var(--spacing-6) var(--spacing-6);
-		background: var(--color-bg-subtle);
-		border-bottom: 2px solid var(--color-border-subtle);
+		background: var(--glass-bg);
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+		border-bottom: 1px solid var(--color-border-subtle);
 		position: sticky;
 		top: var(--nav-height, 64px);
 		z-index: 10;
@@ -157,26 +159,25 @@ const description = `Catálogo completo de ${partners.length} herramientas de IA
 	}
 
 	.chip {
-		font-family: var(--font-mono);
-		font-size: var(--font-size-2xs);
-		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: 0.04em;
-		padding: 0.4rem 0.75rem;
-		background: var(--color-bg);
-		border: 2px solid var(--color-border);
+		min-height: 36px;
+		padding: 0 0.9rem;
+		font-size: var(--font-size-xs);
+		font-weight: 500;
+		background: transparent;
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-pill);
 		color: var(--color-text-secondary);
 		cursor: pointer;
-		transition: transform 120ms ease, box-shadow 120ms ease;
+		transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
 	}
 	.chip:hover {
-		transform: translate(-1px, -1px);
-		box-shadow: 2px 2px 0 var(--color-border);
+		color: var(--color-text);
+		border-color: var(--color-text-secondary);
 	}
 	.chip.is-active {
-		background: var(--color-accent);
-		color: var(--color-on-accent);
-		border-color: var(--color-border);
+		background: var(--color-text);
+		color: var(--color-bg);
+		border-color: var(--color-text);
 	}
 
 	.catalog-section {
@@ -196,15 +197,15 @@ const description = `Catálogo completo de ${partners.length} herramientas de IA
 		align-items: center;
 		gap: var(--spacing-3);
 		padding: var(--spacing-4);
-		background: var(--color-bg);
-		border: 2px solid var(--color-border);
+		background: var(--color-bg-subtle);
+		border: 1px solid var(--color-border-subtle);
+		border-radius: var(--radius-lg);
 		text-decoration: none;
 		color: var(--color-text);
-		transition: transform 120ms ease, box-shadow 120ms ease;
+		transition: border-color 160ms ease;
 	}
 	.partner-card:hover {
-		transform: translate(-2px, -2px);
-		box-shadow: var(--shadow-md);
+		border-color: var(--color-border);
 	}
 
 	.partner-logo {
@@ -212,7 +213,7 @@ const description = `Catálogo completo de ${partners.length} herramientas de IA
 		display: flex; align-items: center; justify-content: center;
 		flex-shrink: 0;
 	}
-	.partner-logo img { width: 32px; height: 32px; object-fit: contain; }
+	.partner-logo img { width: 32px; height: 32px; object-fit: contain; border-radius: 6px; }
 
 	.partner-info {
 		display: flex;
@@ -222,14 +223,13 @@ const description = `Catálogo completo de ${partners.length} herramientas de IA
 	}
 	.partner-name {
 		font-size: var(--font-size-sm);
-		font-weight: 700;
+		font-weight: 600;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
 	.partner-category {
-		font-family: var(--font-mono);
-		font-size: var(--font-size-2xs);
+		font-size: var(--font-size-xs);
 		color: var(--color-muted);
 		white-space: nowrap;
 		overflow: hidden;

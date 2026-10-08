@@ -8,9 +8,55 @@ import { getStaticPosts } from "../../utils/static-posts";
 import { partners } from "../../data/partners.generated";
 import { services } from "../../data/services";
 
-// Home ES-only — ver src/components/pages/HomePageEn.astro para la home en inglés
-// (intacta, sirve /en/). No hay ramas de idioma acá a propósito.
-const locale = "es";
+// Home bilingüe: / (es) y /en (en) comparten diseño; solo cambian los textos.
+interface Props {
+	locale?: "es" | "en";
+}
+
+const { locale = "es" } = Astro.props;
+
+const COPY = {
+	es: {
+		titleA: "Implementa IA.",
+		titleB: "Avanza.",
+		sub: "Automatizaciones y agentes de IA operando dentro de tu empresa.",
+		partnerLabel: "Partners de Anthropic",
+		partnerCta: "Ver programa",
+		book: "Agendar llamada",
+		seeServices: "Ver servicios",
+		services: "Servicios",
+		crmLabel: "CRM favorito 2026",
+		crmCta: "Probar gratis",
+		tools: "Herramientas que recomiendo",
+		catalog: "Ver catálogo completo",
+		radar: "Radar IA",
+		seeAll: "Ver todo",
+		closing: "Hablemos de tu operación.",
+		contact: "/contacto",
+		posts: "/posts",
+		dateLocale: "es-ES",
+	},
+	en: {
+		titleA: "Implement AI.",
+		titleB: "Move forward.",
+		sub: "Automations and AI agents running inside your company.",
+		partnerLabel: "Anthropic Partners",
+		partnerCta: "See program",
+		book: "Book a call",
+		seeServices: "See services",
+		services: "Services",
+		crmLabel: "Favorite CRM 2026",
+		crmCta: "Try it free",
+		tools: "Tools I recommend",
+		catalog: "",
+		radar: "AI Radar",
+		seeAll: "See all",
+		closing: "Let's talk about your operation.",
+		contact: "/en/contact",
+		posts: "/en/posts",
+		dateLocale: "en-US",
+	},
+}[locale];
 
 const { entries: cmsPosts, cacheHint } = await getEmDashCollection("posts", { locale });
 const { siteTitle, siteTagline } = resolveBlogSiteIdentity(await getSiteSettings());
@@ -26,12 +72,12 @@ const latestPosts = posts
 	.slice(0, 4);
 
 const formatDate = (date: Date | null | undefined) =>
-	date?.toLocaleDateString("es-ES", { day: "numeric", month: "short", year: "numeric" });
+	date?.toLocaleDateString(COPY.dateLocale, { day: "numeric", month: "short", year: "numeric" });
 
 const GHL_URL = "https://www.gohighlevel.com/highlevel-bootcamp?fp_ref=tony-ciencia-llc-57";
 
 // Carruseles curados — 6 categorías más relevantes para el ICP B2B. El catálogo
-// completo vive en /herramientas.
+// completo vive en /herramientas (solo ES).
 const CURATED_CATEGORIES = [
 	"CRM y Ventas",
 	"Marketing y Funnels",
@@ -40,6 +86,15 @@ const CURATED_CATEGORIES = [
 	"Productividad y Gestión de Proyectos",
 	"Comunicación — Telefonía y Atención",
 ];
+
+const CATEGORY_LABELS_EN: Record<string, string> = {
+	"CRM y Ventas": "CRM & Sales",
+	"Marketing y Funnels": "Marketing & Funnels",
+	"Email Marketing y Ventas por Correo": "Email Marketing",
+	"IA — Agentes y Automatización": "AI — Agents & Automation",
+	"Productividad y Gestión de Proyectos": "Productivity & Project Management",
+	"Comunicación — Telefonía y Atención": "Communication — Phone & Support",
+};
 
 const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 	category,
@@ -53,13 +108,13 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 	<section class="hero">
 		<div class="tc-column">
 			<h1 class="hero-title">
-				Implementa IA.<br />
-				<span class="tc-gradient-text">Avanza.</span>
+				{COPY.titleA}<br />
+				<span class="tc-gradient-text">{COPY.titleB}</span>
 			</h1>
-			<p class="hero-sub">Automatizaciones y agentes de IA operando dentro de tu empresa.</p>
+			<p class="hero-sub">{COPY.sub}</p>
 
 			<a href="https://claude.com/partners" target="_blank" rel="noopener" class="pick pick--partner">
-				<span class="pick__label">Partners de Anthropic</span>
+				<span class="pick__label">{COPY.partnerLabel}</span>
 				<span class="cpn">
 					<img
 						src="/assets/partners/claude-partner-network.webp"
@@ -69,19 +124,19 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 						fetchpriority="high"
 					/>
 				</span>
-				<span class="pick__cta">Ver programa <span aria-hidden="true">↗</span></span>
+				<span class="pick__cta">{COPY.partnerCta} <span aria-hidden="true">↗</span></span>
 			</a>
 
 			<div class="hero-actions">
-				<a href="/contacto" class="tc-btn tc-btn--primary">Agendar llamada</a>
-				<a href="#servicios" class="tc-btn tc-btn--secondary">Ver servicios</a>
+				<a href={COPY.contact} class="tc-btn tc-btn--primary">{COPY.book}</a>
+				<a href="#servicios" class="tc-btn tc-btn--secondary">{COPY.seeServices}</a>
 			</div>
 		</div>
 	</section>
 
 	<section class="tc-section block" id="servicios" data-reveal>
 		<div class="tc-column">
-			<h2 class="block-title">Servicios</h2>
+			<h2 class="block-title">{COPY.services}</h2>
 			<ul class="line-list">
 				{services.map((service, index) => (
 					<li>
@@ -89,7 +144,7 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 							<span class="line-index">{String(index + 1).padStart(2, "0")}</span>
 							<span class="line-main">
 								<strong>{service.name}</strong>
-								<span>{service.summary}</span>
+								<span>{service.summary[locale]}</span>
 							</span>
 							<span class="line-arrow" aria-hidden="true">↗</span>
 						</a>
@@ -98,27 +153,33 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 			</ul>
 
 			<a href={GHL_URL} target="_blank" rel="sponsored noopener" class="pick pick--crm">
-				<span class="pick__label">CRM favorito 2026</span>
+				<span class="pick__label">{COPY.crmLabel}</span>
 				<img src="/assets/partners/highlevel-white.webp" alt="HighLevel" class="pick__logo pick__logo--dark" width="480" height="108" loading="lazy" />
 				<img src="/assets/partners/highlevel-blue.webp" alt="" aria-hidden="true" class="pick__logo pick__logo--light" width="480" height="108" loading="lazy" />
-				<span class="pick__cta">Probar gratis <span aria-hidden="true">↗</span></span>
+				<span class="pick__cta">{COPY.crmCta} <span aria-hidden="true">↗</span></span>
 			</a>
 		</div>
 	</section>
 
-	<ToolsStack rows={toolRows} catalogHref="/herramientas" />
+	<ToolsStack
+		rows={toolRows}
+		title={COPY.tools}
+		catalogHref={locale === "es" ? "/herramientas" : undefined}
+		catalogLabel={COPY.catalog}
+		categoryLabels={locale === "en" ? CATEGORY_LABELS_EN : undefined}
+	/>
 
 	<section class="tc-section block" data-reveal>
 		<div class="tc-column">
 			<div class="block-head">
-				<h2 class="block-title">Radar IA</h2>
-				<a href="/posts" class="block-link">Ver todo</a>
+				<h2 class="block-title">{COPY.radar}</h2>
+				<a href={COPY.posts} class="block-link">{COPY.seeAll}</a>
 			</div>
 			{latestPosts.length > 0 && (
 				<ul class="line-list">
 					{latestPosts.map((post) => (
 						<li>
-							<a href={`/posts/${post.id}`} class="line-item">
+							<a href={`${COPY.posts}/${post.id}`} class="line-item">
 								<span class="line-main">
 									<strong>{post.data.title}</strong>
 									{post.data.publishedAt && <time>{formatDate(post.data.publishedAt)}</time>}
@@ -134,14 +195,14 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 
 	<section class="tc-section block block--flush" data-reveal>
 		<div class="tc-column">
-			<EmailCapture />
+			<EmailCapture locale={locale} source={locale === "en" ? "home-en" : "home"} />
 		</div>
 	</section>
 
 	<section class="tc-section closing" data-reveal>
 		<div class="tc-column">
-			<h2 class="closing-title">Hablemos de tu operación.</h2>
-			<a href="/contacto" class="tc-btn tc-btn--primary">Agendar llamada</a>
+			<h2 class="closing-title">{COPY.closing}</h2>
+			<a href={COPY.contact} class="tc-btn tc-btn--primary">{COPY.book}</a>
 		</div>
 	</section>
 </Base>
