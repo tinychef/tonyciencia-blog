@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, getAlternateLocale, getLocalePath, useTranslations } from "../i18n/locales";
+import { getLangFromUrl, getAlternateLocale, getLocalePath } from "../i18n/locales";
 
 interface Props {
 	alternatePath?: string;
@@ -7,32 +7,58 @@ interface Props {
 
 const { alternatePath } = Astro.props;
 const locale = getLangFromUrl(Astro.url);
-const altLocale = getAlternateLocale(locale);
-const t = useTranslations(locale);
-const altPath = alternatePath || getLocalePath(Astro.url.pathname, altLocale);
+const altPath = alternatePath || getLocalePath(Astro.url.pathname, getAlternateLocale(locale));
+
+const options = [
+	{ code: "es", label: "ES", name: "Español" },
+	{ code: "en", label: "EN", name: "English" },
+] as const;
 ---
 
-<a href={altPath} class="lang-switch" aria-label={t("lang.switch")} title={t("lang.switch")}>
-	{locale === 'es' ? '🇺🇸' : '🇪🇸'}
-</a>
+<nav class="lang-switch" aria-label={locale === "es" ? "Idioma" : "Language"}>
+	{options.map((option) =>
+		option.code === locale ? (
+			<span class="lang-option is-current" aria-current="true" lang={option.code} title={option.name}>{option.label}</span>
+		) : (
+			<a href={altPath} class="lang-option" hreflang={option.code} lang={option.code} title={option.name}>{option.label}</a>
+		)
+	)}
+</nav>
 
 <style>
 	.lang-switch {
 		display: inline-flex;
 		align-items: center;
-		justify-content: center;
-		width: 36px;
+		gap: 2px;
 		height: 36px;
-		font-size: 1.2rem;
-		text-decoration: none;
+		padding: 3px;
 		border: 1px solid var(--color-border);
-		border-radius: 50%;
-		background: var(--color-surface);
-		transition: all 200ms ease;
+		border-radius: var(--radius-pill);
+		background: var(--color-bg-subtle);
 	}
 
-	.lang-switch:hover {
-		border-color: var(--color-accent);
-		transform: scale(1.05);
+	.lang-option {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 32px;
+		height: 28px;
+		padding: 0 0.5rem;
+		border-radius: var(--radius-pill);
+		color: var(--color-muted);
+		font-size: var(--font-size-xs);
+		font-weight: 600;
+		letter-spacing: 0.02em;
+		text-decoration: none;
+		transition: color 160ms ease, background 160ms ease;
+	}
+
+	a.lang-option:hover {
+		color: var(--color-text);
+	}
+
+	.lang-option.is-current {
+		background: var(--color-text);
+		color: var(--color-bg);
 	}
 </style>

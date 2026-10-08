@@ -52,19 +52,26 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 <Base title={siteTitle} description={siteTagline}>
 	<section class="hero">
 		<div class="tc-column">
-			<img
-				src="/assets/partners/claude-partner-network.webp"
-				alt="Claude Partner Network — partner oficial"
-				class="partner-badge"
-				width="512"
-				height="214"
-				fetchpriority="high"
-			/>
 			<h1 class="hero-title">
 				Implementa IA.<br />
 				<span class="tc-gradient-text">Avanza.</span>
 			</h1>
 			<p class="hero-sub">Automatizaciones y agentes de IA operando dentro de tu empresa.</p>
+
+			<a href="https://claude.com/partners" target="_blank" rel="noopener" class="pick pick--partner">
+				<span class="pick__label">Partners de Anthropic</span>
+				<span class="cpn">
+					<img
+						src="/assets/partners/claude-partner-network.webp"
+						alt="Claude Partner Network"
+						width="512"
+						height="214"
+						fetchpriority="high"
+					/>
+				</span>
+				<span class="pick__cta">Ver programa <span aria-hidden="true">↗</span></span>
+			</a>
+
 			<div class="hero-actions">
 				<a href="/contacto" class="tc-btn tc-btn--primary">Agendar llamada</a>
 				<a href="#servicios" class="tc-btn tc-btn--secondary">Ver servicios</a>
@@ -90,11 +97,11 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 				))}
 			</ul>
 
-			<a href={GHL_URL} target="_blank" rel="sponsored noopener" class="crm-pick">
-				<span class="crm-pick__label">CRM favorito 2026</span>
-				<img src="/assets/partners/highlevel-white.webp" alt="HighLevel" class="crm-pick__logo crm-pick__logo--dark" width="480" height="108" loading="lazy" />
-				<img src="/assets/partners/highlevel-blue.webp" alt="" aria-hidden="true" class="crm-pick__logo crm-pick__logo--light" width="480" height="108" loading="lazy" />
-				<span class="crm-pick__cta">Probar gratis <span aria-hidden="true">↗</span></span>
+			<a href={GHL_URL} target="_blank" rel="sponsored noopener" class="pick pick--crm">
+				<span class="pick__label">CRM favorito 2026</span>
+				<img src="/assets/partners/highlevel-white.webp" alt="HighLevel" class="pick__logo pick__logo--dark" width="480" height="108" loading="lazy" />
+				<img src="/assets/partners/highlevel-blue.webp" alt="" aria-hidden="true" class="pick__logo pick__logo--light" width="480" height="108" loading="lazy" />
+				<span class="pick__cta">Probar gratis <span aria-hidden="true">↗</span></span>
 			</a>
 		</div>
 	</section>
@@ -186,21 +193,11 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 		margin-top: var(--spacing-10);
 	}
 
-	/* Badge oficial: arte propio de Anthropic, no se recolorea ni deforma */
-	.partner-badge {
-		display: block;
-		width: auto;
-		height: 60px;
-		margin-bottom: var(--spacing-8);
-		border-radius: 10px;
-	}
-
-	/* HighLevel — recomendación discreta bajo los servicios */
-	.crm-pick {
+	/* ── Marcos de credenciales (partner Anthropic, CRM favorito) ── */
+	.pick {
 		display: flex;
 		align-items: center;
 		gap: var(--spacing-4);
-		margin-top: var(--spacing-8);
 		padding: 0.9rem 1.1rem;
 		border: 1px solid var(--color-border-subtle);
 		border-radius: var(--radius-lg);
@@ -210,43 +207,112 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 		transition: border-color 200ms ease, color 200ms ease;
 	}
 
-	.crm-pick:hover {
+	.pick:hover {
 		border-color: var(--color-border);
 		color: var(--color-text-secondary);
 	}
 
-	.crm-pick__logo {
+	.pick__label {
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		font-size: var(--font-size-2xs);
+	}
+
+	.pick__cta {
+		margin-left: auto;
+		white-space: nowrap;
+	}
+
+	.pick--partner {
+		max-width: 520px;
+		margin-top: var(--spacing-8);
+	}
+
+	.pick--crm {
+		margin-top: var(--spacing-8);
+	}
+
+	.pick__logo {
 		width: auto;
 		height: 20px;
 		opacity: 0.85;
 		transition: opacity 200ms ease;
 	}
 
-	.crm-pick:hover .crm-pick__logo {
+	.pick:hover .pick__logo {
 		opacity: 1;
 	}
 
-	.crm-pick__logo--light {
+	.pick__logo--light {
 		display: none;
 	}
 
-	:global(:root.light) .crm-pick__logo--dark {
+	:global(:root.light) .pick__logo--dark {
 		display: none;
 	}
 
-	:global(:root.light) .crm-pick__logo--light {
+	:global(:root.light) .pick__logo--light {
 		display: block;
 	}
 
-	.crm-pick__cta {
-		margin-left: auto;
-		white-space: nowrap;
+	/* Badge oficial de Anthropic: no se recolorea ni deforma. La animación es
+	   externa a la imagen: entrada suave + un destello que la recorre cada pocos
+	   segundos, y un leve realce al pasar el cursor. */
+	.cpn {
+		position: relative;
+		display: block;
+		flex-shrink: 0;
+		overflow: hidden;
+		border-radius: 8px;
+		animation: cpn-in 900ms var(--ease-out) 200ms both;
+		transition: transform 300ms var(--ease-out), box-shadow 300ms ease;
 	}
 
-	/* En móvil la fila completa sigue siendo el enlace; sobra el texto "Probar" */
+	.cpn img {
+		display: block;
+		width: auto;
+		height: 44px;
+	}
+
+	.cpn::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.65) 50%, transparent 65%);
+		transform: translateX(-120%);
+		animation: cpn-sheen 5s ease-in-out 1.4s infinite;
+		pointer-events: none;
+	}
+
+	.pick--partner:hover .cpn {
+		transform: translateY(-2px) scale(1.03);
+		box-shadow: 0 8px 24px -10px rgba(217, 119, 87, 0.55);
+	}
+
+	@keyframes cpn-in {
+		from {
+			opacity: 0;
+			transform: translateY(8px) scale(0.96);
+		}
+	}
+
+	@keyframes cpn-sheen {
+		0% { transform: translateX(-120%); }
+		30%, 100% { transform: translateX(120%); }
+	}
+
+	/* En móvil la fila completa sigue siendo el enlace; sobra el texto de acción */
 	@media (max-width: 480px) {
-		.crm-pick__cta {
+		.pick__cta {
 			display: none;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.cpn,
+		.cpn::after {
+			animation: none;
 		}
 	}
 

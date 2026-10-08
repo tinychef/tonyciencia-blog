@@ -1,7 +1,5 @@
 ---
 import { getMenu } from "emdash";
-import { WidgetArea } from "emdash/ui";
-import LanguageSwitcher from "./LanguageSwitcher.astro";
 import { getLegalMenuName, useTranslations } from "../i18n/locales";
 
 interface Props {
@@ -20,7 +18,7 @@ const fallbackLegalEs = [
   { label: "Términos y Condiciones", url: "/legal/terminos" },
   { label: "Política de Cookies", url: "/legal/cookies" },
   { label: "Aviso Legal", url: "/legal/aviso-legal" },
-  { label: "Descargo de Afiliados", url: "/legal/afiliados" },
+  { label: "Divulgación de Afiliados", url: "/legal/afiliados" },
   { label: "Descargo General", url: "/legal/descargo" },
 ];
 
@@ -29,7 +27,7 @@ const fallbackLegalEn = [
   { label: "Terms & Conditions", url: "/en/legal/terms" },
   { label: "Cookie Policy", url: "/en/legal/cookies-en" },
   { label: "Legal Notice", url: "/en/legal/disclaimer" },
-  { label: "Affiliate Disclaimer", url: "/en/legal/affiliate" },
+  { label: "Affiliate Disclosure", url: "/en/legal/affiliate" },
   { label: "General Disclaimer", url: "/en/legal/general-disclaimer" },
 ];
 
@@ -54,19 +52,15 @@ const companyLinks = locale === "en"
       { label: "Contacto", url: "/contacto" },
     ];
 
+const externalServices = [
+  { label: "ADS Performance", url: "https://adsperformance.tonyciencia.com" },
+  { label: "Merkhify", url: "https://merkhify.com" },
+  { label: "Anuncios Infinitos", url: "https://adsinfinitos.tonyciencia.com" },
+];
+
 const serviceLinks = locale === "en"
-  ? [
-      { label: "Automations", url: "/en/services#automatizacion" },
-      { label: "AI Agents", url: "/en/services#agentes-ia" },
-      { label: "Business Mentorship", url: "/en/services#mentoria" },
-      { label: "AI Resources", url: "/en/resources" },
-    ]
-  : [
-      { label: "Automatizaciones", url: "/servicios#automatizacion" },
-      { label: "Agentes IA", url: "/servicios#agentes-ia" },
-      { label: "Mentoría Empresas", url: "/servicios#mentoria" },
-      { label: "Recursos IA", url: "/recursos-ia" },
-    ];
+  ? [...externalServices, { label: "AI Resources", url: "/en/resources" }]
+  : [...externalServices, { label: "Recursos IA", url: "/recursos-ia" }];
 
 const resourceLinks = locale === "en"
   ? [
@@ -173,9 +167,6 @@ const year = new Date().getFullYear();
             <li><a href={link.url}>{link.label}</a></li>
           ))}
         </ul>
-        <div class="footer-widgets-section">
-          <WidgetArea name="footer" />
-        </div>
       </div>
     </div>
 
@@ -184,9 +175,6 @@ const year = new Date().getFullYear();
       <p class="footer-copyright">
         © {year} Tony Ciencia LLC · Albuquerque, NM, USA · {t("footer.rights")}
       </p>
-      <div class="footer-controls">
-        <LanguageSwitcher alternatePath={alternatePath} />
-      </div>
     </div>
   </div>
 </footer>
