@@ -244,7 +244,7 @@ const es: LegalDoc[] = [
 			{
 				heading: "Marcas y alianzas",
 				paragraphs: [
-					"Tony Ciencia es miembro de Claude Partner Network. Claude y Anthropic son marcas de Anthropic, PBC. HighLevel, Meta, Google, TikTok y WhatsApp son marcas de sus respectivos titulares. Su mención no implica que estas empresas avalen el contenido de este sitio.",
+					"Claude y Anthropic son marcas de Anthropic, PBC. HighLevel, Meta, Google, TikTok y WhatsApp son marcas de sus respectivos titulares. Su mención no implica que estas empresas avalen el contenido de este sitio.",
 				],
 			},
 			{
@@ -519,7 +519,7 @@ const en: LegalDoc[] = [
 			{
 				heading: "Trademarks and partnerships",
 				paragraphs: [
-					"Tony Ciencia is a member of the Claude Partner Network. Claude and Anthropic are trademarks of Anthropic, PBC. HighLevel, Meta, Google, TikTok and WhatsApp are trademarks of their respective owners. Mentioning them does not imply that these companies endorse this site's content.",
+					"Claude and Anthropic are trademarks of Anthropic, PBC. HighLevel, Meta, Google, TikTok and WhatsApp are trademarks of their respective owners. Mentioning them does not imply that these companies endorse this site's content.",
 				],
 			},
 			{
