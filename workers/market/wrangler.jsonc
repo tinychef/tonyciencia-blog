@@ -117,8 +117,8 @@
 				"EMAIL_FROM": "Tony Ciencia <market@tonyciencia.com>",
 				"EMAIL_REPLY_TO": "business@tonyciencia.com",
 				"STRIPE_TAX_ENABLED": "false",
-				// Cambiar a "true" SOLO cuando el dueño apruebe cobrar de verdad (HANDOFF.md, paso 7).
-				"ALLOW_LIVE_PAYMENTS": "false",
+				// "true": el dueño aprobó cobrar de verdad con la clave sk_live (2026-10-29).
+				"ALLOW_LIVE_PAYMENTS": "true",
 				"DOWNLOAD_URL_TTL_SECONDS": "300",
 				"EMAIL_LINK_TTL_DAYS": "14"
 			},
