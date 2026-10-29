@@ -114,7 +114,7 @@
 				"PAYMENT_PROVIDER": "stripe",
 				"EMAIL_PROVIDER": "cloudflare",
 				"EMAIL_FALLBACK_PROVIDER": "none",
-				"EMAIL_FROM": "Tony Ciencia <market@tonyciencia.com>",
+				"EMAIL_FROM": "Tony Ciencia <market@market.tonyciencia.com>",
 				"EMAIL_REPLY_TO": "business@tonyciencia.com",
 				"STRIPE_TAX_ENABLED": "false",
 				// "true": el dueño aprobó cobrar de verdad con la clave sk_live (2026-10-29).

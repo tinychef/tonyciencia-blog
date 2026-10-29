@@ -3,11 +3,11 @@
 // levanta el Worker con MODE=mock y SITE_URL=https://tonyciencia.com y exige que NO arranque.
 import { spawn } from "node:child_process";
 import { resolve } from "node:path";
-import { root } from "./wrangler.mjs";
+import { root, wranglerBin } from "./wrangler.mjs";
 
 const child = spawn(
-	"pnpm",
-	["exec", "wrangler", "dev", "-c", resolve(root, "wrangler.jsonc"), "--port", "8799", "--ip", "127.0.0.1", "--var", "MODE:mock", "--var", "SITE_URL:https://tonyciencia.com"],
+	process.execPath,
+	[wranglerBin, "dev", "-c", resolve(root, "wrangler.jsonc"), "--port", "8799", "--ip", "127.0.0.1", "--var", "MODE:mock", "--var", "SITE_URL:https://tonyciencia.com"],
 	{ cwd: root, stdio: ["ignore", "pipe", "pipe"] },
 );
 let out = "";
