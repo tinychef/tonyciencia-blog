@@ -15,11 +15,16 @@ const ISSUERS = new Set(["https://accounts.google.com", "accounts.google.com"]);
 export class GoogleAuthProvider implements AuthProvider {
 	readonly name = "google" as const;
 
+	private readonly fetchImpl: typeof fetch;
+
 	constructor(
 		private readonly clientId: string,
 		private readonly clientSecret: string,
-		private readonly fetchImpl: typeof fetch = fetch,
-	) {}
+		fetchImpl?: typeof fetch,
+	) {
+		// Envoltorio: en Workers, llamar `fetch` como método de otro objeto lanza "Illegal invocation".
+		this.fetchImpl = fetchImpl ?? ((input, init) => fetch(input, init));
+	}
 
 	async authorizationUrl(login: LoginState, redirectUri: string): Promise<string> {
 		const u = new URL(AUTH_ENDPOINT);

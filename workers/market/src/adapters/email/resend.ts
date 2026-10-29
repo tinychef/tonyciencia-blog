@@ -10,10 +10,15 @@ export class ResendEmailSender implements EmailSender {
 	readonly name = "resend" as const;
 	readonly idempotent = true;
 
+	private readonly fetchImpl: typeof fetch;
+
 	constructor(
 		private readonly apiKey: string,
-		private readonly fetchImpl: typeof fetch = fetch,
-	) {}
+		fetchImpl?: typeof fetch,
+	) {
+		// Envoltorio: en Workers, llamar `fetch` como método de otro objeto lanza "Illegal invocation".
+		this.fetchImpl = fetchImpl ?? ((input, init) => fetch(input, init));
+	}
 
 	async send(msg: OutgoingEmail): Promise<{ messageId: string | null }> {
 		let res: Response;

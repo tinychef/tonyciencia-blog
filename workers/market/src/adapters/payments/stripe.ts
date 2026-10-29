@@ -26,7 +26,8 @@ export class StripePaymentProvider implements PaymentProvider {
 	private readonly fetchImpl: typeof fetch;
 
 	constructor(private readonly opts: StripeOptions) {
-		this.fetchImpl = opts.fetchImpl ?? fetch;
+		// Envoltorio: en Workers, llamar `fetch` como método de otro objeto lanza "Illegal invocation".
+		this.fetchImpl = opts.fetchImpl ?? ((input, init) => fetch(input, init));
 	}
 
 	/** Parámetros form-encoded de la sesión. Exportado para pruebas. */

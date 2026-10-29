@@ -11,14 +11,12 @@
 // En maqueta (local/preview) los productos usan los archivos de PRUEBA incluidos en el código.
 // En live (staging/production) se sube el PDF de ejemplo del producto gratis a R2 y el producto de pago
 // queda INACTIVO y sin archivo hasta que se suba el ZIP real (HANDOFF.md, paso 5).
-import { execFileSync } from "node:child_process";
 import { mkdtempSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
-import { dirname, join, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import { join } from "node:path";
 
-const here = dirname(fileURLToPath(import.meta.url));
-const root = resolve(here, "..");
+import { root, wrangler } from "./wrangler.mjs";
+
 const args = process.argv.slice(2);
 const local = args.includes("--local");
 const envIdx = args.indexOf("--env");
@@ -92,7 +90,6 @@ const dir = mkdtempSync(join(tmpdir(), "market-seed-"));
 const file = join(dir, "seed.sql");
 writeFileSync(file, sql);
 
-const wrangler = (extra) => execFileSync("pnpm", ["exec", "wrangler", ...extra], { cwd: root, stdio: "inherit" });
 const target = local ? ["--local"] : ["--remote", "--env", envName];
 
 if (live) {
