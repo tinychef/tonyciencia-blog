@@ -53,16 +53,25 @@ async function deliveryDrafts(
 
 export type CheckoutResult =
 	| { ok: true; redirectUrl: string; orderId: string }
-	| { ok: false; reason: "not_found" | "already_owned" | "provider_error" };
+	| { ok: false; reason: "not_found" | "already_owned" | "provider_error" | "invalid_coupon" };
 
 /**
  * Crea el pedido y la sesión de pago. El precio sale SIEMPRE de `product` (leído de la BD por slug
  * en el servidor). Esta función no recibe ningún dato de precio del navegador.
  */
-export async function startCheckout(deps: Deps, user: User, product: Product): Promise<CheckoutResult> {
+export async function startCheckout(deps: Deps, user: User, product: Product, couponCode?: string | null): Promise<CheckoutResult> {
 	const { db, config, adapters } = deps;
 	if (product.kind !== "paid" || product.active !== 1) return { ok: false, reason: "not_found" };
 	if (await getActiveEntitlement(db, user.id, product.id)) return { ok: false, reason: "already_owned" };
+
+	// Cupón opcional: se valida ANTES de crear el pedido. Si el proveedor no lo acepta, no se cobra nada.
+	let promotionCodeId: string | null = null;
+	const code = couponCode?.trim();
+	if (code) {
+		const resolved = adapters.payments.resolvePromotionCode ? await adapters.payments.resolvePromotionCode(code).catch(() => null) : null;
+		if (!resolved) return { ok: false, reason: "invalid_coupon" };
+		promotionCodeId = resolved.id;
+	}
 
 	const orderId = crypto.randomUUID();
 	const now = Date.now();
@@ -81,6 +90,7 @@ export async function startCheckout(deps: Deps, user: User, product: Product): P
 			amountCents: product.price_cents,
 			currency: product.currency,
 			customerEmail: user.email,
+			promotionCodeId,
 			successUrl: new URL(`/market/pago/exito?pedido=${orderId}`, config.origin).toString(),
 			cancelUrl: new URL(`/market/pago/cancelado?pedido=${orderId}`, config.origin).toString(),
 		});

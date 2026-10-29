@@ -37,9 +37,10 @@ export class StripePaymentProvider implements PaymentProvider {
 		p.set("locale", "es");
 		p.set("client_reference_id", req.orderId);
 		p.set("customer_email", req.customerEmail);
-		// Cupones: el cliente escribe su código en Checkout. El precio base sigue saliendo de la BD;
-		// el descuento lo valida Stripe y el webhook compara contra el subtotal, no contra el total.
-		p.set("allow_promotion_codes", "true");
+		// Cupones: NO se usa allow_promotion_codes (aceptaría cualquier código activo de la cuenta de Stripe,
+		// incluidos los de otros negocios). El código lo valida `resolvePromotionCode` y llega aquí ya resuelto.
+		// El precio base sigue saliendo de la BD; el webhook compara contra el subtotal, no contra el total.
+		if (req.promotionCodeId) p.set("discounts[0][promotion_code]", req.promotionCodeId);
 		p.set("success_url", req.successUrl);
 		p.set("cancel_url", req.cancelUrl);
 		p.set("line_items[0][quantity]", "1");
@@ -73,6 +74,34 @@ export class StripePaymentProvider implements PaymentProvider {
 			throw new PaymentProviderError(`Stripe respondió ${res.status}: ${data.error?.message ?? "sin detalle"}`);
 		}
 		return { id: data.id, url: data.url };
+	}
+
+	private async stripeGet<T>(path: string): Promise<T | null> {
+		const res = await this.fetchImpl(`https://api.stripe.com/v1/${path}`, {
+			headers: { authorization: `Bearer ${this.opts.secretKey}` },
+		});
+		if (!res.ok) return null;
+		return (await res.json().catch(() => null)) as T | null;
+	}
+
+	/**
+	 * Un cupón solo vale en el marketplace si el cupón (o su código promocional) tiene la metadata
+	 * `market=true`. La cuenta de Stripe se comparte con otros negocios: sus cupones NO deben aplicar aquí.
+	 */
+	async resolvePromotionCode(code: string): Promise<{ id: string } | null> {
+		if (!/^[A-Za-z0-9_-]{1,64}$/.test(code)) return null;
+		type Promo = { id: string; active?: boolean; metadata?: Record<string, string>; coupon?: unknown; promotion?: { coupon?: unknown } };
+		type Coupon = { valid?: boolean; metadata?: Record<string, string> };
+		const list = await this.stripeGet<{ data?: Promo[] }>(`promotion_codes?code=${encodeURIComponent(code)}&active=true&limit=1`);
+		const promo = list?.data?.[0];
+		if (!promo?.id || promo.active === false) return null;
+		const ref = promo.coupon ?? promo.promotion?.coupon;
+		let coupon: Coupon | null = null;
+		if (typeof ref === "string") coupon = await this.stripeGet<Coupon>(`coupons/${encodeURIComponent(ref)}`);
+		else if (ref && typeof ref === "object") coupon = ref as Coupon;
+		if (!coupon || coupon.valid === false) return null;
+		const allowed = coupon.metadata?.market === "true" || promo.metadata?.market === "true";
+		return allowed ? { id: promo.id } : null;
 	}
 
 	async parseWebhook(rawBody: string, headers: Headers): Promise<PaymentEvent> {

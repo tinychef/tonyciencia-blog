@@ -135,6 +135,13 @@ export const ProductPage: FC<ProductViewProps> = ({ product, loggedIn, owned, cs
 						) : (
 							<form method="post" action={`${path}/comprar`}>
 								<CsrfField csrf={csrf} />
+								{mode === "live" && (
+									<div class="mk-field" style="margin-bottom: var(--spacing-3)">
+										<label for="cupon">¿Tienes un cupón?</label>
+										<input id="cupon" type="text" name="cupon" maxlength={64} autocomplete="off" autocapitalize="characters" spellcheck={false} placeholder="Código (opcional)" />
+										<span class="mk-hint">El descuento se aplica al pagar con Stripe.</span>
+									</div>
+								)}
 								<button type="submit" class="tc-btn tc-btn--primary mk-btn-block">
 									Comprar por {formatPrice(product.price_cents, product.currency)}
 								</button>

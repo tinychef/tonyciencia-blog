@@ -47,6 +47,8 @@ export interface CheckoutRequest {
 	customerEmail: string;
 	successUrl: string;
 	cancelUrl: string;
+	/** Código promocional YA validado por `resolvePromotionCode` (id del proveedor). Opcional. */
+	promotionCodeId?: string | null;
 }
 
 export interface CheckoutSession {
@@ -77,6 +79,11 @@ export type PaymentEvent =
 export interface PaymentProvider {
 	readonly name: "stripe" | "mock";
 	createCheckout(req: CheckoutRequest): Promise<CheckoutSession>;
+	/**
+	 * Valida un cupón escrito por el cliente. Devuelve el id del código promocional del proveedor, o null si
+	 * no existe, está inactivo o NO está habilitado para el marketplace. Sin esta función no hay cupones.
+	 */
+	resolvePromotionCode?(code: string): Promise<{ id: string } | null>;
 	/** Verifica la firma sobre el cuerpo crudo y normaliza el evento. Lanza WebhookSignatureError. */
 	parseWebhook(rawBody: string, headers: Headers): Promise<PaymentEvent>;
 }

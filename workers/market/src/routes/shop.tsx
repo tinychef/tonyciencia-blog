@@ -36,7 +36,13 @@ export function registerShop(app: Hono<AppEnv>) {
 		if (!product) return renderMessage(c, 404, "Producto no encontrado", "Este producto no existe o ya no está disponible.");
 		const user = c.get("user");
 		const owned = user ? !!(await getActiveEntitlement(c.env.MARKET_DB, user.id, product.id)) : false;
-		const flash = c.req.query("aviso") === "pago-error" ? "No pudimos iniciar el pago. Inténtalo de nuevo en unos minutos." : null;
+		const aviso = c.req.query("aviso");
+		const flash =
+			aviso === "pago-error"
+				? "No pudimos iniciar el pago. Inténtalo de nuevo en unos minutos."
+				: aviso === "cupon-invalido"
+					? "Ese cupón no es válido o ya no está disponible. Revisa el código o compra sin cupón."
+					: null;
 		return render(
 			c,
 			{ title: product.title, path: `/market/producto/${product.slug}`, description: product.summary },
@@ -59,9 +65,13 @@ export function registerShop(app: Hono<AppEnv>) {
 		}
 		const product = await getProductBySlug(db, slug);
 		if (!product || product.kind !== "paid") return renderMessage(c, 404, "Producto no encontrado", "Este producto no está a la venta.");
-		const result = await startCheckout(deps(c), user, product);
+		// Único dato opcional que acepta el formulario además del CSRF: el código de cupón (se valida en el servidor).
+		const rawCoupon = form?.get("cupon");
+		const coupon = typeof rawCoupon === "string" ? rawCoupon.trim().slice(0, 64) : "";
+		const result = await startCheckout(deps(c), user, product, coupon || null);
 		if (result.ok) return c.redirect(result.redirectUrl, 303);
 		if (result.reason === "already_owned") return c.redirect("/market/mis-compras", 303);
+		if (result.reason === "invalid_coupon") return c.redirect(`/market/producto/${slug}?aviso=cupon-invalido`, 303);
 		if (result.reason === "provider_error") return c.redirect(`/market/producto/${slug}?aviso=pago-error`, 303);
 		return renderMessage(c, 404, "Producto no encontrado", "Este producto no está a la venta.");
 	});

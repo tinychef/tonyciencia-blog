@@ -33,7 +33,7 @@ const q = (v) => (v === null || v === undefined ? "NULL" : typeof v === "number"
 
 const FREE_PDF_KEY = "products/guia-gratis-prueba/guia-gratis-prueba.pdf";
 
-const products = [
+const allProducts = [
 	{
 		id: "6f1d3a2e-7b4c-4e8a-9c11-5a0b1d2e3f01",
 		slug: "anuncios-infinitos",
@@ -50,7 +50,7 @@ const products = [
 			"## Importante",
 			"Es una herramienta de trabajo: no garantizamos resultados de ventas. Revisa siempre los textos generados y cumple las políticas de cada plataforma.",
 		].join("\n\n"),
-		price_cents: 7700,
+		price_cents: 7690,
 		kind: "paid",
 		images: [{ src: "/market/static/covers/anuncios-infinitos.svg", alt: "Portada de Anuncios Infinitos: agente de IA con 250+ prompts de anuncios" }],
 		file_key: live ? null : "mock/anuncios-infinitos-PRUEBA.zip",
@@ -77,6 +77,9 @@ const products = [
 	},
 ];
 
+// En live (staging/production) no se siembra el producto gratis "de prueba": solo existe en maqueta.
+const products = live ? allProducts.filter((p) => p.slug !== "guia-gratis-prueba") : allProducts;
+
 const sql = products
 	.map(
 		(p) =>
@@ -92,7 +95,7 @@ writeFileSync(file, sql);
 
 const target = local ? ["--local"] : ["--remote", "--env", envName];
 
-if (live) {
+if (live && products.some((p) => p.slug === "guia-gratis-prueba")) {
 	console.log(`Subiendo el PDF de ejemplo a R2 (${bucket}/${FREE_PDF_KEY})…`);
 	wrangler(["r2", "object", "put", `${bucket}/${FREE_PDF_KEY}`, "--file", join(root, "seed/files/guia-gratis-prueba.pdf"), "--content-type", "application/pdf", "--remote"]);
 }

@@ -69,6 +69,74 @@ describe("el precio sale SIEMPRE de la base de datos", () => {
 		expect(order).toMatchObject({ provider_session_id: "cs_test_123", amount_cents: 7700 });
 	});
 
+	describe("cupones (solo los marcados con market=true)", () => {
+		/** Simula la API de Stripe: códigos promocionales (forma nueva con promotion.coupon) y cupones. */
+		function fakeStripe(promos: Record<string, { id: string; active: boolean; coupon: string; metadata?: Record<string, string> }>, coupons: Record<string, { valid: boolean; metadata?: Record<string, string> }>) {
+			return (async (url: string) => {
+				const u = new URL(url);
+				if (u.pathname === "/v1/promotion_codes") {
+					const p = promos[u.searchParams.get("code") ?? ""];
+					return Response.json({ data: p && p.active ? [{ id: p.id, active: p.active, metadata: p.metadata ?? {}, promotion: { type: "coupon", coupon: p.coupon } }] : [] });
+				}
+				const m = /^\/v1\/coupons\/(.+)$/.exec(u.pathname);
+				const c = m ? coupons[m[1]!] : undefined;
+				return c ? Response.json(c) : Response.json({ error: { message: "no existe" } }, { status: 404 });
+			}) as unknown as typeof fetch;
+		}
+		const make = (f: typeof fetch) => new StripePaymentProvider({ secretKey: "sk_test_x", webhookSecret: "whsec_x", taxEnabled: false, taxCode: null, fetchImpl: f });
+
+		it("acepta un cupón con metadata market=true y rechaza los demás", async () => {
+			const stripe = make(
+				fakeStripe(
+					{
+						MARKETOK: { id: "promo_ok", active: true, coupon: "c_ok" },
+						MERKHIFY: { id: "promo_otro", active: true, coupon: "c_otro" },
+						VENCIDO: { id: "promo_v", active: true, coupon: "c_v" },
+						PORPROMO: { id: "promo_p", active: true, coupon: "c_otro", metadata: { market: "true" } },
+					},
+					{ c_ok: { valid: true, metadata: { market: "true" } }, c_otro: { valid: true }, c_v: { valid: false, metadata: { market: "true" } } },
+				),
+			);
+			await expect(stripe.resolvePromotionCode("MARKETOK")).resolves.toEqual({ id: "promo_ok" });
+			await expect(stripe.resolvePromotionCode("PORPROMO")).resolves.toEqual({ id: "promo_p" });
+			await expect(stripe.resolvePromotionCode("MERKHIFY")).resolves.toBeNull(); // cupón de otro negocio de la misma cuenta
+			await expect(stripe.resolvePromotionCode("VENCIDO")).resolves.toBeNull();
+			await expect(stripe.resolvePromotionCode("NOEXISTE")).resolves.toBeNull();
+			await expect(stripe.resolvePromotionCode("con espacios; DROP")).resolves.toBeNull();
+		});
+
+		it("el checkout lleva discounts[0][promotion_code] solo con cupón válido, y nunca allow_promotion_codes", () => {
+			const req = { orderId: "o", productId: "p", productTitle: "t", amountCents: 7690, currency: "usd", customerEmail: "a@b.co", successUrl: "https://x/s", cancelUrl: "https://x/c" };
+			const sin = StripePaymentProvider.buildCheckoutParams(req, false, null);
+			const con = StripePaymentProvider.buildCheckoutParams({ ...req, promotionCodeId: "promo_ok" }, false, null);
+			expect(sin.get("discounts[0][promotion_code]")).toBeNull();
+			expect(con.get("discounts[0][promotion_code]")).toBe("promo_ok");
+			expect(con.get("allow_promotion_codes")).toBeNull();
+			expect(con.get("line_items[0][price_data][unit_amount]")).toBe("7690"); // el precio base sigue siendo el de la BD
+		});
+
+		it("startCheckout con cupón inválido no crea pedido ni llama a createCheckout", async () => {
+			const p = await createProduct({ priceCents: 7690 });
+			const product = (await getProductBySlug(env.MARKET_DB, p.slug))!;
+			const user = await upsertUser(env.MARKET_DB, `cupon-${uid()}@example.com`, "Cliente");
+			const config = loadConfig(env as Env);
+			if (!config.ok) throw new Error("config");
+			const calls: string[] = [];
+			const fake = (async (url: string) => {
+				calls.push(url);
+				const u = new URL(url);
+				if (u.pathname === "/v1/promotion_codes") return Response.json({ data: [] });
+				return Response.json({ id: "cs_test_1", url: "https://checkout.stripe.com/c/pay/cs_test_1" });
+			}) as unknown as typeof fetch;
+			const adapters = createAdapters(config.config, env as Env);
+			adapters.payments = make(fake);
+			const r = await startCheckout({ db: env.MARKET_DB, config: config.config, adapters }, user, product, "MERKHIFY");
+			expect(r).toEqual({ ok: false, reason: "invalid_coupon" });
+			expect(calls.some((c) => c.endsWith("/v1/checkout/sessions"))).toBe(false);
+			expect((await one<{ n: number }>("SELECT COUNT(*) AS n FROM orders WHERE user_id = ?1", user.id))?.n).toBe(0);
+		});
+	});
+
 	it("STRIPE_TAX_ENABLED activa automatic_tax (y nada más)", () => {
 		const req = { orderId: "o", productId: "p", productTitle: "t", amountCents: 7700, currency: "usd", customerEmail: "a@b.co", successUrl: "https://x/s", cancelUrl: "https://x/c" };
 		const off = StripePaymentProvider.buildCheckoutParams(req, false, null);
