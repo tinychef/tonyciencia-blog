@@ -37,6 +37,9 @@ export class StripePaymentProvider implements PaymentProvider {
 		p.set("locale", "es");
 		p.set("client_reference_id", req.orderId);
 		p.set("customer_email", req.customerEmail);
+		// Cupones: el cliente escribe su código en Checkout. El precio base sigue saliendo de la BD;
+		// el descuento lo valida Stripe y el webhook compara contra el subtotal, no contra el total.
+		p.set("allow_promotion_codes", "true");
 		p.set("success_url", req.successUrl);
 		p.set("cancel_url", req.cancelUrl);
 		p.set("line_items[0][quantity]", "1");

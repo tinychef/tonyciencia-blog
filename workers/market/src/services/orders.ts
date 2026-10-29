@@ -168,7 +168,9 @@ export async function handlePaymentEvent(deps: Deps, event: PaymentEvent): Promi
 				console.error(`[webhook] evento ${event.id}: no hay pedido para la sesión ${event.sessionId}`);
 				return finish("pedido no encontrado", null);
 			}
-			if (event.paymentStatus !== "paid") return finish(`pago aún no confirmado (${event.paymentStatus})`, order.id);
+			// Un cupón del 100 % cierra la sesión con total 0 y payment_status "no_payment_required" (no "paid").
+			const freeByCoupon = event.paymentStatus === "no_payment_required" && event.amountTotal === 0;
+			if (event.paymentStatus !== "paid" && !freeByCoupon) return finish(`pago aún no confirmado (${event.paymentStatus})`, order.id);
 			if (order.status !== "pending") return finish(`pedido ya estaba en estado ${order.status}`, order.id);
 
 			// Defensa extra: lo cobrado debe coincidir con el precio del pedido (subtotal, sin impuestos).
@@ -182,6 +184,13 @@ export async function handlePaymentEvent(deps: Deps, event: PaymentEvent): Promi
 				return finish("monto no coincide: pedido en revisión", order.id);
 			}
 
+			// Con cupón, Stripe cobra menos que el precio de lista: queda anotado y el correo muestra lo realmente cobrado.
+			const paidCents = event.amountTotal ?? order.amount_cents;
+			const discountNote =
+				event.amountSubtotal !== null && event.amountTotal !== null && event.amountTotal < event.amountSubtotal
+					? `Cupón aplicado: cobrado ${(paidCents / 100).toFixed(2)} de ${(event.amountSubtotal / 100).toFixed(2)} ${order.currency.toUpperCase()}`
+					: null;
+
 			const [user, product] = await Promise.all([
 				getUserById(db, order.user_id),
 				db.prepare("SELECT * FROM products WHERE id = ?1").bind(order.product_id).first<Product & { images: string }>(),
@@ -193,7 +202,7 @@ export async function handlePaymentEvent(deps: Deps, event: PaymentEvent): Promi
 			const existing = await getActiveEntitlement(db, user.id, product.id);
 			const entitlementId = existing?.id ?? crypto.randomUUID();
 			const drafts = await deliveryDrafts(deps.config, {
-				order,
+				order: { ...order, amount_cents: paidCents },
 				product: fullProduct,
 				user,
 				entitlementId,
@@ -203,10 +212,10 @@ export async function handlePaymentEvent(deps: Deps, event: PaymentEvent): Promi
 				db
 					.prepare(
 						`UPDATE orders SET status = 'paid', paid_at = ?2, provider_payment_id = ?3, updated_at = ?2,
-						   note = CASE WHEN ?4 = 1 THEN 'Compra duplicada: ya tenía acceso' ELSE note END
+						   note = CASE WHEN ?4 = 1 THEN 'Compra duplicada: ya tenía acceso' WHEN ?5 IS NOT NULL THEN ?5 ELSE note END
 						 WHERE id = ?1 AND status = 'pending'`,
 					)
-					.bind(order.id, now, event.paymentId, existing ? 1 : 0),
+					.bind(order.id, now, event.paymentId, existing ? 1 : 0, discountNote),
 				db
 					.prepare(
 						`INSERT INTO entitlements (id, user_id, product_id, order_id, download_limit, download_count, created_at)

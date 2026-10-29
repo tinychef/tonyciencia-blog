@@ -15,7 +15,10 @@ async function pendingOrder() {
 	return { order, session: s, product: p };
 }
 
-function completedEvent(order: { id: string; provider_session_id: string; customer_email: string }, opts: { id?: string; amount?: number } = {}) {
+function completedEvent(
+	order: { id: string; provider_session_id: string; customer_email: string },
+	opts: { id?: string; amount?: number; total?: number; paymentStatus?: string; noPaymentIntent?: boolean } = {},
+) {
 	return JSON.stringify({
 		id: opts.id ?? `evt_${uid()}${uid()}`,
 		type: "checkout.session.completed",
@@ -25,12 +28,12 @@ function completedEvent(order: { id: string; provider_session_id: string; custom
 				object: "checkout.session",
 				client_reference_id: order.id,
 				metadata: { order_id: order.id },
-				payment_status: "paid",
+				payment_status: opts.paymentStatus ?? "paid",
 				amount_subtotal: opts.amount ?? 7700,
-				amount_total: opts.amount ?? 7700,
+				amount_total: opts.total ?? opts.amount ?? 7700,
 				currency: "usd",
 				customer_details: { email: order.customer_email },
-				payment_intent: `pi_${uid()}`,
+				payment_intent: opts.noPaymentIntent ? null : `pi_${uid()}`,
 			},
 		},
 	});
@@ -113,6 +116,33 @@ describe("idempotencia del webhook", () => {
 		const body = completedEvent(order, { amount: 100 });
 		expect((await deliver(body, await signStripePayload(MOCK_WEBHOOK_SECRET, body))).status).toBe(200);
 		expect((await one<{ status: string }>("SELECT status FROM orders WHERE id = ?1", order.id))?.status).toBe("review");
+		expect(await count("SELECT COUNT(*) AS n FROM entitlements WHERE order_id = ?1", order.id)).toBe(0);
+	});
+
+	it("con un cupón parcial (total < subtotal) el pedido se entrega y queda anotado", async () => {
+		const { order } = await pendingOrder();
+		const body = completedEvent(order, { amount: 7700, total: 5390 });
+		expect((await deliver(body, await signStripePayload(MOCK_WEBHOOK_SECRET, body))).status).toBe(200);
+		const row = await one<{ status: string; note: string | null }>("SELECT status, note FROM orders WHERE id = ?1", order.id);
+		expect(row?.status).toBe("paid");
+		expect(row?.note).toMatch(/Cupón aplicado: cobrado 53\.90 de 77\.00/);
+		expect(await count("SELECT COUNT(*) AS n FROM entitlements WHERE order_id = ?1", order.id)).toBe(1);
+		expect(await count("SELECT COUNT(*) AS n FROM email_outbox WHERE order_id = ?1", order.id)).toBe(2);
+	});
+
+	it("con un cupón del 100 % (no_payment_required, total 0) también se entrega", async () => {
+		const { order } = await pendingOrder();
+		const body = completedEvent(order, { amount: 7700, total: 0, paymentStatus: "no_payment_required", noPaymentIntent: true });
+		expect((await deliver(body, await signStripePayload(MOCK_WEBHOOK_SECRET, body))).status).toBe(200);
+		expect((await one<{ status: string }>("SELECT status FROM orders WHERE id = ?1", order.id))?.status).toBe("paid");
+		expect(await count("SELECT COUNT(*) AS n FROM entitlements WHERE order_id = ?1", order.id)).toBe(1);
+	});
+
+	it("no_payment_required con total distinto de 0 NO entrega", async () => {
+		const { order } = await pendingOrder();
+		const body = completedEvent(order, { amount: 7700, total: 7700, paymentStatus: "no_payment_required" });
+		expect((await deliver(body, await signStripePayload(MOCK_WEBHOOK_SECRET, body))).status).toBe(200);
+		expect((await one<{ status: string }>("SELECT status FROM orders WHERE id = ?1", order.id))?.status).toBe("pending");
 		expect(await count("SELECT COUNT(*) AS n FROM entitlements WHERE order_id = ?1", order.id)).toBe(0);
 	});
 
