@@ -1,6 +1,6 @@
 # Plan — Market Tony (`tonyciencia.com/market`)
 
-Estado: en construcción en la rama `claude/tender-mayer-mqn7z3`. Este documento es el plan;
+Estado: implementado en la rama `claude/tender-mayer-mqn7z3` (modo maqueta completo y probado). Este documento es el plan;
 la entrega final para quien conecte credenciales está en [`HANDOFF.md`](../HANDOFF.md).
 
 ## 1. Lo que ya existe (y se respeta)
@@ -92,8 +92,8 @@ Guardias de seguridad (`src/config.ts`):
 Públicas: `GET /market` (catálogo) · `GET /market/producto/:slug` (detalle) ·
 `GET /market/legal/{terminos,privacidad,reembolsos}`.
 
-Sesión: `GET /market/entrar` · `GET /market/auth/google` → `GET /market/auth/google/callback` (live) ·
-`GET|POST /market/auth/dev` (mock) · `POST /market/salir`.
+Sesión: `GET /market/entrar` · `GET /market/auth/start` → proveedor (Google en live, `GET|POST /market/auth/dev` en mock) →
+`GET /market/auth/callback` (mismo callback en ambos modos) · `POST /market/salir`.
 
 Compra y gratis: `POST /market/producto/:slug/comprar` (crea sesión de Checkout; precio desde BD) ·
 `POST /market/producto/:slug/obtener` (gratis + casilla opcional de marketing) ·

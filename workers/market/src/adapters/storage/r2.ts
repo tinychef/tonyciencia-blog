@@ -28,7 +28,14 @@ export class R2FileStorage implements FileStorage {
 	) {}
 
 	async put(key: string, data: ArrayBuffer | ReadableStream, opts: { contentType: string; size: number }): Promise<void> {
-		await this.bucket.put(key, data, { httpMetadata: { contentType: opts.contentType } });
+		let body: ArrayBuffer | ReadableStream = data;
+		if (data instanceof ReadableStream) {
+			// R2 exige streams de longitud conocida; así se sube sin copiar el archivo entero en memoria.
+			const { readable, writable } = new FixedLengthStream(opts.size);
+			void data.pipeTo(writable);
+			body = readable;
+		}
+		await this.bucket.put(key, body, { httpMetadata: { contentType: opts.contentType } });
 	}
 
 	async get(key: string): Promise<StoredObject | null> {

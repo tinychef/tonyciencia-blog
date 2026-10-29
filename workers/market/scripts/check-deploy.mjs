@@ -27,7 +27,9 @@ const expectedMode = target === "preview" ? "mock" : "live";
 if (vars.MODE !== expectedMode) errors.push(`env.${target} debe tener MODE="${expectedMode}" (tiene "${vars.MODE}")`);
 if (vars.MODE === "mock" && isProdHost(host)) errors.push("MODE=mock con SITE_URL de producción: PROHIBIDO");
 if (target === "production" && vars.SITE_URL !== "https://tonyciencia.com") errors.push('production debe usar SITE_URL="https://tonyciencia.com"');
-if (target !== "production" && isProdHost(host)) errors.push(`${target} no puede usar un dominio de producción`);
+// staging (live, claves de prueba) puede vivir en un subdominio propio si hiciera falta para Google OAuth;
+// la maqueta (preview) jamás en un dominio de producción.
+if (target === "preview" && isProdHost(host)) errors.push("preview (maqueta) no puede usar un dominio de tonyciencia.com");
 if (JSON.stringify(env ?? {}).includes("REEMPLAZAR_")) errors.push(`env.${target} todavía tiene valores REEMPLAZAR_… (IDs de D1 o subdominio). Ver HANDOFF.md paso 2.`);
 for (const r of env?.routes ?? []) {
 	const pattern = typeof r === "string" ? r : r.pattern;

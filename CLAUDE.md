@@ -80,6 +80,14 @@ npx emdash seed seed/seed.json --validate  # Validar seed sin aplicar
 - Set completo en `public/` (`favicon.ico`, `favicon-16x16.png`, `favicon-32x32.png`, `apple-touch-icon.png`, `icon-192.png`, `icon-512.png`, `site.webmanifest`), generado desde `src/assets/brand/logo-tonyciencia-negro-source.png`
 - `Base.astro` usa `siteFavicon` del CMS como override si está seteado; si no, cae al `/favicon.ico` estático — el sitio nunca queda sin favicon
 
+## Market Tony (`workers/market/`)
+
+Tienda en `tonyciencia.com/market`: **Worker de Cloudflare separado del blog** (Hono + D1 `MARKET_DB` + R2 privado `MARKET_FILES`), con su propio `package.json`, lockfile y `wrangler.jsonc` (entornos `preview` mock, `staging` live de prueba, `production`). No se despliega con `pnpm deploy` del blog.
+- `MODE = mock | live`; toda dependencia externa está detrás de `workers/market/src/adapters/` (mock y live). `MODE=mock` con dominio de producción hace que el Worker no arranque.
+- Comandos (desde `workers/market/`): `pnpm setup:local && pnpm dev`, `pnpm test`, `pnpm test:e2e`, `pnpm test:startup-guard`, `pnpm deploy:<entorno>` (con chequeo previo). Usar `pnpm wrangler …` (agrega `-c wrangler.jsonc`; sin eso wrangler se confunde con `.wrangler/deploy/config.json` que deja el build del blog).
+- Único cambio en el sitio: `src/components/MarketFab.astro` (botón flotante), incluido en `Base.astro`.
+- Plan: `docs/PLAN.md`. Lo pendiente para conectar credenciales: `HANDOFF.md`.
+
 ## Configuración de Cloudflare
 
 `wrangler.jsonc` requiere IDs reales antes de deploy:

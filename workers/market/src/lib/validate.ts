@@ -58,7 +58,7 @@ export function parseIntInRange(v: unknown, min: number, max: number): number | 
  */
 export function safeNextPath(v: unknown, fallback = "/market"): string {
 	if (typeof v !== "string" || v.length > 300) return fallback;
-	if (!v.startsWith("/market")) return fallback;
+	if (!(v === "/market" || v.startsWith("/market/") || v.startsWith("/market?"))) return fallback;
 	if (v.startsWith("//") || v.includes("\\") || /[\u0000-\u001f]/.test(v)) return fallback;
 	try {
 		const u = new URL(v, "https://x.invalid");
