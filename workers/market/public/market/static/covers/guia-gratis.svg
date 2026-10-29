@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="t">
+  <title id="t">Guía gratis de prueba</title>
+  <defs>
+    <pattern id="d" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.4" fill="#f5f5f7" fill-opacity=".07"/></pattern>
+  </defs>
+  <rect width="1600" height="1000" fill="#111113"/>
+  <rect width="1600" height="1000" fill="url(#d)"/>
+  <g font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" fill="#f5f5f7">
+    <text x="110" y="200" font-size="34" fill="#8e8e93" letter-spacing="2">MARKET TONY · RECURSO GRATIS</text>
+    <text x="104" y="430" font-size="136" font-weight="700" letter-spacing="-5">Guía de prueba</text>
+    <text x="110" y="540" font-size="46" fill="#a1a1a6">PDF de ejemplo para probar descargas</text>
+  </g>
+  <g transform="translate(1180 560)" fill="none" stroke="#f5f5f7" stroke-width="10" stroke-linejoin="round">
+    <path d="M0 0h190l90 90v250H0z" stroke-opacity=".9"/>
+    <path d="M190 0v90h90" stroke-opacity=".9"/>
+    <path d="M50 170h180M50 230h180M50 290h120" stroke-opacity=".5" stroke-linecap="round"/>
+  </g>
+  <rect x="110" y="820" width="200" height="64" rx="32" fill="none" stroke="#30d158" stroke-width="3"/>
+  <text x="210" y="863" text-anchor="middle" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="30" font-weight="600" fill="#30d158">Gratis</text>
+</svg>

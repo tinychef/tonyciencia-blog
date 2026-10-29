@@ -1,0 +1,6 @@
+# Copia a .dev.vars (ignorado por git) para desarrollo local con `pnpm dev`.
+# En MODE=mock todo esto es opcional: si falta, se usan valores de maqueta.
+# NUNCA pongas aquí claves reales de producción.
+SESSION_SECRET=cambia-esto-por-32-caracteres-o-mas-aleatorios
+ADMIN_EMAIL=admin@maqueta.test
+ADMIN_COPY_EMAIL=copia-admin@maqueta.test

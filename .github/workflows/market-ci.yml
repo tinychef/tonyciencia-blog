@@ -1,0 +1,37 @@
+name: Market — pruebas
+# Solo pruebas del Worker del market (workers/market). NO despliega nada.
+on:
+  pull_request:
+    paths:
+      - 'workers/market/**'
+      - 'src/styles/theme.css'
+      - '.github/workflows/market-ci.yml'
+  push:
+    paths:
+      - 'workers/market/**'
+      - '.github/workflows/market-ci.yml'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: workers/market
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.0.8
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: workers/market/pnpm-lock.yaml
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm sync:theme
+      - run: pnpm typecheck
+      - run: pnpm test
+      - run: pnpm test:startup-guard
