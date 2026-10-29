@@ -1,0 +1,8 @@
+node_modules/
+.wrangler/
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+# Generado por scripts/sync-theme.mjs desde el sitio
+public/market/static/site/
+e2e/artifacts/

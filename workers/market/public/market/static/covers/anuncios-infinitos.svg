@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="t">
+  <title id="t">Anuncios Infinitos: agente de IA con más de 250 prompts de anuncios</title>
+  <defs>
+    <radialGradient id="g" cx="78%" cy="18%" r="75%">
+      <stop offset="0" stop-color="#3e6ae1" stop-opacity=".35"/>
+      <stop offset=".6" stop-color="#0a0a0b" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="d" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.4" fill="#f5f5f7" fill-opacity=".07"/></pattern>
+  </defs>
+  <rect width="1600" height="1000" fill="#0a0a0b"/>
+  <rect width="1600" height="1000" fill="url(#d)"/>
+  <rect width="1600" height="1000" fill="url(#g)"/>
+  <g font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" fill="#f5f5f7">
+    <text x="110" y="200" font-size="34" fill="#8e8e93" letter-spacing="2">MARKET TONY · AGENTE DE IA</text>
+    <text x="104" y="420" font-size="150" font-weight="700" letter-spacing="-6">Anuncios</text>
+    <text x="104" y="570" font-size="150" font-weight="700" letter-spacing="-6">Infinitos</text>
+    <text x="110" y="680" font-size="46" fill="#a1a1a6">250+ prompts de anuncios listos para usar</text>
+  </g>
+  <g transform="translate(1110 610)" fill="none" stroke="#f5f5f7" stroke-opacity=".9" stroke-width="10" stroke-linecap="round">
+    <path d="M40 120c0-60 50-100 110-100s90 40 120 100 60 100 120 100 110-40 110-100-50-100-110-100-90 40-120 100-60 100-120 100S40 180 40 120z"/>
+  </g>
+  <rect x="110" y="820" width="250" height="64" rx="32" fill="#f5f5f7"/>
+  <text x="235" y="863" text-anchor="middle" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="30" font-weight="600" fill="#0a0a0b">$77 USD</text>
+</svg>

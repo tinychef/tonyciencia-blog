@@ -1,0 +1,138 @@
+{
+	// Market Tony — Worker independiente del blog (ver docs/PLAN.md).
+	//
+	// Entornos:
+	//   (raíz)      → desarrollo local con `pnpm dev`. MODE=mock. D1/R2 emulados por Miniflare.
+	//   preview     → vista previa en workers.dev. MODE=mock. Sin R2 ni correo reales.
+	//   staging     → vista previa en workers.dev. MODE=live con claves de PRUEBA (Stripe test, OAuth de prueba).
+	//   production  → tonyciencia.com/market. MODE=live.
+	//
+	// Las claves NUNCA van aquí: se guardan con `wrangler secret put NOMBRE --env <entorno>`
+	// (o en `.dev.vars` para local, que está en .gitignore). Ver HANDOFF.md.
+	//
+	// Los "REEMPLAZAR_..." son IDs que se obtienen al crear los recursos (HANDOFF.md, paso 2).
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "tonyciencia-market-dev",
+	"main": "src/index.ts",
+	"compatibility_date": "2026-02-24",
+	"assets": { "directory": "./public", "binding": "ASSETS" },
+	"observability": { "enabled": true },
+	"vars": {
+		"MODE": "mock",
+		"SITE_URL": "http://localhost:8787",
+		"PAYMENT_PROVIDER": "stripe",
+		"EMAIL_PROVIDER": "mock",
+		"EMAIL_FALLBACK_PROVIDER": "none",
+		"EMAIL_FROM": "Tony Ciencia <market@tonyciencia.com>",
+		"EMAIL_REPLY_TO": "business@tonyciencia.com",
+		"STRIPE_TAX_ENABLED": "false",
+		"ALLOW_LIVE_PAYMENTS": "false",
+		"DOWNLOAD_URL_TTL_SECONDS": "300",
+		"EMAIL_LINK_TTL_DAYS": "14"
+	},
+	"d1_databases": [
+		{
+			"binding": "MARKET_DB",
+			"database_name": "tonyciencia-market-dev",
+			"database_id": "00000000-0000-0000-0000-000000000000",
+			"migrations_dir": "migrations"
+		}
+	],
+	"r2_buckets": [{ "binding": "MARKET_FILES", "bucket_name": "tonyciencia-market-files-dev" }],
+	"triggers": { "crons": ["*/5 * * * *"] },
+
+	"env": {
+		"preview": {
+			"name": "tonyciencia-market-preview",
+			"workers_dev": true,
+			"vars": {
+				"MODE": "mock",
+				"SITE_URL": "https://tonyciencia-market-preview.REEMPLAZAR_SUBDOMINIO.workers.dev",
+				"PAYMENT_PROVIDER": "stripe",
+				"EMAIL_PROVIDER": "mock",
+				"EMAIL_FALLBACK_PROVIDER": "none",
+				"EMAIL_FROM": "Tony Ciencia <market@tonyciencia.com>",
+				"EMAIL_REPLY_TO": "business@tonyciencia.com",
+				"STRIPE_TAX_ENABLED": "false",
+				"ALLOW_LIVE_PAYMENTS": "false",
+				"DOWNLOAD_URL_TTL_SECONDS": "300",
+				"EMAIL_LINK_TTL_DAYS": "14"
+			},
+			"d1_databases": [
+				{
+					"binding": "MARKET_DB",
+					"database_name": "tonyciencia-market-preview",
+					"database_id": "REEMPLAZAR_ID_D1_PREVIEW",
+					"migrations_dir": "migrations"
+				}
+			],
+			// Sin R2: en mock los archivos salen del almacén de desarrollo, nunca de un bucket.
+			"triggers": { "crons": ["*/5 * * * *"] }
+		},
+
+		"staging": {
+			"name": "tonyciencia-market-staging",
+			"workers_dev": true,
+			"vars": {
+				"MODE": "live",
+				"SITE_URL": "https://tonyciencia-market-staging.REEMPLAZAR_SUBDOMINIO.workers.dev",
+				"PAYMENT_PROVIDER": "stripe",
+				"EMAIL_PROVIDER": "cloudflare",
+				"EMAIL_FALLBACK_PROVIDER": "none",
+				"EMAIL_FROM": "Tony Ciencia <market@tonyciencia.com>",
+				"EMAIL_REPLY_TO": "business@tonyciencia.com",
+				"STRIPE_TAX_ENABLED": "false",
+				// Staging solo acepta claves sk_test_: dejar en "false".
+				"ALLOW_LIVE_PAYMENTS": "false",
+				"DOWNLOAD_URL_TTL_SECONDS": "300",
+				"EMAIL_LINK_TTL_DAYS": "14"
+			},
+			"d1_databases": [
+				{
+					"binding": "MARKET_DB",
+					"database_name": "tonyciencia-market-staging",
+					"database_id": "REEMPLAZAR_ID_D1_STAGING",
+					"migrations_dir": "migrations"
+				}
+			],
+			"r2_buckets": [{ "binding": "MARKET_FILES", "bucket_name": "tonyciencia-market-files-staging" }],
+			"send_email": [{ "name": "EMAIL" }],
+			"triggers": { "crons": ["*/5 * * * *"] }
+		},
+
+		"production": {
+			"name": "tonyciencia-market",
+			"workers_dev": false,
+			// Dos rutas a propósito: "tonyciencia.com/market*" capturaría también /marketing-digital.
+			"routes": [
+				{ "pattern": "tonyciencia.com/market", "zone_name": "tonyciencia.com" },
+				{ "pattern": "tonyciencia.com/market/*", "zone_name": "tonyciencia.com" }
+			],
+			"vars": {
+				"MODE": "live",
+				"SITE_URL": "https://tonyciencia.com",
+				"PAYMENT_PROVIDER": "stripe",
+				"EMAIL_PROVIDER": "cloudflare",
+				"EMAIL_FALLBACK_PROVIDER": "none",
+				"EMAIL_FROM": "Tony Ciencia <market@tonyciencia.com>",
+				"EMAIL_REPLY_TO": "business@tonyciencia.com",
+				"STRIPE_TAX_ENABLED": "false",
+				// Cambiar a "true" SOLO cuando el dueño apruebe cobrar de verdad (HANDOFF.md, paso 7).
+				"ALLOW_LIVE_PAYMENTS": "false",
+				"DOWNLOAD_URL_TTL_SECONDS": "300",
+				"EMAIL_LINK_TTL_DAYS": "14"
+			},
+			"d1_databases": [
+				{
+					"binding": "MARKET_DB",
+					"database_name": "tonyciencia-market",
+					"database_id": "REEMPLAZAR_ID_D1_PRODUCTION",
+					"migrations_dir": "migrations"
+				}
+			],
+			"r2_buckets": [{ "binding": "MARKET_FILES", "bucket_name": "tonyciencia-market-files" }],
+			"send_email": [{ "name": "EMAIL" }],
+			"triggers": { "crons": ["*/5 * * * *"] }
+		}
+	}
+}

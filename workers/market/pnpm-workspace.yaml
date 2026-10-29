@@ -1,0 +1,6 @@
+# Workspace propio: el market se instala y se despliega aparte del blog
+# (no comparte lockfile con la raíz, así el CI del blog no cambia).
+allowBuilds:
+  esbuild: true
+  workerd: true
+  sharp: false
