@@ -10,7 +10,7 @@ export interface RateRule {
 }
 
 export const RATE_RULES = {
-	login: { name: "login", limit: 10, windowSeconds: 60 },
+	login: { name: "login", limit: 20, windowSeconds: 60 },
 	checkoutUser: { name: "checkout-user", limit: 8, windowSeconds: 600 },
 	checkoutIp: { name: "checkout-ip", limit: 30, windowSeconds: 600 },
 	claim: { name: "claim", limit: 10, windowSeconds: 600 },

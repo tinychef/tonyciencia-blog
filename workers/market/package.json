@@ -12,7 +12,7 @@
     "setup:local": "pnpm db:migrate:local && pnpm db:seed:local",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:e2e": "node --test e2e/",
+    "test:e2e": "node --test e2e/flujo-completo.test.mjs",
     "check:deploy": "node scripts/check-deploy.mjs",
     "deploy:preview": "node scripts/check-deploy.mjs preview && pnpm sync:theme && wrangler deploy --env preview",
     "deploy:staging": "node scripts/check-deploy.mjs staging && pnpm sync:theme && wrangler deploy --env staging",
@@ -25,6 +25,7 @@
   "devDependencies": {
     "@cloudflare/vitest-plugin": "^1.4.9",
     "@cloudflare/workers-types": "5.20261029.1",
+    "playwright": "1.63.0",
     "typescript": "5.9.3",
     "vitest": "4.1.12",
     "wrangler": "4.155.0"

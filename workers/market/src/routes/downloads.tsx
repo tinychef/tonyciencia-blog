@@ -24,7 +24,9 @@ export function registerDownloads(app: Hono<AppEnv>) {
 			if (!c.get("user")) return loginRedirect(c, "/market/mis-compras");
 			return c.redirect(`/market/mis-compras#acceso-${id}`, 303);
 		}
-		c.header("Referrer-Policy", "no-referrer");
+		// same-origin: el token de la URL no se filtra a otros sitios, y el POST conserva su Origin
+		// (con no-referrer el navegador enviaría "Origin: null" y fallaría la verificación de origen).
+		c.header("Referrer-Policy", "same-origin");
 		const ent = await loadEntitlement(c.env.MARKET_DB, id);
 		if (!ent || !(await emailTokenValid(c.get("config").sessionSecret, id, token))) {
 			return renderMessage(c, 403, "Este enlace no es válido o ya venció", "Entra a Mis compras con tu cuenta de Google para descargar de nuevo.", {

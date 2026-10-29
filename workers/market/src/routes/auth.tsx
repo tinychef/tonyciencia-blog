@@ -80,9 +80,6 @@ export function registerAuth(app: Hono<AppEnv>) {
 		if (!(auth instanceof DevAuthProvider)) return c.notFound();
 		const form = await c.req.formData().catch(() => null);
 		if (!(await checkCsrf(c, form))) return renderMessage(c, 403, "Solicitud no válida", "Recarga la página e inténtalo de nuevo.");
-		if (!(await hit(c.env.MARKET_DB, RATE_RULES.login, clientIp(c)))) {
-			return renderMessage(c, 429, "Demasiados intentos", "Espera un minuto.");
-		}
 		const email = normalizeEmail(form?.get("email"));
 		const name = cleanLine(form?.get("name") ?? "", 80);
 		const state = form?.get("state");

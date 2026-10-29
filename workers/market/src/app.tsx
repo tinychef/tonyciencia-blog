@@ -55,7 +55,8 @@ const CSP = [
 	"default-src 'self'",
 	"img-src 'self' data:",
 	"style-src 'self' 'unsafe-inline'",
-	"script-src 'none'",
+	// Único JS: /market/static/fab.js (comportamiento del botón flotante). Nada en línea.
+	"script-src 'self'",
 	"font-src 'self'",
 	"frame-src 'self'",
 	// El POST de "Comprar" redirige a Stripe; el resto de formularios se quedan en el sitio.

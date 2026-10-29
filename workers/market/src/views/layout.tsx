@@ -136,6 +136,7 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 					</div>
 				</footer>
 				<MarketFab current={meta.path === "/market"} />
+				<script src="/market/static/fab.js" defer></script>
 			</body>
 		</html>
 	);
