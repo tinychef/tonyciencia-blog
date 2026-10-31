@@ -102,11 +102,6 @@ const navItems = [
 	{ href: locale === "en" ? "/en/about" : "/about", label: t("nav.aboutMe") },
 	{ href: locale === "en" ? "/en/contact" : "/contacto", label: t("nav.contact") },
 ];
-// La cabecera muestra solo lo esencial (Market + conocer a Tony); el resto vive en el menú.
-const headerLinks = [
-	{ href: locale === "en" ? "/en/posts" : "/posts", label: t("nav.blog") },
-	{ href: locale === "en" ? "/en/about" : "/about", label: t("nav.aboutMe") },
-];
 const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 const isActive = (href: string) => currentPath === href || currentPath.startsWith(`${href}/`);
 const homeHref = locale === "en" ? "/en" : "/";
@@ -186,13 +181,6 @@ const homeHref = locale === "en" ? "/en" : "/";
 					<img src="/assets/logo-tc-blanco-72.webp" alt={siteTitle} class="site-logo-img logo-dark" aria-hidden="true" width="36" height="36" />
 				</a>
 				<div class="nav-right">
-					<div class="nav-links">
-						{headerLinks.map((item) => (
-							<a href={item.href} aria-current={isActive(item.href) ? "page" : undefined}>
-								{item.label}
-							</a>
-						))}
-					</div>
 					<LanguageSwitcher alternatePath={altPath} />
 					{
 						isLoggedIn && (
@@ -647,23 +635,6 @@ const homeHref = locale === "en" ? "/en" : "/";
 				gap: var(--spacing-5);
 			}
 
-			.nav-links {
-				display: flex;
-				gap: var(--spacing-5);
-				font-size: var(--font-size-sm);
-			}
-
-			.nav-links a {
-				text-decoration: none;
-				color: var(--color-muted);
-				font-weight: 500;
-				transition: color 200ms ease;
-			}
-
-			.nav-links a:hover {
-				color: var(--color-text);
-			}
-
 			.nav-admin {
 				font-size: var(--font-size-xs);
 				color: var(--color-muted);
@@ -1114,34 +1085,7 @@ const homeHref = locale === "en" ? "/en" : "/";
 				border-color: var(--color-accent-ring);
 			}
 
-			/* ── Barra superior: enlace activo, Market y progreso de lectura ── */
-			.nav-links a {
-				position: relative;
-			}
-
-			.nav-links a::after {
-				content: "";
-				position: absolute;
-				left: 0;
-				right: 0;
-				bottom: -6px;
-				height: 2px;
-				border-radius: 2px;
-				background: var(--color-text);
-				transform: scaleX(0);
-				transform-origin: left;
-				transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
-			}
-
-			.nav-links a:hover::after,
-			.nav-links a[aria-current="page"]::after {
-				transform: scaleX(1);
-			}
-
-			.nav-links a[aria-current="page"] {
-				color: var(--color-text);
-			}
-
+			/* ── Barra superior: Market y progreso de lectura (el resto de enlaces vive en el menú) ── */
 			/* Botón principal de la cabecera: el Market. */
 			.nav-cta {
 				display: inline-flex;
@@ -1219,7 +1163,6 @@ const homeHref = locale === "en" ? "/en" : "/";
 
 			/* Menú hamburguesa hasta 900px: entre 641 y 900 la barra no entra completa. */
 			@media (max-width: 900px) {
-				.nav-links,
 				.nav-admin,
 				.site-search {
 					display: none;
