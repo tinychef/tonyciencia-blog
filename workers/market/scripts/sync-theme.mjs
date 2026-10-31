@@ -12,8 +12,8 @@ mkdirSync(out, { recursive: true });
 
 const files = [
 	["src/styles/theme.css", "theme.css"],
-	["public/assets/logo-tonyciencia-blanco.webp", "logo-blanco.webp"],
-	["public/assets/logo-tonyciencia-negro.webp", "logo-negro.webp"],
+	["public/assets/logo-tc-blanco-72.webp", "logo-blanco.webp"],
+	["public/assets/logo-tc-negro-72.webp", "logo-negro.webp"],
 	["public/favicon.ico", "favicon.ico"],
 	["public/favicon-32x32.png", "favicon-32x32.png"],
 	["public/apple-touch-icon.png", "apple-touch-icon.png"],

@@ -10,6 +10,7 @@
   Sin JS o con prefers-reduced-motion: acordeón normal, sin fijar la pantalla
   y sin animación del carrusel (se desliza a mano).
 */
+import { partnerIcon } from "../data/partner-icons.generated";
 import type { Partner } from "../data/partners.generated";
 
 interface Row {
@@ -91,7 +92,7 @@ const pad = (n: number) => String(n).padStart(2, "0");
 														tabindex={isCopy ? -1 : undefined}
 													>
 														<img
-															src={partner.logoUrl}
+															src={partnerIcon(partner.logoUrl)}
 															alt=""
 															width="20"
 															height="20"

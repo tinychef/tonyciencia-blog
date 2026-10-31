@@ -1,10 +1,11 @@
 ---
-import { getEmDashCollection, getEntryTerms } from "emdash";
+import { getEmDashCollection } from "emdash";
 import Base from "../../layouts/Base.astro";
 import PostCard from "../../components/PostCard.astro";
 import { getReadingTime } from "../../utils/reading-time";
-import { getStaticPosts, getStaticTags } from "../../utils/static-posts";
+import { getStaticPosts } from "../../utils/static-posts";
 import { getLangFromUrl, useTranslations } from "../../i18n/locales";
+import { postTags } from "../../utils/terms";
 
 const locale = getLangFromUrl(Astro.url);
 const t = useTranslations(locale);
@@ -25,9 +26,7 @@ const sortedPosts = posts.toSorted((a, b) => {
 const postsWithTags = await Promise.all(
 	sortedPosts.map(async (post) => ({
 		post,
-		tags: getStaticTags(post).length > 0
-			? getStaticTags(post)
-			: (await getEntryTerms("posts", post.data.id, "tag")).map((tag) => ({ slug: tag.slug, label: tag.label })),
+		tags: postTags(post),
 		bylines: post.data.bylines ?? [],
 	}))
 );

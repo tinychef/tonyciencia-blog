@@ -115,8 +115,8 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 				<header class="mk-header" data-header>
 					<nav class="mk-nav" aria-label="Principal">
 						<a href="/market" class="mk-brand" aria-label="Market Tony — inicio de la tienda">
-							<img src="/market/static/site/logo-blanco.webp" alt="Tony Ciencia" class="logo-dark" width="124" height="32" />
-							<img src="/market/static/site/logo-negro.webp" alt="Tony Ciencia" class="logo-light" width="124" height="32" />
+							<img src="/market/static/site/logo-blanco.webp" alt="Tony Ciencia" class="logo-dark" width="32" height="32" />
+							<img src="/market/static/site/logo-negro.webp" alt="Tony Ciencia" class="logo-light" width="32" height="32" />
 							<span class="mk-brand-tag">Market</span>
 						</a>
 						<div class="mk-links">
@@ -192,8 +192,8 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 					<div class="mk-footer-inner">
 						<div class="mk-footer-brand">
 							<a href="/market" class="mk-brand" aria-label="Market Tony">
-								<img src="/market/static/site/logo-blanco.webp" alt="Tony Ciencia" class="logo-dark" width="124" height="32" loading="lazy" />
-								<img src="/market/static/site/logo-negro.webp" alt="Tony Ciencia" class="logo-light" width="124" height="32" loading="lazy" />
+								<img src="/market/static/site/logo-blanco.webp" alt="Tony Ciencia" class="logo-dark" width="32" height="32" loading="lazy" />
+								<img src="/market/static/site/logo-negro.webp" alt="Tony Ciencia" class="logo-light" width="32" height="32" loading="lazy" />
 								<span class="mk-brand-tag">Market</span>
 							</a>
 							<p>Herramientas de IA en español para crear anuncios, videos y automatizaciones. Pago único, descarga inmediata.</p>

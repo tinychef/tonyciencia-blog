@@ -1,5 +1,6 @@
 // Último video del canal de YouTube de Tony Ciencia, leído del feed RSS público.
-// Si YouTube tarda o falla, se usa el último video conocido: la página nunca se rompe por esto.
+// Nunca frena la página: resultado en memoria del isolate (1 h), caché del borde solo para respuestas OK,
+// tope de 600 ms y, si falla, el último video conocido (y reintento a los 5 minutos).
 
 const CHANNEL_ID = "UCAsrc2rS1SHu4V1W9gMjnmg";
 export const YOUTUBE_CHANNEL_URL = "https://www.youtube.com/@tonyciencia";
@@ -11,9 +12,15 @@ export interface LatestVideo {
 
 /** Último video conocido al 31-10-2026 (respaldo). */
 const FALLBACK: LatestVideo = {
-	id: "iuQqYMeg47o",
-	title: "Cómo Conectar STREAK a CLAUDE | Tutorial + Prompts Avanzados",
+	id: "Ig6JmjY29f8",
+	title: "Probé REA con Claude Code 3 días seguidos ¿vale la pena? #ClaudeCode #IA",
 };
+
+const OK_TTL_MS = 60 * 60_000;
+const RETRY_MS = 5 * 60_000;
+const TIMEOUT_MS = 600;
+
+let memo: { video: LatestVideo; until: number } | null = null;
 
 const decode = (s: string) =>
 	s
@@ -24,17 +31,24 @@ const decode = (s: string) =>
 		.replace(/&#39;/g, "'");
 
 export async function getLatestVideo(): Promise<LatestVideo> {
+	const now = Date.now();
+	if (memo && now < memo.until) return memo.video;
 	try {
 		const res = await fetch(`https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`, {
-			signal: AbortSignal.timeout(1500),
-			// Caché del borde de Cloudflare: como mucho una consulta por hora.
-			cf: { cacheTtl: 3600, cacheEverything: true },
+			signal: AbortSignal.timeout(TIMEOUT_MS),
+			// Caché del borde de Cloudflare: guarda solo las respuestas buenas; los errores no se cachean.
+			cf: { cacheTtlByStatus: { "200-299": 3600, "300-599": 0 } },
 		} as RequestInit);
-		if (!res.ok) return FALLBACK;
-		const xml = await res.text();
-		const m = xml.match(/<entry>[\s\S]*?<yt:videoId>([\w-]{11})<\/yt:videoId>[\s\S]*?<title>([^<]+)<\/title>/);
-		return m ? { id: m[1]!, title: decode(m[2]!) } : FALLBACK;
+		if (res.ok) {
+			const m = (await res.text()).match(/<entry>[\s\S]*?<yt:videoId>([\w-]{11})<\/yt:videoId>[\s\S]*?<title>([^<]+)<\/title>/);
+			if (m) {
+				memo = { video: { id: m[1]!, title: decode(m[2]!) }, until: now + OK_TTL_MS };
+				return memo.video;
+			}
+		}
 	} catch {
-		return FALLBACK;
+		/* tiempo agotado o red caída: se usa el respaldo */
 	}
+	memo = { video: memo?.video ?? FALLBACK, until: now + RETRY_MS };
+	return memo.video;
 }

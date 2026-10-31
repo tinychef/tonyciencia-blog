@@ -1,6 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
 import { partners } from "../../data/partners.generated";
+import { partnerIcon } from "../../data/partner-icons.generated";
 
 const categories = [...new Set(partners.map((p) => p.category))].sort((a, b) => a.localeCompare(b, "es"));
 
@@ -56,7 +57,7 @@ const description = `Catálogo completo de ${partners.length} herramientas de IA
 					>
 						<div class="partner-logo">
 							<img
-								src={partner.logoUrl}
+								src={partnerIcon(partner.logoUrl)}
 								alt={`${partner.name} logo`}
 								width="32"
 								height="32"

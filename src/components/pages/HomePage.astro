@@ -77,8 +77,13 @@ const COPY = {
 	},
 }[locale];
 
-const { entries: cmsPosts, cacheHint } = await getEmDashCollection("posts", { locale });
-const { siteTitle, siteTagline } = resolveBlogSiteIdentity(await getSiteSettings());
+// Las tres consultas van en paralelo (antes eran en serie: D1 → ajustes → YouTube).
+const [{ entries: cmsPosts, cacheHint }, siteSettings, latestVideo] = await Promise.all([
+	getEmDashCollection("posts", { locale }),
+	getSiteSettings(),
+	getLatestVideo(),
+]);
+const { siteTitle, siteTagline } = resolveBlogSiteIdentity(siteSettings);
 
 Astro.cache.set(cacheHint);
 
@@ -95,7 +100,6 @@ const formatDate = (date: Date | null | undefined) =>
 
 const GHL_URL = "https://www.gohighlevel.com/highlevel-bootcamp?fp_ref=tony-ciencia-llc-57";
 
-const latestVideo = await getLatestVideo();
 
 // Portadas de la puerta del Market (copias livianas en public/assets/market/; el Market es otro Worker en /market).
 const MARKET_COVERS = ["anuncios-infinitos", "specreel", "cutpilot"];

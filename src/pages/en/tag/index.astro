@@ -1,7 +1,8 @@
 ---
-import { getEmDashCollection, getEntryTerms } from "emdash";
+import { getEmDashCollection } from "emdash";
 import Base from "../../../layouts/Base.astro";
 import { getLangFromUrl } from "../../../i18n/locales";
+import { postTerms } from "../../../utils/terms";
 
 const locale = getLangFromUrl(Astro.url);
 
@@ -11,8 +12,7 @@ const { entries: posts } = await getEmDashCollection("posts", { locale });
 
 const tagMap = new Map<string, string>();
 for (const post of posts) {
-	const postTags = await getEntryTerms("posts", post.data.id, "tag");
-	for (const tag of postTags) {
+	for (const tag of postTerms(post, "tag")) {
 		if (!tagMap.has(tag.slug)) {
 			tagMap.set(tag.slug, tag.label || tag.slug);
 		}
