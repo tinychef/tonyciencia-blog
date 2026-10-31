@@ -1,13 +1,14 @@
 import type { FC } from "hono/jsx";
 import { centsToInput, formatPrice } from "../lib/money";
 import type { OutboxRow } from "../services/outbox";
-import type { EntitlementRow, OrderRow, Product } from "../services/repo";
+import { CATEGORIES } from "../lib/catalog";
+import type { AdminReviewRow, EntitlementRow, OrderRow, Product, WaitlistRow } from "../services/repo";
 import { CsrfField } from "./layout";
 
 const fmtDate = (ms: number | null) => (ms ? new Date(ms).toISOString().replace("T", " ").slice(0, 16) + " UTC" : "—");
 const Status: FC<{ s: string }> = ({ s }) => <span class={`mk-status mk-status--${s}`}>{s}</span>;
 
-export const AdminNav: FC<{ current: "productos" | "pedidos" | "correos" }> = ({ current }) => (
+export const AdminNav: FC<{ current: "productos" | "pedidos" | "correos" | "resenas" | "lista" }> = ({ current }) => (
 	<nav class="mk-admin-nav" aria-label="Administración">
 		<a href="/market/admin" aria-current={current === "productos" ? "page" : undefined}>
 			Productos
@@ -18,14 +19,21 @@ export const AdminNav: FC<{ current: "productos" | "pedidos" | "correos" }> = ({
 		<a href="/market/admin/correos" aria-current={current === "correos" ? "page" : undefined}>
 			Correos
 		</a>
+		<a href="/market/admin/resenas" aria-current={current === "resenas" ? "page" : undefined}>
+			Reseñas
+		</a>
+		<a href="/market/admin/lista-espera" aria-current={current === "lista" ? "page" : undefined}>
+			Lista de espera
+		</a>
 	</nav>
 );
 
-export const AdminProducts: FC<{ products: Product[]; csrf: string | null; notice: string | null; storageName: string }> = ({
+export const AdminProducts: FC<{ products: Product[]; csrf: string | null; notice: string | null; storageName: string; waitlist?: Record<string, number> }> = ({
 	products,
 	csrf,
 	notice,
 	storageName,
+	waitlist = {},
 }) => (
 	<div class="tc-shell">
 		<h1 style="font-size: var(--font-size-2xl); margin-bottom: var(--spacing-6)">Administración</h1>
@@ -59,8 +67,24 @@ export const AdminProducts: FC<{ products: Product[]; csrf: string | null; notic
 							</td>
 							<td>{p.kind === "paid" ? "Pago" : "Gratis"}</td>
 							<td>{p.kind === "paid" ? formatPrice(p.price_cents, p.currency) : "—"}</td>
-							<td>{p.file_key ? <code>{p.file_key}</code> : <span class="mk-status mk-status--failed">sin archivo</span>}</td>
-							<td>{p.active ? <span class="mk-status mk-status--paid">activo</span> : <span class="mk-status mk-status--expired">inactivo</span>}</td>
+							<td>
+								{p.file_key ? (
+									<code>{p.file_key}</code>
+								) : p.availability === "coming_soon" ? (
+									<span class="mk-muted">no hace falta (próximamente)</span>
+								) : (
+									<span class="mk-status mk-status--failed">sin archivo</span>
+								)}
+							</td>
+							<td>
+								{p.active ? <span class="mk-status mk-status--paid">activo</span> : <span class="mk-status mk-status--expired">inactivo</span>}
+								{p.availability === "coming_soon" && (
+									<>
+										<br />
+										<span class="mk-status mk-status--pending">próximamente</span> · {waitlist[p.id] ?? 0} en lista
+									</>
+								)}
+							</td>
 							<td>
 								<div class="mk-actions">
 									<a href={`/market/admin/productos/${p.id}`}>Editar</a>
@@ -159,8 +183,97 @@ export const AdminProductForm: FC<ProductFormProps> = ({ product, csrf, errors, 
 				</div>
 				<label class="mk-check">
 					<input type="checkbox" name="active" value="1" checked={v("active", product?.active ? "1" : "") === "1"} />
-					<span>Activo (visible y a la venta)</span>
+					<span>Activo (visible en la tienda)</span>
 				</label>
+
+				<fieldset class="mk-fieldset">
+					<legend>Vitrina, precio y SEO</legend>
+					<div class="mk-form-row">
+						<div class="mk-field">
+							<label for="f-avail">Disponibilidad</label>
+							<select id="f-avail" name="availability">
+								<option value="available" selected={v("availability", product?.availability ?? "available") === "available"}>
+									Disponible (se puede comprar)
+								</option>
+								<option value="coming_soon" selected={v("availability", product?.availability ?? "available") === "coming_soon"}>
+									Próximamente (solo lista de espera)
+								</option>
+							</select>
+						</div>
+						<div class="mk-field">
+							<label for="f-cat">Categoría</label>
+							<select id="f-cat" name="category">
+								<option value="">— Sin categoría —</option>
+								{CATEGORIES.map((cat) => (
+									<option value={cat.slug} selected={v("category", product?.category ?? "") === cat.slug}>
+										{cat.label}
+									</option>
+								))}
+							</select>
+						</div>
+						<div class="mk-field">
+							<label for="f-compare">Precio anterior tachado (USD, opcional)</label>
+							<input id="f-compare" type="text" inputmode="decimal" name="compare_at" maxlength={9} value={v("compare_at", product?.compare_at_cents ? centsToInput(product.compare_at_cents) : "")} />
+							<span class="mk-hint">Solo si de verdad se vendió a ese precio. Debe ser mayor que el precio actual.</span>
+						</div>
+					</div>
+					<div class="mk-field">
+						<label for="f-tagline">Frase corta (bajo el título)</label>
+						<input id="f-tagline" type="text" name="tagline" maxlength={200} value={v("tagline", product?.tagline ?? "")} />
+					</div>
+					<div class="mk-form-row">
+						<div class="mk-field">
+							<label for="f-badge">Etiqueta manual (opcional)</label>
+							<input id="f-badge" type="text" name="badge" maxlength={30} value={v("badge", product?.badge ?? "")} placeholder="Versión 2.0" />
+							<span class="mk-hint">«Nuevo», «Más vendido» y «Próximamente» se ponen solas con datos reales.</span>
+						</div>
+						<div class="mk-field">
+							<label for="f-accent">Color de acento</label>
+							<input id="f-accent" type="text" name="accent" maxlength={7} pattern="#[0-9a-fA-F]{6}" value={v("accent", product?.accent ?? "")} placeholder="#f5e400" />
+						</div>
+						<div class="mk-field">
+							<label for="f-video">Video de YouTube (id, opcional)</label>
+							<input id="f-video" type="text" name="video_id" maxlength={11} value={v("video_id", product?.video_id ?? "")} placeholder="dQw4w9WgXcQ" />
+						</div>
+						<div class="mk-field">
+							<label for="f-offset">Ventas fuera del market</label>
+							<input id="f-offset" type="number" name="sales_offset" min={0} max={1000000} value={v("sales_offset", String(product?.sales_offset ?? 0))} />
+							<span class="mk-hint">Solo ventas reales hechas en otra plataforma. Se suman a las pagadas aquí.</span>
+						</div>
+					</div>
+					<div class="mk-field">
+						<label for="f-mtitle">Meta título (Google)</label>
+						<input id="f-mtitle" type="text" name="meta_title" maxlength={70} value={v("meta_title", product?.meta_title ?? "")} />
+						<span class="mk-hint">Hasta ~60 caracteres. Vacío = título del producto.</span>
+					</div>
+					<div class="mk-field">
+						<label for="f-mdesc">Meta descripción (Google)</label>
+						<input id="f-mdesc" type="text" name="meta_description" maxlength={200} value={v("meta_description", product?.meta_description ?? "")} />
+						<span class="mk-hint">Hasta ~160 caracteres. Vacío = resumen.</span>
+					</div>
+					<div class="mk-field">
+						<label for="f-tags">Palabras clave (separadas por coma)</label>
+						<input id="f-tags" type="text" name="tags" maxlength={600} value={v("tags", product?.tags.join(", ") ?? "")} placeholder="editar videos con Claude, subtítulos automáticos" />
+					</div>
+					<div class="mk-field">
+						<label for="f-hl">Qué incluye (una línea por punto)</label>
+						<textarea id="f-hl" name="highlights" maxlength={3000} style="min-height: 120px">
+							{v("highlights", product?.highlights.join("\n") ?? "")}
+						</textarea>
+					</div>
+					<div class="mk-field">
+						<label for="f-specs">Detalles del producto (una línea por dato: «Etiqueta: valor»)</label>
+						<textarea id="f-specs" name="specs" maxlength={3000} style="min-height: 120px">
+							{v("specs", product?.specs.map((x) => `${x.label}: ${x.value}`).join("\n") ?? "")}
+						</textarea>
+					</div>
+					<div class="mk-field">
+						<label for="f-faq">Preguntas frecuentes (pregunta en una línea, respuesta en la siguiente; línea en blanco entre preguntas)</label>
+						<textarea id="f-faq" name="faq" maxlength={8000} style="min-height: 160px">
+							{v("faq", product?.faq.map((x) => `${x.q}\n${x.a}`).join("\n\n") ?? "")}
+						</textarea>
+					</div>
+				</fieldset>
 
 				<fieldset class="mk-fieldset">
 					<legend>Archivo entregable (privado)</legend>
@@ -428,5 +541,96 @@ export const AdminOrderDetail: FC<OrderDetailProps> = ({ order, productTitle, en
 		)}
 		<h2 class="mk-h2">Correos</h2>
 		<EmailTable rows={emails} csrf={csrf} />
+	</div>
+);
+
+export const AdminReviews: FC<{ rows: AdminReviewRow[]; csrf: string | null; notice: string | null }> = ({ rows, csrf, notice }) => (
+	<div class="tc-shell">
+		<h1 style="font-size: var(--font-size-2xl); margin-bottom: var(--spacing-6)">Reseñas</h1>
+		<AdminNav current="resenas" />
+		{notice && <p class="mk-alert mk-alert--ok">{notice}</p>}
+		<p class="mk-muted" style="margin-bottom: var(--spacing-5)">
+			Solo pueden reseñar personas con acceso vigente al producto. Ocultar una reseña la saca de la tienda y del promedio de estrellas.
+		</p>
+		<div class="mk-table-wrap">
+			<table class="mk-table">
+				<thead>
+					<tr>
+						<th>Fecha</th>
+						<th>Producto</th>
+						<th>Persona</th>
+						<th>★</th>
+						<th>Texto</th>
+						<th>Estado</th>
+					</tr>
+				</thead>
+				<tbody>
+					{rows.length === 0 && (
+						<tr>
+							<td colspan={6}>Todavía no hay reseñas.</td>
+						</tr>
+					)}
+					{rows.map((r) => (
+						<tr>
+							<td>{fmtDate(r.created_at)}</td>
+							<td>{r.product_title}</td>
+							<td>
+								{r.display_name}
+								<br />
+								<code>{r.email}</code>
+							</td>
+							<td>{r.rating}</td>
+							<td style="max-width: 360px">{r.body || "—"}</td>
+							<td>
+								<form method="post" action={`/market/admin/resenas/${r.id}/${r.status === "published" ? "ocultar" : "publicar"}`} class="mk-inline-form">
+									<CsrfField csrf={csrf} />
+									<Status s={r.status === "published" ? "paid" : "expired"} /> {r.status === "published" ? "publicada" : "oculta"} ·{" "}
+									<button type="submit" class="mk-linkbtn">
+										{r.status === "published" ? "Ocultar" : "Publicar"}
+									</button>
+								</form>
+							</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
+		</div>
+	</div>
+);
+
+export const AdminWaitlist: FC<{ rows: WaitlistRow[] }> = ({ rows }) => (
+	<div class="tc-shell">
+		<h1 style="font-size: var(--font-size-2xl); margin-bottom: var(--spacing-6)">Lista de espera</h1>
+		<AdminNav current="lista" />
+		<p class="mk-muted" style="margin-bottom: var(--spacing-5)">
+			Correos que pidieron aviso de un producto próximo. Úsalos solo para avisar de ese lanzamiento.
+		</p>
+		<div class="mk-table-wrap">
+			<table class="mk-table">
+				<thead>
+					<tr>
+						<th>Producto</th>
+						<th>Correo</th>
+						<th>Fecha</th>
+					</tr>
+				</thead>
+				<tbody>
+					{rows.length === 0 && (
+						<tr>
+							<td colspan={3}>Todavía nadie se anotó.</td>
+						</tr>
+					)}
+					{rows.map((r) => (
+						<tr>
+							<td>{r.product_title}</td>
+							<td>
+								<code>{r.email}</code>
+							</td>
+							<td>{fmtDate(r.created_at)}</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
+		</div>
 	</div>
 );

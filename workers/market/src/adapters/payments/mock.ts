@@ -1,5 +1,5 @@
 import { randomToken } from "../../lib/crypto";
-import type { CheckoutRequest, CheckoutSession, PaymentEvent, PaymentProvider } from "../types";
+import type { CheckoutRequest, CheckoutSession, PaymentEvent, PaymentProvider, ResolvedPromotion } from "../types";
 import { normalizeStripeEvent, signStripePayload, verifyStripeSignature } from "./stripe-signature";
 
 export interface MockCheckoutRow {
@@ -17,6 +17,9 @@ export interface MockCheckoutRow {
 }
 
 export type MockOutcome = "paid" | "expired";
+
+/** Códigos válidos en maqueta → % de descuento. */
+export const MOCK_PROMOTION_CODES: Record<string, number> = { TONYCIENCIA: 10 };
 
 /**
  * Pagos de MAQUETA. La sesión de "checkout" vive en D1 y su página es /market/maqueta/pago/:id.
@@ -43,6 +46,15 @@ export class MockPaymentProvider implements PaymentProvider {
 			.bind(id, req.orderId, req.amountCents, req.currency, req.customerEmail, req.productTitle, req.successUrl, req.cancelUrl, Date.now())
 			.run();
 		return { id, url: new URL(`/market/maqueta/pago/${id}`, this.origin).toString() };
+	}
+
+	/**
+	 * Cupones de MAQUETA (para probar el popup de bienvenida y el campo de cupón sin Stripe).
+	 * El pago simulado no descuenta el monto: solo valida el código.
+	 */
+	async resolvePromotionCode(code: string): Promise<ResolvedPromotion | null> {
+		const pct = MOCK_PROMOTION_CODES[code.trim().toUpperCase()];
+		return pct ? { id: `promo_mock_${code.trim().toUpperCase()}`, percentOff: pct } : null;
 	}
 
 	async parseWebhook(rawBody: string, headers: Headers): Promise<PaymentEvent> {

@@ -4,6 +4,7 @@ import {
 	type CheckoutSession,
 	type PaymentEvent,
 	type PaymentProvider,
+	type ResolvedPromotion,
 } from "../types";
 import { normalizeStripeEvent, verifyStripeSignature } from "./stripe-signature";
 
@@ -88,10 +89,10 @@ export class StripePaymentProvider implements PaymentProvider {
 	 * Un cupón solo vale en el marketplace si el cupón (o su código promocional) tiene la metadata
 	 * `market=true`. La cuenta de Stripe se comparte con otros negocios: sus cupones NO deben aplicar aquí.
 	 */
-	async resolvePromotionCode(code: string): Promise<{ id: string } | null> {
+	async resolvePromotionCode(code: string): Promise<ResolvedPromotion | null> {
 		if (!/^[A-Za-z0-9_-]{1,64}$/.test(code)) return null;
 		type Promo = { id: string; active?: boolean; metadata?: Record<string, string>; coupon?: unknown; promotion?: { coupon?: unknown } };
-		type Coupon = { valid?: boolean; metadata?: Record<string, string> };
+		type Coupon = { valid?: boolean; metadata?: Record<string, string>; percent_off?: number | null; amount_off?: number | null };
 		const list = await this.stripeGet<{ data?: Promo[] }>(`promotion_codes?code=${encodeURIComponent(code)}&active=true&limit=1`);
 		const promo = list?.data?.[0];
 		if (!promo?.id || promo.active === false) return null;
@@ -101,7 +102,11 @@ export class StripePaymentProvider implements PaymentProvider {
 		else if (ref && typeof ref === "object") coupon = ref as Coupon;
 		if (!coupon || coupon.valid === false) return null;
 		const allowed = coupon.metadata?.market === "true" || promo.metadata?.market === "true";
-		return allowed ? { id: promo.id } : null;
+		if (!allowed) return null;
+		const out: ResolvedPromotion = { id: promo.id };
+		if (typeof coupon.percent_off === "number" && coupon.percent_off > 0) out.percentOff = coupon.percent_off;
+		if (typeof coupon.amount_off === "number" && coupon.amount_off > 0) out.amountOffCents = coupon.amount_off;
+		return out;
 	}
 
 	async parseWebhook(rawBody: string, headers: Headers): Promise<PaymentEvent> {

@@ -53,12 +53,14 @@ const bootMiddleware: MiddlewareHandler<AppEnv> = async (c, next) => {
 
 const CSP = [
 	"default-src 'self'",
-	"img-src 'self' data:",
+	// Miniaturas de YouTube (video de demostración de un producto).
+	"img-src 'self' data: https://i.ytimg.com",
 	"style-src 'self' 'unsafe-inline'",
-	// Único JS: /market/static/fab.js (comportamiento del botón flotante). Nada en línea.
+	// Único JS: /market/static/market.js (galería, filtros, menú, popup). Nada en línea.
 	"script-src 'self'",
 	"font-src 'self'",
-	"frame-src 'self'",
+	// Video de demostración (YouTube sin cookies) y agenda de reservas de Google Calendar.
+	"frame-src 'self' https://www.youtube-nocookie.com https://calendar.google.com",
 	// El POST de "Comprar" redirige a Stripe; el resto de formularios se quedan en el sitio.
 	"form-action 'self' https://checkout.stripe.com",
 	"frame-ancestors 'none'",

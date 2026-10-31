@@ -19,6 +19,10 @@ export interface Env {
 	/** Hosts extra que cuentan como producción, separados por coma. */
 	PRODUCTION_HOSTNAMES?: string;
 	R2_BUCKET_NAME?: string;
+	/** Código de Stripe del popup "10 % en tu primera compra". El popup solo aparece si Stripe lo da por válido. */
+	WELCOME_COUPON?: string;
+	/** Página de reservas con pago (Google Calendar → agenda de citas con pago). Vacío = botón de contacto. */
+	BOOKING_URL?: string;
 
 	// ── Secretos ──
 	STRIPE_SECRET_KEY?: string;

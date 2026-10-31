@@ -92,6 +92,37 @@ export const LibraryPage: FC<LibraryProps> = ({ user, items, csrf, highlight, no
 									</button>
 								</form>
 							)}
+							{!it.revoked_at && (
+								<details class="mk-review-form" id={`resena-${it.slug}`}>
+									<summary>{it.my_rating ? `Tu reseña: ${"★".repeat(it.my_rating)}${"☆".repeat(5 - it.my_rating)} · Editar` : "★ Dejar una reseña"}</summary>
+									<form method="post" action={`/market/producto/${it.slug}/resena`} class="mk-form">
+										<CsrfField csrf={csrf} />
+										<fieldset class="mk-rate">
+											<legend>Tu calificación</legend>
+											{[5, 4, 3, 2, 1].map((n) => (
+												<>
+													<input type="radio" id={`r-${it.entitlement_id}-${n}`} name="rating" value={String(n)} required checked={it.my_rating === n} />
+													<label for={`r-${it.entitlement_id}-${n}`} title={`${n} de 5`}>
+														★<span class="mk-visually-hidden">{n} de 5</span>
+													</label>
+												</>
+											))}
+										</fieldset>
+										<div class="mk-field">
+											<label for={`b-${it.entitlement_id}`}>Tu opinión (opcional)</label>
+											<textarea id={`b-${it.entitlement_id}`} name="body" maxlength={1500} rows={3} placeholder="¿Qué te pareció? ¿Para qué lo usaste?">
+												{it.my_review ?? ""}
+											</textarea>
+											<span class="mk-hint">Se publica con tu nombre y la inicial de tu apellido, como «Compra verificada».</span>
+										</div>
+										<div>
+											<button type="submit" class="tc-btn tc-btn--secondary">
+												Publicar reseña
+											</button>
+										</div>
+									</form>
+								</details>
+							)}
 						</li>
 					);
 				})}

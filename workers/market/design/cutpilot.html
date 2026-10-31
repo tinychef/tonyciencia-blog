@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+	/* CutPilot: estudio de edición nocturno — grafito, violeta eléctrico y subtítulos lima. */
+	:root { --bg: #0c0b10; --panel: #15131c; --line: #2a2734; --fg: #f4f2fa; --mut: #8f8a9f; --vio: #9b5cff; --vio2: #c9a6ff; --lime: #d4ff3a; --red: #ff4d6d; }
+	* { box-sizing: border-box; margin: 0; padding: 0; }
+	body { background: #222; }
+	.frame { width: 1600px; height: 1000px; position: relative; overflow: hidden; background: radial-gradient(1200px 700px at 85% 10%, #2a1650 0%, transparent 60%), var(--bg); color: var(--fg); font-family: "Space Grotesk", sans-serif; }
+	.mono { font-family: "JetBrains Mono", monospace; text-transform: uppercase; letter-spacing: 0.16em; }
+	.brand { position: absolute; left: 100px; top: 90px; display: flex; align-items: center; gap: 14px; font-size: 20px; font-weight: 700; }
+	.brand i { width: 34px; height: 34px; border-radius: 9px; background: var(--vio); display: grid; place-items: center; font-style: normal; font-size: 18px; }
+	.soon { position: absolute; left: 100px; top: 168px; background: var(--lime); color: #111; border-radius: 99px; padding: 8px 18px; font-family: "JetBrains Mono"; font-weight: 700; font-size: 16px; letter-spacing: 0.14em; }
+	h1, h2 { font-weight: 700; letter-spacing: -0.04em; line-height: 0.98; }
+	.cover h1 { position: absolute; left: 96px; top: 240px; font-size: 100px; width: 640px; }
+	.cover h1 em { font-style: normal; color: var(--vio2); }
+	.sub { position: absolute; left: 100px; top: 590px; width: 560px; font-size: 27px; line-height: 1.45; color: #bdb7cc; }
+	.chips { position: absolute; left: 100px; top: 770px; display: flex; gap: 12px; }
+	.chip { border: 1.5px solid var(--line); border-radius: 10px; padding: 12px 18px; font-size: 18px; font-weight: 500; background: rgba(255,255,255,0.02); }
+	.legal { position: absolute; left: 100px; bottom: 44px; font-size: 13px; color: #5d586b; }
+	.editor { position: absolute; right: 70px; top: 90px; width: 820px; height: 820px; background: var(--panel); border: 1.5px solid var(--line); border-radius: 22px; box-shadow: 0 40px 120px rgba(80, 30, 160, 0.35); overflow: hidden; }
+	.ebar { height: 50px; border-bottom: 1.5px solid var(--line); display: flex; align-items: center; gap: 9px; padding: 0 20px; }
+	.ebar i { width: 12px; height: 12px; border-radius: 50%; background: #3a3646; }
+	.ebar span { margin-left: 14px; font-family: "JetBrains Mono"; font-size: 13px; color: var(--mut); letter-spacing: 0.08em; }
+	.preview { margin: 22px; height: 400px; border-radius: 14px; background: linear-gradient(135deg, #3b2370, #1a1630 55%, #0f2a3a); position: relative; overflow: hidden; }
+	.person { position: absolute; left: 50%; bottom: -10px; transform: translateX(-50%); width: 300px; }
+	.capt { position: absolute; left: 0; right: 0; bottom: 46px; z-index: 1; text-align: center; font-weight: 700; font-size: 38px; letter-spacing: -0.02em; text-shadow: 0 3px 0 #000; }
+	.capt b { color: var(--lime); }
+	.rec { position: absolute; left: 18px; top: 16px; font-family: "JetBrains Mono"; font-size: 13px; color: #fff; display: flex; gap: 8px; align-items: center; }
+	.rec::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--red); }
+	.tracks { margin: 0 22px; display: grid; gap: 10px; }
+	.track { display: grid; grid-template-columns: 70px 1fr; gap: 12px; align-items: center; font-family: "JetBrains Mono"; font-size: 12px; color: var(--mut); }
+	.lane { height: 46px; border-radius: 8px; background: #1d1a26; position: relative; overflow: hidden; display: flex; gap: 3px; padding: 5px; }
+	.seg { border-radius: 5px; background: linear-gradient(180deg, #7c46e6, #5b2fb8); position: relative; overflow: hidden; }
+	.seg::after { content: ""; position: absolute; inset: 9px 4px; background: repeating-linear-gradient(90deg, rgba(255,255,255,0.55) 0 2px, transparent 2px 5px); mask: linear-gradient(180deg, transparent, #000 30%, #000 70%, transparent); opacity: 0.7; }
+	.cut { border-radius: 5px; background: repeating-linear-gradient(-45deg, rgba(255,77,109,0.55) 0 6px, rgba(255,77,109,0.15) 6px 12px); border: 1px dashed var(--red); }
+	.caps .seg { background: #2c3a10; }
+	.caps .seg::after { background: none; }
+	.caps .seg span { position: absolute; inset: 0; display: grid; place-items: center; color: var(--lime); font-size: 11px; font-family: "JetBrains Mono"; }
+	.playhead { position: absolute; top: 470px; bottom: 140px; left: 460px; width: 2px; background: var(--lime); }
+	.playhead::before { content: ""; position: absolute; top: -6px; left: -6px; border: 7px solid transparent; border-top-color: var(--lime); }
+	.estats { position: absolute; left: 22px; right: 22px; bottom: 22px; display: flex; gap: 10px; }
+	.estats div { flex: 1; border: 1.5px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+	.estats b { display: block; font-size: 30px; letter-spacing: -0.03em; }
+	.estats span { font-family: "JetBrains Mono"; font-size: 11px; color: var(--mut); letter-spacing: 0.1em; text-transform: uppercase; }
+	.vphone { position: absolute; right: 30px; top: 190px; width: 230px; height: 420px; border-radius: 26px; border: 3px solid #2f2b3a; background: linear-gradient(160deg, #3b2370, #12202b); overflow: hidden; box-shadow: -30px 30px 80px rgba(0,0,0,0.6); }
+	.vphone .person { width: 250px; }
+	.vphone .capt { font-size: 22px; bottom: 60px; }
+	.vphone .tag { position: absolute; top: 14px; left: 14px; font-family: "JetBrains Mono"; font-size: 11px; background: rgba(0,0,0,0.5); padding: 4px 8px; border-radius: 6px; }
+
+	/* Pantallas */
+	.screen h2 { position: absolute; left: 96px; top: 170px; font-size: 68px; width: 620px; }
+	.screen .lead { position: absolute; left: 100px; top: 420px; width: 560px; font-size: 24px; line-height: 1.5; color: #bdb7cc; }
+	.term { position: absolute; left: 100px; top: 610px; width: 600px; background: #08070b; border: 1.5px solid var(--line); border-radius: 14px; padding: 20px 22px; font-family: "JetBrains Mono"; font-size: 15px; line-height: 1.75; color: #c9c4d6; }
+	.term .p { color: var(--lime); }
+	.term .ok { color: #7ef0a8; }
+	.compare { position: absolute; right: 80px; top: 130px; width: 780px; display: grid; gap: 26px; }
+	.cmp { background: var(--panel); border: 1.5px solid var(--line); border-radius: 18px; padding: 22px; }
+	.cmp h3 { display: flex; justify-content: space-between; font-size: 22px; margin-bottom: 14px; }
+	.cmp h3 span { font-family: "JetBrains Mono"; color: var(--mut); font-size: 16px; font-weight: 400; }
+	.big { display: flex; gap: 10px; }
+	.big div { flex: 1; border: 1.5px solid var(--line); border-radius: 14px; padding: 16px; }
+	.big b { font-size: 46px; letter-spacing: -0.04em; display: block; }
+	.big span { color: var(--mut); font-size: 16px; }
+	.outs { position: absolute; right: 80px; top: 120px; width: 800px; height: 760px; }
+	.hframe { position: absolute; left: 0; top: 0; width: 520px; height: 292px; border-radius: 14px; overflow: hidden; background: linear-gradient(135deg, #3b2370, #1a1630 55%, #0f2a3a); border: 1.5px solid var(--line); }
+	.hframe .person { width: 220px; }
+	.hframe .capt { font-size: 24px; bottom: 26px; }
+	.reels { position: absolute; left: 0; top: 330px; display: flex; gap: 14px; }
+	.reel { width: 146px; height: 260px; border-radius: 16px; overflow: hidden; position: relative; border: 1.5px solid var(--line); }
+	.reel .person { width: 170px; }
+	.reel .n { position: absolute; left: 10px; top: 10px; font-family: "JetBrains Mono"; font-size: 11px; background: rgba(0,0,0,0.55); padding: 3px 7px; border-radius: 5px; }
+	.reel .capt { font-size: 15px; bottom: 34px; }
+	.side { position: absolute; left: 550px; top: 0; width: 250px; display: grid; gap: 14px; }
+	.card { background: var(--panel); border: 1.5px solid var(--line); border-radius: 14px; padding: 16px; font-size: 16px; }
+	.card .k { font-family: "JetBrains Mono"; font-size: 11px; color: var(--mut); letter-spacing: 0.12em; text-transform: uppercase; display: block; margin-bottom: 8px; }
+	.card li { list-style: none; display: flex; justify-content: space-between; padding: 3px 0; color: #d7d2e3; font-size: 15px; }
+	.card li span { font-family: "JetBrains Mono"; color: var(--vio2); font-size: 13px; }
+	.files { position: absolute; left: 0; top: 640px; display: flex; gap: 12px; }
+	.file { border: 1.5px solid var(--line); border-radius: 10px; padding: 12px 16px; font-family: "JetBrains Mono"; font-size: 15px; background: rgba(255,255,255,0.02); }
+	.file b { color: var(--lime); font-weight: 500; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+	<defs>
+		<symbol id="person" viewBox="0 0 300 300">
+			<defs><linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9e3ff"/><stop offset="1" stop-color="#9f93c9"/></linearGradient></defs>
+			<circle cx="150" cy="110" r="58" fill="url(#pg)"/>
+			<path d="M40 300 C 50 205, 100 182, 150 182 C 200 182, 250 205, 260 300 Z" fill="url(#pg)"/>
+		</symbol>
+	</defs>
+</svg>
+
+<section class="frame cover" data-out="cover">
+	<div class="brand"><i>✂</i>CutPilot</div>
+	<span class="soon">PRÓXIMAMENTE</span>
+	<h1>Edita videos con <em>Claude Code</em>.</h1>
+	<p class="sub">Le pasas tu grabación cruda. Tu agente quita silencios y muletillas, pone subtítulos y te entrega los reels.</p>
+	<div class="chips"><span class="chip">Claude Code</span><span class="chip">Codex</span><span class="chip">ffmpeg + Whisper</span></div>
+	<div class="editor">
+		<div class="ebar"><i></i><i></i><i></i><span>grabacion-cruda.mp4 → editado.mp4</span></div>
+		<div class="preview">
+			<span class="rec">00:07:42</span>
+			<svg class="person" viewBox="0 0 300 300"><use href="#person"/></svg>
+			<div class="capt" style="right: 200px;">esto es lo que <b>nadie</b> te dice</div>
+		</div>
+		<div class="tracks">
+			<div class="track">VIDEO<div class="lane"><span class="seg" style="flex: 3"></span><span class="cut" style="flex: 0.6"></span><span class="seg" style="flex: 2.2"></span><span class="cut" style="flex: 0.4"></span><span class="seg" style="flex: 4"></span><span class="cut" style="flex: 0.8"></span><span class="seg" style="flex: 1.6"></span></div></div>
+			<div class="track">AUDIO<div class="lane"><span class="seg" style="flex: 3; background: linear-gradient(180deg,#3d7d6a,#2a5a4c)"></span><span class="cut" style="flex: 0.6"></span><span class="seg" style="flex: 2.2; background: linear-gradient(180deg,#3d7d6a,#2a5a4c)"></span><span class="cut" style="flex: 0.4"></span><span class="seg" style="flex: 4; background: linear-gradient(180deg,#3d7d6a,#2a5a4c)"></span><span class="cut" style="flex: 0.8"></span><span class="seg" style="flex: 1.6; background: linear-gradient(180deg,#3d7d6a,#2a5a4c)"></span></div></div>
+			<div class="track">SUBS<div class="lane caps"><span class="seg" style="flex: 2"><span>esto es</span></span><span class="seg" style="flex: 2.4"><span>lo que nadie</span></span><span class="seg" style="flex: 2"><span>te dice</span></span><span class="seg" style="flex: 3"><span>sobre editar</span></span><span class="seg" style="flex: 2.4"><span>con IA</span></span></div></div>
+		</div>
+		<div class="estats">
+			<div><b>214</b><span>cortes</span></div>
+			<div><b>37</b><span>muletillas</span></div>
+			<div><b>−41%</b><span>duración</span></div>
+			<div><b>5</b><span>reels 9:16</span></div>
+		</div>
+	</div>
+	<div class="vphone">
+		<span class="tag">REEL 9:16</span>
+		<svg class="person" viewBox="0 0 300 300" style="position:absolute;left:50%;bottom:-10px;transform:translateX(-50%)"><use href="#person"/></svg>
+		<div class="capt">lo que <b>nadie</b> te dice</div>
+	</div>
+	<p class="legal">Producto en desarrollo. Claude Code y Codex son marcas de sus dueños; se nombran solo para indicar compatibilidad.</p>
+</section>
+
+<section class="frame screen" data-out="screen-1">
+	<div class="brand"><i>✂</i>CutPilot</div>
+	<h2>De 18 minutos crudos a 11 que sí se ven.</h2>
+	<p class="lead">Silencios, muletillas, tomas repetidas y "eeeh" fuera. Tú apruebas los cortes antes del render.</p>
+	<div class="term">
+		<div><span class="p">❯</span> edita grabacion.mp4 --reels 5 --subtitulos</div>
+		<div class="ok">✓ Transcripción palabra por palabra (Whisper local)</div>
+		<div class="ok">✓ 214 cortes propuestos · 37 muletillas · 6 tomas falsas</div>
+		<div class="ok">✓ Subtítulos animados con tu estilo + .srt</div>
+		<div>… renderizando reels verticales (3/5)</div>
+	</div>
+	<div class="compare">
+		<div class="cmp">
+			<h3>Grabación cruda <span>18:42</span></h3>
+			<div class="lane" style="height: 56px;"><span class="seg" style="flex: 2"></span><span class="cut" style="flex: 0.7"></span><span class="seg" style="flex: 1.4"></span><span class="cut" style="flex: 0.5"></span><span class="seg" style="flex: 2.6"></span><span class="cut" style="flex: 1.2"></span><span class="seg" style="flex: 1"></span><span class="cut" style="flex: 0.4"></span><span class="seg" style="flex: 2.2"></span><span class="cut" style="flex: 0.9"></span><span class="seg" style="flex: 1.5"></span></div>
+		</div>
+		<div class="cmp">
+			<h3>Editado por tu agente <span>11:05</span></h3>
+			<div class="lane" style="height: 56px; width: 59%;"><span class="seg" style="flex: 2"></span><span class="seg" style="flex: 1.4"></span><span class="seg" style="flex: 2.6"></span><span class="seg" style="flex: 1"></span><span class="seg" style="flex: 2.2"></span><span class="seg" style="flex: 1.5"></span></div>
+		</div>
+		<div class="big">
+			<div><b>−41%</b><span>duración sin perder contenido</span></div>
+			<div><b>0</b><span>créditos por minuto: corre en tu PC</span></div>
+		</div>
+	</div>
+</section>
+
+<section class="frame screen" data-out="screen-2">
+	<div class="brand"><i>✂</i>CutPilot</div>
+	<h2>Una grabación. Todo tu contenido.</h2>
+	<p class="lead">Video largo para YouTube, reels verticales con el encuadre centrado en ti, capítulos, descripción y miniaturas.</p>
+	<div class="outs">
+		<div class="hframe"><svg class="person" viewBox="0 0 300 300" style="position:absolute;left:50%;bottom:-10px;transform:translateX(-50%)"><use href="#person"/></svg><div class="capt">editar con <b>IA</b> en 2026</div></div>
+		<div class="reels">
+			<div class="reel" style="background: linear-gradient(160deg,#3b2370,#12202b)"><span class="n">REEL 1</span><svg class="person" viewBox="0 0 300 300" style="position:absolute;left:50%;bottom:-8px;transform:translateX(-50%)"><use href="#person"/></svg><div class="capt">el <b>truco</b></div></div>
+			<div class="reel" style="background: linear-gradient(160deg,#4a1d5e,#141a2e)"><span class="n">REEL 2</span><svg class="person" viewBox="0 0 300 300" style="position:absolute;left:50%;bottom:-8px;transform:translateX(-50%)"><use href="#person"/></svg><div class="capt">3 <b>errores</b></div></div>
+			<div class="reel" style="background: linear-gradient(160deg,#1e3a5f,#1a1630)"><span class="n">REEL 3</span><svg class="person" viewBox="0 0 300 300" style="position:absolute;left:50%;bottom:-8px;transform:translateX(-50%)"><use href="#person"/></svg><div class="capt">sin <b>timeline</b></div></div>
+			<div class="reel" style="background: linear-gradient(160deg,#2b2b6b,#101820)"><span class="n">REEL 4</span><svg class="person" viewBox="0 0 300 300" style="position:absolute;left:50%;bottom:-8px;transform:translateX(-50%)"><use href="#person"/></svg><div class="capt">en <b>1 clic</b></div></div>
+			<div class="reel" style="background: linear-gradient(160deg,#3b2370,#0f2a3a)"><span class="n">REEL 5</span><svg class="person" viewBox="0 0 300 300" style="position:absolute;left:50%;bottom:-8px;transform:translateX(-50%)"><use href="#person"/></svg><div class="capt"><b>gratis</b></div></div>
+		</div>
+		<div class="side">
+			<div class="card"><span class="k">Capítulos</span><ul><li>Intro<span>00:00</span></li><li>El problema<span>01:12</span></li><li>Demo<span>03:40</span></li><li>Errores<span>07:05</span></li><li>Cierre<span>10:20</span></li></ul></div>
+			<div class="card"><span class="k">Miniaturas</span><div style="display:flex;gap:8px;"><i style="flex:1;height:52px;border-radius:8px;background:linear-gradient(135deg,#9b5cff,#3b2370)"></i><i style="flex:1;height:52px;border-radius:8px;background:linear-gradient(135deg,#d4ff3a,#5b7a00)"></i><i style="flex:1;height:52px;border-radius:8px;background:linear-gradient(135deg,#ff4d6d,#5e1430)"></i></div></div>
+		</div>
+		<div class="files"><span class="file"><b>editado</b>.mp4</span><span class="file"><b>subtitulos</b>.srt</span><span class="file"><b>descripcion</b>.md</span><span class="file"><b>reels</b>/ ×5</span></div>
+	</div>
+</section>
+</body>
+</html>

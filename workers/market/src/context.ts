@@ -4,6 +4,7 @@ import type { Config } from "./config";
 import type { Env } from "./env";
 import type { Deps } from "./services/orders";
 import type { User } from "./services/repo";
+import type { WelcomeOffer } from "./services/welcome";
 
 export interface AppEnv {
 	Bindings: Env;
@@ -15,6 +16,8 @@ export interface AppEnv {
 		sessionId: string | null;
 		csrf: string | null;
 		isAdmin: boolean;
+		/** Oferta de bienvenida validada (solo en páginas públicas de la tienda). */
+		welcome: WelcomeOffer | null;
 	};
 }
 

@@ -21,6 +21,7 @@ export function render(c: Ctx, meta: PageMeta, body: Child, status: ContentfulSt
 			isAdmin={c.get("isAdmin")}
 			csrf={c.get("csrf")}
 			theme={themeFrom(c)}
+			welcome={c.get("welcome") ?? null}
 		>
 				{body}
 			</Layout>
