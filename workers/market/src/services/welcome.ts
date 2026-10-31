@@ -15,6 +15,8 @@ export interface WelcomeOffer {
 
 const OK_TTL_MS = 10 * 60_000;
 const MISS_TTL_MS = 2 * 60_000;
+/** La tienda nunca espera más que esto por el proveedor de pagos: sin respuesta, no hay popup. */
+const RESOLVE_TIMEOUT_MS = 1500;
 const cache = new Map<string, { at: number; offer: WelcomeOffer | null }>();
 
 export async function getWelcomeOffer(config: Config, adapters: Adapters, now = Date.now()): Promise<WelcomeOffer | null> {
@@ -25,7 +27,10 @@ export async function getWelcomeOffer(config: Config, adapters: Adapters, now = 
 	if (hit && now - hit.at < (hit.offer ? OK_TTL_MS : MISS_TTL_MS)) return hit.offer;
 	let offer: WelcomeOffer | null = null;
 	try {
-		const r = await adapters.payments.resolvePromotionCode(code);
+		const r = await Promise.race([
+			adapters.payments.resolvePromotionCode(code),
+			new Promise<null>((resolve) => setTimeout(() => resolve(null), RESOLVE_TIMEOUT_MS)),
+		]);
 		if (r) offer = { code: code.toUpperCase(), percentOff: r.percentOff ?? null, amountOffCents: r.amountOffCents ?? null };
 	} catch (err) {
 		console.warn(`[market] no se pudo validar el cupón de bienvenida ${code}:`, err);

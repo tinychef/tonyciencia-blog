@@ -34,4 +34,5 @@ jobs:
       - run: pnpm sync:theme
       - run: pnpm typecheck
       - run: pnpm test
+      - run: pnpm test:migration
       - run: pnpm test:startup-guard
