@@ -4,6 +4,7 @@ export default {
 	"nav.blog": "Blog",
 	"nav.services": "Servicios",
 	"nav.about": "Sobre Nosotros",
+	"nav.aboutMe": "Sobre mí",
 	"nav.contact": "Contáctanos",
 	"nav.search": "Buscar...",
 	"nav.admin": "Admin",

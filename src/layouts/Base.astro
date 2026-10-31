@@ -15,7 +15,6 @@ import CookieConsent from "../components/CookieConsent.astro";
 import Analytics from "../components/Analytics.astro";
 import Footer from "../components/Footer.astro";
 import LanguageSwitcher from "../components/LanguageSwitcher.astro";
-import MarketFab from "../components/MarketFab.astro";
 import "../styles/theme.css";
 
 interface Props {
@@ -100,8 +99,13 @@ const navItems = [
 	{ href: locale === "en" ? "/en/services" : "/servicios", label: t("nav.services") },
 	...(locale === "es" ? [{ href: "/herramientas", label: "Herramientas" }] : []),
 	{ href: "/market", label: "Market", market: true },
-	{ href: locale === "en" ? "/en/about" : "/about", label: t("nav.about") },
+	{ href: locale === "en" ? "/en/about" : "/about", label: t("nav.aboutMe") },
 	{ href: locale === "en" ? "/en/contact" : "/contacto", label: t("nav.contact") },
+];
+// La cabecera muestra solo lo esencial (Market + conocer a Tony); el resto vive en el menú.
+const headerLinks = [
+	{ href: locale === "en" ? "/en/posts" : "/posts", label: t("nav.blog") },
+	{ href: locale === "en" ? "/en/about" : "/about", label: t("nav.aboutMe") },
 ];
 const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 const isActive = (href: string) => currentPath === href || currentPath.startsWith(`${href}/`);
@@ -183,29 +187,13 @@ const homeHref = locale === "en" ? "/en" : "/";
 				</a>
 				<div class="nav-right">
 					<div class="nav-links">
-						{navItems.map((item) => (
-							<a
-								href={item.href}
-								class:list={[{ "nav-market": item.market }]}
-								aria-current={isActive(item.href) ? "page" : undefined}
-								hreflang={item.market && locale === "en" ? "es" : undefined}
-							>
+						{headerLinks.map((item) => (
+							<a href={item.href} aria-current={isActive(item.href) ? "page" : undefined}>
 								{item.label}
 							</a>
 						))}
 					</div>
 					<LanguageSwitcher alternatePath={altPath} />
-					<div class="theme-switcher">
-						<button type="button" class="theme-toggle" aria-label={locale === "en" ? "Toggle theme" : "Cambiar tema"} aria-pressed="false">
-							<svg class="sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-							<svg class="moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-						</button>
-					</div>
-					<button type="button" class="nav-burger" aria-label={t("nav.menu") || "Menu"} aria-expanded="false" aria-controls="mobile-menu">
-						<span class="burger-line"></span>
-						<span class="burger-line"></span>
-						<span class="burger-line"></span>
-					</button>
 					{
 						isLoggedIn && (
 							<a href="/_emdash/admin" class="nav-admin">
@@ -213,6 +201,18 @@ const homeHref = locale === "en" ? "/en" : "/";
 							</a>
 						)
 					}
+					<a href="/market" class="nav-cta" aria-current={currentPath.startsWith("/market") ? "page" : undefined} hreflang={locale === "en" ? "es" : undefined}>
+						<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+						<span>Market</span>
+					</a>
+					<button type="button" class="nav-burger" aria-label={t("nav.menu") || "Menu"} aria-expanded="false" aria-controls="mobile-menu">
+						<span class="burger-icon" aria-hidden="true">
+							<span class="burger-line"></span>
+							<span class="burger-line"></span>
+							<span class="burger-line"></span>
+						</span>
+						<span class="burger-label">{t("nav.menu")}</span>
+					</button>
 				</div>
 			</nav>
 		</header>
@@ -243,6 +243,12 @@ const homeHref = locale === "en" ? "/en" : "/";
 				<div class="mobile-menu-divider"></div>
 				<div class="mobile-menu-row">
 					<LanguageSwitcher alternatePath={altPath} />
+					<div class="theme-switcher">
+						<button type="button" class="theme-toggle" aria-label={locale === "en" ? "Toggle theme" : "Cambiar tema"} aria-pressed="false">
+							<svg class="sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+							<svg class="moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+						</button>
+					</div>
 					<div class="mobile-menu-social">
 					<a href="https://youtube.com/@tonyciencia" target="_blank" rel="noopener noreferrer" class="mobile-social-link" aria-label="YouTube">
 						<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
@@ -267,7 +273,6 @@ const homeHref = locale === "en" ? "/en" : "/";
 
 		<Footer locale={locale} siteTitle={siteTitle} alternatePath={altPath} />
 		<CookieConsent />
-		<MarketFab />
 
 		<script>
 			// Theme switcher
@@ -853,23 +858,36 @@ const homeHref = locale === "en" ? "/en" : "/";
 
 			/* ── Hamburger Button ─────────────────────────── */
 			.nav-burger {
-				display: none;
-				flex-direction: column;
-				justify-content: center;
+				display: inline-flex;
 				align-items: center;
-				width: 40px;
+				gap: 8px;
 				height: 40px;
-				background: var(--color-surface);
+				padding: 0 14px 0 12px;
+				background: transparent;
 				border: 1px solid var(--color-border);
-				border-radius: 12px;
+				border-radius: var(--radius-pill);
+				color: var(--color-text);
+				font: inherit;
+				font-size: var(--font-size-sm);
+				font-weight: 500;
 				cursor: pointer;
-				padding: 8px;
-				gap: 5px;
+				transition: border-color 160ms ease, background 160ms ease;
+			}
+
+			.nav-burger:hover {
+				border-color: var(--color-text-secondary);
+				background: var(--color-surface);
+			}
+
+			.burger-icon {
+				display: inline-flex;
+				flex-direction: column;
+				gap: 4px;
 			}
 
 			.burger-line {
 				display: block;
-				width: 18px;
+				width: 16px;
 				height: 2px;
 				background: var(--color-text);
 				border-radius: 2px;
@@ -877,7 +895,7 @@ const homeHref = locale === "en" ? "/en" : "/";
 			}
 
 			.nav-burger.is-open .burger-line:nth-child(1) {
-				transform: translateY(7px) rotate(45deg);
+				transform: translateY(6px) rotate(45deg);
 			}
 
 			.nav-burger.is-open .burger-line:nth-child(2) {
@@ -885,7 +903,7 @@ const homeHref = locale === "en" ? "/en" : "/";
 			}
 
 			.nav-burger.is-open .burger-line:nth-child(3) {
-				transform: translateY(-7px) rotate(-45deg);
+				transform: translateY(-6px) rotate(-45deg);
 			}
 
 			/* Con el menú abierto la cabecera queda POR ENCIMA del panel: la X siempre se puede tocar. */
@@ -894,18 +912,44 @@ const homeHref = locale === "en" ? "/en" : "/";
 			}
 
 			/* ── Mobile Menu Panel ────────────────────────── */
-			/* Por encima del banner de cookies (200) y del botón del Market (98). */
+			/* Por encima del banner de cookies (200). En celular ocupa toda la pantalla; en escritorio es un
+			   panel lateral sobre un fondo oscurecido (tocar el fondo cierra). */
 			.mobile-menu {
 				position: fixed;
 				inset: 0;
 				z-index: 220;
-				background: color-mix(in srgb, var(--color-bg) 96%, transparent);
-				backdrop-filter: blur(18px);
-				-webkit-backdrop-filter: blur(18px);
+				background: var(--color-bg);
 				overflow-y: auto;
 				overscroll-behavior: contain;
 				opacity: 0;
 				transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+			}
+
+			@media (min-width: 901px) {
+				.mobile-menu {
+					background: rgba(0, 0, 0, 0.45);
+					overflow: hidden;
+				}
+
+				.mobile-menu-inner {
+					margin-left: auto;
+					width: min(420px, 100%);
+					height: 100%;
+					overflow-y: auto;
+					background: var(--color-bg);
+					border-left: 1px solid var(--color-border);
+					box-shadow: -30px 0 80px rgba(0, 0, 0, 0.35);
+					transform: translateX(24px);
+					transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+				}
+
+				.mobile-menu.is-open .mobile-menu-inner {
+					transform: none;
+				}
+
+				.mobile-menu-link {
+					font-size: var(--font-size-lg);
+				}
 			}
 
 			.mobile-menu[hidden] {
@@ -1098,21 +1142,49 @@ const homeHref = locale === "en" ? "/en" : "/";
 				color: var(--color-text);
 			}
 
-			.nav-links a.nav-market {
-				color: #111;
-				padding: 4px 11px;
+			/* Botón principal de la cabecera: el Market. */
+			.nav-cta {
+				display: inline-flex;
+				align-items: center;
+				gap: 7px;
+				height: 40px;
+				padding: 0 16px;
 				border-radius: var(--radius-pill);
+				background: var(--color-accent);
+				color: var(--color-on-accent);
+				font-size: var(--font-size-sm);
+				font-weight: 600;
+				text-decoration: none;
+				position: relative;
+				isolation: isolate;
+				transition: transform 160ms ease, background 160ms ease;
+			}
+
+			.nav-cta::before {
+				content: "";
+				position: absolute;
+				inset: -2px;
+				z-index: -1;
+				border-radius: inherit;
 				background: linear-gradient(92deg, #f5e400, #ff8a3d, #ff3d8b, #9b5cff, #44b1ff);
 				background-size: 200% 100%;
-				animation: nav-market-shine 8s linear infinite;
-				font-weight: 600;
+				filter: blur(8px);
+				opacity: 0.45;
+				animation: nav-cta-glow 8s linear infinite;
+				transition: opacity 200ms ease;
 			}
 
-			.nav-links a.nav-market::after {
-				display: none;
+			.nav-cta:hover {
+				transform: translateY(-1px);
+				background: var(--color-accent-hover);
+				color: var(--color-on-accent);
 			}
 
-			@keyframes nav-market-shine {
+			.nav-cta:hover::before {
+				opacity: 0.8;
+			}
+
+			@keyframes nav-cta-glow {
 				to { background-position: 200% 0; }
 			}
 
@@ -1142,7 +1214,7 @@ const homeHref = locale === "en" ? "/en" : "/";
 			}
 
 			@media (prefers-reduced-motion: reduce) {
-				.nav-links a.nav-market { animation: none; }
+				.nav-cta::before { animation: none; }
 			}
 
 			/* Menú hamburguesa hasta 900px: entre 641 y 900 la barra no entra completa. */
@@ -1152,9 +1224,23 @@ const homeHref = locale === "en" ? "/en" : "/";
 				.site-search {
 					display: none;
 				}
+			}
+
+			/* En celular: logo · Market · Menú. El idioma y el tema están dentro del menú. */
+			@media (max-width: 640px) {
+				.nav-right > :global(.lang-switch),
+				.burger-label {
+					display: none;
+				}
 
 				.nav-burger {
-					display: flex;
+					width: 40px;
+					padding: 0;
+					justify-content: center;
+				}
+
+				.nav-cta {
+					padding: 0 14px;
 				}
 			}
 
@@ -1198,8 +1284,8 @@ const homeHref = locale === "en" ? "/en" : "/";
 				}
 			});
 
-			// Menú móvil: se abre y se cierra con la X de la cabecera, el botón "Cerrar", Escape,
-			// tocando un enlace o al pasar a escritorio. Mientras está abierto, el foco no sale del menú.
+			// Menú (panel completo en celular, lateral en escritorio): se cierra con la X de la cabecera,
+			// el botón "Cerrar", Escape, tocando el fondo o un enlace. Mientras está abierto, el foco no sale del menú.
 			(function () {
 				const burger = document.querySelector<HTMLButtonElement>(".nav-burger");
 				const mobileMenu = document.getElementById("mobile-menu");
@@ -1263,9 +1349,6 @@ const homeHref = locale === "en" ? "/en" : "/";
 
 				mobileMenu.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => closeMenu(false)));
 
-				window.matchMedia("(min-width: 901px)").addEventListener("change", (e) => {
-					if (e.matches && isOpen()) closeMenu(false);
-				});
 				// Al volver con "atrás" (bfcache) el menú nunca queda abierto.
 				window.addEventListener("pageshow", () => isOpen() && closeMenu(false));
 			})();
