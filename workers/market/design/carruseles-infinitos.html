@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Narrow:wght@400;500;600&family=JetBrains+Mono:wght@500;700&family=Fraunces:opsz,wght@9..144,600;9..144,800&display=swap" rel="stylesheet">
+<style>
+	/* Carruseles Infinitos: misma familia visual que Anuncios Infinitos (crema + tinta + condensada),
+	   con rosa intenso como color propio. */
+	:root { --cream: #fff6ec; --pink: #ff3d8b; --ink: #1f1418; --muted: #8a7178; --paper: #fffdf8; --lilac: #e9dcff; --mint: #c9f2df; }
+	* { box-sizing: border-box; margin: 0; padding: 0; }
+	body { background: #444; }
+	.frame { width: 1600px; height: 1000px; position: relative; overflow: hidden; background: var(--cream); color: var(--ink); font-family: "Archivo Narrow", sans-serif; }
+	.mono { font-family: "JetBrains Mono", monospace; letter-spacing: 0.32em; text-transform: uppercase; font-size: 18px; font-weight: 700; }
+	.brand { position: absolute; left: 110px; top: 92px; display: flex; align-items: center; gap: 16px; }
+	.brand i { width: 20px; height: 20px; background: var(--pink); display: block; }
+	.anton { font-family: "Anton", sans-serif; text-transform: uppercase; line-height: 0.92; }
+	.hl { position: relative; display: inline-block; }
+	.hl::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0.02em; height: 0.12em; background: var(--pink); z-index: -1; }
+	.soon { position: absolute; left: 110px; top: 150px; background: var(--pink); color: #fff; padding: 8px 16px; border-radius: 6px; font-family: "JetBrains Mono"; font-weight: 700; font-size: 15px; letter-spacing: 0.2em; }
+	.foot { position: absolute; left: 110px; right: 110px; bottom: 64px; display: flex; justify-content: space-between; color: var(--muted); font-size: 16px; }
+	.cover h1 { position: absolute; left: 104px; top: 220px; font-size: 118px; z-index: 1; }
+	.cover .sub { position: absolute; left: 110px; top: 500px; font-size: 38px; line-height: 1.25; width: 640px; }
+	.cover .sub span { color: var(--muted); display: block; }
+	.slides { position: absolute; right: 40px; top: 120px; width: 700px; height: 780px; }
+	.slide { position: absolute; width: 330px; height: 412px; border-radius: 16px; border: 3px solid var(--ink); box-shadow: 14px 14px 0 var(--ink); padding: 26px; display: flex; flex-direction: column; overflow: hidden; }
+	.slide .n { font-family: "JetBrains Mono"; font-size: 13px; letter-spacing: 0.2em; display: flex; justify-content: space-between; }
+	.slide .t { font-family: "Anton"; text-transform: uppercase; font-size: 50px; line-height: 0.95; margin-top: auto; }
+	.slide .t.serif { font-family: "Fraunces"; text-transform: none; font-weight: 800; font-size: 38px; line-height: 1.02; letter-spacing: -0.02em; }
+	.slide p { font-size: 18px; margin-top: 14px; line-height: 1.35; }
+	.slide .who { margin-top: 18px; display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; }
+	.slide .who i { width: 30px; height: 30px; border-radius: 50%; background: var(--ink); display: block; }
+	.s1 { left: 20px; top: 110px; transform: rotate(-10deg); background: var(--lilac); }
+	.s2 { left: 190px; top: 40px; transform: rotate(-2deg); background: var(--ink); color: var(--cream); }
+	.s2 .who i { background: var(--pink); }
+	.s3 { left: 350px; top: 150px; transform: rotate(8deg); background: var(--pink); color: #fff; }
+	.s3 .who i { background: #fff; }
+	.dots { position: absolute; left: 300px; top: 660px; display: flex; gap: 10px; }
+	.dots i { width: 12px; height: 12px; border-radius: 50%; border: 2.5px solid var(--ink); display: block; }
+	.dots i:nth-child(2) { background: var(--ink); }
+	.sticker { position: absolute; right: 560px; top: 640px; z-index: 3; width: 180px; height: 180px; border-radius: 50%; background: var(--pink); color: #fff; border: 3px solid var(--ink); display: grid; place-items: center; text-align: center; transform: rotate(-12deg); font-family: "Anton"; font-size: 32px; line-height: 0.95; text-transform: uppercase; box-shadow: 8px 8px 0 var(--ink); }
+	.sticker small { display: block; font-family: "JetBrains Mono"; font-size: 12px; letter-spacing: 0.08em; margin-top: 8px; white-space: nowrap; }
+
+	.screen h2 { position: absolute; left: 110px; top: 170px; font-size: 76px; width: 600px; }
+	.screen .lead { position: absolute; left: 112px; top: 420px; width: 540px; font-size: 30px; line-height: 1.3; color: #5a4a50; }
+	.window { position: absolute; right: 90px; top: 130px; width: 780px; background: var(--paper); border: 3px solid var(--ink); border-radius: 22px; box-shadow: 18px 18px 0 var(--ink); overflow: hidden; }
+	.bar { height: 58px; border-bottom: 3px solid var(--ink); display: flex; align-items: center; gap: 10px; padding: 0 22px; background: #ffe6ef; }
+	.bar i { width: 15px; height: 15px; border-radius: 50%; border: 2.5px solid var(--ink); display: block; }
+	.bar i:first-child { background: var(--pink); }
+	.bar span { margin-left: 16px; font-family: "JetBrains Mono"; font-size: 15px; letter-spacing: 0.1em; }
+	.body { padding: 26px 30px; display: grid; gap: 18px; font-size: 21px; }
+	.me { justify-self: end; background: var(--ink); color: var(--cream); padding: 12px 20px; border-radius: 16px 16px 4px 16px; font-family: "JetBrains Mono"; font-size: 19px; }
+	.grid10 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+	.mini { aspect-ratio: 4 / 5; border: 2.5px solid var(--ink); border-radius: 10px; padding: 10px; display: flex; flex-direction: column; font-family: "Anton"; text-transform: uppercase; font-size: 19px; line-height: 0.95; }
+	.mini span { font-family: "JetBrains Mono"; font-size: 10px; letter-spacing: 0.1em; margin-bottom: auto; }
+	.export { display: flex; gap: 10px; }
+	.export b { border: 2.5px solid var(--ink); border-radius: 8px; padding: 6px 12px; font-size: 17px; background: #fff; }
+	.styles { padding: 26px 30px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+	.style { border: 2.5px solid var(--ink); border-radius: 12px; overflow: hidden; background: #fff; }
+	.style .pv { aspect-ratio: 4 / 5; padding: 12px; display: flex; align-items: flex-end; font-size: 24px; line-height: 0.95; }
+	.style span { display: block; padding: 8px 10px; border-top: 2.5px solid var(--ink); font-family: "JetBrains Mono"; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; }
+	.stats { position: absolute; left: 112px; top: 560px; display: grid; gap: 22px; }
+	.stat { display: grid; grid-template-columns: 130px 1fr; align-items: center; gap: 10px; }
+	.stat b { font-family: "Anton"; font-size: 84px; line-height: 1; }
+	.stat span { font-size: 26px; color: #5a4a50; }
+</style>
+</head>
+<body>
+
+<section class="frame cover" data-out="cover">
+	<div class="brand mono"><i></i>Carruseles Infinitos</div>
+	<span class="soon">PRÓXIMAMENTE</span>
+	<h1 class="anton">Carruseles<br>que se <span class="hl">guardan</span></h1>
+	<p class="sub">Instagram y LinkedIn, hechos por tu agente.<span>Tú das el tema; él escribe, diseña y exporta.</span></p>
+	<div class="slides">
+		<div class="slide s1"><div class="n"><span>01 / 08</span><span>@tumarca</span></div><div class="t">5 errores al pautar en Meta</div><p>El 3 lo comete casi todo el mundo.</p><div class="who"><i></i>Desliza →</div></div>
+		<div class="slide s2"><div class="n"><span>02 / 08</span><span>@tumarca</span></div><div class="t serif">Nadie compra un producto. Compran un después.</div><div class="who"><i></i>Tu marca</div></div>
+		<div class="slide s3"><div class="n"><span>08 / 08</span><span>@tumarca</span></div><div class="t">Guárdalo para tu próxima campaña</div><div class="who"><i></i>Sígueme para más</div></div>
+	</div>
+	<div class="sticker">Hecho<br>con IA<small>en tu estilo</small></div>
+	<div class="foot mono"><span>Skill para Claude Code y Codex</span><span>Instagram · LinkedIn · PDF</span></div>
+</section>
+
+<section class="frame screen" data-out="screen-1">
+	<div class="brand mono"><i></i>Un tema, diez slides</div>
+	<h2 class="anton">Escribes el tema.<br>Sale el <span class="hl">carrusel</span>.</h2>
+	<p class="lead">Gancho, desarrollo y cierre con llamado a la acción, en tu tono de marca y con tus colores.</p>
+	<div class="window">
+		<div class="bar"><i></i><i></i><i></i><span>CARRUSELES-INFINITOS — NUEVO</span></div>
+		<div class="body">
+			<div class="me">/carrusel "cómo usar IA en tu negocio"</div>
+			<div>Listo: 10 slides con gancho, 3 ideas clave y cierre. Usé tu paleta y tu logo.</div>
+			<div class="grid10">
+				<div class="mini" style="background: var(--pink); color: #fff;"><span>01</span>¿IA en tu negocio?</div>
+				<div class="mini" style="background: var(--lilac)"><span>02</span>Empieza por aquí</div>
+				<div class="mini" style="background: var(--ink); color: var(--cream)"><span>03</span>Idea 1</div>
+				<div class="mini" style="background: var(--mint)"><span>04</span>Ejemplo real</div>
+				<div class="mini" style="background: #fff"><span>05</span>Idea 2</div>
+				<div class="mini" style="background: var(--lilac)"><span>06</span>El error</div>
+				<div class="mini" style="background: var(--ink); color: var(--cream)"><span>07</span>Idea 3</div>
+				<div class="mini" style="background: #fff"><span>08</span>Resumen</div>
+				<div class="mini" style="background: var(--mint)"><span>09</span>Bonus</div>
+				<div class="mini" style="background: var(--pink); color: #fff;"><span>10</span>Guárdalo</div>
+			</div>
+			<div class="export"><b>PNG 1080×1350</b><b>PDF para LinkedIn</b><b>Texto del post</b></div>
+		</div>
+	</div>
+	<div class="foot mono"><span>4:5 · 1:1 · 9:16</span><span>Tu tono, tus colores</span></div>
+</section>
+
+<section class="frame screen" data-out="screen-2">
+	<div class="brand mono"><i></i>Estilos incluidos</div>
+	<h2 class="anton">Ocho estilos.<br>Cero <span class="hl">plantillas</span> genéricas.</h2>
+	<div class="stats">
+		<div class="stat"><b>8</b><span>estilos de diseño</span></div>
+		<div class="stat"><b>30</b><span>estructuras de carrusel</span></div>
+		<div class="stat"><b>∞</b><span>carruseles al mes</span></div>
+	</div>
+	<div class="window">
+		<div class="bar"><i></i><i></i><i></i><span>ESTILOS</span></div>
+		<div class="styles">
+			<div class="style"><div class="pv anton" style="background: var(--pink); color: #fff;">Bold</div><span>Condensado</span></div>
+			<div class="style"><div class="pv" style="background: var(--ink); color: var(--cream); font-family: 'Fraunces'; font-weight: 800;">Editorial</div><span>Serif</span></div>
+			<div class="style"><div class="pv anton" style="background: var(--lilac);">Pastel</div><span>Suave</span></div>
+			<div class="style"><div class="pv" style="background: #fff; font-family: 'JetBrains Mono'; font-size: 18px;">Notas.txt</div><span>Minimal</span></div>
+			<div class="style"><div class="pv anton" style="background: var(--mint);">Datos</div><span>Gráficos</span></div>
+			<div class="style"><div class="pv" style="background: #ffe66d; font-family: 'Fraunces'; font-weight: 800;">Cita</div><span>Testimonio</span></div>
+			<div class="style"><div class="pv anton" style="background: #1d3cff; color: #fff;">Tweet</div><span>Captura</span></div>
+			<div class="style"><div class="pv anton" style="background: #fff; border-bottom: 10px solid var(--pink);">Lista</div><span>Paso a paso</span></div>
+		</div>
+	</div>
+	<div class="foot mono"><span>Instagram · LinkedIn</span><span>Todo en español</span></div>
+</section>
+</body>
+</html>

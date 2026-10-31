@@ -14,7 +14,8 @@ Astro.cache.set(cacheHint);
 
 const staticPosts = getStaticPosts("en");
 const cmsSlugs = new Set(cmsPosts.map((post) => post.id));
-const posts = [...staticPosts.filter((post) => !cmsSlugs.has(post.id)), ...cmsPosts] as any[];
+// Los slugs con "/" (p. ej. "en/…", cargados así en el CMS) no tienen ruta: se omiten hasta corregirlos en el admin.
+const posts = [...staticPosts.filter((post) => !cmsSlugs.has(post.id)), ...cmsPosts.filter((post) => !post.id.includes("/"))] as any[];
 
 const sortedPosts = posts.toSorted((a, b) => {
 	const dateA = a.data.publishedAt?.getTime() ?? 0;

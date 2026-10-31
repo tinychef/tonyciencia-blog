@@ -116,8 +116,8 @@ const resources: Resource[] = isEs
                 <span class="tag">{tag}</span>
               ))}
             </div>
-            <a href={r.url} class="card-cta">
-              {isEs ? "Ver recurso" : "View resource"} →
+            <a href={r.url} class="card-cta" hreflang={!isEs && !r.url.startsWith("/en") ? "es" : undefined}>
+              {isEs ? "Ver recurso" : r.url.startsWith("/en") ? "View resource" : "View resource (in Spanish)"} →
             </a>
           </article>
         ))}

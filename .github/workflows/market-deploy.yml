@@ -1,0 +1,54 @@
+name: Market — deploy a producción
+# Despliega el Worker del market (workers/market) cuando sus archivos cambian en main.
+# Antes de tocar nada: typecheck, pruebas, prueba de migración sobre datos tipo producción y chequeo de config.
+# Las migraciones de D1 solo agregan columnas/tablas y rellenan lo vacío (ver migrations/ y HANDOFF.md).
+# Para volver a una versión anterior: `pnpm wrangler rollback --env production` (desde workers/market) o revertir
+# el commit en main (vuelve a desplegar el código anterior; las columnas nuevas no molestan al código viejo).
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'workers/market/**'
+      - 'src/styles/theme.css'
+      - '.github/workflows/market-deploy.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: market-deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: workers/market
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.0.8
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: workers/market/pnpm-lock.yaml
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm sync:theme
+      - run: pnpm typecheck
+      - run: pnpm test
+      - run: pnpm test:migration
+      - run: node scripts/check-deploy.mjs production
+
+      - name: Migraciones de D1 (producción)
+        run: node scripts/ci-migrate.mjs production
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+
+      - name: Deploy del Worker (producción)
+        run: node scripts/wrangler.mjs deploy --env production
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}

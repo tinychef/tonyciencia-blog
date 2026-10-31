@@ -41,6 +41,7 @@ export const sessionMiddleware: MiddlewareHandler<AppEnv> = async (c, next) => {
 	c.set("sessionId", null);
 	c.set("csrf", null);
 	c.set("isAdmin", false);
+	c.set("welcome", null);
 	const token = getCookie(c, SESSION_COOKIE);
 	if (token && token.length >= 20 && token.length <= 100) {
 		const sid = await sha256Hex(token);

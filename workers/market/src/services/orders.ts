@@ -61,7 +61,8 @@ export type CheckoutResult =
  */
 export async function startCheckout(deps: Deps, user: User, product: Product, couponCode?: string | null): Promise<CheckoutResult> {
 	const { db, config, adapters } = deps;
-	if (product.kind !== "paid" || product.active !== 1) return { ok: false, reason: "not_found" };
+	// "Próximamente": visible en la tienda, pero nunca se cobra (no hay archivo que entregar).
+	if (product.kind !== "paid" || product.active !== 1 || product.availability === "coming_soon") return { ok: false, reason: "not_found" };
 	if (await getActiveEntitlement(db, user.id, product.id)) return { ok: false, reason: "already_owned" };
 
 	// Cupón opcional: se valida ANTES de crear el pedido. Si el proveedor no lo acepta, no se cobra nada.
@@ -257,7 +258,7 @@ export type ClaimResult = { ok: true; entitlementId: string; created: boolean; o
 
 export async function claimFreeProduct(deps: Deps, user: User, product: Product): Promise<ClaimResult> {
 	const { db, config } = deps;
-	if (product.kind !== "free" || product.active !== 1) return { ok: false, reason: "not_found" };
+	if (product.kind !== "free" || product.active !== 1 || product.availability === "coming_soon") return { ok: false, reason: "not_found" };
 	const existing = await getActiveEntitlement(db, user.id, product.id);
 	if (existing) return { ok: true, entitlementId: existing.id, created: false, orderId: existing.order_id };
 

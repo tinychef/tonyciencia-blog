@@ -40,6 +40,10 @@ export interface Config {
 	resendApiKey: string | null;
 	r2Presign: { accessKeyId: string; secretAccessKey: string; accountId: string; bucket: string } | null;
 	productionHostnames: string[];
+	/** Código promocional del popup de bienvenida (o null). Se valida contra el proveedor antes de mostrarse. */
+	welcomeCoupon: string | null;
+	/** Enlace https de reservas con pago (o null). */
+	bookingUrl: string | null;
 }
 
 export type BootResult = { ok: true; config: Config } | { ok: false; errors: string[] };
@@ -150,6 +154,21 @@ export function loadConfig(env: Env): BootResult {
 		if (!env.MARKET_FILES) errors.push("Falta el binding R2 MARKET_FILES.");
 	}
 
+	// Opcionales: si son inválidos se ignoran (no tumban la tienda) y se avisa en los logs.
+	const welcomeRaw = (env.WELCOME_COUPON ?? "").trim();
+	const welcomeCoupon = /^[A-Za-z0-9_-]{1,64}$/.test(welcomeRaw) ? welcomeRaw : null;
+	if (welcomeRaw && !welcomeCoupon) console.warn("[market] WELCOME_COUPON inválido: se ignora.");
+	let bookingUrl: string | null = null;
+	if (env.BOOKING_URL?.trim()) {
+		try {
+			const u = new URL(env.BOOKING_URL.trim());
+			if (u.protocol === "https:") bookingUrl = u.toString();
+		} catch {
+			/* se ignora */
+		}
+		if (!bookingUrl) console.warn("[market] BOOKING_URL no es una URL https válida: se ignora.");
+	}
+
 	if (errors.length > 0 || !emailProvider) return { ok: false, errors };
 
 	const presignParts = [env.R2_ACCESS_KEY_ID, env.R2_SECRET_ACCESS_KEY, env.R2_ACCOUNT_ID, env.R2_BUCKET_NAME];
@@ -189,6 +208,8 @@ export function loadConfig(env: Env): BootResult {
 			resendApiKey: env.RESEND_API_KEY ?? null,
 			r2Presign: mode === "live" ? r2Presign : null,
 			productionHostnames,
+			welcomeCoupon,
+			bookingUrl,
 		},
 	};
 }

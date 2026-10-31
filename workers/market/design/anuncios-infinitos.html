@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Narrow:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+	/* Paleta de la portada original de Anuncios Infinitos: crema, amarillo, tinta. */
+	:root { --cream: #fff9e5; --yellow: #f5e400; --ink: #1d1c10; --muted: #817e65; --line: #e7dfc2; --paper: #fffdf4; }
+	* { box-sizing: border-box; margin: 0; padding: 0; }
+	body { background: #444; }
+	.frame { width: 1600px; height: 1000px; position: relative; overflow: hidden; background: var(--cream); color: var(--ink); font-family: "Archivo Narrow", sans-serif; }
+	.mono { font-family: "JetBrains Mono", monospace; letter-spacing: 0.32em; text-transform: uppercase; font-size: 18px; font-weight: 700; }
+	.brand { position: absolute; left: 110px; top: 92px; display: flex; align-items: center; gap: 16px; }
+	.brand i { width: 20px; height: 20px; background: var(--yellow); display: block; }
+	.anton { font-family: "Anton", sans-serif; text-transform: uppercase; line-height: 0.92; letter-spacing: 0.005em; }
+	.hl { position: relative; display: inline-block; }
+	.hl::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0.02em; height: 0.12em; background: var(--yellow); z-index: -1; }
+	.foot { position: absolute; left: 110px; right: 110px; bottom: 72px; display: flex; justify-content: space-between; color: var(--muted); font-size: 16px; }
+
+	/* ── Portada ── */
+	.cover h1 { position: absolute; left: 104px; top: 205px; font-size: 146px; z-index: 1; }
+	.cover .sub { position: absolute; left: 110px; top: 560px; font-size: 40px; line-height: 1.25; }
+	.cover .sub span { color: var(--muted); display: block; }
+	.ads { position: absolute; right: 10px; top: 110px; width: 640px; height: 760px; transform: scale(0.94); transform-origin: top right; }
+	.ad { position: absolute; width: 330px; background: var(--paper); border: 3px solid var(--ink); border-radius: 18px; padding: 22px; box-shadow: 14px 14px 0 var(--ink); }
+	.ad .top { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 600; }
+	.ad .dot { width: 34px; height: 34px; border-radius: 50%; background: var(--ink); color: var(--yellow); display: grid; place-items: center; font-family: "Anton"; font-size: 18px; }
+	.ad .tag { margin-left: auto; font-family: "JetBrains Mono"; font-size: 12px; letter-spacing: 0.18em; color: var(--muted); }
+	.ad .img { margin: 16px 0; height: 190px; border-radius: 10px; background: var(--yellow); display: grid; place-items: center; text-align: center; padding: 18px; font-family: "Anton"; font-size: 40px; line-height: 0.95; text-transform: uppercase; }
+	.ad .img.dark { background: var(--ink); color: var(--yellow); }
+	.ad .img.cream { background: #f3ebcc; }
+	.ad p { font-size: 18px; line-height: 1.35; }
+	.ad .cta { margin-top: 14px; display: flex; justify-content: space-between; align-items: center; font-size: 15px; font-weight: 600; }
+	.ad .cta b { background: var(--ink); color: var(--cream); padding: 7px 14px; border-radius: 8px; }
+	.a1 { left: 40px; top: 60px; transform: rotate(-9deg); }
+	.a2 { left: 250px; top: 10px; transform: rotate(6deg); }
+	.a3 { left: 150px; top: 330px; transform: rotate(-2deg); z-index: 2; }
+	.sticker { position: absolute; right: 520px; top: 640px; z-index: 3; width: 190px; height: 190px; border-radius: 50%; background: var(--yellow); border: 3px solid var(--ink); display: grid; place-items: center; text-align: center; transform: rotate(-14deg); font-family: "Anton"; font-size: 34px; line-height: 0.95; text-transform: uppercase; box-shadow: 8px 8px 0 var(--ink); }
+	.sticker small { display: block; font-family: "JetBrains Mono"; font-size: 12px; letter-spacing: 0.08em; margin-top: 8px; white-space: nowrap; }
+
+	/* ── Pantallas ── */
+	.screen h2 { position: absolute; left: 110px; top: 160px; font-size: 92px; width: 600px; }
+	.screen .lead { position: absolute; left: 112px; top: 380px; width: 540px; font-size: 30px; line-height: 1.3; color: #4a4733; }
+	.window { position: absolute; right: 90px; top: 140px; width: 780px; background: var(--paper); border: 3px solid var(--ink); border-radius: 22px; box-shadow: 18px 18px 0 var(--ink); overflow: hidden; }
+	.bar { height: 58px; border-bottom: 3px solid var(--ink); display: flex; align-items: center; gap: 10px; padding: 0 22px; background: #f6eecd; }
+	.bar i { width: 15px; height: 15px; border-radius: 50%; border: 2.5px solid var(--ink); display: block; }
+	.bar i:first-child { background: var(--yellow); }
+	.bar span { margin-left: 16px; font-family: "JetBrains Mono"; font-size: 15px; letter-spacing: 0.1em; }
+	.chat { padding: 28px 34px; display: grid; gap: 18px; font-size: 22px; line-height: 1.38; }
+	.me { justify-self: end; background: var(--ink); color: var(--cream); padding: 12px 20px; border-radius: 16px 16px 4px 16px; font-family: "JetBrains Mono"; font-size: 22px; }
+	.bot { display: grid; grid-template-columns: 52px 1fr; gap: 14px; align-items: start; }
+	.bot .av { width: 52px; height: 52px; border-radius: 50%; background: var(--yellow); border: 2.5px solid var(--ink); display: grid; place-items: center; font-family: "Anton"; font-size: 22px; }
+	.steps { display: grid; gap: 9px; margin-top: 10px; font-size: 20px; }
+	.steps div { display: flex; gap: 12px; align-items: center; }
+	.steps b { width: 26px; height: 26px; border-radius: 6px; background: var(--ink); color: var(--yellow); display: grid; place-items: center; font-size: 16px; }
+	.steps .wip b { background: var(--yellow); color: var(--ink); border: 2px solid var(--ink); }
+	.score { margin-top: 6px; display: grid; grid-template-columns: auto 1fr; gap: 22px; align-items: center; background: #fbf3d2; border: 2.5px solid var(--ink); border-radius: 16px; padding: 18px 22px; }
+	.score .n { font-family: "Anton"; font-size: 84px; line-height: 1; }
+	.score .n small { font-size: 34px; color: var(--muted); }
+	.meter { height: 16px; border-radius: 99px; border: 2.5px solid var(--ink); overflow: hidden; margin: 10px 0 8px; }
+	.meter i { display: block; height: 100%; width: 82%; background: var(--yellow); border-right: 2.5px solid var(--ink); }
+	.folders { padding: 30px 34px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+	.folder { border: 2.5px solid var(--ink); border-radius: 14px; padding: 16px 18px; background: #fffbea; display: grid; gap: 6px; }
+	.folder .k { font-family: "JetBrains Mono"; font-size: 13px; letter-spacing: 0.2em; color: var(--muted); }
+	.folder .t { font-family: "Anton"; font-size: 30px; text-transform: uppercase; line-height: 1; }
+	.folder .c { font-size: 18px; display: flex; justify-content: space-between; }
+	.folder .c b { background: var(--yellow); border: 2px solid var(--ink); border-radius: 6px; padding: 0 8px; }
+	.stats { position: absolute; left: 112px; top: 420px; display: grid; gap: 26px; }
+	.stat { display: grid; grid-template-columns: 130px 1fr; align-items: center; gap: 10px; }
+	.stat b { font-family: "Anton"; font-size: 88px; line-height: 1; }
+	.stat span { font-size: 26px; color: #4a4733; }
+</style>
+</head>
+<body>
+
+<section class="frame cover" data-out="cover">
+	<div class="brand mono"><i></i>Anuncios Infinitos</div>
+	<h1 class="anton"><span class="hl">250+</span> prompts<br>de anuncios</h1>
+	<p class="sub">Deja de armarlos de uno en uno.<span>Una sesión, con estrategia detrás.</span></p>
+	<div class="ads">
+		<div class="ad a1">
+			<div class="top"><span class="dot">M</span>Meta Ads<span class="tag">#017</span></div>
+			<div class="img cream">¿Tu competencia vende más con menos?</div>
+			<p>Gancho de prueba social para dueños de restaurante.</p>
+		</div>
+		<div class="ad a2">
+			<div class="top"><span class="dot">T</span>TikTok<span class="tag">#142</span></div>
+			<div class="img dark">3 segundos para atrapar</div>
+			<p>Guion 9:16 con gancho visual y llamado a la acción.</p>
+		</div>
+		<div class="ad a3">
+			<div class="top"><span class="dot">G</span>Google Ads<span class="tag">#233</span></div>
+			<div class="img">Agenda hoy, paga después</div>
+			<p>Ángulo de urgencia para búsqueda con intención alta.</p>
+			<div class="cta"><span>Estado de conciencia: 3</span><b>Usar prompt</b></div>
+		</div>
+	</div>
+	<div class="sticker">Pago<br>único<small>sin suscripción</small></div>
+	<div class="foot mono"><span>Agente de IA en español</span><span>Meta · Google · TikTok · LinkedIn</span></div>
+</section>
+
+<section class="frame screen" data-out="screen-1">
+	<div class="brand mono"><i></i>Tu sesión con Tony</div>
+	<h2 class="anton">Escribes <span class="hl">/ads</span>.<br>Tony investiga.</h2>
+	<p class="lead">En 20 a 40 minutos: tu negocio, tu competencia, tus clientes ideales y la estrategia, antes de escribir un solo prompt.</p>
+	<div class="window">
+		<div class="bar"><i></i><i></i><i></i><span>ANUNCIOS-INFINITOS — SESIÓN</span></div>
+		<div class="chat">
+			<div class="me">/ads</div>
+			<div class="bot">
+				<span class="av">T</span>
+				<div>
+					Listo. Antes de proponer nada, investigo tu marca y a tu competencia con herramientas reales.
+					<div class="steps">
+						<div><b>✓</b>Análisis de tu marca y tu oferta</div>
+						<div><b>✓</b>Anuncios activos de tu competencia</div>
+						<div><b>✓</b>3 perfiles de cliente ideal</div>
+						<div class="wip"><b>…</b>Estrategia de campañas y presupuesto</div>
+					</div>
+				</div>
+			</div>
+			<div class="bot">
+				<span class="av">T</span>
+				<div class="score">
+					<div class="n">82<small>/100</small></div>
+					<div>
+						<strong>Puntaje de preparación</strong>
+						<div class="meter"><i></i></div>
+						Arregla 3 cosas antes de gastar en pauta.
+					</div>
+				</div>
+			</div>
+			<div class="bot">
+				<span class="av">T</span>
+				<div>Ahora sí: genero tus prompts, 50 por categoría, cada uno con su ángulo y su razón.
+					<div class="steps"><div class="wip"><b>3</b>Categoría 3 de 5 · Autoridad — 112 de 250 listos</div></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="foot mono"><span>Investigación real, no inventada</span><span>Claude Code · Codex · Cursor · Gemini</span></div>
+</section>
+
+<section class="frame screen" data-out="screen-2">
+	<div class="brand mono"><i></i>Lo que recibes</div>
+	<h2 class="anton">Cada prompt<br>con su <span class="hl">razón</span>.</h2>
+	<div class="stats">
+		<div class="stat"><b>26</b><span>categorías psicológicas</span></div>
+		<div class="stat"><b>37</b><span>formatos visuales</span></div>
+		<div class="stat"><b>8</b><span>voces de copywriting</span></div>
+	</div>
+	<div class="window">
+		<div class="bar"><i></i><i></i><i></i><span>ENTREGABLES / PROMPTS</span></div>
+		<div class="folders">
+			<div class="folder"><span class="k">01 · CATEGORÍA</span><span class="t">Prueba social</span><span class="c">Meta · TikTok<b>50</b></span></div>
+			<div class="folder"><span class="k">02 · CATEGORÍA</span><span class="t">Dolor y alivio</span><span class="c">Meta · Google<b>50</b></span></div>
+			<div class="folder"><span class="k">03 · CATEGORÍA</span><span class="t">Autoridad</span><span class="c">LinkedIn · Meta<b>50</b></span></div>
+			<div class="folder"><span class="k">04 · CATEGORÍA</span><span class="t">Urgencia</span><span class="c">Google · TikTok<b>50</b></span></div>
+			<div class="folder"><span class="k">05 · CATEGORÍA</span><span class="t">Antes y después</span><span class="c">Meta · TikTok<b>50</b></span></div>
+			<div class="folder"><span class="k">+ EXTRA</span><span class="t">Guiones 9:16</span><span class="c">Reels · TikTok<b>✓</b></span></div>
+			<div class="folder"><span class="k">REPORTE</span><span class="t">Estrategia</span><span class="c">Campañas · inversión<b>✓</b></span></div>
+			<div class="folder"><span class="k">PLAN</span><span class="t">6 meses</span><span class="c">Si lo pides<b>✓</b></span></div>
+		</div>
+	</div>
+	<div class="foot mono"><span>Gancho · cuerpo · llamado a la acción</span><span>Todo en español</span></div>
+</section>
+
+</body>
+</html>

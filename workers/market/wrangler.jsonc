@@ -28,7 +28,11 @@
 		"STRIPE_TAX_ENABLED": "false",
 		"ALLOW_LIVE_PAYMENTS": "false",
 		"DOWNLOAD_URL_TTL_SECONDS": "300",
-		"EMAIL_LINK_TTL_DAYS": "14"
+		"EMAIL_LINK_TTL_DAYS": "14",
+		// Popup "10 % en tu primera compra". Solo aparece si el proveedor de pagos da el código por válido.
+		"WELCOME_COUPON": "TONYCIENCIA",
+		// Agenda con pago (Google Calendar). Vacío = botón para pedir horarios por correo.
+		"BOOKING_URL": ""
 	},
 	"d1_databases": [
 		{
@@ -56,7 +60,9 @@
 				"STRIPE_TAX_ENABLED": "false",
 				"ALLOW_LIVE_PAYMENTS": "false",
 				"DOWNLOAD_URL_TTL_SECONDS": "300",
-				"EMAIL_LINK_TTL_DAYS": "14"
+				"EMAIL_LINK_TTL_DAYS": "14",
+				"WELCOME_COUPON": "TONYCIENCIA",
+				"BOOKING_URL": ""
 			},
 			"d1_databases": [
 				{
@@ -85,7 +91,9 @@
 				// Staging solo acepta claves sk_test_: dejar en "false".
 				"ALLOW_LIVE_PAYMENTS": "false",
 				"DOWNLOAD_URL_TTL_SECONDS": "300",
-				"EMAIL_LINK_TTL_DAYS": "14"
+				"EMAIL_LINK_TTL_DAYS": "14",
+				"WELCOME_COUPON": "TONYCIENCIA",
+				"BOOKING_URL": ""
 			},
 			"d1_databases": [
 				{
@@ -120,7 +128,9 @@
 				// "true": el dueño aprobó cobrar de verdad con la clave sk_live (2026-10-29).
 				"ALLOW_LIVE_PAYMENTS": "true",
 				"DOWNLOAD_URL_TTL_SECONDS": "300",
-				"EMAIL_LINK_TTL_DAYS": "14"
+				"EMAIL_LINK_TTL_DAYS": "14",
+				"WELCOME_COUPON": "TONYCIENCIA",
+				"BOOKING_URL": ""
 			},
 			"d1_databases": [
 				{

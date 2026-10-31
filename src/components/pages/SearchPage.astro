@@ -36,7 +36,7 @@ const postsRoute = locale === "en" ? "/en/posts" : "/posts";
 
 <Base
 	title={searchTitle}
-	description="Search blog posts"
+	description={locale === "en" ? "Search blog posts" : "Buscar artículos del blog"}
 	robots="noindex, nofollow"
 >
 	<section class="search-page">

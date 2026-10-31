@@ -5,15 +5,15 @@ import PostCard from "../../components/PostCard.astro";
 import { getReadingTime } from "../../utils/reading-time";
 import { getLangFromUrl, useTranslations } from "../../i18n/locales";
 
+const locale = getLangFromUrl(Astro.url);
+const t = useTranslations(locale);
+
 const slug = decodeSlug(Astro.params.slug);
 const term = slug ? await getTerm("category", slug) : null;
 
 if (!term) {
-	return Astro.redirect("/404");
+	return Astro.redirect(locale === "en" ? "/en/404" : "/404");
 }
-
-const locale = getLangFromUrl(Astro.url);
-const t = useTranslations(locale);
 
 const { entries: posts, cacheHint } = await getEmDashCollection("posts", {
 	where: { category: term.slug },
@@ -43,7 +43,7 @@ const postsRoute = locale === "en" ? "/en/posts" : "/posts";
 			<h1 class="archive-title">{term.label}</h1>
 			<p class="archive-count">
 				{filteredPosts.length}
-				{filteredPosts.length === 1 ? "post" : "posts"}
+				{filteredPosts.length === 1 ? (locale === "en" ? "post" : "artículo") : (locale === "en" ? "posts" : "artículos")}
 			</p>
 		</header>
 

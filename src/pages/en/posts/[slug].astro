@@ -11,7 +11,6 @@ import {
 	PortableText,
 	Comments,
 	CommentForm,
-	WidgetArea,
 } from "emdash/ui";
 import Base from "../../../layouts/Base.astro";
 import PostCard from "../../../components/PostCard.astro";
@@ -29,16 +28,20 @@ const t = useTranslations(locale);
 const slug = decodeSlug(Astro.params.slug);
 
 if (!slug) {
-	return Astro.redirect("/404");
+	return Astro.redirect("/en/404");
 }
 
-const { entry: cmsPost, cacheHint } = await getEmDashEntry("posts", slug);
+// Solo artículos en inglés: emdash cae al español si no hay versión "en" (fallbackLocale),
+// y eso mostraba artículos en español bajo /en/posts.
+const { entry: cmsHit, cacheHint, fallbackLocale } = await getEmDashEntry("posts", slug, { locale: "en" });
+const cmsPost = cmsHit && !fallbackLocale && ((cmsHit.data as any).locale ?? "en") === "en" ? cmsHit : null;
 const staticPost = cmsPost ? null : getStaticPost("en", slug);
 const post = (cmsPost ?? staticPost) as any;
 const isStaticPost = !cmsPost && !!staticPost;
 
 if (!post) {
-	return Astro.redirect("/404");
+	// Existe solo en español → a su URL en español; si no existe, al 404 en inglés.
+	return Astro.redirect(cmsHit ? `/posts/${slug}` : "/en/404");
 }
 
 Astro.cache.set(cacheHint);
@@ -86,7 +89,7 @@ const bylines = post.data.bylines ?? [];
 
 const readingTime = getReadingTime(post.data.content as any);
 
-const translationSlug = post.data.translation_of;
+const translationSlug = post.data.translation_of ?? getStaticPost("en", slug)?.data.translation_of;
 
 // Get other posts for "More posts" section
 // Strategy: shared categories first, then shared tags, then recent posts.
@@ -207,6 +210,7 @@ const publishDate =
 	faqItems={faqItems.length > 0 ? faqItems : undefined}
 	readingTime={readingTime}
 	alternatePath={translationSlug ? `/posts/${translationSlug}` : undefined}
+	languageFallback={translationSlug ? undefined : "/posts"}
 >
 	<article class="article">
 		<div class="article-hero">
@@ -334,9 +338,6 @@ const publishDate =
 							<!-- Populated by JS -->
 						</div>
 					</nav>
-					<div class="sidebar-widgets">
-						<WidgetArea name="sidebar" />
-					</div>
 				</div>
 			</aside>
 		</div>

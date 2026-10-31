@@ -1,54 +1,214 @@
-import type { Hono } from "hono";
+import type { Hono, MiddlewareHandler } from "hono";
 import { clientIp, deps, type AppEnv, type Ctx } from "../context";
 import { hit, RATE_RULES } from "../lib/ratelimit";
 import { checkCsrf } from "../lib/session";
-import { isSlug, safeNextPath } from "../lib/validate";
+import { cleanText, isSlug, normalizeEmail, parseIntInRange, safeNextPath } from "../lib/validate";
 import { dispatchByOrder } from "../services/outbox";
 import { claimFreeProduct, startCheckout, type Deps } from "../services/orders";
-import { getActiveEntitlement, getProductBySlug, listActiveProducts, listLibrary, setMarketingOptIn } from "../services/repo";
+import { CATEGORIES, categoryLabel, publicName, seoDescription, seoTitle } from "../lib/catalog";
+import {
+	getActiveEntitlement,
+	getProductBySlug,
+	getShopProduct,
+	joinWaitlist,
+	listLibrary,
+	listPublishedReviews,
+	listShopProducts,
+	ratingBreakdown,
+	setMarketingOptIn,
+	upsertReview,
+} from "../services/repo";
+import { breadcrumbJsonLd, catalogJsonLd, faqJsonLd, merchantFeed, productJsonLd, serviceJsonLd, sitemapXml } from "../services/seo";
+import { getWelcomeOffer } from "../services/welcome";
 import { LibraryPage } from "../views/account";
 import { LEGAL_DOCS, LegalPage } from "../views/legal";
 import { render, renderMessage } from "../views/render";
-import { Catalog, ProductPage } from "../views/shop";
+import { Catalog, ProductPage, SERVICE_FAQ, STORE_FAQ, ServicePage } from "../views/shop";
 
 export function loginRedirect(c: Ctx, next: string) {
 	return c.redirect(`/market/entrar?next=${encodeURIComponent(safeNextPath(next))}`, 303);
 }
 
+/** Valida (con caché) el cupón del popup de bienvenida para las páginas públicas de la tienda. */
+const welcomeMiddleware: MiddlewareHandler<AppEnv> = async (c, next) => {
+	c.set("welcome", c.req.method === "GET" ? await getWelcomeOffer(c.get("config"), c.get("adapters")) : null);
+	await next();
+};
+
+/** Para iframes: solo la agenda de Google Calendar (la CSP lo permite y nada más). */
+export function bookingEmbedUrl(url: string | null): string | null {
+	if (!url) return null;
+	try {
+		const u = new URL(url);
+		if (u.hostname !== "calendar.google.com" || !u.pathname.startsWith("/calendar/appointments/")) return null;
+		u.searchParams.set("gv", "true");
+		return u.toString();
+	} catch {
+		return null;
+	}
+}
+
+const xmlResponse = (c: Ctx, body: string) =>
+	c.body(body, 200, { "content-type": "application/xml; charset=utf-8", "cache-control": "public, max-age=900" });
+
 export function registerShop(app: Hono<AppEnv>) {
+	app.use("/market", welcomeMiddleware);
+	app.use("/market/producto/*", welcomeMiddleware);
+	app.use("/market/agentes-para-empresas", welcomeMiddleware);
+
 	app.get("/market", async (c) => {
-		const products = await listActiveProducts(c.env.MARKET_DB);
+		const products = await listShopProducts(c.env.MARKET_DB);
+		const rawCat = c.req.query("categoria") ?? "";
+		const category = CATEGORIES.some((x) => x.slug === rawCat) ? rawCat : null;
+		const query = (c.req.query("q") ?? "").slice(0, 60);
+		const origin = c.get("config").origin;
 		return render(
 			c,
 			{
 				title: "Market Tony",
+				fullTitle: "Market Tony: agentes de IA, skills y plantillas en español — Tony Ciencia",
 				path: "/market",
-				description: "Recursos digitales de Tony Ciencia: agentes de IA, prompts y plantillas para tu marketing. Descarga inmediata.",
+				description:
+					"Herramientas de IA en español para crear anuncios, videos 3D y automatizaciones con Claude Code, Codex y n8n. Pago único y descarga inmediata.",
+				image: products.find((p) => p.images[0])?.images[0]?.src,
+				jsonLd: [...catalogJsonLd(origin, products), faqJsonLd(STORE_FAQ)],
 			},
-			<Catalog products={products} />,
+			<Catalog products={products} welcome={c.get("welcome")} category={category} query={query} />,
 		);
 	});
 
 	app.get("/market/producto/:slug", async (c) => {
 		const slug = c.req.param("slug");
 		if (!isSlug(slug)) return renderMessage(c, 404, "Producto no encontrado", "Revisa el enlace o vuelve al catálogo.");
-		const product = await getProductBySlug(c.env.MARKET_DB, slug);
+		const db = c.env.MARKET_DB;
+		const product = await getShopProduct(db, slug);
 		if (!product) return renderMessage(c, 404, "Producto no encontrado", "Este producto no existe o ya no está disponible.");
 		const user = c.get("user");
-		const owned = user ? !!(await getActiveEntitlement(c.env.MARKET_DB, user.id, product.id)) : false;
+		const [owned, reviews, breakdown, all] = await Promise.all([
+			user ? getActiveEntitlement(db, user.id, product.id).then(Boolean) : Promise.resolve(false),
+			listPublishedReviews(db, product.id),
+			ratingBreakdown(db, product.id),
+			listShopProducts(db),
+		]);
 		const aviso = c.req.query("aviso");
 		const flash =
 			aviso === "pago-error"
 				? "No pudimos iniciar el pago. Inténtalo de nuevo en unos minutos."
 				: aviso === "cupon-invalido"
 					? "Ese cupón no es válido o ya no está disponible. Revisa el código o compra sin cupón."
-					: null;
+					: aviso === "correo-invalido"
+						? "Revisa tu correo: no parece válido."
+						: aviso === "resena-error"
+							? "No pudimos guardar tu reseña: elige de 1 a 5 estrellas y usa menos de 1500 caracteres."
+							: null;
+		const notice = aviso === "lista-ok" ? "¡Listo! Te avisaremos por correo el día del lanzamiento." : aviso === "resena-ok" ? "¡Gracias por tu reseña!" : null;
+		// Relacionados: misma categoría primero, luego el resto (disponibles antes que próximos).
+		const others = all.filter((p) => p.id !== product.id);
+		const related = [...others.filter((p) => p.category === product.category), ...others.filter((p) => p.category !== product.category)].slice(0, 3);
+		const origin = c.get("config").origin;
+		const path = `/market/producto/${product.slug}`;
+		const cat = categoryLabel(product.category);
 		return render(
 			c,
-			{ title: product.title, path: `/market/producto/${product.slug}`, description: product.summary },
-			<ProductPage product={product} loggedIn={!!user} owned={owned} csrf={c.get("csrf")} mode={c.get("config").mode} flash={flash} />,
+			{
+				title: seoTitle(product),
+				fullTitle: `${seoTitle(product)} | Market Tony`,
+				path,
+				description: seoDescription(product),
+				image: product.images[0]?.src,
+				ogType: "product",
+				priceCents: product.price_cents,
+				currency: product.currency,
+				jsonLd: [
+					productJsonLd(origin, product, reviews),
+					breadcrumbJsonLd(origin, [
+						{ name: "Market Tony", path: "/market" },
+						...(cat ? [{ name: cat, path: `/market?categoria=${product.category}` }] : []),
+						{ name: product.title, path },
+					]),
+					...(product.faq.length ? [faqJsonLd(product.faq)] : []),
+				],
+			},
+			<ProductPage
+				product={product}
+				loggedIn={!!user}
+				owned={owned}
+				csrf={c.get("csrf")}
+				mode={c.get("config").mode}
+				flash={flash}
+				notice={notice}
+				reviews={reviews}
+				breakdown={breakdown}
+				related={related}
+				maxSales={Math.max(0, ...all.map((p) => p.stats.sales))}
+				welcome={c.get("welcome")}
+				userEmail={user?.email ?? null}
+			/>,
 		);
 	});
+
+	// "Avísame cuando salga": solo para productos próximos. Guarda el correo; nada más.
+	app.post("/market/producto/:slug/avisame", async (c) => {
+		const slug = c.req.param("slug");
+		const form = await c.req.formData().catch(() => null);
+		if (!(await checkCsrf(c, form))) return renderMessage(c, 403, "Solicitud no válida", "Recarga la página e inténtalo de nuevo.");
+		if (!isSlug(slug)) return renderMessage(c, 404, "Producto no encontrado", "Revisa el enlace.");
+		if (!(await hit(c.env.MARKET_DB, RATE_RULES.waitlist, clientIp(c)))) {
+			return renderMessage(c, 429, "Demasiados intentos", "Espera unos minutos y vuelve a intentarlo.");
+		}
+		const product = await getProductBySlug(c.env.MARKET_DB, slug);
+		if (!product || product.availability !== "coming_soon") return renderMessage(c, 404, "Producto no encontrado", "Este producto no tiene lista de espera.");
+		const email = normalizeEmail(form?.get("email"));
+		if (!email) return c.redirect(`/market/producto/${slug}?aviso=correo-invalido#comprar`, 303);
+		await joinWaitlist(c.env.MARKET_DB, product.id, email);
+		return c.redirect(`/market/producto/${slug}?aviso=lista-ok#comprar`, 303);
+	});
+
+	// Reseñas: solo quien tiene acceso vigente al producto (compra o descarga verificada).
+	app.post("/market/producto/:slug/resena", async (c) => {
+		const slug = c.req.param("slug");
+		const form = await c.req.formData().catch(() => null);
+		if (!(await checkCsrf(c, form))) return renderMessage(c, 403, "Solicitud no válida", "Recarga la página e inténtalo de nuevo.");
+		const user = c.get("user");
+		if (!user) return loginRedirect(c, "/market/mis-compras");
+		if (!isSlug(slug)) return renderMessage(c, 404, "Producto no encontrado", "Revisa el enlace.");
+		if (!(await hit(c.env.MARKET_DB, RATE_RULES.review, user.id))) {
+			return renderMessage(c, 429, "Demasiados intentos", "Espera unos minutos y vuelve a intentarlo.");
+		}
+		const product = await getProductBySlug(c.env.MARKET_DB, slug, false);
+		if (!product) return renderMessage(c, 404, "Producto no encontrado", "Revisa el enlace.");
+		if (!(await getActiveEntitlement(c.env.MARKET_DB, user.id, product.id))) {
+			return renderMessage(c, 403, "Solo compradores", "Las reseñas solo las pueden dejar personas que tienen el producto.", { href: `/market/producto/${slug}`, label: "Ver el producto" });
+		}
+		const rating = parseIntInRange(typeof form?.get("rating") === "string" ? (form!.get("rating") as string) : "", 1, 5);
+		const body = cleanText(form?.get("body") ?? "", 1500);
+		if (rating === null || body === null) return c.redirect(`/market/mis-compras?resena=error#resena-${product.slug}`, 303);
+		await upsertReview(c.env.MARKET_DB, { productId: product.id, userId: user.id, rating, body, displayName: publicName(user.name) });
+		return c.redirect(`/market/producto/${slug}?aviso=resena-ok#resenas`, 303);
+	});
+
+	app.get("/market/agentes-para-empresas", (c) => {
+		const config = c.get("config");
+		return render(
+			c,
+			{
+				title: "Agentes de IA para empresas",
+				fullTitle: "Agentes de IA a medida para empresas | Tony Ciencia",
+				path: "/market/agentes-para-empresas",
+				description:
+					"Diseñamos, construimos y entregamos agentes de IA para tu empresa: ventas por WhatsApp, atención, agenda y automatizaciones con tu CRM. Reserva tu diagnóstico.",
+				image: "/market/static/products/agentes-para-empresas/cover.webp",
+				jsonLd: [serviceJsonLd(config.origin), faqJsonLd(SERVICE_FAQ)],
+			},
+			<ServicePage bookingUrl={config.bookingUrl} embedUrl={bookingEmbedUrl(config.bookingUrl)} />,
+		);
+	});
+
+	app.get("/market/feed.xml", async (c) => xmlResponse(c, merchantFeed(c.get("config").origin, await listShopProducts(c.env.MARKET_DB))));
+
+	app.get("/market/sitemap.xml", async (c) =>
+		xmlResponse(c, sitemapXml(c.get("config").origin, await listShopProducts(c.env.MARKET_DB), Object.keys(LEGAL_DOCS))),
+	);
 
 	// Compra: el formulario solo manda el slug (en la URL) y el token CSRF. Cualquier otro campo
 	// (p. ej. un "precio" inyectado) se ignora: el monto sale de la BD dentro de startCheckout.
@@ -108,7 +268,9 @@ export function registerShop(app: Hono<AppEnv>) {
 				? "Ya tenías este producto. Puedes descargarlo aquí."
 				: c.req.query("guardado")
 					? "Preferencia guardada."
-					: null;
+					: c.req.query("resena") === "error"
+						? "No pudimos guardar tu reseña: elige de 1 a 5 estrellas y usa menos de 1500 caracteres."
+						: null;
 		return render(
 			c,
 			{ title: "Mis compras", path: "/market/mis-compras", noindex: true },

@@ -76,6 +76,13 @@ export type PaymentEvent =
 	| { id: string; type: "refunded"; paymentId: string; fullyRefunded: boolean }
 	| { id: string; type: "ignored"; rawType: string };
 
+/** Código promocional válido. El descuento solo se informa si el proveedor lo da (para mostrarlo en la tienda). */
+export interface ResolvedPromotion {
+	id: string;
+	percentOff?: number;
+	amountOffCents?: number;
+}
+
 export interface PaymentProvider {
 	readonly name: "stripe" | "mock";
 	createCheckout(req: CheckoutRequest): Promise<CheckoutSession>;
@@ -83,7 +90,7 @@ export interface PaymentProvider {
 	 * Valida un cupón escrito por el cliente. Devuelve el id del código promocional del proveedor, o null si
 	 * no existe, está inactivo o NO está habilitado para el marketplace. Sin esta función no hay cupones.
 	 */
-	resolvePromotionCode?(code: string): Promise<{ id: string } | null>;
+	resolvePromotionCode?(code: string): Promise<ResolvedPromotion | null>;
 	/** Verifica la firma sobre el cuerpo crudo y normaliza el evento. Lanza WebhookSignatureError. */
 	parseWebhook(rawBody: string, headers: Headers): Promise<PaymentEvent>;
 }

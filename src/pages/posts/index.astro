@@ -36,10 +36,10 @@ const postsWithTags = await Promise.all(
 <Base title={t("posts.title")} description={t("posts.description")}>
 	<section class="posts-hero">
 		<div class="tc-shell posts-hero-inner">
-			<span class="tc-eyebrow">AI Radar</span>
+			<span class="tc-eyebrow">{locale === "en" ? "AI Radar" : "Radar IA"}</span>
 			<h1>{t("posts.title")}</h1>
 			<p>{locale === "en" ? "Enterprise AI, automation, agents, and productivity guides for companies that need practical implementation." : "IA empresarial, automatización, agentes y productividad para empresas que necesitan implementación práctica."}</p>
-			<div class="posts-count">{posts.length} {posts.length === 1 ? "article" : "articles"}</div>
+			<div class="posts-count">{posts.length} {posts.length === 1 ? (locale === "en" ? "article" : "artículo") : (locale === "en" ? "articles" : "artículos")}</div>
 		</div>
 	</section>
 

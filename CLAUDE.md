@@ -85,8 +85,11 @@ npx emdash seed seed/seed.json --validate  # Validar seed sin aplicar
 Tienda en `tonyciencia.com/market`: **Worker de Cloudflare separado del blog** (Hono + D1 `MARKET_DB` + R2 privado `MARKET_FILES`), con su propio `package.json`, lockfile y `wrangler.jsonc` (entornos `preview` mock, `staging` live de prueba, `production`). No se despliega con `pnpm deploy` del blog.
 - `MODE = mock | live`; toda dependencia externa está detrás de `workers/market/src/adapters/` (mock y live). `MODE=mock` con dominio de producción hace que el Worker no arranque.
 - Comandos (desde `workers/market/`): `pnpm setup:local && pnpm dev`, `pnpm test`, `pnpm test:e2e`, `pnpm test:startup-guard`, `pnpm deploy:<entorno>` (con chequeo previo). Usar `pnpm wrangler …` (agrega `-c wrangler.jsonc`; sin eso wrangler se confunde con `.wrangler/deploy/config.json` que deja el build del blog).
-- Único cambio en el sitio: `src/components/MarketFab.astro` (botón flotante), incluido en `Base.astro`.
-- Plan: `docs/PLAN.md`. Lo pendiente para conectar credenciales: `HANDOFF.md`.
+- En el sitio: `src/components/MarketFab.astro` (botón flotante, en `Base.astro`), el enlace "Market" del menú y la vitrina del home (`public/assets/market/`).
+- **Vitrina v2**: columnas de vitrina/SEO en `products` (migración `0002`), reseñas (`reviews`) y lista de espera (`waitlist`). Los datos del catálogo viven en `seed/catalog.mjs`; `migrations/0003_catalogo_v2.sql` se genera con `scripts/gen-catalog-migration.mjs` (no editar a mano). Portadas: `design/<slug>.html` → `pnpm render:covers`.
+- **Nunca mostrar cifras inventadas** (ventas, estrellas, precios "antes"): ventas = pedidos pagados + `sales_offset` (ventas reales fuera del market); estrellas = reseñas de compradores verificados. Productos sin archivo → `availability = 'coming_soon'` (no se pueden comprar).
+- **Deploy automático**: `.github/workflows/market-deploy.yml` al hacer merge a `main` (pruebas → `scripts/ci-migrate.mjs` → deploy). `pnpm test:migration` prueba las migraciones sobre datos tipo producción.
+- Plan v2: `docs/PLAN-MARKET-V2.md`. Plan original: `docs/PLAN.md`. Credenciales: `HANDOFF.md`.
 
 ## Configuración de Cloudflare
 

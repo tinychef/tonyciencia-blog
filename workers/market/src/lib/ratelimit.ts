@@ -19,6 +19,8 @@ export const RATE_RULES = {
 	fileFetch: { name: "file-ip", limit: 60, windowSeconds: 600 },
 	adminWrite: { name: "admin", limit: 120, windowSeconds: 600 },
 	mockPay: { name: "mock-pay", limit: 30, windowSeconds: 600 },
+	waitlist: { name: "waitlist-ip", limit: 10, windowSeconds: 600 },
+	review: { name: "review-user", limit: 10, windowSeconds: 600 },
 } satisfies Record<string, RateRule>;
 
 /** Devuelve true si la petición está dentro del límite (y la cuenta). */

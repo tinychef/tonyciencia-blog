@@ -3,7 +3,7 @@ import LegalPage from "../../../components/pages/LegalPage.astro";
 import { resolveLegalPage } from "../../../data/legal-page";
 
 const result = await resolveLegalPage(Astro, "en");
-if (result.kind === "redirect") return Astro.redirect("/404");
+if (result.kind === "redirect") return Astro.redirect("/en/404");
 ---
 
 <LegalPage locale="en" slug={result.slug} doc={result.doc} cmsPage={result.cmsPage} />

@@ -8,6 +8,7 @@ export default {
 	"nav.search": "Buscar...",
 	"nav.admin": "Admin",
 	"nav.menu": "Menú",
+	"nav.skip": "Saltar al contenido",
 
 	// Hero
 	"hero.badge": "Implementa IA, Avanza",

@@ -15,6 +15,7 @@ import { mkdtempSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
+import { COVERS, MERCH, merchUpdateSql, prependImagesSql } from "../seed/catalog.mjs";
 import { root, wrangler } from "./wrangler.mjs";
 
 const args = process.argv.slice(2);
@@ -52,12 +53,34 @@ const allProducts = [
 		].join("\n\n"),
 		price_cents: 7690,
 		kind: "paid",
-		images: [{ src: "/market/static/covers/anuncios-infinitos.svg", alt: "Portada de Anuncios Infinitos: agente de IA con 250+ prompts de anuncios" }],
+		// Las portadas salen de seed/catalog.mjs (COVERS), igual que en producción.
+		images: [],
 		file_key: live ? null : "mock/anuncios-infinitos-PRUEBA.zip",
 		file_name: live ? null : "anuncios-infinitos-PRUEBA.zip",
 		download_limit: 5,
 		active: live ? 0 : 1,
 		sort_order: 0,
+	},
+	{
+		// Réplica de maqueta del producto real de producción (allí ya existe; solo se siembra en local/preview).
+		id: "7a2b4c6d-1e3f-4a5b-8c7d-9e0f1a2b3c4d",
+		slug: "specreel",
+		title: "SpecReel: Make 3D Explainer & Product Videos with Claude Code and Codex",
+		summary:
+			"You'll get the SpecReel agent skill, the 3D video engine with a cinematic camera, brand kits and 7 scene recipes, 4 example productions and docs in English and Spanish. One-time payment · free 2.x updates.",
+		description: [
+			"[Maqueta] SpecReel is an agent skill for Claude Code and Codex that turns any topic into a narrated, captioned 3D video.",
+			"## Ask for a video. Get a finished MP4.",
+			"Write one prompt: topic, audience, length, language. Your agent plans the piece, writes the script, voices it and renders an MP4 with karaoke captions and an .srt file.",
+		].join("\n\n"),
+		price_cents: 3690,
+		kind: "paid",
+		images: [],
+		file_key: live ? null : "mock/anuncios-infinitos-PRUEBA.zip",
+		file_name: live ? null : "specreel-PRUEBA.zip",
+		download_limit: 5,
+		active: live ? 0 : 1,
+		sort_order: 5,
 	},
 	{
 		id: "6f1d3a2e-7b4c-4e8a-9c11-5a0b1d2e3f02",
@@ -77,8 +100,8 @@ const allProducts = [
 	},
 ];
 
-// En live (staging/production) no se siembra el producto gratis "de prueba": solo existe en maqueta.
-const products = live ? allProducts.filter((p) => p.slug !== "guia-gratis-prueba") : allProducts;
+// En live (staging/production) no se siembran el producto gratis "de prueba" ni la réplica de SpecReel: solo existen en maqueta.
+const products = live ? allProducts.filter((p) => p.slug !== "guia-gratis-prueba" && p.slug !== "specreel") : allProducts;
 
 const sql = products
 	.map(
@@ -87,7 +110,12 @@ const sql = products
 VALUES (${[p.id, p.slug, p.title, p.summary, p.description, p.price_cents, "usd", p.kind, JSON.stringify(p.images), p.file_key, p.file_name, p.download_limit, p.active, p.sort_order, now, now].map(q).join(", ")})
 ON CONFLICT(slug) DO NOTHING;`,
 	)
-	.join("\n");
+	.join("\n") +
+	// Vitrina v2 (seed/catalog.mjs): rellena solo lo vacío y antepone las portadas nuevas. Idempotente.
+	"\n" +
+	Object.entries(MERCH).map(([slug, m]) => merchUpdateSql(slug, m)).join("\n") +
+	"\n" +
+	Object.entries(COVERS).map(([slug, images]) => prependImagesSql(slug, images)).join("\n");
 
 const dir = mkdtempSync(join(tmpdir(), "market-seed-"));
 const file = join(dir, "seed.sql");

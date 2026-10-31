@@ -59,8 +59,21 @@ const externalServices = [
 ];
 
 const serviceLinks = locale === "en"
-  ? [...externalServices, { label: "AI Resources", url: "/en/resources" }]
-  : [...externalServices, { label: "Recursos IA", url: "/recursos-ia" }];
+  ? [...externalServices, { label: "Custom AI agents", url: "/market/agentes-para-empresas" }, { label: "AI Resources", url: "/en/resources" }]
+  : [...externalServices, { label: "Agentes a medida", url: "/market/agentes-para-empresas" }, { label: "Recursos IA", url: "/recursos-ia" }];
+
+// Market Tony (tienda en español, Worker aparte en /market).
+const marketLinks = locale === "en"
+  ? [
+      { label: "Market Tony", url: "/market" },
+      { label: "AI agents & skills", url: "/market#catalogo" },
+      { label: "My purchases", url: "/market/mis-compras" },
+    ]
+  : [
+      { label: "Market Tony", url: "/market" },
+      { label: "Agentes y skills de IA", url: "/market#catalogo" },
+      { label: "Mis compras", url: "/market/mis-compras" },
+    ];
 
 const resourceLinks = locale === "en"
   ? [
@@ -79,14 +92,6 @@ const year = new Date().getFullYear();
 
 <footer class="site-footer">
   <div class="footer-inner">
-    <!-- Back to top -->
-    <div class="footer-back-to-top">
-      <a href="#" class="back-to-top-link" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
-        {locale === "en" ? "Back to top" : "Volver arriba"}
-      </a>
-    </div>
-
     <!-- Top: Brand + Newsletter + Social -->
     <div class="footer-top">
       <div class="footer-brand">
@@ -119,7 +124,10 @@ const year = new Date().getFullYear();
       <div class="footer-newsletter">
         <h3 class="newsletter-title">{t("footer.newsletter.title")}</h3>
         <p class="newsletter-desc">{t("footer.newsletter.desc")}</p>
-        <a href={locale === "en" ? "/en/contact" : "/contacto"} class="newsletter-cta-btn">{locale === "en" ? "Get in touch" : "Contáctanos"}</a>
+        <div class="footer-ctas">
+          <a href={locale === "en" ? "/en/contact" : "/contacto"} class="newsletter-cta-btn">{locale === "en" ? "Get in touch" : "Contáctanos"}</a>
+          <a href="/market" class="newsletter-cta-btn newsletter-cta-btn--ghost" hreflang={locale === "en" ? "es" : undefined}>{locale === "en" ? "Visit the Market" : "Ir al Market"} →</a>
+        </div>
       </div>
     </div>
 
@@ -145,6 +153,16 @@ const year = new Date().getFullYear();
                 {link.label}
               </a>
             </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Market -->
+      <div class="footer-col">
+        <h4 class="footer-col-title">Market</h4>
+        <ul class="footer-col-links">
+          {marketLinks.map((link) => (
+            <li><a href={link.url} hreflang={locale === "en" ? "es" : undefined}>{link.label}</a></li>
           ))}
         </ul>
       </div>
@@ -175,9 +193,28 @@ const year = new Date().getFullYear();
       <p class="footer-copyright">
         © {year} Tony Ciencia LLC · Albuquerque, NM, USA · {t("footer.rights")}
       </p>
+      <div class="footer-controls">
+        {alternatePath && (
+          <a href={alternatePath} class="footer-lang" hreflang={locale === "en" ? "es" : "en"} lang={locale === "en" ? "es" : "en"}>
+            {locale === "en" ? "🌐 Leer en español" : "🌐 Read in English"}
+          </a>
+        )}
+        <a href="#main-content" class="back-to-top-link" id="footer-top">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+          {locale === "en" ? "Back to top" : "Volver arriba"}
+        </a>
+      </div>
     </div>
   </div>
 </footer>
+
+<script>
+  // "Volver arriba" sin JS en línea: el ancla funciona sola; con JS, desplazamiento suave.
+  document.getElementById("footer-top")?.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  });
+</script>
 
 <style>
   .site-footer {
@@ -320,15 +357,42 @@ const year = new Date().getFullYear();
   }
 
   .newsletter-cta-btn:hover {
-    transform: translate(-2px, -2px);
+    transform: translateY(-1px);
     box-shadow: none;
     color: var(--color-on-accent);
+  }
+
+  .footer-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .newsletter-cta-btn--ghost {
+    background: transparent;
+    color: var(--color-text);
+    border-color: var(--color-border);
+  }
+
+  .newsletter-cta-btn--ghost:hover {
+    color: var(--color-text);
+    border-color: var(--color-text-secondary);
+  }
+
+  .footer-lang {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+  }
+
+  .footer-lang:hover {
+    color: var(--color-text);
   }
 
   /* ── 4-column Grid ── */
   .footer-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 2rem;
     padding-bottom: 3rem;
     border-bottom: 1px solid var(--color-border-subtle);
@@ -411,7 +475,7 @@ const year = new Date().getFullYear();
     }
 
     .footer-grid {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 

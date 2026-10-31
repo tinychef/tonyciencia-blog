@@ -22,7 +22,16 @@ const intruder = `otra-persona-${run}@maqueta.test`;
 
 let browser;
 before(async () => {
-	browser = await chromium.launch();
+	const real = await chromium.launch();
+	// El popup de bienvenida (cupón) taparía los clics de la prueba: se marca como ya visto.
+	browser = {
+		close: () => real.close(),
+		newContext: async (opts) => {
+			const ctx = await real.newContext(opts);
+			await ctx.addInitScript(() => localStorage.setItem("mk_welcome_at", String(Date.now())));
+			return ctx;
+		},
+	};
 });
 after(async () => {
 	await browser?.close();
@@ -40,12 +49,13 @@ test("flujo completo en modo maqueta", { timeout: 120_000 }, async () => {
 
 	// 1) Catálogo
 	await page.goto(`${BASE}/market`);
-	await assert.doesNotReject(page.getByRole("heading", { name: "Market Tony", level: 1 }).waitFor());
+	await assert.doesNotReject(page.getByRole("heading", { name: /Herramientas de IA/, level: 1 }).waitFor());
+	assert.ok((await page.locator(".mk-pcard").count()) >= 5, "el catálogo muestra al menos 5 productos");
 	assert.ok(await page.getByText("MODO MAQUETA").isVisible(), "la banda de maqueta debe verse");
 	await page.screenshot({ path: join(OUT, "01-catalogo.png"), fullPage: true });
 
 	// 2) Producto de pago → login de maqueta → vuelve al producto
-	await page.getByRole("link", { name: /Anuncios Infinitos/ }).click();
+	await page.getByRole("link", { name: /Anuncios Infinitos/ }).first().click();
 	await page.waitForURL(/\/market\/producto\/anuncios-infinitos$/);
 	await page.screenshot({ path: join(OUT, "02-producto.png"), fullPage: true });
 	await page.getByRole("link", { name: /usuario de prueba/ }).click();
@@ -56,11 +66,11 @@ test("flujo completo en modo maqueta", { timeout: 120_000 }, async () => {
 	await page.waitForURL(/\/market\/producto\/anuncios-infinitos$/);
 
 	// 3) Comprar → checkout simulado → pagar
-	await page.getByRole("button", { name: /Comprar por \$77 USD/ }).click();
+	await page.getByRole("button", { name: /Comprar por \$76\.90 USD/ }).click();
 	await page.waitForURL(/\/market\/maqueta\/pago\/cs_mock_/);
 	const mockPayUrl = page.url();
 	await page.screenshot({ path: join(OUT, "03-pago-simulado.png"), fullPage: true });
-	await page.getByRole("button", { name: /Pagar \$77 USD \(simulado\)/ }).click();
+	await page.getByRole("button", { name: /Pagar \$76\.90 USD \(simulado\)/ }).click();
 	await page.waitForURL(/\/market\/pago\/exito/);
 	await page.getByRole("heading", { name: "¡Gracias por tu compra!" }).waitFor({ timeout: 15_000 });
 	await page.screenshot({ path: join(OUT, "04-exito.png"), fullPage: true });
@@ -138,7 +148,7 @@ test("flujo completo en modo maqueta", { timeout: 120_000 }, async () => {
 	await p2.getByRole("button", { name: "Entrar como este usuario" }).click();
 	await p2.waitForURL(/\/market\/producto\/anuncios-infinitos$/);
 	await p2.goto(`${BASE}/market/mis-compras`);
-	const csrf = await p2.locator('form[action="/market/salir"] input[name="csrf"]').inputValue();
+	const csrf = await p2.locator('form[action="/market/salir"] input[name="csrf"]').first().inputValue();
 	const res = await p2.request.post(`${BASE}/market/descargas/${entitlementId}`, {
 		form: { csrf },
 		headers: { origin: BASE },
@@ -152,8 +162,11 @@ test("flujo completo en modo maqueta", { timeout: 120_000 }, async () => {
 	const p3 = await ctx3.newPage();
 	await p3.goto(`${BASE}/market`);
 	await p3.screenshot({ path: join(OUT, "08-movil-catalogo.png"), fullPage: true });
-	const fab = p3.getByRole("link", { name: "Market Tony" }).last();
-	assert.ok(await fab.isVisible(), "el botón flotante se ve en móvil");
+	// Menú móvil: se abre y se puede cerrar (antes no había cómo salir).
+	await p3.locator(".mk-menu > summary").click();
+	assert.ok(await p3.getByRole("link", { name: "Agentes para empresas" }).last().isVisible(), "el menú móvil se abre");
+	await p3.getByRole("button", { name: "Cerrar menú" }).click();
+	assert.equal(await p3.locator(".mk-menu").evaluate((d) => d.open), false, "el menú móvil se cierra con ✕");
 	await p3.goto(`${BASE}/market/producto/anuncios-infinitos`);
 	await p3.screenshot({ path: join(OUT, "09-movil-producto.png"), fullPage: true });
 	await p3.getByRole("link", { name: /usuario de prueba/ }).click();

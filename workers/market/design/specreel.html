@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+	/* Estilo de SpecReel: negro puro, blanco, grises, etiquetas técnicas en mono. */
+	:root { --bg: #000; --fg: #fff; --g1: #8a8a8a; --g2: #3a3a3a; --g3: #1a1a1a; }
+	* { box-sizing: border-box; margin: 0; padding: 0; }
+	body { background: #222; }
+	.frame { width: 1600px; height: 1000px; position: relative; overflow: hidden; background: var(--bg); color: var(--fg); font-family: "Inter", sans-serif; }
+	.mono { font-family: "JetBrains Mono", monospace; text-transform: uppercase; letter-spacing: 0.18em; }
+	.brand { position: absolute; left: 100px; top: 92px; }
+	.brand b { display: block; font-size: 24px; letter-spacing: 0.32em; font-weight: 700; }
+	.brand span { display: block; margin-top: 12px; font-size: 16px; color: var(--g1); }
+	h1, h2 { font-weight: 800; letter-spacing: -0.035em; line-height: 0.98; }
+	.cover h1 { position: absolute; left: 96px; top: 280px; font-size: 94px; }
+	.cover .sub { position: absolute; left: 100px; top: 530px; font-size: 26px; line-height: 1.5; color: #b9b9b9; width: 600px; }
+	.works { position: absolute; left: 100px; top: 700px; }
+	.works .mono { font-size: 15px; color: var(--g1); }
+	.chips { display: flex; gap: 14px; margin-top: 18px; }
+	.chip { border: 1.5px solid #555; border-radius: 6px; padding: 14px 20px; font-weight: 600; font-size: 19px; letter-spacing: 0.06em; text-transform: uppercase; }
+	.legal { position: absolute; left: 100px; bottom: 50px; font-size: 13px; color: #555; }
+	.phone { position: absolute; border: 1.5px solid #4a4a4a; background: #050505; }
+	.phone canvas { display: block; width: 100%; height: 100%; }
+	.hud { position: absolute; inset: 0; pointer-events: none; font-family: "JetBrains Mono"; font-size: 11px; color: #9a9a9a; letter-spacing: 0.08em; text-transform: uppercase; }
+	.hud .tl { position: absolute; left: 14px; top: 10px; line-height: 1.5; }
+	.hud .tr { position: absolute; right: 14px; top: 10px; text-align: right; line-height: 1.5; }
+	.hud .bl { position: absolute; left: 14px; bottom: 12px; }
+	.hud .br { position: absolute; right: 14px; bottom: 12px; }
+	.cap { position: absolute; left: 0; right: 0; text-align: center; font-family: "Inter"; font-weight: 600; color: #fff; text-transform: none; letter-spacing: -0.01em; }
+	.cap mark { background: #fff; color: #000; padding: 0 6px; border-radius: 4px; }
+	.callout { position: absolute; font-family: "JetBrains Mono"; color: #ddd; text-transform: uppercase; letter-spacing: 0.08em; }
+	.callout::before { content: ""; position: absolute; right: 100%; top: 9px; width: 70px; height: 1px; background: #bbb; }
+	.callout small { display: block; color: #8a8a8a; text-transform: none; letter-spacing: 0.02em; margin-top: 4px; }
+	.ratio { position: absolute; font-family: "JetBrains Mono"; font-size: 16px; color: #bbb; letter-spacing: 0.12em; }
+	.timeline { position: absolute; left: 820px; right: 90px; bottom: 70px; height: 92px; border: 1.5px solid #333; border-radius: 8px; padding: 14px 18px; }
+	.timeline .words { display: flex; gap: 8px; font-family: "JetBrains Mono"; font-size: 14px; color: #888; }
+	.timeline .words span { border: 1px solid #333; border-radius: 4px; padding: 3px 8px; }
+	.timeline .words .on { background: #fff; color: #000; border-color: #fff; }
+	.timeline .track { margin-top: 14px; height: 18px; border-radius: 3px; background: repeating-linear-gradient(90deg, #2c2c2c 0 3px, transparent 3px 9px); position: relative; }
+	.timeline .track i { position: absolute; left: 41%; top: -6px; bottom: -6px; width: 2px; background: #fff; }
+
+	/* Pantalla 1 */
+	.screen h2 { position: absolute; left: 96px; top: 190px; font-size: 84px; }
+	.screen .lead { position: absolute; left: 100px; top: 400px; width: 560px; font-size: 24px; line-height: 1.55; color: #b0b0b0; }
+	.moves { position: absolute; right: 90px; top: 110px; width: 760px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+	.move { border: 1.5px solid #333; border-radius: 10px; padding: 16px; height: 168px; position: relative; overflow: hidden; }
+	.move .n { font-family: "JetBrains Mono"; font-size: 12px; color: #777; letter-spacing: 0.14em; }
+	.move .t { position: absolute; left: 16px; bottom: 14px; font-weight: 600; font-size: 20px; }
+	.move svg { position: absolute; right: 14px; top: 34px; width: 120px; height: 90px; }
+	.move.more { display: grid; place-items: center; text-align: center; background: #0d0d0d; }
+	.move.more b { font-size: 48px; font-weight: 800; letter-spacing: -0.04em; display: block; }
+	.move.more span { color: #888; font-size: 17px; }
+	.anchors { position: absolute; left: 100px; top: 620px; width: 600px; display: grid; gap: 12px; }
+	.anchor { display: grid; grid-template-columns: 150px 1fr; gap: 16px; align-items: center; font-family: "JetBrains Mono"; font-size: 15px; color: #999; letter-spacing: 0.04em; }
+	.anchor b { color: #fff; font-weight: 500; }
+	.anchor .bar { height: 10px; border-radius: 2px; background: #222; position: relative; }
+	.anchor .bar i { position: absolute; top: 0; bottom: 0; background: #fff; border-radius: 2px; }
+
+	/* Pantalla 2 */
+	.palettes { position: absolute; left: 100px; top: 600px; display: grid; grid-template-columns: repeat(4, 130px); gap: 14px; }
+	.pal { border: 1.5px solid #333; border-radius: 8px; overflow: hidden; }
+	.pal div { display: flex; height: 54px; }
+	.pal div i { flex: 1; }
+	.pal span { display: block; padding: 8px 10px; font-family: "JetBrains Mono"; font-size: 11px; color: #999; letter-spacing: 0.1em; text-transform: uppercase; }
+	.outputs { position: absolute; right: 90px; top: 120px; width: 760px; height: 760px; }
+	.outputs .phone { border-radius: 4px; }
+	.qa { position: absolute; right: 90px; bottom: 60px; width: 760px; display: flex; gap: 12px; font-family: "JetBrains Mono"; font-size: 14px; color: #aaa; letter-spacing: 0.08em; text-transform: uppercase; }
+	.qa span { border: 1px solid #333; border-radius: 5px; padding: 8px 12px; }
+	.qa span b { color: #fff; font-weight: 500; }
+</style>
+</head>
+<body>
+
+<section class="frame cover" data-out="cover">
+	<div class="brand mono"><b>SpecReel</b><span>Agent skill · 2.0</span></div>
+	<h1>Ask your agent.<br>Get the video.</h1>
+	<p class="sub">Videos 3D narrados y con subtítulos sobre cualquier tema. Renderizados en tu propio computador.</p>
+	<div class="works">
+		<div class="mono">Works with</div>
+		<div class="chips"><span class="chip">Claude Code</span><span class="chip">Codex</span></div>
+	</div>
+	<div class="phone" id="c-main" style="left: 830px; top: 70px; width: 420px; height: 746px;">
+		<div class="hud">
+			<div class="tl">Fig. 01 — Producto<br>Botella inteligente · concepto</div>
+			<div class="tr">360°<br>Giratorio</div>
+			<div class="bl">5 cm ⟶</div>
+			<div class="br">3D · Etiquetado</div>
+		</div>
+		<div class="cap" style="top: 120px; font-size: 26px;"><mark>sensor</mark> de temperatura.</div>
+		<div class="callout" style="left: 280px; top: 236px; font-size: 12px;">Sensor térmico<small>dentro de la tapa</small></div>
+	</div>
+	<div class="phone" id="c-sq" style="left: 1290px; top: 70px; width: 230px; height: 230px;"><div class="hud"><div class="tl">1:1</div></div></div>
+	<div class="phone" id="c-45" style="left: 1290px; top: 330px; width: 230px; height: 288px;"><div class="hud"><div class="tl">4:5</div></div></div>
+	<div class="phone" id="c-169" style="left: 1290px; top: 648px; width: 230px; height: 130px;"><div class="hud"><div class="tl">16:9</div></div></div>
+	<div class="ratio" style="left: 830px; top: 830px;">9:16 · 1080×1920 · H.264 · 30 FPS</div>
+	<div class="timeline" style="left: 830px; right: 80px; bottom: 56px; height: 84px;">
+		<div class="words"><span>la</span><span>tapa</span><span>esconde</span><span>un</span><span class="on">sensor</span><span>de</span><span>temperatura</span></div>
+		<div class="track"><i></i></div>
+	</div>
+	<p class="legal">Claude Code y Codex son marcas de sus dueños; se nombran solo para indicar compatibilidad. SpecReel es independiente.</p>
+</section>
+
+<section class="frame screen" data-out="screen-1">
+	<div class="brand mono"><b>SpecReel</b><span>Cinematic camera</span></div>
+	<h2>16 movimientos.<br>8 transiciones.</h2>
+	<p class="lead">Cada movimiento de cámara, etiqueta y sonido se ancla a una palabra hablada. Nada se desincroniza.</p>
+	<div class="anchors">
+		<div class="anchor"><b>push-in</b><div class="bar"><i style="left: 4%; width: 22%;"></i></div></div>
+		<div class="anchor"><b>orbit</b><div class="bar"><i style="left: 24%; width: 30%;"></i></div></div>
+		<div class="anchor"><b>rack focus</b><div class="bar"><i style="left: 52%; width: 14%;"></i></div></div>
+		<div class="anchor"><b>whip-pan</b><div class="bar"><i style="left: 66%; width: 8%;"></i></div></div>
+		<div class="anchor"><b>caption</b><div class="bar"><i style="left: 6%; width: 88%; background: #666;"></i></div></div>
+	</div>
+	<div class="moves">
+		<div class="move"><span class="n">01</span><svg viewBox="0 0 120 90" fill="none" stroke="#fff" stroke-width="1.5"><rect x="20" y="15" width="80" height="60" rx="3" stroke="#555"/><rect x="40" y="30" width="40" height="30" rx="2"/><path d="M28 22l10 8M92 22l-10 8M28 68l10-8M92 68l-10-8"/></svg><span class="t">Push-in</span></div>
+		<div class="move"><span class="n">02</span><svg viewBox="0 0 120 90" fill="none" stroke="#fff" stroke-width="1.5"><ellipse cx="60" cy="50" rx="48" ry="16" stroke-dasharray="4 4"/><rect x="50" y="22" width="20" height="34" rx="6"/><circle cx="105" cy="46" r="5" fill="#fff"/></svg><span class="t">Orbit</span></div>
+		<div class="move"><span class="n">03</span><svg viewBox="0 0 120 90" fill="none" stroke="#fff" stroke-width="1.5"><path d="M20 76 Q 30 20 96 16" stroke-dasharray="4 4"/><circle cx="96" cy="16" r="5" fill="#fff"/><rect x="48" y="50" width="20" height="28" rx="5"/></svg><span class="t">Crane</span></div>
+		<div class="move"><span class="n">04</span><svg viewBox="0 0 120 90" fill="none" stroke="#fff" stroke-width="1.5"><path d="M10 15 L60 45 L10 75 M110 15 L60 45 L110 75" stroke="#555"/><rect x="52" y="34" width="16" height="22" rx="3"/></svg><span class="t">Dolly-zoom</span></div>
+		<div class="move"><span class="n">05</span><svg viewBox="0 0 120 90" fill="none" stroke="#fff" stroke-width="1.5"><path d="M14 45 H96 M84 33 l12 12 -12 12"/><path d="M20 30 H70 M30 60 H80" stroke="#555"/></svg><span class="t">Whip-pan</span></div>
+		<div class="move"><span class="n">06</span><svg viewBox="0 0 120 90" fill="none" stroke-width="1.5"><circle cx="40" cy="45" r="16" stroke="#555"/><circle cx="82" cy="45" r="16" stroke="#fff"/></svg><span class="t">Rack focus</span></div>
+		<div class="move more" style="grid-column: span 3; height: 150px;"><div><b>+10 movimientos · 8 transiciones</b><span>Profundidad de campo, etiquetas, escalas, callouts y chips de datos</span></div></div>
+	</div>
+</section>
+
+<section class="frame screen" data-out="screen-2">
+	<div class="brand mono"><b>SpecReel</b><span>Brand kit · outputs</span></div>
+	<h2>Tu marca.<br>Cuatro formatos.</h2>
+	<p class="lead">Desde tu logo o tus colores HEX: paleta, tipografía, estilo de subtítulos y cierre con tu llamado a la acción. Contraste revisado (WCAG).</p>
+	<div class="palettes">
+		<div class="pal"><div><i style="background:#0b0b0b"></i><i style="background:#f5f5f5"></i><i style="background:#8a8a8a"></i></div><span>Mono</span></div>
+		<div class="pal"><div><i style="background:#101828"></i><i style="background:#3e6ae1"></i><i style="background:#e6ecff"></i></div><span>Bold</span></div>
+		<div class="pal"><div><i style="background:#ffd9e2"></i><i style="background:#c8e7ff"></i><i style="background:#fff3c4"></i></div><span>Pastel</span></div>
+		<div class="pal"><div><i style="background:#fafaf7"></i><i style="background:#1d1d1f"></i><i style="background:#e85d2a"></i></div><span>Light</span></div>
+	</div>
+	<div class="outputs">
+		<div class="phone" id="o-916" style="left: 0; top: 0; width: 300px; height: 533px;"><div class="hud"><div class="tl">9:16</div></div><div class="cap" style="bottom: 70px; font-size: 18px;"><mark>sensor</mark> de temperatura.</div></div>
+		<div class="phone" id="o-11" style="left: 330px; top: 0; width: 300px; height: 300px;"><div class="hud"><div class="tl">1:1</div></div></div>
+		<div class="phone" id="o-45" style="left: 330px; top: 330px; width: 240px; height: 300px;"><div class="hud"><div class="tl">4:5</div></div></div>
+		<div class="phone" id="o-169" style="left: 0; top: 563px; width: 300px; height: 169px;"><div class="hud"><div class="tl">16:9</div></div></div>
+		<div class="ratio" style="left: 600px; top: 340px; width: 160px; line-height: 1.9; font-size: 14px;">MP4 H.264<br>30 FPS<br>Subtítulos<br>karaoke<br>+ .srt<br>−14 LUFS</div>
+	</div>
+	<div class="qa"><span><b>COVER</b> frame</span><span><b>CREDITS</b>.md</span><span><b>QA</b> REPORT.md</span></div>
+</section>
+
+<script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js" } }</script>
+<script type="module">
+	import * as THREE from "three";
+	window.__ready = false;
+
+	// Botella inteligente al estilo de las producciones de SpecReel: gris mate, tapa negra, base giratoria.
+	function bottleScene(angle, capLift, opts = {}) {
+		const scene = new THREE.Scene();
+		scene.background = new THREE.Color(0x050505);
+		const body = new THREE.Group();
+		const profile = [
+			[0, 0], [0.62, 0], [0.66, 0.04], [0.68, 0.2], [0.68, 1.55], [0.66, 1.78], [0.58, 1.95], [0.44, 2.06], [0.36, 2.1], [0.36, 2.22], [0, 2.22],
+		].map(([x, y]) => new THREE.Vector2(x, y));
+		const mat = new THREE.MeshStandardMaterial({ color: 0x8c8c8c, roughness: 0.42, metalness: 0.25 });
+		const shell = new THREE.Mesh(new THREE.LatheGeometry(profile, 96), mat);
+		body.add(shell);
+		const band = new THREE.Mesh(new THREE.CylinderGeometry(0.69, 0.69, 0.16, 96), new THREE.MeshStandardMaterial({ color: 0x2a2a2a, roughness: 0.6 }));
+		band.position.y = 0.42;
+		body.add(band);
+		const slot = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.5, 0.02), new THREE.MeshStandardMaterial({ color: 0x111111 }));
+		slot.position.set(0.25, 1.2, 0.64);
+		slot.rotation.y = 0.38;
+		body.add(slot);
+		const cap = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.42, 0.34, 64), new THREE.MeshStandardMaterial({ color: 0x151515, roughness: 0.35, metalness: 0.1 }));
+		cap.position.y = 2.32 + capLift;
+		body.add(cap);
+		const lens = new THREE.Mesh(new THREE.CircleGeometry(0.05, 24), new THREE.MeshBasicMaterial({ color: 0xffffff }));
+		lens.position.set(0, 2.32 + capLift, 0.425);
+		body.add(lens);
+		body.rotation.y = angle;
+		scene.add(body);
+		const plinth = new THREE.Mesh(new THREE.CylinderGeometry(1.25, 1.35, 0.14, 96), new THREE.MeshStandardMaterial({ color: 0x1c1c1c, roughness: 0.5, metalness: 0.4 }));
+		plinth.position.y = -0.08;
+		scene.add(plinth);
+		const ring = new THREE.Mesh(new THREE.TorusGeometry(1.3, 0.012, 8, 128), new THREE.MeshBasicMaterial({ color: 0x555555 }));
+		ring.rotation.x = Math.PI / 2;
+		ring.position.y = 0;
+		scene.add(ring);
+		scene.add(new THREE.AmbientLight(0xffffff, 0.35));
+		const key = new THREE.DirectionalLight(0xffffff, 2.2);
+		key.position.set(3, 5, 4);
+		scene.add(key);
+		const rim = new THREE.DirectionalLight(0xffffff, 1.4);
+		rim.position.set(-4, 3, -3);
+		scene.add(rim);
+		const fill = new THREE.PointLight(0xffffff, 6, 10);
+		fill.position.set(-2, 1, 3);
+		scene.add(fill);
+		return scene;
+	}
+
+	function render(el, { angle = 0.5, capLift = 0.35, fov = 30, camY = 1.25, dist = 7.2, targetY = 1.15 } = {}) {
+		const w = el.clientWidth, h = el.clientHeight;
+		const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+		renderer.setPixelRatio(2);
+		renderer.setSize(w, h);
+		renderer.toneMapping = THREE.ACESFilmicToneMapping;
+		el.prepend(renderer.domElement);
+		const camera = new THREE.PerspectiveCamera(fov, w / h, 0.1, 100);
+		camera.position.set(0, camY, dist);
+		camera.lookAt(0, targetY, 0);
+		renderer.render(bottleScene(angle, capLift), camera);
+	}
+
+	const tall = { fov: 34, dist: 8.2, camY: 1.6, targetY: 1.05 };
+	render(document.getElementById("c-main"), { ...tall, angle: 0.6, capLift: 0.55 });
+	render(document.getElementById("c-sq"), { angle: 1.4, capLift: 0.2, fov: 34, dist: 7.6 });
+	render(document.getElementById("c-45"), { angle: 2.2, capLift: 0.35, fov: 34, dist: 7.8 });
+	render(document.getElementById("c-169"), { angle: 3.0, capLift: 0.1, fov: 30, dist: 8.2 });
+	render(document.getElementById("o-916"), { ...tall, angle: 0.3, capLift: 0.5 });
+	render(document.getElementById("o-11"), { angle: 1.1, capLift: 0.3, fov: 34, dist: 7.6 });
+	render(document.getElementById("o-45"), { angle: 1.9, capLift: 0.2, fov: 34, dist: 7.8 });
+	render(document.getElementById("o-169"), { angle: 2.7, capLift: 0.1, fov: 30, dist: 8.2 });
+	window.__ready = true;
+</script>
+</body>
+</html>
