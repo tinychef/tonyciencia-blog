@@ -157,6 +157,7 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 							target={isExternalService(service) ? "_blank" : undefined}
 							rel={isExternalService(service) ? "noopener" : undefined}
 							class:list={["line-item", { "has-mascot": service.id === "merkhify" }]}
+							data-market-v2={service.href.startsWith("/market/") ? COPY.contact : undefined}
 						>
 							<span class="line-index">{String(index + 1).padStart(2, "0")}</span>
 							<span class="line-main">
@@ -202,7 +203,7 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 			<ul class="market-picks">
 				{MARKET_PICKS.map((p) => (
 					<li>
-						<a href={`/market/producto/${p.slug}`} class="market-pick" hreflang={locale === "en" ? "es" : undefined}>
+						<a href={`/market/producto/${p.slug}`} class="market-pick" hreflang={locale === "en" ? "es" : undefined} data-market-v2={p.soon ? "hide" : undefined}>
 							<span class="market-pick__media">
 								<img src={`/assets/market/${p.slug}.webp`} alt="" width="800" height="500" loading="lazy" />
 								{p.soon && <span class="market-pick__soon">{COPY.marketSoon}</span>}

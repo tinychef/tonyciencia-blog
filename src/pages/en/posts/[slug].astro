@@ -40,8 +40,9 @@ const post = (cmsPost ?? staticPost) as any;
 const isStaticPost = !cmsPost && !!staticPost;
 
 if (!post) {
-	// Existe solo en español → a su URL en español; si no existe, al 404 en inglés.
-	return Astro.redirect(cmsHit ? `/posts/${slug}` : "/en/404");
+	// Existe solo en español → a su URL en español; si no existe en ningún idioma, al 404 en inglés.
+	const spanish = cmsHit ?? getStaticPost("es", slug) ?? (await getEmDashEntry("posts", slug, { locale: "es" })).entry;
+	return Astro.redirect(spanish ? `/posts/${slug}` : "/en/404");
 }
 
 Astro.cache.set(cacheHint);

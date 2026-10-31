@@ -237,7 +237,7 @@ const homeHref = locale === "en" ? "/en" : "/";
 						{item.market ? <span class="mobile-menu-badge">{locale === "en" ? "Shop" : "Tienda"}</span> : <span class="mobile-menu-arrow" aria-hidden="true">→</span>}
 					</a>
 				))}
-				<a href="/market/agentes-para-empresas" class="mobile-menu-cta" hreflang={locale === "en" ? "es" : undefined}>
+				<a href="/market/agentes-para-empresas" class="mobile-menu-cta" hreflang={locale === "en" ? "es" : undefined} data-market-v2={locale === "en" ? "/en/contact" : "/contacto"}>
 					{locale === "en" ? "Custom AI agents for companies" : "Agentes de IA para empresas"}
 				</a>
 				<div class="mobile-menu-divider"></div>
@@ -1268,6 +1268,24 @@ const homeHref = locale === "en" ? "/en" : "/";
 				});
 				// Al volver con "atrás" (bfcache) el menú nunca queda abierto.
 				window.addEventListener("pageshow", () => isOpen() && closeMenu(false));
+			})();
+
+			// Respaldo temporal: los enlaces a páginas del Market v2 (data-market-v2) van a su alternativa
+			// mientras el market desplegado no las tenga (se detecta por /market/sitemap.xml, que solo existe en v2).
+			// En cuanto el market v2 está en producción, no se cambia nada. Se puede borrar después.
+			(function () {
+				const links = document.querySelectorAll<HTMLAnchorElement>("a[data-market-v2]");
+				if (!links.length) return;
+				fetch("/market/sitemap.xml", { method: "HEAD" })
+					.then((res) => {
+						if (res.ok) return;
+						links.forEach((a) => {
+							const fallback = a.dataset.marketV2 ?? "";
+							if (fallback === "hide") a.closest("li")?.remove();
+							else a.href = fallback;
+						});
+					})
+					.catch(() => {});
 			})();
 
 			// Cabecera con sombra al bajar + barra de progreso de lectura.

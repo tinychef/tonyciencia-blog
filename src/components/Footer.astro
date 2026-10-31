@@ -149,7 +149,11 @@ const year = new Date().getFullYear();
         <ul class="footer-col-links">
           {serviceLinks.map((link) => (
             <li>
-              <a href={link.url} {...link.url.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {}}>
+              <a
+                href={link.url}
+                {...link.url.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {}}
+                data-market-v2={link.url.startsWith("/market/") ? (locale === "en" ? "/en/contact" : "/contacto") : undefined}
+              >
                 {link.label}
               </a>
             </li>
