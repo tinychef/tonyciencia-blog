@@ -160,8 +160,6 @@ export interface CatalogProps {
 	query: string;
 }
 
-const MARQUEE = ["Claude Code", "Codex", "n8n", "Meta Ads", "Google Ads", "TikTok", "LinkedIn", "Instagram", "WhatsApp", "HighLevel", "Stripe", "Cursor", "Gemini"];
-
 export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query }) => {
 	const maxSales = Math.max(0, ...products.map((p) => p.stats.sales));
 	const showcase = products.filter((p) => p.images[0]).slice(0, 3);
@@ -175,26 +173,21 @@ export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query }
 			<section class="mk-hero2">
 				<div class="mk-hero2-glow" aria-hidden="true"></div>
 				<div class="tc-shell mk-hero2-grid">
-					<div class="mk-hero2-copy" data-reveal>
-						<p class="mk-kicker">
-							<span class="mk-dot" aria-hidden="true"></span> Market Tony · Tienda de Tony Ciencia
-						</p>
+					{/* Arriba, una sola acción: ir a los productos. Sin data-reveal: el titular se pinta de inmediato (LCP). */}
+					<div class="mk-hero2-copy">
+						<p class="mk-kicker">Market Tony</p>
 						<h1>
 							Herramientas de IA <span class="mk-grad">que trabajan por ti</span>
 						</h1>
-						<p class="mk-lead">
-							Agentes, skills y plantillas para crear anuncios, videos y automatizaciones con Claude Code, Codex y n8n. En español, pago
-							único y descarga inmediata.
-						</p>
+						<p class="mk-lead">Agentes, skills y plantillas en español. Pago único y descarga inmediata.</p>
 						<div class="mk-hero2-cta">
 							<a href="#catalogo" class="tc-btn tc-btn--primary mk-btn-glow">
 								Ver productos
 							</a>
-							<a href="/market/agentes-para-empresas" class="tc-btn tc-btn--secondary">
-								Agentes a medida para empresas
+							<a href="/market/agentes-para-empresas" class="mk-textlink">
+								¿Empresa? Agentes a medida →
 							</a>
 						</div>
-						<TrustStrip compact />
 					</div>
 					<div class="mk-hero2-stack" aria-hidden="true" data-parallax>
 						{showcase.map((p, i) => (
@@ -208,14 +201,6 @@ export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query }
 					</div>
 				</div>
 			</section>
-
-			<div class="mk-marquee" aria-label="Funciona con">
-				<div class="mk-marquee-track">
-					{[...MARQUEE, ...MARQUEE].map((m, i) => (
-						<span aria-hidden={i >= MARQUEE.length ? "true" : undefined}>{m}</span>
-					))}
-				</div>
-			</div>
 
 			<section class="tc-shell mk-section" id="catalogo" aria-labelledby="catalogo-titulo">
 				<div class="mk-section-head">

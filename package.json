@@ -15,7 +15,8 @@
     "typecheck": "astro check",
     "bootstrap": "pnpm build:seed && emdash init && emdash seed",
     "seed": "pnpm build:seed && emdash seed",
-    "generate:partners": "node scripts/generate-partners-data.mjs"
+    "generate:partners": "node scripts/generate-partners-data.mjs",
+    "cache:partner-icons": "node scripts/cache-partner-icons.mjs"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^14.1.0",

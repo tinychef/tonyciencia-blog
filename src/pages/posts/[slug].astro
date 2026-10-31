@@ -2,7 +2,6 @@
 import {
 	getEmDashEntry,
 	getEmDashCollection,
-	getEntryTerms,
 	getSeoMeta,
 	decodeSlug,
 	getSiteSettings,
@@ -19,8 +18,9 @@ import AuthorBio from "../../components/AuthorBio.astro";
 import ArticleMeta from "../../components/ArticleMeta.astro";
 import { getReadingTime } from "../../utils/reading-time";
 import { resolveBlogSiteIdentity } from "../../utils/site-identity";
-import { getStaticPost, getStaticPosts, getStaticTags } from "../../utils/static-posts";
+import { getStaticPost, getStaticPosts } from "../../utils/static-posts";
 import { getLangFromUrl, useTranslations } from "../../i18n/locales";
+import { postTags, postTerms } from "../../utils/terms";
 
 const locale = getLangFromUrl(Astro.url);
 const t = useTranslations(locale);
@@ -69,29 +69,15 @@ function getImageUrl(img: unknown): string | undefined {
 	return undefined;
 }
 const featuredImageUrl = getImageUrl(post.data.featured_image);
-const { siteTitle } = resolveBlogSiteIdentity(await getSiteSettings());
-
-// Generate SEO meta from content
-const seo = isStaticPost
-	? {
-			title: `${post.data.title} — ${siteTitle}`,
-			ogTitle: post.data.title,
-			description: post.data.excerpt ?? "",
-			ogImage: featuredImageUrl,
-			canonical: new URL(`/posts/${slug}`, Astro.site ?? Astro.url.origin).href,
-			robots: null,
-		}
-	: getSeoMeta(post as any, {
-			siteTitle,
-			siteUrl: Astro.url.origin,
-			path: `/posts/${slug}`,
-			defaultOgImage: featuredImageUrl,
-		});
-const canonicalUrl = seo.canonical || new URL(`/posts/${slug}`, Astro.site ?? Astro.url.origin).href;
+// Ajustes del sitio y traducción se piden ya y se esperan después de los relacionados: van en paralelo.
+const siteSettingsPromise = getSiteSettings();
+const cmsTranslationPromise = isStaticPost
+	? Promise.resolve(undefined)
+	: getEmDashCollection("posts", { where: { translation_of: slug }, locale: "en", limit: 1 }).then((r) => r.entries[0]);
 
 // Get tags for this post
 // Note: post.id is the slug, post.data.id is the database ULID
-const tags = isStaticPost ? getStaticTags(post) : await getEntryTerms("posts", post.data.id, "tag");
+const tags = postTags(post);
 
 // Bylines are already hydrated by getEmDashEntry
 const bylines = post.data.bylines ?? [];
@@ -111,7 +97,7 @@ if (isStaticPost) {
 		.filter((candidate) => candidate.id !== post.id)
 		.slice(0, 4);
 } else {
-	const postCategories = await getEntryTerms("posts", post.data.id, "category");
+	const postCategories = postTerms(post, "category");
 
 	const categoryResults = await Promise.all(
 		postCategories.map((cat) =>
@@ -174,6 +160,27 @@ if (isStaticPost) {
 }
 const otherPosts = relatedPosts.slice(0, 4);
 
+const { siteTitle } = resolveBlogSiteIdentity(await siteSettingsPromise);
+
+// Generate SEO meta from content
+const seo = isStaticPost
+	? {
+			title: `${post.data.title} — ${siteTitle}`,
+			ogTitle: post.data.title,
+			description: post.data.excerpt ?? "",
+			ogImage: featuredImageUrl,
+			canonical: new URL(`/posts/${slug}`, Astro.site ?? Astro.url.origin).href,
+			robots: null,
+		}
+	: getSeoMeta(post as any, {
+			siteTitle,
+			siteUrl: Astro.url.origin,
+			path: `/posts/${slug}`,
+			defaultOgImage: featuredImageUrl,
+		});
+const canonicalUrl = seo.canonical || new URL(`/posts/${slug}`, Astro.site ?? Astro.url.origin).href;
+
+
 // Extract FAQ items from post data for FAQPage schema
 function extractFaqItems(faqData: unknown): Array<{ question: string; answer: string }> {
 	if (!faqData || !Array.isArray(faqData)) return [];
@@ -197,24 +204,16 @@ const faqItems = extractFaqItems(post.data.faq_items);
 
 // La traducción puede estar en el CMS o en content/posts/en/*.json: se buscan las dos.
 const staticTranslation = getStaticPosts("en").find((candidate) => candidate.data.translation_of === slug);
-const cmsTranslation = isStaticPost
-	? undefined
-	: (
-			await getEmDashCollection("posts", {
-				where: { translation_of: slug },
-				locale: "en",
-				limit: 1,
-			})
-		).entries[0];
+const cmsTranslation = await cmsTranslationPromise;
 const translatedPost = cmsTranslation ?? staticTranslation;
 const alternatePath = translatedPost ? `/en/posts/${translatedPost.id}` : undefined;
 
 // Fetch tags for related posts (bylines are already hydrated by getEmDashCollection)
 const otherPostsWithTags = await Promise.all(
 	otherPosts.map(async (p) => {
-		const postTags = isStaticPost ? getStaticTags(p) : await getEntryTerms("posts", p.data.id, "tag");
+		const relatedTags = postTags(p);
 		const postBylines = p.data.bylines ?? [];
-		return { post: p, tags: postTags, bylines: postBylines };
+		return { post: p, tags: relatedTags, bylines: postBylines };
 	})
 );
 

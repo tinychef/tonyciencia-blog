@@ -18,11 +18,11 @@ const { locale = "es" } = Astro.props;
 
 const COPY = {
 	es: {
-		titleA: "Implementa IA.",
-		titleB: "Avanza.",
-		sub: "Automatizaciones y agentes de IA operando dentro de tu empresa.",
+		hello: "Hola, soy Tony",
+		titleA: "IA aplicada",
+		titleB: "que puedes usar hoy.",
+		sub: "Creo herramientas de IA en español y te enseño a usarlas en mi canal.",
 		book: "Agendar llamada",
-		seeServices: "Ver servicios",
 		services: "Servicios",
 		crmLabel: "CRM favorito 2026",
 		crmCta: "Probar gratis",
@@ -36,21 +36,22 @@ const COPY = {
 		dateLocale: "es-ES",
 		marketKicker: "Market Tony",
 		marketTitle: "Herramientas de IA listas para usar",
-		marketSub: "Agentes, skills y plantillas para crear anuncios, videos y automatizaciones. Pago único y descarga inmediata.",
-		marketCta: "Ver el Market",
-		marketSoon: "Próximamente",
-		videoKicker: "YouTube",
-		videoTitle: "Mírame en acción",
-		videoSub: "Tutoriales de IA, automatización y n8n, paso a paso y en español.",
-		videoCta: "Suscribirme al canal",
+		marketSub: "Agentes, skills y plantillas para anuncios, videos y automatización. Pago único, descarga inmediata.",
+		marketCta: "Ir al Market",
+		meKicker: "Conóceme",
+		meTitle: "Mírame en acción",
+		meSub: "Más de 2.600 personas aprenden IA conmigo en YouTube.",
+		meSubscribe: "Suscribirme",
+		meAbout: "Sobre mí",
+		about: "/about",
 		videoPlay: "Reproducir el video",
 	},
 	en: {
-		titleA: "Implement AI.",
-		titleB: "Move forward.",
-		sub: "Automations and AI agents running inside your company.",
+		hello: "Hi, I'm Tony",
+		titleA: "Applied AI",
+		titleB: "you can use today.",
+		sub: "I build AI tools and teach how to use them on my channel (in Spanish).",
 		book: "Book a call",
-		seeServices: "See services",
 		services: "Services",
 		crmLabel: "Favorite CRM 2026",
 		crmCta: "Try it free",
@@ -64,19 +65,25 @@ const COPY = {
 		dateLocale: "en-US",
 		marketKicker: "Market Tony (in Spanish)",
 		marketTitle: "Ready-to-use AI tools",
-		marketSub: "Agents, skills and templates to create ads, videos and automations. One-time payment, instant download.",
+		marketSub: "Agents, skills and templates for ads, videos and automation. One-time payment, instant download.",
 		marketCta: "Visit the Market",
-		marketSoon: "Coming soon",
-		videoKicker: "YouTube",
-		videoTitle: "Watch me in action",
-		videoSub: "AI, automation and n8n tutorials, step by step (in Spanish).",
-		videoCta: "Subscribe to the channel",
+		meKicker: "Get to know me",
+		meTitle: "Watch me in action",
+		meSub: "2,600+ people learn AI with me on YouTube (in Spanish).",
+		meSubscribe: "Subscribe",
+		meAbout: "About me",
+		about: "/en/about",
 		videoPlay: "Play the video",
 	},
 }[locale];
 
-const { entries: cmsPosts, cacheHint } = await getEmDashCollection("posts", { locale });
-const { siteTitle, siteTagline } = resolveBlogSiteIdentity(await getSiteSettings());
+// Las tres consultas van en paralelo (antes eran en serie: D1 → ajustes → YouTube).
+const [{ entries: cmsPosts, cacheHint }, siteSettings, latestVideo] = await Promise.all([
+	getEmDashCollection("posts", { locale }),
+	getSiteSettings(),
+	getLatestVideo(),
+]);
+const { siteTitle, siteTagline } = resolveBlogSiteIdentity(siteSettings);
 
 Astro.cache.set(cacheHint);
 
@@ -93,14 +100,9 @@ const formatDate = (date: Date | null | undefined) =>
 
 const GHL_URL = "https://www.gohighlevel.com/highlevel-bootcamp?fp_ref=tony-ciencia-llc-57";
 
-const latestVideo = await getLatestVideo();
 
-// Vitrina del Market (worker aparte en /market, mismo dominio). Sin precios aquí para que nunca queden desactualizados.
-const MARKET_PICKS = [
-	{ slug: "anuncios-infinitos", name: "Anuncios Infinitos", line: { es: "250+ prompts de anuncios con estrategia", en: "250+ ad prompts with strategy" } },
-	{ slug: "specreel", name: "SpecReel", line: { es: "Videos 3D con Claude Code y Codex", en: "3D videos with Claude Code and Codex" } },
-	{ slug: "cutpilot", name: "CutPilot", line: { es: "Edita videos con Claude Code", en: "Edit videos with Claude Code" }, soon: true },
-];
+// Portadas de la puerta del Market (copias livianas en public/assets/market/; el Market es otro Worker en /market).
+const MARKET_COVERS = ["anuncios-infinitos", "specreel", "cutpilot"];
 
 // Carruseles curados — 6 categorías más relevantes para el ICP B2B. El catálogo
 // completo vive en /herramientas (solo ES).
@@ -131,17 +133,54 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 ---
 
 <Base title={siteTitle} description={locale === "en" ? "AI · Automation · Growth" : siteTagline}>
+	<!-- Arriba solo dos caminos: el Market (principal) y conocer a Tony. Todo lo demás va más abajo. -->
 	<section class="hero">
-		<div class="tc-column">
-			<h1 class="hero-title">
-				{COPY.titleA}<br />
-				<span class="tc-gradient-text">{COPY.titleB}</span>
-			</h1>
-			<p class="hero-sub">{COPY.sub}</p>
+		<div class="tc-shell">
+			<div class="hero-intro">
+				<p class="hero-hello"><span class="hero-wave" aria-hidden="true">👋</span> {COPY.hello}</p>
+				<h1 class="hero-title">
+					{COPY.titleA}<br />
+					<span class="tc-gradient-text">{COPY.titleB}</span>
+				</h1>
+				<p class="hero-sub">{COPY.sub}</p>
+			</div>
 
-			<div class="hero-actions">
-				<a href={COPY.contact} class="tc-btn tc-btn--primary">{COPY.book}</a>
-				<a href="#servicios" class="tc-btn tc-btn--secondary">{COPY.seeServices}</a>
+			<div class="doors">
+				<a href="/market" class="door door--market" hreflang={locale === "en" ? "es" : undefined}>
+					<span class="door-media door-media--market" aria-hidden="true">
+						{MARKET_COVERS.map((slug, i) => (
+							<img src={`/assets/market/${slug}.webp`} alt="" width="800" height="500" class={`door-cover door-cover--${i + 1}`} fetchpriority={i === 0 ? "high" : undefined} />
+						))}
+					</span>
+					<span class="door-body">
+						<span class="door-kicker">{COPY.marketKicker}</span>
+						<strong class="door-title">{COPY.marketTitle}</strong>
+						<span class="door-text">{COPY.marketSub}</span>
+						<span class="tc-btn tc-btn--primary door-cta">{COPY.marketCta} <span aria-hidden="true">→</span></span>
+					</span>
+				</a>
+
+				<div class="door door--me">
+					<div class="door-media yt-facade" data-yt={latestVideo.id}>
+						<a href={`https://www.youtube.com/watch?v=${latestVideo.id}`} target="_blank" rel="noopener" aria-label={`${COPY.videoPlay}: ${latestVideo.title}`}>
+							<img src={`https://i.ytimg.com/vi/${latestVideo.id}/hqdefault.jpg`} alt="" width="480" height="360" />
+							<span class="yt-facade__shade" aria-hidden="true"></span>
+							<span class="yt-facade__play" aria-hidden="true">
+								<svg viewBox="0 0 68 48" width="60" height="42"><path d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2.3 34 .3 34 .3s-21.2 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6c5.3 1.4 26.5 1.4 26.5 1.4s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z" fill="#f00" /><path d="m45 24-18-10v20z" fill="#fff" /></svg>
+							</span>
+							<span class="yt-facade__title">{latestVideo.title}</span>
+						</a>
+					</div>
+					<div class="door-body">
+						<span class="door-kicker">{COPY.meKicker} · YouTube</span>
+						<strong class="door-title">{COPY.meTitle}</strong>
+						<span class="door-text">{COPY.meSub}</span>
+						<span class="door-actions">
+							<a href={`${YOUTUBE_CHANNEL_URL}?sub_confirmation=1`} class="tc-btn tc-btn--secondary" target="_blank" rel="noopener">{COPY.meSubscribe}</a>
+							<a href={COPY.about} class="door-link">{COPY.meAbout} →</a>
+						</span>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -189,58 +228,6 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 		catalogLabel={COPY.catalog}
 		categoryLabels={locale === "en" ? CATEGORY_LABELS_EN : undefined}
 	/>
-
-	<section class="tc-section block market-teaser" data-reveal>
-		<div class="tc-column">
-			<div class="block-head">
-				<div>
-					<p class="tc-eyebrow">{COPY.marketKicker}</p>
-					<h2 class="block-title">{COPY.marketTitle}</h2>
-				</div>
-				<a href="/market" class="block-link" hreflang={locale === "en" ? "es" : undefined}>{COPY.marketCta} →</a>
-			</div>
-			<p class="block-sub">{COPY.marketSub}</p>
-			<ul class="market-picks">
-				{MARKET_PICKS.map((p) => (
-					<li>
-						<a href={`/market/producto/${p.slug}`} class="market-pick" hreflang={locale === "en" ? "es" : undefined} data-market-v2={p.soon ? "hide" : undefined}>
-							<span class="market-pick__media">
-								<img src={`/assets/market/${p.slug}.webp`} alt="" width="800" height="500" loading="lazy" />
-								{p.soon && <span class="market-pick__soon">{COPY.marketSoon}</span>}
-							</span>
-							<strong>{p.name}</strong>
-							<span>{p.line[locale]}</span>
-						</a>
-					</li>
-				))}
-			</ul>
-			<a href="/market" class="tc-btn tc-btn--primary market-cta" hreflang={locale === "en" ? "es" : undefined}>{COPY.marketCta}</a>
-		</div>
-	</section>
-
-	<section class="tc-section block" data-reveal>
-		<div class="tc-column">
-			<div class="block-head">
-				<div>
-					<p class="tc-eyebrow">{COPY.videoKicker}</p>
-					<h2 class="block-title">{COPY.videoTitle}</h2>
-				</div>
-				<a href={YOUTUBE_CHANNEL_URL} class="block-link" target="_blank" rel="noopener">@tonyciencia ↗</a>
-			</div>
-			<p class="block-sub">{COPY.videoSub}</p>
-			<div class="yt-facade" data-yt={latestVideo.id}>
-				<a href={`https://www.youtube.com/watch?v=${latestVideo.id}`} target="_blank" rel="noopener" aria-label={`${COPY.videoPlay}: ${latestVideo.title}`}>
-					<img src={`https://i.ytimg.com/vi/${latestVideo.id}/hqdefault.jpg`} alt="" width="480" height="360" loading="lazy" />
-					<span class="yt-facade__shade" aria-hidden="true"></span>
-					<span class="yt-facade__play" aria-hidden="true">
-						<svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2.3 34 .3 34 .3s-21.2 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6c5.3 1.4 26.5 1.4 26.5 1.4s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z" fill="#f00" /><path d="m45 24-18-10v20z" fill="#fff" /></svg>
-					</span>
-					<span class="yt-facade__title">{latestVideo.title}</span>
-				</a>
-			</div>
-			<a href={`${YOUTUBE_CHANNEL_URL}?sub_confirmation=1`} class="tc-btn tc-btn--secondary yt-subscribe" target="_blank" rel="noopener">{COPY.videoCta}</a>
-		</div>
-	</section>
 
 	<section class="tc-section block" data-reveal>
 		<div class="tc-column">
@@ -298,10 +285,11 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 </script>
 
 <style>
+	/* ── Hero: saludo + dos puertas (Market y conocer a Tony) ── */
 	.hero {
 		position: relative;
 		overflow: hidden;
-		padding: clamp(6rem, 18vw, 11rem) 0 clamp(5rem, 12vw, 8rem);
+		padding: clamp(2.75rem, 7vw, 5rem) 0 clamp(3rem, 7vw, 5rem);
 	}
 
 	/* Aurora suave detrás del titular */
@@ -312,9 +300,9 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 		height: 140%;
 		pointer-events: none;
 		background:
-			radial-gradient(30% 35% at 70% 30%, rgba(62, 106, 225, 0.22), transparent 70%),
-			radial-gradient(25% 30% at 35% 60%, rgba(155, 92, 255, 0.16), transparent 70%),
-			radial-gradient(20% 25% at 85% 70%, rgba(255, 61, 139, 0.1), transparent 70%);
+			radial-gradient(30% 35% at 70% 30%, rgba(62, 106, 225, 0.2), transparent 70%),
+			radial-gradient(25% 30% at 30% 70%, rgba(155, 92, 255, 0.14), transparent 70%),
+			radial-gradient(20% 25% at 85% 75%, rgba(255, 61, 139, 0.1), transparent 70%);
 		filter: blur(20px);
 		animation: hero-aurora 18s ease-in-out infinite alternate;
 	}
@@ -327,24 +315,236 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 		to { transform: translate3d(-6%, 4%, 0) scale(1.08); }
 	}
 
+	.hero-intro {
+		max-width: 46rem;
+		animation: hero-in 800ms var(--ease-out) both;
+	}
+
+	.hero-hello {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		padding: 6px 14px 6px 10px;
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-pill);
+		background: var(--color-bg-subtle);
+		color: var(--color-text-secondary);
+		font-size: var(--font-size-sm);
+		font-weight: 500;
+	}
+
+	.hero-wave {
+		display: inline-block;
+		transform-origin: 70% 70%;
+		animation: hero-wave 2.4s ease-in-out 1s 2;
+	}
+
+	@keyframes hero-wave {
+		0%, 60%, 100% { transform: rotate(0); }
+		10%, 30% { transform: rotate(14deg); }
+		20% { transform: rotate(-8deg); }
+		40% { transform: rotate(-4deg); }
+		50% { transform: rotate(10deg); }
+	}
+
 	.hero-title {
-		animation: hero-in 900ms var(--ease-out) both;
+		margin-top: var(--spacing-5);
+		font-size: clamp(2.5rem, 7vw, 4.4rem);
+		font-weight: 600;
+		line-height: 1;
+		letter-spacing: -0.05em;
 	}
 
 	.hero-sub {
-		animation: hero-in 900ms var(--ease-out) 120ms both;
-	}
-
-	.hero-actions {
-		animation: hero-in 900ms var(--ease-out) 240ms both;
+		max-width: 40ch;
+		margin-top: var(--spacing-5);
+		color: var(--color-text-secondary);
+		font-size: var(--font-size-lg);
+		line-height: 1.45;
+		letter-spacing: -0.015em;
 	}
 
 	@keyframes hero-in {
-		from { opacity: 0; transform: translateY(18px); filter: blur(6px); }
+		from { opacity: 0; transform: translateY(16px); }
+	}
+
+	/* Puertas: la del Market pesa más (columna más ancha y botón principal). */
+	.doors {
+		display: grid;
+		grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+		gap: var(--spacing-5);
+		margin-top: clamp(2rem, 5vw, 3rem);
+		animation: hero-in 800ms var(--ease-out) 140ms both;
+	}
+
+	.door {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		border: 1px solid var(--color-border-subtle);
+		border-radius: var(--radius-xl);
+		background: var(--color-bg-subtle);
+		overflow: hidden;
+		color: var(--color-text);
+		text-decoration: none;
+		transition: transform 300ms var(--ease-out), border-color 200ms ease, box-shadow 300ms ease;
+	}
+
+	.door:hover {
+		transform: translateY(-3px);
+		border-color: var(--color-border);
+		box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+	}
+
+	.door--market {
+		border-color: color-mix(in srgb, #9b5cff 30%, var(--color-border-subtle));
+	}
+
+	.door--market:hover {
+		box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(155, 92, 255, 0.35), 0 10px 60px -10px rgba(255, 61, 139, 0.35);
+	}
+
+	.door-media {
+		position: relative;
+		display: block;
+		aspect-ratio: 16 / 9;
+		overflow: hidden;
+	}
+
+	/* Portadas en abanico; se abren un poco al pasar el cursor. */
+	.door-media--market {
+		background:
+			radial-gradient(60% 80% at 30% 20%, rgba(245, 228, 0, 0.18), transparent 70%),
+			radial-gradient(60% 80% at 80% 80%, rgba(155, 92, 255, 0.25), transparent 70%),
+			var(--color-surface);
+	}
+
+	.door-cover {
+		position: absolute;
+		width: 58%;
+		height: auto;
+		border-radius: 10px;
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+		transition: transform 500ms var(--ease-out);
+	}
+
+	.door-cover--1 { left: 6%; top: 14%; transform: rotate(-7deg); z-index: 1; }
+	.door-cover--2 { left: 37%; top: 8%; transform: rotate(5deg); z-index: 2; }
+	.door-cover--3 { left: 22%; top: 40%; transform: rotate(-1deg); z-index: 3; }
+
+	.door--market:hover .door-cover--1 { transform: rotate(-10deg) translate(-10px, -4px); }
+	.door--market:hover .door-cover--2 { transform: rotate(8deg) translate(10px, -6px); }
+	.door--market:hover .door-cover--3 { transform: rotate(0) translateY(-6px); }
+
+	.door-body {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		gap: 8px;
+		padding: clamp(1.1rem, 2.5vw, 1.5rem);
+	}
+
+	.door-kicker {
+		color: var(--color-muted);
+		font-size: var(--font-size-xs);
+		font-weight: 600;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+	}
+
+	.door-title {
+		font-size: clamp(1.25rem, 2.4vw, 1.6rem);
+		font-weight: 600;
+		line-height: 1.15;
+		letter-spacing: -0.03em;
+	}
+
+	.door-text {
+		color: var(--color-text-secondary);
+		line-height: 1.5;
+	}
+
+	.door-cta {
+		align-self: flex-start;
+		margin-top: auto;
+		translate: 0 6px;
+	}
+
+	.door-actions {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: var(--spacing-4);
+		margin-top: auto;
+		translate: 0 6px;
+	}
+
+	.door-actions .tc-btn {
+		width: auto;
+	}
+
+	.door-link {
+		color: var(--color-text);
+		font-size: var(--font-size-sm);
+		font-weight: 500;
+		text-decoration: none;
+	}
+
+	.door-link:hover {
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	@media (max-width: 760px) {
+		.doors {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	/* Escritorio: titular en una línea e imágenes más bajas, para que las dos puertas
+	   (con sus botones) entren completas en el primer pantallazo. */
+	@media (min-width: 900px) {
+		.hero {
+			padding-top: clamp(2rem, 4vw, 3rem);
+		}
+
+		.hero-title {
+			font-size: clamp(2.6rem, 4.6vw, 3.9rem);
+		}
+
+		.hero-intro {
+			max-width: none;
+		}
+
+		.hero-sub {
+			max-width: 62ch;
+		}
+
+		.hero-title br {
+			display: none;
+		}
+
+		.hero-title .tc-gradient-text::before {
+			content: " ";
+		}
+
+		.door .door-media {
+			aspect-ratio: 2.3 / 1;
+		}
+
+		.door-cover {
+			width: 50%;
+		}
+
+		.door-cover--1 { left: 8%; top: 12%; }
+		.door-cover--2 { left: 42%; top: 6%; }
+		.door-cover--3 { left: 25%; top: 34%; }
 	}
 
 	@media (prefers-reduced-motion: reduce) {
-		.hero::before, .hero-title, .hero-sub, .hero-actions { animation: none; }
+		.hero::before, .hero-intro, .doors, .hero-wave { animation: none; }
+		.door, .door-cover { transition: none; }
 	}
 
 	.block-sub {
@@ -380,85 +580,12 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 		}
 	}
 
-	/* ── Vitrina del Market ── */
-	.market-picks {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: var(--spacing-4);
-	}
-
-	.market-pick {
-		display: grid;
-		gap: 4px;
-		color: var(--color-text);
-		text-decoration: none;
-	}
-
-	.market-pick__media {
-		position: relative;
-		display: block;
-		aspect-ratio: 16 / 10;
-		border-radius: var(--radius-lg);
-		overflow: hidden;
-		border: 1px solid var(--color-border-subtle);
-		margin-bottom: 8px;
-		background: var(--color-surface);
-	}
-
-	.market-pick__media img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		transition: transform 600ms var(--ease-out);
-	}
-
-	.market-pick:hover .market-pick__media img {
-		transform: scale(1.05);
-	}
-
-	.market-pick__soon {
-		position: absolute;
-		left: 8px;
-		top: 8px;
-		padding: 3px 9px;
-		border-radius: var(--radius-pill);
-		background: #d4ff3a;
-		color: #111;
-		font-size: 0.7rem;
-		font-weight: 700;
-	}
-
-	.market-pick strong {
-		font-weight: 600;
-		letter-spacing: -0.01em;
-	}
-
-	.market-pick > span:last-child {
-		color: var(--color-muted);
-		font-size: var(--font-size-sm);
-	}
-
-	.market-cta {
-		margin-top: var(--spacing-8);
-	}
-
-	@media (max-width: 640px) {
-		.market-picks {
-			grid-template-columns: 1fr;
-		}
-	}
-
 	/* ── Video de YouTube (fachada liviana) ── */
 	.yt-facade {
 		position: relative;
 		aspect-ratio: 16 / 9;
-		border-radius: var(--radius-xl);
 		overflow: hidden;
 		background: #000;
-		border: 1px solid var(--color-border-subtle);
 	}
 
 	.yt-facade a,
@@ -509,32 +636,7 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 		line-height: 1.3;
 	}
 
-	.yt-subscribe {
-		margin-top: var(--spacing-6);
-	}
 
-	.hero-title {
-		font-size: clamp(3rem, 10vw, 5.75rem);
-		font-weight: 600;
-		line-height: 0.98;
-		letter-spacing: -0.055em;
-	}
-
-	.hero-sub {
-		max-width: 34ch;
-		margin-top: var(--spacing-6);
-		color: var(--color-text-secondary);
-		font-size: var(--font-size-lg);
-		line-height: 1.45;
-		letter-spacing: -0.015em;
-	}
-
-	.hero-actions {
-		display: flex;
-		flex-wrap: wrap;
-		gap: var(--spacing-3);
-		margin-top: var(--spacing-10);
-	}
 
 	/* ── Marco de credencial (CRM favorito) ── */
 	.pick {
@@ -709,9 +811,4 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 		letter-spacing: -0.045em;
 	}
 
-	@media (max-width: 640px) {
-		.hero-actions {
-			flex-direction: column;
-		}
-	}
 </style>

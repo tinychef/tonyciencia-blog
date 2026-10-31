@@ -1,5 +1,6 @@
 import type { APIRoute } from "astro";
-import { getEmDashCollection, getEntryTerms, getSiteSettings } from "emdash";
+import { getEmDashCollection, getSiteSettings } from "emdash";
+import { postTerms } from "../utils/terms";
 
 import { resolveBlogSiteIdentity } from "../utils/site-identity";
 
@@ -17,7 +18,7 @@ export const GET: APIRoute = async ({ site, url }) => {
 		posts
 			.filter((p) => p.data.publishedAt)
 			.map(async (post) => {
-				const categories = await getEntryTerms("posts", post.data.id, "category");
+				const categories = postTerms(post, "category");
 				const bylines: Array<{ byline: { displayName: string } }> = post.data.bylines ?? [];
 				return { post, categories, bylines };
 			})

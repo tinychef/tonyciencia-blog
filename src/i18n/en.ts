@@ -6,6 +6,7 @@ const en = {
 	"nav.blog": "Blog",
 	"nav.services": "Services",
 	"nav.about": "About",
+	"nav.aboutMe": "About me",
 	"nav.contact": "Contact",
 	"nav.search": "Search...",
 	"nav.admin": "Admin",

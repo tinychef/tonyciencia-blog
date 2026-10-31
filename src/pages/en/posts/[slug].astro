@@ -2,7 +2,6 @@
 import {
 	getEmDashEntry,
 	getEmDashCollection,
-	getEntryTerms,
 	getSeoMeta,
 	decodeSlug,
 	getSiteSettings,
@@ -19,8 +18,9 @@ import AuthorBio from "../../../components/AuthorBio.astro";
 import ArticleMeta from "../../../components/ArticleMeta.astro";
 import { getReadingTime } from "../../../utils/reading-time";
 import { resolveBlogSiteIdentity } from "../../../utils/site-identity";
-import { getStaticPost, getStaticPosts, getStaticTags } from "../../../utils/static-posts";
+import { getStaticPost, getStaticPosts } from "../../../utils/static-posts";
 import { getLangFromUrl, useTranslations } from "../../../i18n/locales";
+import { postTags, postTerms } from "../../../utils/terms";
 
 const locale = getLangFromUrl(Astro.url);
 const t = useTranslations(locale);
@@ -66,25 +66,10 @@ function getImageUrl(img: unknown): string | undefined {
 	return undefined;
 }
 const featuredImageUrl = getImageUrl(post.data.featured_image);
-const { siteTitle } = resolveBlogSiteIdentity(await getSiteSettings());
+// Se pide ya y se espera después de los relacionados: van en paralelo.
+const siteSettingsPromise = getSiteSettings();
 
-const seo = isStaticPost
-	? {
-			title: `${post.data.title} — ${siteTitle}`,
-			ogTitle: post.data.title,
-			description: post.data.excerpt ?? "",
-			ogImage: featuredImageUrl,
-			canonical: new URL(`/en/posts/${slug}`, Astro.site ?? Astro.url.origin).href,
-			robots: null,
-		}
-	: getSeoMeta(post as any, {
-			siteTitle,
-			siteUrl: Astro.url.origin,
-			path: `/en/posts/${slug}`,
-			defaultOgImage: featuredImageUrl,
-		});
-
-const tags = isStaticPost ? getStaticTags(post) : await getEntryTerms("posts", post.data.id, "tag");
+const tags = postTags(post);
 
 const bylines = post.data.bylines ?? [];
 
@@ -103,7 +88,7 @@ if (isStaticPost) {
 		.filter((candidate) => candidate.id !== post.id)
 		.slice(0, 4);
 } else {
-	const postCategories = await getEntryTerms("posts", post.data.id, "category");
+	const postCategories = postTerms(post, "category");
 	for (const cat of postCategories) {
 		const { entries: catPosts } = await getEmDashCollection("posts", {
 			where: { category: cat.slug },
@@ -154,6 +139,24 @@ if (isStaticPost) {
 }
 const otherPosts = relatedPosts.slice(0, 4);
 
+const { siteTitle } = resolveBlogSiteIdentity(await siteSettingsPromise);
+
+const seo = isStaticPost
+	? {
+			title: `${post.data.title} — ${siteTitle}`,
+			ogTitle: post.data.title,
+			description: post.data.excerpt ?? "",
+			ogImage: featuredImageUrl,
+			canonical: new URL(`/en/posts/${slug}`, Astro.site ?? Astro.url.origin).href,
+			robots: null,
+		}
+	: getSeoMeta(post as any, {
+			siteTitle,
+			siteUrl: Astro.url.origin,
+			path: `/en/posts/${slug}`,
+			defaultOgImage: featuredImageUrl,
+		});
+
 // Extract FAQ items from post data for FAQPage schema
 function extractFaqItems(faqData: unknown): Array<{ question: string; answer: string }> {
 	if (!faqData || !Array.isArray(faqData)) return [];
@@ -177,9 +180,9 @@ const faqItems = extractFaqItems(post.data.faq_items);
 
 const otherPostsWithTags = await Promise.all(
 	otherPosts.map(async (p) => {
-		const postTags = isStaticPost ? getStaticTags(p) : await getEntryTerms("posts", p.data.id, "tag");
+		const relatedTags = postTags(p);
 		const postBylines = p.data.bylines ?? [];
-		return { post: p, tags: postTags, bylines: postBylines };
+		return { post: p, tags: relatedTags, bylines: postBylines };
 	})
 );
 

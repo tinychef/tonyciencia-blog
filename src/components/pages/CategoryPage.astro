@@ -1,9 +1,10 @@
 ---
-import { getTerm, getEmDashCollection, getEntryTerms, decodeSlug } from "emdash";
+import { getTerm, getEmDashCollection, decodeSlug } from "emdash";
 import Base from "../../layouts/Base.astro";
 import PostCard from "../../components/PostCard.astro";
 import { getReadingTime } from "../../utils/reading-time";
 import { getLangFromUrl, useTranslations } from "../../i18n/locales";
+import { postTags } from "../../utils/terms";
 
 const locale = getLangFromUrl(Astro.url);
 const t = useTranslations(locale);
@@ -23,12 +24,7 @@ const { entries: posts, cacheHint } = await getEmDashCollection("posts", {
 Astro.cache.set(cacheHint);
 
 // Fetch tags for display on each post card
-const filteredPosts = await Promise.all(
-	posts.map(async (post) => {
-		const tags = await getEntryTerms("posts", post.data.id, "tag");
-		return { post, tags };
-	})
-);
+const filteredPosts = posts.map((post) => ({ post, tags: postTags(post) }));
 
 const postsRoute = locale === "en" ? "/en/posts" : "/posts";
 ---
