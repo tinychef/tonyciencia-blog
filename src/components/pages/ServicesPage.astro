@@ -83,6 +83,7 @@ const COPY = {
 					target={isExternalService(service) ? "_blank" : undefined}
 					rel={isExternalService(service) ? "noopener" : undefined}
 					hreflang={!isExternalService(service) && locale === "en" ? "es" : undefined}
+					data-market-v2={service.href.startsWith("/market/") ? COPY.contact : undefined}
 					class="tc-btn tc-btn--secondary"
 				>
 					{service.cta[locale]} <span aria-hidden="true">{isExternalService(service) ? "↗" : "→"}</span>

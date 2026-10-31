@@ -81,10 +81,18 @@ Pruebas: 81 de Vitest (14 nuevas), E2E completo en navegador y prueba de migraci
    en los **anuncios** de Shopping (por ejemplo, prohíbe ebooks/PDF en anuncios); las **fichas gratuitas** sí los
    aceptan. Los servicios no se pueden listar en Merchant Center, por eso el servicio no está en el feed.
 4. **Google Search Console**: envía `https://tonyciencia.com/market/sitemap.xml` (también quedó en `robots.txt`).
-5. **Permisos del token de Cloudflare** (secreto `CF_API_TOKEN` de GitHub): el deploy automático del market necesita
-   *Workers Scripts: Edit*, *D1: Edit* y *Zone → Workers Routes: Edit* (tonyciencia.com). Si el workflow "Market —
-   deploy a producción" falla por permisos, amplía el token o despliega a mano: `cd workers/market && pnpm wrangler
-   d1 migrations apply MARKET_DB --remote --env production && pnpm deploy:production`.
+5. **⚠ Desplegar el market (pendiente; lo más importante).** El blog ya está en producción, pero el primer deploy
+   automático del market (31-10, 03:36 UTC) se detuvo antes de tocar nada porque el token `CF_API_TOKEN` de GitHub no
+   tiene permiso de D1 (`not authorized to access this service [code: 7403]`). La base y el Worker del market siguen
+   como estaban. Dos caminos:
+   - **Ampliar el token** (Cloudflare → My Profile → API Tokens → el token de GitHub → Edit): agrega *Account → D1:
+     Edit* y *Zone → Workers Routes: Edit* (zona tonyciencia.com); ya tiene *Workers Scripts: Edit*. Luego en GitHub →
+     Actions → "Market — deploy a producción" → *Re-run jobs*.
+   - **O a mano** desde tu PC (con `wrangler login` hecho):
+     `cd workers/market && git pull && pnpm install && pnpm wrangler d1 migrations apply MARKET_DB --remote --env production && pnpm deploy:production`
+   Mientras tanto, los enlaces del blog a páginas nuevas del market ("Agentes a medida" y la tarjeta de CutPilot) se
+   desvían solos a Contacto o se ocultan (el blog detecta si `/market/sitemap.xml` existe). Cuando el market v2 quede
+   en producción, vuelven solos a su destino, sin tocar el blog.
 6. **EmDash**: 9 artículos en inglés tienen el slug con `en/` adelante (dan 404). Quítale el `en/` al slug y llena
    `translation_of`. Mientras tanto el índice en inglés los oculta.
 
