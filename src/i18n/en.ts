@@ -10,9 +10,10 @@ const en = {
 	"nav.search": "Search...",
 	"nav.admin": "Admin",
 	"nav.menu": "Menu",
+	"nav.skip": "Skip to content",
 
 	// Hero
-	"hero.badge": "Implementa IA, Avanza",
+	"hero.badge": "Implement AI, Move Forward",
 	"hero.title.line1": "Implement AI,",
 	"hero.title.line2": "Move Forward.",
 	"hero.subtitle": "Implement AI in your company with automations, AI agents, and strategic mentorship for teams that need to move with clarity.",
@@ -176,7 +177,7 @@ const en = {
 	"footer.company": "Company",
 	"footer.services": "Services",
 	"footer.resources": "Resources",
-	"footer.tagline": "Implementa IA, Avanza",
+	"footer.tagline": "Implement AI, Move Forward",
 	"footer.newsletter.title": "Stay updated",
 	"footer.newsletter.desc": "Articles, workflows and resources on applied AI. No spam.",
 	"footer.newsletter.placeholder": "you@email.com",

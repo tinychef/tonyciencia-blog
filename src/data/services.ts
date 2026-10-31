@@ -100,4 +100,36 @@ export const services: Service[] = [
 		},
 		cta: { es: "Probar Anuncios Infinitos", en: "Try Anuncios Infinitos" },
 	},
+	{
+		id: "agentes-a-medida",
+		name: "Agentes a medida",
+		// Vive en el market (mismo dominio): se abre en la misma pestaña.
+		href: "/market/agentes-para-empresas",
+		summary: {
+			es: "Agentes de IA hechos a medida para tu empresa. Reservas y pagas tu diagnóstico en línea.",
+			en: "Custom AI agents built for your company. Book and pay for your diagnosis online.",
+		},
+		audience: {
+			es: "Empresas que quieren un agente propio conectado a sus canales, su CRM y sus procesos.",
+			en: "Companies that want their own agent connected to their channels, CRM and processes.",
+		},
+		includes: {
+			es: [
+				"Sesión de diagnóstico por videollamada",
+				"Propuesta con alcance, tiempos y presupuesto",
+				"Construcción, pruebas y entrega",
+				"Capacitación para tu equipo",
+			],
+			en: [
+				"Diagnosis session by video call",
+				"Proposal with scope, timeline and budget",
+				"Build, testing and delivery",
+				"Training for your team",
+			],
+		},
+		cta: { es: "Reservar diagnóstico", en: "Book a diagnosis" },
+	},
 ];
+
+/** Los servicios con href interno (p. ej. /market/…) se abren en la misma pestaña. */
+export const isExternalService = (s: Pick<Service, "href">) => /^https?:\/\//.test(s.href);

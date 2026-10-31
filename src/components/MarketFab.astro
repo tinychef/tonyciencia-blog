@@ -7,11 +7,15 @@
 //  - deja un espaciador al final de la página para no cubrir el pie;
 //  - en celular se esconde al bajar y reaparece al subir, al llegar al final o con foco de teclado;
 //  - sube por encima del botón "volver arriba" de los posts y del banner de cookies.
+import { getLangFromUrl } from "../i18n/locales";
+
 const href = import.meta.env.PUBLIC_MARKET_URL || "/market";
+// La tienda está en español: en las páginas en inglés se avisa con hreflang.
+const isEn = getLangFromUrl(Astro.url) === "en";
 ---
 
 <div class="market-fab-spacer" aria-hidden="true"></div>
-<a href={href} class="market-fab" id="market-fab">
+<a href={href} class="market-fab" id="market-fab" hreflang={isEn ? "es" : undefined}>
 	<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 		<path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
 		<line x1="3" y1="6" x2="21" y2="6"></line>
