@@ -174,6 +174,30 @@ describe("idempotencia del webhook", () => {
 		expect((await one<{ status: string }>("SELECT status FROM orders WHERE id = ?1", second.order.id))?.status).toBe("expired");
 	});
 
+	it("contracargo: al abrirse suspende el acceso; si se gana lo devuelve, si se pierde no", async () => {
+		const ev = (type: string, pi: string, extra: Record<string, unknown> = {}) =>
+			JSON.stringify({ id: `evt_d_${uid()}`, type, data: { object: { id: `dp_${uid()}`, payment_intent: pi, ...extra } } });
+		const send = async (body: string) => expect((await deliver(body, await signStripePayload(MOCK_WEBHOOK_SECRET, body))).status).toBe(200);
+		const revoked = async (orderId: string) => (await one<{ revoked_at: number | null }>("SELECT revoked_at FROM entitlements WHERE order_id = ?1", orderId))?.revoked_at;
+
+		const won = await pendingOrder();
+		const paidWon = completedEvent(won.order);
+		await send(paidWon);
+		const piWon = JSON.parse(paidWon).data.object.payment_intent;
+		await send(ev("charge.dispute.created", piWon));
+		expect(await revoked(won.order.id)).not.toBeNull();
+		await send(ev("charge.dispute.closed", piWon, { status: "won" }));
+		expect(await revoked(won.order.id)).toBeNull();
+
+		const lost = await pendingOrder();
+		const paidLost = completedEvent(lost.order);
+		await send(paidLost);
+		const piLost = JSON.parse(paidLost).data.object.payment_intent;
+		await send(ev("charge.dispute.created", piLost));
+		await send(ev("charge.dispute.closed", piLost, { status: "lost" }));
+		expect(await revoked(lost.order.id)).not.toBeNull();
+	});
+
 	it("un evento cuyo id de sesión no corresponde al pedido no lo marca como pagado", async () => {
 		const { order } = await pendingOrder();
 		const body = completedEvent({ ...order, provider_session_id: "cs_ajena" });

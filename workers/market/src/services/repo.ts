@@ -176,10 +176,16 @@ export async function listActiveProducts(db: D1Database): Promise<Product[]> {
 
 type StatsRow = { paid_sales: number; rating_count: number; rating_sum: number | null };
 
+/**
+ * Una reseña cuenta solo mientras su autor conserva el producto: si el acceso se revoca (reembolso, disputa), la
+ * reseña deja de mostrarse y de sumar a las estrellas.
+ */
+const REVIEW_VISIBLE = `r.status = 'published' AND EXISTS (SELECT 1 FROM entitlements e WHERE e.product_id = r.product_id AND e.user_id = r.user_id AND e.revoked_at IS NULL)`;
+
 const STATS_SQL = `
 	(SELECT COUNT(*) FROM orders o WHERE o.product_id = p.id AND o.status = 'paid') AS paid_sales,
-	(SELECT COUNT(*) FROM reviews r WHERE r.product_id = p.id AND r.status = 'published') AS rating_count,
-	(SELECT SUM(r.rating) FROM reviews r WHERE r.product_id = p.id AND r.status = 'published') AS rating_sum`;
+	(SELECT COUNT(*) FROM reviews r WHERE r.product_id = p.id AND ${REVIEW_VISIBLE}) AS rating_count,
+	(SELECT SUM(r.rating) FROM reviews r WHERE r.product_id = p.id AND ${REVIEW_VISIBLE}) AS rating_sum`;
 
 function toShopProduct(r: ProductRow & StatsRow): ShopProduct {
 	const product = toProduct(r);
@@ -230,16 +236,27 @@ export async function getProductById(db: D1Database, id: string): Promise<Produc
 	return row ? toProduct(row) : null;
 }
 
-export async function upsertUser(db: D1Database, email: string, name: string, now = Date.now()): Promise<User> {
+/** El correo ya pertenece a OTRA cuenta del proveedor (p. ej. un correo de Workspace reasignado). */
+export class SubjectMismatchError extends Error {}
+
+/**
+ * Crea o actualiza la persona que inicia sesión. La cuenta queda atada a su identificador fijo del proveedor
+ * (`subject`): si el mismo correo llega desde otra cuenta, se rechaza en vez de entregarle compras ajenas.
+ */
+export async function upsertUser(db: D1Database, email: string, name: string, subject: string, now = Date.now()): Promise<User> {
+	const prev = await db.prepare("SELECT auth_subject FROM users WHERE email = ?1").bind(email).first<{ auth_subject: string | null }>();
+	if (prev?.auth_subject && prev.auth_subject !== subject) throw new SubjectMismatchError(`el correo ${email} pertenece a otra cuenta`);
 	const user = await db
 		.prepare(
-			`INSERT INTO users (id, email, name, created_at, last_login_at) VALUES (?1, ?2, ?3, ?4, ?4)
+			`INSERT INTO users (id, email, name, auth_subject, created_at, last_login_at) VALUES (?1, ?2, ?3, ?5, ?4, ?4)
 			 ON CONFLICT(email) DO UPDATE SET name = CASE WHEN excluded.name <> '' THEN excluded.name ELSE users.name END,
-			   last_login_at = excluded.last_login_at
-			 RETURNING id, email, name, marketing_opt_in, marketing_opt_in_at, created_at`,
+			   last_login_at = excluded.last_login_at,
+			   auth_subject = COALESCE(users.auth_subject, excluded.auth_subject)
+			 RETURNING id, email, name, marketing_opt_in, marketing_opt_in_at, created_at, auth_subject`,
 		)
-		.bind(crypto.randomUUID(), email, name, now)
-		.first<User>();
+		.bind(crypto.randomUUID(), email, name, now, subject)
+		.first<User & { auth_subject: string | null }>();
+	if (user && user.auth_subject !== subject) throw new SubjectMismatchError(`el correo ${email} pertenece a otra cuenta`);
 	if (!user) throw new Error("No se pudo crear el usuario");
 	return user;
 }
@@ -275,6 +292,25 @@ export async function countPaidOrders(db: D1Database, userId: string): Promise<n
 	const r = await db
 		.prepare("SELECT COUNT(*) AS n FROM orders WHERE user_id = ?1 AND kind = 'paid' AND status IN ('paid', 'refunded', 'review')")
 		.bind(userId)
+		.first<{ n: number }>();
+	return r?.n ?? 0;
+}
+
+/** Vida máxima de una sesión de Stripe Checkout: pasado esto, un pedido pendiente ya no se puede pagar. */
+const CHECKOUT_MAX_AGE_MS = 24 * 3600_000;
+
+/**
+ * Pedidos de esta persona con el cupón `code` para OTRO producto: pagados (o en revisión/reembolsados) o pendientes
+ * que todavía se pueden pagar. Sirve para que el cupón de bienvenida no se aplique en varios checkouts abiertos a la vez.
+ */
+export async function countOtherWelcomeOrders(db: D1Database, userId: string, productId: string, code: string, now: number): Promise<number> {
+	const r = await db
+		.prepare(
+			`SELECT COUNT(*) AS n FROM orders
+			 WHERE user_id = ?1 AND coupon_code = ?2 AND product_id <> ?3
+			   AND (status IN ('paid', 'refunded', 'review') OR (status = 'pending' AND created_at > ?4))`,
+		)
+		.bind(userId, code.toUpperCase(), productId, now - CHECKOUT_MAX_AGE_MS)
 		.first<{ n: number }>();
 	return r?.n ?? 0;
 }
@@ -333,11 +369,17 @@ export interface ReviewRow {
 	status: "published" | "hidden";
 	created_at: number;
 	updated_at: number;
+	/** Cómo obtuvo el producto quien opina: pagando («paid») o gratis («free»). */
+	order_kind?: "paid" | "free" | null;
 }
 
 export async function listPublishedReviews(db: D1Database, productId: string, limit = 30): Promise<ReviewRow[]> {
 	const { results } = await db
-		.prepare("SELECT * FROM reviews WHERE product_id = ?1 AND status = 'published' ORDER BY created_at DESC LIMIT ?2")
+		.prepare(
+			`SELECT r.*, (SELECT o.kind FROM entitlements e JOIN orders o ON o.id = e.order_id
+			              WHERE e.product_id = r.product_id AND e.user_id = r.user_id AND e.revoked_at IS NULL LIMIT 1) AS order_kind
+			 FROM reviews r WHERE r.product_id = ?1 AND ${REVIEW_VISIBLE} ORDER BY r.created_at DESC LIMIT ?2`,
+		)
 		.bind(productId, limit)
 		.all<ReviewRow>();
 	return results;
@@ -346,7 +388,7 @@ export async function listPublishedReviews(db: D1Database, productId: string, li
 /** Cuántas reseñas publicadas hay por número de estrellas (5 → n, 4 → n, …). */
 export async function ratingBreakdown(db: D1Database, productId: string): Promise<Record<number, number>> {
 	const { results } = await db
-		.prepare("SELECT rating, COUNT(*) AS n FROM reviews WHERE product_id = ?1 AND status = 'published' GROUP BY rating")
+		.prepare(`SELECT r.rating, COUNT(*) AS n FROM reviews r WHERE r.product_id = ?1 AND ${REVIEW_VISIBLE} GROUP BY r.rating`)
 		.bind(productId)
 		.all<{ rating: number; n: number }>();
 	const out: Record<number, number> = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };

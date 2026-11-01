@@ -7,6 +7,12 @@ import { formatPrice } from "../lib/money";
 import { BrandLogo, Icon } from "./icons";
 import { offerPhrase, storeRoot, t, type Lang } from "../lib/i18n";
 
+/**
+ * Páginas privadas sin Google Tag Manager: admin, compras, descargas y login. No hay nada que medir ahí, sus URLs
+ * llevan identificadores de pedidos y accesos, y así ningún script de terceros corre junto al panel de administración.
+ */
+const NO_GTM_PATH = /^\/market\/(admin|mis-compras|descargas|archivo|entrar|auth|maqueta)(\/|$)/;
+
 export interface PageMeta {
 	title: string;
 	description?: string;
@@ -91,7 +97,7 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 			: `Ver el cupón de ${offerText || "descuento"} en tu primera compra`;
 	return (
 		// data-gtm: market.js carga Google Tag Manager solo si el entorno tiene GTM_ID (src/config.ts).
-		<html lang={lang} class={theme} data-gtm={config.gtmId ?? undefined}>
+		<html lang={lang} class={theme} data-gtm={config.gtmId && !NO_GTM_PATH.test(meta.path) ? config.gtmId : undefined}>
 			<head>
 				<meta charset="utf-8" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />

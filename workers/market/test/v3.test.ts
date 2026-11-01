@@ -208,7 +208,7 @@ describe("Stripe: checkout con oferta y cupón de bienvenida", () => {
 			.bind(p.id, JSON.stringify([{ src: "/market/static/products/anuncios-infinitos/cover.webp", alt: "x" }]))
 			.run();
 		const product = (await getProductBySlug(env.MARKET_DB, p.slug))!;
-		const user = await upsertUser(env.MARKET_DB, `oferta-${uid()}@example.com`, "Cliente");
+		const user = await upsertUser(env.MARKET_DB, `oferta-${uid()}@example.com`, "Cliente", `test:${uid()}`);
 		let body: URLSearchParams | null = null;
 		const fake = (async (_url: string, init: RequestInit) => {
 			body = new URLSearchParams(String(init.body));
@@ -316,6 +316,47 @@ describe("carga de archivos con hash fijado", () => {
 			const r3 = await call(`/market/provision/${p.slug}`, { method: "PUT", body: bad, headers: { "content-length": String(bad.length) } });
 			expect(await r3.json()).toMatchObject({ status: "already" });
 			expect((await call(`/market/provision/otro-${uid()}`, { method: "PUT", body: good })).status).toBe(404);
+		} finally {
+			provisionTestHooks.entries = null;
+		}
+	});
+});
+
+describe("carga de archivos: no revierte ni reactiva", () => {
+	async function sha(buf: Uint8Array) {
+		return [...new Uint8Array(await crypto.subtle.digest("SHA-256", buf))].map((b) => b.toString(16).padStart(2, "0")).join("");
+	}
+	const put = (slug: string, body: Uint8Array) =>
+		call(`/market/provision/${slug}`, { method: "PUT", body, headers: { "content-type": "application/zip", "content-length": String(body.length) } });
+
+	it("un comprador no puede pisar el archivo que el admin subió después", async () => {
+		const adminKey = `products/${crypto.randomUUID()}/${Date.now()}-v2.zip`;
+		const loaded = loadConfig(env as Env);
+		if (!loaded.ok) throw new Error("config");
+		const v2 = new TextEncoder().encode("v2 subida desde el admin");
+		await createAdapters(loaded.config, env as Env).storage.put(adminKey, v2.buffer as ArrayBuffer, { contentType: "application/zip", size: v2.length });
+		const p = await createProduct({ priceCents: 1200, fileKey: adminKey });
+		const v1 = new TextEncoder().encode(`zip v1 ${uid()}`);
+		provisionTestHooks.entries = [{ slug: p.slug, sha256: await sha(v1), size: v1.length, fileName: "producto.zip", contentType: "application/zip", activate: true }];
+		try {
+			expect((await put(p.slug, v1)).status).toBe(409);
+			expect((await getProductBySlug(env.MARKET_DB, p.slug))!.file_key).toBe(adminKey);
+		} finally {
+			provisionTestHooks.entries = null;
+		}
+	});
+
+	it("un producto retirado no se reactiva al volver a subir su archivo", async () => {
+		const p = await createProduct({ priceCents: 1200, fileKey: null });
+		const v1 = new TextEncoder().encode(`zip ${uid()}`);
+		const entry = { slug: p.slug, sha256: await sha(v1), size: v1.length, fileName: "producto.zip", contentType: "application/zip", activate: true };
+		provisionTestHooks.entries = [entry];
+		try {
+			// Retirado: active = 0 con disponibilidad normal (así se retira por migración).
+			await env.MARKET_DB.prepare("UPDATE products SET active = 0, availability = 'available' WHERE id = ?1").bind(p.id).run();
+			expect((await put(p.slug, v1)).status).toBe(200);
+			const after = (await getProductBySlug(env.MARKET_DB, p.slug, false))!;
+			expect(after).toMatchObject({ file_key: provisionKey(entry), active: 0 });
 		} finally {
 			provisionTestHooks.entries = null;
 		}

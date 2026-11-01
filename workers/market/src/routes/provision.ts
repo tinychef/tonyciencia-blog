@@ -50,6 +50,9 @@ export function provisionEntries(): ProvisionEntry[] {
 
 export const provisionKey = (e: ProvisionEntry) => `products/${e.slug}/${e.sha256.slice(0, 16)}/${safeFileName(e.fileName)}`;
 
+/** Claves que puso este endpoint (products/<slug>/<16 hex>/…). Las del admin son products/<id>/<fecha>-<nombre>. */
+const PROVISIONED_KEY = /^products\/[a-z0-9-]+\/[0-9a-f]{16}\//;
+
 export function registerProvision(app: Hono<AppEnv>, entries: () => ProvisionEntry[] = provisionEntries) {
 	app.put("/market/provision/:slug", async (c) => {
 		const slug = c.req.param("slug");
@@ -65,6 +68,11 @@ export function registerProvision(app: Hono<AppEnv>, entries: () => ProvisionEnt
 			return c.json({ status: "already", slug, key, availability: product.availability });
 		}
 		if (!(await hit(db, RULE, clientIp(c)))) return c.json({ error: "demasiados intentos" }, 429);
+		// El endpoint es público (basta tener el archivo, que cualquier comprador tiene): nunca reemplaza un archivo
+		// subido desde el admin. Solo llena un producto sin archivo o cambia una versión aprovisionada por otra.
+		if (product.file_key && !PROVISIONED_KEY.test(product.file_key) && (await storage.head(product.file_key))) {
+			return c.json({ error: "el producto tiene un archivo subido desde el admin; cámbialo desde el admin" }, 409);
+		}
 		const declared = Number.parseInt(c.req.header("content-length") ?? "", 10);
 		if (declared !== entry.size) return c.json({ error: `content-length debe ser ${entry.size}` }, 400);
 		const body = c.req.raw.body;
@@ -82,8 +90,8 @@ export function registerProvision(app: Hono<AppEnv>, entries: () => ProvisionEnt
 		await db
 			.prepare(
 				`UPDATE products SET file_key = ?2, file_name = ?3, file_size = ?4, updated_at = ?5,
-				   availability = CASE WHEN ?6 = 1 THEN 'available' ELSE availability END,
-				   active = CASE WHEN ?6 = 1 THEN 1 ELSE active END
+				   availability = CASE WHEN ?6 = 1 AND availability = 'coming_soon' THEN 'available' ELSE availability END,
+				   active = CASE WHEN ?6 = 1 AND availability = 'coming_soon' THEN 1 ELSE active END
 				 WHERE slug = ?1`,
 			)
 			.bind(slug, key, safeFileName(entry.fileName), entry.size, Date.now(), entry.activate ? 1 : 0)

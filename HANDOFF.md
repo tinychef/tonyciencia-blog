@@ -221,7 +221,8 @@ pnpm wrangler secret put STRIPE_SECRET_KEY --env staging
 2. Developers → Webhooks → *Add endpoint*:
    - URL: `https://tonyciencia-market-staging.<SUBDOMINIO>.workers.dev/market/webhooks/pagos`
    - Eventos: `checkout.session.completed`, `checkout.session.async_payment_succeeded`,
-     `checkout.session.async_payment_failed`, `checkout.session.expired`, `charge.refunded`.
+     `checkout.session.async_payment_failed`, `checkout.session.expired`, `charge.refunded`,
+     `charge.dispute.created`, `charge.dispute.closed` (contracargos: suspenden y devuelven el acceso).
    - Copia el *Signing secret* (`whsec_…`):
 
 ```bash

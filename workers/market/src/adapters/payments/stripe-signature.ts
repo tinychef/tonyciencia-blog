@@ -91,6 +91,15 @@ export function normalizeStripeEvent(rawBody: string): PaymentEvent {
 			const refunded = num(obj.amount_refunded);
 			return { id, type: "refunded", paymentId, fullyRefunded: obj.refunded === true || (amount !== null && amount === refunded) };
 		}
+		case "charge.dispute.created":
+		case "charge.dispute.closed": {
+			const pi = obj.payment_intent;
+			const paymentId = typeof pi === "string" ? pi : str((pi as Obj | null)?.id);
+			if (!paymentId) return { id, type: "ignored", rawType: type };
+			if (type === "charge.dispute.created") return { id, type: "dispute_opened", paymentId };
+			const status = str(obj.status);
+			return { id, type: "dispute_closed", paymentId, won: status === "won" || status === "warning_closed" };
+		}
 		default:
 			return { id, type: "ignored", rawType: type };
 	}

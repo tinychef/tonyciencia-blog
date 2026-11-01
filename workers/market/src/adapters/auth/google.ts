@@ -87,6 +87,8 @@ export function identityFromIdToken(idToken: string, clientId: string, nonce: st
 	}
 	const email = normalizeEmail(claims.email);
 	if (!email) throw new AuthError("id_token sin correo");
+	const sub = typeof claims.sub === "string" && /^[A-Za-z0-9_-]{1,255}$/.test(claims.sub) ? claims.sub : null;
+	if (!sub) throw new AuthError("id_token sin sub");
 	const name = cleanLine(claims.name ?? claims.given_name ?? "", 80) ?? "";
-	return { email, name: name || email.split("@")[0]! };
+	return { email, name: name || email.split("@")[0]!, subject: `google:${sub}` };
 }

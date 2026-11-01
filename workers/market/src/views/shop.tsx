@@ -866,7 +866,7 @@ const RatingSummary: FC<{ product: ShopProduct; breakdown: Record<number, number
 				<b>{ratingText(ratingAvg)}</b>
 				<Stars value={ratingAvg} />
 				<span class="mk-muted">
-					{ratingCount} {tr(ratingCount === 1 ? "reseña" : "reseñas")} {tr("de compradores verificados")}
+					{ratingCount} {tr(ratingCount === 1 ? "reseña" : "reseñas")} {tr("de clientes verificados")}
 				</span>
 			</div>
 			<ul class="mk-bars">
@@ -1100,7 +1100,7 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 												<div class="mk-review-head">
 													<Stars value={r.rating} />
 													<b>{r.display_name || tr("Comprador verificado")}</b>
-													<span class="mk-chip mk-chip--plain">{tr("Compra verificada")}</span>
+													<span class="mk-chip mk-chip--plain">{tr(r.order_kind === "free" ? "Descarga verificada" : "Compra verificada")}</span>
 													<span class="mk-muted">{new Date(r.created_at).toLocaleDateString(lang === "en" ? "en-US" : "es", { year: "numeric", month: "short", day: "numeric" })}</span>
 												</div>
 												{r.body && <p>{r.body}</p>}
