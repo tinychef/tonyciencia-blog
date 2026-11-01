@@ -29,6 +29,8 @@ export interface PageMeta {
 	currency?: string;
 	/** Versiones de la misma página en cada idioma (hreflang y el selector ES/EN). */
 	alternates?: { es: string; en: string };
+	/** Eventos de comercio electrónico de GA4 que market.js empuja al dataLayer (src/lib/analytics.ts). */
+	dataLayer?: object[];
 }
 
 export interface LayoutProps {
@@ -45,12 +47,22 @@ export interface LayoutProps {
 
 export const CsrfField: FC<{ csrf: string | null }> = ({ csrf }) => (csrf ? <input type="hidden" name="csrf" value={csrf} /> : null);
 
-/** JSON-LD seguro dentro de <script>: escapa "<" para que ningún texto pueda cerrar la etiqueta. */
+/** JSON seguro dentro de <script>: escapa "<" para que ningún texto pueda cerrar la etiqueta. */
+const safeJson = (data: unknown) => JSON.stringify(data).replace(/</g, "\\u003c");
+
 function jsonLdScript(data: object) {
-	return raw(`<script type="application/ld+json">${JSON.stringify(data).replace(/</g, "\\u003c")}</script>`);
+	return raw(`<script type="application/ld+json">${safeJson(data)}</script>`);
 }
 
-const STATIC_VERSION = "10";
+/**
+ * Datos para el dataLayer: solo datos (type="application/json" no se ejecuta y la CSP no lo bloquea).
+ * Los lee y empuja market.js; sin GTM no salen del navegador.
+ */
+function dataLayerScript(events: object[]) {
+	return raw(`<script type="application/json" data-dl>${safeJson(events)}</script>`);
+}
+
+const STATIC_VERSION = "11";
 
 export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, theme, welcome, lang = "es", children }) => {
 	const tr = (es: string) => t(lang, es);
@@ -78,7 +90,8 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 			? `See the coupon: ${offerText || "a discount"} your first purchase`
 			: `Ver el cupón de ${offerText || "descuento"} en tu primera compra`;
 	return (
-		<html lang={lang} class={theme}>
+		// data-gtm: market.js carga Google Tag Manager solo si el entorno tiene GTM_ID (src/config.ts).
+		<html lang={lang} class={theme} data-gtm={config.gtmId ?? undefined}>
 			<head>
 				<meta charset="utf-8" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -317,6 +330,7 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 					</>
 				)}
 				<div class="mk-toast" role="status" aria-live="polite" data-toast></div>
+				{meta.dataLayer?.length ? dataLayerScript(meta.dataLayer) : null}
 				<script src={`/market/static/market.js?v=${STATIC_VERSION}`} defer></script>
 			</body>
 		</html>

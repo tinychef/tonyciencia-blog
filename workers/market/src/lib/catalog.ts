@@ -15,6 +15,30 @@ export function categoryLabel(slug: string): string | null {
 	return CATEGORIES.find((c) => c.slug === slug)?.label ?? null;
 }
 
+/**
+ * Imágenes para Google Merchant Center: 1500×1500, sin texto promocional (las portadas sí lo tienen, por eso el feed
+ * no las usa cuando hay una de estas). Viven en public/market/static/products/<slug>/. Lista EXPLÍCITA: el Worker no
+ * puede mirar el disco, y test/merchant.test.ts comprueba que cada archivo listado exista de verdad.
+ * El primero es la imagen principal (g:image_link); el resto, imágenes adicionales. Al crear merchant-2.jpg de un
+ * producto, agrégalo aquí.
+ */
+export const MERCHANT_IMAGES: Readonly<Record<string, readonly string[]>> = {
+	"anuncios-infinitos": ["merchant.jpg"],
+	specreel: ["merchant.jpg"],
+	"specreel-stick": ["merchant.jpg"],
+	"pagespeed-forensics": ["merchant.jpg"],
+	cutpilot: ["merchant.jpg"],
+	"motor-creativo-claude-code": ["merchant.jpg"],
+};
+
+/** Rutas públicas de las imágenes de Merchant de un producto (vacío si no tiene). */
+export function merchantImages(slug: string): string[] {
+	return (MERCHANT_IMAGES[slug] ?? []).map((f) => `/market/static/products/${slug}/${f}`);
+}
+
+/** Nombre corto del producto (antes de los dos puntos), para tarjetas, migas y analítica. */
+export const shortName = (title: string) => (title.split(":")[0] ?? title).trim();
+
 const NEW_DAYS = 45;
 /** "Más vendido" solo con ventas reales suficientes para que signifique algo. */
 const BESTSELLER_MIN_SALES = 3;

@@ -6,6 +6,7 @@ import { checkCsrf } from "../lib/session";
 import { cleanText, isSlug, normalizeEmail, parseIntInRange, safeNextPath } from "../lib/validate";
 import { dispatchByOrder } from "../services/outbox";
 import { claimFreeProduct, startCheckout, type Deps } from "../services/orders";
+import { viewItemEvent, viewItemListEvent } from "../lib/analytics";
 import { CATEGORIES, categoryLabel, pickRelated, publicName, seoDescription, seoTitle } from "../lib/catalog";
 import { formatPrice } from "../lib/money";
 import { canBeFree, checkBuyerAmount, fromPriceCents, isPwyw } from "../lib/pricing";
@@ -26,15 +27,16 @@ import { getWelcomeOffer, readWelcomeSetup } from "../services/welcome";
 import { LibraryPage } from "../views/account";
 import { LEGAL_DOCS, LegalPage } from "../views/legal";
 import { render, renderMessage } from "../views/render";
-import { Catalog, ProductPage, SERVICE_FAQ, ServicePage, storeFaq } from "../views/shop";
+import { Catalog, catalogVisible, ProductPage, SERVICE_FAQ, ServicePage, sortProducts, storeFaq } from "../views/shop";
 
 export function loginRedirect(c: Ctx, next: string) {
 	return c.redirect(`/market/entrar?next=${encodeURIComponent(safeNextPath(next))}`, 303);
 }
 
-/** Valida (con caché) el cupón del popup de bienvenida para las páginas públicas de la tienda. */
+/** Valida (con caché) el cupón del popup de bienvenida para las páginas públicas de la tienda (no para los XML). */
 const welcomeMiddleware: MiddlewareHandler<AppEnv> = async (c, next) => {
-	c.set("welcome", c.req.method === "GET" ? await getWelcomeOffer(c.get("config"), c.get("adapters")) : null);
+	const page = c.req.method === "GET" && !c.req.path.endsWith(".xml");
+	c.set("welcome", page ? await getWelcomeOffer(c.get("config"), c.get("adapters")) : null);
 	await next();
 };
 
@@ -62,7 +64,8 @@ export function registerShop(app: Hono<AppEnv>) {
 	app.use("/market/en/*", welcomeMiddleware);
 
 	const catalogPage = async (c: Ctx, lang: Lang) => {
-		const products = (await listShopProducts(c.env.MARKET_DB)).map((p) => localize(p, lang));
+		const base = await listShopProducts(c.env.MARKET_DB);
+		const products = base.map((p) => localize(p, lang));
 		const rawCat = c.req.query("categoria") ?? "";
 		const category = CATEGORIES.some((x) => x.slug === rawCat) ? rawCat : null;
 		const query = (c.req.query("q") ?? "").slice(0, 60);
@@ -71,6 +74,11 @@ export function registerShop(app: Hono<AppEnv>) {
 		const rawFilter = c.req.query("filtro") ?? "";
 		const filter = (["ofertas", "gratis", "disponibles"] as const).find((x) => x === rawFilter) ?? null;
 		const origin = c.get("config").origin;
+		// GA4: las tarjetas visibles al cargar, en el orden de la página (nombres en español: ver src/lib/analytics.ts).
+		const baseById = new Map(base.map((p) => [p.id, p]));
+		const listed = sortProducts(products, sort)
+			.filter((p) => catalogVisible(p, { category, query, filter }))
+			.map((p) => baseById.get(p.id) ?? p);
 		return render(
 			c,
 			{
@@ -87,6 +95,7 @@ export function registerShop(app: Hono<AppEnv>) {
 				imageAlt: products.find((p) => p.images[0])?.images[0]?.alt,
 				alternates: { es: storeRoot("es"), en: storeRoot("en") },
 				jsonLd: [...catalogJsonLd(origin, products, lang), faqJsonLd(storeFaq(products.some((p) => p.availability === "coming_soon"), lang))],
+				dataLayer: [viewItemListEvent(listed)],
 			},
 			<Catalog products={products} welcome={c.get("welcome")} category={category} query={query} sort={sort} filter={filter} />,
 		);
@@ -169,6 +178,7 @@ export function registerShop(app: Hono<AppEnv>) {
 					]),
 					...(product.faq.length ? [faqJsonLd(product.faq)] : []),
 				],
+				dataLayer: [viewItemEvent(base!)],
 			},
 			<ProductPage
 				product={product}
@@ -252,7 +262,9 @@ export function registerShop(app: Hono<AppEnv>) {
 		);
 	});
 
-	app.get("/market/feed.xml", async (c) => xmlResponse(c, merchantFeed(c.get("config").origin, await listShopProducts(c.env.MARKET_DB))));
+	// Feeds de Google Merchant Center, uno por idioma (Merchant Center → Productos → Fuentes → archivo en sitio web).
+	app.get("/market/feed.xml", async (c) => xmlResponse(c, merchantFeed(c.get("config").origin, await listShopProducts(c.env.MARKET_DB), "es")));
+	app.get("/market/en/feed.xml", async (c) => xmlResponse(c, merchantFeed(c.get("config").origin, await listShopProducts(c.env.MARKET_DB), "en")));
 
 	// Estado público mínimo (sin datos personales): sirve para monitoreo y para verificar un deploy.
 	app.get("/market/estado.json", async (c) => {

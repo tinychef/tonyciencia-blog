@@ -52,28 +52,72 @@ const bootMiddleware: MiddlewareHandler<AppEnv> = async (c, next) => {
 	await next();
 };
 
-const cspFor = (nonce: string) => [
-	"default-src 'self'",
-	// Miniaturas de YouTube (video de demostración de un producto).
-	"img-src 'self' data: https://i.ytimg.com",
-	"style-src 'self' 'unsafe-inline'",
-	// Único JS propio: /market/static/market.js (galería, filtros, menú, popup). Nada en línea nuestro.
-	// + Cloudflare Web Analytics (beacon que inyecta el borde de Cloudflare).
-	// + nonce por respuesta: Bot Fight Mode (plan Free) inyecta siempre un script en línea de "JavaScript detections" y
-	//   Cloudflare le agrega el nonce que lee de este encabezado; su script externo vive en /cdn-cgi/challenge-platform/
-	//   ('self'). Sin nonce, la CSP lo bloqueaba y dejaba un error en la consola (H15 de la revisión SEO v6).
-	//   https://developers.cloudflare.com/cloudflare-challenges/challenge-types/javascript-detections/
-	`script-src 'self' 'nonce-${nonce}' https://static.cloudflareinsights.com`,
-	"connect-src 'self' https://cloudflareinsights.com",
-	"font-src 'self'",
-	// Video de demostración (YouTube sin cookies) y agenda de reservas de Google Calendar.
-	"frame-src 'self' https://www.youtube-nocookie.com https://calendar.google.com",
-	// El POST de "Comprar" redirige a Stripe; el resto de formularios se quedan en el sitio.
-	"form-action 'self' https://checkout.stripe.com",
-	"frame-ancestors 'none'",
-	"base-uri 'none'",
-	"object-src 'none'",
-].join("; ");
+/**
+ * Dominios de Google Tag Manager, Google Analytics 4 y Google Ads, tal como los lista Google:
+ * https://developers.google.com/tag-platform/security/guides/csp (GTM + modo vista previa, Analytics con funciones de
+ * Ads, Ads de conversión/remarketing y datos de usuario). SOLO se agregan cuando hay GTM_ID.
+ * Google pide listar cada dominio de país (google.<TLD>) por separado: van los de los países que atiende la tienda
+ * (serviceJsonLd → areaServed); EE. UU. usa google.com. No se agregan 'unsafe-inline' ni 'unsafe-eval': las etiquetas
+ * de HTML personalizado y las variables de JavaScript personalizado de GTM no correrán (usar plantillas de GTM).
+ */
+const GOOGLE_TLDS = ["com.mx", "com.co", "es", "com.ar", "cl", "com.pe"].map((tld) => `https://*.google.${tld}`);
+export const GOOGLE_TAG_CSP = {
+	script: ["https://www.googletagmanager.com", "https://tagmanager.google.com", "https://www.googleadservices.com", "https://www.google.com"],
+	img: [
+		"https://www.googletagmanager.com",
+		"https://ssl.gstatic.com",
+		"https://www.gstatic.com",
+		"https://*.google-analytics.com",
+		"https://*.google.com",
+		...GOOGLE_TLDS,
+		"https://*.g.doubleclick.net",
+		"https://googleads.g.doubleclick.net",
+		"https://www.googleadservices.com",
+		"https://pagead2.googlesyndication.com",
+	],
+	connect: [
+		"https://www.googletagmanager.com",
+		"https://*.google-analytics.com",
+		"https://*.google.com",
+		...GOOGLE_TLDS,
+		"https://*.g.doubleclick.net",
+		"https://googleads.g.doubleclick.net",
+		"https://ad.doubleclick.net",
+		"https://www.googleadservices.com",
+		"https://pagead2.googlesyndication.com",
+	],
+	frame: ["https://www.googletagmanager.com"],
+	// Solo para el modo vista previa de GTM (Tag Assistant).
+	style: ["https://www.googletagmanager.com", "https://tagmanager.google.com", "https://fonts.googleapis.com"],
+	font: ["https://fonts.gstatic.com", "data:"],
+};
+
+export const cspFor = (nonce: string, googleTags = false) => {
+	const g = (k: keyof typeof GOOGLE_TAG_CSP) => (googleTags ? ` ${GOOGLE_TAG_CSP[k].join(" ")}` : "");
+	return [
+		"default-src 'self'",
+		// Miniaturas de YouTube (video de demostración de un producto).
+		`img-src 'self' data: https://i.ytimg.com${g("img")}`,
+		`style-src 'self' 'unsafe-inline'${g("style")}`,
+		// Único JS propio: /market/static/market.js (galería, filtros, menú, popup). Nada en línea nuestro.
+		// + Cloudflare Web Analytics (beacon que inyecta el borde de Cloudflare).
+		// + nonce por respuesta: Bot Fight Mode (plan Free) inyecta siempre un script en línea de "JavaScript detections" y
+		//   Cloudflare le agrega el nonce que lee de este encabezado; su script externo vive en /cdn-cgi/challenge-platform/
+		//   ('self'). Sin nonce, la CSP lo bloqueaba y dejaba un error en la consola (H15 de la revisión SEO v6).
+		//   https://developers.cloudflare.com/cloudflare-challenges/challenge-types/javascript-detections/
+		// + con GTM_ID: gtm.js (lo inserta market.js) y las etiquetas de Google.
+		`script-src 'self' 'nonce-${nonce}' https://static.cloudflareinsights.com${g("script")}`,
+		`connect-src 'self' https://cloudflareinsights.com${g("connect")}`,
+		`font-src 'self'${g("font")}`,
+		// Video de demostración (YouTube sin cookies) y agenda de reservas de Google Calendar (+ GTM con GTM_ID).
+		`frame-src 'self' https://www.youtube-nocookie.com https://calendar.google.com${g("frame")}`,
+		// El POST de "Comprar" redirige a Stripe; el resto de formularios se quedan en el sitio.
+		"form-action 'self' https://checkout.stripe.com",
+		"frame-ancestors 'none'",
+		"base-uri 'none'",
+		"object-src 'none'",
+	].join("; ");
+};
 
 const securityHeaders: MiddlewareHandler<AppEnv> = async (c, next) => {
 	await next();
@@ -85,7 +129,7 @@ const securityHeaders: MiddlewareHandler<AppEnv> = async (c, next) => {
 		if (!h.has("content-security-policy")) {
 			const bytes = crypto.getRandomValues(new Uint8Array(16));
 			const nonce = btoa(String.fromCharCode(...bytes));
-			h.set("Content-Security-Policy", cspFor(nonce));
+			h.set("Content-Security-Policy", cspFor(nonce, !!c.get("config")?.gtmId));
 		}
 		if (!h.has("x-frame-options")) h.set("X-Frame-Options", "DENY");
 		if (!h.has("cache-control")) h.set("Cache-Control", "no-store");
