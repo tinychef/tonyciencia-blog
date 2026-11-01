@@ -279,6 +279,8 @@ export const ProductCard: FC<{ p: ShopProduct; maxSales: number; welcome: Welcom
 							loading={eager ? "eager" : "lazy"}
 							fetchpriority={eager ? "high" : undefined}
 							decoding={eager ? undefined : "async"}
+							srcset={ANIMATED_COVERS.has(p.slug) && cover.src.endsWith("cover.webp") ? `${cover.src.replace(/cover\.webp$/, "cover-800.webp")} 800w, ${cover.src} 1600w` : undefined}
+							sizes={ANIMATED_COVERS.has(p.slug) && cover.src.endsWith("cover.webp") ? "(min-width: 1120px) 360px, (min-width: 720px) 50vw, 100vw" : undefined}
 							data-anim={ANIMATED_COVERS.has(p.slug) && cover.src.endsWith("cover.webp") ? cover.src.replace(/cover\.webp$/, "cover-animada.webp") : undefined}
 						/>
 					) : (

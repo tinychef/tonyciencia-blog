@@ -1175,3 +1175,37 @@ a.mk3-preset { display: inline-flex; align-items: center; justify-content: cente
 .mk-lang span.is-on { background: var(--color-text); color: var(--color-bg); }
 .mk-lang:hover { color: var(--color-text); border-color: var(--color-text-secondary); }
 @media (max-width: 380px) { .mk-lang { display: none; } }
+
+/* Luz que recorre el borde de una tarjeta (una a la vez, elegida al azar por market.js): un trazo con los tonos de la
+   marca (cálidos a violeta, parecidos pero no iguales a Instagram), con núcleo claro y un halo suave detrás. */
+@property --mk-sweep { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+:root {
+	--mk-ig-1: #ffc35a;
+	--mk-ig-2: #ff7448;
+	--mk-ig-3: #f23d82;
+	--mk-ig-4: #a748e0;
+	--mk-ig-5: #5d6bf2;
+}
+.mk5-grid > li { position: relative; border-radius: var(--mk5-radius); isolation: isolate; }
+.mk5-grid > li::before,
+.mk5-grid > li::after {
+	content: ""; position: absolute; inset: -1px; border-radius: calc(var(--mk5-radius) + 1px); pointer-events: none; opacity: 0;
+	background: conic-gradient(from var(--mk-sweep), transparent 0deg, transparent 250deg, var(--mk-ig-1) 290deg, var(--mk-ig-2) 310deg, var(--mk-ig-3) 328deg, var(--mk-ig-4) 343deg, #fff 352deg, var(--mk-ig-5) 356deg, transparent 360deg);
+	transition: opacity 900ms ease;
+}
+/* El trazo: solo el borde (máscara que deja ver 1,5 px). */
+.mk5-grid > li::after {
+	z-index: 2; padding: 1.5px;
+	-webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+	mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+}
+/* El halo: el mismo trazo desenfocado detrás de la tarjeta. */
+.mk5-grid > li::before { z-index: -1; filter: blur(14px); }
+.mk5-grid > li.is-glow::after { animation: mk-sweep 6s cubic-bezier(0.45, 0.05, 0.3, 1) both, mk-sweep-fade 6s ease both; }
+.mk5-grid > li.is-glow::before { animation: mk-sweep 6s cubic-bezier(0.45, 0.05, 0.3, 1) both, mk-sweep-halo 6s ease both; }
+@keyframes mk-sweep { from { --mk-sweep: 0deg; } to { --mk-sweep: 360deg; } }
+@keyframes mk-sweep-fade { 0% { opacity: 0; } 15% { opacity: 1; } 80% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes mk-sweep-halo { 0% { opacity: 0; } 20% { opacity: 0.55; } 75% { opacity: 0.55; } 100% { opacity: 0; } }
+:root.light .mk5-grid > li.is-glow::before { animation-name: mk-sweep, mk-sweep-halo-light; }
+@keyframes mk-sweep-halo-light { 0% { opacity: 0; } 20% { opacity: 0.35; } 75% { opacity: 0.35; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .mk5-grid > li::before, .mk5-grid > li::after { display: none; } }

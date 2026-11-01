@@ -48,7 +48,7 @@ function jsonLdScript(data: object) {
 	return raw(`<script type="application/ld+json">${JSON.stringify(data).replace(/</g, "\\u003c")}</script>`);
 }
 
-const STATIC_VERSION = "8";
+const STATIC_VERSION = "9";
 
 export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, theme, welcome, lang = "es", children }) => {
 	const tr = (es: string) => t(lang, es);

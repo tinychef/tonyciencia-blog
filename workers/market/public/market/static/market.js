@@ -166,7 +166,11 @@
 			if (!src) return;
 			delete img.dataset.anim;
 			const pre = new Image();
-			pre.onload = () => (img.src = src);
+			pre.onload = () => {
+				img.removeAttribute("srcset");
+				img.removeAttribute("sizes");
+				img.src = src;
+			};
 			pre.src = src;
 		};
 		const start = () => {
@@ -178,6 +182,28 @@
 		};
 		if (document.readyState === "complete") start();
 		else window.addEventListener("load", start, { once: true });
+	}
+
+	// ── Luz que recorre el borde de una tarjeta al azar, una a la vez, despacio (solo sin «reducir movimiento») ──
+	const glowCards = $$(".mk5-grid > li");
+	if (glowCards.length > 1 && !reduced && "IntersectionObserver" in window) {
+		const onScreen = new Set();
+		const vis = new IntersectionObserver((entries) => entries.forEach((e) => (e.isIntersecting ? onScreen.add(e.target) : onScreen.delete(e.target))), { threshold: 0.6 });
+		glowCards.forEach((li) => vis.observe(li));
+		let last = null;
+		const tick = () => {
+			if (document.hidden) return;
+			const pool = [...onScreen].filter((li) => li !== last && !li.hidden);
+			if (!pool.length) return;
+			const li = pool[Math.floor(Math.random() * pool.length)];
+			last = li;
+			li.classList.remove("is-glow");
+			void li.offsetWidth;
+			li.classList.add("is-glow");
+			setTimeout(() => li.classList.remove("is-glow"), 6200);
+		};
+		setTimeout(tick, 1500);
+		setInterval(tick, 7000);
 	}
 
 	// ── Catálogo: búsqueda, categoría, filtros rápidos y orden, al instante (sin JS funciona igual por GET) ──
