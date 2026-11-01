@@ -145,7 +145,10 @@ describe("ofertas: precio anterior real tachado", () => {
 		expect(ld.offers.priceValidUntil).toMatch(/^\d{4}-12-31$/);
 
 		const catalog = await (await call("/market")).text();
-		expect(catalog).toContain("Precios rebajados");
+		// Tarjeta v5: etiqueta de precio, precio anterior real tachado y % de ahorro.
+		expect(catalog).toContain('<span class="mk5-tag">$33.33</span>');
+		expect(catalog).toMatch(/<s class="mk5-was"[^>]*>\$76\.90<\/s>/);
+		expect(catalog).toContain("Oferta −57 %");
 
 		const feed = await (await call("/market/feed.xml")).text();
 		const item = feed.split("<item>").find((x) => x.includes(`<g:id>${p.slug}</g:id>`))!;
@@ -378,7 +381,7 @@ describe("ronda 3: enlaces, emojis, logos y tema", () => {
 		const product = (await getProductBySlug(env.MARKET_DB, p.slug))!;
 		expect(product.compat.works.map((w) => w.k)).toEqual(["claude-code", "codex", "chrome"]);
 		const card = await (await call("/market")).text();
-		expect(card).toContain("2 en 1");
+		expect(card).toMatch(/<span class="mk5-incl">[\s\S]{0,80}Agente de anuncios \+ Extensión de Chrome<\/span>/);
 		const html = await (await call(`/market/producto/${p.slug}`)).text();
 		expect(html).toContain("Funciona con");
 		expect(html).toContain("Agente de anuncios");
@@ -391,5 +394,32 @@ describe("ronda 3: enlaces, emojis, logos y tema", () => {
 		const html = await (await call("/market", { headers: { cookie: "scheme=light" } })).text();
 		expect(html).toContain('<html lang="es" class="light">');
 		expect(html).toContain("data-theme-toggle");
+	});
+});
+
+describe("v5: catálogo «Mi stack de herramientas» y precios con número", () => {
+	it("el catálogo abre con su título, tarjetas con etiqueta de precio y sin la insignia «Nuevo»", async () => {
+		await createProduct({ priceCents: 1200 });
+		const html = await (await call("/market")).text();
+		expect(html).toContain('<h1 id="catalogo-titulo">Mi stack de herramientas</h1>');
+		expect(html).toContain("<title>Mi stack de herramientas de IA en español | Market Tony</title>");
+		expect(html).toContain('<span class="mk5-tag">$12</span>');
+		expect(html).not.toContain(">Nuevo<");
+		expect(html).not.toContain("n8n.");
+	});
+
+	it("«paga lo que quieras» muestra $0 (no «Gratis») y los montos antes de entrar; el monto elegido vuelve tras el login", async () => {
+		const p = await makePwyw({ min: 0, suggested: 900 });
+		const card = await (await call("/market")).text();
+		expect(card).toMatch(/<span class="mk5-tag"[^>]*>\$0\+<\/span>/);
+		const out = await (await call(`/market/producto/${p.slug}`)).text();
+		expect(out).toMatch(/class="mk3-preset "[^>]*>\$0<\/a>/);
+		expect(out).not.toMatch(/class="mk3-preset[^"]*"[^>]*>Gratis</);
+		expect(out).toContain(encodeURIComponent(`/market/producto/${p.slug}?monto=9#comprar`));
+		const s = await loginMock(`monto-${uid()}@maqueta.test`);
+		const inside = await (await call(`/market/producto/${p.slug}?monto=18`, { headers: { cookie: s.cookie } })).text();
+		expect(inside).toMatch(/id="monto"[^>]*value="18"/);
+		const bad = await (await call(`/market/producto/${p.slug}?monto=abc`, { headers: { cookie: s.cookie } })).text();
+		expect(bad).toMatch(/id="monto"[^>]*value="9"/);
 	});
 });

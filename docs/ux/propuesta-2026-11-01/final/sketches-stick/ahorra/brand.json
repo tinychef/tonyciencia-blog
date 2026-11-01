@@ -1,0 +1,38 @@
+{
+ "name": "Market Tony",
+ "mood": "dark",
+ "primary": "#30D158",
+ "secondary": null,
+ "neutral": "#0D0D0F",
+ "palette": {
+  "bg0": "#0D0D0F",
+  "bg1": "#0A0A0B",
+  "bg2": "#060607",
+  "grid": "#313233",
+  "ink": "#F0F5F1",
+  "ink2": "#9EA1A0",
+  "ink3": "#6C6E6E",
+  "accent": "#30D158",
+  "gold": "#78E192",
+  "gold2": "#A2E8B3",
+  "onAccent": "#111111",
+  "plate": "#0D0D0F",
+  "blood": "#9A6340",
+  "tissue": "#504845",
+  "fat": "#514E46",
+  "ivory": "#B1AEAA",
+  "espresso": "#060607",
+  "dark": true,
+  "keyCol": "#E7E7E7",
+  "sky": "#CFCFCF",
+  "gnd": "#050506",
+  "rim": "#CBF3D5",
+  "glow": "#78E192",
+  "captionStyle": "karaoke"
+ },
+ "contrast": {
+  "ink/bg0": 17.6,
+  "accent/bg0": 9.6,
+  "onAccent/accent": 9.34
+ }
+}

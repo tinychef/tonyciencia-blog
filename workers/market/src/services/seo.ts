@@ -127,7 +127,7 @@ export function catalogJsonLd(origin: string, products: ShopProduct[]) {
 	return [
 		{
 			"@context": "https://schema.org",
-			"@type": "Store",
+			"@type": "OnlineStore",
 			name: "Market Tony",
 			url: abs(origin, "/market"),
 			description: "Tienda de Tony Ciencia: agentes de IA, skills y plantillas para anuncios, video y automatización.",

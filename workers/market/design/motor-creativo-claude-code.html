@@ -113,6 +113,85 @@
 	.verdict b { display: inline-flex; margin-top: 6px; background: var(--acc); color: #fff; border-radius: 8px; padding: 4px 10px; font-family: "JetBrains Mono"; font-size: 15px; letter-spacing: 0.06em; }
 	.verdict em { font-style: normal; font-family: "JetBrains Mono"; font-size: 13px; color: #a7a1b2; margin-left: 10px; }
 </style>
+<link data-portada-final href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style id="portada-final">
+.frame.pf { background: #0d0d0f; color: #f5f5f7; font-family: "Inter Tight", system-ui, sans-serif; }
+.pf * { box-sizing: border-box; margin: 0; padding: 0; }
+.pf .pf-dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,.075) 1.6px, transparent 1.6px); background-size: 32px 32px; -webkit-mask: linear-gradient(90deg, transparent 28%, #000 72%); mask: linear-gradient(90deg, transparent 28%, #000 72%); }
+.pf .pf-glow { position: absolute; border-radius: 50%; background: radial-gradient(closest-side, rgba(48,209,88,.20), rgba(48,209,88,0)); pointer-events: none; }
+.pf .pf-top { position: absolute; left: 88px; right: 88px; top: 56px; height: 96px; display: flex; align-items: center; justify-content: space-between; }
+.pf .pf-name { display: flex; align-items: center; gap: 16px; font-size: 40px; font-weight: 800; letter-spacing: -0.01em; }
+.pf .pf-name i { width: 22px; height: 22px; border-radius: 6px; background: #30d158; }
+.pf .pf-logos { display: flex; align-items: center; gap: 20px; height: 96px; padding: 0 30px; border: 3px solid #2e2e33; border-radius: 22px; background: #17171a; }
+.pf .pf-logos img, .pf .pf-logos svg { display: block; width: 64px; height: 64px; }
+.pf .pf-logos .pf-t { font-size: 46px; font-weight: 800; letter-spacing: -0.015em; white-space: nowrap; }
+.pf .pf-logos .pf-sep { width: 3px; height: 50px; background: #3a3a40; }
+.pf .pf-pain { position: absolute; left: 88px; font-size: 50px; line-height: 1.1; font-weight: 600; letter-spacing: -0.015em; color: #8e8e96; }
+.pf .pf-pain s { text-decoration-thickness: 6px; text-decoration-color: rgba(245,245,247,.55); }
+.pf .pf-h { position: absolute; left: 88px; font-size: 136px; line-height: 0.94; font-weight: 800; letter-spacing: -0.045em; }
+.pf .pf-h b { font-weight: 800; color: #30d158; }
+.pf .pf-note { position: absolute; right: 88px; bottom: 26px; font: 500 18px/1.3 "JetBrains Mono", monospace; color: #6e6e76; text-align: right; }
+.pf .pf-chip { display: inline-flex; align-items: center; gap: 14px; font-size: 38px; font-weight: 700; border: 3px solid #2e2e33; border-radius: 14px; padding: 10px 22px; background: #17171a; }
+.pf .pf-chip i { width: 16px; height: 16px; border-radius: 4px; background: #30d158; }
+.pf .pf-mono { font-family: "JetBrains Mono", monospace; }
+/* Anuncios */
+.pf .pf-ad-grid { position: absolute; left: 892px; top: 196px; width: 620px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.pf .pf-ad { height: 166px; border: 3px solid #2e2e33; border-radius: 20px; background: #17171a; padding: 20px 24px; display: flex; flex-direction: column; justify-content: space-between; }
+.pf .pf-ad h4 { font-size: 34px; line-height: 0.98; font-weight: 800; letter-spacing: -0.02em; }
+.pf .pf-ad p { display: flex; align-items: baseline; gap: 10px; }
+.pf .pf-ad p b { font-size: 62px; line-height: 0.9; font-weight: 800; color: #30d158; letter-spacing: -0.03em; }
+.pf .pf-ad p span { font-size: 26px; font-weight: 600; color: #a1a1a8; }
+.pf .pf-ad.pf-sum { background: #30d158; border-color: #30d158; color: #0d0d0f; }
+.pf .pf-ad.pf-sum h4 { font-size: 30px; }
+.pf .pf-ad.pf-sum p b { color: #0d0d0f; font-size: 76px; }
+.pf .pf-ad.pf-sum p span { color: #0d0d0f; }
+.pf .pf-plat { position: absolute; left: 892px; width: 620px; top: 774px; display: flex; align-items: center; justify-content: space-between; color: #d7d7dc; }
+.pf .pf-plat .pf-lg { display: flex; align-items: center; gap: 26px; }
+.pf .pf-plat .pf-t { font-size: 40px; font-weight: 800; }
+.pf .pf-plat small { font-size: 28px; font-weight: 600; color: #a1a1a8; }
+/* Tiles de video (SpecReel / Stick) */
+.pf .pf-tile { position: absolute; overflow: hidden; border: 4px solid #2e2e33; border-radius: 26px; background: #000; box-shadow: 0 30px 60px rgba(0,0,0,.55); }
+.pf .pf-tile img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.pf .pf-tile .pf-cap { position: absolute; left: 14px; bottom: 14px; font: 700 20px "JetBrains Mono", monospace; background: rgba(13,13,15,.82); color: #f5f5f7; border: 2px solid #3a3a40; border-radius: 8px; padding: 4px 10px; }
+.pf .pf-tile.pf-sq .pf-cap { left: auto; right: 14px; bottom: auto; top: 14px; }
+.pf .pf-sprite { width: 100%; height: 100%; background-repeat: no-repeat; background-size: 700% 500%; }
+/* PageSpeed */
+.pf .pf-ps { position: absolute; left: 812px; width: 700px; }
+.pf .pf-ps-row { display: flex; justify-content: space-between; }
+.pf .pf-g { position: relative; width: 154px; text-align: center; }
+.pf .pf-g b { position: absolute; left: 0; right: 0; top: 0; height: 154px; display: grid; place-items: center; font-size: 60px; font-weight: 800; letter-spacing: -0.04em; }
+.pf .pf-g p { margin-top: 10px; font-size: 21px; line-height: 1.15; font-weight: 600; color: #a1a1a8; }
+.pf .pf-ps-lbl { font: 700 28px "JetBrains Mono", monospace; letter-spacing: .1em; margin-bottom: 16px; color: #a1a1a8; }
+.pf .pf-tag { display: inline-block; font: 800 46px "Inter Tight", sans-serif; letter-spacing: .01em; padding: 6px 22px 8px; border-radius: 12px; background: #f5f5f7; color: #0d0d0f; }
+/* CutPilot */
+.pf .pf-tl { position: absolute; left: 88px; right: 88px; top: 568px; height: 376px; border: 3px solid #2e2e33; border-radius: 24px; background: #121215; overflow: hidden; }
+.pf .pf-tl .pf-hd { position: absolute; left: 0; top: 0; bottom: 0; width: 200px; border-right: 3px solid #2e2e33; background: #17171a; }
+.pf .pf-tl .pf-hd div, .pf .pf-tl .pf-row { position: absolute; height: 72px; }
+.pf .pf-tl .pf-hd div { left: 24px; right: 10px; display: flex; align-items: center; font-size: 28px; font-weight: 800; color: #d7d7dc; }
+.pf .pf-tl .pf-ruler { position: absolute; left: 200px; right: 0; top: 0; height: 44px; border-bottom: 2px solid #2e2e33; font: 600 17px "JetBrains Mono", monospace; color: #6e6e76; }
+.pf .pf-tl .pf-ruler span { position: absolute; top: 12px; }
+.pf .pf-tl .pf-row { left: 200px; right: 0; }
+.pf .pf-clip { position: absolute; top: 9px; bottom: 9px; border-radius: 10px; }
+.pf .pf-clip.pf-v { background: #2a2a30; border: 2px solid #3a3a42; }
+.pf .pf-clip.pf-v::after { content: ""; position: absolute; left: 10px; top: 9px; width: 38px; height: 30px; border-radius: 6px; background: #3f3f47; }
+.pf .pf-clip.pf-a { background: #1b2a20; border: 2px solid #2a4a33; overflow: hidden; }
+.pf .pf-clip.pf-a svg { position: absolute; inset: 4px 6px; width: calc(100% - 12px); height: calc(100% - 8px); }
+.pf .pf-cut { position: absolute; top: 44px; height: 158px; border-left: 3px dashed #4a4a52; border-right: 3px dashed #4a4a52; background: repeating-linear-gradient(135deg, rgba(255,255,255,.05) 0 10px, transparent 10px 20px); }
+.pf .pf-cut span { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font: 700 22px "JetBrains Mono", monospace; color: #a1a1a8; white-space: nowrap; text-decoration: line-through; text-decoration-thickness: 3px; background: #121215; padding: 2px 8px; border-radius: 6px; }
+.pf .pf-w { position: absolute; top: 14px; bottom: 14px; display: grid; place-items: center; padding: 0 12px; border-radius: 8px; background: #26262b; font-size: 24px; font-weight: 700; color: #d7d7dc; }
+.pf .pf-w.pf-on { background: #30d158; color: #0d0d0f; }
+.pf .pf-gfx { position: absolute; top: 12px; bottom: 12px; display: flex; align-items: center; padding: 0 16px; border-radius: 10px; border: 3px solid #30d158; background: #13281a; font-size: 24px; font-weight: 800; color: #f5f5f7; white-space: nowrap; }
+.pf .pf-ph { position: absolute; top: 30px; bottom: 0; width: 4px; background: #30d158; }
+.pf .pf-ph::before { content: ""; position: absolute; left: -10px; top: -2px; width: 24px; height: 18px; border-radius: 4px; background: #30d158; }
+.pf .pf-fmts { position: absolute; right: 88px; top: 236px; display: flex; align-items: flex-end; gap: 22px; }
+.pf .pf-fm { border: 4px solid #4a4a52; border-radius: 14px; display: grid; place-items: end start; padding: 10px 12px; font: 700 26px "JetBrains Mono", monospace; background: #17171a; color: #d7d7dc; }
+.pf .pf-fm.pf-on { border-color: #30d158; }
+/* Motor */
+.pf .pf-apps { position: absolute; left: 842px; top: 222px; width: 670px; display: flex; flex-wrap: wrap; justify-content: center; gap: 28px 18px; }
+.pf .pf-app { width: 118px; text-align: center; }
+.pf .pf-app img { display: block; width: 118px; height: 118px; border-radius: 26px; }
+.pf .pf-app span { display: block; margin-top: 8px; font-size: 18px; font-weight: 700; color: #a1a1a8; letter-spacing: -0.01em; }
+</style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute">
@@ -138,37 +217,17 @@
 	</defs>
 </svg>
 
-<section class="frame cover" data-out="cover">
-	<div class="top"><i class="mk"></i><span class="eb"><b>Motor creativo</b> · para Claude Code</span></div>
-	<h1><span class="spec">13 agentes</span> creativos en español.</h1>
-	<p class="sub">Pides la pieza en lenguaje natural. El router elige al agente y este la produce con una app open source en tu PC.</p>
-	<div class="chips"><span class="chip">Claude Code</span><span class="chip">Windows x64</span><span class="chip">Panel local</span></div>
-	<div class="term">
-		<div class="tb"><i></i><i></i><i></i><span>router de intención</span></div>
-		<div class="tc">
-			<div><span class="p">›</span> route <span class="q">"Diseña una presentación de ventas y anima el logo"</span></div>
-			<div><span class="k">categories</span>&nbsp; <span class="cat" style="background: var(--acc);">MOTION</span> <span class="cat" style="background: var(--acc);">SLIDES</span> <span class="cat" style="background: #4a4556;">MIXED</span></div>
-			<div><span class="k">agents</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; motion-agent · deck-agent</div>
-		</div>
-	</div>
-	<div class="grid">
-		<div class="tile"><span class="ic" style="background: var(--c-image)"><svg><use href="#i-image"/></svg></span><div><b>Imagen</b><small>image-agent</small></div></div>
-		<div class="tile"><span class="ic" style="background: var(--c-photo)"><svg><use href="#i-photo"/></svg></span><div><b>Foto</b><small>photo-agent</small></div></div>
-		<div class="tile"><span class="ic" style="background: var(--c-vector)"><svg><use href="#i-vector"/></svg></span><div><b>Vector</b><small>vector-agent</small></div></div>
-		<div class="tile"><span class="ic" style="background: var(--c-video)"><svg><use href="#i-video"/></svg></span><div><b>Video</b><small>video-agent</small></div></div>
-		<div class="tile on" style="--hue: var(--acc)"><span class="ic" style="background: var(--acc)"><svg><use href="#i-motion"/></svg></span><div><b>Animación</b><small>motion-agent</small></div></div>
-		<div class="tile"><span class="ic" style="background: var(--c-layout)"><svg><use href="#i-layout"/></svg></span><div><b>Maquetación</b><small>layout-agent</small></div></div>
-		<div class="tile"><span class="ic" style="background: var(--c-pdf)"><svg><use href="#i-pdf"/></svg></span><div><b>PDF</b><small>pdf-agent</small></div></div>
-		<div class="tile"><span class="ic" style="background: var(--c-ui)"><svg><use href="#i-ui"/></svg></span><div><b>Interfaz</b><small>ui-agent</small></div></div>
-		<div class="tile"><span class="ic" style="background: var(--c-audio)"><svg><use href="#i-audio"/></svg></span><div><b>Audio</b><small>audio-agent</small></div></div>
-		<div class="tile on" style="--hue: var(--acc)"><span class="ic" style="background: var(--acc)"><svg><use href="#i-slides"/></svg></span><div><b>Presentaciones</b><small>deck-agent</small></div></div>
-		<div class="tile"><span class="ic" style="background: var(--c-docs)"><svg><use href="#i-docs"/></svg></span><div><b>Documentos</b><small>word-agent</small></div></div>
-		<div class="tile"><span class="ic" style="background: var(--c-sheets)"><svg><use href="#i-sheets"/></svg></span><div><b>Planillas</b><small>sheet-agent</small></div></div>
-		<div class="tile"><span class="ic" style="background: var(--c-cad)"><svg><use href="#i-cad"/></svg></span><div><b>CAD</b><small>cad-agent</small></div></div>
-		<div class="tile qa"><span class="ic" style="background: var(--c-qa)"><svg><use href="#i-qa"/></svg></span><div><b>+ Revisor de solo lectura</b><small>qa-agent · revisa antes de entregar</small></div></div>
-	</div>
-	<p class="legal">Las apps open source se descargan aparte. Claude Code es marca de Anthropic; se nombra solo para indicar compatibilidad.</p>
+<!-- portada-final:inicio -->
+<section class="frame pf" data-out="cover">
+	<div class="pf-dots"></div>
+	<div class="pf-glow" style="left: 820px; top: 120px; width: 780px; height: 780px;"></div>
+	<div class="pf-top"><div class="pf-name"><i></i>Motor creativo</div><div class="pf-logos"><img src="assets/logos/claude.svg" width="64" height="64" alt=""><span class="pf-t">Claude Code</span></div></div>
+	<p class="pf-pain" style="top: 200px;"><s>Todos los MCP a la vez.</s></p>
+	<p class="pf-h" style="top: 284px;">13 apps<br>gratis.<br><b>Un agente<br>por app.</b></p>
+	<div class="pf-apps"><div class="pf-app"><img src="assets/crafts/photocraft-240.webp" width="118" height="118" alt=""><span>PhotoCraft</span></div><div class="pf-app"><img src="assets/crafts/lightcraft-240.webp" width="118" height="118" alt=""><span>LightCraft</span></div><div class="pf-app"><img src="assets/crafts/vectorcraft-240.webp" width="118" height="118" alt=""><span>VectorCraft</span></div><div class="pf-app"><img src="assets/crafts/filmcraft-240.webp" width="118" height="118" alt=""><span>FilmCraft</span></div><div class="pf-app"><img src="assets/crafts/effectcraft-240.webp" width="118" height="118" alt=""><span>EffectCraft</span></div><div class="pf-app"><img src="assets/crafts/designcraft-240.webp" width="118" height="118" alt=""><span>DesignCraft</span></div><div class="pf-app"><img src="assets/crafts/pdfcraft-240.webp" width="118" height="118" alt=""><span>PdfCraft</span></div><div class="pf-app"><img src="assets/crafts/figcraft-240.webp" width="118" height="118" alt=""><span>FigCraft</span></div><div class="pf-app"><img src="assets/crafts/soundcraft-240.webp" width="118" height="118" alt=""><span>SoundCraft</span></div><div class="pf-app"><img src="assets/crafts/deckcraft-240.webp" width="118" height="118" alt=""><span>DeckCraft</span></div><div class="pf-app"><img src="assets/crafts/wordcraft-240.webp" width="118" height="118" alt=""><span>WordCraft</span></div><div class="pf-app"><img src="assets/crafts/gridcraft-240.webp" width="118" height="118" alt=""><span>GridCraft</span></div><div class="pf-app"><img src="assets/crafts/cadcraft-240.webp" width="118" height="118" alt=""><span>CADCraft</span></div></div>
+	<p class="pf-note">Íconos oficiales de las 13 apps open source de storytold (MIT OR Apache-2.0),<br>que se descargan gratis. Sin afiliación con storytold ni con Anthropic.</p>
 </section>
+<!-- portada-final:fin -->
 
 <section class="frame s1" data-out="screen-1">
 	<div class="top"><i class="mk"></i><span class="eb"><b>Motor creativo</b> · cómo funciona</span></div>

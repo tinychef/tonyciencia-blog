@@ -1,0 +1,204 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Dirección A · ficha PageSpeed Forensics</title><style>
+:root { --bg: #0b0b0c; --surface: #151517; --surface2: #1d1d20; --line: #2a2a2e; --text: #f5f5f7; --muted: #a8a8ae; --green: #30d158; --on-green: #062b12; --radius: 16px; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body { background: var(--bg); color: var(--text); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+.wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+.promo { height: 36px; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 13px; color: var(--muted); border-bottom: 1px solid var(--line); white-space: nowrap; }
+.promo b { color: var(--text); font-family: ui-monospace, Menlo, monospace; letter-spacing: .04em; }
+.hdr { position: sticky; top: 0; z-index: 5; background: rgba(11,11,12,.96); border-bottom: 1px solid var(--line); }
+.hdr .wrap { height: 60px; display: flex; align-items: center; gap: 10px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: .06em; font-size: 13px; }
+.brand img { width: 30px; height: 30px; }
+.brand span { border: 1.5px solid var(--text); border-radius: 8px; padding: 3px 8px; }
+.nav { display: none; gap: 26px; margin-left: 36px; font-size: 15px; color: var(--muted); }
+.nav a[aria-current] { color: var(--text); font-weight: 600; }
+.sp { flex: 1; }
+.ibtn { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 12px; border: 1px solid var(--line); background: transparent; color: var(--text); }
+.btn { height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 0 16px; border-radius: 12px; font-weight: 650; font-size: 15px; background: var(--text); color: #0b0b0c; border: 0; }
+.btn--ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
+.btn--block { width: 100%; height: 52px; font-size: 17px; }
+.searchbox { display: none; }
+.intro { padding: 18px 0 14px; }
+.intro h1 { font-size: 26px; line-height: 1.15; letter-spacing: -0.02em; font-weight: 800; }
+.intro p { margin-top: 6px; font-size: 15px; color: var(--muted); }
+.chips { display: flex; gap: 8px; overflow-x: auto; padding: 2px 16px 14px; margin: 0 -16px; scrollbar-width: none; }
+.chip { flex: none; height: 40px; display: inline-flex; align-items: center; gap: 6px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--line); font-size: 15px; color: var(--muted); white-space: nowrap; }
+.chip[aria-pressed="true"] { background: var(--text); color: #0b0b0c; border-color: var(--text); font-weight: 650; }
+.chip small { font-size: 13px; opacity: .75; }
+.grid { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); }
+/* Tarjeta A */
+.card { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.card .cv { display: block; aspect-ratio: 16 / 10; background: #000; }
+.card .cv img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.card .top { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 28px; }
+.card .bdg { flex: none; height: 26px; display: inline-flex; align-items: center; padding: 0 10px; border-radius: 8px; font-size: 13px; font-weight: 700; background: var(--text); color: #0b0b0c; }
+.card .bdg.sale { background: var(--green); color: var(--on-green); }
+.card .bd { padding: 14px 16px 16px; }
+.kind { font-size: 13px; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.card h3 { margin-top: 2px; font-size: 21px; line-height: 1.2; font-weight: 750; letter-spacing: -0.01em; }
+.card h3 a::after { content: ""; position: absolute; inset: 0; }
+.card .ln { margin-top: 6px; font-size: 16px; line-height: 1.45; color: #cfcfd4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.compat { margin-top: 12px; display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: 13px; font-weight: 600; flex-wrap: wrap; }
+.compat .tx { border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; }
+.incl { margin-top: 10px; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 650; padding: 4px 10px; border-radius: 8px; background: var(--surface2); border: 1px solid var(--line); }
+.incl i { width: 8px; height: 8px; border-radius: 2px; background: var(--green); }
+.buy { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.price { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.price b { font-size: 24px; font-weight: 800; letter-spacing: -0.02em; }
+.price s { color: var(--muted); font-size: 15px; }
+.price .off { font-size: 13px; font-weight: 750; color: var(--green); }
+.price .pw { font-size: 15px; color: var(--muted); }
+.price .pw b { font-size: 22px; color: var(--text); }
+.go { height: 44px; display: inline-flex; align-items: center; gap: 6px; padding: 0 14px; border-radius: 12px; background: var(--surface2); border: 1px solid var(--line); font-weight: 650; font-size: 15px; white-space: nowrap; }
+/* Tarjeta B */
+.gridB { display: grid; gap: 20px 12px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cardB { position: relative; }
+.cardB .cv { display: block; aspect-ratio: 1; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); }
+.cardB .cv img { width: 100%; height: 100%; display: block; }
+.cardB .bdg { position: absolute; top: 8px; left: 8px; height: 26px; display: inline-flex; align-items: center; padding: 0 8px; border-radius: 7px; font-size: 12.5px; font-weight: 750; background: #111; color: #fff; }
+.cardB .bdg.sale { background: #1a7f37; }
+.cardB h3 { margin-top: 10px; font-size: 16px; line-height: 1.3; font-weight: 700; }
+.cardB h3 a::after { content: ""; position: absolute; inset: 0; }
+.cardB .k { font-size: 13px; color: var(--muted); margin-top: 2px; }
+.cardB .pt { margin-top: 8px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.tagp { position: relative; height: 28px; display: inline-flex; align-items: center; padding: 0 12px 0 10px; background: var(--text); color: #0b0b0c; font-weight: 800; font-size: 15px; border-radius: 6px 0 0 6px; margin-right: 12px; }
+.tagp::after { content: ""; position: absolute; right: -12px; top: 0; border: 14px solid transparent; border-left: 12px solid var(--text); border-right: 0; }
+.cardB .pt s { font-size: 13px; color: var(--muted); }
+.cardB .pt .pw { font-size: 13px; color: var(--muted); }
+/* Secciones de abajo */
+.sec { margin-top: 40px; }
+.sec h2 { font-size: 22px; letter-spacing: -0.01em; margin-bottom: 14px; }
+.trust { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.trust li { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px; font-size: 15px; font-weight: 650; display: flex; flex-direction: column; gap: 6px; }
+.trust li span { font-size: 14px; font-weight: 400; color: var(--muted); line-height: 1.4; }
+.trust li svg { color: var(--green); }
+.svc { margin-top: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+.svc p { color: var(--muted); font-size: 15px; }
+.faq li { border-bottom: 1px solid var(--line); min-height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 16px; font-weight: 600; padding: 12px 0; }
+.foot { margin-top: 48px; border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
+.foot .cols { margin-top: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.foot b { color: var(--text); display: block; margin-bottom: 6px; }
+.anno { position: absolute; z-index: 9; background: #ffd60a; color: #111; font: 700 12px/1.3 system-ui; padding: 4px 8px; border-radius: 6px; }
+@media (min-width: 900px) {
+	.wrap { padding: 0 24px; }
+	.promo { font-size: 14px; }
+	.nav { display: flex; }
+	.hdr .wrap { height: 68px; }
+	.ibtn.m { display: none; }
+	.searchbox { display: flex; align-items: center; gap: 8px; width: 300px; height: 44px; border: 1px solid var(--line); border-radius: 12px; padding: 0 14px; color: var(--muted); font-size: 15px; }
+	.intro { padding: 56px 0 22px; text-align: center; }
+	.intro h1 { font-size: 46px; }
+	.intro p { font-size: 18px; }
+	.chips { justify-content: center; margin: 0; padding: 4px 0 30px; }
+	.grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+	.gridB { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 24px; }
+	.cardB h3 { font-size: 18px; }
+	.trust { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+	.sec { margin-top: 64px; }
+	.sec h2 { text-align: center; font-size: 28px; margin-bottom: 22px; }
+	.svc { flex-direction: row; align-items: center; justify-content: space-between; padding: 24px 28px; }
+	.faq { max-width: 760px; margin: 0 auto; }
+	.foot .cols { grid-template-columns: 2fr 1fr 1fr 1fr; }
+}
+
+.back { height: 44px; display: inline-flex; align-items: center; gap: 4px; color: var(--muted); font-size: 15px; margin-top: 4px; }
+.gal { margin-top: 4px; }
+.gal .main { aspect-ratio: 16 / 10; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); position: relative; }
+.gal .main img { width: 100%; height: 100%; display: block; }
+.gal .dots { display: flex; justify-content: center; gap: 6px; margin-top: 10px; }
+.gal .dots i { width: 7px; height: 7px; border-radius: 50%; background: #3a3a40; }
+.gal .dots i.on { background: var(--text); width: 18px; border-radius: 4px; }
+.pt-badges { margin-top: 14px; display: flex; gap: 8px; }
+.pt-badges span { height: 28px; display: inline-flex; align-items: center; padding: 0 10px; border-radius: 8px; font-size: 13px; font-weight: 700; border: 1px solid var(--line); }
+.pt-badges .g { background: var(--green); color: var(--on-green); border-color: var(--green); }
+h1.pn { margin-top: 10px; font-size: 30px; line-height: 1.1; letter-spacing: -0.02em; font-weight: 800; }
+.sub { margin-top: 6px; font-size: 17px; line-height: 1.45; color: #cfcfd4; }
+.buybox { margin-top: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 16px; }
+.buybox .lbl { font-size: 13px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); font-weight: 700; }
+.buybox .big { margin-top: 2px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.buybox .big b { font-size: 34px; letter-spacing: -0.02em; }
+.buybox .big s { color: var(--muted); font-size: 18px; }
+.buybox .big .off { color: var(--green); font-weight: 750; font-size: 15px; }
+.presets { margin-top: 12px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.presets span { height: 44px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 10px; font-weight: 700; }
+.presets span.on { border: 2px solid var(--green); }
+.buybox .btn--block { margin-top: 12px; }
+.buybox .hint { margin-top: 10px; font-size: 14px; color: var(--muted); text-align: center; }
+.mini { margin-top: 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; font-size: 14px; color: var(--muted); }
+.mini span { display: flex; align-items: center; gap: 6px; }
+.mini svg { color: var(--green); flex: none; }
+.blk { margin-top: 28px; }
+.blk h2 { font-size: 22px; margin-bottom: 12px; letter-spacing: -0.01em; }
+.ps { display: grid; gap: 10px; }
+.ps div { border-radius: 14px; padding: 14px 16px; border: 1px solid var(--line); background: var(--surface); }
+.ps div small { display: block; font-size: 13px; letter-spacing: .05em; text-transform: uppercase; font-weight: 700; color: var(--muted); margin-bottom: 4px; }
+.ps div.sol { border-color: var(--green); }
+.ps div.sol small { color: var(--green); }
+.steps li { display: grid; grid-template-columns: 32px 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.steps li b.n { width: 32px; height: 32px; border-radius: 9px; display: grid; place-items: center; background: var(--surface2); border: 1px solid var(--line); font-size: 15px; }
+.steps li p { color: var(--muted); font-size: 15px; }
+.chk li { display: flex; gap: 10px; padding: 7px 0; }
+.chk svg { color: var(--green); flex: none; margin-top: 3px; }
+.logos2 { display: flex; flex-wrap: wrap; gap: 8px; }
+.logos2 span { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 12px; border: 1px solid var(--line); border-radius: 10px; font-size: 15px; font-weight: 600; }
+.warn { border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; color: #cfcfd4; font-size: 15px; background: var(--surface); }
+.warn li { padding: 4px 0 4px 16px; position: relative; }
+.warn li::before { content: ""; position: absolute; left: 0; top: 13px; width: 6px; height: 6px; border-radius: 50%; background: var(--muted); }
+.sticky { display: none; }
+.show-sticky .sticky { display: flex; }
+.show-sticky .sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 10; background: rgba(21,21,23,.98); border-top: 1px solid var(--line); padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); align-items: center; justify-content: space-between; gap: 12px; }
+.sticky .p { font-size: 14px; color: var(--muted); line-height: 1.25; }
+.sticky .p b { display: block; font-size: 19px; color: var(--text); }
+.sticky .btn { height: 48px; padding: 0 20px; font-size: 16px; }
+body { padding-bottom: 80px; }
+</style></head><body><div class="promo"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M19 12v9H5v-9M7.5 8a2.5 2.5 0 0 1 0-5C10 3 12 8 12 8s2-5 4.5-5a2.5 2.5 0 0 1 0 5"/></svg> 10 % en tu 1.ª compra con <b>TONYCIENCIA</b></div>
+<header class="hdr"><div class="wrap">
+	<a class="brand" href="#"><img src="assets/logo-blanco.webp" alt="Tony Ciencia"><span>MARKET</span></a>
+	<nav class="nav"><a href="#" aria-current="page">Catálogo</a><a href="#">Ofertas</a><a href="#">Agentes para empresas</a><a href="#">Blog</a></nav>
+	<span class="sp"></span>
+	<label class="searchbox"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg> Buscar productos</label>
+	<button class="ibtn m" aria-label="Buscar"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+	<a class="btn btn--ghost" href="#">Entrar</a>
+	<button class="ibtn m" aria-label="Menú"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+</div></header><main class="wrap">
+	<a class="back" href="#"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg> Catálogo</a>
+	<div class="gal"><div class="main"><img src="../png/A-portada-pagespeed.png" width="1600" height="1000" alt="PageSpeed Forensics"></div><div class="dots"><i class="on"></i><i></i><i></i></div></div>
+	<div class="pt-badges"><span class="g">Paga lo que quieras</span><span>Skill para Claude Code</span></div>
+	<h1 class="pn">PageSpeed Forensics</h1>
+	<p class="sub">Descubre con evidencia por qué tu web saca 85 en PageSpeed móvil y 100 en tu PC, y prueba arreglos sin recompilar.</p>
+	<div class="buybox">
+		<p class="lbl">Tú pones el precio</p>
+		<div class="big"><b>$9</b><span style="color: var(--muted);">sugerido · desde $0</span></div>
+		<div class="presets"><span>Gratis</span><span class="on">$9</span><span>$18</span><span>$45</span></div>
+		<a class="btn btn--block" href="#">Continuar con $9</a>
+		<p class="hint">Entras con tu cuenta de Google, sin contraseña.</p>
+		<div class="mini"><span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Descarga inmediata</span><span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Pago con Stripe</span><span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>Reembolso 14 días</span><span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Soporte en español</span></div>
+	</div>
+	<section class="blk"><h2>Qué te resuelve</h2><div class="ps">
+		<div><small>El problema</small>Los consejos de siempre (comprimir imágenes, diferir JavaScript) suelen dejar una página cerca de 85. Lighthouse marca 100 en tu PC y PageSpeed, 85.</div>
+		<div class="sol"><small>Lo que hace la skill</small>Reproduce PageSpeed móvil en tu computador, encuentra la causa con trazas y mide cada arreglo con medianas de 3 a 5 corridas.</div>
+	</div></section>
+	<section class="blk"><h2>Cómo funciona</h2><ol class="steps">
+		<li><b class="n">1</b><div><b>Lee el informe real</b><p>Guarda puntajes, métricas y auditorías de PageSpeed, sin llave de API.</p></div></li>
+		<li><b class="n">2</b><div><b>Reproduce PageSpeed en tu PC</b><p>Un proxy local agrega latencia y entrega el HTML en tandas, como la red real.</p></div></li>
+		<li><b class="n">3</b><div><b>Prueba y verifica</b><p>Aplica arreglos sin recompilar y compara capturas antes de tocar tu código.</p></div></li>
+	</ol></section>
+	<section class="blk"><h2>Qué recibes</h2><ul class="chk">
+		<li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>SKILL.md: el método en 6 pasos y una plantilla de informe</span></li>
+		<li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>6 guías técnicas</span></li>
+		<li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>11 scripts de Node.js sin dependencias (salvo sharp, opcional)</span></li>
+		<li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>README en español e inglés</span></li>
+	</ul></section>
+	<section class="blk"><h2>Funciona con</h2><div class="logos2"><span><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M22.363 1.636H1.635C.732 1.636 0 2.37.001 3.273L0 20.727v.003c0 .903.733 1.634 1.635 1.634h20.73c.904 0 1.635-.734 1.635-1.637V3.273c.016-.89-.76-1.64-1.637-1.637zM3.979 2.886c.492-.507 1.279.28.77.772-.491.508-1.278-.279-.77-.771zM1.8 2.89c.507-.509 1.28.265.772.771-.493.502-1.274-.28-.772-.771zm21.7 17.838c.012.611-.524 1.148-1.137 1.136H1.635A1.137 1.137 0 0 1 .5 20.727L.501 4.91H23.5v15.819zM11 16.159l5.946-4.577c.235-.2.576.129.389.372l-.002-.002-3.936 6.35a1.638 1.638 0 0 1-2.448.405c-.785-.668-.811-1.835.05-2.548zm4.763-.75c.09-.168 2.002-3.181 2.06-3.35 2.056 1.813 3.029 4.382 2.898 7.026h-3.819c.073-1.39-.29-2.678-1.139-3.676zm-8.679 3.682H3.278c-.357-7.022 7.148-11.735 13.39-7.92l-3.461 2.618c-3.3-.762-6.364 1.71-6.123 5.302z"/></svg>PageSpeed Insights</span><span><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 0l5.5 3.5v5H20v3h-2.25l2 12.5H4.25l2-12.5H4v-3h2.5V3.53zm2.94 13.25l-6.22 2.26L8 20.04l7.5-2.75zM12 3.56L9.5 5.17V8.5h5V5.15Z"/></svg>Lighthouse</span><span><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg>Claude Code</span><span><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 0C8.21 0 4.831 1.757 2.632 4.501l3.953 6.848A5.454 5.454 0 0 1 12 6.545h10.691A12 12 0 0 0 12 0zM1.931 5.47A11.943 11.943 0 0 0 0 12c0 6.012 4.42 10.991 10.189 11.864l3.953-6.847a5.45 5.45 0 0 1-6.865-2.29zm13.342 2.166a5.446 5.446 0 0 1 1.45 7.09l.002.001h-.002l-5.344 9.257c.206.01.413.016.621.016 6.627 0 12-5.373 12-12 0-1.54-.29-3.011-.818-4.364zM12 16.364a4.364 4.364 0 1 1 0-8.728 4.364 4.364 0 0 1 0 8.728Z"/></svg>Chrome</span><span><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082c0.57,0.329,0.924,0.944,0.924,1.603 v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z M19.099,13.993 c0-1.9-1.284-2.406-3.987-2.763c-2.731-0.361-3.009-0.548-3.009-1.187c0-0.528,0.235-1.233,2.258-1.233 c1.807,0,2.473,0.389,2.747,1.607c0.024,0.115,0.129,0.199,0.247,0.199h1.141c0.071,0,0.138-0.031,0.186-0.081 c0.048-0.054,0.074-0.123,0.067-0.196c-0.177-2.098-1.571-3.076-4.388-3.076c-2.508,0-4.004,1.058-4.004,2.833 c0,1.925,1.488,2.457,3.895,2.695c2.88,0.282,3.103,0.703,3.103,1.269c0,0.983-0.789,1.402-2.642,1.402 c-2.327,0-2.839-0.584-3.011-1.742c-0.02-0.124-0.126-0.215-0.253-0.215h-1.137c-0.141,0-0.254,0.112-0.254,0.253 c0,1.482,0.806,3.248,4.655,3.248C17.501,17.007,19.099,15.91,19.099,13.993z"/></svg>Node.js 22+</span></div></section>
+	<section class="blk"><h2>Antes de comprar</h2><ul class="warn">
+		<li>No garantiza un puntaje: encuentra causas y mide cada cambio.</li>
+		<li>La skill, las guías y la salida de los scripts están en inglés.</li>
+		<li>Necesitas un build de producción de tu sitio servido en tu computador.</li>
+	</ul></section>
+	<section class="blk"><h2>Preguntas</h2><ul class="faq"><li>¿Necesito una llave de API de Google?<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></li><li>¿Garantiza 100 en PageSpeed?<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></li><li>¿Sirve solo para Next.js?<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></li><li>¿Necesito Claude Code?<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></li></ul></section>
+	<p style="margin-top: 20px; font-size: 13px; color: var(--muted);">Producto independiente, sin afiliación con Google. PageSpeed Insights, Lighthouse y Chrome son marcas de Google.</p>
+</main>
+<div class="sticky"><span class="p">Desde $0<b>Sugerido $9</b></span><a class="btn" href="#">Elegir precio</a></div></body></html>

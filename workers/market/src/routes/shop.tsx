@@ -72,10 +72,10 @@ export function registerShop(app: Hono<AppEnv>) {
 			c,
 			{
 				title: "Market Tony",
-				fullTitle: "Market Tony: agentes de IA, skills y plantillas en español — Tony Ciencia",
+				fullTitle: "Mi stack de herramientas de IA en español | Market Tony",
 				path: "/market",
 				description:
-					"Herramientas de IA en español para crear anuncios, videos 3D y automatizaciones con Claude Code, Codex y n8n. Pago único y descarga inmediata.",
+					"Agentes y skills de IA en español para Claude Code y Codex: anuncios, videos 3D, edición de video y PageSpeed. Pago único o paga lo que quieras.",
 				image: products.find((p) => p.images[0])?.images[0]?.src,
 				jsonLd: [...catalogJsonLd(origin, products), faqJsonLd(storeFaq(products.some((p) => p.availability === "coming_soon")))],
 			},
@@ -135,7 +135,8 @@ export function registerShop(app: Hono<AppEnv>) {
 			c,
 			{
 				title: seoTitle(product),
-				fullTitle: `${seoTitle(product)} | Market Tony`,
+				// El sufijo de marca solo si el título completo entra en ~60 caracteres (lo que muestra Google).
+				fullTitle: `${seoTitle(product)} | Market Tony`.length <= 60 ? `${seoTitle(product)} | Market Tony` : seoTitle(product),
 				path,
 				description: seoDescription(product),
 				image: product.images[0]?.src,
@@ -166,6 +167,11 @@ export function registerShop(app: Hono<AppEnv>) {
 				maxSales={Math.max(0, ...all.map((p) => p.stats.sales))}
 				welcome={c.get("welcome")}
 				userEmail={user?.email ?? null}
+				pwywInitial={(() => {
+					if (!isPwyw(product)) return null;
+					const check = checkBuyerAmount(product, c.req.query("monto"));
+					return check.ok ? check.cents : null;
+				})()}
 			/>,
 		);
 	});

@@ -1,0 +1,309 @@
+<title>Rediseño Market Tony</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: una columna de lectura que se abre en "mesas de luz" anchas para comparar pantallas de celular lado a lado. */
+:root {
+	--bg: #f6f6f4; --surface: #ffffff; --fg: #111213; --muted: #5d6166; --line: #dedfdc; --save: #1a7f37; --chip: #ececea;
+	--display: "Geist", "Helvetica Neue", Arial, sans-serif; --mono: "Geist Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #0b0b0c; --surface: #151617; --fg: #f2f2f0; --muted: #9a9ea3; --line: #2a2b2d; --save: #30d158; --chip: #1f2022; color-scheme: dark } }
+:root[data-theme="dark"] { --bg: #0b0b0c; --surface: #151617; --fg: #f2f2f0; --muted: #9a9ea3; --line: #2a2b2d; --save: #30d158; --chip: #1f2022; color-scheme: dark }
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--fg); font-family: var(--display); font-size: 16px; line-height: 1.55; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 32px 72px }
+.wrap { max-width: 1120px; margin: 0 auto; display: grid; gap: 56px }
+.read { max-width: 680px }
+h1, h2, h3 { text-wrap: balance; letter-spacing: -0.02em; line-height: 1.12; margin: 0 }
+h1 { font-size: clamp(30px, 6vw, 46px); font-weight: 800 }
+h2 { font-size: clamp(24px, 4vw, 32px); font-weight: 750 }
+h3 { font-size: 18px; font-weight: 650 }
+p { margin: 0 }
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted) }
+.lead { font-size: 18px; color: var(--muted); max-width: 640px }
+section { display: grid; gap: 20px }
+.head { display: grid; gap: 8px }
+.tag { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: var(--chip); width: fit-content }
+.tag.rec { background: var(--fg); color: var(--bg) }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px }
+.stat { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: grid; gap: 4px }
+.stat b { font-size: 28px; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -0.02em }
+.stat b .to { color: var(--save) }
+.stat span { font-size: 14px; color: var(--muted) }
+/* Mesa de luz: pantallas de celular a tamaño legible, con desplazamiento horizontal propio en pantallas chicas. */
+.table { display: flex; gap: 16px; overflow-x: auto; padding-bottom: 8px; scroll-snap-type: x mandatory }
+.table figure { flex: 0 0 min(300px, 78vw); scroll-snap-align: start }
+.table.wide figure { flex-basis: min(520px, 88vw) }
+figure { margin: 0; display: grid; gap: 8px; align-content: start; min-width: 0 }
+figure a { display: block; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: var(--surface) }
+figure img { display: block; width: 100%; height: auto }
+figcaption { font-size: 14px; color: var(--muted) }
+figcaption b { color: var(--fg); font-weight: 600 }
+.grid3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px }
+.vs { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px }
+.note { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; display: grid; gap: 8px }
+.note.warn { border-color: var(--fg) }
+ul.plain { margin: 0; padding-left: 20px; display: grid; gap: 6px }
+/* Respuestas */
+form { display: grid; gap: 14px }
+fieldset { margin: 0; border: 1px solid var(--line); border-radius: 14px; padding: 16px; background: var(--surface); display: grid; gap: 10px; min-width: 0 }
+legend { font-weight: 650; padding: 0 6px }
+.q-help { font-size: 14px; color: var(--muted) }
+.opts { display: flex; flex-wrap: wrap; gap: 8px }
+.opts label { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; cursor: pointer; min-height: 44px; font-size: 15px }
+.opts input { accent-color: var(--fg); width: 18px; height: 18px; margin: 0 }
+.opts label:has(input:checked) { border-color: var(--fg); background: var(--chip) }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center }
+button { font: inherit; font-weight: 650; border-radius: 12px; padding: 12px 18px; min-height: 48px; border: 1px solid var(--fg); background: var(--fg); color: var(--bg); cursor: pointer }
+button:focus-visible, .opts label:focus-within, figure a:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px }
+textarea { width: 100%; min-height: 160px; font: 14px/1.5 var(--mono); border-radius: 12px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); padding: 12px }
+.status { font-size: 14px; color: var(--muted) }
+</style>
+
+<div class="wrap">
+
+<header class="head read">
+	<p class="eyebrow">Market Tony · propuesta del 1 de noviembre de 2026</p>
+	<h1>Rediseño del market: elige la dirección</h1>
+	<p class="lead">El agente de diseño midió la tienda real y propone dos direcciones. Nada está implementado todavía. Revisa las pantallas, marca tus respuestas al final y pégalas en el chat.</p>
+</header>
+
+<section>
+	<div class="head read">
+		<p class="eyebrow">Diagnóstico medido</p>
+		<h2>Qué está mal hoy en el celular</h2>
+	</div>
+	<div class="stats">
+		<div class="stat"><b>750 px</b><span>de bajada hasta el primer producto del catálogo</span></div>
+		<div class="stat"><b>~11</b><span>pantallas de alto tiene el catálogo (9.382 px)</span></div>
+		<div class="stat"><b>918 px</b><span>de ancho en la ficha de Anuncios Infinitos con un celular de 390: se mueve de lado</span></div>
+		<div class="stat"><b>4–6 px</b><span>miden los párrafos de las portadas dentro de la tarjeta: ilegibles</span></div>
+	</div>
+	<ul class="plain read">
+		<li>En la ficha, el precio y el botón de compra quedan fuera de la primera pantalla.</li>
+		<li>Hay 6 productos pero 9 tarjetas: SpecReel aparece 3 veces y Anuncios Infinitos 2.</li>
+		<li>Las portadas muestran funciones («13 agentes», «2067 ms») en vez del problema que resuelven, y la de SpecReel está en inglés.</li>
+		<li>La velocidad no es el problema: el catálogo saca 98 en Lighthouse móvil. El problema es de diseño y de mensaje.</li>
+	</ul>
+	<div class="table">
+		<figure><a href="capturas-actuales/movil-catalogo-pliegue.png" target="_blank" rel="noopener"><img src="capturas-actuales/movil-catalogo-pliegue.png" alt="Catálogo actual en celular: la primera pantalla no muestra ningún producto" loading="lazy" width="780" height="1688"></a><figcaption><b>Hoy · catálogo.</b> Primera pantalla sin productos.</figcaption></figure>
+		<figure><a href="capturas-actuales/movil-anuncios-completa-desborde.jpg" target="_blank" rel="noopener"><img src="capturas-actuales/movil-anuncios-completa-desborde.jpg" alt="Ficha actual de Anuncios Infinitos más ancha que el celular" loading="lazy"></a><figcaption><b>Hoy · ficha.</b> Se desborda a los lados.</figcaption></figure>
+		<figure><a href="capturas-actuales/portadas-actuales-a-tamano-tarjeta.png" target="_blank" rel="noopener"><img src="capturas-actuales/portadas-actuales-a-tamano-tarjeta.png" alt="Portadas actuales reducidas al tamaño de la tarjeta" loading="lazy"></a><figcaption><b>Hoy · portadas a tamaño de tarjeta.</b> Solo se lee el titular.</figcaption></figure>
+	</div>
+</section>
+
+<section>
+	<div class="head read">
+		<span class="tag rec">Recomendada</span>
+		<h2>Dirección A · Dolor → solución</h2>
+		<p class="lead">Una tarjeta grande por fila. Cada portada dice el problema del comprador arriba y la solución en grande; la tarjeta agrega en texto qué resuelve, con qué funciona, el precio y un botón.</p>
+	</div>
+	<div class="stats">
+		<div class="stat"><b>750 → <span class="to">273 px</span></b><span>hasta el primer producto, con su tarjeta completa en pantalla</span></div>
+		<div class="stat"><b>−51 %</b><span>de alto del catálogo en celular (4.613 px)</span></div>
+		<div class="stat"><b>~22 px</b><span>miden las mayúsculas del titular dentro de la tarjeta (hoy ~15)</span></div>
+		<div class="stat"><b>780 px</b><span>termina el botón de compra en la ficha: entra en la primera pantalla</span></div>
+	</div>
+	<div class="table">
+		<figure><a href="png/A-catalogo-movil-pliegue.png" target="_blank" rel="noopener"><img src="png/A-catalogo-movil-pliegue.png" alt="Dirección A: primera pantalla del catálogo en celular con la tarjeta de Anuncios Infinitos" loading="lazy" width="780" height="1688"></a><figcaption><b>Catálogo · primera pantalla</b></figcaption></figure>
+		<figure><a href="png/A-ficha-pagespeed-movil-pliegue.png" target="_blank" rel="noopener"><img src="png/A-ficha-pagespeed-movil-pliegue.png" alt="Dirección A: ficha de PageSpeed Forensics en celular con precio y botón visibles" loading="lazy" width="780" height="1688"></a><figcaption><b>Ficha · primera pantalla</b> con precio y botón.</figcaption></figure>
+		<figure><a href="png/A-ficha-pagespeed-movil-desplazada.png" target="_blank" rel="noopener"><img src="png/A-ficha-pagespeed-movil-desplazada.png" alt="Dirección A: ficha desplazada con la barra de compra fija abajo" loading="lazy" width="780" height="1688"></a><figcaption><b>Ficha al bajar:</b> barra de compra fija.</figcaption></figure>
+		<figure><a href="png/A-ficha-anuncios-movil-pliegue.png" target="_blank" rel="noopener"><img src="png/A-ficha-anuncios-movil-pliegue.png" alt="Dirección A: ficha de Anuncios Infinitos en celular, sin desborde" loading="lazy" width="780" height="1688"></a><figcaption><b>Ficha de Anuncios</b>, ya sin desborde.</figcaption></figure>
+	</div>
+	<h3>Las 6 tarjetas como se ven en un celular</h3>
+	<div class="table">
+		<figure><a href="png/A-tarjeta-anuncios-390.png" target="_blank" rel="noopener"><img src="png/A-tarjeta-anuncios-390.png" alt="Tarjeta A de Anuncios Infinitos" loading="lazy" width="780" height="1116"></a><figcaption>Anuncios Infinitos</figcaption></figure>
+		<figure><a href="png/A-tarjeta-specreel-390.png" target="_blank" rel="noopener"><img src="png/A-tarjeta-specreel-390.png" alt="Tarjeta A de SpecReel" loading="lazy" width="780" height="994"></a><figcaption>SpecReel</figcaption></figure>
+		<figure><a href="png/A-tarjeta-specreel-stick-390.png" target="_blank" rel="noopener"><img src="png/A-tarjeta-specreel-stick-390.png" alt="Tarjeta A de SpecReel Stick" loading="lazy" width="780" height="994"></a><figcaption>SpecReel Stick</figcaption></figure>
+		<figure><a href="png/A-tarjeta-pagespeed-390.png" target="_blank" rel="noopener"><img src="png/A-tarjeta-pagespeed-390.png" alt="Tarjeta A de PageSpeed Forensics con círculos 85 y 100" loading="lazy" width="780" height="1024"></a><figcaption>PageSpeed Forensics</figcaption></figure>
+		<figure><a href="png/A-tarjeta-cutpilot-390.png" target="_blank" rel="noopener"><img src="png/A-tarjeta-cutpilot-390.png" alt="Tarjeta A de CutPilot" loading="lazy" width="780" height="1076"></a><figcaption>CutPilot</figcaption></figure>
+		<figure><a href="png/A-tarjeta-motor-creativo-390.png" target="_blank" rel="noopener"><img src="png/A-tarjeta-motor-creativo-390.png" alt="Tarjeta A del Motor creativo" loading="lazy" width="780" height="1024"></a><figcaption>Motor creativo</figcaption></figure>
+	</div>
+	<h3>Escritorio</h3>
+	<div class="table wide">
+		<figure><a href="png/A-catalogo-escritorio.png" target="_blank" rel="noopener"><img src="png/A-catalogo-escritorio.png" alt="Dirección A: catálogo en escritorio" loading="lazy" width="1440" height="2415"></a><figcaption><b>Catálogo a 1440 px.</b> Toca para ver completo.</figcaption></figure>
+	</div>
+</section>
+
+<section>
+	<div class="head read">
+		<span class="tag">Alternativa</span>
+		<h2>Dirección B · Vitrina cuadrada</h2>
+		<p class="lead">Dos productos por fila con portadas cuadradas de 2–3 palabras, al estilo de Gumroad Discover. Muestra 4 productos en la primera pantalla, pero dice menos de cada uno y obliga a tener una imagen cuadrada extra por producto. Conviene cuando el catálogo pase de unos 12 productos.</p>
+	</div>
+	<div class="stats">
+		<div class="stat"><b>4</b><span>productos en la primera pantalla</span></div>
+		<div class="stat"><b>2.390 px</b><span>de alto del catálogo en celular</span></div>
+		<div class="stat"><b>~15 px</b><span>miden las mayúsculas del titular en la tarjeta</span></div>
+	</div>
+	<div class="table">
+		<figure><a href="png/B-catalogo-movil-pliegue.png" target="_blank" rel="noopener"><img src="png/B-catalogo-movil-pliegue.png" alt="Dirección B: primera pantalla del catálogo con 4 productos en dos columnas" loading="lazy" width="780" height="1688"></a><figcaption><b>Catálogo · primera pantalla</b></figcaption></figure>
+		<figure><a href="png/B-tarjetas-anuncios-specreel-390.png" target="_blank" rel="noopener"><img src="png/B-tarjetas-anuncios-specreel-390.png" alt="Dirección B: tarjetas de Anuncios Infinitos y SpecReel" loading="lazy" width="780" height="624"></a><figcaption>Anuncios · SpecReel</figcaption></figure>
+		<figure><a href="png/B-tarjetas-stick-pagespeed-390.png" target="_blank" rel="noopener"><img src="png/B-tarjetas-stick-pagespeed-390.png" alt="Dirección B: tarjetas de SpecReel Stick y PageSpeed Forensics" loading="lazy" width="780" height="570"></a><figcaption>Stick · PageSpeed</figcaption></figure>
+		<figure><a href="png/B-tarjetas-cutpilot-motor-390.png" target="_blank" rel="noopener"><img src="png/B-tarjetas-cutpilot-motor-390.png" alt="Dirección B: tarjetas de CutPilot y Motor creativo" loading="lazy" width="780" height="570"></a><figcaption>CutPilot · Motor</figcaption></figure>
+	</div>
+	<div class="table wide">
+		<figure><a href="png/B-catalogo-escritorio.png" target="_blank" rel="noopener"><img src="png/B-catalogo-escritorio.png" alt="Dirección B: catálogo en escritorio" loading="lazy" width="1440" height="2261"></a><figcaption><b>Catálogo a 1440 px.</b></figcaption></figure>
+	</div>
+</section>
+
+<section>
+	<div class="head read">
+		<p class="eyebrow">Portadas completas</p>
+		<h2>Las imágenes principales, a tamaño real</h2>
+		<p class="lead">Cada texto sale de la ficha o del repositorio del producto; la tabla con la fuente de cada frase está en <code>docs/ux/propuesta-2026-11-01/propuesta.md</code>.</p>
+	</div>
+	<h3>Dirección A · 1600 × 1000</h3>
+	<div class="grid3">
+		<figure><a href="png/A-portada-anuncios.png" target="_blank" rel="noopener"><img src="png/A-portada-anuncios.png" alt="Portada A de Anuncios Infinitos: 250+ prompts en una sesión" loading="lazy" width="1600" height="1000"></a><figcaption>Anuncios Infinitos</figcaption></figure>
+		<figure><a href="png/A-portada-specreel.png" target="_blank" rel="noopener"><img src="png/A-portada-specreel.png" alt="Portada A de SpecReel" loading="lazy" width="1600" height="1000"></a><figcaption>SpecReel</figcaption></figure>
+		<figure><a href="png/A-portada-stick.png" target="_blank" rel="noopener"><img src="png/A-portada-stick.png" alt="Portada A de SpecReel Stick" loading="lazy" width="1600" height="1000"></a><figcaption>SpecReel Stick</figcaption></figure>
+		<figure><a href="png/A-portada-pagespeed.png" target="_blank" rel="noopener"><img src="png/A-portada-pagespeed.png" alt="Portada A de PageSpeed Forensics: 85 en PageSpeed distinto de 100 en tu PC" loading="lazy" width="1600" height="1000"></a><figcaption>PageSpeed Forensics</figcaption></figure>
+		<figure><a href="png/A-portada-cutpilot.png" target="_blank" rel="noopener"><img src="png/A-portada-cutpilot.png" alt="Portada A de CutPilot" loading="lazy" width="1600" height="1000"></a><figcaption>CutPilot</figcaption></figure>
+		<figure><a href="png/A-portada-motor.png" target="_blank" rel="noopener"><img src="png/A-portada-motor.png" alt="Portada A del Motor creativo" loading="lazy" width="1600" height="1000"></a><figcaption>Motor creativo</figcaption></figure>
+	</div>
+	<h3>Dirección B · 1080 × 1080</h3>
+	<div class="grid3">
+		<figure><a href="png/B-portada-anuncios.png" target="_blank" rel="noopener"><img src="png/B-portada-anuncios.png" alt="Portada B de Anuncios Infinitos" loading="lazy" width="1080" height="1080"></a><figcaption>Anuncios Infinitos</figcaption></figure>
+		<figure><a href="png/B-portada-specreel.png" target="_blank" rel="noopener"><img src="png/B-portada-specreel.png" alt="Portada B de SpecReel" loading="lazy" width="1080" height="1080"></a><figcaption>SpecReel</figcaption></figure>
+		<figure><a href="png/B-portada-stick.png" target="_blank" rel="noopener"><img src="png/B-portada-stick.png" alt="Portada B de SpecReel Stick" loading="lazy" width="1080" height="1080"></a><figcaption>SpecReel Stick</figcaption></figure>
+		<figure><a href="png/B-portada-pagespeed.png" target="_blank" rel="noopener"><img src="png/B-portada-pagespeed.png" alt="Portada B de PageSpeed Forensics" loading="lazy" width="1080" height="1080"></a><figcaption>PageSpeed Forensics</figcaption></figure>
+		<figure><a href="png/B-portada-cutpilot.png" target="_blank" rel="noopener"><img src="png/B-portada-cutpilot.png" alt="Portada B de CutPilot" loading="lazy" width="1080" height="1080"></a><figcaption>CutPilot</figcaption></figure>
+		<figure><a href="png/B-portada-motor.png" target="_blank" rel="noopener"><img src="png/B-portada-motor.png" alt="Portada B del Motor creativo" loading="lazy" width="1080" height="1080"></a><figcaption>Motor creativo</figcaption></figure>
+	</div>
+</section>
+
+<section>
+	<div class="head read">
+		<p class="eyebrow">PageSpeed Forensics</p>
+		<h2>Los círculos: ¿qué cifras mostramos?</h2>
+		<p class="lead">No hay un caso medido de un cliente. Para no prometer un resultado inventado, hay dos versiones honestas; una tercera sería un caso real tuyo.</p>
+	</div>
+	<div class="vs">
+		<figure><a href="png/A-tarjeta-pagespeed-390.png" target="_blank" rel="noopener"><img src="png/A-tarjeta-pagespeed-390.png" alt="Versión V2: 85 en PageSpeed distinto de 100 en tu PC" loading="lazy" width="780" height="1024"></a><figcaption><b>V2 · recomendada.</b> «85 en PageSpeed ≠ 100 en tu PC»: el problema que el README describe, sin prometer un resultado.</figcaption></figure>
+		<figure><a href="png/A-tarjeta-pagespeed-v1-ejemplo-390.png" target="_blank" rel="noopener"><img src="png/A-tarjeta-pagespeed-v1-ejemplo-390.png" alt="Versión V1: 85 pasa a 100 con etiqueta EJEMPLO" loading="lazy" width="780" height="1000"></a><figcaption><b>V1.</b> «85 → 100» con la etiqueta visible «Ejemplo, no es un caso medido».</figcaption></figure>
+	</div>
+</section>
+
+<section class="read">
+	<div class="head">
+		<p class="eyebrow">SEO de las fichas</p>
+		<h2>Lo más urgente que encontró la revisión SEO</h2>
+	</div>
+	<ul class="plain">
+		<li><b>CutPilot</b> dice «Lista de espera» en su descripción de Google, aunque ya está a la venta.</li>
+		<li><b>SpecReel</b> tiene 1.457 palabras en inglés antes del español, con otra garantía de reembolso y otro correo de soporte. Es además la ficha más lenta (88 en Lighthouse).</li>
+		<li><b>Anuncios Infinitos</b> se contradice: arriba dice «Agente + extensión de Chrome» y su propia pregunta frecuente dice que no trae extensión. Tiene dos secciones de preguntas.</li>
+		<li>El <b>Motor creativo</b> no recibe enlaces desde ninguna otra ficha; los «paga lo que quieras» publican precio 0, que Google Merchant no acepta.</li>
+		<li>Los títulos reales miden de 61 a 73 caracteres por el sufijo « | Market Tony». La descripción del catálogo promete n8n, que ya no se vende.</li>
+		<li>Desde el blog casi no se llega al market: 1 de 17 artículos enlaza a una ficha.</li>
+	</ul>
+	<p class="status">La tabla «actual → propuesto» de cada ficha está en <code>docs/ux/propuesta-2026-11-01/seo.md</code>.</p>
+</section>
+
+<section class="read">
+	<div class="note warn">
+		<h3>Antes de aprobar: la extensión ADS ULTIMATE</h3>
+		<p>Su propio repositorio dice que es una copia renombrada de AutoFlow, una extensión de pago de otra empresa, con el inicio de sesión y el pago quitados. Venderla tiene un riesgo legal serio. Por eso todas las maquetas dicen «Agente + app local» y no muestran la extensión.</p>
+	</div>
+</section>
+
+<section class="read" aria-labelledby="resp-t">
+	<div class="head">
+		<p class="eyebrow">Tus respuestas</p>
+		<h2 id="resp-t">Marca y copia</h2>
+		<p class="lead">Elige una opción en cada pregunta, toca «Copiar respuestas» y pégalas en el chat. Lo que dejes sin marcar lo decido con la opción recomendada.</p>
+	</div>
+	<form id="answers">
+		<fieldset><legend>1. Dirección del diseño</legend>
+			<div class="opts">
+				<label><input type="radio" name="q1" id="q1a" value="A (dolor → solución)">A · recomendada</label>
+				<label><input type="radio" name="q1" id="q1b" value="B (vitrina cuadrada)">B</label>
+			</div></fieldset>
+		<fieldset><legend>2. Círculos de PageSpeed</legend>
+			<div class="opts">
+				<label><input type="radio" name="q2" id="q2a" value="V2: 85 ≠ 100">V2 · recomendada</label>
+				<label><input type="radio" name="q2" id="q2b" value="V1: 85 → 100 con «Ejemplo»">V1 con «Ejemplo»</label>
+				<label><input type="radio" name="q2" id="q2c" value="Tengo un caso real medido (te paso los enlaces)">Tengo un caso real</label>
+			</div></fieldset>
+		<fieldset><legend>3. Anuncios Infinitos y la extensión de Chrome</legend>
+			<p class="q-help">Hoy la tarjeta dice que la trae y la ficha dice que no.</p>
+			<div class="opts">
+				<label><input type="radio" name="q3" id="q3a" value="Quitar ya «extensión de Chrome» de la tarjeta">Quitarla ya · recomendada</label>
+				<label><input type="radio" name="q3" id="q3b" value="La voy a incluir cuando tenga licencia o versión propia">La incluiré más adelante</label>
+			</div></fieldset>
+		<fieldset><legend>4. Color de las portadas</legend>
+			<div class="opts">
+				<label><input type="radio" name="q4" id="q4a" value="Paleta de la tienda (grafito + verde)">Paleta de la tienda · recomendada</label>
+				<label><input type="radio" name="q4" id="q4b" value="Color propio de cada producto">Color de cada producto</label>
+			</div></fieldset>
+		<fieldset><legend>5. Titulares de las portadas</legend>
+			<div class="opts">
+				<label><input type="radio" name="q5" id="q5a" value="Aprobados">Aprobados</label>
+				<label><input type="radio" name="q5" id="q5b" value="Quiero cambiar algunos (te digo cuáles)">Cambiar algunos</label>
+			</div></fieldset>
+		<fieldset><legend>6. Catálogo más corto</legend>
+			<p class="q-help">Quitar el destacado, la sección «Ofertas», la rejilla de categorías y «Populares» (quedan como filtros arriba).</p>
+			<div class="opts">
+				<label><input type="radio" name="q6" id="q6a" value="Sí, quitarlas">Sí · recomendada</label>
+				<label><input type="radio" name="q6" id="q6b" value="No, mantenerlas">No</label>
+			</div></fieldset>
+		<fieldset><legend>7. «Paga lo que quieras»: montos antes de entrar con Google</legend>
+			<div class="opts">
+				<label><input type="radio" name="q7" id="q7a" value="Sí, mostrar Gratis / $9 / $18 / $45 antes de iniciar sesión">Sí · recomendada</label>
+				<label><input type="radio" name="q7" id="q7b" value="No, dejar el flujo como está">No</label>
+			</div></fieldset>
+		<fieldset><legend>8. Insignia «Nuevo» mientras todos son nuevos</legend>
+			<div class="opts">
+				<label><input type="radio" name="q8" id="q8a" value="Quitarla">Quitarla · recomendada</label>
+				<label><input type="radio" name="q8" id="q8b" value="Mantenerla">Mantenerla</label>
+			</div></fieldset>
+		<fieldset><legend>9. Descripción de SpecReel en inglés</legend>
+			<div class="opts">
+				<label><input type="radio" name="q9" id="q9a" value="Traducirla al español (y unificar reembolso y correo de soporte)">Traducirla · recomendada</label>
+				<label><input type="radio" name="q9" id="q9b" value="Dejarla bilingüe">Dejarla bilingüe</label>
+			</div></fieldset>
+		<fieldset><legend>10. Cupón del 10 %</legend>
+			<div class="opts">
+				<label><input type="radio" name="q10" id="q10a" value="Solo la franja de una línea">Solo la franja · recomendada</label>
+				<label><input type="radio" name="q10" id="q10b" value="Franja + popup">Franja + popup</label>
+			</div></fieldset>
+		<fieldset><legend>Comentarios</legend>
+			<label for="notes" class="q-help">Cualquier cambio que quieras sobre las maquetas.</label>
+			<textarea id="notes" placeholder="Ej.: en la portada de CutPilot prefiero…"></textarea>
+		</fieldset>
+		<div class="actions">
+			<button type="submit" id="copy">Copiar respuestas</button>
+			<span class="status" id="status" role="status" aria-live="polite"></span>
+		</div>
+		<textarea id="out" aria-label="Respuestas para pegar en el chat" readonly hidden></textarea>
+	</form>
+</section>
+
+</div>
+
+<script>
+(function () {
+	var form = document.getElementById("answers");
+	var out = document.getElementById("out");
+	var status = document.getElementById("status");
+	var defaults = { q1: "A (dolor → solución)", q2: "V2: 85 ≠ 100", q3: "Quitar ya «extensión de Chrome» de la tarjeta", q4: "Paleta de la tienda (grafito + verde)", q5: "Aprobados", q6: "Sí, quitarlas", q7: "Sí, mostrar Gratis / $9 / $18 / $45 antes de iniciar sesión", q8: "Quitarla", q9: "Traducirla al español (y unificar reembolso y correo de soporte)", q10: "Solo la franja de una línea" };
+	var labels = { q1: "Dirección", q2: "Círculos de PageSpeed", q3: "Extensión de Chrome", q4: "Color de portadas", q5: "Titulares", q6: "Catálogo más corto", q7: "Paga lo que quieras", q8: "Insignia Nuevo", q9: "SpecReel en inglés", q10: "Cupón" };
+	form.addEventListener("submit", function (e) {
+		e.preventDefault();
+		var lines = ["Respuestas al rediseño del market:"];
+		Object.keys(labels).forEach(function (k, i) {
+			var c = form.querySelector('input[name="' + k + '"]:checked');
+			lines.push((i + 1) + ". " + labels[k] + ": " + (c ? c.value : defaults[k] + " (recomendada)"));
+		});
+		var notes = document.getElementById("notes").value.trim();
+		if (notes) lines.push("Comentarios: " + notes);
+		var text = lines.join("\n");
+		out.value = text;
+		out.hidden = false;
+		var done = function () { status.textContent = "Copiado. Pégalo en el chat."; };
+		var fallback = function () { out.focus(); out.select(); status.textContent = "Selecciona el texto de abajo y cópialo."; };
+		try { navigator.clipboard.writeText(text).then(done, fallback); } catch (err) { fallback(); }
+	});
+})();
+</script>

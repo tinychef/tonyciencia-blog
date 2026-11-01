@@ -1,0 +1,163 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Dirección B · catálogo</title><style>
+:root { --bg: #0b0b0c; --surface: #151517; --surface2: #1d1d20; --line: #2a2a2e; --text: #f5f5f7; --muted: #a8a8ae; --green: #30d158; --on-green: #062b12; --radius: 16px; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body { background: var(--bg); color: var(--text); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+.wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+.promo { height: 36px; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 13px; color: var(--muted); border-bottom: 1px solid var(--line); white-space: nowrap; }
+.promo b { color: var(--text); font-family: ui-monospace, Menlo, monospace; letter-spacing: .04em; }
+.hdr { position: sticky; top: 0; z-index: 5; background: rgba(11,11,12,.96); border-bottom: 1px solid var(--line); }
+.hdr .wrap { height: 60px; display: flex; align-items: center; gap: 10px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: .06em; font-size: 13px; }
+.brand img { width: 30px; height: 30px; }
+.brand span { border: 1.5px solid var(--text); border-radius: 8px; padding: 3px 8px; }
+.nav { display: none; gap: 26px; margin-left: 36px; font-size: 15px; color: var(--muted); }
+.nav a[aria-current] { color: var(--text); font-weight: 600; }
+.sp { flex: 1; }
+.ibtn { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 12px; border: 1px solid var(--line); background: transparent; color: var(--text); }
+.btn { height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 0 16px; border-radius: 12px; font-weight: 650; font-size: 15px; background: var(--text); color: #0b0b0c; border: 0; }
+.btn--ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
+.btn--block { width: 100%; height: 52px; font-size: 17px; }
+.searchbox { display: none; }
+.intro { padding: 18px 0 14px; }
+.intro h1 { font-size: 26px; line-height: 1.15; letter-spacing: -0.02em; font-weight: 800; }
+.intro p { margin-top: 6px; font-size: 15px; color: var(--muted); }
+.chips { display: flex; gap: 8px; overflow-x: auto; padding: 2px 16px 14px; margin: 0 -16px; scrollbar-width: none; }
+.chip { flex: none; height: 40px; display: inline-flex; align-items: center; gap: 6px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--line); font-size: 15px; color: var(--muted); white-space: nowrap; }
+.chip[aria-pressed="true"] { background: var(--text); color: #0b0b0c; border-color: var(--text); font-weight: 650; }
+.chip small { font-size: 13px; opacity: .75; }
+.grid { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); }
+/* Tarjeta A */
+.card { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.card .cv { display: block; aspect-ratio: 16 / 10; background: #000; }
+.card .cv img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.card .top { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 28px; }
+.card .bdg { flex: none; height: 26px; display: inline-flex; align-items: center; padding: 0 10px; border-radius: 8px; font-size: 13px; font-weight: 700; background: var(--text); color: #0b0b0c; }
+.card .bdg.sale { background: var(--green); color: var(--on-green); }
+.card .bd { padding: 14px 16px 16px; }
+.kind { font-size: 13px; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.card h3 { margin-top: 2px; font-size: 21px; line-height: 1.2; font-weight: 750; letter-spacing: -0.01em; }
+.card h3 a::after { content: ""; position: absolute; inset: 0; }
+.card .ln { margin-top: 6px; font-size: 16px; line-height: 1.45; color: #cfcfd4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.compat { margin-top: 12px; display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: 13px; font-weight: 600; flex-wrap: wrap; }
+.compat .tx { border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; }
+.incl { margin-top: 10px; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 650; padding: 4px 10px; border-radius: 8px; background: var(--surface2); border: 1px solid var(--line); }
+.incl i { width: 8px; height: 8px; border-radius: 2px; background: var(--green); }
+.buy { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.price { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.price b { font-size: 24px; font-weight: 800; letter-spacing: -0.02em; }
+.price s { color: var(--muted); font-size: 15px; }
+.price .off { font-size: 13px; font-weight: 750; color: var(--green); }
+.price .pw { font-size: 15px; color: var(--muted); }
+.price .pw b { font-size: 22px; color: var(--text); }
+.go { height: 44px; display: inline-flex; align-items: center; gap: 6px; padding: 0 14px; border-radius: 12px; background: var(--surface2); border: 1px solid var(--line); font-weight: 650; font-size: 15px; white-space: nowrap; }
+/* Tarjeta B */
+.gridB { display: grid; gap: 20px 12px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cardB { position: relative; }
+.cardB .cv { display: block; aspect-ratio: 1; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); }
+.cardB .cv img { width: 100%; height: 100%; display: block; }
+.cardB .bdg { position: absolute; top: 8px; left: 8px; height: 26px; display: inline-flex; align-items: center; padding: 0 8px; border-radius: 7px; font-size: 12.5px; font-weight: 750; background: #111; color: #fff; }
+.cardB .bdg.sale { background: #1a7f37; }
+.cardB h3 { margin-top: 10px; font-size: 16px; line-height: 1.3; font-weight: 700; }
+.cardB h3 a::after { content: ""; position: absolute; inset: 0; }
+.cardB .k { font-size: 13px; color: var(--muted); margin-top: 2px; }
+.cardB .pt { margin-top: 8px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.tagp { position: relative; height: 28px; display: inline-flex; align-items: center; padding: 0 12px 0 10px; background: var(--text); color: #0b0b0c; font-weight: 800; font-size: 15px; border-radius: 6px 0 0 6px; margin-right: 12px; }
+.tagp::after { content: ""; position: absolute; right: -12px; top: 0; border: 14px solid transparent; border-left: 12px solid var(--text); border-right: 0; }
+.cardB .pt s { font-size: 13px; color: var(--muted); }
+.cardB .pt .pw { font-size: 13px; color: var(--muted); }
+/* Secciones de abajo */
+.sec { margin-top: 40px; }
+.sec h2 { font-size: 22px; letter-spacing: -0.01em; margin-bottom: 14px; }
+.trust { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.trust li { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px; font-size: 15px; font-weight: 650; display: flex; flex-direction: column; gap: 6px; }
+.trust li span { font-size: 14px; font-weight: 400; color: var(--muted); line-height: 1.4; }
+.trust li svg { color: var(--green); }
+.svc { margin-top: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+.svc p { color: var(--muted); font-size: 15px; }
+.faq li { border-bottom: 1px solid var(--line); min-height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 16px; font-weight: 600; padding: 12px 0; }
+.foot { margin-top: 48px; border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
+.foot .cols { margin-top: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.foot b { color: var(--text); display: block; margin-bottom: 6px; }
+.anno { position: absolute; z-index: 9; background: #ffd60a; color: #111; font: 700 12px/1.3 system-ui; padding: 4px 8px; border-radius: 6px; }
+@media (min-width: 900px) {
+	.wrap { padding: 0 24px; }
+	.promo { font-size: 14px; }
+	.nav { display: flex; }
+	.hdr .wrap { height: 68px; }
+	.ibtn.m { display: none; }
+	.searchbox { display: flex; align-items: center; gap: 8px; width: 300px; height: 44px; border: 1px solid var(--line); border-radius: 12px; padding: 0 14px; color: var(--muted); font-size: 15px; }
+	.intro { padding: 56px 0 22px; text-align: center; }
+	.intro h1 { font-size: 46px; }
+	.intro p { font-size: 18px; }
+	.chips { justify-content: center; margin: 0; padding: 4px 0 30px; }
+	.grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+	.gridB { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 24px; }
+	.cardB h3 { font-size: 18px; }
+	.trust { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+	.sec { margin-top: 64px; }
+	.sec h2 { text-align: center; font-size: 28px; margin-bottom: 22px; }
+	.svc { flex-direction: row; align-items: center; justify-content: space-between; padding: 24px 28px; }
+	.faq { max-width: 760px; margin: 0 auto; }
+	.foot .cols { grid-template-columns: 2fr 1fr 1fr 1fr; }
+}
+</style></head><body><div class="promo"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M19 12v9H5v-9M7.5 8a2.5 2.5 0 0 1 0-5C10 3 12 8 12 8s2-5 4.5-5a2.5 2.5 0 0 1 0 5"/></svg> 10 % en tu 1.ª compra con <b>TONYCIENCIA</b></div>
+<header class="hdr"><div class="wrap">
+	<a class="brand" href="#"><img src="assets/logo-blanco.webp" alt="Tony Ciencia"><span>MARKET</span></a>
+	<nav class="nav"><a href="#" aria-current="page">Catálogo</a><a href="#">Ofertas</a><a href="#">Agentes para empresas</a><a href="#">Blog</a></nav>
+	<span class="sp"></span>
+	<label class="searchbox"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg> Buscar productos</label>
+	<button class="ibtn m" aria-label="Buscar"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+	<a class="btn btn--ghost" href="#">Entrar</a>
+	<button class="ibtn m" aria-label="Menú"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+</div></header><main class="wrap">
+	<section class="intro"><h1>Herramientas de IA que trabajan por ti</h1><p>En español · pago único · descarga inmediata</p></section>
+	<div class="chips" role="toolbar" aria-label="Filtrar">
+	<a class="chip" aria-pressed="true">Todo <small>6</small></a><a class="chip">Ofertas <small>2</small></a><a class="chip">Desde $0 <small>2</small></a><a class="chip">Video <small>3</small></a><a class="chip">Anuncios <small>1</small></a><a class="chip">SEO <small>1</small></a><a class="chip">Agentes <small>1</small></a><a class="chip"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg> Ordenar</a>
+</div>
+	<ul class="gridB"><li class="cardB" id="cardB-anuncios">
+	<a class="cv" href="#" tabindex="-1"><img src="../png/B-portada-anuncios.png" width="1080" height="1080" alt="Anuncios Infinitos" fetchpriority="high"></a>
+	<h3><a href="#">Anuncios Infinitos</a></h3>
+	<p class="k">Agente de IA · Publicidad</p>
+	<div class="pt"><span class="tagp">$33.33</span><s>$76.90</s><span style="color: var(--green); font-weight: 750; font-size: 13px;">−57 %</span></div>
+</li><li class="cardB" id="cardB-specreel">
+	<a class="cv" href="#" tabindex="-1"><img src="../png/B-portada-specreel.png" width="1080" height="1080" alt="SpecReel" loading="lazy"></a>
+	<h3><a href="#">SpecReel</a></h3>
+	<p class="k">Skill · Video 3D</p>
+	<div class="pt"><span class="tagp">$12</span><s>$36.90</s><span style="color: var(--green); font-weight: 750; font-size: 13px;">−67 %</span></div>
+</li><li class="cardB" id="cardB-stick">
+	<a class="cv" href="#" tabindex="-1"><img src="../png/B-portada-stick.png" width="1080" height="1080" alt="SpecReel Stick" loading="lazy"></a>
+	<h3><a href="#">SpecReel Stick</a></h3>
+	<p class="k">Skill · Video animado</p>
+	<div class="pt"><span class="tagp">$12</span></div>
+</li><li class="cardB" id="cardB-pagespeed">
+	<a class="cv" href="#" tabindex="-1"><img src="../png/B-portada-pagespeed.png" width="1080" height="1080" alt="PageSpeed Forensics" loading="lazy"></a>
+	<h3><a href="#">PageSpeed Forensics</a></h3>
+	<p class="k">Skill · SEO web</p>
+	<div class="pt"><span class="tagp">$0+</span><span class="pw">sugerido $9</span></div>
+</li><li class="cardB" id="cardB-cutpilot">
+	<a class="cv" href="#" tabindex="-1"><img src="../png/B-portada-cutpilot.png" width="1080" height="1080" alt="CutPilot" loading="lazy"></a>
+	<h3><a href="#">CutPilot</a></h3>
+	<p class="k">Editor de video · En tu PC</p>
+	<div class="pt"><span class="tagp">$12</span></div>
+</li><li class="cardB" id="cardB-motor">
+	<a class="cv" href="#" tabindex="-1"><img src="../png/B-portada-motor.png" width="1080" height="1080" alt="Motor creativo" loading="lazy"></a>
+	<h3><a href="#">Motor creativo</a></h3>
+	<p class="k">13 agentes de IA</p>
+	<div class="pt"><span class="tagp">$0+</span><span class="pw">sugerido $19</span></div>
+</li></ul>
+	<section class="sec" aria-labelledby="t-trust"><h2 id="t-trust">Compra sin riesgo</h2><ul class="trust">
+	<li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Descarga inmediata<span>En tu correo y en Mis compras.</span></li>
+	<li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Pago seguro con Stripe<span>No vemos tu tarjeta.</span></li>
+	<li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>Reembolso en 14 días<span>Si aún no lo descargaste.</span></li>
+	<li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Soporte en español<span>Te responde una persona.</span></li></ul>
+	<div class="svc"><div><b>¿Prefieres que lo construyamos por ti?</b><p>Agentes de IA a medida para tu empresa.</p></div><a class="btn btn--ghost" href="#">Ver el servicio <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+</section>
+<section class="sec" aria-labelledby="t-faq"><h2 id="t-faq">Antes de comprar</h2><ul class="faq">
+	<li>¿Cómo recibo lo que compro?<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></li><li>¿Es un pago único?<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></li><li>¿Qué significa «paga lo que quieras»?<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></li><li>¿Los precios tachados son reales?<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></li><li>¿Puedo pedir un reembolso?<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></li>
+</ul></section>
+<footer class="foot"><div class="wrap" style="padding: 0;"><div class="brand"><img src="assets/logo-blanco.webp" alt=""><span>MARKET</span></div>
+<div class="cols"><div>Herramientas de IA en español. Pago único, descarga inmediata.</div><div><b>Tienda</b>Catálogo<br>Mis compras</div><div><b>Ayuda</b>Soporte<br>Reembolsos</div><div><b>Legal</b>Términos<br>Privacidad</div></div>
+<p style="margin-top: 18px; font-size: 13px;">Vendido por Tony Ciencia LLC. Precios en USD.</p></div></footer></main></body></html>

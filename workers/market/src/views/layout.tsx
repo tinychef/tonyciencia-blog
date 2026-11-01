@@ -44,7 +44,7 @@ function jsonLdScript(data: object) {
 	return raw(`<script type="application/ld+json">${JSON.stringify(data).replace(/</g, "\\u003c")}</script>`);
 }
 
-const STATIC_VERSION = "5";
+const STATIC_VERSION = "6";
 
 export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, theme, welcome, children }) => {
 	const fullTitle = meta.fullTitle ?? (meta.title === "Market Tony" ? "Market Tony — Tony Ciencia" : `${meta.title} — Market Tony`);
@@ -106,7 +106,7 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 				{welcome && (
 					<div class="mk-announce">
 						<span>
-							<Icon name="gift" size={15} /> {offerText} en tu primera compra con el código{" "}
+							<Icon name="gift" size={15} /> {welcome.percentOff ? `${welcome.percentOff} %` : "Descuento"} en tu 1.ª compra con{" "}
 							<button type="button" class="mk-code-btn" data-copy={welcome.code} aria-label={`Copiar el código ${welcome.code}`}>
 								{welcome.code}
 							</button>
