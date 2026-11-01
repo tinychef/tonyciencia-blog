@@ -1,72 +1,131 @@
 ---
-// Google tag (GA4 / Ads) + Meta Pixel, gated by the visitor's choice in
-// CookieConsent.astro. Both libraries load unconditionally (industry-standard
-// Consent Mode approach — Google can still model conversions), but tracking
-// storage stays denied until the visitor accepts, and is revoked again if
-// they reject. No IDs set = this component renders nothing.
+// Google Tag Manager, Google tag (GA4 / Ads) + Meta Pixel, gated by the
+// visitor's choice in CookieConsent.astro. The libraries load unconditionally
+// (industry-standard Consent Mode approach — Google can still model
+// conversions), but tracking storage stays denied until the visitor accepts,
+// and is revoked again if they reject. No IDs set = this component renders
+// nothing.
 //
-// Set PUBLIC_GA_ID / PUBLIC_META_PIXEL_ID in .env (local) and as build vars
-// in the Cloudflare Pages/Workers project + GitHub Actions (deploy.yml runs
-// `astro build`, which is when these get inlined).
+// Set PUBLIC_GTM_ID / PUBLIC_GA_ID / PUBLIC_META_PIXEL_ID in .env (local) and
+// as GitHub repository variables (Settings → Secrets and variables → Actions →
+// Variables): deploy.yml passes them to `astro build`, which is when they get
+// inlined. Market Tony (workers/market) has its own GTM_ID in wrangler.jsonc
+// and reads the same `cookie_consent` cookie.
+//
+// Two parts, because GTM's <noscript> iframe has to sit right after <body>:
+//   <Analytics />             in <head>: consent defaults + GTM/GA4/Pixel
+//   <Analytics part="body" /> first thing in <body>: GTM noscript iframe
+interface Props {
+	part?: "head" | "body";
+}
+const { part = "head" } = Astro.props;
+
 const gaId = import.meta.env.PUBLIC_GA_ID as string | undefined;
 const metaPixelId = import.meta.env.PUBLIC_META_PIXEL_ID as string | undefined;
+// Only a well-formed container ID ("GTM-XXXXXXX"); anything else leaves GTM off.
+const rawGtmId = ((import.meta.env.PUBLIC_GTM_ID as string | undefined) ?? "").trim();
+const gtmId = /^GTM-[A-Z0-9]{4,12}$/.test(rawGtmId) ? rawGtmId : undefined;
+const hasGoogle = !!(gaId || gtmId);
 ---
 
-{gaId && (
-	<script async is:inline src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
-	<script define:vars={{ gaId }} is:inline>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() { dataLayer.push(arguments); }
-		// @ts-ignore
-		window.gtag = gtag;
-		gtag("js", new Date());
-		// Consent Mode v2 — denied by default, updated once the visitor decides.
-		gtag("consent", "default", {
-			ad_storage: "denied",
-			ad_user_data: "denied",
-			ad_personalization: "denied",
-			analytics_storage: "denied",
-		});
-		gtag("config", gaId);
-	</script>
-)}
-
-{metaPixelId && (
-	<script define:vars={{ metaPixelId }} is:inline>
-		!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-		n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-		n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;
-		t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-		document,"script","https://connect.facebook.net/en_US/fbevents.js");
-		fbq("consent", "revoke");
-		fbq("init", metaPixelId);
-		fbq("track", "PageView");
-	</script>
-	<noscript>
-		<img height="1" width="1" style="display:none" src={`https://www.facebook.com/tr?id=${metaPixelId}&ev=PageView&noscript=1`} alt="" />
-	</noscript>
-)}
-
-{(gaId || metaPixelId) && (
-	<script define:vars={{ hasGa: !!gaId, hasMeta: !!metaPixelId }} is:inline>
-		function applyConsent(value) {
-			const granted = value === "accepted";
-			if (hasGa && window.gtag) {
-				window.gtag("consent", "update", {
-					ad_storage: granted ? "granted" : "denied",
-					ad_user_data: granted ? "granted" : "denied",
-					ad_personalization: granted ? "granted" : "denied",
-					analytics_storage: granted ? "granted" : "denied",
+{part === "body" ? (
+	gtmId && (
+		<noscript>
+			<iframe
+				src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+				height="0"
+				width="0"
+				style="display:none;visibility:hidden"
+				title="Google Tag Manager"
+			></iframe>
+		</noscript>
+	)
+) : (
+	<>
+		{hasGoogle && (
+			<script define:vars={{ gaId: gaId ?? "", gtmId: gtmId ?? "" }} is:inline>
+				window.dataLayer = window.dataLayer || [];
+				function gtag() { dataLayer.push(arguments); }
+				// @ts-ignore
+				window.gtag = gtag;
+				// Consent Mode v2 — denied by default, set BEFORE gtm.js / gtag.js
+				// load. A returning visitor who already accepted gets the update
+				// right away, so GTM's first tags already see the granted state.
+				gtag("consent", "default", {
+					ad_storage: "denied",
+					ad_user_data: "denied",
+					ad_personalization: "denied",
+					analytics_storage: "denied",
 				});
-			}
-			if (hasMeta && window.fbq) {
-				window.fbq("consent", granted ? "grant" : "revoke");
-			}
-		}
+				if ((document.cookie.match(/(?:^|;\s*)cookie_consent=([^;]+)/) || [])[1] === "accepted") {
+					gtag("consent", "update", {
+						ad_storage: "granted",
+						ad_user_data: "granted",
+						ad_personalization: "granted",
+						analytics_storage: "granted",
+					});
+				}
+				if (gaId) {
+					gtag("js", new Date());
+					gtag("config", gaId);
+				}
+				if (gtmId) {
+					// Google Tag Manager (official snippet, after the consent defaults).
+					(function (w, d, s, l, i) {
+						w[l] = w[l] || [];
+						w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+						var f = d.getElementsByTagName(s)[0],
+							j = d.createElement(s),
+							dl = l != "dataLayer" ? "&l=" + l : "";
+						j.async = true;
+						j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+						f.parentNode.insertBefore(j, f);
+					})(window, document, "script", "dataLayer", gtmId);
+				}
+			</script>
+		)}
+		{gaId && <script async is:inline src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>}
 
-		const existing = document.cookie.match(/cookie_consent=([^;]+)/);
-		if (existing) applyConsent(existing[1]);
+		{metaPixelId && (
+			<script define:vars={{ metaPixelId }} is:inline>
+				!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+				n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+				n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;
+				t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+				document,"script","https://connect.facebook.net/en_US/fbevents.js");
+				fbq("consent", "revoke");
+				fbq("init", metaPixelId);
+				fbq("track", "PageView");
+			</script>
+			<noscript>
+				<img height="1" width="1" style="display:none" src={`https://www.facebook.com/tr?id=${metaPixelId}&ev=PageView&noscript=1`} alt="" />
+			</noscript>
+		)}
 
-		window.addEventListener("tc:consent", (e) => applyConsent(e.detail.value));
-	</script>
+		{(hasGoogle || metaPixelId) && (
+			<script define:vars={{ hasGoogle, hasMeta: !!metaPixelId }} is:inline>
+				function applyConsent(value) {
+					const granted = value === "accepted";
+					if (hasGoogle && window.gtag) {
+						window.gtag("consent", "update", {
+							ad_storage: granted ? "granted" : "denied",
+							ad_user_data: granted ? "granted" : "denied",
+							ad_personalization: granted ? "granted" : "denied",
+							analytics_storage: granted ? "granted" : "denied",
+						});
+					}
+					if (hasMeta && window.fbq) {
+						window.fbq("consent", granted ? "grant" : "revoke");
+					}
+				}
+
+				// Google already got the stored decision before loading (above);
+				// the Pixel gets it here. Later changes come from the banner.
+				const existing = document.cookie.match(/cookie_consent=([^;]+)/);
+				if (existing && hasMeta && window.fbq) window.fbq("consent", existing[1] === "accepted" ? "grant" : "revoke");
+
+				window.addEventListener("tc:consent", (e) => applyConsent(e.detail.value));
+			</script>
+		)}
+	</>
 )}

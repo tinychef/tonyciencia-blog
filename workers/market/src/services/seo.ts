@@ -1,6 +1,6 @@
 /** Datos estructurados (schema.org), feed de Google Merchant Center y sitemap del market. */
 import { categoryLabelIn, hasEnglish, localize, productPath, storeRoot, type Lang } from "../lib/i18n";
-import { categoryLabel, seoDescription, seoTitle } from "../lib/catalog";
+import { categoryLabel, merchantImages, seoDescription, seoTitle } from "../lib/catalog";
 import { fromPriceCents, isPwyw, pwywBounds, saleInfo } from "../lib/pricing";
 import type { ReviewRow, ShopProduct } from "./repo";
 
@@ -10,6 +10,36 @@ const SELLER = { "@type": "Organization", name: "Tony Ciencia LLC", url: "https:
 const abs = (origin: string, path: string) => new URL(path, origin).toString();
 const xml = (s: string) => s.replace(/[<>&'"]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", "'": "&apos;", '"': "&quot;" })[c]!);
 const money = (cents: number, currency: string) => `${(cents / 100).toFixed(2)} ${currency.toUpperCase()}`;
+
+/**
+ * Envío de un producto digital (Offer.shippingDetails): descarga inmediata en EE. UU., sin costo y en 0 días.
+ * https://developers.google.com/search/docs/appearance/structured-data/merchant-listing
+ */
+export function digitalShippingJsonLd(currency: string) {
+	return {
+		"@type": "OfferShippingDetails",
+		shippingRate: { "@type": "MonetaryAmount", value: "0", currency: currency.toUpperCase() },
+		shippingDestination: { "@type": "DefinedRegion", addressCountry: "US" },
+		deliveryTime: {
+			"@type": "ShippingDeliveryTime",
+			handlingTime: { "@type": "QuantitativeValue", minValue: 0, maxValue: 0, unitCode: "DAY" },
+			transitTime: { "@type": "QuantitativeValue", minValue: 0, maxValue: 0, unitCode: "DAY" },
+		},
+	};
+}
+
+/**
+ * Offer.hasMerchantReturnPolicy según /market/legal/reembolsos (src/views/legal.tsx): reembolso si se pide dentro de
+ * los 14 días y no se descargó, o si el archivo está dañado; sin costo para el comprador (FreeReturn). No se pone
+ * returnMethod: Google solo lo recomienda y sus valores (correo, tienda, kiosco) no aplican a una descarga.
+ */
+export const RETURN_POLICY_JSONLD = {
+	"@type": "MerchantReturnPolicy",
+	applicableCountry: "US",
+	returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+	merchantReturnDays: 14,
+	returnFees: "https://schema.org/FreeReturn",
+} as const;
 
 /** 31 de diciembre del año siguiente: Google pide priceValidUntil cuando hay precio de oferta. */
 const validUntil = (now = Date.now()) => `${new Date(now).getUTCFullYear() + 1}-12-31`;
@@ -62,27 +92,8 @@ function offerJsonLd(origin: string, p: ShopProduct, path = `/market/producto/${
 		availability: soon ? "https://schema.org/PreOrder" : "https://schema.org/InStock",
 		itemCondition: "https://schema.org/NewCondition",
 		seller: SELLER,
-		...(soon
-			? {}
-			: {
-					hasMerchantReturnPolicy: {
-						"@type": "MerchantReturnPolicy",
-						applicableCountry: "US",
-						returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
-						merchantReturnDays: 14,
-						returnFees: "https://schema.org/FreeReturn",
-					},
-					shippingDetails: {
-						"@type": "OfferShippingDetails",
-						shippingRate: { "@type": "MonetaryAmount", value: "0", currency: p.currency.toUpperCase() },
-						shippingDestination: { "@type": "DefinedRegion", addressCountry: "US" },
-						deliveryTime: {
-							"@type": "ShippingDeliveryTime",
-							handlingTime: { "@type": "QuantitativeValue", minValue: 0, maxValue: 0, unitCode: "DAY" },
-							transitTime: { "@type": "QuantitativeValue", minValue: 0, maxValue: 0, unitCode: "DAY" },
-						},
-					},
-				}),
+		// Solo en lo que se puede comprar: un «Próximamente» no se entrega hoy (no tendría sentido «entrega en 0 días»).
+		...(soon ? {} : { shippingDetails: digitalShippingJsonLd(p.currency), hasMerchantReturnPolicy: RETURN_POLICY_JSONLD }),
 	};
 }
 
@@ -171,54 +182,95 @@ export function serviceJsonLd(origin: string) {
 	};
 }
 
+const FEED_TEXT = {
+	es: {
+		description: "Tienda de Tony Ciencia: agentes de IA, skills y plantillas para anuncios, video y automatización.",
+		type: "Productos digitales",
+		otherCategory: "Herramientas de IA",
+		shipping: "Descarga digital",
+	},
+	en: {
+		description: "Tony Ciencia's store: AI agents, skills and templates for ads, video and automation.",
+		type: "Digital products",
+		otherCategory: "AI tools",
+		shipping: "Digital download",
+	},
+} as const;
+
 /**
- * Feed de productos para Google Merchant Center (RSS 2.0 + espacio g:).
- * Se publican solo productos de pago disponibles. Los "Próximamente" y los gratis no se incluyen.
- * Ojo: Google limita algunos productos digitales en los anuncios de Shopping; las fichas gratuitas sí los aceptan.
+ * Imágenes del feed. Principal: merchant.jpg (1500×1500, sin texto promocional) si el producto la tiene en
+ * MERCHANT_IMAGES; si no, la portada. Adicionales: solo las demás de Merchant (merchant-2.jpg…). Ni las portadas ni
+ * las capturas screen-*.webp van al feed: llevan titulares y rótulos de compatibilidad, que Google rechaza también en
+ * las imágenes adicionales.
+ * https://support.google.com/merchants/answer/6324350
  */
-export function merchantFeed(origin: string, products: ShopProduct[]): string {
+export function feedImages(p: Pick<ShopProduct, "slug" | "images">): { main: string; additional: string[] } | null {
+	const merchant = merchantImages(p.slug);
+	const main = merchant[0] ?? p.images[0]?.src;
+	if (!main) return null;
+	const additional = [...new Set(merchant.slice(1))].filter((src) => src !== main).slice(0, 10);
+	return { main, additional };
+}
+
+/**
+ * Feed de productos para Google Merchant Center (RSS 2.0 + espacio g:), uno por idioma:
+ * /market/feed.xml (español, fichas /market/producto/…) y /market/en/feed.xml (inglés, solo las fichas que tienen
+ * versión en inglés, enlaces /market/en/product/…). Precios en USD, iguales a los de la página.
+ * Se publican solo productos de pago disponibles. Los "Próximamente" y los gratis no se incluyen.
+ * Categoría de Google: 313 = Software > Computer Software. Merchant solo excluye los e-books, y solo en anuncios.
+ */
+export function merchantFeed(origin: string, products: ShopProduct[], lang: Lang = "es"): string {
+	const text = FEED_TEXT[lang];
 	const items = products
 		// Merchant Center no acepta precio 0: los "paga lo que quieras" desde $0 van solo en el sitio y en los datos
 		// estructurados (fichas gratuitas en la búsqueda), no en el feed.
-		.filter((p) => p.kind === "paid" && p.availability === "available" && p.images[0] && fromPriceCents(p) >= 50)
-		.map((p) => {
+		.filter((p) => p.kind === "paid" && p.availability === "available" && fromPriceCents(p) >= 50)
+		// El feed en inglés solo enlaza fichas que existen en inglés (sin versión EN, /market/en/product/… redirige).
+		.filter((p) => lang === "es" || hasEnglish(p))
+		.map((p) => localize(p, lang))
+		.flatMap((p) => {
+			const images = feedImages(p);
+			if (!images) return [];
 			const sale = saleInfo(p);
-			const hasSale = !!sale;
-			const extra = p.images.slice(1, 10).map((i) => `<g:additional_image_link>${xml(abs(origin, i.src))}</g:additional_image_link>`);
 			const desc = [p.meta_description || p.summary, p.tagline, ...p.highlights].filter(Boolean).join(" · ").slice(0, 4900);
+			const category = categoryLabelIn(lang, p.category, categoryLabel(p.category)) ?? text.otherCategory;
 			return [
-				"<item>",
-				`<g:id>${xml(p.slug)}</g:id>`,
-				`<title>${xml(seoTitle(p).slice(0, 150))}</title>`,
-				`<description>${xml(desc)}</description>`,
-				`<link>${xml(abs(origin, `/market/producto/${p.slug}`))}</link>`,
-				`<g:image_link>${xml(abs(origin, p.images[0]!.src))}</g:image_link>`,
-				...extra,
-				"<g:availability>in_stock</g:availability>",
-				`<g:price>${money(hasSale ? sale.wasCents : fromPriceCents(p), p.currency)}</g:price>`,
-				hasSale ? `<g:sale_price>${money(p.price_cents, p.currency)}</g:sale_price>` : "",
-				"<g:is_bundle>no</g:is_bundle>",
-				"<g:adult>no</g:adult>",
-				"<g:condition>new</g:condition>",
-				"<g:brand>Tony Ciencia</g:brand>",
-				"<g:identifier_exists>no</g:identifier_exists>",
-				// 313 = Software > Computer Software (taxonomía oficial de Google).
-				"<g:google_product_category>313</g:google_product_category>",
-				`<g:product_type>${xml(`Productos digitales > ${categoryLabel(p.category) ?? "Herramientas de IA"}`)}</g:product_type>`,
-				"<g:shipping><g:country>US</g:country><g:service>Descarga digital</g:service><g:price>0 USD</g:price></g:shipping>",
-				...p.tags.slice(0, 5).map((t, i) => `<g:custom_label_${i}>${xml(t.slice(0, 100))}</g:custom_label_${i}>`),
-				"</item>",
-			]
-				.filter(Boolean)
-				.join("\n");
+				[
+					"<item>",
+					`<g:id>${xml(p.slug)}</g:id>`,
+					`<title>${xml(seoTitle(p).slice(0, 150))}</title>`,
+					`<description>${xml(desc)}</description>`,
+					`<link>${xml(abs(origin, productPath(p.slug, lang)))}</link>`,
+					`<g:image_link>${xml(abs(origin, images.main))}</g:image_link>`,
+					...images.additional.map((src) => `<g:additional_image_link>${xml(abs(origin, src))}</g:additional_image_link>`),
+					"<g:availability>in_stock</g:availability>",
+					`<g:price>${money(sale ? sale.wasCents : fromPriceCents(p), p.currency)}</g:price>`,
+					sale ? `<g:sale_price>${money(p.price_cents, p.currency)}</g:sale_price>` : "",
+					"<g:is_bundle>no</g:is_bundle>",
+					"<g:adult>no</g:adult>",
+					"<g:condition>new</g:condition>",
+					"<g:brand>Tony Ciencia</g:brand>",
+					"<g:identifier_exists>no</g:identifier_exists>",
+					// 313 = Software > Computer Software (taxonomía oficial de Google).
+					"<g:google_product_category>313</g:google_product_category>",
+					`<g:product_type>${xml(`${text.type} > ${category}`)}</g:product_type>`,
+					// Descarga digital: envío sin costo.
+					`<g:shipping><g:country>US</g:country><g:service>${text.shipping}</g:service><g:price>${money(0, p.currency)}</g:price></g:shipping>`,
+					...p.tags.slice(0, 5).map((t, i) => `<g:custom_label_${i}>${xml(t.slice(0, 100))}</g:custom_label_${i}>`),
+					"</item>",
+				]
+					.filter(Boolean)
+					.join("\n"),
+			];
 		});
 	return [
 		'<?xml version="1.0" encoding="UTF-8"?>',
 		'<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">',
 		"<channel>",
 		"<title>Market Tony — Tony Ciencia</title>",
-		`<link>${xml(abs(origin, storeRoot("es")))}</link>`,
-		"<description>Herramientas de IA en español: agentes, skills y plantillas.</description>",
+		`<link>${xml(abs(origin, storeRoot(lang)))}</link>`,
+		`<description>${xml(text.description)}</description>`,
+		`<language>${lang}</language>`,
 		...items,
 		"</channel>",
 		"</rss>",

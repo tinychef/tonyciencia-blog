@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="und">
+<head>
+<meta charset="utf-8">
+<title>Merchant · Motion 3D Video</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root { --bg: #0d0d0f; --p1: #141417; --p2: #1b1b1f; --p3: #26262b; --line: #2e2e33; --fg: #f5f5f7; --mut: #8e8e96; --dim: #4a4a52; --g: #30d158; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #333; font-family: "Inter Tight", system-ui, sans-serif; }
+.m { width: 1500px; height: 1500px; position: relative; overflow: hidden; background: var(--bg); color: var(--fg); margin-bottom: 40px; }
+.dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,.06) 1.6px, transparent 1.6px); background-size: 32px 32px; }
+.win { position: absolute; left: 70px; top: 90px; width: 1360px; height: 1320px; border: 3px solid var(--line); border-radius: 30px; background: var(--p1); overflow: hidden; box-shadow: 0 40px 90px rgba(0,0,0,.55); }
+.bar { height: 66px; border-bottom: 3px solid var(--line); display: flex; align-items: center; gap: 14px; padding: 0 26px; background: var(--p2); }
+.bar i { width: 18px; height: 18px; border-radius: 50%; background: var(--dim); }
+.ln { display: block; height: 16px; border-radius: 8px; background: var(--p3); }
+
+.t { position: absolute; overflow: hidden; border-radius: 30px; border: 3px solid var(--line); box-shadow: 0 30px 70px rgba(0,0,0,.6); background: #000; }
+.t img { display: block; width: 100%; height: 100%; object-fit: cover; }
+</style>
+</head>
+<body>
+<section class="m" data-out="merchant"><div class="dots"></div>
+	<div class="t" style="left: 50px; top: 285px; width: 930px; height: 930px;"><img src="../assets/merchant/specreel-mitocondria.jpg" alt=""></div>
+	<div class="t" style="left: 1010px; top: 285px; width: 440px; height: 440px;"><img src="../assets/merchant/specreel-celula.jpg" alt=""></div>
+	<div class="t" style="left: 1010px; top: 775px; width: 440px; height: 440px;"><img src="../assets/merchant/specreel-microneedling.jpg" alt=""></div>
+	</section>
+</body>
+</html>

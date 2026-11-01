@@ -68,8 +68,15 @@ Próximamente"). Nunca `DELETE` de productos con pedidos: para retirar uno, `act
 
 - Meta título ≤ 60, meta descripción 120–160, H1 = título comercial, canonical `/market/producto/<slug>`.
 - JSON-LD: Product + Offer (+ BreadcrumbList + FAQPage) los genera `src/services/seo.ts`.
-- Feed: `https://tonyciencia.com/market/feed.xml` (Merchant Center → Productos → Fuentes → archivo en sitio web,
-  actualización diaria). Sitemap: `https://tonyciencia.com/market/sitemap.xml` (Search Console y `robots.txt`).
+- Feeds: `https://tonyciencia.com/market/feed.xml` (español) y `https://tonyciencia.com/market/en/feed.xml` (inglés,
+  solo fichas con versión EN, enlaces `/market/en/product/…`). Merchant Center → Productos → Fuentes → archivo en sitio
+  web, actualización diaria, uno por idioma. Categoría 313 (Software > Computer Software), envío 0, precios en USD.
+  Sitemap: `https://tonyciencia.com/market/sitemap.xml` (Search Console y `robots.txt`).
+- Imagen del feed: `products/<slug>/merchant.jpg` (1500×1500, sin texto promocional; las portadas no sirven). Al
+  crear una (o `merchant-2.jpg`), agrégala a `MERCHANT_IMAGES` en `src/lib/catalog.ts`; `test/merchant.test.ts`
+  comprueba que exista. Sin ella, el feed usa la portada y la auditoría avisa.
+- JSON-LD de cada Offer comprable: `shippingDetails` (0 USD, US, 0 días) y `hasMerchantReturnPolicy` (14 días, sin
+  costo), según `/market/legal/reembolsos`. Si cambia la política, cambia `RETURN_POLICY_JSONLD` en `src/services/seo.ts`.
 - Google limita algunos productos digitales en anuncios de Shopping; las fichas gratuitas sí los aceptan.
 
 ## 5. Probar y desplegar

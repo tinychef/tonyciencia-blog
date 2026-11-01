@@ -1,5 +1,5 @@
 import type { FC } from "hono/jsx";
-import { CATEGORIES, badgesFor, categoryLabel, isBuyable, priceWithPercentOff, ratingText, salesText, type Badge } from "../lib/catalog";
+import { CATEGORIES, badgesFor, categoryLabel, isBuyable, priceWithPercentOff, ratingText, salesText, shortName, type Badge } from "../lib/catalog";
 import { formatPrice } from "../lib/money";
 import { STRIPE_MAX_CENTS, canBeFree, fromPriceCents, isPwyw, pwywBounds, saleInfo } from "../lib/pricing";
 import type { Product, ReviewRow, ShopProduct } from "../services/repo";
@@ -201,8 +201,7 @@ export const ANIMATED_COVERS = new Set(["anuncios-infinitos", "specreel", "specr
 export const cover800 = (src: string): string | null =>
 	/^\/market\/static\/products\/[a-z0-9-]+\/(?:en\/)?cover\.webp$/.test(src) ? src.replace(/cover\.webp$/, "cover-800.webp") : null;
 
-/** Nombre corto del producto (antes de los dos puntos), para tarjetas y migas. */
-export const shortName = (title: string) => (title.split(":")[0] ?? title).trim();
+export { shortName };
 
 /**
  * Etiqueta de precio con forma de flecha (precio actual) + precio anterior REAL tachado y % de ahorro.
@@ -402,12 +401,17 @@ export function matchesFilter(p: ShopProduct, filter: CatalogFilter): boolean {
 	return p.availability === "available";
 }
 
+/** ¿Se ve la tarjeta al cargar con estos filtros? (las demás van en la página con `hidden`, para filtrar sin recargar). */
+export function catalogVisible(p: ShopProduct, opts: { category: string | null; query: string; filter: CatalogFilter }): boolean {
+	const q = opts.query.trim().toLowerCase();
+	return (!opts.category || p.category === opts.category) && (!q || searchText(p).includes(q)) && matchesFilter(p, opts.filter);
+}
+
 export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query, sort = "destacados", filter = null }) => {
 	const lang = useLang();
 	const tr = useT();
 	const maxSales = Math.max(0, ...products.map((p) => p.stats.sales));
-	const q = query.trim().toLowerCase();
-	const visible = (p: ShopProduct) => (!category || p.category === category) && (!q || searchText(p).includes(q)) && matchesFilter(p, filter);
+	const visible = (p: ShopProduct) => catalogVisible(p, { category, query, filter });
 	const ordered = sortProducts(products, sort);
 	const shown = ordered.filter(visible);
 	const used = new Set(products.map((p) => p.category));
@@ -694,7 +698,7 @@ const PwywForm: FC<{ product: Product; csrf: string | null; mode: "mock" | "live
 	const { min, max } = pwywBounds(product);
 	const suggested = initial ?? Math.max(product.price_cents, min);
 	return (
-		<form method="post" action={`${path}/comprar`} class="mk3-pwyw" data-pwyw data-min={String(min)} data-max={String(max)}>
+		<form method="post" action={`${path}/comprar`} class="mk3-pwyw" data-pwyw data-min={String(min)} data-max={String(max)} data-checkout>
 			<CsrfField csrf={csrf} />
 			<label for="monto" class="mk3-pwyw-label">
 				{tr("Tú eliges el precio")}
@@ -816,7 +820,7 @@ const BuyActions: FC<ProductViewProps> = ({ product, loggedIn, owned, csrf, mode
 	}
 	if (isPwyw(product)) return <PwywForm product={product} csrf={csrf} mode={mode} initial={pwywInitial} />;
 	return (
-		<form method="post" action={`${productUrl(product.slug)}/comprar`}>
+		<form method="post" action={`${productUrl(product.slug)}/comprar`} data-checkout>
 			<CsrfField csrf={csrf} />
 			<details class="mk-coupon" open={welcome ? true : undefined}>
 				<summary>{tr("¿Tienes un cupón?")}</summary>

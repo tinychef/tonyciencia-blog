@@ -47,7 +47,12 @@ export interface Config {
 	welcomePercent: number;
 	/** Enlace https de reservas con pago (o null). */
 	bookingUrl: string | null;
+	/** Contenedor de Google Tag Manager validado ("GTM-…") o null (apagado). */
+	gtmId: string | null;
 }
+
+/** Formato de un ID de contenedor de Google Tag Manager. */
+export const GTM_ID_RE = /^GTM-[A-Z0-9]{4,12}$/;
 
 export type BootResult = { ok: true; config: Config } | { ok: false; errors: string[] };
 
@@ -171,6 +176,9 @@ export function loadConfig(env: Env): BootResult {
 		}
 		if (!bookingUrl) console.warn("[market] BOOKING_URL no es una URL https válida: se ignora.");
 	}
+	const gtmRaw = (env.GTM_ID ?? "").trim();
+	const gtmId = GTM_ID_RE.test(gtmRaw) ? gtmRaw : null;
+	if (gtmRaw && !gtmId) console.warn('[market] GTM_ID no tiene el formato "GTM-XXXXXXX": se ignora (GTM queda apagado).');
 
 	if (errors.length > 0 || !emailProvider) return { ok: false, errors };
 
@@ -215,6 +223,7 @@ export function loadConfig(env: Env): BootResult {
 			welcomeAutocreate: env.WELCOME_COUPON_AUTOCREATE === "true",
 			welcomePercent: intVar(env.WELCOME_COUPON_PERCENT, 10, 1, 100),
 			bookingUrl,
+			gtmId,
 		},
 	};
 }

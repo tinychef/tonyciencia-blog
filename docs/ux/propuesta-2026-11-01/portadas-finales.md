@@ -273,3 +273,38 @@ Generar: `node scripts/render-covers.mjs <slug> --solo=en/cover,en/cover-animada
   example, not a measured case… No score is guaranteed. PageSpeed Insights is a Google trademark; not affiliated.».
 - Revisión: `docs/ux/propuesta-2026-11-01/final/en/<slug>.png`, `<slug>-358.png` y `<slug>-animada-cuadros.png`
   (4 cuadros del bucle), y `final/en-358-todas.png` (las 6 a 358 px).
+
+## Imágenes para Google Merchant Center (2026-11-01)
+
+Las portadas no sirven para las fichas gratuitas de Google Shopping: llevan titulares de venta, «Ejemplo», cifras y
+logos de terceros. Política: https://support.google.com/merchants/answer/6324350 (imagen del producto: sin texto
+promocional, sin CTA, sin precios ni descuentos, sin «funciona con»/compatibilidad, sin marcas de agua, sin logos de
+terceros encima, sin placeholders, sin «Próximamente» ni un solo color). Para Software > Computer Software se puede
+mostrar el producto en sí (interfaz o lo que produce), su ícono o una ilustración del producto.
+
+- Fuentes: `workers/market/design/merchant/<slug>.html`, generadas por
+  `docs/ux/propuesta-2026-11-01/maquetas/merchant.mjs`. Recursos en `workers/market/design/assets/merchant/`.
+- Render: `cd workers/market && node scripts/render-merchant.mjs [slug]`. Sale en JPEG de calidad 88, 1500×1500 px,
+  sin bordes. El script se detiene si el tamaño no es 1500×1500, si la imagen pesa 1 MB o más, o si es casi de un
+  solo color.
+- **Sin palabras en ningún idioma**: las líneas de texto son barras y los rótulos son íconos (estilo Lucide), así que
+  la misma imagen sirve en `/market/` y en `/market/en/`. Lo único escrito son marcas técnicas neutras («FCP», «LCP»,
+  `</head>`, «16:9», «00:02») y los nombres propios de las 13 apps.
+
+| Producto | Archivo | Peso | Qué muestra y por qué cumple |
+|---|---|---|---|
+| Anuncios Automáticos | `anuncios-infinitos/merchant.jpg` | 152 KB | Ilustración de la app local: conversación con el agente a la izquierda y 6 tarjetas de anuncio. Cada tarjeta tiene un ícono de categoría, el gancho (barras blancas), el cuerpo, el botón de llamado a la acción del anuncio (ilustrado, sin texto) y el prompt (recuadro punteado), que es lo que entrega el producto según su ficha. Sin titulares, sin «250+» y sin logos de Meta, Google ni TikTok. |
+| Motion 3D Video | `specreel/merchant.jpg` | 179 KB | Tres cuadros reales de sus videos de ejemplo, sin la botella: mitocondria (`demo-celula/preview.mp4`, 7,5 s), célula (0,2 s, antes del primer subtítulo) y cabeza del ejemplo de microneedling (último panel de `poster.jpg`). Se recortaron los subtítulos y rótulos de los videos, así que no hay texto. |
+| SpecReel Stick | `specreel-stick/merchant.jpg` | 77 KB | Cuadro real del sketch incluido («1 % mejor cada día», 11,6 s) renderizado a 1,7× con el motor del producto. En una copia temporal se vaciaron los rótulos de texto (`heroTag`, `otherTag`, la etiqueta del contador); quedan solo números del propio sketch («365», «×37»). |
+| SpecReel Stick | `specreel-stick/merchant-2.jpg` | 82 KB | Segunda vista real: escenario claro del sketch «El que empieza vs. el que espera» (4,2 s), con el mismo motor y sin rótulos. |
+| PageSpeed Forensics | `pagespeed-forensics/merchant.jpg` | 145 KB | Ilustración del informe que arman sus scripts: tira de cuadros con el congelamiento del primer cuadro antes de FCP/LCP (`trace-first-frame`, `trace-milestones`), primeras tandas TCP de 10, 20 y 40 paquetes frente al fin del `<head>` (`burst-timing`, `flight-proxy`; 10 × 1460 B es el `initcwnd` por defecto que cita el script), trabajo del hilo principal por segundo (`main-thread-per-second`) y medianas de 5 corridas por variante (`lh-runs`, `lh-summary`). Sin puntajes, sin «Ejemplo» y sin el logo de PageSpeed. |
+| Edit Pro para YouTube | `cutpilot/merchant.jpg` | 164 KB | Ilustración del producto: el video editado (persona, tarjeta de cifra, subtítulo palabra a palabra), los formatos 16:9, 9:16 y 1:1, y la línea de tiempo con los cortes (tijeras) sobre video y audio, la pista de subtítulos y la de gráficos (título, lista, zoom, formas). Sin titulares y sin palabras. |
+| Creative Factory | `motor-creativo-claude-code/merchant.jpg` | 346 KB | Los íconos oficiales de las 13 apps que opera el producto (`artcraft-workspace/studio/assets/icons/*-240.webp`, MIT OR Apache-2.0) con sus nombres. Son íconos del software que se usa, no logos promocionales de terceros, y no aparece la marca «A» de ArtCraft. Sin «Adobe» tachado y sin titulares. |
+
+Pendiente:
+- Para PageSpeed Forensics, una captura real de la terminal con la salida de `lh-summary.mjs` sería más fiel que la
+  ilustración, pero hace falta correrlo contra un sitio real (necesita Chrome y red; no lo hice).
+- La imagen de Creative Factory se apoya en íconos de un tercero (storytold). La licencia los permite y la ficha
+  explica que el producto opera esas apps, pero si Google la rechaza por «logos de terceros», la alternativa es una
+  ilustración del panel local del producto.
+- Falta cargar las URLs en el feed (`image_link` y `additional_image_link`). Eso toca `src/` y lo hace otro encargo.

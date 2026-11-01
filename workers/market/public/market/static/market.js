@@ -20,6 +20,90 @@
 		},
 	};
 
+	/** Monto escrito por el comprador → centavos (mismas reglas que el servidor, src/lib/pricing.ts). */
+	const parseAmount = (v) => {
+		let s = String(v || "").trim().replace(/^(us)?\$\s*/i, "").replace(/\s*(usd|us\$|\$)$/i, "").replace(/\s+/g, "");
+		if (/^\d{1,3}(,\d{3})+(\.\d{1,2})?$/.test(s)) s = s.replace(/,/g, "");
+		else if (/^\d{1,3}(\.\d{3})+(,\d{1,2})?$/.test(s)) s = s.replace(/\./g, "").replace(",", ".");
+		else if (/^\d+,\d{1,2}$/.test(s)) s = s.replace(",", ".");
+		if (!/^\d{1,9}(\.\d{1,2})?$/.test(s)) return null;
+		return Math.round(Number(s) * 100);
+	};
+
+	// ── Google Tag Manager con Consent Mode v2 ──
+	// Consentimiento: la misma cookie "cookie_consent" del banner del blog (mismo dominio). Sin decisión o con
+	// "rejected" todo queda denegado; el market no muestra banner propio. GTM solo se carga si el servidor puso
+	// <html data-gtm="GTM-…"> (variable GTM_ID); los valores por defecto se fijan ANTES de cargar gtm.js.
+	const dataLayer = (window.dataLayer = window.dataLayer || []);
+	function gtag() {
+		dataLayer.push(arguments);
+	}
+	const consent = (granted) => {
+		const v = granted ? "granted" : "denied";
+		return { ad_storage: v, ad_user_data: v, ad_personalization: v, analytics_storage: v };
+	};
+	gtag("consent", "default", consent(false));
+	if ((document.cookie.match(/(?:^|;\s*)cookie_consent=([^;]+)/) || [])[1] === "accepted") gtag("consent", "update", consent(true));
+	window.addEventListener("tc:consent", (e) => gtag("consent", "update", consent(!!e.detail && e.detail.value === "accepted")));
+	const gtmId = doc.dataset.gtm || "";
+	if (/^GTM-[A-Z0-9]{4,12}$/.test(gtmId)) {
+		dataLayer.push({ "gtm.start": Date.now(), event: "gtm.js" });
+		const gtm = document.createElement("script");
+		gtm.async = true;
+		gtm.src = `https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(gtmId)}`;
+		document.head.appendChild(gtm);
+	}
+
+	// ── Comercio electrónico de GA4 (src/lib/analytics.ts): la página trae los eventos en <script type="application/json"
+	//    data-dl>. Se empujan aunque GTM esté apagado: el dataLayer solo, sin GTM, no envía nada. ──
+	const dlEvents = [];
+	$$("script[data-dl]").forEach((el) => {
+		try {
+			const v = JSON.parse(el.textContent || "null");
+			(Array.isArray(v) ? v : [v]).forEach((ev) => ev && typeof ev === "object" && dlEvents.push(ev));
+		} catch { /* datos inválidos: no se empuja nada */ }
+	});
+	const pushEcommerce = (ev) => {
+		dataLayer.push({ ecommerce: null }); // Google pide limpiar el objeto anterior antes de cada evento.
+		dataLayer.push(ev);
+	};
+	dlEvents.forEach((ev) => {
+		if (ev.event === "purchase") {
+			// Una sola vez por pedido: recargar «¡Gracias por tu compra!» no cuenta otra venta.
+			const id = String((ev.ecommerce && ev.ecommerce.transaction_id) || "");
+			let seen = [];
+			try { seen = JSON.parse(store.get("mk_purchases") || "[]"); } catch { seen = []; }
+			if (!Array.isArray(seen)) seen = [];
+			if (!id || seen.includes(id)) return;
+			store.set("mk_purchases", JSON.stringify([...seen, id].slice(-50)));
+		}
+		pushEcommerce(ev);
+	});
+	// begin_checkout: al enviar el formulario de compra, con los datos de view_item de la ficha. En «paga lo que quieras»
+	// cuenta el monto escrito; con 0 no hay pago (es una descarga gratis), así que no se empuja nada.
+	const viewItem = dlEvents.find((ev) => ev.event === "view_item");
+	$$("form[data-checkout]").forEach((form) =>
+		form.addEventListener("submit", () => {
+			if (!viewItem || !viewItem.ecommerce || !Array.isArray(viewItem.ecommerce.items)) return;
+			const items = viewItem.ecommerce.items.map((it) => Object.assign({}, it));
+			let value = viewItem.ecommerce.value;
+			const amountInput = $("[data-pwyw-input]", form);
+			if (amountInput) {
+				const cents = parseAmount(amountInput.value);
+				if (!cents) return;
+				value = cents / 100;
+				if (items[0]) {
+					items[0].price = value;
+					delete items[0].discount;
+				}
+			}
+			const coupon = (($("[data-coupon-input]", form) || {}).value || "").trim();
+			const ecommerce = { currency: viewItem.ecommerce.currency, value, items };
+			if (coupon) ecommerce.coupon = coupon;
+			pushEcommerce({ event: "begin_checkout", ecommerce });
+		}),
+	);
+
 	// ── Aviso breve ──
 	const toastEl = $("[data-toast]");
 	let toastTimer;
@@ -323,14 +407,7 @@
 		const min = Number(pwyw.dataset.min || 0);
 		const max = Number(pwyw.dataset.max || 99999999);
 		const presets = $$("[data-amount]", pwyw);
-		const parse = (v) => {
-			let s = String(v || "").trim().replace(/^(us)?\$\s*/i, "").replace(/\s*(usd|us\$|\$)$/i, "").replace(/\s+/g, "");
-			if (/^\d{1,3}(,\d{3})+(\.\d{1,2})?$/.test(s)) s = s.replace(/,/g, "");
-			else if (/^\d{1,3}(\.\d{3})+(,\d{1,2})?$/.test(s)) s = s.replace(/\./g, "").replace(",", ".");
-			else if (/^\d+,\d{1,2}$/.test(s)) s = s.replace(",", ".");
-			if (!/^\d{1,9}(\.\d{1,2})?$/.test(s)) return null;
-			return Math.round(Number(s) * 100);
-		};
+		const parse = parseAmount;
 		const fmt = (c) => `$${(c / 100).toLocaleString("en-US", { minimumFractionDigits: c % 100 ? 2 : 0, maximumFractionDigits: 2 })} USD`;
 		const update = () => {
 			const c = parse(input.value);

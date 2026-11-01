@@ -22,6 +22,12 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm build:seed
       - run: pnpm build
+        env:
+          # Analítica del blog (src/components/Analytics.astro): variables de repositorio de GitHub
+          # (Settings → Secrets and variables → Actions → Variables). Vacías = esa etiqueta no se carga.
+          PUBLIC_GTM_ID: ${{ vars.PUBLIC_GTM_ID }}
+          PUBLIC_GA_ID: ${{ vars.PUBLIC_GA_ID }}
+          PUBLIC_META_PIXEL_ID: ${{ vars.PUBLIC_META_PIXEL_ID }}
       - run: pnpm wrangler deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}

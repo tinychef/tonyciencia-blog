@@ -27,6 +27,12 @@ export interface Env {
 	WELCOME_COUPON_PERCENT?: string;
 	/** Página de reservas con pago (Google Calendar → agenda de citas con pago). Vacío = botón de contacto. */
 	BOOKING_URL?: string;
+	/**
+	 * Contenedor de Google Tag Manager ("GTM-XXXXXXX"). Vacío = sin GTM: no se carga nada de Google y la CSP no abre
+	 * sus dominios. Con valor, market.js fija Consent Mode v2 (denegado salvo cookie_consent=accepted del blog) y
+	 * carga gtm.js.
+	 */
+	GTM_ID?: string;
 
 	// ── Secretos ──
 	STRIPE_SECRET_KEY?: string;

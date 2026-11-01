@@ -1,6 +1,7 @@
 import type { Hono } from "hono";
 import { MockPaymentProvider } from "../adapters/payments/mock";
 import { WebhookSignatureError } from "../adapters/types";
+import { purchaseEvent } from "../lib/analytics";
 import { clientIp, deps, type AppEnv, type Ctx } from "../context";
 import { hit, RATE_RULES } from "../lib/ratelimit";
 import { checkCsrf } from "../lib/session";
@@ -48,10 +49,19 @@ export function registerPayments(app: Hono<AppEnv>) {
 		if (!user) return loginRedirect(c, `/market/pago/exito?pedido=${id ?? ""}`);
 		const order = isId(id) ? await getOrder(c.env.MARKET_DB, id) : null;
 		if (!order || order.user_id !== user.id) return renderMessage(c, 404, "Pedido no encontrado", "Revisa Mis compras.", { href: "/market/mis-compras", label: "Ir a Mis compras" });
-		const product = await c.env.MARKET_DB.prepare("SELECT title FROM products WHERE id = ?1").bind(order.product_id).first<{ title: string }>();
+		const product = await c.env.MARKET_DB.prepare("SELECT slug, title, category FROM products WHERE id = ?1")
+			.bind(order.product_id)
+			.first<{ slug: string; title: string; category: string | null }>();
 		return render(
 			c,
-			{ title: "Estado del pago", path: "/market/pago/exito", noindex: true, refreshSeconds: order.status === "pending" ? 3 : undefined },
+			{
+				title: "Estado del pago",
+				path: "/market/pago/exito",
+				noindex: true,
+				refreshSeconds: order.status === "pending" ? 3 : undefined,
+				// «¡Gracias por tu compra!»: purchase de GA4 (market.js lo empuja una sola vez por pedido en cada navegador).
+				dataLayer: order.status === "paid" && product ? [purchaseEvent(order, { ...product, category: product.category ?? "" })] : undefined,
+			},
 			<PaymentStatusPage order={order} productTitle={product?.title ?? "tu producto"} />,
 		);
 	});

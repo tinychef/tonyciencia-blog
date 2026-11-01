@@ -89,11 +89,13 @@ if (status.status !== 200) {
 	process.exit(2);
 }
 const state = JSON.parse(status.text);
-const [feedRes, sitemapRes] = await Promise.all([get("/market/feed.xml"), get("/market/sitemap.xml")]);
-const feedItems = Object.fromEntries(
-	[...feedRes.text.matchAll(/<item>([\s\S]*?)<\/item>/g)].map((m) => [m[1].match(/<g:id>([^<]+)<\/g:id>/)?.[1], m[1]]),
-);
+const [feedRes, feedEnRes, sitemapRes] = await Promise.all([get("/market/feed.xml"), get("/market/en/feed.xml"), get("/market/sitemap.xml")]);
+const itemsOf = (xml) =>
+	Object.fromEntries([...xml.matchAll(/<item>([\s\S]*?)<\/item>/g)].map((m) => [m[1].match(/<g:id>([^<]+)<\/g:id>/)?.[1], m[1]]));
+const feedItems = itemsOf(feedRes.text);
+const feedEnItems = itemsOf(feedEnRes.text);
 if (feedRes.status !== 200) err("feed.xml", `HTTP ${feedRes.status}`);
+if (feedEnRes.status !== 200) err("en/feed.xml", `HTTP ${feedEnRes.status}`);
 if (sitemapRes.status !== 200) err("sitemap.xml", `HTTP ${sitemapRes.status}`);
 
 // Sitemap: lastmod nunca en el futuro y cada entrada con alternates declara también x-default.
@@ -198,6 +200,10 @@ for (const p of state.products) {
 			if (!offer.priceValidUntil) warn(w, "oferta sin priceValidUntil");
 		}
 		if (p.priceMode === "fixed" && cents(offer.price) !== p.priceCents && p.availability === "available") err(w, `precio JSON-LD ${offer.price} ≠ ${p.priceCents / 100}`);
+		if (p.availability === "available") {
+			if (offer.shippingDetails?.shippingRate?.value !== "0") err(w, "Offer sin shippingDetails con tarifa 0 (descarga digital)");
+			if (offer.hasMerchantReturnPolicy?.merchantReturnDays !== 14) err(w, "Offer sin hasMerchantReturnPolicy de 14 días (política de reembolsos)");
+		}
 	}
 	if (imgs.length < 3) warn(w, `${imgs.length} imágenes en la galería (ideal ≥ 3: portada + 2)`);
 	for (const i of imgs) {
@@ -228,7 +234,22 @@ for (const p of state.products) {
 		} else if (price !== minCents) err(w, `feed: precio ${price / 100} ≠ ${minCents / 100}`);
 		const ft = item.match(/<title>([^<]+)</)?.[1] ?? "";
 		if (ft.length > 150) err(w, "feed: título > 150 caracteres");
-	}
+		if (!item.includes("<g:google_product_category>313</g:google_product_category>")) err(w, "feed: categoría de Google ≠ 313 (Software > Computer Software)");
+		if (!/<g:shipping>[\s\S]*<g:price>0(\.00)? [A-Z]{3}<\/g:price>/.test(item)) err(w, "feed: envío distinto de 0 (es una descarga)");
+		if (!item.includes(`<link>${absUrl(`/market/producto/${p.slug}`)}</link>`)) err(w, "feed: el enlace no es la canónica de la ficha");
+		// Imágenes del feed: deben responder 200. La principal debería ser merchant.jpg (las portadas llevan texto promocional).
+		for (const src of [...item.matchAll(/<g:(?:additional_)?image_link>([^<]+)</g)].map((m) => m[1])) {
+			const r = await get(new URL(src).pathname, { head: true });
+			if (r.status !== 200) err(w, `feed: imagen ${src} responde ${r.status}`);
+		}
+		if (!/<g:image_link>[^<]*\/merchant\.jpg<\/g:image_link>/.test(item)) warn(w, "feed: la imagen principal no es merchant.jpg (agrégala a MERCHANT_IMAGES en src/lib/catalog.ts)");
+		// Feed en inglés: solo las fichas con versión en inglés, enlazando a /market/en/product/<slug>.
+		const enItem = feedEnItems[p.slug];
+		if (enPage.status === 200 && !enItem) err(w, "falta en el feed en inglés (/market/en/feed.xml)");
+		if (enPage.status !== 200 && enItem) err(w, "está en el feed en inglés sin tener ficha en inglés");
+		if (enItem && !enItem.includes(`<link>${absUrl(`/market/en/product/${p.slug}`)}</link>`)) err(w, "feed en inglés: el enlace no es /market/en/product/…");
+		if (enItem && cents(enItem.match(/<g:price>([^<]+)</)?.[1] ?? "0") !== price) err(w, "feed en inglés: precio distinto al del feed en español");
+	} else if (feedEnItems[p.slug]) err(w, "está en el feed en inglés y no debería");
 	if (!sitemapRes.text.includes(`/market/producto/${p.slug}</loc>`)) err(w, "falta en sitemap.xml");
 	report.push({ slug: p.slug, availability: p.availability, priceMode: p.priceMode, images: imgs.length, highlights, specs, faqs, descChars: descText.length, inFeed: !!item });
 }

@@ -239,6 +239,7 @@ export async function handlePaymentEvent(deps: Deps, event: PaymentEvent): Promi
 			}
 
 			// Con cupón, Stripe cobra menos que el precio de lista: queda anotado y el correo muestra lo realmente cobrado.
+			// El evento purchase de GA4 lee lo cobrado de esta nota (chargedCents en src/lib/analytics.ts): mismo formato.
 			const paidCents = event.amountTotal ?? order.amount_cents;
 			const discountNote =
 				event.amountSubtotal !== null && event.amountTotal !== null && event.amountTotal < event.amountSubtotal
