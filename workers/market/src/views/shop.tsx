@@ -590,7 +590,7 @@ export const storeFaq = (hasSoon: boolean, lang: Lang = "es") => {
 const SOON_FAQ_Q_EN = "What does “Coming soon” mean?";
 
 export const STORE_FAQ_EN = [
-	{ q: "How do I get what I buy?", a: "As soon as the payment clears, the product shows up in “My purchases” and you get an email with your personal download link." },
+	{ q: "How do I get what I buy?", a: "As soon as the payment clears, the product shows up in “My purchases” and you get an email with the link. Downloads only work with the Google account you bought with." },
 	{ q: "Do I need an account?", a: "You sign in with your Google account, no passwords. We only store your email and name." },
 	{ q: "Is it a one-time payment?", a: "Yes. There are no subscriptions. Some tools need external services (for example Claude Code or Codex), which you pay separately to their provider." },
 	{
@@ -605,7 +605,7 @@ export const STORE_FAQ_EN = [
 ];
 
 export const STORE_FAQ = [
-	{ q: "¿Cómo recibo lo que compro?", a: "Apenas se confirma el pago, el producto aparece en «Mis compras» y te llega un correo con tu enlace de descarga personal." },
+	{ q: "¿Cómo recibo lo que compro?", a: "Apenas se confirma el pago, el producto aparece en «Mis compras» y te llega un correo con el enlace. Las descargas solo funcionan con la cuenta de Google con la que compraste." },
 	{ q: "¿Necesito una cuenta?", a: "Entras con tu cuenta de Google, sin contraseñas. Solo guardamos tu correo y tu nombre." },
 	{ q: "¿Es un pago único?", a: "Sí. No hay suscripciones. Algunas herramientas necesitan servicios externos (por ejemplo Claude Code o Codex), que se pagan aparte con su proveedor." },
 	{

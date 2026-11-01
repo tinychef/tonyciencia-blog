@@ -249,28 +249,3 @@ export const MockPayPage: FC<{ session: MockCheckoutRow; csrf: string | null }> 
 		</div>
 	</div>
 );
-
-export const EmailDownloadPage: FC<{ entitlementId: string; token: string; title: string; left: number; limit: number }> = ({
-	entitlementId,
-	token,
-	title,
-	left,
-	limit,
-}) => (
-	<div class="mk-narrow mk-stack">
-		<p class="tc-eyebrow">Tu descarga</p>
-		<h1 style="font-size: var(--font-size-2xl)">{title}</h1>
-		<p class="mk-lead">
-			Te quedan {left} de {limit} descargas. El enlace de descarga se genera al pulsar el botón y dura unos minutos.
-		</p>
-		<form method="post" action={`/market/descargas/${entitlementId}`}>
-			<input type="hidden" name="t" value={token} />
-			<button type="submit" class="tc-btn tc-btn--primary" disabled={left === 0}>
-				Descargar ahora
-			</button>
-		</form>
-		<p class="mk-muted">
-			¿Prefieres tenerlo todo junto? Entra a <a href="/market/mis-compras">Mis compras</a> con tu cuenta de Google.
-		</p>
-	</div>
-);

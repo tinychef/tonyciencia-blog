@@ -1,7 +1,6 @@
 import type { Adapters } from "../adapters";
 import type { PaymentEvent } from "../adapters/types";
 import type { Config } from "../config";
-import { signToken } from "../lib/crypto";
 import { adminCopyEmail, deliveryEmail } from "./email-templates";
 import { outboxInsert, type EmailDraft } from "./outbox";
 import { formatPrice } from "../lib/money";
@@ -16,14 +15,12 @@ export interface Deps {
 
 // ── Enlaces de descarga del correo ───────────────────────────────────
 
-export async function emailDownloadUrl(config: Config, entitlementId: string): Promise<string> {
-	const t = await signToken(config.sessionSecret, "dl-email", {
-		e: entitlementId,
-		exp: Math.floor(Date.now() / 1000) + config.emailLinkTtlDays * 86400,
-	});
-	const u = new URL(`/market/descargas/${entitlementId}`, config.origin);
-	u.searchParams.set("t", t);
-	return u.toString();
+/**
+ * El correo lleva un enlace a la ficha de descarga, NO una llave: abrirlo pide iniciar sesión con la
+ * cuenta de Google de la compra. Así, reenviar el correo no le da el producto a nadie más.
+ */
+export function emailDownloadUrl(config: Config, entitlementId: string): string {
+	return new URL(`/market/descargas/${entitlementId}`, config.origin).toString();
 }
 
 /** Los dos correos de entrega: cliente + copia aparte para ADMIN_COPY_EMAIL. */
@@ -37,9 +34,9 @@ async function deliveryDrafts(
 		productTitle: opts.product.title,
 		amountCents: opts.order.amount_cents,
 		currency: opts.order.currency,
-		downloadUrl: await emailDownloadUrl(config, opts.entitlementId),
+		accountEmail: opts.user.email,
+		downloadUrl: emailDownloadUrl(config, opts.entitlementId),
 		libraryUrl: new URL("/market/mis-compras", config.origin).toString(),
-		linkDays: config.emailLinkTtlDays,
 		downloadLimit: opts.product.download_limit,
 		orderId: opts.order.id,
 	});

@@ -101,14 +101,15 @@ test("flujo completo en modo maqueta", { timeout: 120_000 }, async () => {
 	const mailId = page.url().split("/").pop();
 	const html = await (await page.request.get(`${BASE}/dev/correos/${mailId}/html`)).text();
 	const link = html.match(/href="([^"]*\/market\/descargas\/[^"]+)"/)?.[1]?.replace(/&amp;/g, "&");
-	assert.ok(link, "el correo trae un enlace de descarga firmado");
+	assert.ok(link, "el correo trae el enlace a la descarga");
+	assert.equal(new URL(link).search, "", "sin llave en el enlace: descargar exige iniciar sesión");
 	assert.ok(!/attachment/i.test(html), "sin adjuntos");
 	await page.screenshot({ path: join(OUT, "06-correo.png"), fullPage: true });
 
-	// 6) Enlace del correo → página sin efectos → botón → descarga
+	// 6) Enlace del correo con la sesión del comprador → su compra en Mis compras → botón → descarga
 	await page.goto(link);
-	await page.getByRole("button", { name: "Descargar ahora" }).waitFor();
-	const [dl2] = await Promise.all([page.waitForEvent("download"), page.getByRole("button", { name: "Descargar ahora" }).click()]);
+	await page.waitForURL(/\/market\/mis-compras#acceso-/);
+	const [dl2] = await Promise.all([page.waitForEvent("download"), item.getByRole("button", { name: "Descargar" }).click()]);
 	assert.equal(dl2.suggestedFilename(), "anuncios-infinitos-PRUEBA.zip");
 
 	// 7) Idempotencia: reenviar el MISMO evento al webhook no duplica nada
@@ -139,9 +140,11 @@ test("flujo completo en modo maqueta", { timeout: 120_000 }, async () => {
 	const entitlementId = new URL(link).pathname.split("/").pop();
 	await ctx.close();
 
-	// 9) Otra persona no puede descargar lo que no compró
+	// 9) Otra persona no puede descargar lo que no compró, ni con el correo reenviado
 	const ctx2 = await browser.newContext();
 	const p2 = await ctx2.newPage();
+	await p2.goto(link);
+	await p2.waitForURL(/\/market\/entrar\?next=/);
 	await p2.goto(`${BASE}/market/producto/anuncios-infinitos`);
 	await p2.getByRole("link", { name: /usuario de prueba/ }).click();
 	await p2.getByLabel("Correo").fill(intruder);
@@ -155,6 +158,8 @@ test("flujo completo en modo maqueta", { timeout: 120_000 }, async () => {
 		maxRedirects: 0,
 	});
 	assert.equal(res.status(), 403, "sin compra → 403");
+	const forwarded = await p2.goto(link);
+	assert.equal(forwarded.status(), 403, "correo reenviado + otra cuenta → 403");
 	await ctx2.close();
 
 	// 10) Admin + vistas móviles

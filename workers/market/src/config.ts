@@ -29,7 +29,6 @@ export interface Config {
 	stripeTaxCode: string | null;
 	allowLivePayments: boolean;
 	downloadUrlTtlSeconds: number;
-	emailLinkTtlDays: number;
 	sessionSecret: string;
 	adminEmail: string;
 	adminCopyEmail: string;
@@ -38,7 +37,6 @@ export interface Config {
 	googleClientId: string | null;
 	googleClientSecret: string | null;
 	resendApiKey: string | null;
-	r2Presign: { accessKeyId: string; secretAccessKey: string; accountId: string; bucket: string } | null;
 	productionHostnames: string[];
 	/** Código promocional del popup de bienvenida (o null). Se valida contra el proveedor antes de mostrarse. */
 	welcomeCoupon: string | null;
@@ -182,15 +180,6 @@ export function loadConfig(env: Env): BootResult {
 
 	if (errors.length > 0 || !emailProvider) return { ok: false, errors };
 
-	const presignParts = [env.R2_ACCESS_KEY_ID, env.R2_SECRET_ACCESS_KEY, env.R2_ACCOUNT_ID, env.R2_BUCKET_NAME];
-	const r2Presign = presignParts.every(Boolean)
-		? {
-				accessKeyId: env.R2_ACCESS_KEY_ID!,
-				secretAccessKey: env.R2_SECRET_ACCESS_KEY!,
-				accountId: env.R2_ACCOUNT_ID!,
-				bucket: env.R2_BUCKET_NAME!,
-			}
-		: null;
 
 	return {
 		ok: true,
@@ -206,8 +195,7 @@ export function loadConfig(env: Env): BootResult {
 			stripeTaxEnabled: env.STRIPE_TAX_ENABLED === "true",
 			stripeTaxCode: env.STRIPE_TAX_CODE?.trim() || null,
 			allowLivePayments,
-			downloadUrlTtlSeconds: intVar(env.DOWNLOAD_URL_TTL_SECONDS, 300, 30, 3600),
-			emailLinkTtlDays: intVar(env.EMAIL_LINK_TTL_DAYS, 14, 1, 90),
+			downloadUrlTtlSeconds: intVar(env.DOWNLOAD_URL_TTL_SECONDS, 120, 30, 600),
 			sessionSecret,
 			adminEmail,
 			adminCopyEmail,
@@ -217,7 +205,6 @@ export function loadConfig(env: Env): BootResult {
 			googleClientId: env.GOOGLE_CLIENT_ID ?? null,
 			googleClientSecret: env.GOOGLE_CLIENT_SECRET ?? null,
 			resendApiKey: env.RESEND_API_KEY ?? null,
-			r2Presign: mode === "live" ? r2Presign : null,
 			productionHostnames,
 			welcomeCoupon,
 			welcomeAutocreate: env.WELCOME_COUPON_AUTOCREATE === "true",

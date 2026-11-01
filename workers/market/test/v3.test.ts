@@ -339,7 +339,7 @@ describe("R2: escritura verificada por SHA-256 (camino real de la carga con hash
 	it("rechaza un stream que no coincide y guarda el correcto", async () => {
 		const { R2FileStorage } = await import("../src/adapters/storage/r2");
 		const bucket = (env as Env).MARKET_FILES!;
-		const storage = new R2FileStorage(bucket, "s".repeat(40), "http://localhost:8787", null);
+		const storage = new R2FileStorage(bucket, "s".repeat(40), "http://localhost:8787");
 		const good = new TextEncoder().encode(`contenido ${uid()}`);
 		const hex = [...new Uint8Array(await crypto.subtle.digest("SHA-256", good))].map((b) => b.toString(16).padStart(2, "0")).join("");
 		const stream = (bytes: Uint8Array) => new Response(bytes).body!;

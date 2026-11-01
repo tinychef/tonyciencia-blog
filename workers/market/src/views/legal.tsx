@@ -48,8 +48,8 @@ export const LEGAL_DOCS: Record<"terminos" | "privacidad" | "reembolsos", LegalD
 			{
 				h: "Entrega",
 				list: [
-					"Cuando el pago se confirma, el producto aparece en «Mis compras» y te enviamos un correo con un enlace de descarga personal.",
-					"Los enlaces de descarga son personales, vencen y tienen un número máximo de descargas por compra. Guarda una copia del archivo en tu equipo.",
+					"Cuando el pago se confirma, el producto aparece en «Mis compras» y te enviamos un correo con el enlace para descargarlo.",
+					"Las descargas son personales: solo funcionan con la cuenta de Google con la que compraste, el enlace del archivo dura unos minutos y hay un número máximo de descargas por compra. Guarda una copia del archivo en tu equipo.",
 					"Si no recibes el correo o el enlace no funciona, escríbenos a " + EMAIL + " y lo resolvemos.",
 				],
 			},

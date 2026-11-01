@@ -127,8 +127,8 @@ export interface FileStorage {
 	get(key: string): Promise<StoredObject | null>;
 	head(key: string): Promise<{ size: number; contentType: string } | null>;
 	delete(key: string): Promise<void>;
-	/** URL firmada y de vida corta para bajar `key` con el nombre `fileName`. */
-	createDownloadUrl(key: string, fileName: string, ttlSeconds: number): Promise<string>;
+	/** URL firmada y de vida corta para bajar `key` con el nombre `fileName`; solo la puede usar la sesión de `userId`. */
+	createDownloadUrl(key: string, fileName: string, ttlSeconds: number, userId: string): Promise<string>;
 }
 
 // ── Correo ───────────────────────────────────────────────────────────
