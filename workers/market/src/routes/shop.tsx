@@ -95,7 +95,7 @@ export function registerShop(app: Hono<AppEnv>) {
 				imageAlt: products.find((p) => p.images[0])?.images[0]?.alt,
 				alternates: { es: storeRoot("es"), en: storeRoot("en") },
 				jsonLd: [...catalogJsonLd(origin, products, lang), faqJsonLd(storeFaq(products.some((p) => p.availability === "coming_soon"), lang))],
-				dataLayer: [viewItemListEvent(listed)],
+				dataLayer: listed.length ? [viewItemListEvent(listed)] : undefined,
 			},
 			<Catalog products={products} welcome={c.get("welcome")} category={category} query={query} sort={sort} filter={filter} />,
 		);

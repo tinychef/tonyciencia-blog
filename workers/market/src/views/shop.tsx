@@ -698,7 +698,7 @@ const PwywForm: FC<{ product: Product; csrf: string | null; mode: "mock" | "live
 	const { min, max } = pwywBounds(product);
 	const suggested = initial ?? Math.max(product.price_cents, min);
 	return (
-		<form method="post" action={`${path}/comprar`} class="mk3-pwyw" data-pwyw data-min={String(min)} data-max={String(max)}>
+		<form method="post" action={`${path}/comprar`} class="mk3-pwyw" data-pwyw data-min={String(min)} data-max={String(max)} data-checkout>
 			<CsrfField csrf={csrf} />
 			<label for="monto" class="mk3-pwyw-label">
 				{tr("Tú eliges el precio")}
@@ -820,7 +820,7 @@ const BuyActions: FC<ProductViewProps> = ({ product, loggedIn, owned, csrf, mode
 	}
 	if (isPwyw(product)) return <PwywForm product={product} csrf={csrf} mode={mode} initial={pwywInitial} />;
 	return (
-		<form method="post" action={`${productUrl(product.slug)}/comprar`}>
+		<form method="post" action={`${productUrl(product.slug)}/comprar`} data-checkout>
 			<CsrfField csrf={csrf} />
 			<details class="mk-coupon" open={welcome ? true : undefined}>
 				<summary>{tr("¿Tienes un cupón?")}</summary>

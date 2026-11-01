@@ -35,7 +35,12 @@
 		"WELCOME_COUPON_AUTOCREATE": "true",
 		"WELCOME_COUPON_PERCENT": "10",
 		// Agenda con pago (Google Calendar). Vacío = botón para pedir horarios por correo.
-		"BOOKING_URL": ""
+		"BOOKING_URL": "",
+		// Google Tag Manager ("GTM-XXXXXXX"). Vacío = apagado: no se carga nada de Google y la CSP no abre sus dominios.
+		// Con valor, market.js fija Consent Mode v2 (denegado salvo cookie_consent=accepted del blog) y carga gtm.js.
+		// ANTES de llenarlo en production: actualizar «Cookies» en la política de privacidad del market
+		// (src/views/legal.tsx dice que la tienda no usa cookies de publicidad).
+		"GTM_ID": ""
 	},
 	"d1_databases": [
 		{
@@ -67,7 +72,8 @@
 				"WELCOME_COUPON": "TONYCIENCIA",
 				"WELCOME_COUPON_AUTOCREATE": "true",
 				"WELCOME_COUPON_PERCENT": "10",
-				"BOOKING_URL": ""
+				"BOOKING_URL": "",
+				"GTM_ID": ""
 			},
 			"d1_databases": [
 				{
@@ -100,7 +106,8 @@
 				"WELCOME_COUPON": "TONYCIENCIA",
 				"WELCOME_COUPON_AUTOCREATE": "true",
 				"WELCOME_COUPON_PERCENT": "10",
-				"BOOKING_URL": ""
+				"BOOKING_URL": "",
+				"GTM_ID": ""
 			},
 			"d1_databases": [
 				{
@@ -139,7 +146,8 @@
 				"WELCOME_COUPON": "TONYCIENCIA",
 				"WELCOME_COUPON_AUTOCREATE": "true",
 				"WELCOME_COUPON_PERCENT": "10",
-				"BOOKING_URL": ""
+				"BOOKING_URL": "",
+				"GTM_ID": ""
 			},
 			"d1_databases": [
 				{

@@ -25,7 +25,7 @@ export function categoryLabel(slug: string): string | null {
 export const MERCHANT_IMAGES: Readonly<Record<string, readonly string[]>> = {
 	"anuncios-infinitos": ["merchant.jpg"],
 	specreel: ["merchant.jpg"],
-	"specreel-stick": ["merchant.jpg"],
+	"specreel-stick": ["merchant.jpg", "merchant-2.jpg"],
 	"pagespeed-forensics": ["merchant.jpg"],
 	cutpilot: ["merchant.jpg"],
 	"motor-creativo-claude-code": ["merchant.jpg"],

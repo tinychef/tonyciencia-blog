@@ -38,6 +38,8 @@ for (const r of env?.routes ?? []) {
 if (vars.MODE === "live" && !env?.r2_buckets?.some((b) => b.binding === "MARKET_FILES")) errors.push("live requiere el binding R2 MARKET_FILES");
 if (vars.MODE === "live" && vars.EMAIL_PROVIDER === "cloudflare" && !env?.send_email?.some((b) => b.name === "EMAIL")) errors.push("EMAIL_PROVIDER=cloudflare requiere send_email EMAIL");
 if (target !== "production" && vars.ALLOW_LIVE_PAYMENTS === "true") errors.push(`${target} no debe permitir cobros reales (ALLOW_LIVE_PAYMENTS)`);
+// Mismo formato que GTM_ID_RE (src/config.ts): uno mal escrito dejaría GTM apagado sin que nadie lo note.
+if (vars.GTM_ID && !/^GTM-[A-Z0-9]{4,12}$/.test(vars.GTM_ID)) errors.push(`GTM_ID "${vars.GTM_ID}" no tiene el formato GTM-XXXXXXX (o déjalo vacío)`);
 
 if (errors.length) {
 	console.error(`✘ Deploy de "${target}" bloqueado:\n- ${errors.join("\n- ")}`);

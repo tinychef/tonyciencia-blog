@@ -197,20 +197,18 @@ const FEED_TEXT = {
 	},
 } as const;
 
-const SCREEN_RE = /\/screen-\d+\.webp$/;
-
 /**
  * Imágenes del feed. Principal: merchant.jpg (1500×1500, sin texto promocional) si el producto la tiene en
- * MERCHANT_IMAGES; si no, la portada. Adicionales: las demás de Merchant (merchant-2.jpg…) y las capturas
- * screen-*.webp. Las portadas nunca van como adicionales: llevan texto promocional (Google las rechaza).
+ * MERCHANT_IMAGES; si no, la portada. Adicionales: solo las demás de Merchant (merchant-2.jpg…). Ni las portadas ni
+ * las capturas screen-*.webp van al feed: llevan titulares y rótulos de compatibilidad, que Google rechaza también en
+ * las imágenes adicionales.
  * https://support.google.com/merchants/answer/6324350
  */
 export function feedImages(p: Pick<ShopProduct, "slug" | "images">): { main: string; additional: string[] } | null {
 	const merchant = merchantImages(p.slug);
 	const main = merchant[0] ?? p.images[0]?.src;
 	if (!main) return null;
-	const screens = p.images.map((i) => i.src).filter((src) => SCREEN_RE.test(src));
-	const additional = [...new Set([...merchant.slice(1), ...screens])].filter((src) => src !== main).slice(0, 10);
+	const additional = [...new Set(merchant.slice(1))].filter((src) => src !== main).slice(0, 10);
 	return { main, additional };
 }
 
