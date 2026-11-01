@@ -30,7 +30,6 @@ export function badgesFor(p: ShopProduct, maxSales: number, now = Date.now()): B
 	if (p.availability === "coming_soon") out.push({ label: "Próximamente", tone: "soon" });
 	else {
 		if (p.stats.sales >= BESTSELLER_MIN_SALES && p.stats.sales === maxSales) out.push({ label: "Más vendido", tone: "hot" });
-		if (now - p.created_at < NEW_DAYS * 86400_000) out.push({ label: "Nuevo", tone: "new" });
 	}
 	if (p.badge) out.push({ label: p.badge, tone: "plain" });
 	return out;

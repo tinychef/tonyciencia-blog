@@ -203,7 +203,11 @@
 			if (empty) empty.hidden = shown > 0;
 			if (count) count.textContent = `${shown} ${shown === 1 ? "producto" : "productos"}`;
 			catLinks.forEach((a) => a.setAttribute("aria-current", String((a.dataset.catFilter || "") === state.cat)));
-			quick.forEach((a) => a.setAttribute("aria-current", String((a.dataset.quick || "") === state.filter)));
+			// Las píldoras son excluyentes: «Todo» solo se marca sin filtro ni categoría.
+			quick.forEach((a) => {
+				const v = a.dataset.quick || "";
+				a.setAttribute("aria-current", String(v === state.filter && (v !== "" || !state.cat)));
+			});
 			inputs.forEach((i) => i !== document.activeElement && (i.value = state.q));
 			if (catSel) catSel.value = state.cat;
 			if (sortSel) sortSel.value = state.sort;
@@ -244,6 +248,7 @@
 				e.preventDefault();
 				const v = a.dataset.catFilter || "";
 				state.cat = state.cat === v ? "" : v;
+				state.filter = "";
 				apply();
 				$("#catalogo")?.scrollIntoView({ behavior: reduced ? "auto" : "smooth" });
 			}),
@@ -252,6 +257,7 @@
 			a.addEventListener("click", (e) => {
 				e.preventDefault();
 				state.filter = a.dataset.quick || "";
+				state.cat = "";
 				apply();
 			}),
 		);
