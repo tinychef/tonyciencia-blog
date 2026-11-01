@@ -131,7 +131,12 @@ for (const lang of ["es", "en"]) {
 	if (!sm) err("sitemap.xml", `falta ${absUrl(CAT[lang])}`);
 	else if (sm.es !== absUrl(CAT.es) || sm.en !== absUrl(CAT.en)) err("sitemap.xml", `hreflang del catálogo distinto al del HTML (${JSON.stringify(sm)})`);
 }
-for (const [from, to] of [["/market/en", "/market/en/"]]) {
+// Productos renombrados (src/lib/catalog.ts → RENAMED_PRODUCTS): la ficha vieja responde 301 a la nueva en su idioma.
+const RENAMED = [
+	["/market/producto/specreel-stick", "/market/producto/stick-sketch"],
+	["/market/en/product/specreel-stick", "/market/en/product/stick-sketch"],
+];
+for (const [from, to] of [["/market/en", "/market/en/"], ...RENAMED]) {
 	const r = await get(from, { head: true });
 	if (r.status !== 301 || !(r.headers.get("location") ?? "").endsWith(to)) warn("redirecciones", `${from} responde ${r.status} (se espera 301 → ${to})`);
 }

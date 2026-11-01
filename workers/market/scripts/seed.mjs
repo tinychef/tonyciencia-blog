@@ -126,7 +126,7 @@ ON CONFLICT(slug) DO NOTHING;`,
 	(live
 		? ""
 		: `\nUPDATE products SET availability = 'available', file_key = 'mock/anuncios-infinitos-PRUEBA.zip', file_name = slug || '-PRUEBA.zip'
-WHERE slug IN ('pagespeed-forensics', 'specreel-stick') AND file_key IS NULL;`);
+WHERE slug IN ('pagespeed-forensics', 'stick-sketch') AND file_key IS NULL;`);
 
 const dir = mkdtempSync(join(tmpdir(), "market-seed-"));
 const file = join(dir, "seed.sql");

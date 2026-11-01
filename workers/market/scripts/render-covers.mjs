@@ -12,7 +12,7 @@
 // Con data-cpu, la sección se graba en un Chromium sin GPU (ver más abajo).
 // Portadas animadas: una sección con data-anim="<n.º de cuadros>" (y opcionales data-fps, data-width,
 // data-quality) se graba cuadro a cuadro llamando a window.__frame(i) (async, determinista) y se guarda
-// como WebP animado en bucle. Ver design/specreel-stick.html.
+// como WebP animado en bucle. Ver design/stick-sketch.html.
 //
 // Requiere Playwright (ya está en devDependencies) y Python 3 con Pillow para convertir a WebP.
 // Las fuentes se cargan de Google Fonts, así que necesita red.

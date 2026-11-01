@@ -192,7 +192,7 @@ const searchText = (p: ShopProduct) => [p.title, p.tagline, p.summary, ...p.tags
  * La tarjeta carga primero la portada fija (rápida, buena para el LCP) y market.js la cambia por la animada cuando la
  * tarjeta entra en pantalla, salvo con «reducir movimiento» o ahorro de datos.
  */
-export const ANIMATED_COVERS = new Set(["anuncios-infinitos", "specreel", "specreel-stick", "pagespeed-forensics", "cutpilot", "motor-creativo-claude-code"]);
+export const ANIMATED_COVERS = new Set(["anuncios-infinitos", "specreel", "stick-sketch", "pagespeed-forensics", "cutpilot", "motor-creativo-claude-code"]);
 
 /**
  * Versión liviana (800 px) de una portada del market: products/<slug>/[en/]cover.webp → cover-800.webp.

@@ -7,7 +7,7 @@ import { cleanText, isSlug, normalizeEmail, parseIntInRange, safeNextPath } from
 import { dispatchByOrder } from "../services/outbox";
 import { claimFreeProduct, startCheckout, type Deps } from "../services/orders";
 import { viewItemEvent, viewItemListEvent } from "../lib/analytics";
-import { CATEGORIES, categoryLabel, pickRelated, publicName, seoDescription, seoTitle } from "../lib/catalog";
+import { CATEGORIES, categoryLabel, pickRelated, publicName, RENAMED_PRODUCTS, seoDescription, seoTitle } from "../lib/catalog";
 import { formatPrice } from "../lib/money";
 import { canBeFree, checkBuyerAmount, fromPriceCents, isPwyw } from "../lib/pricing";
 import {
@@ -113,8 +113,12 @@ export function registerShop(app: Hono<AppEnv>) {
 		if (base && lang === "en" && !hasEnglish(base)) return c.redirect(productPath(slug, "es"), 302);
 		const product = base ? localize(base, lang) : null;
 		if (!product) {
-			// Un producto retirado (existe pero está inactivo) redirige al catálogo en vez de dar 404.
-			if (await getProductBySlug(db, slug, false)) return c.redirect(storeRoot(lang), 301);
+			// Un producto retirado (existe pero está inactivo) redirige al catálogo en vez de dar 404; si se retiró por un
+			// cambio de nombre (RENAMED_PRODUCTS), a la ficha nueva en el mismo idioma y con la misma query (UTM).
+			if (await getProductBySlug(db, slug, false)) {
+				const renamed = Object.hasOwn(RENAMED_PRODUCTS, slug) ? RENAMED_PRODUCTS[slug] : undefined;
+				return c.redirect(renamed ? `${productPath(renamed, lang)}${new URL(c.req.url).search}` : storeRoot(lang), 301);
+			}
 			return renderMessage(c, 404, "Producto no encontrado", "Este producto no existe o ya no está disponible.");
 		}
 		const user = c.get("user");
