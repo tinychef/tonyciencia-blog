@@ -99,6 +99,9 @@
 				"STRIPE_TAX_ENABLED": "false",
 				// Staging solo acepta claves sk_test_: dejar en "false".
 				"ALLOW_LIVE_PAYMENTS": "false",
+				// Staging es público en workers.dev y tiene los ZIP reales: solo entra ADMIN_EMAIL (si no, cualquiera
+				// "compraría" con la tarjeta de prueba 4242… y bajaría el producto).
+				"LOGIN_ONLY_ADMIN": "true",
 				"DOWNLOAD_URL_TTL_SECONDS": "120",
 				"WELCOME_COUPON": "TONYCIENCIA",
 				"WELCOME_COUPON_AUTOCREATE": "true",

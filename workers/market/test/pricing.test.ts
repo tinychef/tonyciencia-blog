@@ -42,7 +42,7 @@ describe("el precio sale SIEMPRE de la base de datos", () => {
 	it("el adaptador live de Stripe envía unit_amount de la BD, idempotency-key y sin impuestos por defecto", async () => {
 		const p = await createProduct({ priceCents: 7700 });
 		const product = (await getProductBySlug(env.MARKET_DB, p.slug))!;
-		const user = await upsertUser(env.MARKET_DB, `stripe-${uid()}@example.com`, "Cliente");
+		const user = await upsertUser(env.MARKET_DB, `stripe-${uid()}@example.com`, "Cliente", `test:${uid()}`);
 		const calls: Array<{ url: string; init: RequestInit }> = [];
 		const fakeFetch = (async (url: string, init: RequestInit) => {
 			calls.push({ url, init });
@@ -115,10 +115,37 @@ describe("el precio sale SIEMPRE de la base de datos", () => {
 			expect(con.get("line_items[0][price_data][unit_amount]")).toBe("7690"); // el precio base sigue siendo el de la BD
 		});
 
+		it("el cupón de bienvenida no se aplica en dos checkouts abiertos a la vez (productos distintos)", async () => {
+			const [a, b] = [await createProduct({ priceCents: 7690 }), await createProduct({ priceCents: 3690 })];
+			const prodA = (await getProductBySlug(env.MARKET_DB, a.slug))!;
+			const prodB = (await getProductBySlug(env.MARKET_DB, b.slug))!;
+			const user = await upsertUser(env.MARKET_DB, `bienvenida-${uid()}@example.com`, "Cliente", `test:${uid()}`);
+			const loaded = loadConfig(env as Env);
+			if (!loaded.ok) throw new Error("config");
+			const config = { ...loaded.config, welcomeCoupon: "TONYCIENCIA" };
+			const fake = (async (url: string) => {
+				const u = new URL(url);
+				if (u.pathname === "/v1/promotion_codes") return Response.json({ data: [{ id: "promo_w", active: true, metadata: { market: "true" }, promotion: { type: "coupon", coupon: "c_w" } }] });
+				if (u.pathname === "/v1/coupons/c_w") return Response.json({ valid: true, metadata: { market: "true" } });
+				return Response.json({ id: `cs_test_${uid()}`, url: "https://checkout.stripe.com/c/pay/x" });
+			}) as unknown as typeof fetch;
+			const adapters = createAdapters(config, env as Env);
+			adapters.payments = make(fake);
+			const deps = { db: env.MARKET_DB, config, adapters };
+			expect((await startCheckout(deps, user, prodA, { couponCode: "tonyciencia" })).ok).toBe(true);
+			// Volver al mismo producto (checkout abandonado y retomado) sí se puede.
+			expect((await startCheckout(deps, user, prodA, { couponCode: "TONYCIENCIA" })).ok).toBe(true);
+			// Otro producto mientras el primero sigue pendiente: no.
+			expect(await startCheckout(deps, user, prodB, { couponCode: "TONYCIENCIA" })).toEqual({ ok: false, reason: "welcome_not_first" });
+			// Sin cupón, el segundo producto se compra normal.
+			expect((await startCheckout(deps, user, prodB, {})).ok).toBe(true);
+			expect((await one<{ c: string }>("SELECT coupon_code AS c FROM orders WHERE user_id = ?1 AND product_id = ?2 LIMIT 1", user.id, prodA.id))?.c).toBe("TONYCIENCIA");
+		});
+
 		it("startCheckout con cupón inválido no crea pedido ni llama a createCheckout", async () => {
 			const p = await createProduct({ priceCents: 7690 });
 			const product = (await getProductBySlug(env.MARKET_DB, p.slug))!;
-			const user = await upsertUser(env.MARKET_DB, `cupon-${uid()}@example.com`, "Cliente");
+			const user = await upsertUser(env.MARKET_DB, `cupon-${uid()}@example.com`, "Cliente", `test:${uid()}`);
 			const config = loadConfig(env as Env);
 			if (!config.ok) throw new Error("config");
 			const calls: string[] = [];

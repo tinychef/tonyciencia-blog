@@ -22,7 +22,7 @@ export class DevAuthProvider implements AuthProvider {
 	}
 
 	/** Lo llama el formulario de la pantalla de desarrollo. */
-	async issueCode(identity: AuthIdentity, state: string): Promise<string> {
+	async issueCode(identity: Pick<AuthIdentity, "email" | "name">, state: string): Promise<string> {
 		return signToken(this.secret, "dev-auth-code", {
 			email: identity.email,
 			name: identity.name,
@@ -37,6 +37,6 @@ export class DevAuthProvider implements AuthProvider {
 		const email = normalizeEmail(payload.email);
 		const name = cleanLine(payload.name, 80);
 		if (!email || name === null) throw new AuthError("identidad de maqueta inválida");
-		return { email, name };
+		return { email, name, subject: `dev:${email}` };
 	}
 }

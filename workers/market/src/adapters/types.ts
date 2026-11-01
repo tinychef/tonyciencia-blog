@@ -8,6 +8,8 @@
 export interface AuthIdentity {
 	email: string;
 	name: string;
+	/** Identificador fijo de la cuenta en el proveedor («google:<sub>»; «dev:<correo>» en maqueta). */
+	subject: string;
 }
 
 /** Datos que viajan firmados en la cookie de estado entre el inicio y el callback. */
@@ -78,6 +80,9 @@ export type PaymentEvent =
 	  })
 	| (SessionEventBase & { type: "checkout.expired" | "checkout.async_failed" })
 	| { id: string; type: "refunded"; paymentId: string; fullyRefunded: boolean }
+	/** Contracargo: al abrirse se quita el acceso; si se gana (o se cierra con aviso), se devuelve. */
+	| { id: string; type: "dispute_opened"; paymentId: string }
+	| { id: string; type: "dispute_closed"; paymentId: string; won: boolean }
 	| { id: string; type: "ignored"; rawType: string };
 
 /** Código promocional válido. El descuento solo se informa si el proveedor lo da (para mostrarlo en la tienda). */

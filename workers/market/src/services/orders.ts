@@ -5,7 +5,7 @@ import { adminCopyEmail, deliveryEmail } from "./email-templates";
 import { outboxInsert, type EmailDraft } from "./outbox";
 import { formatPrice } from "../lib/money";
 import { STRIPE_MIN_CENTS, canBeFree, isPwyw, pwywBounds, saleInfo } from "../lib/pricing";
-import { countPaidOrders, getActiveEntitlement, getOrder, getUserById, type OrderRow, type Product, type User } from "./repo";
+import { countOtherWelcomeOrders, countPaidOrders, getActiveEntitlement, getOrder, getUserById, type OrderRow, type Product, type User } from "./repo";
 
 export interface Deps {
 	db: D1Database;
@@ -102,8 +102,14 @@ export async function startCheckout(deps: Deps, user: User, product: Product, op
 	if (code) {
 		// En "paga lo que quieras" el comprador ya elige el precio: no se combinan cupones.
 		if (pwyw) return { ok: false, reason: "coupon_not_allowed" };
-		// El cupón de bienvenida vale solo para la primera compra pagada de esta persona en el market.
-		if (config.welcomeCoupon && code.toUpperCase() === config.welcomeCoupon.toUpperCase() && (await countPaidOrders(db, user.id)) > 0) {
+		// El cupón de bienvenida vale solo para la primera compra pagada de esta persona en el market, y un solo
+		// checkout a la vez: si ya hay otro abierto con el cupón para OTRO producto, no se abre un segundo (si no,
+		// abriendo varios antes de pagar, el descuento se aplicaba a todos).
+		if (
+			config.welcomeCoupon &&
+			code.toUpperCase() === config.welcomeCoupon.toUpperCase() &&
+			((await countPaidOrders(db, user.id)) > 0 || (await countOtherWelcomeOrders(db, user.id, product.id, code, Date.now())) > 0)
+		) {
 			return { ok: false, reason: "welcome_not_first" };
 		}
 		const resolved = adapters.payments.resolvePromotionCode ? await adapters.payments.resolvePromotionCode(code).catch(() => null) : null;
@@ -115,10 +121,10 @@ export async function startCheckout(deps: Deps, user: User, product: Product, op
 	const now = Date.now();
 	await db
 		.prepare(
-			`INSERT INTO orders (id, user_id, product_id, kind, status, amount_cents, currency, provider, customer_email, note, created_at, updated_at)
-			 VALUES (?1, ?2, ?3, 'paid', 'pending', ?4, ?5, ?6, ?7, ?8, ?9, ?9)`,
+			`INSERT INTO orders (id, user_id, product_id, kind, status, amount_cents, currency, provider, customer_email, note, coupon_code, created_at, updated_at)
+			 VALUES (?1, ?2, ?3, 'paid', 'pending', ?4, ?5, ?6, ?7, ?8, ?10, ?9, ?9)`,
 		)
-		.bind(orderId, user.id, product.id, amountCents, product.currency, adapters.payments.name, user.email, pwyw ? "Paga lo que quieras" : null, now)
+		.bind(orderId, user.id, product.id, amountCents, product.currency, adapters.payments.name, user.email, pwyw ? "Paga lo que quieras" : null, now, promotionCodeId ? code!.toUpperCase() : null)
 		.run();
 	try {
 		const cover = product.images[0]?.src;
@@ -207,9 +213,42 @@ export async function handlePaymentEvent(deps: Deps, event: PaymentEvent): Promi
 			}
 			await db.batch([
 				db.prepare("UPDATE orders SET status = 'refunded', updated_at = ?2 WHERE id = ?1").bind(order.id, now),
-				db.prepare("UPDATE entitlements SET revoked_at = ?2 WHERE order_id = ?1 AND revoked_at IS NULL").bind(order.id, now),
+				db.prepare("UPDATE entitlements SET revoked_at = ?2, revoked_reason = 'refund' WHERE order_id = ?1 AND revoked_at IS NULL").bind(order.id, now),
+				// Si ya estaba revocado por una disputa, ahora la causa es el reembolso (no se devuelve si se gana la disputa).
+				db.prepare("UPDATE entitlements SET revoked_reason = 'refund' WHERE order_id = ?1 AND revoked_reason = 'dispute'").bind(order.id),
 			]);
 			return finish("reembolsado y acceso revocado", order.id);
+		}
+
+		case "dispute_opened": {
+			const order = await db.prepare("SELECT * FROM orders WHERE provider_payment_id = ?1").bind(event.paymentId).first<OrderRow>();
+			if (!order) return finish("disputa sin pedido asociado", null);
+			await db.batch([
+				db.prepare("UPDATE orders SET note = 'Disputa abierta en Stripe', updated_at = ?2 WHERE id = ?1").bind(order.id, now),
+				db.prepare("UPDATE entitlements SET revoked_at = ?2, revoked_reason = 'dispute' WHERE order_id = ?1 AND revoked_at IS NULL").bind(order.id, now),
+			]);
+			console.warn(`[webhook] disputa abierta en el pedido ${order.id}: acceso suspendido`);
+			return finish("disputa abierta: acceso suspendido", order.id);
+		}
+
+		case "dispute_closed": {
+			const order = await db.prepare("SELECT * FROM orders WHERE provider_payment_id = ?1").bind(event.paymentId).first<OrderRow>();
+			if (!order) return finish("disputa sin pedido asociado", null);
+			if (!event.won) {
+				await db.prepare("UPDATE orders SET note = 'Disputa perdida', updated_at = ?2 WHERE id = ?1").bind(order.id, now).run();
+				return finish("disputa perdida: el acceso sigue revocado", order.id);
+			}
+			// Solo se devuelve el acceso que quitó la disputa (nunca uno revocado por reembolso) y si el pedido sigue pagado.
+			await db.batch([
+				db.prepare("UPDATE orders SET note = 'Disputa ganada', updated_at = ?2 WHERE id = ?1").bind(order.id, now),
+				db
+					.prepare(
+						`UPDATE entitlements SET revoked_at = NULL, revoked_reason = NULL
+						 WHERE order_id = ?1 AND revoked_reason = 'dispute' AND (SELECT status FROM orders WHERE id = ?1) = 'paid'`,
+					)
+					.bind(order.id),
+			]);
+			return finish("disputa ganada: acceso devuelto", order.id);
 		}
 
 		case "checkout.completed":

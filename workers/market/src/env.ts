@@ -39,6 +39,8 @@ export interface Env {
 	GOOGLE_CLIENT_SECRET?: string;
 	SESSION_SECRET?: string;
 	ADMIN_EMAIL?: string;
+	/** "true" = solo ADMIN_EMAIL puede iniciar sesión (staging: nadie más puede comprar con tarjetas de prueba). */
+	LOGIN_ONLY_ADMIN?: string;
 	ADMIN_COPY_EMAIL?: string;
 	RESEND_API_KEY?: string;
 

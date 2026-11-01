@@ -48,8 +48,21 @@ function cookie(res: Response, name: string) {
 	return res.headers.getSetCookie().map((c) => c.split(";")[0]!).find((c) => c.startsWith(`${name}=`))!;
 }
 
+/** «sub» fijo por correo, como el de una cuenta de Google real. */
+const subFor = (email: string) => `g_${email.replace(/[^A-Za-z0-9]/g, "_")}`;
+
 /** Login por el flujo real de Google con el token endpoint interceptado. */
 async function googleLogin(e: Env, email: string): Promise<Session> {
+	const cb = await googleCallback(e, email, subFor(email));
+	expect(cb.status).toBe(303);
+	const session = cb.headers.getSetCookie().find((c) => c.startsWith("tcm_session="))!;
+	expect(session).toMatch(/HttpOnly/i);
+	expect(session).toMatch(/Secure/i);
+	expect(session).toMatch(/SameSite=Lax/i);
+	return withCsrf(session.split(";")[0]!, email, e, HOST);
+}
+
+async function googleCallback(e: Env, email: string, sub: string): Promise<Response> {
 	const start = await live("/market/auth/start?next=/market/mis-compras", { headers: { "cf-connecting-ip": `10.9.${Math.floor(Math.random() * 250)}.1` } }, e);
 	expect(start.status).toBe(302);
 	const google = new URL(start.headers.get("location")!);
@@ -71,17 +84,12 @@ async function googleLogin(e: Env, email: string): Promise<Session> {
 		expect(body.get("code_verifier")).toBeTruthy();
 		expect(body.get("client_secret")).toBe("secreto-google");
 		return Response.json({
-			id_token: jwt({ iss: "https://accounts.google.com", aud: CLIENT_ID, exp: Math.floor(Date.now() / 1000) + 600, nonce, email, email_verified: true, name: "Cliente Live", picture: "https://x/foto.png" }),
+			id_token: jwt({ iss: "https://accounts.google.com", aud: CLIENT_ID, exp: Math.floor(Date.now() / 1000) + 600, nonce, email, email_verified: true, name: "Cliente Live", picture: "https://x/foto.png", sub }),
 		});
 	});
 	const cb = await live(`/market/auth/callback?code=codigo-de-google&state=${google.searchParams.get("state")}`, { headers: { cookie: cookie(start, "tcm_login") } }, e);
 	spy.mockRestore();
-	expect(cb.status).toBe(303);
-	const session = cb.headers.getSetCookie().find((c) => c.startsWith("tcm_session="))!;
-	expect(session).toMatch(/HttpOnly/i);
-	expect(session).toMatch(/Secure/i);
-	expect(session).toMatch(/SameSite=Lax/i);
-	return withCsrf(session.split(";")[0]!, email, e, HOST);
+	return cb;
 }
 
 function form(path: string, s: Session, data: Record<string, string>, e: Env) {
@@ -187,10 +195,34 @@ describe("modo live de punta a punta (externos simulados)", () => {
 	});
 });
 
+describe("cuenta atada al sub de Google", () => {
+	it("si el correo se reasigna a otra cuenta de Google, esa cuenta no entra ni hereda compras", async () => {
+		const { e } = liveEnv();
+		const email = `reasignado-${uid()}@empresa.example`;
+		await googleLogin(e, email);
+		const other = await googleCallback(e, email, "otra-cuenta-123");
+		expect(other.status).toBe(303);
+		expect(other.headers.get("location")).toBe("/market/entrar?error=cuenta");
+		expect(other.headers.getSetCookie().some((c) => c.startsWith("tcm_session="))).toBe(false);
+		// La dueña original sigue entrando.
+		await googleLogin(e, email);
+	});
+});
+
+describe("staging privado (LOGIN_ONLY_ADMIN)", () => {
+	it("solo ADMIN_EMAIL puede iniciar sesión", async () => {
+		const { e } = liveEnv({ LOGIN_ONLY_ADMIN: "true" });
+		const stranger = await googleCallback(e, `extrano-${uid()}@example.com`, `s_${uid()}`);
+		expect(stranger.headers.get("location")).toBe("/market/entrar?error=privado");
+		expect(stranger.headers.getSetCookie().some((c) => c.startsWith("tcm_session="))).toBe(false);
+		await googleLogin(e, "dueno@example.com");
+	});
+});
+
 describe("validación del id_token de Google", () => {
-	const base = { iss: "https://accounts.google.com", aud: CLIENT_ID, exp: Math.floor(Date.now() / 1000) + 600, nonce: "n1", email: "A@Example.com", email_verified: true, name: "Ana" };
+	const base = { iss: "https://accounts.google.com", aud: CLIENT_ID, exp: Math.floor(Date.now() / 1000) + 600, nonce: "n1", email: "A@Example.com", email_verified: true, name: "Ana", sub: "1234567890" };
 	it("acepta un token correcto y normaliza el correo", () => {
-		expect(identityFromIdToken(jwt(base), CLIENT_ID, "n1")).toEqual({ email: "a@example.com", name: "Ana" });
+		expect(identityFromIdToken(jwt(base), CLIENT_ID, "n1")).toEqual({ email: "a@example.com", name: "Ana", subject: "google:1234567890" });
 	});
 	it.each([
 		["iss", { iss: "https://evil.example" }],
@@ -199,6 +231,7 @@ describe("validación del id_token de Google", () => {
 		["nonce", { nonce: "otro" }],
 		["email_verified", { email_verified: false }],
 		["email", { email: "no-es-correo" }],
+		["sub", { sub: undefined }],
 	])("rechaza %s inválido", (_k, patch) => {
 		expect(() => identityFromIdToken(jwt({ ...base, ...patch }), CLIENT_ID, "n1")).toThrow();
 	});

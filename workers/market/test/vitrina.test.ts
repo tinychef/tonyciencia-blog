@@ -63,7 +63,7 @@ describe("catálogo v2", () => {
 		const res = await postForm("/market/producto/cutpilot/comprar", s);
 		expect(res.status).toBe(404);
 		const product = (await getProductBySlug(env.MARKET_DB, "cutpilot"))!;
-		const user = await upsertUser(env.MARKET_DB, s.email, "x");
+		const user = await upsertUser(env.MARKET_DB, s.email, "x", `dev:${s.email}`);
 		const config = loadConfig(env as Env);
 		if (!config.ok) throw new Error("config");
 		const r = await startCheckout({ db: env.MARKET_DB, config: config.config, adapters: createAdapters(config.config, env as Env) }, user, product, {});
@@ -97,6 +97,18 @@ describe("lista de espera", () => {
 });
 
 describe("reseñas reales", () => {
+	it("si se revoca el acceso (reembolso o disputa), la reseña deja de verse y de sumar estrellas", async () => {
+		const p = await createProduct({ kind: "free" });
+		const s = await loginMock(`revocada-${uid()}@maqueta.test`);
+		expect((await postForm(`/market/producto/${p.slug}/obtener`, s)).status).toBe(303);
+		expect((await postForm(`/market/producto/${p.slug}/resena`, s, { rating: "5", body: "Reseña que luego se revoca." })).status).toBe(303);
+		expect(await (await call(`/market/producto/${p.slug}`)).text()).toContain("Reseña que luego se revoca.");
+		await env.MARKET_DB.prepare("UPDATE entitlements SET revoked_at = ?2 WHERE product_id = ?1").bind(p.id, Date.now()).run();
+		const html = await (await call(`/market/producto/${p.slug}`)).text();
+		expect(html).not.toContain("Reseña que luego se revoca.");
+		expect(html).not.toContain("aggregateRating");
+	});
+
 	it("solo quien tiene el producto puede reseñar; la reseña sale en la ficha y en el JSON-LD", async () => {
 		const p = await createProduct({ kind: "free" });
 		const intruso = await loginMock(`sin-compra-${uid()}@maqueta.test`);
@@ -113,7 +125,8 @@ describe("reseñas reales", () => {
 		expect(ok.status).toBe(303);
 		const html = await (await call(`/market/producto/${p.slug}`)).text();
 		expect(html).toContain("Me sirvió para mis clientes.");
-		expect(html).toContain("Compra verificada");
+		expect(html).toContain("Descarga verificada"); // producto gratis: no se rotula como compra
+		expect(html).not.toContain("Compra verificada");
 		const ld = JSON.parse(html.match(PRODUCT_JSONLD)![1]!);
 		expect(ld.aggregateRating).toMatchObject({ ratingValue: "4.0", reviewCount: 1 });
 
@@ -136,7 +149,7 @@ describe("reseñas reales", () => {
 describe("cifras reales en la tienda", () => {
 	it("las ventas cuentan solo pedidos pagados (más las ventas reales cargadas fuera del market)", async () => {
 		const p = await createProduct({ priceCents: 2500 });
-		const u = await upsertUser(env.MARKET_DB, `ventas-${uid()}@example.com`, "x");
+		const u = await upsertUser(env.MARKET_DB, `ventas-${uid()}@example.com`, "x", `test:${uid()}`);
 		const insert = (status: string) =>
 			env.MARKET_DB.prepare(
 				`INSERT INTO orders (id, user_id, product_id, kind, status, amount_cents, currency, provider, customer_email, created_at, updated_at)

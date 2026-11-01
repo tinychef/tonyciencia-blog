@@ -291,10 +291,11 @@ const EN: Record<string, string> = {
 	"Aún no hay reseñas. Las reseñas solo las pueden dejar personas que tienen el producto, desde":
 		"No reviews yet. Only people who own the product can leave one, from",
 	"Compra verificada": "Verified purchase",
+	"Descarga verificada": "Verified download",
 	"Comprador verificado": "Verified buyer",
 	"reseña": "review",
 	"reseñas": "reviews",
-	"de compradores verificados": "from verified buyers",
+	"de clientes verificados": "from verified customers",
 	"Pagos con tarjeta desde $0.50 hasta": "Card payments from $0.50 up to",
 	"Escribe 0 para descargarlo gratis, o apoya al creador con lo que quieras.": "Enter 0 to download it for free, or support the creator with any amount.",
 	"Mínimo": "Minimum",

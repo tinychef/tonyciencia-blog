@@ -5,7 +5,7 @@ import { clientIp, type AppEnv } from "../context";
 import { hit, RATE_RULES } from "../lib/ratelimit";
 import { checkCsrf, clearLoginState, createSession, destroySession, readLoginState, startLoginState } from "../lib/session";
 import { cleanLine, normalizeEmail, safeNextPath } from "../lib/validate";
-import { upsertUser } from "../services/repo";
+import { SubjectMismatchError, upsertUser } from "../services/repo";
 import { DevLoginPage, LoginPage } from "../views/account";
 import { render, renderMessage } from "../views/render";
 
@@ -18,7 +18,15 @@ export function registerAuth(app: Hono<AppEnv>) {
 	app.get("/market/entrar", (c) => {
 		const next = safeNextPath(c.req.query("next"));
 		if (c.get("user")) return c.redirect(next, 303);
-		const error = c.req.query("error") ? "No pudimos completar el inicio de sesión. Inténtalo de nuevo." : null;
+		const err = c.req.query("error");
+		const error =
+			err === "cuenta"
+				? "Ese correo ya está asociado a otra cuenta de Google en Market Tony. Si es tuyo, escríbenos a business@tonyciencia.com."
+				: err === "privado"
+					? "Este entorno es privado: solo el administrador puede entrar."
+					: err
+						? "No pudimos completar el inicio de sesión. Inténtalo de nuevo."
+					: null;
 		return render(c, { title: "Entrar", path: "/market/entrar", noindex: true }, <LoginPage next={next} mode={c.get("config").mode} error={error} />);
 	});
 
@@ -46,10 +54,18 @@ export function registerAuth(app: Hono<AppEnv>) {
 		}
 		try {
 			const identity = await c.get("adapters").auth.exchangeCode(code, login, `${config.origin}/market/auth/callback`);
-			const user = await upsertUser(c.env.MARKET_DB, identity.email, identity.name);
+			if (config.loginOnlyAdmin && identity.email !== config.adminEmail) {
+				console.warn("[login] rechazado: este entorno solo admite al admin (LOGIN_ONLY_ADMIN)");
+				return c.redirect("/market/entrar?error=privado", 303);
+			}
+			const user = await upsertUser(c.env.MARKET_DB, identity.email, identity.name, identity.subject);
 			await createSession(c, user.id);
 			return c.redirect(safeNextPath(login.next), 303);
 		} catch (err) {
+			if (err instanceof SubjectMismatchError) {
+				console.error(`[login] rechazado: ${err.message}`);
+				return c.redirect("/market/entrar?error=cuenta", 303);
+			}
 			console.error("[login] fallo en el callback:", err instanceof AuthError ? err.message : err);
 			return c.redirect("/market/entrar?error=proveedor", 303);
 		}

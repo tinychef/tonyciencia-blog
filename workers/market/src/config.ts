@@ -31,6 +31,8 @@ export interface Config {
 	downloadUrlTtlSeconds: number;
 	sessionSecret: string;
 	adminEmail: string;
+	/** Solo ADMIN_EMAIL puede iniciar sesión (staging). */
+	loginOnlyAdmin: boolean;
 	adminCopyEmail: string;
 	stripeSecretKey: string | null;
 	webhookSecret: string;
@@ -198,6 +200,7 @@ export function loadConfig(env: Env): BootResult {
 			downloadUrlTtlSeconds: intVar(env.DOWNLOAD_URL_TTL_SECONDS, 120, 30, 600),
 			sessionSecret,
 			adminEmail,
+			loginOnlyAdmin: env.LOGIN_ONLY_ADMIN === "true",
 			adminCopyEmail,
 			stripeSecretKey: mode === "live" ? stripeSecretKey : null,
 			// En mock nunca se usa un secreto real: los eventos simulados se firman con uno público.

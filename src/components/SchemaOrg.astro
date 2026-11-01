@@ -1,4 +1,5 @@
 ---
+import { jsonLd } from "../utils/json-ld";
 interface Props {
 	type: "website" | "article";
 	title: string;
@@ -180,8 +181,8 @@ const faqSchema =
 		: null;
 ---
 
-<script is:inline type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
-<script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
-{breadcrumbSchema && <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
-{articleSchema && <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />}
-{faqSchema && <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+<script is:inline type="application/ld+json" set:html={jsonLd(orgSchema)} />
+<script is:inline type="application/ld+json" set:html={jsonLd(websiteSchema)} />
+{breadcrumbSchema && <script is:inline type="application/ld+json" set:html={jsonLd(breadcrumbSchema)} />}
+{articleSchema && <script is:inline type="application/ld+json" set:html={jsonLd(articleSchema)} />}
+{faqSchema && <script is:inline type="application/ld+json" set:html={jsonLd(faqSchema)} />}
