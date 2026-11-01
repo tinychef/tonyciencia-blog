@@ -41,7 +41,11 @@ export interface CheckoutRequest {
 	orderId: string;
 	productId: string;
 	productTitle: string;
-	/** Siempre leído de la base de datos en el servidor. */
+	/** Texto corto bajo el nombre en la página de pago (oferta, monto elegido). */
+	productDescription?: string | null;
+	/** URL https pública de la portada (Stripe la muestra en el checkout). */
+	productImageUrl?: string | null;
+	/** Precio fijo: leído de la BD. "Paga lo que quieras": monto elegido por el comprador y validado en el servidor. */
 	amountCents: number;
 	currency: string;
 	customerEmail: string;
@@ -93,7 +97,16 @@ export interface PaymentProvider {
 	resolvePromotionCode?(code: string): Promise<ResolvedPromotion | null>;
 	/** Verifica la firma sobre el cuerpo crudo y normaliza el evento. Lanza WebhookSignatureError. */
 	parseWebhook(rawBody: string, headers: Headers): Promise<PaymentEvent>;
+	/**
+	 * Crea (si falta) el cupón de bienvenida con su código promocional, marcado `market=true`. Idempotente.
+	 * Devuelve qué hizo, para los logs del cron.
+	 */
+	ensureWelcomePromotion?(code: string, percentOff: number): Promise<WelcomeEnsureResult>;
 }
+
+export type WelcomeEnsureResult =
+	| { status: "exists" | "created" | "tagged"; promotionCodeId: string }
+	| { status: "conflict" | "error"; detail: string };
 
 export class WebhookSignatureError extends Error {}
 
@@ -109,7 +122,8 @@ export interface StoredObject {
 
 export interface FileStorage {
 	readonly name: "mock" | "r2";
-	put(key: string, data: ArrayBuffer | ReadableStream, opts: { contentType: string; size: number }): Promise<void>;
+	/** Si `sha256` (hex) viene, el almacén rechaza el contenido que no coincida (R2 lo verifica del lado del servidor). */
+	put(key: string, data: ArrayBuffer | ReadableStream, opts: { contentType: string; size: number; sha256?: string }): Promise<void>;
 	get(key: string): Promise<StoredObject | null>;
 	head(key: string): Promise<{ size: number; contentType: string } | null>;
 	delete(key: string): Promise<void>;

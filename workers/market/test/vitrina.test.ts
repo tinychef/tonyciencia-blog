@@ -38,7 +38,7 @@ describe("catálogo v2", () => {
 		const user = await upsertUser(env.MARKET_DB, s.email, "x");
 		const config = loadConfig(env as Env);
 		if (!config.ok) throw new Error("config");
-		const r = await startCheckout({ db: env.MARKET_DB, config: config.config, adapters: createAdapters(config.config, env as Env) }, user, product, null);
+		const r = await startCheckout({ db: env.MARKET_DB, config: config.config, adapters: createAdapters(config.config, env as Env) }, user, product, {});
 		expect(r).toEqual({ ok: false, reason: "not_found" });
 		expect(await count("SELECT COUNT(*) AS n FROM orders WHERE user_id = ?1", user.id)).toBe(0);
 	});
@@ -149,8 +149,8 @@ describe("SEO y Google Merchant", () => {
 
 	it("la ficha trae meta título, descripción, imagen para compartir y Product + BreadcrumbList", async () => {
 		const html = await (await call("/market/producto/cutpilot")).text();
-		expect(html).toContain("<title>Edita videos con Claude Code y Codex — CutPilot | Market Tony</title>");
-		expect(html).toMatch(/<meta name="description" content="¿Quieres editar videos con Claude\?/);
+		expect(html).toContain("<title>Edita videos con Claude Code en local — CutPilot | Market Tony</title>");
+		expect(html).toMatch(/<meta name="description" content="Edita videos hablados en español con Claude Code/);
 		expect(html).toContain('property="og:image" content="http://localhost:8787/market/static/products/cutpilot/cover.webp"');
 		const ld = JSON.parse(html.match(PRODUCT_JSONLD)![1]!);
 		expect(ld.offers.availability).toBe("https://schema.org/PreOrder");

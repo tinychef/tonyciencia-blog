@@ -66,7 +66,7 @@ export const AdminProducts: FC<{ products: Product[]; csrf: string | null; notic
 								<code>{p.slug}</code>
 							</td>
 							<td>{p.kind === "paid" ? "Pago" : "Gratis"}</td>
-							<td>{p.kind === "paid" ? formatPrice(p.price_cents, p.currency) : "—"}</td>
+							<td>{p.kind === "paid" ? (p.price_mode === "pwyw" ? `Paga lo que quieras (sug. ${formatPrice(p.price_cents, p.currency)})` : formatPrice(p.price_cents, p.currency)) : "—"}</td>
 							<td>
 								{p.file_key ? (
 									<code>{p.file_key}</code>
@@ -157,9 +157,34 @@ export const AdminProductForm: FC<ProductFormProps> = ({ product, csrf, errors, 
 					<div class="mk-field">
 						<label for="f-price">Precio (USD)</label>
 						<input id="f-price" type="text" inputmode="decimal" name="price" maxlength={9} value={v("price", product ? centsToInput(product.price_cents) : "")} />
-						<span class="mk-hint">Ej.: 77 o 77.50. Ignorado si es gratis. Mínimo 0.50.</span>
+						<span class="mk-hint">Ej.: 77 o 77.50. Ignorado si es gratis. Mínimo 0.50. En «paga lo que quieras» es el precio SUGERIDO.</span>
 					</div>
 				</div>
+				<fieldset class="mk-form-row">
+					<legend>Modo de precio (como Gumroad)</legend>
+					<div class="mk-field">
+						<label for="f-pmode">Modo</label>
+						<select id="f-pmode" name="price_mode">
+							<option value="fixed" selected={v("price_mode", product?.price_mode ?? "fixed") === "fixed"}>
+								Precio fijo
+							</option>
+							<option value="pwyw" selected={v("price_mode", product?.price_mode ?? "fixed") === "pwyw"}>
+								Paga lo que quieras
+							</option>
+						</select>
+						<span class="mk-hint">Solo para productos de pago. El comprador escribe el monto en la ficha.</span>
+					</div>
+					<div class="mk-field">
+						<label for="f-pmin">Mínimo (USD)</label>
+						<input id="f-pmin" type="text" inputmode="decimal" name="min_price" maxlength={10} value={v("min_price", product ? centsToInput(product.min_price_cents) : "0")} />
+						<span class="mk-hint">0 = se puede descargar gratis. Si es mayor que 0, mínimo 0.50 (Stripe).</span>
+					</div>
+					<div class="mk-field">
+						<label for="f-pmax">Máximo (USD, opcional)</label>
+						<input id="f-pmax" type="text" inputmode="decimal" name="max_price" maxlength={10} value={v("max_price", product?.max_price_cents ? centsToInput(product.max_price_cents) : "")} />
+						<span class="mk-hint">Vacío = 999999.99 (tope de Stripe).</span>
+					</div>
+				</fieldset>
 				<div class="mk-field">
 					<label for="f-summary">Resumen (catálogo)</label>
 					<input id="f-summary" type="text" name="summary" maxlength={300} value={v("summary", product?.summary ?? "")} />

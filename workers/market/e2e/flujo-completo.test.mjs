@@ -50,27 +50,27 @@ test("flujo completo en modo maqueta", { timeout: 120_000 }, async () => {
 	// 1) Catálogo
 	await page.goto(`${BASE}/market`);
 	await assert.doesNotReject(page.getByRole("heading", { name: /Herramientas de IA/, level: 1 }).waitFor());
-	assert.ok((await page.locator(".mk-pcard").count()) >= 5, "el catálogo muestra al menos 5 productos");
+	assert.ok((await page.locator(".mk3-card").count()) >= 5, "el catálogo muestra al menos 5 productos");
 	assert.ok(await page.getByText("MODO MAQUETA").isVisible(), "la banda de maqueta debe verse");
 	await page.screenshot({ path: join(OUT, "01-catalogo.png"), fullPage: true });
 
 	// 2) Producto de pago → login de maqueta → vuelve al producto
 	await page.getByRole("link", { name: /Anuncios Infinitos/ }).first().click();
-	await page.waitForURL(/\/market\/producto\/anuncios-infinitos$/);
+	await page.waitForURL(/\/market\/producto\/anuncios-infinitos(#comprar)?$/);
 	await page.screenshot({ path: join(OUT, "02-producto.png"), fullPage: true });
 	await page.getByRole("link", { name: /usuario de prueba/ }).click();
 	await page.waitForURL(/\/market\/auth\/dev/);
 	await page.getByLabel("Correo").fill(buyer);
 	await page.getByLabel("Nombre").fill("Ana Prueba");
 	await page.getByRole("button", { name: "Entrar como este usuario" }).click();
-	await page.waitForURL(/\/market\/producto\/anuncios-infinitos$/);
+	await page.waitForURL(/\/market\/producto\/anuncios-infinitos(#comprar)?$/);
 
 	// 3) Comprar → checkout simulado → pagar
-	await page.getByRole("button", { name: /Comprar por \$76\.90 USD/ }).click();
+	await page.getByRole("button", { name: /Comprar ahora · \$33\.33 USD/ }).click();
 	await page.waitForURL(/\/market\/maqueta\/pago\/cs_mock_/);
 	const mockPayUrl = page.url();
 	await page.screenshot({ path: join(OUT, "03-pago-simulado.png"), fullPage: true });
-	await page.getByRole("button", { name: /Pagar \$76\.90 USD \(simulado\)/ }).click();
+	await page.getByRole("button", { name: /Pagar \$33\.33 USD \(simulado\)/ }).click();
 	await page.waitForURL(/\/market\/pago\/exito/);
 	await page.getByRole("heading", { name: "¡Gracias por tu compra!" }).waitFor({ timeout: 15_000 });
 	await page.screenshot({ path: join(OUT, "04-exito.png"), fullPage: true });
@@ -146,7 +146,7 @@ test("flujo completo en modo maqueta", { timeout: 120_000 }, async () => {
 	await p2.getByRole("link", { name: /usuario de prueba/ }).click();
 	await p2.getByLabel("Correo").fill(intruder);
 	await p2.getByRole("button", { name: "Entrar como este usuario" }).click();
-	await p2.waitForURL(/\/market\/producto\/anuncios-infinitos$/);
+	await p2.waitForURL(/\/market\/producto\/anuncios-infinitos(#comprar)?$/);
 	await p2.goto(`${BASE}/market/mis-compras`);
 	const csrf = await p2.locator('form[action="/market/salir"] input[name="csrf"]').first().inputValue();
 	const res = await p2.request.post(`${BASE}/market/descargas/${entitlementId}`, {
@@ -171,7 +171,7 @@ test("flujo completo en modo maqueta", { timeout: 120_000 }, async () => {
 	await p3.screenshot({ path: join(OUT, "09-movil-producto.png"), fullPage: true });
 	await p3.getByRole("link", { name: /usuario de prueba/ }).click();
 	await p3.getByRole("button", { name: /Entrar como admin/ }).click();
-	await p3.waitForURL(/\/market\/producto\/anuncios-infinitos$/);
+	await p3.waitForURL(/\/market\/producto\/anuncios-infinitos(#comprar)?$/);
 	await p3.goto(`${BASE}/market/admin`);
 	await p3.getByRole("heading", { name: "Administración" }).waitFor();
 	await p3.goto(`${BASE}/market/admin/pedidos`);

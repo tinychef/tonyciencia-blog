@@ -43,3 +43,63 @@ export async function getWelcomeOffer(config: Config, adapters: Adapters, now = 
 export function clearWelcomeCache(): void {
 	cache.clear();
 }
+
+const ENSURE_OK_TTL_MS = 6 * 60 * 60_000;
+let lastEnsureOk = 0;
+
+/**
+ * Cron: si WELCOME_COUPON_AUTOCREATE=true, se asegura de que el cupón de bienvenida exista en el proveedor
+ * (Stripe: cupón de `welcomePercent` %, duración "once", código WELCOME_COUPON, ambos con metadata market=true).
+ * Idempotente y barato: tras un resultado correcto no vuelve a consultar en 6 horas (por isolate).
+ */
+export async function ensureWelcomeCoupon(config: Config, adapters: Adapters, now = Date.now(), db?: D1Database): Promise<string> {
+	if (!config.welcomeAutocreate || !config.welcomeCoupon || !adapters.payments.ensureWelcomePromotion) return "omitido";
+	if (now - lastEnsureOk < ENSURE_OK_TTL_MS) return "reciente";
+	const r = await adapters.payments.ensureWelcomePromotion(config.welcomeCoupon, config.welcomePercent);
+	// Diagnóstico público en /market/estado.json: solo el estado y una pista genérica (nunca el mensaje crudo del proveedor).
+	if (db) {
+		const hint =
+			"detail" in r
+				? /permission|not have the required|restricted/i.test(r.detail)
+					? "la clave de Stripe no tiene permiso para crear cupones o códigos promocionales"
+					: r.status === "conflict"
+						? "ya existe un código activo con ese nombre y otro descuento"
+						: "error del proveedor (ver logs del Worker)"
+				: null;
+		await db
+			.prepare(
+				"INSERT INTO market_state (key, value, updated_at) VALUES ('welcome_setup', ?1, ?2) ON CONFLICT(key) DO UPDATE SET value = excluded.value, updated_at = excluded.updated_at",
+			)
+			.bind(JSON.stringify({ status: r.status, hint }), now)
+			.run()
+			.catch(() => undefined);
+	}
+	if ("promotionCodeId" in r) {
+		lastEnsureOk = now;
+		if (r.status !== "exists") {
+			console.log(`[market] cupón de bienvenida ${config.welcomeCoupon}: ${r.status} (${r.promotionCodeId})`);
+			cache.clear();
+		}
+	} else {
+		console.error(`[market] cupón de bienvenida ${config.welcomeCoupon}: ${r.status} — ${r.detail}`);
+	}
+	return r.status;
+}
+
+/** Solo para pruebas. */
+export function resetWelcomeEnsure(): void {
+	lastEnsureOk = 0;
+}
+
+export async function readWelcomeSetup(db: D1Database): Promise<{ status: string; hint: string | null; at: number } | null> {
+	const row = await db
+		.prepare("SELECT value, updated_at FROM market_state WHERE key = 'welcome_setup'")
+		.first<{ value: string; updated_at: number }>()
+		.catch(() => null);
+	if (!row) return null;
+	try {
+		return { ...(JSON.parse(row.value) as { status: string; hint: string | null }), at: row.updated_at };
+	} catch {
+		return null;
+	}
+}

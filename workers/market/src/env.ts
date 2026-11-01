@@ -21,6 +21,10 @@ export interface Env {
 	R2_BUCKET_NAME?: string;
 	/** Código de Stripe del popup "10 % en tu primera compra". El popup solo aparece si Stripe lo da por válido. */
 	WELCOME_COUPON?: string;
+	/** "true" = el cron crea en el proveedor de pagos el cupón de bienvenida si falta (idempotente). */
+	WELCOME_COUPON_AUTOCREATE?: string;
+	/** Porcentaje del cupón de bienvenida (1–100). Por defecto 10. */
+	WELCOME_COUPON_PERCENT?: string;
 	/** Página de reservas con pago (Google Calendar → agenda de citas con pago). Vacío = botón de contacto. */
 	BOOKING_URL?: string;
 

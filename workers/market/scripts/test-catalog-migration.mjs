@@ -54,3 +54,48 @@ for (const slug of ["cutpilot", "kit-n8n-agentes-ia", "carruseles-infinitos"]) {
 	assert.equal(by[slug].file_key, null);
 }
 console.log("✓ migraciones 0002/0003 seguras sobre datos tipo producción");
+
+// ── v3: precios flexibles + ofertas (0004) y catálogo v3 (0005) ─────────
+// Producción real: SpecReel tiene el título en inglés que puso el dueño.
+db.prepare("UPDATE products SET title = 'SpecReel: Make 3D Explainer & Product Videos with Claude Code and Codex' WHERE slug = 'specreel'").run();
+// Una waitlist real de CutPilot no debe perderse.
+db.prepare("INSERT INTO waitlist (id, product_id, email, created_at) VALUES ('w1', (SELECT id FROM products WHERE slug = 'cutpilot'), 'x@y.z', 1)").run();
+db.prepare("UPDATE products SET description = 'Intro.\n\n- Price: US$36.90, one-time payment. No subscription.\n\n- Precio: US$36,90, pago único. Sin suscripción.' WHERE slug = 'specreel'").run();
+db.exec(sql("0004_precios_flexibles.sql"));
+db.exec(sql("0005_catalogo_v3.sql"));
+db.exec(sql("0005_catalogo_v3.sql"));
+const specDesc = db.prepare("SELECT description FROM products WHERE slug = 'specreel'").get().description;
+assert.ok(!specDesc.includes("36.90") && !specDesc.includes("36,90"), "la descripción ya no dice el precio viejo");
+assert.ok(specDesc.includes("One-time payment (current price shown above). No subscription."));
+
+const v3 = Object.fromEntries(
+	db.prepare("SELECT slug, title, price_cents, compare_at_cents, price_mode, min_price_cents, availability, active, file_key, images FROM products").all().map((r) => [r.slug, r]),
+);
+assert.equal(v3["anuncios-infinitos"].price_cents, 3333);
+assert.equal(v3["anuncios-infinitos"].compare_at_cents, 7690, "precio anterior real tachado");
+assert.equal(v3["anuncios-infinitos"].file_key, "products/a.zip", "no toca el archivo");
+assert.equal(v3.specreel.price_cents, 1200);
+assert.equal(v3.specreel.compare_at_cents, 3690);
+assert.equal(v3.specreel.title, "SpecReel: videos 3D explicativos y de producto con Claude Code y Codex");
+assert.equal(v3["anuncios-infinitos"].title, "Título del dueño A", "títulos editados por el dueño no se tocan");
+for (const slug of ["pagespeed-forensics", "specreel-stick", "motor-creativo-claude-code"]) {
+	assert.equal(v3[slug].availability, "coming_soon", `${slug}: entra sin archivo, como Próximamente`);
+	assert.equal(v3[slug].file_key, null);
+	assert.equal(v3[slug].active, 1);
+}
+assert.equal(v3["pagespeed-forensics"].price_mode, "pwyw");
+assert.equal(v3["pagespeed-forensics"].min_price_cents, 0);
+assert.equal(v3["specreel-stick"].price_mode, "fixed");
+assert.equal(v3["specreel-stick"].price_cents, 1200);
+assert.equal(v3.cutpilot.title, "CutPilot: edita tus videos hablados con Claude Code, en tu PC");
+assert.equal(JSON.parse(v3.cutpilot.images).length, 1, "CutPilot: sin la imagen que prometía 5 reels");
+assert.equal(db.prepare("SELECT COUNT(*) AS n FROM waitlist").get().n, 1, "la lista de espera se conserva");
+assert.equal(db.prepare("SELECT COUNT(*) AS n FROM products").get().n, 8, "5 anteriores + 3 nuevos, sin duplicados");
+
+// Si el dueño ya cambió un precio a mano, 0004 no lo pisa.
+const db2 = new DatabaseSync(":memory:");
+for (const f of ["0001_init.sql", "0002_vitrina.sql", "0003_catalogo_v2.sql"]) db2.exec(sql(f));
+db2.prepare("INSERT INTO products (id, slug, title, price_cents, currency, kind, created_at, updated_at) VALUES ('z', 'specreel', 't', 2900, 'usd', 'paid', 1, 1)").run();
+db2.exec(sql("0004_precios_flexibles.sql"));
+assert.equal(db2.prepare("SELECT price_cents FROM products WHERE slug = 'specreel'").get().price_cents, 2900);
+console.log("✓ migraciones 0004/0005 seguras sobre datos tipo producción");

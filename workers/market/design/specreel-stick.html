@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+	/* SpecReel Stick: el preset "noir" del propio producto — negro, blanco y un solo rojo.
+	   Todas las imágenes son fotogramas reales del sketch de ejemplo incluido (preview.mp4). */
+	:root { --bg: #090909; --panel: #111112; --line: #262628; --fg: #f4f4f4; --mut: #9a9a9e; --dim: #5f5f63; --red: #e0262d; }
+	* { box-sizing: border-box; margin: 0; padding: 0; }
+	body { background: #333; }
+	.frame { width: 1600px; height: 1000px; position: relative; overflow: hidden; background: radial-gradient(900px 600px at 78% 45%, #1a0b0c 0%, transparent 70%), var(--bg); color: var(--fg); font-family: "Manrope", sans-serif; }
+	.mono { font-family: "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: 0.2em; }
+	.eyebrow { position: absolute; left: 100px; display: flex; align-items: center; gap: 14px; font-size: 18px; font-weight: 600; }
+	.eyebrow i { width: 14px; height: 14px; background: var(--red); display: block; }
+	.eyebrow span { color: var(--mut); font-weight: 500; }
+	h1, h2 { font-weight: 800; letter-spacing: -0.045em; line-height: 0.96; }
+	h1 em, h2 em { font-style: normal; color: var(--red); }
+	.legal { position: absolute; left: 100px; bottom: 40px; font-size: 13px; color: #6a6a6e; }
+	.chips { display: flex; gap: 12px; }
+	.chip { border: 1.5px solid #3a3a3d; border-radius: 8px; padding: 12px 18px; font-weight: 700; font-size: 18px; letter-spacing: 0.04em; }
+	.phone { position: absolute; border-radius: 30px; overflow: hidden; border: 2px solid #2c2c2f; background: var(--bg); box-shadow: 0 40px 90px rgba(0, 0, 0, 0.7), 0 0 0 8px #141415; }
+	.phone img { display: block; width: 100%; height: 100%; object-fit: cover; }
+	/* Recorte de un fotograma 1080×1920: --x, --y, --w (zona a mostrar) y --cw (ancho del contenedor). */
+	.crop { position: relative; overflow: hidden; width: calc(var(--cw) * 1px); height: calc(var(--cw) * var(--h) / var(--w) * 1px); background: var(--bg); }
+	.crop img { position: absolute; width: calc(1080px * var(--cw) / var(--w)); left: calc(-1px * var(--x) * var(--cw) / var(--w)); top: calc(-1px * var(--y) * var(--cw) / var(--w)); }
+
+	/* ── Portada ── */
+	.cover .eyebrow { top: 160px; }
+	.cover h1 { position: absolute; left: 96px; top: 214px; font-size: 104px; width: 660px; }
+	.cover .sub { position: absolute; left: 100px; top: 568px; width: 600px; font-size: 26px; line-height: 1.45; color: #c4c4c8; }
+	.idea { position: absolute; left: 100px; top: 724px; display: flex; align-items: center; gap: 16px; border: 1.5px solid var(--line); background: var(--panel); border-radius: 14px; padding: 16px 22px; }
+	.idea .k { font-family: "IBM Plex Mono"; font-size: 14px; color: var(--mut); letter-spacing: 0.16em; text-transform: uppercase; }
+	.idea b { font-size: 24px; font-weight: 700; }
+	.idea b em { font-style: normal; color: var(--red); }
+	.cover .chips { position: absolute; left: 100px; top: 826px; }
+	.fan .phone:nth-child(1) { left: 770px; top: 215px; width: 310px; height: 551px; transform: rotate(-7deg); opacity: 0.9; }
+	.fan .phone:nth-child(2) { left: 1228px; top: 215px; width: 310px; height: 551px; transform: rotate(7deg); opacity: 0.9; }
+	.fan .phone:nth-child(3) { left: 965px; top: 92px; width: 410px; height: 729px; z-index: 2; }
+	.fmt { position: absolute; left: 790px; right: 50px; top: 866px; text-align: center; font-size: 17px; color: #b8b8bc; }
+	.fmt b { color: var(--red); font-weight: 600; }
+
+	/* ── Pantalla 1 ── */
+	.s1 .eyebrow { top: 92px; }
+	.s1 h2 { position: absolute; left: 96px; top: 140px; font-size: 84px; width: 660px; }
+	.flow { position: absolute; left: 820px; top: 110px; width: 690px; display: grid; gap: 16px; }
+	.step { display: grid; grid-template-columns: 56px 1fr; gap: 18px; align-items: center; }
+	.step .n { width: 56px; height: 56px; border-radius: 50%; border: 1.5px solid #3a3a3d; display: grid; place-items: center; font-family: "IBM Plex Mono"; font-weight: 600; font-size: 20px; }
+	.step .n.ck { background: var(--red); border-color: var(--red); color: #fff; }
+	.step b { display: block; font-size: 25px; font-weight: 700; letter-spacing: -0.01em; }
+	.step span { display: block; margin-top: 3px; font-size: 18px; color: var(--mut); }
+	.strip { position: absolute; left: 100px; top: 384px; display: flex; gap: 22px; }
+	.beat { width: 333px; }
+	.beat .crop { border-radius: 14px; border: 1.5px solid var(--line); }
+	.beat .k { margin-top: 16px; font-size: 13px; color: var(--red); font-weight: 600; }
+	.beat p { margin-top: 6px; font-size: 19px; line-height: 1.35; color: #d8d8dc; font-weight: 600; }
+	.files { position: absolute; left: 100px; bottom: 56px; display: flex; gap: 12px; align-items: center; }
+	.files .mono { font-size: 14px; color: var(--mut); margin-right: 8px; }
+	.file { border: 1.5px solid var(--line); border-radius: 8px; padding: 9px 14px; font-family: "IBM Plex Mono"; font-size: 16px; color: #d0d0d4; background: var(--panel); }
+	.file b { color: #fff; font-weight: 600; }
+
+	/* ── Pantalla 2 ── */
+	.s2 .eyebrow { top: 92px; }
+	.s2 h2 { position: absolute; left: 96px; top: 140px; font-size: 78px; width: 700px; }
+	.s2 .lead { position: absolute; left: 100px; top: 330px; width: 600px; font-size: 22px; line-height: 1.5; color: #bdbdc1; }
+	.legend { position: absolute; left: 100px; top: 470px; width: 620px; display: grid; gap: 14px; }
+	.legend > div { display: grid; grid-template-columns: 38px 1fr; gap: 16px; align-items: center; font-size: 22px; font-weight: 700; }
+	.legend > div span { color: var(--mut); font-weight: 500; }
+	.dot { width: 38px; height: 38px; border-radius: 50%; background: var(--red); color: #fff; display: grid; place-items: center; font-family: "IBM Plex Mono"; font-weight: 600; font-size: 17px; box-shadow: 0 0 0 4px rgba(224, 38, 45, 0.25); }
+	.s2 .chips { position: absolute; left: 100px; bottom: 74px; }
+	.s2 .chip { font-size: 16px; padding: 10px 14px; }
+	.shot { position: absolute; left: 790px; top: 82px; }
+	.shot .crop { border-radius: 20px; border: 1.5px solid #2c2c2f; box-shadow: 0 40px 100px rgba(0, 0, 0, 0.7); }
+	.shot .dot { position: absolute; z-index: 2; }
+	.shot .tag { position: absolute; right: 18px; bottom: -36px; font-size: 13px; color: var(--mut); }
+</style>
+</head>
+<body>
+
+<section class="frame cover" data-out="cover">
+	<div class="eyebrow mono"><i></i>SpecReel Stick <span>· Skill</span></div>
+	<h1>Tu idea, en muñequitos <em>de palo.</em></h1>
+	<p class="sub">Tu agente escribe el guion, anima a dos personajes y te entrega un MP4 con subtítulos, música y efectos.</p>
+	<div class="idea"><span class="k">Ejemplo incluido</span><b>«<em>1%</em> mejor cada día»</b></div>
+	<div class="chips"><span class="chip">Claude Code</span><span class="chip">Codex</span></div>
+	<div class="fan">
+		<div class="phone"><img src="assets/specreel-stick/beat-3-espera.jpg" alt=""></div>
+		<div class="phone"><img src="assets/specreel-stick/beat-2-mejora.jpg" alt=""></div>
+		<div class="phone"><img src="assets/specreel-stick/beat-4-final.jpg" alt=""></div>
+	</div>
+	<p class="fmt mono">MP4 <b>·</b> 9:16 · 1:1 · 4:5 · 16:9 <b>·</b> .srt</p>
+	<p class="legal">Fotogramas reales del sketch de ejemplo incluido. Claude Code y Codex son marcas de sus dueños; se nombran solo para indicar compatibilidad.</p>
+</section>
+
+<section class="frame s1" data-out="screen-1">
+	<div class="eyebrow mono"><i></i>SpecReel Stick <span>· Cómo funciona</span></div>
+	<h2>Tú apruebas.<br>Tu agente <em>anima.</em></h2>
+	<div class="flow">
+		<div class="step"><span class="n">1</span><div><b>Le cuentas la idea</b><span>Quién hace qué, quién no y cuál es el remate.</span></div></div>
+		<div class="step"><span class="n ck">A</span><div><b>Apruebas el guion y el storyboard</b><span>Antes de animar nada.</span></div></div>
+		<div class="step"><span class="n ck">B</span><div><b>Revisas la hoja de fotogramas</b><span>Después viene el render final.</span></div></div>
+	</div>
+	<div class="strip">
+		<div class="beat"><div class="crop" style="--x: 88; --y: 460; --w: 905; --h: 1070; --cw: 333;"><img src="assets/specreel-stick/beat-1-partida.jpg" alt=""></div><div class="k mono">Línea 1</div><p>Dos personas. El mismo punto de partida.</p></div>
+		<div class="beat"><div class="crop" style="--x: 88; --y: 460; --w: 905; --h: 1070; --cw: 333;"><img src="assets/specreel-stick/beat-2-mejora.jpg" alt=""></div><div class="k mono">Línea 2</div><p>Uno mejora un 1% cada día.</p></div>
+		<div class="beat"><div class="crop" style="--x: 88; --y: 460; --w: 905; --h: 1070; --cw: 333;"><img src="assets/specreel-stick/beat-3-espera.jpg" alt=""></div><div class="k mono">Línea 3</div><p>El otro espera el momento perfecto.</p></div>
+		<div class="beat"><div class="crop" style="--x: 88; --y: 460; --w: 905; --h: 1070; --cw: 333;"><img src="assets/specreel-stick/beat-4-final.jpg" alt=""></div><div class="k mono">Línea 4</div><p>Al año: 37 veces mejor.</p></div>
+	</div>
+	<div class="files"><span class="mono">Recibes</span><span class="file"><b>sketch</b>.mp4</span><span class="file"><b>sketch</b>.srt</span><span class="file"><b>sketch</b>_cover.jpg</span><span class="file"><b>CREDITS</b>.md</span><span class="file"><b>REPORT</b>.md</span></div>
+</section>
+
+<section class="frame s2" data-out="screen-2">
+	<div class="eyebrow mono"><i></i>SpecReel Stick <span>· Qué trae</span></div>
+	<h2>Dos personajes.<br>Una <em>comparación.</em></h2>
+	<p class="lead">Sketches de 12 a 30 segundos: el protagonista actúa, el otro lo deja para mañana y el final cae en un número.</p>
+	<div class="legend">
+		<div><span class="dot">1</span><div>Contador en pantalla</div></div>
+		<div><span class="dot">2</span><div>Número final <span>· el remate</span></div></div>
+		<div><span class="dot">3</span><div>Protagonista con sombrero <span>· 23 poses</span></div></div>
+		<div><span class="dot">4</span><div>Utilería <span>· escalones que crecen</span></div></div>
+		<div><span class="dot">5</span><div>Emotes <span>· 6 tipos</span></div></div>
+		<div><span class="dot">6</span><div>Subtítulos karaoke <span>· y archivo .srt</span></div></div>
+	</div>
+	<div class="chips"><span class="chip">Sin voz por defecto</span><span class="chip">Música y efectos por código</span><span class="chip">Noir o tu marca</span></div>
+	<div class="shot">
+		<!-- zona: escenario + subtítulo del fotograma final (x 60–1020, y 440–1530) -->
+		<div class="crop" style="--x: 60; --y: 440; --w: 960; --h: 1090; --cw: 720;"><img src="assets/specreel-stick/beat-4-final.jpg" alt=""></div>
+		<span class="dot" style="left: 206px; top: 96px;">1</span>
+		<span class="dot" style="left: 460px; top: 196px;">2</span>
+		<span class="dot" style="left: 546px; top: 300px;">3</span>
+		<span class="dot" style="left: 256px; top: 524px;">4</span>
+		<span class="dot" style="left: 136px; top: 336px;">5</span>
+		<span class="dot" style="left: 124px; top: 750px;">6</span>
+		<span class="tag mono">Fotograma real del ejemplo incluido</span>
+	</div>
+</section>
+</body>
+</html>

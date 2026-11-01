@@ -43,7 +43,7 @@ function jsonLdScript(data: object) {
 	return raw(`<script type="application/ld+json">${JSON.stringify(data).replace(/</g, "\\u003c")}</script>`);
 }
 
-const STATIC_VERSION = "2";
+const STATIC_VERSION = "3";
 
 export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, theme, welcome, children }) => {
 	const fullTitle = meta.fullTitle ?? (meta.title === "Market Tony" ? "Market Tony — Tony Ciencia" : `${meta.title} — Market Tony`);
@@ -123,6 +123,9 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 							<a href="/market#catalogo" aria-current={is("/market")} class="mk-hide-sm">
 								Catálogo
 							</a>
+							<a href="/market?filtro=ofertas#catalogo" class="mk-hide-sm mk3-nav-sale">
+								Ofertas
+							</a>
 							<a href="/market/agentes-para-empresas" aria-current={is("/market/agentes-para-empresas")} class="mk-hide-sm">
 								Agentes para empresas
 							</a>
@@ -168,6 +171,8 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 										</button>
 									</div>
 									<a href="/market#catalogo">Catálogo</a>
+									<a href="/market?filtro=ofertas#catalogo">Ofertas</a>
+									<a href="/market?filtro=gratis#catalogo">Desde $0</a>
 									<a href="/market/agentes-para-empresas">Agentes para empresas</a>
 									{user ? <a href="/market/mis-compras">Mis compras</a> : <a href={`/market/entrar?next=${encodeURIComponent(meta.path)}`}>Entrar</a>}
 									{isAdmin && <a href="/market/admin">Admin</a>}
@@ -240,27 +245,36 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 					</div>
 				</footer>
 				{welcome && (
-					<div class="mk-pop" data-welcome hidden>
-						<div class="mk-pop-backdrop" data-pop-close></div>
-						<div class="mk-pop-card" role="dialog" aria-modal="true" aria-labelledby="mk-pop-title">
-							<button type="button" class="mk-pop-x" data-pop-close aria-label="Cerrar">
+					<>
+						{/* Popup flotante y NO modal: no bloquea la página ni oscurece el fondo. market.js lo muestra una vez
+						    (a los segundos o al bajar), y después queda una pestaña discreta para volver a abrirlo. */}
+						<aside class="mk3-pop" data-welcome hidden aria-labelledby="mk-pop-title">
+							<button type="button" class="mk3-pop-x" data-pop-close aria-label="Cerrar">
 								✕
 							</button>
-							<div class="mk-pop-gift" aria-hidden="true">
-								🎁
+							<div class="mk3-pop-badge" aria-hidden="true">
+								<b>{welcome.percentOff ? `−${welcome.percentOff}%` : "🎁"}</b>
+								<span>1.ª compra</span>
 							</div>
-							<p class="mk-kicker">Bienvenido a Market Tony</p>
-							<h2 id="mk-pop-title">Llévate {offerText} en tu primera compra</h2>
-							<p class="mk-muted">Usa este código al pagar. Se aplica en el checkout seguro de Stripe.</p>
-							<button type="button" class="mk-pop-code" data-copy={welcome.code}>
-								<span>{welcome.code}</span>
-								<small data-copy-label>Copiar</small>
-							</button>
-							<a href="/market#catalogo" class="tc-btn tc-btn--primary mk-btn-block" data-pop-close>
-								Ver productos
-							</a>
-						</div>
-					</div>
+							<div class="mk3-pop-body">
+								<h2 id="mk-pop-title">¡Obtén {offerText === "un descuento" ? "un descuento" : `un ${offerText}`} en tu primera compra!</h2>
+								<p>Copia el código y escríbelo al comprar. Se aplica en el checkout seguro de Stripe.</p>
+								<div class="mk3-pop-actions">
+									<button type="button" class="mk-pop-code" data-copy={welcome.code} data-pop-used>
+										<span>{welcome.code}</span>
+										<small data-copy-label>Copiar</small>
+									</button>
+									<a href="/market#catalogo" class="mk3-pop-link" data-pop-close>
+										Ver productos →
+									</a>
+								</div>
+								<p class="mk3-pop-fine">Válido una vez por cuenta, en productos de precio fijo.</p>
+							</div>
+						</aside>
+						<button type="button" class="mk3-pop-tab" data-pop-open hidden aria-label={`Ver el cupón de ${offerText} en tu primera compra`}>
+							🎁 {welcome.percentOff ? `${welcome.percentOff}% OFF` : "Cupón"}
+						</button>
+					</>
 				)}
 				<div class="mk-toast" role="status" aria-live="polite" data-toast></div>
 				<script src={`/market/static/market.js?v=${STATIC_VERSION}`} defer></script>

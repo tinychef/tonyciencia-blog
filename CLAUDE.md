@@ -89,7 +89,15 @@ Tienda en `tonyciencia.com/market`: **Worker de Cloudflare separado del blog** (
 - **Vitrina v2**: columnas de vitrina/SEO en `products` (migración `0002`), reseñas (`reviews`) y lista de espera (`waitlist`). Los datos del catálogo viven en `seed/catalog.mjs`; `migrations/0003_catalogo_v2.sql` se genera con `scripts/gen-catalog-migration.mjs` (no editar a mano). Portadas: `design/<slug>.html` → `pnpm render:covers`.
 - **Nunca mostrar cifras inventadas** (ventas, estrellas, precios "antes"): ventas = pedidos pagados + `sales_offset` (ventas reales fuera del market); estrellas = reseñas de compradores verificados. Productos sin archivo → `availability = 'coming_soon'` (no se pueden comprar).
 - **Deploy automático**: `.github/workflows/market-deploy.yml` al hacer merge a `main` (pruebas → `scripts/ci-migrate.mjs` → deploy). `pnpm test:migration` prueba las migraciones sobre datos tipo producción.
-- Plan v2: `docs/PLAN-MARKET-V2.md`. Plan original: `docs/PLAN.md`. Credenciales: `HANDOFF.md`.
+- **v3 (2026-11-01)**: precios flexibles tipo Gumroad (`price_mode = fixed | pwyw`, `min_price_cents`, `max_price_cents`; USD 0 se entrega sin Stripe; Stripe cobra de 0.50 a 999,999.99), ofertas con precio anterior REAL tachado (`compare_at_cents`) en tarjeta, ficha, checkout, feed (`sale_price`) y JSON-LD (`StrikethroughPrice`), cupón de bienvenida que el cron crea en Stripe (`WELCOME_COUPON_AUTOCREATE`) y que el servidor limita a la primera compra, y catálogo v3 (`seed/catalog-v3.json` → `migrations/0005`). Lógica de precios: `src/lib/pricing.ts`.
+- **Archivos de producto**: los ZIP salen de repos privados con `node scripts/build-product-zip.mjs <slug>` y se suben con `PUT /market/provision/<slug>`, que solo acepta el SHA-256 fijado en `provision/manifest.json` (ver `provision/README.md`). Estado público: `/market/estado.json`. Auditoría: `node scripts/audit-catalog.mjs [origen]` (también en CI: `market-audit.yml`).
+- Plan v3: `docs/PLAN-MARKET-V3.md`. Plan v2: `docs/PLAN-MARKET-V2.md`. Plan original: `docs/PLAN.md`. Credenciales: `HANDOFF.md`.
+
+## Agentes de Tony Ciencia (`.claude/agents/`)
+
+- **`ecommerce-manager`** + skill `.claude/skills/ecommerce-manager/` — administra Market Tony: productos, precios, ofertas, fichas, imágenes, SEO, feed de Merchant, publicación de repos como productos y auditoría periódica.
+- **`content-affiliate-manager`** + skill `.claude/skills/articulo-afiliados/` — investiga y escribe artículos SEO con enlaces de afiliado SOLO de la base `src/data/partners.generated.ts` (+ `content/affiliates/extra.json`). Ver `docs/AGENTE-CONTENIDO.md`.
+- Ambos trabajan por PR (nunca push directo a `main`). Regla común: nada inventado (funciones, cifras, reseñas, precios anteriores, enlaces).
 
 ## Configuración de Cloudflare
 

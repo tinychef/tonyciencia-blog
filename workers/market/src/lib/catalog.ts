@@ -6,6 +6,9 @@ export const CATEGORIES = [
 	{ slug: "video", label: "Video con IA" },
 	{ slug: "automatizacion", label: "Automatización" },
 	{ slug: "contenido", label: "Contenido y redes" },
+	{ slug: "seo-web", label: "SEO y velocidad web" },
+	{ slug: "diseno", label: "Diseño y creatividad" },
+	{ slug: "agentes", label: "Agentes de IA" },
 ] as const;
 
 export function categoryLabel(slug: string): string | null {
@@ -18,7 +21,7 @@ const BESTSELLER_MIN_SALES = 3;
 
 export interface Badge {
 	label: string;
-	tone: "soon" | "new" | "hot" | "plain";
+	tone: "soon" | "new" | "hot" | "plain" | "sale" | "free" | "pwyw";
 }
 
 /** Etiquetas de la tarjeta: automáticas (de datos reales) + la manual del admin. */

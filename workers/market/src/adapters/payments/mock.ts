@@ -1,5 +1,5 @@
 import { randomToken } from "../../lib/crypto";
-import type { CheckoutRequest, CheckoutSession, PaymentEvent, PaymentProvider, ResolvedPromotion } from "../types";
+import type { CheckoutRequest, CheckoutSession, PaymentEvent, PaymentProvider, ResolvedPromotion, WelcomeEnsureResult } from "../types";
 import { normalizeStripeEvent, signStripePayload, verifyStripeSignature } from "./stripe-signature";
 
 export interface MockCheckoutRow {
@@ -55,6 +55,12 @@ export class MockPaymentProvider implements PaymentProvider {
 	async resolvePromotionCode(code: string): Promise<ResolvedPromotion | null> {
 		const pct = MOCK_PROMOTION_CODES[code.trim().toUpperCase()];
 		return pct ? { id: `promo_mock_${code.trim().toUpperCase()}`, percentOff: pct } : null;
+	}
+
+	/** En maqueta los cupones viven en MOCK_PROMOTION_CODES: no hay nada que crear. */
+	async ensureWelcomePromotion(code: string, percentOff: number): Promise<WelcomeEnsureResult> {
+		const pct = MOCK_PROMOTION_CODES[code.trim().toUpperCase()];
+		return pct === percentOff ? { status: "exists", promotionCodeId: `promo_mock_${code.trim().toUpperCase()}` } : { status: "conflict", detail: "maqueta" };
 	}
 
 	async parseWebhook(rawBody: string, headers: Headers): Promise<PaymentEvent> {

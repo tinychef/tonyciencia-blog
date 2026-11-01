@@ -1,22 +1,16 @@
 import type { FC } from "hono/jsx";
-import {
-	CATEGORIES,
-	badgesFor,
-	categoryLabel,
-	discountPercent,
-	isBuyable,
-	priceWithPercentOff,
-	ratingText,
-	salesText,
-	type Badge,
-} from "../lib/catalog";
+import { CATEGORIES, badgesFor, categoryLabel, isBuyable, priceWithPercentOff, ratingText, salesText, type Badge } from "../lib/catalog";
 import { formatPrice } from "../lib/money";
+import { STRIPE_MAX_CENTS, canBeFree, fromPriceCents, isPwyw, pwywBounds, saleInfo } from "../lib/pricing";
 import type { Product, ReviewRow, ShopProduct } from "../services/repo";
 import type { WelcomeOffer } from "../services/welcome";
 import { CsrfField } from "./layout";
 import { Description } from "./render";
 
 // ── Piezas comunes ───────────────────────────────────────────────────
+
+/** "$33.33" (sin la moneda: la moneda va aparte, más chica). */
+const amount = (cents: number, currency = "usd") => formatPrice(cents, currency).replace(` ${currency.toUpperCase()}`, "");
 
 /** Estrellas con relleno parcial (la cifra exacta va en aria-label). */
 export const Stars: FC<{ value: number; class?: string }> = ({ value, class: cls }) => (
@@ -30,41 +24,80 @@ export const PriceBadge: FC<{ product: Product }> = ({ product }) =>
 		<span class="mk-badge mk-badge--free">Gratis</span>
 	) : (
 		<span class="mk-badge">
-			<span class="mk-price">{formatPrice(product.price_cents, product.currency)}</span>
+			<span class="mk-price">{isPwyw(product) ? `Desde ${formatPrice(pwywBounds(product).min, product.currency)}` : formatPrice(product.price_cents, product.currency)}</span>
 		</span>
 	);
 
-const BadgeList: FC<{ badges: Badge[] }> = ({ badges }) =>
+/** Etiquetas de la tarjeta: OFERTA (real), Paga lo que quieras / Gratis, y las automáticas (Nuevo, Más vendido, Próximamente). */
+export function cardBadges(p: ShopProduct, maxSales: number): Badge[] {
+	const out: Badge[] = [];
+	const sale = saleInfo(p);
+	if (sale && p.availability === "available") out.push({ label: `OFERTA −${sale.percent}%`, tone: "sale" });
+	if (p.kind === "free") out.push({ label: "GRATIS", tone: "free" });
+	else if (isPwyw(p) && p.availability === "available") out.push({ label: canBeFree(p) ? "Paga lo que quieras" : "Tú pones el precio", tone: "pwyw" });
+	return [...out, ...badgesFor(p, maxSales)];
+}
+
+const BadgeList: FC<{ badges: Badge[]; class?: string }> = ({ badges, class: cls }) =>
 	badges.length ? (
-		<span class="mk-badges">
+		<span class={`mk-badges ${cls ?? ""}`}>
 			{badges.map((b) => (
 				<span class={`mk-chip mk-chip--${b.tone}`}>{b.label}</span>
 			))}
 		</span>
 	) : null;
 
-/** Precio de tarjeta / ficha: actual, tachado real (si existe) y precio con el cupón de bienvenida. */
+/**
+ * Precio de tarjeta / ficha. Jerarquía: precio actual grande → precio anterior REAL tachado → % y ahorro →
+ * precio con el cupón de bienvenida (solo precio fijo). "Paga lo que quieras" muestra el mínimo y el sugerido.
+ */
 export const PriceBlock: FC<{ product: Product; welcome: WelcomeOffer | null; size?: "sm" | "lg" }> = ({ product, welcome, size = "sm" }) => {
-	if (product.kind === "free") return <span class={`mk-pricebox mk-pricebox--${size}`}><span class="mk-price-now">Gratis</span></span>;
-	const off = discountPercent(product);
+	const cur = product.currency.toUpperCase();
+	if (product.kind === "free") {
+		return (
+			<span class={`mk3-price mk3-price--${size}`}>
+				<span class="mk3-price-row">
+					<span class="mk3-price-now">Gratis</span>
+				</span>
+			</span>
+		);
+	}
 	const soon = product.availability === "coming_soon";
+	if (isPwyw(product)) {
+		const { min } = pwywBounds(product);
+		return (
+			<span class={`mk3-price mk3-price--${size}`}>
+				<span class="mk3-price-label">{soon ? "Precio previsto" : "Paga lo que quieras"}</span>
+				<span class="mk3-price-row">
+					<span class="mk3-price-now">{min === 0 ? "$0+" : `${amount(min, product.currency)}+`}</span>
+					<span class="mk3-price-cur">{cur}</span>
+				</span>
+				<span class="mk3-price-note">Sugerido: {formatPrice(product.price_cents, product.currency)}</span>
+			</span>
+		);
+	}
+	const sale = saleInfo(product);
 	const couponPrice = !soon && welcome?.percentOff ? priceWithPercentOff(product.price_cents, welcome.percentOff) : null;
 	return (
-		<span class={`mk-pricebox mk-pricebox--${size}`}>
-			{soon && <span class="mk-price-label">Precio previsto</span>}
-			<span class="mk-price-row">
-				<span class="mk-price-now">{formatPrice(product.price_cents, product.currency).replace(` ${product.currency.toUpperCase()}`, "")}</span>
-				<span class="mk-price-cur">{product.currency.toUpperCase()}</span>
-				{off !== null && product.compare_at_cents && (
-					<>
-						<s class="mk-price-was">{formatPrice(product.compare_at_cents, product.currency).replace(` ${product.currency.toUpperCase()}`, "")}</s>
-						<span class="mk-chip mk-chip--off">−{off}%</span>
-					</>
+		<span class={`mk3-price mk3-price--${size} ${sale && !soon ? "is-sale" : ""}`}>
+			{soon && <span class="mk3-price-label">Precio previsto</span>}
+			<span class="mk3-price-row">
+				<span class="mk3-price-now">{amount(product.price_cents, product.currency)}</span>
+				<span class="mk3-price-cur">{cur}</span>
+				{sale && (
+					<s class="mk3-price-was" aria-label={`Precio anterior ${formatPrice(sale.wasCents, product.currency)}`}>
+						{amount(sale.wasCents, product.currency)}
+					</s>
 				)}
 			</span>
+			{sale && !soon && (
+				<span class="mk3-price-save">
+					<span class="mk3-off">−{sale.percent}%</span> Ahorras {formatPrice(sale.saveCents, product.currency)}
+				</span>
+			)}
 			{couponPrice !== null && (
-				<span class="mk-price-coupon">
-					{formatPrice(couponPrice, product.currency)} con <b>{welcome!.code}</b>
+				<span class="mk3-price-coupon">
+					{formatPrice(couponPrice, product.currency)} con <b>{welcome!.code}</b> en tu 1.ª compra
 				</span>
 			)}
 		</span>
@@ -90,30 +123,49 @@ const Meta: FC<{ p: ShopProduct }> = ({ p }) => {
 
 const productUrl = (slug: string) => `/market/producto/${slug}`;
 
-export const ProductCard: FC<{ p: ShopProduct; maxSales: number; welcome: WelcomeOffer | null; eager?: boolean; hidden?: boolean }> = ({ p, maxSales, welcome, eager, hidden }) => {
+/** Texto de búsqueda de la tarjeta (filtro instantáneo de market.js). */
+const searchText = (p: ShopProduct) => [p.title, p.tagline, p.summary, ...p.tags, categoryLabel(p.category) ?? ""].join(" ").toLowerCase();
+
+export const ProductCard: FC<{ p: ShopProduct; maxSales: number; welcome: WelcomeOffer | null; eager?: boolean; hidden?: boolean }> = ({
+	p,
+	maxSales,
+	welcome,
+	eager,
+	hidden,
+}) => {
 	const cover = p.images[0];
-	const search = [p.title, p.tagline, p.summary, ...p.tags, categoryLabel(p.category) ?? ""].join(" ").toLowerCase();
+	const soon = p.availability === "coming_soon";
+	const sale = saleInfo(p);
 	return (
-		<li class="mk-pcard-wrap" data-cat={p.category || "otros"} data-search={search} data-reveal hidden={hidden ? true : undefined}>
-			<article class="mk-pcard" style={p.accent ? `--accent: ${p.accent}` : undefined} data-tilt>
-				<div class="mk-pcard-media">
-					{cover ? <img src={cover.src} alt={cover.alt} loading={eager ? "eager" : "lazy"} width="800" height="500" /> : null}
-					<span class="mk-pcard-shine" aria-hidden="true"></span>
-					<BadgeList badges={badgesFor(p, maxSales)} />
+		<li
+			class="mk3-item"
+			data-cat={p.category || "otros"}
+			data-search={searchText(p)}
+			data-price={String(fromPriceCents(p))}
+			data-created={String(p.created_at)}
+			data-sale={sale && !soon ? "1" : undefined}
+			data-free={canBeFree(p) && !soon ? "1" : undefined}
+			data-soon={soon ? "1" : undefined}
+			hidden={hidden ? true : undefined}
+		>
+			<article class={`mk3-card ${soon ? "is-soon" : ""}`} style={p.accent ? `--accent: ${p.accent}` : undefined}>
+				<div class="mk3-media">
+					{cover ? <img src={cover.src} alt={cover.alt} loading={eager ? "eager" : "lazy"} width="800" height="500" decoding="async" /> : <span class="mk3-media-empty" aria-hidden="true"></span>}
+					<BadgeList badges={cardBadges(p, maxSales)} class="mk3-badges" />
 				</div>
-				<div class="mk-pcard-body">
-					{categoryLabel(p.category) && <p class="mk-pcard-cat">{categoryLabel(p.category)}</p>}
-					<h3 class="mk-pcard-title">
+				<div class="mk3-body">
+					{categoryLabel(p.category) && <p class="mk3-kind">{categoryLabel(p.category)}</p>}
+					<h3 class="mk3-title">
 						<a href={productUrl(p.slug)} class="mk-stretch">
 							{p.title}
 						</a>
 					</h3>
-					<p class="mk-pcard-tag">{p.tagline || p.summary}</p>
+					<p class="mk3-tagline">{p.tagline || p.summary}</p>
 					<Meta p={p} />
-					<div class="mk-pcard-foot">
+					<div class="mk3-foot">
 						<PriceBlock product={p} welcome={welcome} />
-						<span class="mk-pcard-cta" aria-hidden="true">
-							{p.availability === "coming_soon" ? "Avísame" : "Ver"} <span class="mk-arrow">→</span>
+						<span class={`mk3-cta ${soon ? "mk3-cta--ghost" : ""}`} aria-hidden="true">
+							{soon ? "Avísame" : p.kind === "free" ? "Descargar" : isPwyw(p) ? "Elegir precio" : "Ver producto"}
 						</span>
 					</div>
 				</div>
@@ -153,98 +205,249 @@ export const TrustStrip: FC<{ compact?: boolean }> = ({ compact }) => (
 
 // ── Catálogo ─────────────────────────────────────────────────────────
 
+export type CatalogSort = "destacados" | "precio-asc" | "precio-desc" | "nuevos" | "valorados";
+export type CatalogFilter = "ofertas" | "gratis" | "disponibles" | null;
+
 export interface CatalogProps {
 	products: ShopProduct[];
 	welcome: WelcomeOffer | null;
 	category: string | null;
 	query: string;
+	sort?: CatalogSort;
+	filter?: CatalogFilter;
 }
 
-export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query }) => {
+const SORTS: Array<{ value: CatalogSort; label: string }> = [
+	{ value: "destacados", label: "Destacados" },
+	{ value: "precio-asc", label: "Precio: menor a mayor" },
+	{ value: "precio-desc", label: "Precio: mayor a menor" },
+	{ value: "nuevos", label: "Más nuevos" },
+	{ value: "valorados", label: "Mejor valorados" },
+];
+
+const CATEGORY_ICONS: Record<string, string> = { anuncios: "📣", video: "🎬", automatizacion: "⚙️", contenido: "✍️", "seo-web": "🚀", diseno: "🎨", agentes: "🤖" };
+
+/** Orden del servidor (sin JS). Disponibles siempre antes que "Próximamente". */
+export function sortProducts(list: ShopProduct[], sort: CatalogSort): ShopProduct[] {
+	const avail = (p: ShopProduct) => (p.availability === "coming_soon" ? 1 : 0);
+	const by: Record<CatalogSort, (a: ShopProduct, b: ShopProduct) => number> = {
+		destacados: () => 0,
+		"precio-asc": (a, b) => fromPriceCents(a) - fromPriceCents(b),
+		"precio-desc": (a, b) => fromPriceCents(b) - fromPriceCents(a),
+		nuevos: (a, b) => b.created_at - a.created_at,
+		valorados: (a, b) => (b.stats.ratingAvg ?? 0) - (a.stats.ratingAvg ?? 0) || b.stats.sales - a.stats.sales,
+	};
+	return [...list].sort((a, b) => avail(a) - avail(b) || by[sort](a, b));
+}
+
+export function matchesFilter(p: ShopProduct, filter: CatalogFilter): boolean {
+	if (!filter) return true;
+	if (filter === "ofertas") return !!saleInfo(p) && p.availability === "available";
+	if (filter === "gratis") return canBeFree(p) && p.availability === "available";
+	return p.availability === "available";
+}
+
+export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query, sort = "destacados", filter = null }) => {
 	const maxSales = Math.max(0, ...products.map((p) => p.stats.sales));
-	const showcase = products.filter((p) => p.images[0]).slice(0, 3);
 	const q = query.trim().toLowerCase();
-	const visible = (p: ShopProduct) => (!category || p.category === category) && (!q || [p.title, p.tagline, p.summary, ...p.tags].join(" ").toLowerCase().includes(q));
-	const shown = products.filter(visible);
+	const visible = (p: ShopProduct) => (!category || p.category === category) && (!q || searchText(p).includes(q)) && matchesFilter(p, filter);
+	const ordered = sortProducts(products, sort);
+	const shown = ordered.filter(visible);
 	const used = new Set(products.map((p) => p.category));
 	const cats = CATEGORIES.filter((c) => used.has(c.slug));
+	const deals = products
+		.filter((p) => saleInfo(p) && p.availability === "available")
+		.sort((a, b) => (saleInfo(b)?.percent ?? 0) - (saleInfo(a)?.percent ?? 0));
+	const featured = deals[0] ?? products.find((p) => p.availability === "available" && p.images[0]) ?? null;
+	const featuredSale = featured ? saleInfo(featured) : null;
+	const available = products.filter((p) => p.availability === "available").length;
+	const freeCount = products.filter((p) => canBeFree(p) && p.availability === "available").length;
+	const popular = [...new Set(products.flatMap((p) => p.tags.slice(0, 1)))].slice(0, 4);
+	const keep = (extra: Record<string, string | null>) => {
+		const u = new URLSearchParams();
+		const base: Record<string, string | null> = { categoria: category, q: query || null, orden: sort === "destacados" ? null : sort, filtro: filter };
+		for (const [k, v] of Object.entries({ ...base, ...extra })) if (v) u.set(k, v);
+		const s = u.toString();
+		return `/market${s ? `?${s}` : ""}#catalogo`;
+	};
 	return (
 		<>
-			<section class="mk-hero2">
-				<div class="mk-hero2-glow" aria-hidden="true"></div>
-				<div class="tc-shell mk-hero2-grid">
-					{/* Arriba, una sola acción: ir a los productos. Sin data-reveal: el titular se pinta de inmediato (LCP). */}
-					<div class="mk-hero2-copy">
-						<p class="mk-kicker">Market Tony</p>
+			<section class="mk3-hero">
+				<div class="mk3-hero-bg" aria-hidden="true"></div>
+				<div class="tc-shell mk3-hero-grid">
+					{/* Sin data-reveal: el titular se pinta de inmediato (LCP). */}
+					<div class="mk3-hero-copy">
+						<p class="mk-kicker">Market Tony · Tienda oficial de Tony Ciencia</p>
 						<h1>
 							Herramientas de IA <span class="mk-grad">que trabajan por ti</span>
 						</h1>
-						<p class="mk-lead">Agentes, skills y plantillas en español. Pago único y descarga inmediata.</p>
-						<div class="mk-hero2-cta">
-							<a href="#catalogo" class="tc-btn tc-btn--primary mk-btn-glow">
-								Ver productos
-							</a>
-							<a href="/market/agentes-para-empresas" class="mk-textlink">
-								¿Empresa? Agentes a medida →
-							</a>
-						</div>
+						<p class="mk-lead">Agentes, skills y plantillas en español para anuncios, video, SEO y automatización. Pago único y descarga inmediata.</p>
+						<form class="mk3-search" method="get" action="/market#catalogo" role="search">
+							<label class="mk-visually-hidden" for="mk-q-hero">
+								Buscar productos
+							</label>
+							<span class="mk3-search-ic" aria-hidden="true">
+								⌕
+							</span>
+							<input id="mk-q-hero" type="search" name="q" value={query} placeholder="¿Qué quieres crear? Videos, anuncios, SEO…" autocomplete="off" maxlength={60} data-filter-input />
+							<button type="submit" class="tc-btn tc-btn--primary">
+								Buscar
+							</button>
+						</form>
+						{popular.length > 0 && (
+							<p class="mk3-popular">
+								<span>Populares:</span>
+								{popular.map((t) => (
+									<a href={`/market?q=${encodeURIComponent(t)}#catalogo`}>{t}</a>
+								))}
+							</p>
+						)}
+						<ul class="mk3-hero-trust">
+							<li>
+								<b>{available}</b> productos disponibles
+							</li>
+							{freeCount > 0 && (
+								<li>
+									<b>{freeCount}</b> desde $0
+								</li>
+							)}
+							<li>Pago único · sin suscripción</li>
+							<li>🔒 Stripe</li>
+						</ul>
 					</div>
-					<div class="mk-hero2-stack" aria-hidden="true" data-parallax>
-						{showcase.map((p, i) => (
-							<a href={productUrl(p.slug)} class={`mk-stack-card mk-stack-card--${i + 1}`} tabindex={-1} style={p.accent ? `--accent: ${p.accent}` : undefined}>
-								<img src={p.images[0]!.src} alt="" width="800" height="500" loading={i === 0 ? "eager" : "lazy"} />
-								<span class="mk-stack-price">
-									{p.availability === "coming_soon" ? "Próximamente" : formatPrice(p.price_cents, p.currency)}
-								</span>
-							</a>
-						))}
-					</div>
+					{featured && featured.images[0] && (
+						<a href={productUrl(featured.slug)} class="mk3-feature" style={featured.accent ? `--accent: ${featured.accent}` : undefined}>
+							<span class="mk3-feature-tag">{featuredSale ? `OFERTA −${featuredSale.percent}%` : "Destacado"}</span>
+							<img src={featured.images[0].src} alt={featured.images[0].alt} width="800" height="500" loading="eager" fetchpriority="high" />
+							<span class="mk3-feature-body">
+								<span class="mk3-feature-title">{featured.title.split(":")[0]}</span>
+								<PriceBlock product={featured} welcome={null} />
+								<span class="mk3-feature-cta">{featuredSale ? "Ver oferta →" : "Ver producto →"}</span>
+							</span>
+						</a>
+					)}
 				</div>
 			</section>
+
+			{cats.length > 1 && (
+				<section class="tc-shell mk3-cats" aria-label="Categorías">
+					{cats.map((c) => (
+						<a href={keep({ categoria: c.slug })} class="mk3-cat" data-cat-filter={c.slug} aria-current={category === c.slug ? "true" : undefined}>
+							<span class="mk3-cat-ic" aria-hidden="true">
+								{CATEGORY_ICONS[c.slug] ?? "✦"}
+							</span>
+							<span class="mk3-cat-name">{c.label}</span>
+							<span class="mk3-cat-n">
+								{(() => {
+									const n = products.filter((p) => p.category === c.slug).length;
+									return `${n} ${n === 1 ? "producto" : "productos"}`;
+								})()}
+							</span>
+						</a>
+					))}
+				</section>
+			)}
+
+			{deals.length > 0 && !category && !q && !filter && (
+				<section class="tc-shell mk-section mk3-deals" aria-labelledby="ofertas-titulo">
+					<div class="mk-section-head">
+						<div>
+							<p class="mk-kicker mk3-kicker-sale">Ofertas</p>
+							<h2 id="ofertas-titulo">Precios rebajados</h2>
+							<p class="mk-muted">Precio anterior real tachado. Pago único, descarga inmediata.</p>
+						</div>
+						<a href={keep({ filtro: "ofertas" })} class="mk-textlink">
+							Ver todas las ofertas →
+						</a>
+					</div>
+					<ul class="mk3-grid mk3-grid--deals">
+						{deals.slice(0, 3).map((p, i) => (
+							<ProductCard p={p} maxSales={maxSales} welcome={welcome} eager={i < 1} />
+						))}
+					</ul>
+				</section>
+			)}
 
 			<section class="tc-shell mk-section" id="catalogo" aria-labelledby="catalogo-titulo">
 				<div class="mk-section-head">
 					<div>
 						<p class="mk-kicker">Catálogo</p>
-						<h2 id="catalogo-titulo">Elige tu próxima herramienta</h2>
+						<h2 id="catalogo-titulo">Todos los productos</h2>
+						<p class="mk-muted" data-filter-count>
+							{shown.length} {shown.length === 1 ? "producto" : "productos"}
+						</p>
 					</div>
-					<form class="mk-search" method="get" action="/market#catalogo" role="search">
-						<label class="mk-visually-hidden" for="mk-q">
-							Buscar productos
-						</label>
-						<input id="mk-q" type="search" name="q" value={query} placeholder="Buscar: videos, anuncios, n8n…" autocomplete="off" maxlength={60} data-filter-input />
-						{category && <input type="hidden" name="categoria" value={category} />}
-					</form>
 				</div>
-				<nav class="mk-cats" aria-label="Categorías">
-					<a href="/market#catalogo" class="mk-cat" aria-current={!category ? "true" : undefined} data-cat-filter="">
-						Todos <span>{products.length}</span>
+				<form class="mk3-toolbar" method="get" action="/market#catalogo" data-catalog-form>
+					<label class="mk-visually-hidden" for="mk-q">
+						Buscar en el catálogo
+					</label>
+					<input id="mk-q" class="mk3-toolbar-q" type="search" name="q" value={query} placeholder="Buscar en el catálogo…" autocomplete="off" maxlength={60} data-filter-input />
+					<label class="mk-visually-hidden" for="mk-cat">
+						Categoría
+					</label>
+					<select id="mk-cat" name="categoria" data-filter-cat>
+						<option value="">Todas las categorías</option>
+						{cats.map((c) => (
+							<option value={c.slug} selected={category === c.slug}>
+								{c.label}
+							</option>
+						))}
+					</select>
+					<label class="mk-visually-hidden" for="mk-sort">
+						Ordenar por
+					</label>
+					<select id="mk-sort" name="orden" data-filter-sort>
+						{SORTS.map((s) => (
+							<option value={s.value} selected={sort === s.value}>
+								{s.label}
+							</option>
+						))}
+					</select>
+					{filter && <input type="hidden" name="filtro" value={filter} />}
+					<noscript>
+						<button type="submit" class="tc-btn tc-btn--secondary">
+							Aplicar
+						</button>
+					</noscript>
+				</form>
+				<nav class="mk3-pills" aria-label="Filtros rápidos">
+					<a href={keep({ filtro: null })} class="mk3-pill" aria-current={!filter ? "true" : undefined} data-quick="">
+						Todo
 					</a>
-					{cats.map((c) => (
-						<a href={`/market?categoria=${c.slug}#catalogo`} class="mk-cat" aria-current={category === c.slug ? "true" : undefined} data-cat-filter={c.slug}>
-							{c.label} <span>{products.filter((p) => p.category === c.slug).length}</span>
+					{deals.length > 0 && (
+						<a href={keep({ filtro: "ofertas" })} class="mk3-pill" aria-current={filter === "ofertas" ? "true" : undefined} data-quick="ofertas">
+							🔥 Ofertas
 						</a>
-					))}
+					)}
+					{freeCount > 0 && (
+						<a href={keep({ filtro: "gratis" })} class="mk3-pill" aria-current={filter === "gratis" ? "true" : undefined} data-quick="gratis">
+							Desde $0
+						</a>
+					)}
+					<a href={keep({ filtro: "disponibles" })} class="mk3-pill" aria-current={filter === "disponibles" ? "true" : undefined} data-quick="disponibles">
+						Disponibles ahora
+					</a>
 				</nav>
 				{products.length === 0 ? (
 					<p class="mk-alert">Todavía no hay productos publicados. Vuelve pronto.</p>
 				) : (
 					<>
-						<ul class="mk-pgrid" data-filter-grid>
-							{/* El filtro del servidor (sin JS) oculta lo que no coincide; market.js filtra al escribir. */}
-							{products.map((p, i) => (
-								<ProductCard p={p} maxSales={maxSales} welcome={welcome} eager={i < 2} hidden={!visible(p)} />
+						<ul class="mk3-grid" data-filter-grid>
+							{/* El filtro del servidor (sin JS) oculta lo que no coincide; market.js filtra y ordena al instante. */}
+							{ordered.map((p, i) => (
+								<ProductCard p={p} maxSales={maxSales} welcome={welcome} eager={i < 3 && deals.length === 0} hidden={!visible(p)} />
 							))}
 						</ul>
 						<p class="mk-empty" data-filter-empty hidden={shown.length > 0 ? true : undefined}>
-							No encontramos productos con esa búsqueda. <a href="/market#catalogo">Ver todos</a>
+							No encontramos productos con esos filtros. <a href="/market#catalogo">Ver todos</a>
 						</p>
 					</>
 				)}
 			</section>
 
 			<section class="tc-shell mk-section">
-				<a href="/market/agentes-para-empresas" class="mk-service-banner" data-reveal>
+				<a href="/market/agentes-para-empresas" class="mk-service-banner">
 					<div>
 						<p class="mk-kicker">Servicio a medida</p>
 						<h2>¿Prefieres que lo construyamos por ti?</h2>
@@ -262,21 +465,21 @@ export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query }
 				<div class="mk-section-head">
 					<div>
 						<p class="mk-kicker">Por qué Market Tony</p>
-						<h2 id="porque-titulo">Herramientas prácticas para tu negocio</h2>
+						<h2 id="porque-titulo">Herramientas prácticas, compra sin riesgo</h2>
 					</div>
 				</div>
 				<div class="mk-why">
-					<div data-reveal>
+					<div>
 						<b>Enfocadas en un trabajo concreto</b>
-						<p>Cada producto resuelve una tarea puntual de marketing: anuncios, video, contenido o automatización.</p>
+						<p>Cada producto resuelve una tarea puntual: anuncios, video, SEO técnico o automatización. Las fichas dicen qué hace y qué no.</p>
 					</div>
-					<div data-reveal>
-						<b>Pago único, sin suscripciones</b>
-						<p>Lo compras una vez y es tuyo. Las herramientas de IA que uses aparte (Claude, Codex) tienen su propio costo.</p>
+					<div>
+						<b>Pago único o tú eliges el precio</b>
+						<p>Sin suscripciones. Algunos productos son «paga lo que quieras»: desde $0. Las herramientas de IA que uses aparte tienen su propio costo.</p>
 					</div>
-					<div data-reveal>
-						<b>En español y paso a paso</b>
-						<p>Guías, instrucciones y soporte en español. Si algo no funciona, te ayudamos por correo.</p>
+					<div>
+						<b>En español y con soporte</b>
+						<p>Guías e instrucciones en español. Si algo no funciona, te responde una persona por correo.</p>
 					</div>
 				</div>
 				<TrustStrip />
@@ -306,6 +509,12 @@ export const STORE_FAQ = [
 	{ q: "¿Cómo recibo lo que compro?", a: "Apenas se confirma el pago, el producto aparece en «Mis compras» y te llega un correo con tu enlace de descarga personal." },
 	{ q: "¿Necesito una cuenta?", a: "Entras con tu cuenta de Google, sin contraseñas. Solo guardamos tu correo y tu nombre." },
 	{ q: "¿Es un pago único?", a: "Sí. No hay suscripciones. Algunas herramientas necesitan servicios externos (por ejemplo Claude Code o Codex), que se pagan aparte con su proveedor." },
+	{
+		q: "¿Qué significa «paga lo que quieras»?",
+		a: "Tú eliges cuánto pagar, desde el mínimo que indica la ficha (a veces $0) hasta $999,999.99 USD, el máximo que permite Stripe. Con $0 lo descargas gratis; los pagos con tarjeta empiezan en $0.50.",
+	},
+	{ q: "¿Los precios tachados son reales?", a: "Sí. Solo tachamos un precio cuando el producto se vendió de verdad a ese precio antes de la oferta." },
+	{ q: "¿Cómo funciona el cupón de bienvenida?", a: "Es un descuento para tu primera compra pagada en Market Tony, en productos de precio fijo. Escribe el código en la ficha antes de pagar; se aplica en el checkout seguro de Stripe." },
 	{ q: "¿Puedo pedir un reembolso?", a: "Sí, dentro de los 14 días posteriores a la compra si todavía no descargaste el producto, o si el archivo está dañado. Detalles en la política de reembolsos." },
 	{ q: "¿Qué significa «Próximamente»?", a: "Son herramientas en desarrollo. No se pueden comprar todavía: deja tu correo en «Avísame» y te escribimos el día del lanzamiento." },
 ];
@@ -344,6 +553,72 @@ export const LoginButton: FC<{ next: string; mode: "mock" | "live"; label?: stri
 	</a>
 );
 
+const PayNote: FC<{ mode: "mock" | "live" }> = ({ mode }) => (
+	<p class="mk-muted mk3-paynote">
+		{mode === "live" ? "🔒 Pago seguro con Stripe." : "Pago SIMULADO (modo maqueta)."} Recibes el enlace de descarga en tu correo y en Mis compras. Al
+		comprar aceptas los <a href="/market/legal/terminos">Términos</a> y la <a href="/market/legal/reembolsos">Política de reembolsos</a>.
+	</p>
+);
+
+/** Montos rápidos para "paga lo que quieras": 0 (si se puede), el sugerido y dos más. */
+export function pwywPresets(p: Product): number[] {
+	const { min, max } = pwywBounds(p);
+	const s = Math.max(p.price_cents, min);
+	const raw = [min === 0 ? 0 : min, s, Math.round((s * 2) / 100) * 100, Math.round((s * 5) / 100) * 100];
+	return [...new Set(raw)].filter((v) => v >= min && v <= max).slice(0, 4);
+}
+
+const PwywForm: FC<{ product: Product; csrf: string | null; mode: "mock" | "live" }> = ({ product, csrf, mode }) => {
+	const path = productUrl(product.slug);
+	const { min, max } = pwywBounds(product);
+	const suggested = Math.max(product.price_cents, min);
+	return (
+		<form method="post" action={`${path}/comprar`} class="mk3-pwyw" data-pwyw data-min={String(min)} data-max={String(max)}>
+			<CsrfField csrf={csrf} />
+			<label for="monto" class="mk3-pwyw-label">
+				Tú eliges el precio
+			</label>
+			<div class="mk3-amount">
+				<span aria-hidden="true">$</span>
+				<input
+					id="monto"
+					name="monto"
+					type="text"
+					inputmode="decimal"
+					autocomplete="off"
+					maxlength={13}
+					value={(suggested / 100).toFixed(suggested % 100 === 0 ? 0 : 2)}
+					aria-describedby="monto-ayuda"
+					required
+					data-pwyw-input
+				/>
+				<span class="mk3-amount-cur">USD</span>
+			</div>
+			<div class="mk3-presets" role="group" aria-label="Montos rápidos">
+				{pwywPresets(product).map((v) => (
+					<button type="button" class="mk3-preset" data-amount={(v / 100).toFixed(v % 100 === 0 ? 0 : 2)}>
+						{v === 0 ? "Gratis" : formatPrice(v, product.currency).replace(` ${product.currency.toUpperCase()}`, "")}
+					</button>
+				))}
+			</div>
+			<p class="mk-hint" id="monto-ayuda">
+				{min === 0 ? "Escribe 0 para descargarlo gratis, o apoya al creador con lo que quieras. " : `Mínimo ${formatPrice(min, product.currency)}. `}
+				Pagos con tarjeta desde $0.50 hasta {formatPrice(Math.min(max, STRIPE_MAX_CENTS), product.currency)}.
+			</p>
+			{min === 0 && (
+				<label class="mk-check">
+					<input type="checkbox" name="marketing" value="1" />
+					<span>Quiero recibir novedades y recursos de Tony Ciencia por correo (opcional).</span>
+				</label>
+			)}
+			<button type="submit" class="tc-btn tc-btn--primary mk-btn-block mk-btn-glow" data-pwyw-submit>
+				Continuar con {formatPrice(suggested, product.currency)}
+			</button>
+			<PayNote mode={mode} />
+		</form>
+	);
+};
+
 const BuyActions: FC<ProductViewProps> = ({ product, loggedIn, owned, csrf, mode, welcome, userEmail }) => {
 	const path = productUrl(product.slug);
 	if (product.availability === "coming_soon") {
@@ -374,13 +649,10 @@ const BuyActions: FC<ProductViewProps> = ({ product, loggedIn, owned, csrf, mode
 		);
 	}
 	if (!loggedIn) {
+		const label = mode === "live" ? (product.kind === "free" ? "Entrar con Google para descargar" : isPwyw(product) ? "Entrar con Google para elegir tu precio" : "Entrar con Google para comprar") : undefined;
 		return (
 			<>
-				<LoginButton
-					next={path}
-					mode={mode}
-					label={mode === "live" ? (product.kind === "free" ? "Entrar con Google para descargar" : "Entrar con Google para comprar") : undefined}
-				/>
+				<LoginButton next={`${path}#comprar`} mode={mode} label={label} />
 				<p class="mk-muted">Sin contraseñas: entras con tu cuenta de Google. Solo guardamos tu correo y tu nombre.</p>
 			</>
 		);
@@ -400,6 +672,7 @@ const BuyActions: FC<ProductViewProps> = ({ product, loggedIn, owned, csrf, mode
 			</form>
 		);
 	}
+	if (isPwyw(product)) return <PwywForm product={product} csrf={csrf} mode={mode} />;
 	return (
 		<form method="post" action={`${path}/comprar`}>
 			<CsrfField csrf={csrf} />
@@ -424,12 +697,9 @@ const BuyActions: FC<ProductViewProps> = ({ product, loggedIn, owned, csrf, mode
 				</div>
 			</details>
 			<button type="submit" class="tc-btn tc-btn--primary mk-btn-block mk-btn-glow">
-				Comprar por {formatPrice(product.price_cents, product.currency)}
+				Comprar ahora · {formatPrice(product.price_cents, product.currency)}
 			</button>
-			<p class="mk-muted">
-				{mode === "live" ? "Pago seguro con Stripe." : "Pago SIMULADO (modo maqueta)."} Recibes el enlace de descarga en tu correo y en Mis
-				compras. Al comprar aceptas los <a href="/market/legal/terminos">Términos</a> y la <a href="/market/legal/reembolsos">Política de reembolsos</a>.
-			</p>
+			<PayNote mode={mode} />
 		</form>
 	);
 };
@@ -439,7 +709,7 @@ const RatingSummary: FC<{ product: ShopProduct; breakdown: Record<number, number
 	if (!ratingCount || ratingAvg === null) {
 		return (
 			<p class="mk-muted">
-				Aún no hay reseñas. Las reseñas solo las pueden dejar personas que compraron el producto, desde <a href="/market/mis-compras">Mis compras</a>.
+				Aún no hay reseñas. Las reseñas solo las pueden dejar personas que tienen el producto, desde <a href="/market/mis-compras">Mis compras</a>.
 			</p>
 		);
 	}
@@ -467,11 +737,26 @@ const RatingSummary: FC<{ product: ShopProduct; breakdown: Record<number, number
 	);
 };
 
+/** Precio corto de la barra fija del celular. */
+const BuybarPrice: FC<{ product: Product }> = ({ product }) => {
+	if (product.availability === "coming_soon") return <span class="mk-buybar-price">Próximamente</span>;
+	if (product.kind === "free") return <span class="mk-buybar-price">Gratis</span>;
+	if (isPwyw(product)) return <span class="mk-buybar-price">Desde {formatPrice(pwywBounds(product).min, product.currency)}</span>;
+	const sale = saleInfo(product);
+	return (
+		<span class="mk-buybar-price">
+			{formatPrice(product.price_cents, product.currency)}
+			{sale && <s> {amount(sale.wasCents, product.currency)}</s>}
+		</span>
+	);
+};
+
 export const ProductPage: FC<ProductViewProps> = (props) => {
 	const { product, flash, notice, reviews, breakdown, related, maxSales, welcome } = props;
 	const cat = categoryLabel(product.category);
 	const soon = product.availability === "coming_soon";
 	const images = product.images;
+	const sale = saleInfo(product);
 	return (
 		<div class="mk-product-page" style={product.accent ? `--accent: ${product.accent}` : undefined}>
 			<div class="mk-product-glow" aria-hidden="true"></div>
@@ -483,8 +768,16 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 					<span aria-hidden="true">/</span>
 					<span aria-current="page">{product.title.split(":")[0]}</span>
 				</nav>
-				{flash && <p class="mk-alert mk-alert--warn">{flash}</p>}
-				{notice && <p class="mk-alert mk-alert--ok">{notice}</p>}
+				{flash && (
+					<p class="mk-alert mk-alert--warn" role="alert">
+						{flash}
+					</p>
+				)}
+				{notice && (
+					<p class="mk-alert mk-alert--ok" role="status">
+						{notice}
+					</p>
+				)}
 				<div class="mk-product2">
 					<div class="mk-gallery2" data-gallery>
 						<div class="mk-gallery2-main">
@@ -497,6 +790,7 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 										height="1000"
 										loading={i === 0 ? "eager" : "lazy"}
 										fetchpriority={i === 0 ? "high" : undefined}
+										decoding={i === 0 ? undefined : "async"}
 										data-slide={String(i)}
 										class={i === 0 ? "is-active" : undefined}
 										id={`imagen-${i + 1}`}
@@ -505,6 +799,7 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 							) : (
 								<div class="mk-gallery2-empty" aria-hidden="true"></div>
 							)}
+							{sale && !soon && <span class="mk3-ribbon">OFERTA −{sale.percent}%</span>}
 							{images.length > 1 && (
 								<>
 									<button type="button" class="mk-gal-nav mk-gal-prev" aria-label="Imagen anterior" data-gal-prev>
@@ -519,8 +814,8 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 						{images.length > 1 && (
 							<div class="mk-thumbs" role="tablist" aria-label="Imágenes del producto">
 								{images.map((img, i) => (
-									<a href={`#imagen-${i + 1}`} class={`mk-thumb ${i === 0 ? "is-active" : ""}`} data-thumb={String(i)} role="tab" aria-selected={i === 0 ? "true" : "false"} aria-label={`Ver imagen ${i + 1}`}>
-										<img src={img.src} alt="" width="160" height="100" loading="lazy" />
+									<a href={`#imagen-${i + 1}`} class={`mk-thumb ${i === 0 ? "is-active" : ""}`} data-thumb={String(i)} role="tab" aria-selected={i === 0 ? "true" : "false"} aria-label={`Ver imagen ${i + 1}: ${img.alt}`}>
+										<img src={img.src} alt="" width="160" height="100" loading="lazy" decoding="async" />
 									</a>
 								))}
 							</div>
@@ -529,20 +824,23 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 
 					<div class="mk-info">
 						<div class="mk-info-sticky">
-							<BadgeList badges={badgesFor(product, maxSales)} />
+							<BadgeList badges={cardBadges(product, maxSales)} />
 							<h1>{product.title}</h1>
 							{product.tagline && <p class="mk-tagline">{product.tagline}</p>}
 							<div class="mk-info-meta">
 								{product.stats.ratingCount > 0 && product.stats.ratingAvg !== null ? (
 									<a href="#resenas" class="mk-meta-rating">
 										<Stars value={product.stats.ratingAvg} /> <b>{ratingText(product.stats.ratingAvg)}</b>
-										<span class="mk-muted">({product.stats.ratingCount} {product.stats.ratingCount === 1 ? "reseña" : "reseñas"})</span>
+										<span class="mk-muted">
+											({product.stats.ratingCount} {product.stats.ratingCount === 1 ? "reseña" : "reseñas"})
+										</span>
 									</a>
 								) : null}
 								{product.stats.sales > 0 && <span class="mk-meta-sales">{salesText(product.stats.sales)}</span>}
 								<span class="mk-muted">{soon ? "En desarrollo" : product.kind === "free" ? "Recurso gratis" : "Producto digital · Descarga inmediata"}</span>
 							</div>
-							<div class="tc-card mk-buybox2" id="comprar">
+							<div class={`tc-card mk-buybox2 mk3-buybox ${sale && !soon ? "is-sale" : ""}`} id="comprar">
+								{sale && !soon && <p class="mk3-buybox-flag">🔥 OFERTA · antes {formatPrice(sale.wasCents, product.currency)}</p>}
 								<PriceBlock product={product} welcome={welcome} size="lg" />
 								<BuyActions {...props} />
 							</div>
@@ -577,13 +875,17 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 								<div class="mk-yt" data-yt={product.video_id}>
 									<a href={`https://www.youtube.com/watch?v=${product.video_id}`} target="_blank" rel="noopener">
 										<img src={`https://i.ytimg.com/vi/${product.video_id}/hqdefault.jpg`} alt={`Video de ${product.title}`} loading="lazy" width="480" height="360" />
-										<span class="mk-yt-play" aria-hidden="true">▶</span>
+										<span class="mk-yt-play" aria-hidden="true">
+											▶
+										</span>
 									</a>
 								</div>
 							</section>
 						)}
-						<section class="mk-block mk-description" id="descripcion" aria-label="Descripción">
-							<h2 class="mk-block-title">Descripción</h2>
+						<section class="mk-block mk-description" id="descripcion" aria-labelledby="descripcion-t">
+							<h2 class="mk-block-title" id="descripcion-t">
+								Descripción
+							</h2>
 							{product.description ? <Description text={product.description} /> : <p>{product.summary}</p>}
 						</section>
 						{product.faq.length > 0 && (
@@ -638,6 +940,18 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 											<dd>{s.value}</dd>
 										</>
 									))}
+									<dt>Precio</dt>
+									<dd>
+										{product.kind === "free"
+											? "Gratis"
+											: isPwyw(product)
+												? `Paga lo que quieras (desde ${formatPrice(pwywBounds(product).min, product.currency)})`
+												: sale
+													? `${formatPrice(product.price_cents, product.currency)} (antes ${formatPrice(sale.wasCents, product.currency)})`
+													: formatPrice(product.price_cents, product.currency)}
+									</dd>
+									<dt>Entrega</dt>
+									<dd>Descarga digital inmediata</dd>
 									<dt>Vendido por</dt>
 									<dd>Tony Ciencia LLC</dd>
 								</dl>
@@ -660,10 +974,13 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 						<div class="mk-section-head">
 							<div>
 								<p class="mk-kicker">Sigue explorando</p>
-								<h2 id="rel-t">También te puede interesar</h2>
+								<h2 id="rel-t">Completa tu kit</h2>
 							</div>
+							<a href="/market#catalogo" class="mk-textlink">
+								Ver todo el catálogo →
+							</a>
 						</div>
-						<ul class="mk-pgrid mk-pgrid--3">
+						<ul class="mk3-grid mk3-grid--3">
 							{related.map((p) => (
 								<ProductCard p={p} maxSales={maxSales} welcome={welcome} />
 							))}
@@ -675,11 +992,9 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 			<div class="mk-buybar" data-buybar>
 				<div class="mk-buybar-inner">
 					<span class="mk-buybar-title">{product.title.split(":")[0]}</span>
-					<span class="mk-buybar-price">
-						{soon ? "Próximamente" : product.kind === "free" ? "Gratis" : formatPrice(product.price_cents, product.currency)}
-					</span>
+					<BuybarPrice product={product} />
 					<a href="#comprar" class="tc-btn tc-btn--primary">
-						{soon ? "Avísame" : product.kind === "free" ? "Descargar" : isBuyable(product) ? "Comprar" : "Ver"}
+						{soon ? "Avísame" : product.kind === "free" ? "Descargar" : isPwyw(product) ? "Elegir precio" : isBuyable(product) ? "Comprar" : "Ver"}
 					</a>
 				</div>
 			</div>

@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+	/* PageSpeed Forensics: laboratorio nocturno — grafito, ámbar de "evidencia", rojo = congelado, verde = sano.
+	   Todas las cifras son ejemplos copiados tal cual de la documentación del repo
+	   (references/first-frame-freeze.md, references/tcp-first-flight.md, scripts/flight-proxy.mjs, SKILL.md). */
+	:root { --bg: #0a0f12; --panel: #10171c; --panel2: #0c1216; --line: #233039; --fg: #eef3f5; --mut: #8d9ba4; --dim: #5d6a72; --amber: #ffb224; --red: #ff5a4e; --green: #3ddc97; }
+	* { box-sizing: border-box; margin: 0; padding: 0; }
+	body { background: #333; }
+	.frame { width: 1600px; height: 1000px; position: relative; overflow: hidden; color: var(--fg); font-family: "Inter Tight", sans-serif;
+		background:
+			radial-gradient(900px 620px at 82% 30%, rgba(255, 178, 36, 0.09), transparent 65%),
+			repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 40px),
+			repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 40px),
+			var(--bg); }
+	.mono { font-family: "IBM Plex Mono", monospace; }
+	.eyebrow { position: absolute; left: 100px; display: flex; align-items: center; gap: 14px; font-family: "IBM Plex Mono"; font-size: 18px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; }
+	.eyebrow i { width: 14px; height: 14px; background: var(--amber); display: block; transform: rotate(45deg); }
+	.eyebrow span { color: var(--mut); font-weight: 400; letter-spacing: 0.12em; }
+	h1, h2 { font-weight: 800; letter-spacing: -0.022em; line-height: 1.0; }
+	.mark { color: var(--amber); }
+	.legal { position: absolute; left: 100px; bottom: 40px; font-size: 13px; color: #5f6c74; }
+	.chips { display: flex; gap: 12px; flex-wrap: wrap; }
+	.chip { border: 1.5px solid #34444f; border-radius: 10px; padding: 12px 18px; font-weight: 600; font-size: 19px; background: rgba(255, 255, 255, 0.02); }
+	.chip b { color: var(--amber); font-weight: 700; }
+	.panel { position: absolute; background: var(--panel); border: 1.5px solid var(--line); border-radius: 20px; box-shadow: 0 40px 110px rgba(0, 0, 0, 0.55); overflow: hidden; }
+	.bar { height: 52px; border-bottom: 1.5px solid var(--line); display: flex; align-items: center; gap: 9px; padding: 0 22px; background: var(--panel2); }
+	.bar i { width: 12px; height: 12px; border-radius: 50%; background: #2c3a43; }
+	.bar span { margin-left: 12px; font-family: "IBM Plex Mono"; font-size: 15px; color: var(--mut); }
+	.bar em { margin-left: auto; font-style: normal; font-family: "IBM Plex Mono"; font-size: 13px; font-weight: 600; letter-spacing: 0.16em; color: var(--amber); border: 1.5px solid rgba(255, 178, 36, 0.5); border-radius: 6px; padding: 4px 10px; }
+	.term { font-family: "IBM Plex Mono"; font-size: 15.5px; line-height: 1.7; color: #c6d1d7; }
+	.term .p { color: var(--amber); }
+	.term .bad { color: var(--red); font-weight: 600; }
+	.term .ok { color: var(--green); font-weight: 600; }
+	.term .c { color: var(--dim); }
+
+	/* ── Portada ── */
+	.cover .eyebrow { top: 160px; }
+	.cover h1 { position: absolute; left: 96px; top: 214px; font-size: 96px; width: 660px; }
+	.cover .sub { position: absolute; left: 100px; top: 556px; width: 590px; font-size: 26px; line-height: 1.45; color: #b9c5cc; }
+	.cover .chips { position: absolute; left: 100px; top: 744px; width: 620px; }
+	.ev { left: 770px; top: 150px; width: 740px; height: 690px; }
+	.ev .in { padding: 34px 34px 0; }
+	.big { display: flex; align-items: center; gap: 24px; }
+	.big b { flex: none; white-space: nowrap; font-size: 104px; font-weight: 800; letter-spacing: -0.035em; color: var(--red); line-height: 1; }
+	.big b small { font-size: 52px; letter-spacing: -0.02em; }
+	.big p { font-size: 24px; line-height: 1.3; font-weight: 600; }
+	.big p span { display: block; color: var(--mut); font-weight: 500; font-size: 20px; margin-top: 4px; }
+	.lab { margin-top: 30px; font-family: "IBM Plex Mono"; font-size: 14px; color: var(--mut); letter-spacing: 0.06em; display: flex; justify-content: space-between; }
+	.lab b { color: var(--fg); font-weight: 600; }
+	.stamp { color: var(--red); border: 2px solid var(--red); border-radius: 6px; padding: 1px 8px; font-weight: 600; letter-spacing: 0.14em; }
+	/* Pista de 0 a 3000 ms en 672 px → 0,224 px/ms */
+	.track { position: relative; margin-top: 12px; height: 84px; border-radius: 10px; background: var(--panel2); border: 1.5px solid var(--line); }
+	.gap { position: absolute; top: 8px; bottom: 8px; left: 133px; width: 463px; border-radius: 6px; background: repeating-linear-gradient(-45deg, rgba(255, 90, 78, 0.28) 0 7px, rgba(255, 90, 78, 0.08) 7px 14px); border: 1.5px dashed rgba(255, 90, 78, 0.8); display: grid; place-items: center; font-weight: 700; font-size: 24px; color: #ffd6d2; }
+	.tick { position: absolute; top: 14px; bottom: 14px; width: 2px; background: var(--fg); border-radius: 1px; }
+	.more { position: absolute; top: 14px; bottom: 14px; left: 606px; width: 52px; background: repeating-linear-gradient(90deg, rgba(238, 243, 245, 0.55) 0 2px, transparent 2px 6px); -webkit-mask: linear-gradient(90deg, #000, transparent); mask: linear-gradient(90deg, #000, transparent); }
+	.axis { position: relative; height: 26px; margin-top: 6px; font-family: "IBM Plex Mono"; font-size: 13px; color: var(--dim); }
+	.axis span { position: absolute; top: 0; transform: translateX(-50%); }
+	.axis span.l { transform: none; }
+	.axis span.r { transform: translateX(-100%); }
+	.axis .hi { color: var(--fg); }
+	.cmp { margin-top: 18px; display: grid; gap: 12px; }
+	.cmp .row { display: grid; grid-template-columns: 150px 1fr 100px; align-items: center; gap: 14px; font-size: 18px; font-weight: 600; }
+	.cmp .row > span:last-child { font-family: "IBM Plex Mono"; font-size: 17px; text-align: right; }
+	.cmp .rail { height: 16px; border-radius: 4px; background: #18222a; position: relative; }
+	.cmp .rail i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 4px; }
+	.cmp .cap { font-family: "IBM Plex Mono"; font-size: 13px; color: var(--mut); letter-spacing: 0.06em; }
+	.ev .term { margin-top: 26px; border-top: 1.5px solid var(--line); padding: 18px 34px 0; background: var(--panel2); height: 200px; }
+	.src { position: absolute; left: 34px; right: 34px; bottom: 16px; font-family: "IBM Plex Mono"; font-size: 13px; color: var(--dim); display: flex; justify-content: space-between; }
+
+	/* ── Pantalla 1 ── */
+	.s1 .eyebrow, .s2 .eyebrow { top: 92px; }
+	.s1 h2 { position: absolute; left: 96px; top: 138px; font-size: 82px; width: 640px; }
+	.s1 .lead { position: absolute; left: 100px; top: 324px; width: 560px; font-size: 23px; line-height: 1.5; color: #b9c5cc; }
+	.tpl { left: 100px; top: 650px; width: 610px; height: 258px; }
+	.rules { position: absolute; left: 100px; top: 452px; width: 600px; display: grid; gap: 12px; }
+	.rules div { display: flex; gap: 14px; align-items: center; font-size: 21px; font-weight: 600; }
+	.rules i { width: 26px; height: 26px; border-radius: 7px; background: rgba(255, 178, 36, 0.14); border: 1.5px solid rgba(255, 178, 36, 0.55); display: grid; place-items: center; font-style: normal; color: var(--amber); font-size: 15px; font-weight: 700; flex: none; }
+	.tpl .term { padding: 16px 26px; font-size: 16px; line-height: 1.9; }
+	.tpl .term b { color: var(--amber); font-weight: 600; }
+	.steps { left: 770px; top: 92px; width: 740px; height: 816px; padding: 10px 0; }
+	.st { display: grid; grid-template-columns: 74px 1fr; gap: 20px; padding: 27px 34px; border-bottom: 1.5px solid var(--line); align-items: center; }
+	.st:last-child { border-bottom: 0; }
+	.st .n { width: 74px; height: 74px; border-radius: 16px; border: 1.5px solid #34444f; display: grid; place-items: center; font-family: "IBM Plex Mono"; font-size: 24px; font-weight: 600; color: var(--amber); background: var(--panel2); }
+	.st h3 { font-size: 27px; font-weight: 700; letter-spacing: -0.015em; }
+	.st .s { margin-top: 9px; display: flex; gap: 8px; flex-wrap: wrap; }
+	.st .s span { font-family: "IBM Plex Mono"; font-size: 14.5px; color: #c6d1d7; border: 1px solid #2d3b45; background: var(--panel2); border-radius: 6px; padding: 3px 9px; }
+
+	/* ── Pantalla 2 ── */
+	.s2 h2 { position: absolute; left: 96px; top: 136px; font-size: 70px; width: 600px; }
+	.s2 .lead { position: absolute; left: 100px; top: 380px; width: 560px; font-size: 22px; line-height: 1.5; color: #b9c5cc; }
+	.s2 .lead b { color: var(--fg); font-family: "IBM Plex Mono"; font-weight: 500; font-size: 20px; }
+	.net { left: 740px; top: 92px; width: 770px; }
+	.net .term { padding: 18px 26px 0; font-size: 14px; line-height: 1.8; }
+	.bytes { padding: 22px 26px 28px; }
+	.bytes .k { font-family: "IBM Plex Mono"; font-size: 13px; color: var(--mut); letter-spacing: 0.06em; margin-bottom: 8px; display: flex; justify-content: space-between; }
+	/* 45754 B en 718 px → 0,015693 px/B */
+	.stack { position: relative; height: 46px; display: flex; gap: 0; border-radius: 8px; overflow: visible; }
+	.stack span { height: 100%; display: grid; place-items: center; font-family: "IBM Plex Mono"; font-size: 13px; font-weight: 600; color: #0a0f12; border-right: 2px solid var(--panel); }
+	.stack span:first-child { border-radius: 8px 0 0 8px; }
+	.stack span:last-child { border-radius: 0 8px 8px 0; border-right: 0; }
+	.head { position: absolute; top: -32px; bottom: -8px; left: 179px; width: 0; border-left: 2.5px dashed var(--fg); }
+	.head b { position: absolute; left: 10px; top: -3px; white-space: nowrap; font-family: "IBM Plex Mono"; font-size: 13px; font-weight: 600; color: var(--fg); background: var(--panel); padding: 0 4px; }
+	.modes-h { position: absolute; left: 100px; right: 90px; top: 622px; display: flex; align-items: baseline; justify-content: space-between; }
+	.modes-h h3 { font-size: 30px; font-weight: 700; letter-spacing: -0.02em; }
+	.modes-h span { font-family: "IBM Plex Mono"; font-size: 17px; color: var(--mut); }
+	.modes-h span b { color: var(--amber); font-weight: 500; }
+	.modes { position: absolute; left: 100px; right: 90px; top: 684px; display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
+	.mode { background: var(--panel); border: 1.5px solid var(--line); border-radius: 16px; padding: 20px 18px; height: 182px; }
+	.mode b { display: block; font-family: "IBM Plex Mono"; font-size: 19px; font-weight: 600; color: var(--amber); }
+	.mode p { margin-top: 12px; font-size: 18.5px; line-height: 1.38; color: #d4dde2; }
+	.s2 .legal { bottom: 40px; }
+</style>
+</head>
+<body>
+
+<section class="frame cover" data-out="cover">
+	<div class="eyebrow"><i></i>PageSpeed Forensics <span>· Skill</span></div>
+	<h1>Encuentra los puntos que <span class="mark">faltan.</span></h1>
+	<p class="sub">Skill para Claude Code que reproduce PageSpeed móvil en tu PC, demuestra la causa con trazas y prueba arreglos sin recompilar.</p>
+	<div class="chips"><span class="chip"><b>11</b> scripts de Node.js</span><span class="chip"><b>6</b> guías técnicas</span><span class="chip">Claude Code</span></div>
+	<div class="panel ev">
+		<div class="bar"><i></i><i></i><i></i><span>trace-milestones.mjs</span><em>EVIDENCIA</em></div>
+		<div class="in">
+			<div class="big"><b>2067<small> ms</small></b><p>sin cuadros antes de la primera pintura<span>con el hilo principal inactivo</span></p></div>
+			<div class="lab"><span><b>BeginFrame</b> · corrida congelada</span><span class="stamp">FROZEN</span></div>
+			<div class="track">
+				<div class="gap">2067 ms sin cuadros</div>
+				<!-- 594, 2661, 2669, 2677, 2686 … (ms) × 0,224 px/ms -->
+				<i class="tick" style="left: 132px;"></i>
+				<i class="tick" style="left: 596px;"></i><i class="tick" style="left: 598px; opacity: .85"></i><i class="tick" style="left: 600px; opacity: .85"></i><i class="tick" style="left: 602px; opacity: .85"></i>
+				<i class="more"></i>
+			</div>
+			<div class="axis"><span class="l" style="left: 0;">0</span><span class="hi" style="left: 135px;">frame1 601</span><span style="left: 336px;">1500 ms</span><span class="hi" style="left: 604px;">fcp 2694</span></div>
+			<div class="cmp">
+				<div class="cap">maxFrameGap · mismo sitio, dos corridas</div>
+				<div class="row"><span>Congelada</span><div class="rail"><i style="width: 100%; background: var(--red);"></i></div><span style="color: var(--red);">2067 ms</span></div>
+				<div class="row"><span>Sana</span><div class="rail"><i style="width: 3.24%; background: var(--green);"></i></div><span style="color: var(--green);">67 ms</span></div>
+			</div>
+		</div>
+		<div class="term">
+			<div><span class="c">trace-milestones:</span> response 483 | parseHTML 494 | frame1 601</div>
+			<div>&nbsp;&nbsp;| fcp 2694 | load 656 | maxFrameGap 2067ms@594 <span class="bad">FROZEN</span></div>
+			<div><span class="c">main thread:</span> second 1 -&gt; 6 tasks, <span class="ok">0 ms busy</span></div>
+			<div><span class="c">healthy run:</span> frame1 518 | fcp 569 | maxFrameGap <span class="ok">67ms</span></div>
+		</div>
+		<div class="src"><span>Ejemplo de la documentación incluida</span><span>references/first-frame-freeze.md</span></div>
+	</div>
+	<p class="legal">Producto independiente, sin afiliación con Google. PageSpeed Insights, Lighthouse y Chrome son marcas de Google.</p>
+</section>
+
+<section class="frame s1" data-out="screen-1">
+	<div class="eyebrow"><i></i>PageSpeed Forensics <span>· El método</span></div>
+	<h2>Seis pasos. Cero <span class="mark">suposiciones.</span></h2>
+	<p class="lead">Primero reproduce el problema en tu PC. Después prueba un cambio a la vez y compara medianas de 3 a 5 corridas.</p>
+	<div class="rules">
+		<div><i>✓</i>Evidencia antes que conclusiones</div>
+		<div><i>✓</i>Medianas, nunca una sola corrida</div>
+		<div><i>✓</i>Te pregunta antes de cambiar datos o dinero por puntos</div>
+	</div>
+	<div class="panel tpl">
+		<div class="bar"><i></i><i></i><i></i><span>Plantilla de informe · SKILL.md</span></div>
+		<div class="term">
+			<div><b>Finding:</b> <span class="c">&lt;one sentence&gt;</span></div>
+			<div><b>Evidence:</b> <span class="c">&lt;audit id / trace event&gt;, median of N runs</span></div>
+			<div><b>Cause:</b> <span class="c">&lt;mechanism, observed not assumed&gt;</span></div>
+			<div><b>Fix:</b> <span class="c">&lt;change&gt;</span> | <b>Risk:</b> <span class="c">…</span> | <b>Rollback:</b> <span class="c">…</span></div>
+			<div><b>Needs owner decision:</b> <span class="c">yes/no</span></div>
+		</div>
+	</div>
+	<div class="panel steps">
+		<div class="st"><span class="n">01</span><div><h3>Lee el informe real de PageSpeed</h3><div class="s"><span>psi-report</span></div></div></div>
+		<div class="st"><span class="n">02</span><div><h3>Arma un laboratorio que lo imite</h3><div class="s"><span>flight-proxy</span><span>lh-runs</span></div></div></div>
+		<div class="st"><span class="n">03</span><div><h3>Clasifica dónde se va el tiempo</h3><div class="s"><span>lh-summary</span><span>trace-milestones</span><span>main-thread-per-second</span></div></div></div>
+		<div class="st"><span class="n">04</span><div><h3>Revisa la red de producción</h3><div class="s"><span>burst-timing</span></div></div></div>
+		<div class="st"><span class="n">05</span><div><h3>Prueba arreglos en el proxy, sin tocar código</h3><div class="s"><span>flight-proxy --modes=</span></div></div></div>
+		<div class="st"><span class="n">06</span><div><h3>Verifica, publica y vuelve a medir</h3><div class="s"><span>screens</span><span>visual-diff</span><span>section-heights</span></div></div></div>
+	</div>
+</section>
+
+<section class="frame s2" data-out="screen-2">
+	<div class="eyebrow"><i></i>PageSpeed Forensics <span>· Red y arreglos</span></div>
+	<h2>¿Tu &lt;head&gt; cabe en la primera <span class="mark">tanda?</span></h2>
+	<p class="lead"><b>burst-timing</b> mide lo que tu servidor entrega en la primera tanda de una conexión nueva. Si &lt;/head&gt; no cabe, la primera pintura espera.</p>
+	<div class="panel net">
+		<div class="bar"><i></i><i></i><i></i><span>burst-timing.mjs · ejemplo de un sitio real</span><em>EVIDENCIA</em></div>
+		<div class="term">
+			<div><span class="c">cold #1</span> headers 257 ms | 258ms 4735B · 274ms 5930B · 316ms 22103B · 334ms 12986B</div>
+			<div>document 45754 B on the wire (gzip); ~11400 B to reach &lt;/head&gt;; first burst 4735 B</div>
+			<div class="bad">-&gt; &lt;/head&gt; does NOT fit in the first flight</div>
+			<div><span class="c">warm #2</span> headers 88 ms | <span class="ok">89ms 45754B</span></div>
+		</div>
+		<div class="bytes">
+			<div class="k" style="margin-bottom: 40px;"><span>Conexión nueva · 4 tandas</span><span>45754 B</span></div>
+			<div class="stack">
+				<span style="width: 74px; background: var(--amber);">4735</span><span style="width: 93px; background: #8d9ba4;">5930</span><span style="width: 347px; background: #6d7c86;">22103</span><span style="width: 204px; background: #56646d;">12986</span>
+				<div class="head"><b>&lt;/head&gt; ~11400 B</b></div>
+			</div>
+			<div class="k" style="margin-top: 24px;"><span>Conexión abierta · 1 tanda</span><span>45754 B</span></div>
+			<div class="stack"><span style="width: 718px; background: var(--green);">45754</span></div>
+		</div>
+	</div>
+	<div class="modes-h"><h3>Prueba arreglos en el proxy, sin recompilar</h3><span><b>flight-proxy</b> --rtt=150 --server=200 --first-flight=14600</span></div>
+	<div class="modes">
+		<div class="mode"><b>flights</b><p>Entrega el HTML en tandas, como el arranque lento de TCP.</p></div>
+		<div class="mode"><b>inline</b><p>Cambia la hoja de estilos externa por &lt;style&gt;.</p></div>
+		<div class="mode"><b>nofontpreload</b><p>Quita la precarga de fuentes.</p></div>
+		<div class="mode"><b>noimgpreload</b><p>Quita la precarga de imágenes, con filtro opcional.</p></div>
+		<div class="mode"><b>cv</b><p>content-visibility en las secciones fuera de pantalla.</p></div>
+		<div class="mode"><b>css</b><p>Inyecta en &lt;head&gt; la regla CSS que quieras probar.</p></div>
+	</div>
+	<p class="legal">Ejemplos tomados de la documentación incluida (tcp-first-flight.md y flight-proxy.mjs). Sin afiliación con Google.</p>
+</section>
+</body>
+</html>

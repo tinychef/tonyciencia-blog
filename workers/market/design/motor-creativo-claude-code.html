@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+	/* Motor Creativo: estudio claro — papel cálido, tinta y un color por disciplina.
+	   Íconos dibujados a mano (sin logos de terceros). La salida de "route" es la real del router del repo. */
+	:root {
+		--bg: #f5f1ea; --paper: #fffdf9; --ink: #17151c; --mut: #6a6470; --line: #e4ddd1; --term: #18161d; --tline: #2b2833;
+		--c-image: #ff6b5b; --c-photo: #ff9f1c; --c-vector: #f4c430; --c-video: #e63e6d; --c-motion: #9b5de5; --c-layout: #4361ee; --c-pdf: #d62828;
+		--c-ui: #00a6c8; --c-audio: #06c49a; --c-slides: #f15bb5; --c-docs: #3a86ff; --c-sheets: #2f9e44; --c-cad: #8d6e63; --c-qa: #17151c;
+	}
+	* { box-sizing: border-box; margin: 0; padding: 0; }
+	body { background: #777; }
+	.frame { width: 1600px; height: 1000px; position: relative; overflow: hidden; color: var(--ink); font-family: "Figtree", sans-serif;
+		background: radial-gradient(circle at 1px 1px, #ddd5c7 1.2px, transparent 1.4px) 0 0 / 28px 28px, var(--bg); }
+	.mono { font-family: "JetBrains Mono", monospace; }
+	.top { position: absolute; left: 100px; display: flex; align-items: center; gap: 16px; }
+	.soon { display: inline-flex; align-items: center; gap: 10px; background: var(--ink); color: #fff; border-radius: 99px; padding: 9px 18px; font-family: "JetBrains Mono"; font-weight: 700; font-size: 15px; letter-spacing: 0.16em; }
+	.soon::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: #d4ff3a; }
+	.top .eb { font-family: "JetBrains Mono"; font-size: 16px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mut); }
+	.top .eb b { color: var(--ink); font-weight: 700; }
+	h1, h2 { font-weight: 900; letter-spacing: -0.03em; line-height: 1.0; }
+	.spec { background: linear-gradient(90deg, var(--c-image), var(--c-photo) 22%, var(--c-motion) 55%, var(--c-layout) 78%, var(--c-ui)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+	.legal { position: absolute; left: 100px; bottom: 40px; font-size: 13px; color: #8a8390; }
+	.chips { display: flex; gap: 12px; flex-wrap: wrap; }
+	.chip { border: 1.5px solid #d6cdbf; border-radius: 12px; padding: 12px 18px; font-weight: 700; font-size: 18px; background: var(--paper); }
+
+	/* Terminal */
+	.term { position: absolute; background: var(--term); color: #e9e6ef; border-radius: 18px; box-shadow: 0 30px 70px rgba(40, 30, 20, 0.22); overflow: hidden; font-family: "JetBrains Mono"; }
+	.term .tb { height: 44px; display: flex; align-items: center; gap: 8px; padding: 0 18px; border-bottom: 1px solid var(--tline); }
+	.term .tb i { width: 11px; height: 11px; border-radius: 50%; background: #3a3644; }
+	.term .tb span { margin-left: 10px; font-size: 13px; color: #8f8a9a; }
+	.term .tc { padding: 16px 22px; font-size: 16px; line-height: 1.75; }
+	.p { color: #d4ff3a; }
+	.q { color: #ffd29a; }
+	.k { color: #8f8a9a; }
+	.cat { display: inline-block; border-radius: 6px; padding: 0 8px; font-weight: 700; color: #fff; font-size: 14px; line-height: 1.6; }
+
+	/* Tiles */
+	.ic { width: 46px; height: 46px; border-radius: 13px; display: grid; place-items: center; flex: none; }
+	.ic svg { width: 26px; height: 26px; fill: none; stroke: #fff; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+	.ic.dark svg { stroke: var(--ink); }
+	.grid { position: absolute; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+	.tile { background: var(--paper); border: 1.5px solid var(--line); border-radius: 18px; padding: 14px 16px; height: 128px; display: flex; flex-direction: column; justify-content: space-between; position: relative; box-shadow: 0 2px 0 rgba(23, 21, 28, 0.03); }
+	.tile b { display: block; font-size: 18.5px; font-weight: 800; letter-spacing: -0.015em; }
+	.tile small { display: block; margin-top: 2px; font-family: "JetBrains Mono"; font-size: 12.5px; color: var(--mut); }
+	.tile.on { border: 2.5px solid var(--hue); background: color-mix(in srgb, var(--hue) 9%, var(--paper)); box-shadow: 0 16px 34px -10px color-mix(in srgb, var(--hue) 55%, transparent); }
+	.tile.on::after { content: "✓"; position: absolute; right: 12px; top: 12px; width: 28px; height: 28px; border-radius: 50%; background: var(--hue); color: #fff; display: grid; place-items: center; font-size: 15px; font-weight: 800; }
+	.tile.qa { grid-column: span 3; flex-direction: row; align-items: center; justify-content: flex-start; gap: 18px; background: #ece6db; border-style: dashed; border-color: #cfc5b5; }
+	.tile.qa b { font-size: 20px; }
+	.tile.qa small { font-size: 14px; }
+
+	/* ── Portada ── */
+	.cover .top { top: 156px; }
+	.cover h1 { position: absolute; left: 96px; top: 222px; font-size: 108px; width: 640px; }
+	.cover .sub { position: absolute; left: 100px; top: 576px; width: 580px; font-size: 26px; line-height: 1.45; color: #4f4a55; }
+	.cover .chips { position: absolute; left: 100px; top: 750px; }
+	.cover .term { left: 768px; top: 92px; width: 742px; }
+	.cover .grid { left: 768px; top: 318px; width: 742px; }
+
+	/* ── Pantalla 1 ── */
+	.s1 .top, .s2 .top { top: 92px; }
+	.s1 h2 { position: absolute; left: 96px; top: 150px; font-size: 86px; width: 640px; }
+	.s1 .lead { position: absolute; left: 100px; top: 356px; width: 570px; font-size: 23px; line-height: 1.5; color: #4f4a55; }
+	.how { position: absolute; left: 100px; top: 506px; width: 580px; display: grid; gap: 18px; }
+	.how > div { display: grid; grid-template-columns: 52px 1fr; gap: 18px; align-items: start; background: var(--paper); border: 1.5px solid var(--line); border-radius: 16px; padding: 16px 20px; }
+	.how .n { width: 52px; height: 52px; border-radius: 14px; background: var(--ink); color: #fff; display: grid; place-items: center; font-family: "JetBrains Mono"; font-weight: 700; font-size: 20px; }
+	.how b { display: block; font-size: 22px; font-weight: 800; letter-spacing: -0.01em; }
+	.how span { display: block; margin-top: 4px; font-size: 17px; color: var(--mut); line-height: 1.4; }
+	.s1 .term { left: 750px; top: 92px; width: 760px; }
+	.s1 .term .tc { font-size: 16.5px; line-height: 1.8; }
+	.more { position: absolute; left: 750px; top: 462px; width: 760px; background: var(--paper); border: 1.5px solid var(--line); border-radius: 18px; overflow: hidden; }
+	.more .h { padding: 14px 22px; font-family: "JetBrains Mono"; font-size: 13px; color: var(--mut); letter-spacing: 0.12em; text-transform: uppercase; border-bottom: 1.5px solid var(--line); display: flex; justify-content: space-between; }
+	.more .r { display: grid; grid-template-columns: 1fr 230px; gap: 16px; align-items: center; padding: 18px 22px; border-bottom: 1px solid #efe9df; font-size: 20px; font-weight: 600; }
+	.more .r:last-child { border-bottom: 0; }
+	.more .r > span:last-child { display: flex; gap: 10px; align-items: center; font-family: "JetBrains Mono"; font-size: 14px; color: var(--mut); }
+
+	/* ── Pantalla 2 ── */
+	.s2 h2 { position: absolute; left: 96px; top: 150px; font-size: 86px; width: 640px; }
+	.s2 .lead { position: absolute; left: 100px; top: 356px; width: 570px; font-size: 23px; line-height: 1.5; color: #4f4a55; }
+	.feats { position: absolute; left: 100px; top: 566px; width: 590px; display: grid; gap: 26px; }
+	.feats > div { display: grid; grid-template-columns: 46px 1fr; gap: 18px; align-items: center; }
+	.feats b { display: block; font-size: 21px; font-weight: 800; letter-spacing: -0.01em; }
+	.feats span { display: block; font-size: 16.5px; color: var(--mut); margin-top: 2px; }
+	.win { position: absolute; left: 750px; top: 92px; width: 760px; height: 700px; background: var(--paper); border: 1.5px solid #d9d0c2; border-radius: 20px; box-shadow: 0 34px 80px rgba(40, 30, 20, 0.18); overflow: hidden; }
+	.win .tb { height: 50px; display: flex; align-items: center; gap: 8px; padding: 0 18px; background: #efe9df; border-bottom: 1.5px solid var(--line); }
+	.win .tb i { width: 11px; height: 11px; border-radius: 50%; background: #cfc5b5; }
+	.win .url { margin-left: 14px; flex: 1; max-width: 380px; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 5px 12px; font-family: "JetBrains Mono"; font-size: 13px; color: var(--mut); }
+	.win .tag { margin-left: auto; font-family: "JetBrains Mono"; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; color: var(--mut); border: 1.5px dashed #bdb2a1; border-radius: 6px; padding: 3px 9px; }
+	.side { position: absolute; left: 0; top: 50px; bottom: 0; width: 210px; border-right: 1.5px solid var(--line); padding: 18px 14px; display: grid; align-content: start; gap: 6px; background: #faf7f1; }
+	.side .h { font-family: "JetBrains Mono"; font-size: 11.5px; color: var(--mut); letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 6px 8px; }
+	.side div { display: flex; align-items: center; gap: 10px; padding: 6px 8px; border-radius: 8px; font-size: 15px; font-weight: 600; }
+	.side div i { width: 12px; height: 12px; border-radius: 4px; }
+	.side div.sel { background: #fff; box-shadow: inset 0 0 0 1.5px var(--line); }
+	.main { position: absolute; left: 210px; right: 0; top: 50px; bottom: 0; padding: 26px 28px; }
+	.main h4 { font-size: 30px; font-weight: 800; letter-spacing: -0.02em; }
+	.ask { margin-top: 18px; border: 1.5px solid #d9d0c2; border-radius: 16px; padding: 16px 18px; background: #fff; }
+	.ask p { font-size: 19px; font-weight: 600; }
+	.ask .row { margin-top: 14px; display: flex; gap: 10px; align-items: center; }
+	.pill { display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid var(--line); border-radius: 99px; padding: 5px 12px; font-family: "JetBrains Mono"; font-size: 13px; color: var(--ink); background: #faf7f1; }
+	.pill svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+	.btn { margin-left: auto; background: var(--ink); color: #fff; border-radius: 10px; padding: 9px 16px; font-weight: 700; font-size: 15px; }
+	.res { margin-top: 18px; border: 1.5px solid var(--line); border-radius: 16px; overflow: hidden; background: #fff; }
+	.res .ph { height: 280px; display: grid; place-items: center; background: repeating-linear-gradient(-45deg, #f3eee5 0 10px, #fbf8f3 10px 20px); color: #a39a8c; font-family: "JetBrains Mono"; font-size: 14px; }
+	.res .ft { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-top: 1.5px solid var(--line); font-family: "JetBrains Mono"; font-size: 13.5px; color: var(--mut); }
+	.res .ft .btn { font-family: "Figtree"; }
+	.verdict { position: absolute; left: 1010px; top: 736px; width: 500px; background: var(--term); color: #fff; border-radius: 18px; padding: 20px 24px; box-shadow: 0 30px 70px rgba(40, 30, 20, 0.28); display: grid; grid-template-columns: 46px 1fr; gap: 16px; align-items: center; }
+	.verdict small { display: block; font-family: "JetBrains Mono"; font-size: 13px; color: #a7a1b2; letter-spacing: 0.06em; }
+	.verdict b { display: inline-flex; margin-top: 6px; background: #2f9e44; color: #fff; border-radius: 8px; padding: 4px 10px; font-family: "JetBrains Mono"; font-size: 15px; letter-spacing: 0.06em; }
+	.verdict em { font-style: normal; font-family: "JetBrains Mono"; font-size: 13px; color: #a7a1b2; margin-left: 10px; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+	<defs>
+		<symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="M21 15.5l-4.5-4.5L6 20"/></symbol>
+		<symbol id="i-photo" viewBox="0 0 24 24"><path d="M4 8.5h3.2L9 6h6l1.8 2.5H20a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.3" r="3.3"/></symbol>
+		<symbol id="i-vector" viewBox="0 0 24 24"><path d="M5 18C6.5 9 17.5 9 19 18"/><path d="M3.5 7.5h17" stroke-dasharray="2 2.5"/><rect x="10.2" y="5.7" width="3.6" height="3.6" rx=".6"/><rect x="3.2" y="16.2" width="3.6" height="3.6" rx=".6"/><rect x="17.2" y="16.2" width="3.6" height="3.6" rx=".6"/></symbol>
+		<symbol id="i-video" viewBox="0 0 24 24"><rect x="2.8" y="5.5" width="13.5" height="13" rx="2.5"/><path d="M16.3 10.2l4.9-2.6v8.8l-4.9-2.6z"/></symbol>
+		<symbol id="i-motion" viewBox="0 0 24 24"><circle cx="16" cy="12" r="4.5"/><path d="M2.5 8.5h6.5M1.8 12h7.2M2.5 15.5h6.5"/></symbol>
+		<symbol id="i-layout" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M3 9h18M10 9v12M13.5 13h4.5M13.5 16.5h4.5"/></symbol>
+		<symbol id="i-pdf" viewBox="0 0 24 24"><path d="M6 2.8h8.5l4.5 4.5v13.9H6z"/><path d="M14.2 2.8v4.8H19"/><path d="M8.6 16.6v-4.4h1.6a1.2 1.2 0 0 1 0 2.4H8.6M13 12.2v4.4h1a2.2 2.2 0 0 0 0-4.4zM17 16.6v-4.4h-1.2"/></symbol>
+		<symbol id="i-ui" viewBox="0 0 24 24"><rect x="2.8" y="4" width="18.4" height="16" rx="2.5"/><path d="M2.8 8.5h18.4M6.5 12.5h5M6.5 15.5h3M14.5 12h3v4h-3z"/></symbol>
+		<symbol id="i-audio" viewBox="0 0 24 24"><path d="M3 12h1.5M6.8 8.5v7M10.6 5v14M14.4 8v8M18.2 10.5v3M21 12h.5"/></symbol>
+		<symbol id="i-slides" viewBox="0 0 24 24"><rect x="2.8" y="3.5" width="18.4" height="12" rx="1.8"/><path d="M12 15.5V19M8 21l4-2 4 2M7 11l3-3 2.5 2.5L17 7"/></symbol>
+		<symbol id="i-docs" viewBox="0 0 24 24"><path d="M6 2.8h8.5l4.5 4.5v13.9H6z"/><path d="M14.2 2.8v4.8H19M9 12h7M9 15.2h7M9 18.4h4.5"/></symbol>
+		<symbol id="i-sheets" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M3 14.8h18M9 4v16M15 4v16"/></symbol>
+		<symbol id="i-cad" viewBox="0 0 24 24"><path d="M4 20.5V4l16.5 16.5z"/><path d="M8 16.5v-4.3l4.3 4.3z"/><path d="M4 8h2M4 12h2"/></symbol>
+		<symbol id="i-qa" viewBox="0 0 24 24"><path d="M12 2.8l7.8 3v6c0 4.8-3.3 8-7.8 9.4C7.5 19.8 4.2 16.6 4.2 11.8v-6z"/><path d="M8.6 12.2l2.4 2.4 4.6-4.8"/></symbol>
+		<symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10.5" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3M12 14.5v2.5"/></symbol>
+		<symbol id="i-par" viewBox="0 0 24 24"><rect x="3" y="4" width="8" height="7" rx="1.6"/><rect x="13" y="4" width="8" height="7" rx="1.6"/><rect x="3" y="13" width="8" height="7" rx="1.6"/><rect x="13" y="13" width="8" height="7" rx="1.6"/></symbol>
+		<symbol id="i-dl" viewBox="0 0 24 24"><path d="M12 3.5v11M7.5 10.5l4.5 4.5 4.5-4.5M4 17v2.5a1.5 1.5 0 0 0 1.5 1.5h13a1.5 1.5 0 0 0 1.5-1.5V17"/></symbol>
+		<symbol id="i-clip" viewBox="0 0 24 24"><path d="M20 11.5l-7.8 7.8a5 5 0 0 1-7.1-7.1l8-8a3.4 3.4 0 0 1 4.8 4.8l-8 8a1.7 1.7 0 0 1-2.4-2.4l7.3-7.3"/></symbol>
+	</defs>
+</svg>
+
+<section class="frame cover" data-out="cover">
+	<div class="top"><span class="soon">PRÓXIMAMENTE</span><span class="eb"><b>Motor creativo</b> · para Claude Code</span></div>
+	<h1><span class="spec">13 agentes</span> creativos en español.</h1>
+	<p class="sub">Pides la pieza en lenguaje natural. El router elige al agente y este la produce con una app open source en tu PC.</p>
+	<div class="chips"><span class="chip">Claude Code</span><span class="chip">Windows x64</span><span class="chip">Panel local</span></div>
+	<div class="term">
+		<div class="tb"><i></i><i></i><i></i><span>router de intención</span></div>
+		<div class="tc">
+			<div><span class="p">›</span> route <span class="q">"Diseña una presentación de ventas y anima el logo"</span></div>
+			<div><span class="k">categories</span>&nbsp; <span class="cat" style="background: var(--c-motion);">MOTION</span> <span class="cat" style="background: var(--c-slides);">SLIDES</span> <span class="cat" style="background: #4a4556;">MIXED</span></div>
+			<div><span class="k">agents</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; motion-agent · deck-agent</div>
+		</div>
+	</div>
+	<div class="grid">
+		<div class="tile"><span class="ic" style="background: var(--c-image)"><svg><use href="#i-image"/></svg></span><div><b>Imagen</b><small>image-agent</small></div></div>
+		<div class="tile"><span class="ic" style="background: var(--c-photo)"><svg><use href="#i-photo"/></svg></span><div><b>Foto</b><small>photo-agent</small></div></div>
+		<div class="tile"><span class="ic dark" style="background: var(--c-vector)"><svg><use href="#i-vector"/></svg></span><div><b>Vector</b><small>vector-agent</small></div></div>
+		<div class="tile"><span class="ic" style="background: var(--c-video)"><svg><use href="#i-video"/></svg></span><div><b>Video</b><small>video-agent</small></div></div>
+		<div class="tile on" style="--hue: var(--c-motion)"><span class="ic" style="background: var(--c-motion)"><svg><use href="#i-motion"/></svg></span><div><b>Animación</b><small>motion-agent</small></div></div>
+		<div class="tile"><span class="ic" style="background: var(--c-layout)"><svg><use href="#i-layout"/></svg></span><div><b>Maquetación</b><small>layout-agent</small></div></div>
+		<div class="tile"><span class="ic" style="background: var(--c-pdf)"><svg><use href="#i-pdf"/></svg></span><div><b>PDF</b><small>pdf-agent</small></div></div>
+		<div class="tile"><span class="ic" style="background: var(--c-ui)"><svg><use href="#i-ui"/></svg></span><div><b>Interfaz</b><small>ui-agent</small></div></div>
+		<div class="tile"><span class="ic" style="background: var(--c-audio)"><svg><use href="#i-audio"/></svg></span><div><b>Audio</b><small>audio-agent</small></div></div>
+		<div class="tile on" style="--hue: var(--c-slides)"><span class="ic" style="background: var(--c-slides)"><svg><use href="#i-slides"/></svg></span><div><b>Presentaciones</b><small>deck-agent</small></div></div>
+		<div class="tile"><span class="ic" style="background: var(--c-docs)"><svg><use href="#i-docs"/></svg></span><div><b>Documentos</b><small>word-agent</small></div></div>
+		<div class="tile"><span class="ic" style="background: var(--c-sheets)"><svg><use href="#i-sheets"/></svg></span><div><b>Planillas</b><small>sheet-agent</small></div></div>
+		<div class="tile"><span class="ic" style="background: var(--c-cad)"><svg><use href="#i-cad"/></svg></span><div><b>CAD</b><small>cad-agent</small></div></div>
+		<div class="tile qa"><span class="ic" style="background: var(--c-qa)"><svg><use href="#i-qa"/></svg></span><div><b>+ Revisor de solo lectura</b><small>qa-agent · revisa antes de entregar</small></div></div>
+	</div>
+	<p class="legal">En desarrollo. Las apps open source se descargan aparte. Claude Code es marca de Anthropic; se nombra solo para indicar compatibilidad.</p>
+</section>
+
+<section class="frame s1" data-out="screen-1">
+	<div class="top"><span class="soon">PRÓXIMAMENTE</span><span class="eb"><b>Motor creativo</b> · cómo funciona</span></div>
+	<h2>Un pedido.<br>El agente justo.</h2>
+	<p class="lead">El router lee tu pedido en español o inglés, elige la categoría, el agente y su skill, y encadena varias apps cuando la tarea las mezcla.</p>
+	<div class="how">
+		<div><span class="n">1</span><div><b>Pides</b><span>En Claude Code o en el panel local, y adjuntas tu archivo.</span></div></div>
+		<div><span class="n">2</span><div><b>El router decide</b><span>Categoría, agente y skill. El MCP de la app se conecta solo mientras ese agente trabaja.</span></div></div>
+		<div><span class="n">3</span><div><b>El agente produce y revisa</b><span>Trabaja sobre una copia, exporta a output/ y mira el resultado.</span></div></div>
+	</div>
+	<div class="term">
+		<div class="tb"><i></i><i></i><i></i><span>salida real del router</span></div>
+		<div class="tc">
+			<div><span class="p">›</span> route <span class="q">"Diseña una presentación de ventas y anima el logo"</span></div>
+			<div>{</div>
+			<div>&nbsp;&nbsp;<span class="k">"categories":</span> [<span class="cat" style="background: var(--c-motion);">"MOTION"</span>, <span class="cat" style="background: var(--c-slides);">"SLIDES"</span>, <span class="cat" style="background: #4a4556;">"MIXED"</span>],</div>
+			<div>&nbsp;&nbsp;<span class="k">"agents":</span> [<span class="q">"motion-agent"</span>, <span class="q">"deck-agent"</span>],</div>
+			<div>&nbsp;&nbsp;<span class="k">"skills":</span> [<span class="q">"motion"</span>, <span class="q">"deck"</span>, <span class="q">"mixed"</span>],</div>
+			<div>&nbsp;&nbsp;<span class="k">"confidence":</span> 1.0,</div>
+			<div>&nbsp;&nbsp;<span class="k">"hits":</span> { <span class="q">"MOTION"</span>: [<span class="q">"anima"</span>], <span class="q">"SLIDES"</span>: [<span class="q">"presentacion"</span>] }</div>
+			<div>}</div>
+		</div>
+	</div>
+	<div class="more">
+		<div class="h"><span>Más pedidos</span><span>categoría · agente</span></div>
+		<div class="r"><span>Vectoriza este logo y exporta SVG</span><span><span class="cat" style="background: #c99a00;">VECTOR</span>vector-agent</span></div>
+		<div class="r"><span>Une estos PDF y rota la página 3</span><span><span class="cat" style="background: var(--c-pdf);">PDF</span>pdf-agent</span></div>
+		<div class="r"><span>Arma una planilla de gastos con gráfico</span><span><span class="cat" style="background: var(--c-sheets);">SHEETS</span>sheet-agent</span></div>
+		<div class="r"><span>Haz el troquel de una caja</span><span><span class="cat" style="background: var(--c-cad);">CAD</span>cad-agent</span></div>
+		<div class="r"><span>Diseña una landing para mi tienda</span><span><span class="cat" style="background: var(--c-ui);">UI</span>ui-agent</span></div>
+	</div>
+</section>
+
+<section class="frame s2" data-out="screen-2">
+	<div class="top"><span class="soon">PRÓXIMAMENTE</span><span class="eb"><b>Motor creativo</b> · panel y entrega</span></div>
+	<h2>Sin comandos.<br>Con revisión.</h2>
+	<p class="lead">Un panel web local para pedir en lenguaje natural, adjuntar un archivo y descargar el resultado. Antes de entregar, un agente revisor da su veredicto.</p>
+	<div class="feats">
+		<div><span class="ic" style="background: var(--c-layout)"><svg><use href="#i-par"/></svg></span><div><b>Hasta 4 consultas en paralelo</b><span>Con historial por app. Usa tu sesión de Claude Code.</span></div></div>
+		<div><span class="ic" style="background: var(--c-image)"><svg><use href="#i-lock"/></svg></span><div><b>Tus originales, protegidos</b><span>Hooks que impiden sobrescribir archivos de clientes.</span></div></div>
+		<div><span class="ic" style="background: var(--c-sheets)"><svg><use href="#i-dl"/></svg></span><div><b>Apps desde sus releases oficiales</b><span>Doble verificación SHA256 y vuelta atrás.</span></div></div>
+	</div>
+	<div class="win">
+		<div class="tb"><i></i><i></i><i></i><span class="url">127.0.0.1:8791</span><span class="tag">CONCEPTO</span></div>
+		<div class="side">
+			<div class="h">Apps</div>
+			<div><i style="background: var(--c-image)"></i>Imagen</div>
+			<div><i style="background: var(--c-photo)"></i>Foto</div>
+			<div class="sel"><i style="background: var(--c-vector)"></i>Vector</div>
+			<div><i style="background: var(--c-video)"></i>Video</div>
+			<div><i style="background: var(--c-motion)"></i>Animación</div>
+			<div><i style="background: var(--c-layout)"></i>Maquetación</div>
+			<div><i style="background: var(--c-pdf)"></i>PDF</div>
+			<div><i style="background: var(--c-ui)"></i>Interfaz</div>
+			<div><i style="background: var(--c-audio)"></i>Audio</div>
+			<div><i style="background: var(--c-slides)"></i>Presentaciones</div>
+			<div><i style="background: var(--c-docs)"></i>Documentos</div>
+			<div><i style="background: var(--c-sheets)"></i>Planillas</div>
+			<div><i style="background: var(--c-cad)"></i>CAD</div>
+		</div>
+		<div class="main">
+			<h4>¿Qué quieres crear hoy?</h4>
+			<div class="ask">
+				<p>Vectoriza este logo y exporta SVG</p>
+				<div class="row"><span class="pill"><svg><use href="#i-clip"/></svg>logo.png</span><span class="pill">vector-agent</span><span class="btn">Pedir</span></div>
+			</div>
+			<div class="res">
+				<div class="ph">vista previa del resultado</div>
+				<div class="ft">output/&lt;proyecto&gt;/logo.svg<span class="btn">Descargar</span></div>
+			</div>
+		</div>
+	</div>
+	<div class="verdict"><span class="ic" style="background: #2f9e44"><svg><use href="#i-qa"/></svg></span><div><small>qa-agent · solo lectura</small><b>APTO PARA ENTREGAR</b><em>o NO APTO</em></div></div>
+	<p class="legal">Ilustración del concepto, no una captura. Requiere Windows x64 y Claude Code con sesión iniciada (consume tu plan).</p>
+</section>
+</body>
+</html>

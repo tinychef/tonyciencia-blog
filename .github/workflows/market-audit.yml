@@ -1,0 +1,42 @@
+name: Market — auditoría del catálogo
+# Revisa en PRODUCCIÓN las fichas, el JSON-LD, el feed de Google Merchant, el sitemap y las imágenes del market
+# (workers/market/scripts/audit-catalog.mjs). Corre después de cada deploy del market y cada lunes.
+# Si hay errores el job falla (GitHub avisa por correo) y el informe queda como artefacto.
+# Es la parte automática del agente E-commerce Manager (.claude/agents/ecommerce-manager.md).
+on:
+  workflow_run:
+    workflows: ["Market — deploy a producción"]
+    types: [completed]
+  schedule:
+    - cron: "17 13 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: workers/market
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Esperar a que el deploy se propague
+        if: github.event_name == 'workflow_run'
+        run: sleep 45
+      - name: Auditoría de https://tonyciencia.com/market
+        run: |
+          node scripts/audit-catalog.mjs https://tonyciencia.com --json > audit.json || status=$?
+          node -e 'const r=require("./audit.json"); for (const i of r.issues) console.log(`${i.level === "error" ? "::error::" : "::warning::"}[${i.where}] ${i.msg}`)'
+          exit ${status:-0}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: market-audit
+          path: workers/market/audit.json
+          if-no-files-found: ignore

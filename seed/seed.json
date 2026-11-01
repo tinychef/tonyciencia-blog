@@ -10661,6 +10661,2733 @@
         "locale": "es"
       },
       {
+        "id": "post-herramientas-ia-videos-marketing-2026",
+        "slug": "herramientas-ia-videos-marketing-2026",
+        "status": "published",
+        "bylines": [
+          {
+            "byline": "byline-tony"
+          }
+        ],
+        "taxonomies": {
+          "category": [
+            "herramientas",
+            "ia"
+          ],
+          "tag": [
+            "tutorial",
+            "opinion"
+          ]
+        },
+        "data": {
+          "title": "Herramientas de IA para videos de marketing: guía 2026",
+          "excerpt": "Herramientas de IA para videos de marketing en 2026: qué hace cada una, precios verificados, pros y contras, y cuál elegir según tu cuello de botella.",
+          "featured_image": {
+            "$media": {
+              "url": "https://tonyciencia.com/assets/og-default.webp",
+              "alt": "Portada genérica de Tony Ciencia: un cerebro digital azul conectado a circuitos sobre fondo oscuro",
+              "filename": "herramientas-ia-videos-marketing-2026.webp"
+            }
+          },
+          "content": [
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "l0",
+                  "_type": "link",
+                  "href": "/legal/afiliados"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Transparencia: este artículo contiene enlaces de afiliado. Si compras o te registras a través de ellos, Tony Ciencia puede recibir una comisión sin costo extra para ti. SpecReel, una de las opciones, es un producto nuestro y lo indicamos donde aparece. Nada de esto cambia las críticas: los datos salen de las páginas oficiales de cada herramienta. ",
+                  "marks": [
+                    "em"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": "Más detalles",
+                  "marks": [
+                    "em",
+                    "l0"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": ".",
+                  "marks": [
+                    "em"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Si haces marketing, el video ya no es opcional. Lo difícil es producirlo cada semana sin un equipo de edición: grabar, cortar silencios, subtitular, sacar versiones verticales y conseguir planos que no puedes filmar. Esta guía de ",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "text": "herramientas de IA para videos de marketing",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " te dice cuál usar en cada etapa, cuánto cuesta (precios consultados el 1 de noviembre de 2026) y dónde se queda corta cada una.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "l0",
+                  "_type": "link",
+                  "href": "https://wyzowl.com/video-marketing-statistics/"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "El cambio ya es mayoritario. Según el informe ",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "text": "Video Marketing Statistics 2026 de Wyzowl",
+                  "marks": [
+                    "l0"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": ", el 91 % de las empresas usa video como herramienta de marketing y el 63 % de quienes hacen video ya usó herramientas de IA para crearlo o editarlo, frente al 51 % del año anterior. Es la encuesta anual de una empresa que vende videos, así que tómala como señal de tendencia y no como censo. Aun así, la dirección es clara: la IA dejó de ser un experimento en la producción de video.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Respuesta corta: qué herramienta elegir según tu caso",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Grabas tú (tutoriales, ventas, webinars) y odias editar:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " Descript.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Publicas a diario en TikTok, Reels o Shorts:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " CapCut.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Vendes productos online y quieres anuncios a partir del enlace de la tienda:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " Pippit.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Quieres pasar de un guion a un video armado dando instrucciones en lenguaje natural:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " InVideo AI.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Necesitas planos imposibles o caros de grabar (B-roll, producto en escena):",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " Kling 4.0.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Necesitas locución o doblaje sin grabar tu voz:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " ElevenLabs.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Tu contenido nace de entrevistas, podcasts o webinars con invitados:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " Riverside.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Trabajas con Claude Code o Codex y quieres explicativos 3D con tu marca:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " SpecReel (producto nuestro).",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Cómo armamos esta guía (y qué no hicimos)",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Revisamos la página oficial de cada herramienta (precios, planes y funciones) el 1 de noviembre de 2026 y enlazamos todas las fuentes al final. No hicimos pruebas de laboratorio ni medimos tiempos de render, así que aquí no vas a encontrar puntuaciones inventadas. Usamos cuatro criterios:",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Qué etapa del flujo resuelve:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " guion, material, edición, voz o distribución.",
+                  "marks": []
+                }
+              ],
+              "listItem": "number",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Control de marca:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " si puedes corregir el resultado o solo regenerarlo.",
+                  "marks": []
+                }
+              ],
+              "listItem": "number",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Costo predecible:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " si el plan gratis sirve de verdad, cómo funcionan los créditos y qué pasa cuando se acaban.",
+                  "marks": []
+                }
+              ],
+              "listItem": "number",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Uso comercial:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " si el plan que pagarías permite usar el resultado en anuncios.",
+                  "marks": []
+                }
+              ],
+              "listItem": "number",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Los precios cambian seguido y varias herramientas muestran ofertas o montos distintos según el país. Toma las cifras como referencia y confírmalas en la página de precios antes de pagar.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "El marco: las cuatro etapas de un video de marketing",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "La mayoría de las comparativas mezcla herramientas que hacen cosas muy distintas. Antes de elegir, ubica tu cuello de botella:",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Guion y estructura:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " el gancho de los primeros segundos, el mensaje y el llamado a la acción.",
+                  "marks": []
+                }
+              ],
+              "listItem": "number",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Material:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " lo que grabas (cámara, pantalla, entrevista) o lo que generas (B-roll con IA, avatares, escenas 3D).",
+                  "marks": []
+                }
+              ],
+              "listItem": "number",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Edición y versiones:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " cortes, subtítulos y formatos 9:16, 1:1, 4:5 y 16:9.",
+                  "marks": []
+                }
+              ],
+              "listItem": "number",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Voz y audio:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " locución, limpieza de sonido y doblaje.",
+                  "marks": []
+                }
+              ],
+              "listItem": "number",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Nuestra conclusión después de revisar estas plataformas: ",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "text": "generar material ya no es lo difícil; lo difícil es que cada pieza se vea y suene a tu marca",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": ". Por eso, en cada herramienta miramos cuánto control te deja sobre el resultado, no solo qué tan impresionante es la demo.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "1. Descript: edita el video como si editaras un documento",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Descript transcribe tu grabación y te deja editar el video editando el texto: borras una frase del transcript y desaparece del video. Su agente de IA, Underlord, promete convertir una grabación cruda en un corte ajustado en minutos, y suma funciones de un clic como Studio Sound (quita ruido de fondo y mejora la voz), eliminación de muletillas, corrección del contacto visual y creación de clips para redes.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "l0",
+                  "_type": "link",
+                  "href": "https://get.descript.com/oxm6ow5zw5nx"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Es la mejor opción de esta lista si ",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "text": "tú eres el talento",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": ": tutoriales, videos de ventas, clases o podcasts en video. Si quieres comprobarlo con tu propio material, ",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "text": "empieza con el plan gratis de Descript",
+                  "marks": [
+                    "l0"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": ".",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "l0",
+                  "_type": "link",
+                  "href": "https://help.descript.com/hc/en-us/articles/10249408168845-Supported-transcription-languages"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Lo mejor:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " la edición por texto baja mucho la curva de aprendizaje. Su página de precios indica transcripción en 25 idiomas en todos los planes, y su ",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "text": "centro de ayuda",
+                  "marks": [
+                    "l0"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " incluye el español.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Lo malo:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " el plan gratis exporta a 720p y con marca de agua, y las funciones de IA consumen créditos (100 por única vez en el plan gratis, 400 al mes en Hobbyist). No es la herramienta para generar escenas desde cero.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Precio:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " Hobbyist cuesta 24 dólares al mes (16 dólares al mes en pago anual), con 10 horas de material al mes y exportación en 1080p. Creator cuesta 35 dólares al mes (24 en pago anual), con 30 horas y 4K.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "2. CapCut: el editor para publicar en redes todos los días",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "CapCut se presenta como un editor de foto y video con IA \"para todos\" y funciona en escritorio, web y móvil. Para marketing destacan los subtítulos automáticos en varios idiomas, la eliminación del fondo de un video con un clic, las plantillas para promos y anuncios, y un generador que crea video a partir de texto, imágenes o fotogramas clave.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "l0",
+                  "_type": "link",
+                  "href": "https://capcutaffiliateprogram.pxf.io/c/6249333/1876054/22474"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Si tu calendario tiene varias piezas cortas por semana, es la opción más práctica para editar rápido desde el celular o la computadora. Puedes ",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "text": "probar CapCut Pro",
+                  "marks": [
+                    "l0"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": ": su página de precios menciona una prueba de 7 días sin tarjeta, sujeta a región, canal de pago y promociones.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Lo mejor:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " curva de aprendizaje mínima, plantillas pensadas para TikTok, Reels y anuncios, y la misma herramienta en todos tus dispositivos.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Lo malo:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " el plan gratis se limita a plantillas y herramientas básicas; las funciones de IA dependen de Pro y de sus créditos (1200 al mes). Y si todos usan las mismas plantillas, tu contenido termina pareciéndose al de todos.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Precio:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " Pro cuesta 19,99 dólares al mes o 179,99 al año; Ultra, 79 dólares al mes. La propia página aclara que son precios de referencia y que el definitivo aparece al iniciar sesión.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "3. Pippit: anuncios de producto a partir de un enlace",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Pippit es el agente creativo de la familia CapCut (\"Powered by CapCut\", dice su web). Su función estrella para e-commerce: le das un enlace, un archivo o tus recursos y genera videos con la proporción y la duración que elijas. También puede tomar como referencia el guion y la estructura de un video en tendencia, crear avatares digitales (incluido un \"gemelo\" tuyo) y programar publicaciones.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "l0",
+                  "_type": "link",
+                  "href": "https://pippit.pxf.io/c/6249333/2154561/27471"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Encaja si vendes productos y necesitas muchas variaciones de un anuncio para probar ganchos. ",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "text": "Prueba Pippit gratis",
+                  "marks": [
+                    "l0"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " antes de pagar: el plan gratuito no pide tarjeta y entrega créditos diarios.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Lo mejor:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " del enlace del producto al anuncio en pocos pasos, con publicación y analítica en el mismo lugar.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Lo malo:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " un video con avatar se siente genérico si no reescribes el guion, y la eliminación de la marca de agua figura como función de los planes de pago.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Precio:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " el plan Starter aparecía a 101 dólares al año, con 1575 créditos al mes, en la oferta vigente cuando lo revisamos; la página no muestra un precio mensual.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "4. InVideo AI: de la idea al video con un agente de edición",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "InVideo apuesta por que dirijas el video en lenguaje natural. Convierte un guion o una idea en un plan toma por toma, y su agente de edición ejecuta lo que le pides \"en palabras simples\" sobre una línea de tiempo multipista real; una sola instrucción puede aplicarse a todas las tomas. Integra modelos de generación de video e imagen (Seedance y Nano Banana Pro, entre otros), voces de ElevenLabs y Minimax, y material de stock premium.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "l0",
+                  "_type": "link",
+                  "href": "https://invideo.sjv.io/c/6249333/883681/12258"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Si piensas en guiones más que en líneas de tiempo, ",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "text": "InVideo AI",
+                  "marks": [
+                    "l0"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " es el atajo más directo de esta lista.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Lo mejor:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " el recorrido guion → storyboard → edición por instrucciones, con stock premium incluido (100 clips en Starter y 200 en Plus).",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Lo malo:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " todo funciona con créditos por puesto, y el modelo de video más potente que anuncian (Seedance 2.5) no está en el plan Starter. Calcula cuántos videos te alcanzan antes de comprometerte. Su página de precios no ofrece un plan gratuito.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Precio:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " Starter cuesta 10 dólares al mes por puesto en pago anual (400 créditos); Plus, 30 dólares al mes en pago anual (2000 créditos); Max, 250 dólares al mes (8000 créditos).",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "5. Kling 4.0: planos que no puedes (o no conviene) grabar",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "l0",
+                  "_type": "link",
+                  "href": "https://bernama.com/en/press/news.php?id=2622471"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Kling es el generador de video de Kuaishou Technology. Según el ",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "text": "anuncio de la compañía",
+                  "marks": [
+                    "l0"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": ", la versión 4.0 se lanzó oficialmente el 15 de octubre de 2026 con generación nativa de hasta 30 segundos en una sola pasada y mejor continuidad en escenas de acción rápida y movimientos de cámara complejos. Su web la presenta como un modelo \"audiovisual\" orientado al realismo.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "l0",
+                  "_type": "link",
+                  "href": "https://klingaiaffiliate.pxf.io/c/6249333/2780725/31828"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "En marketing, su lugar no es reemplazar tu video principal sino ",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "text": "producir B-roll",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": ": el producto en un escenario, una escena de contexto, una transición llamativa para un anuncio. ",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "text": "Prueba Kling",
+                  "marks": [
+                    "l0"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " con un plano concreto en mente, no con una idea vaga.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Lo mejor:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " movimiento y cámara para planos cortos, y 30 segundos por generación, que alcanzan para una escena completa.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Lo malo:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " revisa con lupa logos, textos y detalles del producto, porque en video generado son lo primero que se nota y pueden exigir varias generaciones. Si la escena es realista, en YouTube puede requerir la etiqueta de contenido sintético (más abajo te explicamos cuándo).",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Precio:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " su página principal no muestra precios; consúltalos dentro de la plataforma. También puedes usar el modelo desde agregadores como Higgsfield, cuya web lista Kling 4.0 junto a otros modelos.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "6. ElevenLabs: voz, clonación y doblaje",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Si no quieres (o no puedes) grabar tu voz, ElevenLabs es la referencia en texto a voz. Su biblioteca supera las 17 500 voces, te deja clonar la tuya o diseñar una a partir de una descripción, y su doblaje v2 busca conservar la emoción y la interpretación del hablante original en cada idioma.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "l0",
+                  "_type": "link",
+                  "href": "https://try.elevenlabs.io/8w0jtxk54bd0"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Para locuciones de anuncios, explicativos o versiones en otros idiomas de un mismo video, ",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "text": "prueba ElevenLabs",
+                  "marks": [
+                    "l0"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " con el plan gratis y pasa a uno de pago cuando vayas a publicar.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Lo mejor:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " variedad de voces, clonación y doblaje en una sola plataforma; además, otras herramientas lo usan como motor de voz (InVideo lo integra).",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Lo malo:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " la licencia comercial aparece desde el plan Starter, no en el gratuito. Y clonar la voz de otra persona sin su consentimiento es un problema legal y ético.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Precio:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " el plan gratis incluye 10 000 créditos al mes (unos 10 minutos de voz); Starter cuesta 6 dólares al mes con licencia comercial, y Creator 22 dólares al mes (11 el primer mes) con clonación profesional.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "7. Riverside: cuando tu contenido nace de entrevistas",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Riverside graba a cada participante en local, con video de hasta 4K y audio sin comprimir en pistas separadas, sin depender de la conexión a internet. Después editas desde el transcript, quitas muletillas, corriges el contacto visual y conviertes una grabación larga en clips con IA (Magic Clips).",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "l0",
+                  "_type": "link",
+                  "href": "https://riverside.partnerlinks.io/g2uvgfdtrza4"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Si haces podcasts, entrevistas con clientes o webinars, ",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "text": "Riverside",
+                  "marks": [
+                    "l0"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " evita el problema más caro: una grabación remota que se ve y se escucha mal, y que ninguna edición arregla.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Lo mejor:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " calidad desde el origen; una sola sesión alimenta el episodio completo y varios clips para redes.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Lo malo:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " el plan gratis ofrece 2 horas de prueba, hasta 720p y con marca de agua. Para contenido de una sola persona frente a la cámara, Descript o CapCut alcanzan.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Precio:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " Pro cuesta 29 dólares al mes (24 en pago anual), con 5 horas de grabación al mes y hasta 4K. Su página de precios mostraba un aviso de que podía no estar actualizada, así que confírmalo antes de pagar.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "8. SpecReel: explicativos 3D narrados desde Claude Code o Codex",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "l0",
+                  "_type": "link",
+                  "href": "/market/producto/specreel"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Aquí cambiamos de categoría, y lo decimos claro: ",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "text": "SpecReel",
+                  "marks": [
+                    "l0"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " es un producto de Tony Ciencia que vendemos en Market Tony. No es una app web sino una ",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "text": "skill",
+                  "marks": [
+                    "em"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " para Claude Code y Codex: le pides un video sobre un tema y tu agente planifica el guion, genera la narración, construye las escenas 3D y renderiza un MP4 terminado con subtítulos tipo karaoke, música y archivo .srt.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Tiene sentido si ya trabajas con uno de esos agentes y necesitas explicativos, lanzamientos de producto o historias con datos que respeten tu kit de marca (desde tu logo o tus colores HEX), en 9:16, 1:1, 4:5 o 16:9. La cámara usa 16 movimientos y 8 transiciones sincronizados con cada palabra de la narración.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Lo mejor:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " corre en tu computador (Windows, macOS o Linux) y no cobra por video. Con voces locales solo pagas el uso de tu agente, o puedes usar voces de estudio (Fish Audio, ElevenLabs) con tu propia clave. Es un pago único, sin suscripción.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Lo malo:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " necesitas Claude Code o Codex y correr algunos comandos en la terminal para instalarlo (Node.js, Python y ffmpeg, que configura su instalador). No está pensado para video con personas: lo que produce son escenas 3D animadas.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Garantía:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " 14 días. Si no logras renderizar el demo incluido en un sistema compatible después de que intentemos ayudarte, te devolvemos el dinero.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "l0",
+                  "_type": "link",
+                  "href": "/posts/focusee-grabador-pantalla-ia"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Una mención aparte: si tu material principal son grabaciones de pantalla (demos de software, tutoriales), revisa nuestra ",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "text": "guía de FocuSee",
+                  "marks": [
+                    "l0"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": ", un grabador que aplica zooms y edición automática.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Comparativa rápida de las 8 herramientas",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Descript.",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " Etapa: edición y audio. Gratis: sí, 720p con marca de agua. Desde: 16 dólares al mes en pago anual. Ojo con: los créditos de IA.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "CapCut.",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " Etapa: edición y versiones para redes. Gratis: sí, edición básica. Desde: 19,99 dólares al mes. Ojo con: la IA está en Pro.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Pippit.",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " Etapa: anuncios de producto. Gratis: sí, con créditos diarios. Desde: 101 dólares al año. Ojo con: los avatares genéricos.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "InVideo AI.",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " Etapa: guion a video. Gratis: no figura en su página de precios. Desde: 10 dólares al mes por puesto en pago anual. Ojo con: los modelos premium fuera de Starter.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Kling 4.0.",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " Etapa: material generado. Precio: dentro de la plataforma. Ojo con: logos, textos y detalles del producto.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "ElevenLabs.",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " Etapa: voz y doblaje. Gratis: sí, unos 10 minutos al mes. Desde: 6 dólares al mes. Ojo con: la licencia comercial y el consentimiento al clonar.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Riverside.",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " Etapa: grabación remota. Gratis: 2 horas, 720p y marca de agua. Desde: 24 dólares al mes en pago anual. Ojo con: es demasiado para videos en solitario.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "SpecReel.",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " Etapa: material y edición en 3D. Pago único. Ojo con: requiere Claude Code o Codex.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Un flujo real: de una idea a cinco piezas en una semana",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Supongamos que lanzas un servicio y necesitas un video principal para YouTube y cuatro piezas cortas. Así repartiríamos el trabajo:",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "l0",
+                  "_type": "link",
+                  "href": "/market/producto/anuncios-infinitos"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Guion:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " escribe el mensaje, tres ganchos alternativos y un único llamado a la acción. Si quieres ayuda con la estrategia, ",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "text": "Anuncios Infinitos",
+                  "marks": [
+                    "l0"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": ", también nuestro, investiga tu negocio y entrega textos y prompts de anuncios, y guiones 9:16 si se los pides.",
+                  "marks": []
+                }
+              ],
+              "listItem": "number",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Grabación:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " tú a cámara, o una entrevista con Riverside; si es una demo de software, un grabador de pantalla.",
+                  "marks": []
+                }
+              ],
+              "listItem": "number",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Edición del video principal",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " en Descript: corte por texto, Studio Sound y muletillas fuera.",
+                  "marks": []
+                }
+              ],
+              "listItem": "number",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "B-roll",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " con Kling solo para los dos o tres planos que no puedes grabar.",
+                  "marks": []
+                }
+              ],
+              "listItem": "number",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Versiones cortas",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " en CapCut, con subtítulos automáticos y formato vertical; o, si el tema es explicativo, un video 3D con SpecReel.",
+                  "marks": []
+                }
+              ],
+              "listItem": "number",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "l0",
+                  "_type": "link",
+                  "href": "/posts/demand-gen-reemplazo-video-action-campaigns-guia-2026"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Distribución y pauta:",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " sube el principal a YouTube y, si vas a invertir en anuncios, revisa cómo funcionan hoy las campañas de video de Google en nuestra ",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "text": "guía de Demand Gen",
+                  "marks": [
+                    "l0"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": ".",
+                  "marks": []
+                }
+              ],
+              "listItem": "number",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "No necesitas las ocho herramientas. Para empezar alcanza con dos: una para editar lo que grabas y otra para la voz o el material que te falta.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Errores comunes al hacer videos de marketing con IA",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Generar antes de tener guion.",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " La IA multiplica lo que le das: sin un gancho y un llamado a la acción claros, multiplica relleno.",
+                  "marks": []
+                }
+              ],
+              "listItem": "number",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Revisar la licencia después.",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " Antes de usar algo en un anuncio, confirma que tu plan incluye uso comercial; en ElevenLabs, por ejemplo, aparece desde Starter.",
+                  "marks": []
+                }
+              ],
+              "listItem": "number",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Publicar subtítulos sin revisarlos.",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " Repasa siempre nombres de marca, cifras y términos técnicos en los subtítulos automáticos antes de publicar.",
+                  "marks": []
+                }
+              ],
+              "listItem": "number",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "l0",
+                  "_type": "link",
+                  "href": "https://support.google.com/youtube/answer/14328491"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Olvidar la etiqueta de contenido sintético.",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " ",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "text": "YouTube exige declarar",
+                  "marks": [
+                    "l0"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " el contenido realista generado o alterado con IA (por ejemplo, una escena realista que no ocurrió), pero no los subtítulos, los guiones asistidos ni los ajustes estéticos. Quien no lo declara de forma reiterada puede recibir sanciones, incluida la eliminación del contenido.",
+                  "marks": []
+                }
+              ],
+              "listItem": "number",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Medir vistas en lugar de resultados.",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": " Mide retención, clics y conversiones por pieza; con eso decides qué herramienta merece tu presupuesto.",
+                  "marks": []
+                }
+              ],
+              "listItem": "number",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Conclusión: empieza por tu cuello de botella",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Las herramientas de IA para videos de marketing ya cubren cada etapa, del guion al doblaje. El error es comprar la más vistosa. Identifica qué te frena hoy (editar, conseguir material o la voz) y empieza por una sola herramienta con plan gratis o prueba.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "l0",
+                  "_type": "link",
+                  "href": "/market/producto/specreel"
+                },
+                {
+                  "_key": "l1",
+                  "_type": "link",
+                  "href": "/contacto"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Si tu cuello de botella es editar lo que grabas, empieza por Descript. Si es publicar a diario en redes, por CapCut. Si es producir explicativos con tu marca y ya usas Claude Code o Codex, mira ",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "text": "SpecReel en Market Tony",
+                  "marks": [
+                    "l0"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": ". Y si prefieres que te ayudemos a diseñar el flujo completo para tu negocio, ",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "text": "escríbenos",
+                  "marks": [
+                    "l1"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "text": ".",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Preguntas frecuentes",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "¿Cuál es la mejor herramienta de IA para editar videos gratis?",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Depende de lo que edites. CapCut tiene un plan gratuito con plantillas y edición básica, y Descript permite editar por texto gratis, con exportación a 720p y marca de agua. Para la voz, ElevenLabs da unos 10 minutos al mes sin pagar. Para publicar sin marca de agua tendrás que pasar a un plan de pago.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "¿Puedo usar videos hechos con IA en anuncios?",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Sí, si el plan que usas incluye licencia comercial y respetas las políticas de cada plataforma. En YouTube debes declarar el contenido realista generado o alterado con IA; no hace falta para subtítulos, guiones asistidos o ajustes estéticos. Revisa también los derechos de la música, las voces y las personas que aparezcan.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "¿Qué diferencia hay entre generar y editar video con IA?",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Editar con IA trabaja sobre material que ya grabaste: cortar por texto, quitar muletillas, subtitular o sacar clips, como hacen Descript, CapCut o Riverside. Generar crea material nuevo a partir de texto o imágenes, como Kling. La mayoría de los videos de marketing combina ambas cosas: grabas lo principal y generas solo los planos que no puedes filmar.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "¿Necesito saber editar video para usar estas herramientas?",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "No para empezar. Descript se edita como un documento de texto, CapCut tiene plantillas y el agente de InVideo acepta instrucciones en lenguaje natural. Lo que sí necesitas es un guion claro: la IA acelera la producción, pero no decide qué decir.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "¿Cuánto cuesta armar un kit de video con IA?",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Con los precios publicados el 1 de noviembre de 2026, un kit básico con Descript Hobbyist en pago anual (16 dólares al mes), ElevenLabs Starter (6 dólares) y CapCut Pro (19,99 dólares) suma unos 42 dólares al mes. Puedes empezar en cero con los planes gratuitos y pagar solo cuando publiques de forma constante.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "¿Qué herramienta conviene si uso Claude Code o Codex?",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Si ya trabajas con uno de esos agentes, SpecReel, un producto de Tony Ciencia, convierte un tema en un video 3D narrado con subtítulos y música, en tu computador y con pago único. Para editar grabaciones de cámara o de pantalla sigue siendo mejor un editor como Descript o CapCut.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Fuentes consultadas (1 de noviembre de 2026)",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "l0",
+                  "_type": "link",
+                  "href": "https://wyzowl.com/video-marketing-statistics/"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Wyzowl: Video Marketing Statistics 2026",
+                  "marks": [
+                    "l0"
+                  ]
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "l0",
+                  "_type": "link",
+                  "href": "https://www.descript.com/pricing"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Descript: precios y planes",
+                  "marks": [
+                    "l0"
+                  ]
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "l0",
+                  "_type": "link",
+                  "href": "https://www.capcut.com/pricing"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "CapCut: precios y planes",
+                  "marks": [
+                    "l0"
+                  ]
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "l0",
+                  "_type": "link",
+                  "href": "https://www.pippit.ai/pricing"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Pippit: precios y planes",
+                  "marks": [
+                    "l0"
+                  ]
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "l0",
+                  "_type": "link",
+                  "href": "https://invideo.io/pricing"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "InVideo: precios y planes",
+                  "marks": [
+                    "l0"
+                  ]
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "l0",
+                  "_type": "link",
+                  "href": "https://bernama.com/en/press/news.php?id=2622471"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Kuaishou: lanzamiento de Kling 4.0, vía Bernama",
+                  "marks": [
+                    "l0"
+                  ]
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "l0",
+                  "_type": "link",
+                  "href": "https://kling.ai/"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Kling AI: sitio oficial",
+                  "marks": [
+                    "l0"
+                  ]
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "l0",
+                  "_type": "link",
+                  "href": "https://elevenlabs.io/pricing"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "ElevenLabs: precios y planes",
+                  "marks": [
+                    "l0"
+                  ]
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "l0",
+                  "_type": "link",
+                  "href": "https://riverside.com/pricing"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Riverside: precios y planes",
+                  "marks": [
+                    "l0"
+                  ]
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "l0",
+                  "_type": "link",
+                  "href": "https://support.google.com/youtube/answer/14328491"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "YouTube: divulgación de contenido alterado o sintético",
+                  "marks": [
+                    "l0"
+                  ]
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            }
+          ],
+          "schema_type": "BlogPosting",
+          "key_entities": "Descript, Underlord, CapCut, Pippit, InVideo AI, Kling 4.0, Kuaishou, ElevenLabs, Riverside, SpecReel, Market Tony, Claude Code, Codex, Wyzowl, YouTube, video marketing, B-roll, subtítulos automáticos, texto a voz, doblaje con IA",
+          "keywords": [
+            "herramientas de IA para videos de marketing",
+            "editar videos con IA",
+            "crear videos con IA",
+            "IA para video marketing 2026",
+            "Descript",
+            "CapCut",
+            "Kling 4.0",
+            "ElevenLabs"
+          ],
+          "image_prompt": "Editorial tech thumbnail 16:9 for a 2026 guide to AI video tools for marketing: a laptop showing a video timeline with vertical 9:16 clips, an audio waveform and subtitle blocks, amber (#c8922a) accents on a dark background, retro pixel dot texture, hard 3px corners, solid offset pixel shadows, no glassmorphism, no text, no logos. --ar 16:9",
+          "faq_items": [
+            {
+              "_type": "block",
+              "style": "h3",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "¿Cuál es la mejor herramienta de IA para editar videos gratis?",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Depende de lo que edites. CapCut tiene un plan gratuito con plantillas y edición básica, y Descript permite editar por texto gratis, con exportación a 720p y marca de agua. Para la voz, ElevenLabs da unos 10 minutos al mes sin pagar. Para publicar sin marca de agua tendrás que pasar a un plan de pago.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "¿Puedo usar videos hechos con IA en anuncios?",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Sí, si el plan que usas incluye licencia comercial y respetas las políticas de cada plataforma. En YouTube debes declarar el contenido realista generado o alterado con IA; no hace falta para subtítulos, guiones asistidos o ajustes estéticos. Revisa también los derechos de la música, las voces y las personas que aparezcan.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "¿Qué diferencia hay entre generar y editar video con IA?",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Editar con IA trabaja sobre material que ya grabaste: cortar por texto, quitar muletillas, subtitular o sacar clips, como hacen Descript, CapCut o Riverside. Generar crea material nuevo a partir de texto o imágenes, como Kling. La mayoría de los videos de marketing combina ambas cosas: grabas lo principal y generas solo los planos que no puedes filmar.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "¿Necesito saber editar video para usar estas herramientas?",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "No para empezar. Descript se edita como un documento de texto, CapCut tiene plantillas y el agente de InVideo acepta instrucciones en lenguaje natural. Lo que sí necesitas es un guion claro: la IA acelera la producción, pero no decide qué decir.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "¿Cuánto cuesta armar un kit de video con IA?",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Con los precios publicados el 1 de noviembre de 2026, un kit básico con Descript Hobbyist en pago anual (16 dólares al mes), ElevenLabs Starter (6 dólares) y CapCut Pro (19,99 dólares) suma unos 42 dólares al mes. Puedes empezar en cero con los planes gratuitos y pagar solo cuando publiques de forma constante.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "h3",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "¿Qué herramienta conviene si uso Claude Code o Codex?",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Si ya trabajas con uno de esos agentes, SpecReel, un producto de Tony Ciencia, convierte un tema en un video 3D narrado con subtítulos y música, en tu computador y con pago único. Para editar grabaciones de cámara o de pantalla sigue siendo mejor un editor como Descript o CapCut.",
+                  "marks": []
+                }
+              ]
+            }
+          ],
+          "external_id": "content-agent:es:herramientas-ia-videos-marketing-2026",
+          "source": "claude-content-affiliate-manager"
+        },
+        "published_at": "2026-11-01T09:00:00",
+        "locale": "es"
+      },
+      {
         "id": "post-n8n-automatizacion-2026",
         "slug": "n8n-automatizacion-negocios-guia-2026",
         "status": "published",

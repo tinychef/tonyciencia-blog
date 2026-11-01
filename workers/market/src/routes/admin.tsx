@@ -4,6 +4,7 @@ import { deps, type AppEnv, type Ctx } from "../context";
 import { hit, RATE_RULES } from "../lib/ratelimit";
 import { checkCsrf } from "../lib/session";
 import { cleanLine, cleanText, isId, isSlug, parseIntInRange, parseUsdToCents, safeFileName } from "../lib/validate";
+import { STRIPE_MAX_CENTS, STRIPE_MIN_CENTS, parseBuyerAmount } from "../lib/pricing";
 import { retryEmail, sendOne, type OutboxRow } from "../services/outbox";
 import { CATEGORIES, HEX_COLOR_RE, YOUTUBE_ID_RE } from "../lib/catalog";
 import {
@@ -78,6 +79,9 @@ async function saveProduct(c: Ctx, existing: Product | null, form: FormData): Pr
 		slug: str("slug"),
 		kind: str("kind"),
 		price: str("price"),
+		price_mode: str("price_mode"),
+		min_price: str("min_price"),
+		max_price: str("max_price"),
 		summary: str("summary"),
 		description: str("description"),
 		download_limit: str("download_limit"),
@@ -112,6 +116,21 @@ async function saveProduct(c: Ctx, existing: Product | null, form: FormData): Pr
 		const p = parseUsdToCents(values.price);
 		if (p === null || p < 50 || p > 1_000_000) errors.push("Precio inválido: usa un número como 77 o 77.50 (mínimo 0.50, máximo 10000).");
 		else priceCents = p;
+	}
+	// "Paga lo que quieras": price_cents = sugerido; mínimo 0 (gratis posible) o ≥ 0.50; máximo ≤ tope de Stripe.
+	const priceMode = kind === "paid" && values.price_mode === "pwyw" ? "pwyw" : "fixed";
+	let minPriceCents = 0;
+	let maxPriceCents: number | null = null;
+	if (priceMode === "pwyw") {
+		const mn = parseBuyerAmount(values.min_price.trim() || "0");
+		if (mn === null || (mn > 0 && mn < STRIPE_MIN_CENTS) || mn > STRIPE_MAX_CENTS) errors.push("Mínimo inválido: usa 0 (gratis) o un monto desde 0.50.");
+		else minPriceCents = mn;
+		if (values.max_price.trim()) {
+			const mx = parseBuyerAmount(values.max_price);
+			if (mx === null || mx < Math.max(STRIPE_MIN_CENTS, minPriceCents) || mx > STRIPE_MAX_CENTS) errors.push("Máximo inválido: debe ser mayor que el mínimo y no pasar de 999999.99.");
+			else maxPriceCents = mx;
+		}
+		if (priceCents < minPriceCents || (maxPriceCents !== null && priceCents > maxPriceCents)) errors.push("El precio sugerido debe estar entre el mínimo y el máximo.");
 	}
 	const summary = cleanLine(values.summary, 300);
 	if (summary === null) errors.push("El resumen es demasiado largo (máx. 300).");
@@ -231,9 +250,12 @@ async function saveProduct(c: Ctx, existing: Product | null, form: FormData): Pr
 		JSON.stringify(specs),
 		JSON.stringify(faq),
 		videoId,
-		kind === "paid" ? compareAt : null,
+		kind === "paid" && priceMode === "fixed" ? compareAt : null,
 		availability,
 		salesOffset,
+		priceMode,
+		minPriceCents,
+		maxPriceCents,
 	];
 	try {
 		if (existing) {
@@ -242,7 +264,8 @@ async function saveProduct(c: Ctx, existing: Product | null, form: FormData): Pr
 					`UPDATE products SET slug = ?2, title = ?3, summary = ?4, description = ?5, price_cents = ?6, kind = ?7, images = ?8,
 					   file_key = ?9, file_name = ?10, file_size = ?11, download_limit = ?12, active = ?13, sort_order = ?14, updated_at = ?15,
 					   tagline = ?16, category = ?17, tags = ?18, badge = ?19, accent = ?20, meta_title = ?21, meta_description = ?22,
-					   highlights = ?23, specs = ?24, faq = ?25, video_id = ?26, compare_at_cents = ?27, availability = ?28, sales_offset = ?29
+					   highlights = ?23, specs = ?24, faq = ?25, video_id = ?26, compare_at_cents = ?27, availability = ?28, sales_offset = ?29,
+					   price_mode = ?30, min_price_cents = ?31, max_price_cents = ?32
 					 WHERE id = ?1`,
 				)
 				.bind(productId, slug, title, summary, description, priceCents, kind, JSON.stringify(images), fileKey, fileName, fileSize, downloadLimit, wantsActive ? 1 : 0, sortOrder, now, ...merch)
@@ -252,9 +275,10 @@ async function saveProduct(c: Ctx, existing: Product | null, form: FormData): Pr
 				.prepare(
 					`INSERT INTO products (id, slug, title, summary, description, price_cents, currency, kind, images, file_key, file_name, file_size,
 					   download_limit, active, sort_order, created_at, updated_at,
-					   tagline, category, tags, badge, accent, meta_title, meta_description, highlights, specs, faq, video_id, compare_at_cents, availability, sales_offset)
+					   tagline, category, tags, badge, accent, meta_title, meta_description, highlights, specs, faq, video_id, compare_at_cents, availability, sales_offset,
+					   price_mode, min_price_cents, max_price_cents)
 					 VALUES (?1, ?2, ?3, ?4, ?5, ?6, 'usd', ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, ?15,
-					   ?16, ?17, ?18, ?19, ?20, ?21, ?22, ?23, ?24, ?25, ?26, ?27, ?28, ?29)`,
+					   ?16, ?17, ?18, ?19, ?20, ?21, ?22, ?23, ?24, ?25, ?26, ?27, ?28, ?29, ?30, ?31, ?32)`,
 				)
 				.bind(productId, slug, title, summary, description, priceCents, kind, JSON.stringify(images), fileKey, fileName, fileSize, downloadLimit, wantsActive ? 1 : 0, sortOrder, now, ...merch)
 				.run();

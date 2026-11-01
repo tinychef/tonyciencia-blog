@@ -4,7 +4,9 @@ import type { Config } from "../config";
 import { signToken } from "../lib/crypto";
 import { adminCopyEmail, deliveryEmail } from "./email-templates";
 import { outboxInsert, type EmailDraft } from "./outbox";
-import { getActiveEntitlement, getOrder, getUserById, type OrderRow, type Product, type User } from "./repo";
+import { formatPrice } from "../lib/money";
+import { STRIPE_MIN_CENTS, canBeFree, isPwyw, pwywBounds, saleInfo } from "../lib/pricing";
+import { countPaidOrders, getActiveEntitlement, getOrder, getUserById, type OrderRow, type Product, type User } from "./repo";
 
 export interface Deps {
 	db: D1Database;
@@ -53,22 +55,60 @@ async function deliveryDrafts(
 
 export type CheckoutResult =
 	| { ok: true; redirectUrl: string; orderId: string }
-	| { ok: false; reason: "not_found" | "already_owned" | "provider_error" | "invalid_coupon" };
+	| {
+			ok: false;
+			reason: "not_found" | "already_owned" | "provider_error" | "invalid_coupon" | "welcome_not_first" | "coupon_not_allowed" | "invalid_amount";
+	  };
+
+export interface CheckoutOptions {
+	couponCode?: string | null;
+	/**
+	 * Solo "paga lo que quieras": monto en centavos YA validado en el servidor con `checkBuyerAmount`
+	 * (≥ 0.50 y dentro del mínimo/máximo del producto). En precio fijo se ignora: el monto sale de la BD.
+	 */
+	amountCents?: number | null;
+}
+
+/** Texto bajo el nombre del producto en la página de pago de Stripe (oferta real o monto elegido). */
+function checkoutDescription(product: Product, amountCents: number): string | null {
+	if (isPwyw(product)) return `Paga lo que quieras: elegiste ${formatPrice(amountCents, product.currency)}. Descarga inmediata.`;
+	const sale = saleInfo(product);
+	if (sale) {
+		return `OFERTA −${sale.percent} %: antes ${formatPrice(sale.wasCents, product.currency)}, ahora ${formatPrice(product.price_cents, product.currency)}. Descarga inmediata.`;
+	}
+	return "Producto digital · Descarga inmediata.";
+}
 
 /**
- * Crea el pedido y la sesión de pago. El precio sale SIEMPRE de `product` (leído de la BD por slug
- * en el servidor). Esta función no recibe ningún dato de precio del navegador.
+ * Crea el pedido y la sesión de pago. En precio fijo el monto sale SIEMPRE de `product` (leído de la BD por slug
+ * en el servidor). En "paga lo que quieras" sale de `opts.amountCents`, que la ruta valida contra los límites del
+ * producto y de Stripe; el webhook después exige que lo cobrado coincida con ese monto.
  */
-export async function startCheckout(deps: Deps, user: User, product: Product, couponCode?: string | null): Promise<CheckoutResult> {
+export async function startCheckout(deps: Deps, user: User, product: Product, opts: CheckoutOptions = {}): Promise<CheckoutResult> {
 	const { db, config, adapters } = deps;
 	// "Próximamente": visible en la tienda, pero nunca se cobra (no hay archivo que entregar).
 	if (product.kind !== "paid" || product.active !== 1 || product.availability === "coming_soon") return { ok: false, reason: "not_found" };
 	if (await getActiveEntitlement(db, user.id, product.id)) return { ok: false, reason: "already_owned" };
 
+	const pwyw = isPwyw(product);
+	let amountCents = product.price_cents;
+	if (pwyw) {
+		const a = opts.amountCents;
+		const { min, max } = pwywBounds(product);
+		if (typeof a !== "number" || !Number.isSafeInteger(a) || a < STRIPE_MIN_CENTS || a < min || a > max) return { ok: false, reason: "invalid_amount" };
+		amountCents = a;
+	}
+
 	// Cupón opcional: se valida ANTES de crear el pedido. Si el proveedor no lo acepta, no se cobra nada.
 	let promotionCodeId: string | null = null;
-	const code = couponCode?.trim();
+	const code = opts.couponCode?.trim();
 	if (code) {
+		// En "paga lo que quieras" el comprador ya elige el precio: no se combinan cupones.
+		if (pwyw) return { ok: false, reason: "coupon_not_allowed" };
+		// El cupón de bienvenida vale solo para la primera compra pagada de esta persona en el market.
+		if (config.welcomeCoupon && code.toUpperCase() === config.welcomeCoupon.toUpperCase() && (await countPaidOrders(db, user.id)) > 0) {
+			return { ok: false, reason: "welcome_not_first" };
+		}
 		const resolved = adapters.payments.resolvePromotionCode ? await adapters.payments.resolvePromotionCode(code).catch(() => null) : null;
 		if (!resolved) return { ok: false, reason: "invalid_coupon" };
 		promotionCodeId = resolved.id;
@@ -78,17 +118,20 @@ export async function startCheckout(deps: Deps, user: User, product: Product, co
 	const now = Date.now();
 	await db
 		.prepare(
-			`INSERT INTO orders (id, user_id, product_id, kind, status, amount_cents, currency, provider, customer_email, created_at, updated_at)
-			 VALUES (?1, ?2, ?3, 'paid', 'pending', ?4, ?5, ?6, ?7, ?8, ?8)`,
+			`INSERT INTO orders (id, user_id, product_id, kind, status, amount_cents, currency, provider, customer_email, note, created_at, updated_at)
+			 VALUES (?1, ?2, ?3, 'paid', 'pending', ?4, ?5, ?6, ?7, ?8, ?9, ?9)`,
 		)
-		.bind(orderId, user.id, product.id, product.price_cents, product.currency, adapters.payments.name, user.email, now)
+		.bind(orderId, user.id, product.id, amountCents, product.currency, adapters.payments.name, user.email, pwyw ? "Paga lo que quieras" : null, now)
 		.run();
 	try {
+		const cover = product.images[0]?.src;
 		const session = await adapters.payments.createCheckout({
 			orderId,
 			productId: product.id,
 			productTitle: product.title,
-			amountCents: product.price_cents,
+			productDescription: checkoutDescription(product, amountCents),
+			productImageUrl: cover ? new URL(cover, config.origin).toString() : null,
+			amountCents,
 			currency: product.currency,
 			customerEmail: user.email,
 			promotionCodeId,
@@ -256,9 +299,13 @@ async function findOrderForSession(db: D1Database, orderId: string | null, sessi
 
 export type ClaimResult = { ok: true; entitlementId: string; created: boolean; orderId: string } | { ok: false; reason: "not_found" };
 
+/**
+ * Entrega sin cobro: productos gratis y "paga lo que quieras" cuando el comprador elige USD 0 y el mínimo lo permite.
+ * Nunca pasa por el proveedor de pagos.
+ */
 export async function claimFreeProduct(deps: Deps, user: User, product: Product): Promise<ClaimResult> {
 	const { db, config } = deps;
-	if (product.kind !== "free" || product.active !== 1 || product.availability === "coming_soon") return { ok: false, reason: "not_found" };
+	if (!canBeFree(product) || product.active !== 1 || product.availability === "coming_soon") return { ok: false, reason: "not_found" };
 	const existing = await getActiveEntitlement(db, user.id, product.id);
 	if (existing) return { ok: true, entitlementId: existing.id, created: false, orderId: existing.order_id };
 

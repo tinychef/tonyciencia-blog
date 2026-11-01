@@ -11,7 +11,7 @@
 // En maqueta (local/preview) los productos usan los archivos de PRUEBA incluidos en el código.
 // En live (staging/production) se sube el PDF de ejemplo del producto gratis a R2 y el producto de pago
 // queda INACTIVO y sin archivo hasta que se suba el ZIP real (HANDOFF.md, paso 5).
-import { mkdtempSync, writeFileSync } from "node:fs";
+import { mkdtempSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
@@ -115,7 +115,18 @@ ON CONFLICT(slug) DO NOTHING;`,
 	"\n" +
 	Object.entries(MERCH).map(([slug, m]) => merchUpdateSql(slug, m)).join("\n") +
 	"\n" +
-	Object.entries(COVERS).map(([slug, images]) => prependImagesSql(slug, images)).join("\n");
+	Object.entries(COVERS).map(([slug, images]) => prependImagesSql(slug, images)).join("\n") +
+	"\n" +
+	// v3: ofertas (mismas sentencias con guarda de la migración 0004) y, en local/maqueta, productos nuevos con un
+	// archivo de prueba para poder probar "paga lo que quieras" y la compra sin subir los ZIP reales.
+	readFileSync(join(root, "migrations/0004_precios_flexibles.sql"), "utf8")
+		.split("\n")
+		.filter((l) => !l.startsWith("ALTER TABLE"))
+		.join("\n") +
+	(live
+		? ""
+		: `\nUPDATE products SET availability = 'available', file_key = 'mock/anuncios-infinitos-PRUEBA.zip', file_name = slug || '-PRUEBA.zip'
+WHERE slug IN ('pagespeed-forensics', 'specreel-stick') AND file_key IS NULL;`);
 
 const dir = mkdtempSync(join(tmpdir(), "market-seed-"));
 const file = join(dir, "seed.sql");

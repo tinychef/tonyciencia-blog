@@ -21,7 +21,9 @@ data.db-journal
 
 # Development artifacts
 INUTIL/
-.claude/
+.claude/*
+!.claude/agents/
+!.claude/skills/
 .firecrawl/
 cookies.txt
 

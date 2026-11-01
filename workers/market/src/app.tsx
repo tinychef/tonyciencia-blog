@@ -9,6 +9,7 @@ import { registerAuth } from "./routes/auth";
 import { registerDev } from "./routes/dev";
 import { registerDownloads } from "./routes/downloads";
 import { registerPayments } from "./routes/payments";
+import { registerProvision } from "./routes/provision";
 import { registerShop } from "./routes/shop";
 import { renderMessage } from "./views/render";
 
@@ -93,6 +94,7 @@ export function createApp() {
 	registerAuth(app);
 	registerPayments(app);
 	registerDownloads(app);
+	registerProvision(app);
 	registerAdmin(app);
 	registerDev(app);
 
