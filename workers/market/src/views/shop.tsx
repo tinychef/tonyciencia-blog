@@ -417,7 +417,7 @@ export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query, 
 					</a>
 					{deals.length > 0 && (
 						<a href={keep({ filtro: "ofertas" })} class="mk3-pill" aria-current={filter === "ofertas" ? "true" : undefined} data-quick="ofertas">
-							🔥 Ofertas
+							Ofertas
 						</a>
 					)}
 					{freeCount > 0 && (
@@ -840,7 +840,7 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 								<span class="mk-muted">{soon ? "En desarrollo" : product.kind === "free" ? "Recurso gratis" : "Producto digital · Descarga inmediata"}</span>
 							</div>
 							<div class={`tc-card mk-buybox2 mk3-buybox ${sale && !soon ? "is-sale" : ""}`} id="comprar">
-								{sale && !soon && <p class="mk3-buybox-flag">🔥 OFERTA · antes {formatPrice(sale.wasCents, product.currency)}</p>}
+								{sale && !soon && <p class="mk3-buybox-flag">Oferta · antes {formatPrice(sale.wasCents, product.currency)}</p>}
 								<PriceBlock product={product} welcome={welcome} size="lg" />
 								<BuyActions {...props} />
 							</div>
