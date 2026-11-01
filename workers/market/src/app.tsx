@@ -85,13 +85,38 @@ const securityHeaders: MiddlewareHandler<AppEnv> = async (c, next) => {
 	if (c.get("config")?.origin.startsWith("https://")) h.set("Strict-Transport-Security", "max-age=31536000");
 };
 
+/** Fichas con barra final: /market/producto/<slug>/ y /market/en/product/<slug>/. */
+const PRODUCT_TRAILING_SLASH = /^\/market\/(?:producto|en\/product)\/[a-z0-9-]+\/$/;
+
+/**
+ * Una sola URL por página (H14 de la revisión SEO v6): las variantes con o sin barra que antes respondían 200
+ * redirigen con 301 a la forma canónica, conservando la query. /market (sin barra) NO se redirige: la ruta de
+ * Cloudflare "tonyciencia.com/market" llega al Worker y su canonical ya apunta a /market/.
+ */
+export function canonicalRedirect(path: string): string | null {
+	if (path === "/market/en") return "/market/en/";
+	if (PRODUCT_TRAILING_SLASH.test(path)) return path.slice(0, -1);
+	return null;
+}
+
+const canonicalRedirects: MiddlewareHandler<AppEnv> = async (c, next) => {
+	if (c.req.method === "GET" || c.req.method === "HEAD") {
+		// Ruta tal como llegó: con strict: false, c.req.path ya viene sin la barra final.
+		const url = new URL(c.req.url);
+		const to = canonicalRedirect(url.pathname);
+		if (to) return c.redirect(`${to}${url.search}`, 301);
+	}
+	await next();
+};
+
 export function createApp() {
 	const app = new Hono<AppEnv>({ strict: false });
 	app.use("*", bootMiddleware);
 	app.use("*", securityHeaders);
+	app.use("*", canonicalRedirects);
 	app.use("*", sessionMiddleware);
 
-	app.get("/", (c) => c.redirect("/market", 302));
+	app.get("/", (c) => c.redirect("/market/", 302));
 	registerShop(app);
 	registerAuth(app);
 	registerPayments(app);

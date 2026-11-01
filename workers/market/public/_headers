@@ -1,0 +1,20 @@
+# Caché de navegador de los estáticos del market (Workers Static Assets lee este archivo y no lo publica).
+# Solo aplica a las respuestas de archivos de public/; las páginas HTML las arma el Worker (src/app.tsx).
+# https://developers.cloudflare.com/workers/static-assets/headers/
+#
+# market.css y market.js siempre se piden con ?v=STATIC_VERSION (src/views/layout.tsx): al cambiarlos hay que subir
+# STATIC_VERSION, y entonces la URL cambia. Por eso pueden ser immutable por un año.
+/market/static/market.css
+  Cache-Control: public, max-age=31536000, immutable
+/market/static/market.js
+  Cache-Control: public, max-age=31536000, immutable
+
+# Portadas, capturas e íconos: se regeneran con el mismo nombre (pnpm render:covers), así que caché corta y
+# revalidación en segundo plano.
+/market/static/products/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+/market/static/covers/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+# site/ trae theme.css sin ?v= (lo copia pnpm sync:theme desde el blog), logos y favicon.
+/market/static/site/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400

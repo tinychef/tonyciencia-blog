@@ -1,4 +1,4 @@
-import { categoryLabelIn, hasEnglish, localize, productPath, storeRoot, type Lang } from "../lib/i18n";
+import { categoryLabelIn, hasEnglish, localize, productPath, storeRoot, t, type Lang } from "../lib/i18n";
 import type { Hono, MiddlewareHandler } from "hono";
 import { clientIp, deps, type AppEnv, type Ctx } from "../context";
 import { hit, RATE_RULES } from "../lib/ratelimit";
@@ -6,7 +6,7 @@ import { checkCsrf } from "../lib/session";
 import { cleanText, isSlug, normalizeEmail, parseIntInRange, safeNextPath } from "../lib/validate";
 import { dispatchByOrder } from "../services/outbox";
 import { claimFreeProduct, startCheckout, type Deps } from "../services/orders";
-import { CATEGORIES, categoryLabel, publicName, seoDescription, seoTitle } from "../lib/catalog";
+import { CATEGORIES, categoryLabel, pickRelated, publicName, seoDescription, seoTitle } from "../lib/catalog";
 import { formatPrice } from "../lib/money";
 import { canBeFree, checkBuyerAmount, fromPriceCents, isPwyw } from "../lib/pricing";
 import {
@@ -76,19 +76,23 @@ export function registerShop(app: Hono<AppEnv>) {
 			{
 				title: "Market Tony",
 				fullTitle: lang === "en" ? "AI agents and skills for Claude Code and Codex | Market Tony" : "Mi stack de herramientas de IA en español | Market Tony",
-				path: lang === "en" ? "/market/en/" : "/market",
+				// Canónica con barra final (/market/ y /market/en/): la misma URL que el hreflang, el sitemap y storeRoot().
+				// /market (sin barra) sigue respondiendo y declara /market/ como canónica.
+				path: storeRoot(lang),
 				description:
 					lang === "en"
 						? "AI agents and skills for Claude Code and Codex: ad prompts, 3D explainer videos, talking-head video editing and PageSpeed fixes. One-time payment."
 						: "Agentes y skills de IA en español para Claude Code y Codex: anuncios, videos 3D, edición de video y PageSpeed. Pago único o paga lo que quieras.",
 				image: products.find((p) => p.images[0])?.images[0]?.src,
-				alternates: { es: "/market/", en: "/market/en/" },
+				imageAlt: products.find((p) => p.images[0])?.images[0]?.alt,
+				alternates: { es: storeRoot("es"), en: storeRoot("en") },
 				jsonLd: [...catalogJsonLd(origin, products, lang), faqJsonLd(storeFaq(products.some((p) => p.availability === "coming_soon"), lang))],
 			},
 			<Catalog products={products} welcome={c.get("welcome")} category={category} query={query} sort={sort} filter={filter} />,
 		);
 	};
 	app.get("/market", (c) => catalogPage(c, "es"));
+	// /market/en (sin barra) ya no llega aquí: responde 301 a /market/en/ (canonicalRedirects, en app.tsx).
 	app.get("/market/en", (c) => catalogPage(c, "en"));
 	app.get("/market/en/", (c) => catalogPage(c, "en"));
 
@@ -112,33 +116,33 @@ export function registerShop(app: Hono<AppEnv>) {
 			listShopProducts(db),
 		]);
 		const aviso = c.req.query("aviso");
+		const tr = (es: string) => t(lang, es);
 		const montoMsg = (() => {
 			if (!aviso?.startsWith("monto-") || !isPwyw(product)) return null;
 			const { minText, maxText } = { minText: formatPrice(product.min_price_cents), maxText: formatPrice(product.max_price_cents ?? 99_999_999) };
-			if (aviso === "monto-invalido") return "Escribe un monto válido en dólares, por ejemplo 12 o 12.50.";
-			if (aviso === "monto-minimo") return product.min_price_cents > 0 ? `El monto mínimo para este producto es ${minText}.` : "Escribe 0 para descargarlo gratis o un monto desde $0.50 USD.";
-			if (aviso === "monto-maximo") return `El monto máximo es ${maxText}.`;
-			if (aviso === "monto-stripe") return "Los pagos con tarjeta empiezan en $0.50 USD. Escribe 0 para descargarlo gratis o un monto desde $0.50.";
+			if (aviso === "monto-invalido") return tr("Escribe un monto válido en dólares, por ejemplo 12 o 12.50.");
+			if (aviso === "monto-minimo")
+				return product.min_price_cents > 0
+					? lang === "en"
+						? `The minimum amount for this product is ${minText}.`
+						: `El monto mínimo para este producto es ${minText}.`
+					: tr("Escribe 0 para descargarlo gratis o un monto desde $0.50 USD.");
+			if (aviso === "monto-maximo") return lang === "en" ? `The maximum amount is ${maxText}.` : `El monto máximo es ${maxText}.`;
+			if (aviso === "monto-stripe") return tr("Los pagos con tarjeta empiezan en $0.50 USD. Escribe 0 para descargarlo gratis o un monto desde $0.50.");
 			return null;
 		})();
-		const flash = montoMsg ??
-			(aviso === "pago-error"
-				? "No pudimos iniciar el pago. Inténtalo de nuevo en unos minutos."
-				: aviso === "cupon-invalido"
-					? "Ese cupón no es válido o ya no está disponible. Revisa el código o compra sin cupón."
-					: aviso === "correo-invalido"
-						? "Revisa tu correo: no parece válido."
-						: aviso === "resena-error"
-							? "No pudimos guardar tu reseña: elige de 1 a 5 estrellas y usa menos de 1500 caracteres."
-							: aviso === "cupon-primera"
-								? "El cupón de bienvenida es solo para tu primera compra. ¡Gracias por volver! Puedes comprar sin cupón."
-								: aviso === "cupon-pwyw"
-									? "En «paga lo que quieras» tú eliges el precio, así que no se combinan cupones."
-									: null);
-		const notice = aviso === "lista-ok" ? "¡Listo! Te avisaremos por correo el día del lanzamiento." : aviso === "resena-ok" ? "¡Gracias por tu reseña!" : null;
-		// Relacionados: misma categoría primero, luego el resto (disponibles antes que próximos).
-		const others = all.filter((p) => p.id !== product.id).map((p) => localize(p, lang));
-		const related = [...others.filter((p) => p.category === product.category), ...others.filter((p) => p.category !== product.category)].slice(0, 3);
+		const AVISOS: Record<string, string> = {
+			"pago-error": "No pudimos iniciar el pago. Inténtalo de nuevo en unos minutos.",
+			"cupon-invalido": "Ese cupón no es válido o ya no está disponible. Revisa el código o compra sin cupón.",
+			"correo-invalido": "Revisa tu correo: no parece válido.",
+			"resena-error": "No pudimos guardar tu reseña: elige de 1 a 5 estrellas y usa menos de 1500 caracteres.",
+			"cupon-primera": "El cupón de bienvenida es solo para tu primera compra. ¡Gracias por volver! Puedes comprar sin cupón.",
+			"cupon-pwyw": "En «paga lo que quieras» tú eliges el precio, así que no se combinan cupones.",
+		};
+		const flash = montoMsg ?? (aviso && Object.hasOwn(AVISOS, aviso) ? tr(AVISOS[aviso]!) : null);
+		const notice =
+			aviso === "lista-ok" ? tr("¡Listo! Te avisaremos por correo el día del lanzamiento.") : aviso === "resena-ok" ? tr("¡Gracias por tu reseña!") : null;
+		const related = pickRelated(all, product.id).map((p) => localize(p, lang));
 		const origin = c.get("config").origin;
 		const path = productPath(product.slug, lang);
 		const cat = categoryLabelIn(lang, product.category, categoryLabel(product.category));
@@ -151,12 +155,13 @@ export function registerShop(app: Hono<AppEnv>) {
 				path,
 				description: seoDescription(product),
 				image: product.images[0]?.src,
+				imageAlt: product.images[0]?.alt,
 				ogType: "product",
 				priceCents: fromPriceCents(product),
 				currency: product.currency,
 				alternates: hasEnglish(base!) ? { es: productPath(product.slug, "es"), en: productPath(product.slug, "en") } : undefined,
 				jsonLd: [
-					productJsonLd(origin, product, reviews, path),
+					productJsonLd(origin, product, reviews, path, lang),
 					breadcrumbJsonLd(origin, [
 						{ name: "Market Tony", path: storeRoot(lang) },
 						...(cat ? [{ name: cat, path: `${storeRoot(lang)}?categoria=${product.category}` }] : []),

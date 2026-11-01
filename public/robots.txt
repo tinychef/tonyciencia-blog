@@ -3,24 +3,33 @@ Allow: /
 Disallow: /_emdash/
 Disallow: /search
 Disallow: /en/search
+# Inicio de sesión del market: redirige a Google OAuth, escribe en D1 y tiene límite por IP (429).
+# /market/entrar NO se bloquea: tiene noindex y Google necesita verlo.
+Disallow: /market/auth/
 
 User-agent: GPTBot
 Allow: /
+Disallow: /market/auth/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /market/auth/
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /market/auth/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /market/auth/
 
 User-agent: Anthropic-ai
 Allow: /
+Disallow: /market/auth/
 
 User-agent: CCBot
 Allow: /
+Disallow: /market/auth/
 
 Sitemap: https://tonyciencia.com/sitemap-index.xml
 Sitemap: https://tonyciencia.com/market/sitemap.xml

@@ -5,7 +5,7 @@ import type { User } from "../services/repo";
 import type { WelcomeOffer } from "../services/welcome";
 import { formatPrice } from "../lib/money";
 import { BrandLogo, Icon } from "./icons";
-import { storeRoot, t, type Lang } from "../lib/i18n";
+import { offerPhrase, storeRoot, t, type Lang } from "../lib/i18n";
 
 export interface PageMeta {
 	title: string;
@@ -19,6 +19,8 @@ export interface PageMeta {
 	fullTitle?: string;
 	/** Imagen para compartir (ruta del sitio o URL absoluta). */
 	image?: string;
+	/** Texto alternativo de la imagen para compartir (og:image:alt). Si falta, el título. */
+	imageAlt?: string;
 	ogType?: "website" | "product";
 	/** Datos estructurados (schema.org) — se emiten como JSON-LD. */
 	jsonLd?: object[];
@@ -48,7 +50,7 @@ function jsonLdScript(data: object) {
 	return raw(`<script type="application/ld+json">${JSON.stringify(data).replace(/</g, "\\u003c")}</script>`);
 }
 
-const STATIC_VERSION = "9";
+const STATIC_VERSION = "10";
 
 export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, theme, welcome, lang = "es", children }) => {
 	const tr = (es: string) => t(lang, es);
@@ -58,15 +60,23 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 	const fullTitle = meta.fullTitle ?? (meta.title === "Market Tony" ? "Market Tony — Tony Ciencia" : `${meta.title} — Market Tony`);
 	const canonical = new URL(meta.path, config.origin).toString();
 	const image = new URL(meta.image ?? "/market/static/products/anuncios-infinitos/cover.webp", config.origin).toString();
+	// og:title: el título completo cuando la página no tiene uno propio (el catálogo se llamaba solo «Market Tony»).
+	const ogTitle = meta.title === "Market Tony" && meta.fullTitle ? meta.fullTitle : meta.title;
 	const is = (p: string) => (meta.path === p ? "page" : undefined);
 	const siteHref = config.mode === "live" ? "/" : "https://tonyciencia.com/";
 	const offerText = welcome
-		? welcome.percentOff
-			? `${welcome.percentOff} % de descuento`
-			: welcome.amountOffCents
-				? `${formatPrice(welcome.amountOffCents)} de descuento`
-				: "un descuento"
+		? offerPhrase(lang, { percentOff: welcome.percentOff, amountOffText: welcome.amountOffCents ? formatPrice(welcome.amountOffCents) : null })
 		: "";
+	const popTitle =
+		lang === "en"
+			? offerText
+				? `Get ${offerText} your first purchase!`
+				: "Get a discount on your first purchase!"
+			: `¡Obtén ${offerText ? `un ${offerText}` : "un descuento"} en tu primera compra!`;
+	const popTabLabel =
+		lang === "en"
+			? `See the coupon: ${offerText || "a discount"} your first purchase`
+			: `Ver el cupón de ${offerText || "descuento"} en tu primera compra`;
 	return (
 		<html lang={lang} class={theme}>
 			<head>
@@ -77,14 +87,16 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 				<meta name="robots" content={meta.noindex || config.mode === "mock" ? "noindex, nofollow" : "index, follow, max-image-preview:large"} />
 				<link rel="canonical" href={canonical} />
 				<meta property="og:type" content={meta.ogType ?? "website"} />
-				<meta property="og:title" content={meta.title} />
+				<meta property="og:title" content={ogTitle} />
 				{meta.description && <meta property="og:description" content={meta.description} />}
 				<meta property="og:url" content={canonical} />
 				<meta property="og:image" content={image} />
 				<meta property="og:image:width" content="1600" />
 				<meta property="og:image:height" content="1000" />
+				<meta property="og:image:alt" content={meta.imageAlt || ogTitle} />
 				<meta property="og:site_name" content="Tony Ciencia" />
 				<meta property="og:locale" content={lang === "en" ? "en_US" : "es_ES"} />
+				{meta.alternates && <meta property="og:locale:alternate" content={lang === "en" ? "es_ES" : "en_US"} />}
 				{meta.alternates && <link rel="alternate" hreflang="es" href={new URL(meta.alternates.es, config.origin).toString()} />}
 				{meta.alternates && <link rel="alternate" hreflang="en" href={new URL(meta.alternates.en, config.origin).toString()} />}
 				{meta.alternates && <link rel="alternate" hreflang="x-default" href={new URL(meta.alternates.es, config.origin).toString()} />}
@@ -92,7 +104,7 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 				{meta.priceCents !== undefined && <meta property="product:price:currency" content={(meta.currency ?? "usd").toUpperCase()} />}
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta name="twitter:site" content="@tonyciencia" />
-				<meta name="twitter:title" content={meta.title} />
+				<meta name="twitter:title" content={ogTitle} />
 				{meta.description && <meta name="twitter:description" content={meta.description} />}
 				<meta name="twitter:image" content={image} />
 				<meta name="color-scheme" content={theme === "light" ? "light" : "dark"} />
@@ -132,7 +144,7 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 							<span class="mk-brand-tag">Market</span>
 						</a>
 						<div class="mk-links">
-							<a href={`${root}#catalogo`} aria-current={is("/market") ?? is("/market/en")} class="mk-hide-sm">
+							<a href={`${root}#catalogo`} aria-current={is(root)} class="mk-hide-sm">
 								{tr("Catálogo")}
 							</a>
 							<a href={`${root}?filtro=ofertas#catalogo`} class="mk-hide-sm mk3-nav-sale">
@@ -221,7 +233,7 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 				<footer class="mk-footer">
 					<div class="mk-footer-inner">
 						<div class="mk-footer-brand">
-							<a href="/market" class="mk-brand" aria-label="Market Tony">
+							<a href={root} class="mk-brand" aria-label="Market Tony">
 								<img src="/market/static/site/logo-blanco.webp" alt="Tony Ciencia" class="logo-dark" width="32" height="32" loading="lazy" />
 								<img src="/market/static/site/logo-negro.webp" alt="Tony Ciencia" class="logo-light" width="32" height="32" loading="lazy" />
 								<span class="mk-brand-tag">Market</span>
@@ -266,8 +278,9 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 							<span>Visa · Mastercard · Amex · Apple Pay · Google Pay</span>
 						</span>
 						<p>
-							Vendido por Tony Ciencia LLC · 8206 Louisiana Blvd NE, Ste A #6812, Albuquerque, NM 87113, EE. UU. Precios en dólares
-							estadounidenses (USD).
+							{tr(
+								"Vendido por Tony Ciencia LLC · 8206 Louisiana Blvd NE, Ste A #6812, Albuquerque, NM 87113, EE. UU. Precios en dólares estadounidenses (USD).",
+							)}
 						</p>
 					</div>
 				</footer>
@@ -276,30 +289,30 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 						{/* Popup flotante y NO modal: no bloquea la página ni oscurece el fondo. market.js lo muestra una vez
 						    (a los segundos o al bajar), y después queda una pestaña discreta para volver a abrirlo. */}
 						<aside class="mk3-pop" data-welcome hidden aria-labelledby="mk-pop-title">
-							<button type="button" class="mk3-pop-x" data-pop-close aria-label="Cerrar">
+							<button type="button" class="mk3-pop-x" data-pop-close aria-label={tr("Cerrar")}>
 								<Icon name="close" size={16} />
 							</button>
 							<div class="mk3-pop-badge" aria-hidden="true">
 								{welcome.percentOff ? <b>−{welcome.percentOff}%</b> : <Icon name="gift" size={28} />}
-								<span>1.ª compra</span>
+								<span>{tr("1.ª compra")}</span>
 							</div>
 							<div class="mk3-pop-body">
-								<h2 id="mk-pop-title">¡Obtén {offerText === "un descuento" ? "un descuento" : `un ${offerText}`} en tu primera compra!</h2>
-								<p>Copia el código y escríbelo al comprar. Se aplica en el checkout seguro de Stripe.</p>
+								<h2 id="mk-pop-title">{popTitle}</h2>
+								<p>{tr("Copia el código y escríbelo al comprar. Se aplica en el checkout seguro de Stripe.")}</p>
 								<div class="mk3-pop-actions">
 									<button type="button" class="mk-pop-code" data-copy={welcome.code} data-pop-used>
 										<span>{welcome.code}</span>
-										<small data-copy-label>Copiar</small>
+										<small data-copy-label>{tr("Copiar")}</small>
 									</button>
-									<a href="/market#catalogo" class="mk3-pop-link" data-pop-close>
-										Ver productos <Icon name="arrow" size={15} />
+									<a href={`${root}#catalogo`} class="mk3-pop-link" data-pop-close>
+										{tr("Ver productos")} <Icon name="arrow" size={15} />
 									</a>
 								</div>
-								<p class="mk3-pop-fine">Válido una vez por cuenta, en productos de precio fijo.</p>
+								<p class="mk3-pop-fine">{tr("Válido una vez por cuenta, en productos de precio fijo.")}</p>
 							</div>
 						</aside>
-						<button type="button" class="mk3-pop-tab" data-pop-open hidden aria-label={`Ver el cupón de ${offerText} en tu primera compra`}>
-							<Icon name="gift" size={15} /> {welcome.percentOff ? `${welcome.percentOff}% OFF` : "Cupón"}
+						<button type="button" class="mk3-pop-tab" data-pop-open hidden aria-label={popTabLabel}>
+							<Icon name="gift" size={15} /> {welcome.percentOff ? `${welcome.percentOff}% OFF` : tr("Cupón")}
 						</button>
 					</>
 				)}

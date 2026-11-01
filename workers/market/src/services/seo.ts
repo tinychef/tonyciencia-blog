@@ -1,5 +1,5 @@
 /** Datos estructurados (schema.org), feed de Google Merchant Center y sitemap del market. */
-import { hasEnglish, localize, productPath, storeRoot, type Lang } from "../lib/i18n";
+import { categoryLabelIn, hasEnglish, localize, productPath, storeRoot, type Lang } from "../lib/i18n";
 import { categoryLabel, seoDescription, seoTitle } from "../lib/catalog";
 import { fromPriceCents, isPwyw, pwywBounds, saleInfo } from "../lib/pricing";
 import type { ReviewRow, ShopProduct } from "./repo";
@@ -19,7 +19,7 @@ const validUntil = (now = Date.now()) => `${new Date(now).getUTCFullYear() + 1}-
  * - Oferta real: `priceSpecification` con el precio tachado (StrikethroughPrice), como pide Google para fichas de comerciante.
  * - "Paga lo que quieras": `price` = mínimo (lo menos que se puede pagar de verdad) y el sugerido como referencia.
  */
-function offerJsonLd(origin: string, p: ShopProduct, path = `/market/producto/${p.slug}`) {
+function offerJsonLd(origin: string, p: ShopProduct, path = `/market/producto/${p.slug}`, lang: Lang = "es") {
 	const soon = p.availability === "coming_soon";
 	const cur = p.currency.toUpperCase();
 	const price = fromPriceCents(p);
@@ -52,7 +52,10 @@ function offerJsonLd(origin: string, p: ShopProduct, path = `/market/producto/${
 						maxPrice: (pwywBounds(p).max / 100).toFixed(2),
 						price: (p.price_cents / 100).toFixed(2),
 						priceCurrency: cur,
-						description: "Paga lo que quieras: el comprador elige el monto; el precio es el sugerido.",
+						description:
+							lang === "en"
+								? "Pay what you want: the buyer chooses the amount; the price is the suggested one."
+								: "Paga lo que quieras: el comprador elige el monto; el precio es el sugerido.",
 					},
 				}
 			: {}),
@@ -83,18 +86,19 @@ function offerJsonLd(origin: string, p: ShopProduct, path = `/market/producto/${
 	};
 }
 
-export function productJsonLd(origin: string, p: ShopProduct, reviews: ReviewRow[], path = `/market/producto/${p.slug}`) {
+export function productJsonLd(origin: string, p: ShopProduct, reviews: ReviewRow[], path = `/market/producto/${p.slug}`, lang: Lang = "es") {
 	const data: Record<string, unknown> = {
 		"@context": "https://schema.org",
 		"@type": "Product",
 		name: seoTitle(p),
 		description: seoDescription(p),
+		url: abs(origin, path),
 		sku: p.slug,
 		image: p.images.map((i) => abs(origin, i.src)),
 		brand: BRAND,
-		category: categoryLabel(p.category) ?? undefined,
+		category: categoryLabelIn(lang, p.category, categoryLabel(p.category)) ?? undefined,
 		keywords: p.tags.join(", ") || undefined,
-		offers: offerJsonLd(origin, p, path),
+		offers: offerJsonLd(origin, p, path, lang),
 	};
 	// Solo reseñas reales de compradores (nunca valores por defecto).
 	if (p.stats.ratingCount > 0 && p.stats.ratingAvg !== null) {
@@ -108,7 +112,7 @@ export function productJsonLd(origin: string, p: ShopProduct, reviews: ReviewRow
 		data.review = reviews.slice(0, 5).map((r) => ({
 			"@type": "Review",
 			reviewRating: { "@type": "Rating", ratingValue: r.rating, bestRating: 5 },
-			author: { "@type": "Person", name: r.display_name || "Comprador verificado" },
+			author: { "@type": "Person", name: r.display_name || (lang === "en" ? "Verified buyer" : "Comprador verificado") },
 			datePublished: new Date(r.created_at).toISOString().slice(0, 10),
 			reviewBody: r.body || undefined,
 		}));
@@ -213,7 +217,7 @@ export function merchantFeed(origin: string, products: ShopProduct[]): string {
 		'<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">',
 		"<channel>",
 		"<title>Market Tony — Tony Ciencia</title>",
-		`<link>${xml(abs(origin, "/market"))}</link>`,
+		`<link>${xml(abs(origin, storeRoot("es")))}</link>`,
 		"<description>Herramientas de IA en español: agentes, skills y plantillas.</description>",
 		...items,
 		"</channel>",
@@ -221,12 +225,13 @@ export function merchantFeed(origin: string, products: ShopProduct[]): string {
 	].join("\n");
 }
 
-export function sitemapXml(origin: string, products: ShopProduct[], legal: string[]): string {
+export function sitemapXml(origin: string, products: ShopProduct[], legal: string[], now = Date.now()): string {
 	type U = { loc: string; lastmod?: number; image?: Array<{ src: string; alt: string }>; alt?: { es: string; en: string } };
-	const catAlt = { es: "/market", en: "/market/en/" };
+	// Mismas URL que el canonical y el hreflang del HTML (con barra final).
+	const catAlt = { es: storeRoot("es"), en: storeRoot("en") };
 	const urls: U[] = [
-		{ loc: "/market", alt: catAlt },
-		{ loc: "/market/en/", alt: catAlt },
+		{ loc: catAlt.es, alt: catAlt },
+		{ loc: catAlt.en, alt: catAlt },
 		{ loc: "/market/agentes-para-empresas" },
 		...products.flatMap((p): U[] => {
 			const es: U = { loc: productPath(p.slug, "es"), lastmod: p.updated_at, image: p.images.slice(0, 5) };
@@ -244,9 +249,14 @@ export function sitemapXml(origin: string, products: ShopProduct[], legal: strin
 		[
 			"<url>",
 			`<loc>${xml(abs(origin, u.loc))}</loc>`,
-			u.lastmod ? `<lastmod>${new Date(u.lastmod).toISOString().slice(0, 10)}</lastmod>` : "",
+			// Nunca una fecha futura: Google deja de usar lastmod si no es verificable (migraciones con marcas a mano).
+			u.lastmod ? `<lastmod>${new Date(Math.min(u.lastmod, now)).toISOString().slice(0, 10)}</lastmod>` : "",
 			...(u.alt
-				? (["es", "en"] as const).map((l) => `<xhtml:link rel="alternate" hreflang="${l}" href="${xml(abs(origin, u.alt![l]))}"/>`)
+				? [
+						...(["es", "en"] as const).map((l) => `<xhtml:link rel="alternate" hreflang="${l}" href="${xml(abs(origin, u.alt![l]))}"/>`),
+						// x-default = la versión en español, igual que en el HTML.
+						`<xhtml:link rel="alternate" hreflang="x-default" href="${xml(abs(origin, u.alt.es))}"/>`,
+					]
 				: []),
 			...(u.image ?? []).map((i) => `<image:image><image:loc>${xml(abs(origin, i.src))}</image:loc></image:image>`),
 			"</url>",

@@ -170,7 +170,8 @@ describe("SEO y Google Merchant", () => {
 
 	it("el sitemap lista la tienda, el servicio y las fichas", async () => {
 		const xml = await (await call("/market/sitemap.xml")).text();
-		expect(xml).toContain("<loc>http://localhost:8787/market</loc>");
+		expect(xml).toContain("<loc>http://localhost:8787/market/</loc>");
+		expect(xml).not.toContain("<loc>http://localhost:8787/market</loc>");
 		expect(xml).toContain("/market/agentes-para-empresas</loc>");
 		expect(xml).toContain("/market/producto/cutpilot</loc>");
 	});

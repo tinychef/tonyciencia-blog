@@ -128,8 +128,51 @@ const EN: Record<string, string> = {
 	"Privacidad": "Privacy",
 	"Pagos seguros con": "Secure payments with",
 	"Idioma": "Language",
+	"Vendido por Tony Ciencia LLC · 8206 Louisiana Blvd NE, Ste A #6812, Albuquerque, NM 87113, EE. UU. Precios en dólares estadounidenses (USD).":
+		"Sold by Tony Ciencia LLC · 8206 Louisiana Blvd NE, Ste A #6812, Albuquerque, NM 87113, USA. Prices in US dollars (USD).",
+	// Popup del cupón de bienvenida
+	"Cerrar": "Close",
+	"1.ª compra": "1st purchase",
+	"Copia el código y escríbelo al comprar. Se aplica en el checkout seguro de Stripe.":
+		"Copy the code and enter it at checkout. It's applied at Stripe's secure checkout.",
+	"Copiar": "Copy",
+	"Ver productos": "See products",
+	"Válido una vez por cuenta, en productos de precio fijo.": "Valid once per account, on fixed-price products.",
+	"Cupón": "Coupon",
+	// Páginas de error y avisos
+	"Aviso": "Notice",
+	"Volver al catálogo": "Back to the catalog",
+	"Página no encontrada": "Page not found",
+	"Producto no encontrado": "Product not found",
+	"Revisa el enlace o vuelve al catálogo.": "Check the link or go back to the catalog.",
+	"Revisa el enlace.": "Check the link.",
+	"Este producto no existe o ya no está disponible.": "This product doesn't exist or is no longer available.",
+	"Algo salió mal": "Something went wrong",
+	"Ocurrió un error inesperado. Inténtalo de nuevo en unos minutos.": "An unexpected error occurred. Please try again in a few minutes.",
+	"No pudimos iniciar el pago. Inténtalo de nuevo en unos minutos.": "We couldn't start the payment. Please try again in a few minutes.",
+	"Ese cupón no es válido o ya no está disponible. Revisa el código o compra sin cupón.":
+		"That coupon isn't valid or is no longer available. Check the code or buy without a coupon.",
+	"Revisa tu correo: no parece válido.": "Check your email address: it doesn't look valid.",
+	"No pudimos guardar tu reseña: elige de 1 a 5 estrellas y usa menos de 1500 caracteres.":
+		"We couldn't save your review: pick 1 to 5 stars and use fewer than 1,500 characters.",
+	"El cupón de bienvenida es solo para tu primera compra. ¡Gracias por volver! Puedes comprar sin cupón.":
+		"The welcome coupon is only for your first purchase. Thanks for coming back! You can buy without a coupon.",
+	"En «paga lo que quieras» tú eliges el precio, así que no se combinan cupones.":
+		"With pay what you want you choose the price, so coupons can't be combined.",
+	"Escribe un monto válido en dólares, por ejemplo 12 o 12.50.": "Enter a valid amount in dollars, for example 12 or 12.50.",
+	"Escribe 0 para descargarlo gratis o un monto desde $0.50 USD.": "Enter 0 to download it for free, or an amount from $0.50 USD.",
+	"Los pagos con tarjeta empiezan en $0.50 USD. Escribe 0 para descargarlo gratis o un monto desde $0.50.":
+		"Card payments start at $0.50 USD. Enter 0 to download it for free, or an amount from $0.50.",
+	"¡Listo! Te avisaremos por correo el día del lanzamiento.": "Done! We'll email you on launch day.",
+	"¡Gracias por tu reseña!": "Thanks for your review!",
+	// Lista de espera (productos «Próximamente»)
+	"Avísame cuando salga": "Notify me when it launches",
+	"tu@correo.com": "you@email.com",
+	"Unirme a la lista de espera": "Join the waitlist",
+	"Gratis y sin compromiso. Solo te escribimos para avisarte del lanzamiento.": "Free, no strings attached. We only email you to announce the launch.",
 	// Catálogo
-	"Mi stack de herramientas": "My tool stack",
+	"Mi stack de herramientas de IA": "My AI tool stack",
+	"Productos": "Products",
 	"Agentes y skills de IA en español para anuncios, video y SEO · pago único · descarga inmediata":
 		"AI agents and skills for ads, video and SEO · one-time payment · instant download",
 	"Todo": "All",
@@ -293,3 +336,13 @@ const CATEGORY_EN: Record<string, string> = {
 	agentes: "AI agents",
 };
 export const categoryLabelIn = (lang: Lang, slug: string, es: string | null) => (lang === "en" ? (CATEGORY_EN[slug] ?? es) : es);
+
+/** Etiqueta manual del admin (columna `badge`): por ahora solo «Versión X» tiene traducción automática. */
+export const badgeLabelIn = (lang: Lang, label: string) => (lang === "en" ? label.replace(/^Versión(?=\s)/, "Version") : label);
+
+/** «10 % de descuento» / «10% off», para el cupón de bienvenida. Vacío si no hay cifra. */
+export function offerPhrase(lang: Lang, offer: { percentOff: number | null; amountOffText: string | null }): string {
+	if (offer.percentOff) return lang === "en" ? `${offer.percentOff}% off` : `${offer.percentOff} % de descuento`;
+	if (offer.amountOffText) return lang === "en" ? `${offer.amountOffText} off` : `${offer.amountOffText} de descuento`;
+	return "";
+}

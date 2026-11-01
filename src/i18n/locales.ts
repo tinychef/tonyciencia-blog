@@ -7,7 +7,8 @@ export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = "es";
 
 const EXACT_ROUTE_MAP = new Map<string, string>([
-	["/", "/en"],
+	// La portada inglesa canónica es /en/ (con barra, igual que el sitemap): el hreflang de / debe apuntar ahí.
+	["/", "/en/"],
 	["/about", "/en/about"],
 	["/automatizacion", "/en/automation"],
 	["/contacto", "/en/contact"],
@@ -50,7 +51,8 @@ function trimTrailingSlash(pathname: string): string {
 }
 
 function reversePathMap(pathMap: Map<string, string>) {
-	return new Map(Array.from(pathMap.entries(), ([from, to]) => [to, from]));
+	// Las claves del mapa inverso se comparan con rutas sin barra final ("/en/" → "/en").
+	return new Map(Array.from(pathMap.entries(), ([from, to]) => [trimTrailingSlash(to), from]));
 }
 
 const REVERSE_EXACT_ROUTE_MAP = reversePathMap(EXACT_ROUTE_MAP);

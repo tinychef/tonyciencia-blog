@@ -8,6 +8,7 @@ import { checkBuyerAmount, parseBuyerAmount, saleInfo, STRIPE_MAX_CENTS } from "
 import { provisionKey, provisionTestHooks } from "../src/routes/provision";
 import { startCheckout } from "../src/services/orders";
 import { getProductBySlug, upsertUser } from "../src/services/repo";
+import { pickRelated } from "../src/lib/catalog";
 import { merchantFeed } from "../src/services/seo";
 import { clearWelcomeCache } from "../src/services/welcome";
 import { call, count, createProduct, loginMock, one, postForm, uid } from "./helpers";
@@ -402,7 +403,7 @@ describe("v5: catálogo «Mi stack de herramientas» y precios con número", () 
 	it("el catálogo abre con su título, tarjetas con etiqueta de precio y sin la insignia «Nuevo»", async () => {
 		await createProduct({ priceCents: 1200 });
 		const html = await (await call("/market")).text();
-		expect(html).toContain('<h1 id="catalogo-titulo">Mi stack de herramientas</h1>');
+		expect(html).toContain('<h1 id="catalogo-titulo">Mi stack de herramientas de IA</h1>');
 		expect(html).toContain("<title>Mi stack de herramientas de IA en español | Market Tony</title>");
 		expect(html).toContain('<span class="mk5-tag">$12</span>');
 		expect(html).not.toContain(">Nuevo<");
@@ -437,7 +438,7 @@ describe("tienda en inglés (/market/en/)", () => {
 			.run();
 		const cat = await (await call("/market/en/")).text();
 		expect(cat).toContain('<html lang="en"');
-		expect(cat).toContain('<h1 id="catalogo-titulo">My tool stack</h1>');
+		expect(cat).toContain('<h1 id="catalogo-titulo">My AI tool stack</h1>');
 		expect(cat).toContain("English tagline");
 		expect(cat).toContain('hreflang="es" href="http://localhost:8787/market/"');
 		expect(cat).toContain('class="mk-lang"');
@@ -473,6 +474,161 @@ describe("portadas en inglés", () => {
 		if (row?.slug !== "specreel-stick") return; // el slug ya existe en esta base de prueba
 		const cat = await (await call("/market/en/")).text();
 		expect(cat).toContain("/market/static/products/specreel-stick/en/cover.webp");
-		expect(cat).toContain('data-anim="/market/static/products/specreel-stick/en/cover-animada.webp"');
+		expect(cat).toContain('data-anim="/market/static/products/specreel-stick/en/cover-animada-800.webp"');
+	});
+});
+
+/** Atributo de un <link>/<meta> por su clave (rel+hreflang o property). */
+const linkHref = (html: string, hreflang: string) => html.match(new RegExp(`<link rel="alternate" hreflang="${hreflang}" href="([^"]+)"`))?.[1] ?? null;
+const canonicalOf = (html: string) => html.match(/<link rel="canonical" href="([^"]+)"/)?.[1] ?? null;
+
+describe("revisión SEO v6", () => {
+	it("H1: el catálogo es canónico en /market/ y /market/en/, igual que su hreflang y el sitemap; /market sigue respondiendo", async () => {
+		for (const path of ["/market", "/market/"]) {
+			const res = await call(path);
+			expect(res.status, path).toBe(200);
+			const html = await res.text();
+			expect(canonicalOf(html), path).toBe("http://localhost:8787/market/");
+			expect(linkHref(html, "es")).toBe("http://localhost:8787/market/");
+			expect(linkHref(html, "en")).toBe("http://localhost:8787/market/en/");
+			expect(linkHref(html, "x-default")).toBe("http://localhost:8787/market/");
+			expect(html).toContain('property="og:url" content="http://localhost:8787/market/"');
+		}
+		const en = await (await call("/market/en/")).text();
+		expect(canonicalOf(en)).toBe("http://localhost:8787/market/en/");
+		expect(linkHref(en, "en")).toBe(canonicalOf(en));
+		expect(linkHref(en, "es")).toBe("http://localhost:8787/market/");
+		const sitemap = await (await call("/market/sitemap.xml")).text();
+		const catEntry = sitemap.match(/<url><loc>http:\/\/localhost:8787\/market\/<\/loc>.*?<\/url>/)?.[0] ?? "";
+		expect(catEntry).toContain('hreflang="es" href="http://localhost:8787/market/"');
+		expect(catEntry).toContain('hreflang="en" href="http://localhost:8787/market/en/"');
+		expect(catEntry).toContain('hreflang="x-default" href="http://localhost:8787/market/"');
+		expect(sitemap).not.toMatch(/href="http:\/\/localhost:8787\/market"/);
+		const feed = await (await call("/market/feed.xml")).text();
+		expect(feed).toContain("<link>http://localhost:8787/market/</link>");
+	});
+
+	it("H14: las variantes con o sin barra redirigen con 301 a la URL canónica (conservando la query)", async () => {
+		const p = await createProduct({ priceCents: 1200 });
+		await env.MARKET_DB.prepare("UPDATE products SET i18n = ?2 WHERE id = ?1").bind(p.id, JSON.stringify({ en: { title: "Product EN: sub" } })).run();
+		const cases: Array<[string, string]> = [
+			["/market/en", "/market/en/"],
+			["/market/en?categoria=video", "/market/en/?categoria=video"],
+			[`/market/producto/${p.slug}/`, `/market/producto/${p.slug}`],
+			[`/market/producto/${p.slug}/?monto=9`, `/market/producto/${p.slug}?monto=9`],
+			[`/market/en/product/${p.slug}/`, `/market/en/product/${p.slug}`],
+		];
+		for (const [from, to] of cases) {
+			const res = await call(from);
+			expect(res.status, from).toBe(301);
+			expect(res.headers.get("location"), from).toBe(to);
+		}
+		for (const ok of ["/market", "/market/", "/market/en/", `/market/producto/${p.slug}`, `/market/en/product/${p.slug}`]) {
+			expect((await call(ok)).status, ok).toBe(200);
+		}
+	});
+
+	it("H6: los enlaces a /market/auth/start llevan rel=nofollow (botón y montos rápidos)", async () => {
+		const fixed = await createProduct({ priceCents: 1200 });
+		const pwyw = await makePwyw({ min: 0, suggested: 900 });
+		for (const slug of [fixed.slug, pwyw.slug]) {
+			const html = await (await call(`/market/producto/${slug}`)).text();
+			const links = [...html.matchAll(/<a [^>]*href="\/market\/auth\/start[^"]*"[^>]*>/g)].map((m) => m[0]);
+			expect(links.length, slug).toBeGreaterThan(0);
+			for (const a of links) expect(a, slug).toContain('rel="nofollow"');
+		}
+	});
+
+	it("H7: el sitemap nunca publica un lastmod futuro", async () => {
+		const p = await createProduct({ priceCents: 1200 });
+		await env.MARKET_DB.prepare("UPDATE products SET updated_at = ?2 WHERE id = ?1").bind(p.id, Date.now() + 5 * 86_400_000).run();
+		const sitemap = await (await call("/market/sitemap.xml")).text();
+		const today = new Date().toISOString().slice(0, 10);
+		const entry = sitemap.match(new RegExp(`<url><loc>[^<]*/market/producto/${p.slug}</loc>.*?</url>`))?.[0] ?? "";
+		expect(entry).toContain(`<lastmod>${today}</lastmod>`);
+		for (const m of sitemap.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)) expect(m[1]! <= today).toBe(true);
+	});
+
+	it("H4, H5, H11, H13 y H17: catálogo y ficha en inglés sin textos en español; encabezados, og:title y JSON-LD", async () => {
+		clearWelcomeCache();
+		const p = await makePwyw({ min: 0, suggested: 900 });
+		await env.MARKET_DB.prepare("UPDATE products SET category = 'video', badge = 'Versión 2.0', images = ?2, i18n = ?3 WHERE id = ?1")
+			.bind(
+				p.id,
+				JSON.stringify([{ src: "/market/static/products/specreel/cover.webp", alt: "Portada" }]),
+				JSON.stringify({ en: { title: "Product EN: subtitle", image_alts: ["English cover"] } }),
+			)
+			.run();
+		const cat = await (await call("/market/en/")).text();
+		// H11: H1 con palabra clave, H2 antes de las tarjetas (H3) y og:title completo.
+		expect(cat).toMatch(/<h1 id="catalogo-titulo">My AI tool stack<\/h1>[\s\S]*<h2 class="mk-visually-hidden">Products<\/h2>[\s\S]*<h3 class="mk5-title">/);
+		expect(cat).toContain('property="og:title" content="AI agents and skills for Claude Code and Codex | Market Tony"');
+		expect(cat).toContain('property="og:locale:alternate" content="es_ES"');
+		expect(cat).toMatch(/property="og:image:alt" content="[^"]+"/);
+		// H4: el logo del pie y el popup van al catálogo en inglés.
+		expect(cat).toContain('<a href="/market/en/" class="mk-brand" aria-label="Market Tony">');
+		expect(cat).toContain('href="/market/en/#catalogo" class="mk3-pop-link"');
+		expect(cat).not.toMatch(/href="\/market(#[^"]*)?"/);
+		// H5: popup y pie en inglés.
+		for (const es of ["Obtén", "Copia el código", "Ver productos", "Válido una vez", "1.ª compra", ">Copiar<", 'aria-label="Cerrar"', "Vendido por", "EE. UU."]) {
+			expect(cat, es).not.toContain(es);
+		}
+		expect(cat).toContain("Get 10% off your first purchase!");
+		expect(cat).toContain("Sold by Tony Ciencia LLC");
+
+		const en = await (await call(`/market/en/product/${p.slug}`)).text();
+		expect(en).toContain(">Version 2.0<");
+		expect(en).not.toContain("Versión 2.0");
+		expect(en).toContain('property="og:image:alt" content="English cover"');
+		// H10: la imagen principal ofrece 800 y 1600 px.
+		// (este producto de prueba no está en EN_COVERS: usa la portada española)
+		expect(en).toContain('srcset="/market/static/products/specreel/cover-800.webp 800w, /market/static/products/specreel/cover.webp 1600w"');
+		const ld = JSON.parse(en.match(/<script type="application\/ld\+json">(\{"@context":"https:\/\/schema.org","@type":"Product"[\s\S]*?)<\/script>/)![1]!);
+		expect(ld.url).toBe(`http://localhost:8787/market/en/product/${p.slug}`);
+		expect(ld.category).toBe("AI video");
+		expect(ld.offers.priceSpecification.description).toMatch(/^Pay what you want/);
+
+		const es = await (await call(`/market/producto/${p.slug}`)).text();
+		const ldEs = JSON.parse(es.match(/<script type="application\/ld\+json">(\{"@context":"https:\/\/schema.org","@type":"Product"[\s\S]*?)<\/script>/)![1]!);
+		expect(ldEs.url).toBe(`http://localhost:8787/market/producto/${p.slug}`);
+		expect(ldEs.category).toBe("Video con IA");
+		expect(es).toContain(">Versión 2.0<");
+		expect(es).toContain('<a href="/market/" class="mk-brand" aria-label="Market Tony">');
+	});
+
+	it("H17: la página 404 y los avisos salen en inglés en /market/en/…", async () => {
+		const res = await call("/market/en/no-existe");
+		expect(res.status).toBe(404);
+		const html = await res.text();
+		expect(html).toContain("Page not found");
+		expect(html).toContain('href="/market/en/">Back to the catalog');
+		const p = await createProduct({ priceCents: 1200 });
+		await env.MARKET_DB.prepare("UPDATE products SET i18n = ?2 WHERE id = ?1").bind(p.id, JSON.stringify({ en: { title: "Product EN: sub" } })).run();
+		const flash = await (await call(`/market/en/product/${p.slug}?aviso=cupon-invalido`)).text();
+		expect(flash).toContain("That coupon isn&#39;t valid");
+		const es404 = await (await call("/market/no-existe")).text();
+		expect(es404).toContain("Página no encontrada");
+	});
+
+	it("H12: «Completa tu kit» rota los relacionados para que todas las fichas reciban enlaces", () => {
+		// Mismo orden y categorías que el catálogo publicado (revisión SEO v6, §H12).
+		const all = [
+			{ id: "anuncios-infinitos", category: "anuncios" },
+			{ id: "specreel", category: "video" },
+			{ id: "specreel-stick", category: "video" },
+			{ id: "pagespeed-forensics", category: "seo-web" },
+			{ id: "cutpilot", category: "video" },
+			{ id: "motor-creativo-claude-code", category: "agentes" },
+		];
+		const received = new Map(all.map((p) => [p.id, 0]));
+		for (const p of all) {
+			const rel = pickRelated(all, p.id);
+			expect(rel).toHaveLength(3);
+			expect(rel.map((r) => r.id)).not.toContain(p.id);
+			// La misma categoría sigue primero.
+			if (p.category === "video") expect(rel[0]!.category).toBe("video");
+			for (const r of rel) received.set(r.id, received.get(r.id)! + 1);
+		}
+		for (const [id, n] of received) expect(n, id).toBeGreaterThanOrEqual(2);
 	});
 });
