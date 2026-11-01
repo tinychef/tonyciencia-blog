@@ -25,7 +25,7 @@ import { getWelcomeOffer, readWelcomeSetup } from "../services/welcome";
 import { LibraryPage } from "../views/account";
 import { LEGAL_DOCS, LegalPage } from "../views/legal";
 import { render, renderMessage } from "../views/render";
-import { Catalog, ProductPage, SERVICE_FAQ, STORE_FAQ, ServicePage } from "../views/shop";
+import { Catalog, ProductPage, SERVICE_FAQ, ServicePage, storeFaq } from "../views/shop";
 
 export function loginRedirect(c: Ctx, next: string) {
 	return c.redirect(`/market/entrar?next=${encodeURIComponent(safeNextPath(next))}`, 303);
@@ -77,7 +77,7 @@ export function registerShop(app: Hono<AppEnv>) {
 				description:
 					"Herramientas de IA en español para crear anuncios, videos 3D y automatizaciones con Claude Code, Codex y n8n. Pago único y descarga inmediata.",
 				image: products.find((p) => p.images[0])?.images[0]?.src,
-				jsonLd: [...catalogJsonLd(origin, products), faqJsonLd(STORE_FAQ)],
+				jsonLd: [...catalogJsonLd(origin, products), faqJsonLd(storeFaq(products.some((p) => p.availability === "coming_soon")))],
 			},
 			<Catalog products={products} welcome={c.get("welcome")} category={category} query={query} sort={sort} filter={filter} />,
 		);
@@ -88,7 +88,11 @@ export function registerShop(app: Hono<AppEnv>) {
 		if (!isSlug(slug)) return renderMessage(c, 404, "Producto no encontrado", "Revisa el enlace o vuelve al catálogo.");
 		const db = c.env.MARKET_DB;
 		const product = await getShopProduct(db, slug);
-		if (!product) return renderMessage(c, 404, "Producto no encontrado", "Este producto no existe o ya no está disponible.");
+		if (!product) {
+			// Un producto retirado (existe pero está inactivo) redirige al catálogo en vez de dar 404.
+			if (await getProductBySlug(db, slug, false)) return c.redirect("/market/", 301);
+			return renderMessage(c, 404, "Producto no encontrado", "Este producto no existe o ya no está disponible.");
+		}
 		const user = c.get("user");
 		const [owned, reviews, breakdown, all] = await Promise.all([
 			user ? getActiveEntitlement(db, user.id, product.id).then(Boolean) : Promise.resolve(false),

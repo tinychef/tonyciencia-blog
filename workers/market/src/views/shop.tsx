@@ -349,6 +349,7 @@ export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query, 
 	const featuredSale = featured ? saleInfo(featured) : null;
 	const available = products.filter((p) => p.availability === "available").length;
 	const freeCount = products.filter((p) => canBeFree(p) && p.availability === "available").length;
+	const soonCount = products.length - available;
 	const popular = [...new Set(products.flatMap((p) => p.tags.slice(0, 1)))].slice(0, 4);
 	const keep = (extra: Record<string, string | null>) => {
 		const u = new URLSearchParams();
@@ -516,9 +517,11 @@ export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query, 
 							Desde $0
 						</a>
 					)}
-					<a href={keep({ filtro: "disponibles" })} class="mk3-pill" aria-current={filter === "disponibles" ? "true" : undefined} data-quick="disponibles">
-						Disponibles ahora
-					</a>
+					{soonCount > 0 && (
+						<a href={keep({ filtro: "disponibles" })} class="mk3-pill" aria-current={filter === "disponibles" ? "true" : undefined} data-quick="disponibles">
+							Disponibles ahora
+						</a>
+					)}
 				</nav>
 				{products.length === 0 ? (
 					<p class="mk-alert">Todavía no hay productos publicados. Vuelve pronto.</p>
@@ -586,7 +589,7 @@ export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query, 
 					</div>
 				</div>
 				<div class="mk-faq">
-					{STORE_FAQ.map((f) => (
+					{storeFaq(soonCount > 0).map((f) => (
 						<details>
 							<summary>{f.q}</summary>
 							<p>{f.a}</p>
@@ -597,6 +600,11 @@ export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query, 
 		</>
 	);
 };
+
+const SOON_FAQ_Q = "¿Qué significa «Próximamente»?";
+
+/** Preguntas del catálogo; la de «Próximamente» solo cuando hay productos en esa etapa. */
+export const storeFaq = (hasSoon: boolean) => (hasSoon ? STORE_FAQ : STORE_FAQ.filter((f) => f.q !== SOON_FAQ_Q));
 
 export const STORE_FAQ = [
 	{ q: "¿Cómo recibo lo que compro?", a: "Apenas se confirma el pago, el producto aparece en «Mis compras» y te llega un correo con tu enlace de descarga personal." },
@@ -609,7 +617,7 @@ export const STORE_FAQ = [
 	{ q: "¿Los precios tachados son reales?", a: "Sí. Solo tachamos un precio cuando el producto se vendió de verdad a ese precio antes de la oferta." },
 	{ q: "¿Cómo funciona el cupón de bienvenida?", a: "Es un descuento para tu primera compra pagada en Market Tony, en productos de precio fijo. Escribe el código en la ficha antes de pagar; se aplica en el checkout seguro de Stripe." },
 	{ q: "¿Puedo pedir un reembolso?", a: "Sí, dentro de los 14 días posteriores a la compra si todavía no descargaste el producto, o si el archivo está dañado. Detalles en la política de reembolsos." },
-	{ q: "¿Qué significa «Próximamente»?", a: "Son herramientas en desarrollo. No se pueden comprar todavía: deja tu correo en «Avísame» y te escribimos el día del lanzamiento." },
+	{ q: SOON_FAQ_Q, a: "Son herramientas en desarrollo. No se pueden comprar todavía: deja tu correo en «Avísame» y te escribimos el día del lanzamiento." },
 ];
 
 // ── Ficha de producto ────────────────────────────────────────────────

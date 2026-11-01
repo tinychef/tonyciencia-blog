@@ -13,21 +13,49 @@ const PRODUCT_JSONLD = /<script type="application\/ld\+json">(\{"@context":"http
 describe("catálogo v2", () => {
 	it("muestra los productos próximos de la migración, con su etiqueta y sin botón de compra", async () => {
 		const html = await (await call("/market")).text();
-		for (const slug of ["cutpilot", "kit-n8n-agentes-ia", "carruseles-infinitos"]) expect(html).toContain(`/market/producto/${slug}`);
+		expect(html).toContain("/market/producto/cutpilot");
 		expect(html).toContain("Próximamente");
+		expect(html).toContain("¿Qué significa «Próximamente»?");
 		const page = await (await call("/market/producto/cutpilot")).text();
 		expect(page).toContain('action="/market/producto/cutpilot/avisame"');
 		expect(page).not.toContain("/comprar");
 		expect(page).not.toMatch(/Comprar por/);
 	});
 
+	it("los productos retirados (0008) no salen en el catálogo ni en el sitemap y su URL redirige al catálogo", async () => {
+		const html = await (await call("/market")).text();
+		const sitemap = await (await call("/market/sitemap.xml")).text();
+		for (const slug of ["kit-n8n-agentes-ia", "carruseles-infinitos"]) {
+			expect(html).not.toContain(`/market/producto/${slug}`);
+			expect(sitemap).not.toContain(`/market/producto/${slug}`);
+			const r = await call(`/market/producto/${slug}`);
+			expect(r.status).toBe(301);
+			expect(r.headers.get("location")).toBe("/market/");
+			expect((await postForm(`/market/producto/${slug}/avisame`, null, { email: `r-${uid()}@example.com` })).status).toBe(404);
+		}
+		expect((await call("/market/producto/no-existe-nunca")).status).toBe(404);
+	});
+
+	it("sin productos «Próximamente», el catálogo no muestra su filtro ni su pregunta frecuente", async () => {
+		await env.MARKET_DB.prepare("UPDATE products SET active = 0 WHERE availability = 'coming_soon'").run();
+		try {
+			const html = await (await call("/market")).text();
+			expect(html).not.toContain("Disponibles ahora");
+			expect(html).not.toContain("¿Qué significa «Próximamente»?");
+		} finally {
+			await env.MARKET_DB.prepare("UPDATE products SET active = 1 WHERE slug = 'cutpilot'").run();
+		}
+	});
+
 	it("filtra por categoría y búsqueda en el servidor (sin JS)", async () => {
+		const otro = await createProduct();
+		await env.MARKET_DB.prepare("UPDATE products SET category = 'anuncios' WHERE id = ?1").bind(otro.id).run();
 		const html = await (await call("/market?categoria=video")).text();
 		// Los de otra categoría quedan ocultos con el atributo hidden.
-		expect(html).toMatch(/data-cat="automatizacion"[^>]*hidden/);
+		expect(html).toMatch(/data-cat="anuncios"[^>]*hidden/);
 		expect(html).not.toMatch(/data-cat="video"[^>]*hidden/);
-		const q = await (await call("/market?q=carruseles")).text();
-		expect(q).toMatch(/data-cat="video"[^>]*hidden/);
+		const q = await (await call("/market?q=cutpilot")).text();
+		expect(q).toMatch(/data-cat="anuncios"[^>]*hidden/);
 	});
 
 	it("un producto próximo nunca se cobra: ni por el formulario ni llamando a startCheckout", async () => {
@@ -47,19 +75,19 @@ describe("catálogo v2", () => {
 describe("lista de espera", () => {
 	it("guarda el correo una sola vez y vuelve a la ficha con aviso", async () => {
 		const email = `espera-${uid()}@example.com`;
-		const r1 = await postForm("/market/producto/kit-n8n-agentes-ia/avisame", null, { email });
+		const r1 = await postForm("/market/producto/cutpilot/avisame", null, { email });
 		expect(r1.status).toBe(303);
 		expect(r1.headers.get("location")).toMatch(/aviso=lista-ok/);
-		await postForm("/market/producto/kit-n8n-agentes-ia/avisame", null, { email: email.toUpperCase() });
+		await postForm("/market/producto/cutpilot/avisame", null, { email: email.toUpperCase() });
 		expect(await count("SELECT COUNT(*) AS n FROM waitlist WHERE email = ?1", email)).toBe(1);
 	});
 
 	it("rechaza correos inválidos, productos disponibles y peticiones de otro origen", async () => {
-		const bad = await postForm("/market/producto/kit-n8n-agentes-ia/avisame", null, { email: "no-es-correo" });
+		const bad = await postForm("/market/producto/cutpilot/avisame", null, { email: "no-es-correo" });
 		expect(bad.headers.get("location")).toMatch(/aviso=correo-invalido/);
 		const p = await createProduct();
 		expect((await postForm(`/market/producto/${p.slug}/avisame`, null, { email: `a-${uid()}@example.com` })).status).toBe(404);
-		const csrf = await call("/market/producto/kit-n8n-agentes-ia/avisame", {
+		const csrf = await call("/market/producto/cutpilot/avisame", {
 			method: "POST",
 			headers: { origin: "https://evil.example", "content-type": "application/x-www-form-urlencoded" },
 			body: new URLSearchParams({ email: `b-${uid()}@example.com` }),

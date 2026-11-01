@@ -131,3 +131,12 @@ db.prepare("UPDATE products SET price_cents = 1500 WHERE slug = 'cutpilot'").run
 db.exec(sql("0007_logos_y_cutpilot.sql").replace(/ALTER TABLE[^;]+;/, ""));
 assert.equal(db.prepare("SELECT price_cents FROM products WHERE slug = 'cutpilot'").get().price_cents, 1500, "no pisa un precio cambiado a mano");
 console.log("✓ migración 0007 segura (logos y CutPilot a 12)");
+
+// ── 0008: retirar los «Próximamente» sin archivo (se desactivan, no se borran) ──
+db.exec(sql("0008_retirar_proximamente.sql"));
+const r8 = Object.fromEntries(db.prepare("SELECT slug, active, availability FROM products").all().map((r) => [r.slug, r]));
+assert.equal(r8["kit-n8n-agentes-ia"].active, 0);
+assert.equal(r8["carruseles-infinitos"].active, 0);
+assert.equal(r8.cutpilot.active, 1, "CutPilot no se toca");
+assert.equal(r8["anuncios-infinitos"].active, 1);
+console.log("✓ migración 0008 segura (solo retira kit-n8n y carruseles sin archivo)");
