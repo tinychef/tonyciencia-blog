@@ -71,7 +71,8 @@ for (const p of state.products) {
 	}
 	const html = page.text;
 	const title = html.match(/<title>([^<]*)<\/title>/)?.[1] ?? "";
-	const h1 = decode(html.match(/<h1>([^<]*)<\/h1>/)?.[1] ?? "");
+	// El H1 puede traer el nombre y el subtítulo en <span>: se compara el texto plano.
+	const h1 = decode((html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/)?.[1] ?? "").replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim());
 	const desc = meta(html, "name", "description") ?? "";
 	const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1] ?? "";
 	const robots = meta(html, "name", "robots") ?? "";
