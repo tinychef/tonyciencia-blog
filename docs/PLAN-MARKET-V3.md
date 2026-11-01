@@ -73,7 +73,11 @@ optimización completa para SEO, Google Merchant Center y Google Shopping. Todo 
    hora de Denver) y «Agente e-commerce Market Tony» (lunes 13:34). Abren PR y nunca hacen merge. Esas sesiones no
    tienen el conector de GitHub: si no pueden abrir el PR, dejan el enlace para abrirlo con un clic. Para que lo abran
    solos, edita la tarea desde claude.ai y agrégale el conector de GitHub. Cambia el horario si no estás en esa zona.
-7. **Cloudflare**: la «detección por JavaScript» (Bot Fight Mode) inyecta un script en línea que la CSP del market
+7. **Auditoría en GitHub Actions**: Cloudflare bloquea (403) las IPs de los runners de GitHub, así que el workflow
+   `market-audit.yml` queda como advertencia en vez de fallar. Para que audite de verdad, crea en Cloudflare una regla
+   WAF «Skip» para `http.request.uri.path in {"/market/estado.json" "/market/feed.xml" "/market/sitemap.xml"}` o
+   para el User-Agent `MarketTony-Audit`. Mientras tanto la auditoría la corre el agente E-commerce Manager cada lunes.
+8. **Cloudflare**: la «detección por JavaScript» (Bot Fight Mode) inyecta un script en línea que la CSP del market
    bloquea a propósito (sin efecto para los compradores). Si quieres esa señal en /market, desactívala o usa reglas WAF.
 
 ## 4. Vuelta atrás

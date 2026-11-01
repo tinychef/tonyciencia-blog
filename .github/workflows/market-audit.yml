@@ -32,7 +32,11 @@ jobs:
       - name: Auditoría de https://tonyciencia.com/market
         run: |
           node scripts/audit-catalog.mjs https://tonyciencia.com --json > audit.json || status=$?
-          node -e 'const r=require("./audit.json"); for (const i of r.issues) console.log(`${i.level === "error" ? "::error::" : "::warning::"}[${i.where}] ${i.msg}`)'
+          if [ -s audit.json ]; then
+            node -e 'const r=require("./audit.json"); for (const i of r.issues) console.log(`${i.level === "error" ? "::error::" : "::warning::"}[${i.where}] ${i.msg}`)'
+          fi
+          # 3 = Cloudflare bloqueó al runner de GitHub (no es un fallo del market): solo advertencia.
+          if [ "${status:-0}" = "3" ]; then exit 0; fi
           exit ${status:-0}
       - uses: actions/upload-artifact@v4
         if: always()
