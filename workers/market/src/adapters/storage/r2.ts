@@ -27,7 +27,7 @@ export class R2FileStorage implements FileStorage {
 		private readonly presign: R2PresignConfig | null,
 	) {}
 
-	async put(key: string, data: ArrayBuffer | ReadableStream, opts: { contentType: string; size: number }): Promise<void> {
+	async put(key: string, data: ArrayBuffer | ReadableStream, opts: { contentType: string; size: number; sha256?: string }): Promise<void> {
 		let body: ArrayBuffer | ReadableStream = data;
 		if (data instanceof ReadableStream) {
 			// R2 exige streams de longitud conocida; así se sube sin copiar el archivo entero en memoria.
@@ -35,7 +35,8 @@ export class R2FileStorage implements FileStorage {
 			void data.pipeTo(writable);
 			body = readable;
 		}
-		await this.bucket.put(key, body, { httpMetadata: { contentType: opts.contentType } });
+		// Con sha256, R2 calcula el hash de lo recibido y rechaza la escritura si no coincide (no queda nada a medias).
+		await this.bucket.put(key, body, { httpMetadata: { contentType: opts.contentType }, ...(opts.sha256 ? { sha256: opts.sha256 } : {}) });
 	}
 
 	async get(key: string): Promise<StoredObject | null> {

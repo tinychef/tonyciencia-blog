@@ -5,6 +5,7 @@ import { loadConfig, mockInProductionError } from "./config";
 import type { Env } from "./env";
 import { cleanupRateLimits } from "./lib/ratelimit";
 import { processOutbox } from "./services/outbox";
+import { ensureWelcomeCoupon } from "./services/welcome";
 
 /**
  * ARRANQUE: si MODE=mock y SITE_URL es de producción (tonyciencia.com), el Worker lanza un error
@@ -17,7 +18,7 @@ if (startupError) throw new Error(`[market] ARRANQUE DENEGADO: ${startupError}`)
 export default {
 	fetch: app.fetch,
 
-	/** Cron (cada 5 min): reintentos de correo y limpieza. */
+	/** Cron (cada 5 min): cupón de bienvenida, reintentos de correo y limpieza. */
 	async scheduled(_controller, env, ctx) {
 		const boot = loadConfig(env);
 		if (!boot.ok) {
@@ -27,6 +28,7 @@ export default {
 		const deps = { db: env.MARKET_DB, config: boot.config, adapters: createAdapters(boot.config, env) };
 		ctx.waitUntil(
 			(async () => {
+				await ensureWelcomeCoupon(deps.config, deps.adapters, Date.now(), env.MARKET_DB);
 				const r = await processOutbox(deps);
 				await cleanupRateLimits(env.MARKET_DB);
 				await env.MARKET_DB.prepare("DELETE FROM sessions WHERE expires_at < ?1").bind(Date.now()).run();

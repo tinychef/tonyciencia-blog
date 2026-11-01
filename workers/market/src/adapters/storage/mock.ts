@@ -18,8 +18,12 @@ export class MockFileStorage implements FileStorage {
 		private readonly origin: string,
 	) {}
 
-	async put(key: string, data: ArrayBuffer | ReadableStream, opts: { contentType: string; size: number }): Promise<void> {
+	async put(key: string, data: ArrayBuffer | ReadableStream, opts: { contentType: string; size: number; sha256?: string }): Promise<void> {
 		const buf = data instanceof ArrayBuffer ? data : await new Response(data).arrayBuffer();
+		if (opts.sha256) {
+			const got = [...new Uint8Array(await crypto.subtle.digest("SHA-256", buf))].map((b) => b.toString(16).padStart(2, "0")).join("");
+			if (got !== opts.sha256.toLowerCase()) throw new Error("El contenido no coincide con el SHA-256 esperado.");
+		}
 		if (buf.byteLength > MOCK_MAX_FILE_BYTES) {
 			throw new Error(`En modo maqueta los archivos de prueba no pueden pasar de ${MOCK_MAX_FILE_BYTES} bytes.`);
 		}

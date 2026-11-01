@@ -1,0 +1,25 @@
+{
+	"$comment": "Archivos entregables con hash fijado. El Worker solo acepta en PUT /market/provision/<slug> un archivo con este SHA-256 y este tamaño exactos (ver src/routes/provision.ts y provision/README.md).",
+	"files": [
+		{
+			"slug": "pagespeed-forensics",
+			"sha256": "41483b26b501ff3d51ab06187e299d5fce319c6838d5b0724f9d495fbfd0b66e",
+			"size": 44609,
+			"fileName": "pagespeed-forensics.zip",
+			"contentType": "application/zip",
+			"activate": true,
+			"repo": "tinychef/pagespeed-forensics",
+			"commit": "1b6d8c03c4a824ed05ccd3c2413ed450efb4e510"
+		},
+		{
+			"slug": "specreel-stick",
+			"sha256": "edb6bb36287071a7bd79ae3724f2bbbd7167eadc73e700015dd662649bd0870c",
+			"size": 2635491,
+			"fileName": "specreel-stick-1.0.zip",
+			"contentType": "application/zip",
+			"activate": true,
+			"repo": "tinychef/specreel-stick",
+			"commit": "fb1fe5a11a9cb0ef13f496fc67db138deaabbd2a"
+		}
+	]
+}

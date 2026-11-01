@@ -1,0 +1,25 @@
+{
+	"$comment": "Cómo se arma el ZIP de cada producto desde su repositorio (privado). `node scripts/build-product-zip.mjs <slug>` usa `git archive` (determinista: mismo commit → mismos bytes → mismo SHA-256), deja fuera .git y lo que diga `exclude`, y actualiza provision/manifest.json.",
+	"packages": [
+		{
+			"slug": "pagespeed-forensics",
+			"repo": "tinychef/pagespeed-forensics",
+			"localPath": "../../../pagespeed-forensics",
+			"ref": "claude/vigilant-cray-nhhax4",
+			"prefix": "pagespeed-forensics/",
+			"fileName": "pagespeed-forensics.zip",
+			"exclude": [],
+			"activate": true
+		},
+		{
+			"slug": "specreel-stick",
+			"repo": "tinychef/specreel-stick",
+			"localPath": "../../../specreel-stick",
+			"ref": "claude/vigilant-cray-nhhax4",
+			"prefix": "specreel-stick/",
+			"fileName": "specreel-stick-1.0.zip",
+			"exclude": [],
+			"activate": true
+		}
+	]
+}

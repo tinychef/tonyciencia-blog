@@ -6,6 +6,8 @@ import { cleanText, isSlug, normalizeEmail, parseIntInRange, safeNextPath } from
 import { dispatchByOrder } from "../services/outbox";
 import { claimFreeProduct, startCheckout, type Deps } from "../services/orders";
 import { CATEGORIES, categoryLabel, publicName, seoDescription, seoTitle } from "../lib/catalog";
+import { formatPrice } from "../lib/money";
+import { canBeFree, checkBuyerAmount, fromPriceCents, isPwyw } from "../lib/pricing";
 import {
 	getActiveEntitlement,
 	getProductBySlug,
@@ -19,7 +21,7 @@ import {
 	upsertReview,
 } from "../services/repo";
 import { breadcrumbJsonLd, catalogJsonLd, faqJsonLd, merchantFeed, productJsonLd, serviceJsonLd, sitemapXml } from "../services/seo";
-import { getWelcomeOffer } from "../services/welcome";
+import { getWelcomeOffer, readWelcomeSetup } from "../services/welcome";
 import { LibraryPage } from "../views/account";
 import { LEGAL_DOCS, LegalPage } from "../views/legal";
 import { render, renderMessage } from "../views/render";
@@ -61,6 +63,10 @@ export function registerShop(app: Hono<AppEnv>) {
 		const rawCat = c.req.query("categoria") ?? "";
 		const category = CATEGORIES.some((x) => x.slug === rawCat) ? rawCat : null;
 		const query = (c.req.query("q") ?? "").slice(0, 60);
+		const rawSort = c.req.query("orden") ?? "";
+		const sort = (["precio-asc", "precio-desc", "nuevos", "valorados"] as const).find((x) => x === rawSort) ?? "destacados";
+		const rawFilter = c.req.query("filtro") ?? "";
+		const filter = (["ofertas", "gratis", "disponibles"] as const).find((x) => x === rawFilter) ?? null;
 		const origin = c.get("config").origin;
 		return render(
 			c,
@@ -73,7 +79,7 @@ export function registerShop(app: Hono<AppEnv>) {
 				image: products.find((p) => p.images[0])?.images[0]?.src,
 				jsonLd: [...catalogJsonLd(origin, products), faqJsonLd(STORE_FAQ)],
 			},
-			<Catalog products={products} welcome={c.get("welcome")} category={category} query={query} />,
+			<Catalog products={products} welcome={c.get("welcome")} category={category} query={query} sort={sort} filter={filter} />,
 		);
 	});
 
@@ -91,8 +97,17 @@ export function registerShop(app: Hono<AppEnv>) {
 			listShopProducts(db),
 		]);
 		const aviso = c.req.query("aviso");
-		const flash =
-			aviso === "pago-error"
+		const montoMsg = (() => {
+			if (!aviso?.startsWith("monto-") || !isPwyw(product)) return null;
+			const { minText, maxText } = { minText: formatPrice(product.min_price_cents), maxText: formatPrice(product.max_price_cents ?? 99_999_999) };
+			if (aviso === "monto-invalido") return "Escribe un monto válido en dólares, por ejemplo 12 o 12.50.";
+			if (aviso === "monto-minimo") return product.min_price_cents > 0 ? `El monto mínimo para este producto es ${minText}.` : "Escribe 0 para descargarlo gratis o un monto desde $0.50 USD.";
+			if (aviso === "monto-maximo") return `El monto máximo es ${maxText}.`;
+			if (aviso === "monto-stripe") return "Los pagos con tarjeta empiezan en $0.50 USD. Escribe 0 para descargarlo gratis o un monto desde $0.50.";
+			return null;
+		})();
+		const flash = montoMsg ??
+			(aviso === "pago-error"
 				? "No pudimos iniciar el pago. Inténtalo de nuevo en unos minutos."
 				: aviso === "cupon-invalido"
 					? "Ese cupón no es válido o ya no está disponible. Revisa el código o compra sin cupón."
@@ -100,7 +115,11 @@ export function registerShop(app: Hono<AppEnv>) {
 						? "Revisa tu correo: no parece válido."
 						: aviso === "resena-error"
 							? "No pudimos guardar tu reseña: elige de 1 a 5 estrellas y usa menos de 1500 caracteres."
-							: null;
+							: aviso === "cupon-primera"
+								? "El cupón de bienvenida es solo para tu primera compra. ¡Gracias por volver! Puedes comprar sin cupón."
+								: aviso === "cupon-pwyw"
+									? "En «paga lo que quieras» tú eliges el precio, así que no se combinan cupones."
+									: null);
 		const notice = aviso === "lista-ok" ? "¡Listo! Te avisaremos por correo el día del lanzamiento." : aviso === "resena-ok" ? "¡Gracias por tu reseña!" : null;
 		// Relacionados: misma categoría primero, luego el resto (disponibles antes que próximos).
 		const others = all.filter((p) => p.id !== product.id);
@@ -117,7 +136,7 @@ export function registerShop(app: Hono<AppEnv>) {
 				description: seoDescription(product),
 				image: product.images[0]?.src,
 				ogType: "product",
-				priceCents: product.price_cents,
+				priceCents: fromPriceCents(product),
 				currency: product.currency,
 				jsonLd: [
 					productJsonLd(origin, product, reviews),
@@ -206,12 +225,37 @@ export function registerShop(app: Hono<AppEnv>) {
 
 	app.get("/market/feed.xml", async (c) => xmlResponse(c, merchantFeed(c.get("config").origin, await listShopProducts(c.env.MARKET_DB))));
 
+	// Estado público mínimo (sin datos personales): sirve para monitoreo y para verificar un deploy.
+	app.get("/market/estado.json", async (c) => {
+		const products = await listShopProducts(c.env.MARKET_DB);
+		const welcome = await getWelcomeOffer(c.get("config"), c.get("adapters"));
+		return c.json(
+			{
+				ok: true,
+				mode: c.get("config").mode,
+				welcomeCoupon: welcome ? { code: welcome.code, percentOff: welcome.percentOff } : null,
+				welcomeSetup: await readWelcomeSetup(c.env.MARKET_DB),
+				products: products.map((p) => ({
+					slug: p.slug,
+					availability: p.availability,
+					priceMode: p.kind === "free" ? "free" : p.price_mode,
+					priceCents: p.price_cents,
+					compareAtCents: p.compare_at_cents,
+					minPriceCents: p.price_mode === "pwyw" ? p.min_price_cents : undefined,
+					hasFile: !!p.file_key,
+				})),
+			},
+			200,
+			{ "cache-control": "no-store" },
+		);
+	});
+
 	app.get("/market/sitemap.xml", async (c) =>
 		xmlResponse(c, sitemapXml(c.get("config").origin, await listShopProducts(c.env.MARKET_DB), Object.keys(LEGAL_DOCS))),
 	);
 
-	// Compra: el formulario solo manda el slug (en la URL) y el token CSRF. Cualquier otro campo
-	// (p. ej. un "precio" inyectado) se ignora: el monto sale de la BD dentro de startCheckout.
+	// Compra: el formulario manda el slug (en la URL), el token CSRF, el cupón opcional y — SOLO en "paga lo que
+	// quieras" — el monto elegido. En precio fijo cualquier "precio" inyectado se ignora: el monto sale de la BD.
 	app.post("/market/producto/:slug/comprar", async (c) => {
 		const slug = c.req.param("slug");
 		const form = await c.req.formData().catch(() => null);
@@ -225,14 +269,37 @@ export function registerShop(app: Hono<AppEnv>) {
 		}
 		const product = await getProductBySlug(db, slug);
 		if (!product || product.kind !== "paid") return renderMessage(c, 404, "Producto no encontrado", "Este producto no está a la venta.");
-		// Único dato opcional que acepta el formulario además del CSRF: el código de cupón (se valida en el servidor).
+		const d = deps(c);
+
+		let amountCents: number | null = null;
+		if (isPwyw(product)) {
+			const check = checkBuyerAmount(product, form?.get("monto"));
+			if (!check.ok) {
+				const code = { invalid: "monto-invalido", below_min: "monto-minimo", above_max: "monto-maximo", below_stripe_min: "monto-stripe" }[check.reason];
+				return c.redirect(`/market/producto/${slug}?aviso=${code}#comprar`, 303);
+			}
+			if (check.free) {
+				// USD 0: mismo flujo que un producto gratis (sin Stripe). Solo si el mínimo del producto lo permite.
+				if (form?.get("marketing") === "1") await setMarketingOptIn(db, user.id, true, `producto:${product.slug}`);
+				const claimed = await claimFreeProduct(d, user, product);
+				if (!claimed.ok) return renderMessage(c, 404, "Producto no encontrado", "Este producto no está disponible.");
+				if (claimed.created) c.executionCtx.waitUntil(dispatchQuietly(d, claimed.orderId));
+				return c.redirect(`/market/mis-compras?listo=${claimed.entitlementId}${claimed.created ? "&nuevo=1" : ""}#acceso-${claimed.entitlementId}`, 303);
+			}
+			amountCents = check.cents;
+		}
+
+		// Único dato opcional en precio fijo: el código de cupón (se valida en el servidor).
 		const rawCoupon = form?.get("cupon");
 		const coupon = typeof rawCoupon === "string" ? rawCoupon.trim().slice(0, 64) : "";
-		const result = await startCheckout(deps(c), user, product, coupon || null);
+		const result = await startCheckout(d, user, product, { couponCode: coupon || null, amountCents });
 		if (result.ok) return c.redirect(result.redirectUrl, 303);
 		if (result.reason === "already_owned") return c.redirect("/market/mis-compras", 303);
-		if (result.reason === "invalid_coupon") return c.redirect(`/market/producto/${slug}?aviso=cupon-invalido`, 303);
-		if (result.reason === "provider_error") return c.redirect(`/market/producto/${slug}?aviso=pago-error`, 303);
+		if (result.reason === "invalid_coupon") return c.redirect(`/market/producto/${slug}?aviso=cupon-invalido#comprar`, 303);
+		if (result.reason === "welcome_not_first") return c.redirect(`/market/producto/${slug}?aviso=cupon-primera#comprar`, 303);
+		if (result.reason === "coupon_not_allowed") return c.redirect(`/market/producto/${slug}?aviso=cupon-pwyw#comprar`, 303);
+		if (result.reason === "invalid_amount") return c.redirect(`/market/producto/${slug}?aviso=monto-invalido#comprar`, 303);
+		if (result.reason === "provider_error") return c.redirect(`/market/producto/${slug}?aviso=pago-error#comprar`, 303);
 		return renderMessage(c, 404, "Producto no encontrado", "Este producto no está a la venta.");
 	});
 
@@ -247,7 +314,8 @@ export function registerShop(app: Hono<AppEnv>) {
 			return renderMessage(c, 429, "Demasiados intentos", "Espera unos minutos y vuelve a intentarlo.");
 		}
 		const product = await getProductBySlug(c.env.MARKET_DB, slug);
-		if (!product || product.kind !== "free") return renderMessage(c, 404, "Producto no encontrado", "Este recurso no está disponible.");
+		// Gratis, o "paga lo que quieras" con mínimo 0 (botón "Descargar gratis").
+		if (!product || !canBeFree(product)) return renderMessage(c, 404, "Producto no encontrado", "Este recurso no está disponible.");
 		// Casilla opcional: solo un "1" explícito cuenta como consentimiento. Sin marcar, no se toca nada.
 		if (form?.get("marketing") === "1") await setMarketingOptIn(c.env.MARKET_DB, user.id, true, `producto:${product.slug}`);
 		const d = deps(c);

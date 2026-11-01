@@ -130,7 +130,7 @@ describe("el precio sale SIEMPRE de la base de datos", () => {
 			}) as unknown as typeof fetch;
 			const adapters = createAdapters(config.config, env as Env);
 			adapters.payments = make(fake);
-			const r = await startCheckout({ db: env.MARKET_DB, config: config.config, adapters }, user, product, "MERKHIFY");
+			const r = await startCheckout({ db: env.MARKET_DB, config: config.config, adapters }, user, product, { couponCode: "MERKHIFY" });
 			expect(r).toEqual({ ok: false, reason: "invalid_coupon" });
 			expect(calls.some((c) => c.endsWith("/v1/checkout/sessions"))).toBe(false);
 			expect((await one<{ n: number }>("SELECT COUNT(*) AS n FROM orders WHERE user_id = ?1", user.id))?.n).toBe(0);

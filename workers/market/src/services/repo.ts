@@ -38,6 +38,10 @@ export interface ProductRow {
 	compare_at_cents: number | null;
 	availability: "available" | "coming_soon";
 	sales_offset: number;
+	// ── Precios flexibles (migración 0004) ──
+	price_mode: "fixed" | "pwyw";
+	min_price_cents: number;
+	max_price_cents: number | null;
 }
 
 export interface ProductSpec {
@@ -143,6 +147,9 @@ const toProduct = (r: ProductRow): Product => ({
 	compare_at_cents: r.compare_at_cents ?? null,
 	availability: r.availability === "coming_soon" ? "coming_soon" : "available",
 	sales_offset: r.sales_offset ?? 0,
+	price_mode: r.price_mode === "pwyw" && r.kind === "paid" ? "pwyw" : "fixed",
+	min_price_cents: r.min_price_cents ?? 0,
+	max_price_cents: r.max_price_cents ?? null,
 	images: parseImages(r.images),
 	tags: parseJsonArray(r.tags, isStr),
 	highlights: parseJsonArray(r.highlights, isStr),
@@ -251,6 +258,15 @@ export function getActiveEntitlement(db: D1Database, userId: string, productId: 
 		.prepare("SELECT * FROM entitlements WHERE user_id = ?1 AND product_id = ?2 AND revoked_at IS NULL")
 		.bind(userId, productId)
 		.first<EntitlementRow>();
+}
+
+/** Compras pagadas (con dinero) de esta persona en el market. Sirve para la regla "solo primera compra". */
+export async function countPaidOrders(db: D1Database, userId: string): Promise<number> {
+	const r = await db
+		.prepare("SELECT COUNT(*) AS n FROM orders WHERE user_id = ?1 AND kind = 'paid' AND status IN ('paid', 'refunded', 'review')")
+		.bind(userId)
+		.first<{ n: number }>();
+	return r?.n ?? 0;
 }
 
 export interface LibraryItem {

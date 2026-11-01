@@ -132,44 +132,143 @@
 		}
 	}
 
-	// ── Filtro del catálogo (búsqueda + categorías, al instante) ──
+	// ── Catálogo: búsqueda, categoría, filtros rápidos y orden, al instante (sin JS funciona igual por GET) ──
 	const grid = $("[data-filter-grid]");
 	if (grid) {
-		const items = $$(".mk-pcard-wrap", grid);
-		const input = $("[data-filter-input]");
+		const items = $$(".mk3-item", grid);
+		items.forEach((li, i) => (li.dataset.idx = String(i)));
+		const inputs = $$("[data-filter-input]");
+		const catSel = $("[data-filter-cat]");
+		const sortSel = $("[data-filter-sort]");
 		const empty = $("[data-filter-empty]");
+		const count = $("[data-filter-count]");
 		const catLinks = $$("[data-cat-filter]");
-		let cat = new URLSearchParams(location.search).get("categoria") || "";
-		const apply = () => {
-			const q = (input?.value || "").trim().toLowerCase();
+		const quick = $$("[data-quick]");
+		const params = new URLSearchParams(location.search);
+		const state = {
+			q: params.get("q") || "",
+			cat: params.get("categoria") || "",
+			sort: params.get("orden") || "destacados",
+			filter: params.get("filtro") || "",
+		};
+		const num = (li, k) => Number(li.dataset[k] || 0);
+		const sorters = {
+			destacados: (a, b) => num(a, "idx") - num(b, "idx"),
+			"precio-asc": (a, b) => num(a, "price") - num(b, "price"),
+			"precio-desc": (a, b) => num(b, "price") - num(a, "price"),
+			nuevos: (a, b) => num(b, "created") - num(a, "created"),
+			valorados: (a, b) => num(a, "idx") - num(b, "idx"),
+		};
+		const apply = (pushUrl = true) => {
+			const q = state.q.trim().toLowerCase();
 			let shown = 0;
 			for (const li of items) {
-				const ok = (!cat || li.dataset.cat === cat) && (!q || (li.dataset.search || "").includes(q));
+				const okFilter =
+					!state.filter ||
+					(state.filter === "ofertas" && li.dataset.sale === "1") ||
+					(state.filter === "gratis" && li.dataset.free === "1") ||
+					(state.filter === "disponibles" && li.dataset.soon !== "1");
+				const ok = (!state.cat || li.dataset.cat === state.cat) && (!q || (li.dataset.search || "").includes(q)) && okFilter;
 				li.hidden = !ok;
-				if (ok) {
-					shown++;
-					li.classList.add("is-in");
-				}
+				if (ok) shown++;
 			}
+			const sorter = sorters[state.sort] || sorters.destacados;
+			const ordered = [...items].sort((a, b) => num(a, "soon") - num(b, "soon") || sorter(a, b));
+			ordered.forEach((li) => grid.appendChild(li));
 			if (empty) empty.hidden = shown > 0;
-			catLinks.forEach((a) => a.setAttribute("aria-current", String((a.dataset.catFilter || "") === cat)));
+			if (count) count.textContent = `${shown} ${shown === 1 ? "producto" : "productos"}`;
+			catLinks.forEach((a) => a.setAttribute("aria-current", String((a.dataset.catFilter || "") === state.cat)));
+			quick.forEach((a) => a.setAttribute("aria-current", String((a.dataset.quick || "") === state.filter)));
+			inputs.forEach((i) => i !== document.activeElement && (i.value = state.q));
+			if (catSel) catSel.value = state.cat;
+			if (sortSel) sortSel.value = state.sort;
+			if (!pushUrl) return;
 			const url = new URL(location.href);
-			cat ? url.searchParams.set("categoria", cat) : url.searchParams.delete("categoria");
-			q ? url.searchParams.set("q", q) : url.searchParams.delete("q");
+			const set = (k, v, def = "") => (v && v !== def ? url.searchParams.set(k, v) : url.searchParams.delete(k));
+			set("q", q);
+			set("categoria", state.cat);
+			set("orden", state.sort, "destacados");
+			set("filtro", state.filter);
 			history.replaceState(null, "", url.pathname + url.search + url.hash);
 		};
-		input?.addEventListener("input", apply);
-		input?.form?.addEventListener("submit", (e) => {
-			e.preventDefault();
+		items.forEach((li) => (li.dataset.soon = li.dataset.soon === "1" ? "1" : "0"));
+		inputs.forEach((input) => {
+			input.addEventListener("input", () => {
+				state.q = input.value;
+				apply();
+			});
+			input.form?.addEventListener("submit", (e) => {
+				e.preventDefault();
+				state.q = input.value;
+				apply();
+				$("#catalogo")?.scrollIntoView({ behavior: reduced ? "auto" : "smooth" });
+			});
+		});
+		catSel?.addEventListener("change", () => {
+			state.cat = catSel.value;
+			apply();
+		});
+		sortSel?.addEventListener("change", () => {
+			state.sort = sortSel.value;
 			apply();
 		});
 		catLinks.forEach((a) =>
 			a.addEventListener("click", (e) => {
 				e.preventDefault();
-				cat = a.dataset.catFilter || "";
+				const v = a.dataset.catFilter || "";
+				state.cat = state.cat === v ? "" : v;
+				apply();
+				$("#catalogo")?.scrollIntoView({ behavior: reduced ? "auto" : "smooth" });
+			}),
+		);
+		quick.forEach((a) =>
+			a.addEventListener("click", (e) => {
+				e.preventDefault();
+				state.filter = a.dataset.quick || "";
 				apply();
 			}),
 		);
+	}
+
+	// ── "Paga lo que quieras": montos rápidos y botón que dice lo que vas a pagar ──
+	const pwyw = $("[data-pwyw]");
+	if (pwyw) {
+		const input = $("[data-pwyw-input]", pwyw);
+		const submit = $("[data-pwyw-submit]", pwyw);
+		const min = Number(pwyw.dataset.min || 0);
+		const max = Number(pwyw.dataset.max || 99999999);
+		const presets = $$("[data-amount]", pwyw);
+		const parse = (v) => {
+			let s = String(v || "").trim().replace(/^(us)?\$\s*/i, "").replace(/\s*(usd|us\$|\$)$/i, "").replace(/\s+/g, "");
+			if (/^\d{1,3}(,\d{3})+(\.\d{1,2})?$/.test(s)) s = s.replace(/,/g, "");
+			else if (/^\d{1,3}(\.\d{3})+(,\d{1,2})?$/.test(s)) s = s.replace(/\./g, "").replace(",", ".");
+			else if (/^\d+,\d{1,2}$/.test(s)) s = s.replace(",", ".");
+			if (!/^\d{1,9}(\.\d{1,2})?$/.test(s)) return null;
+			return Math.round(Number(s) * 100);
+		};
+		const fmt = (c) => `$${(c / 100).toLocaleString("en-US", { minimumFractionDigits: c % 100 ? 2 : 0, maximumFractionDigits: 2 })} USD`;
+		const update = () => {
+			const c = parse(input.value);
+			let msg = "";
+			let ok = true;
+			if (c === null) (ok = false), (msg = "Escribe un monto válido");
+			else if (c < min) (ok = false), (msg = `Mínimo ${fmt(min)}`);
+			else if (c > max) (ok = false), (msg = `Máximo ${fmt(max)}`);
+			else if (c > 0 && c < 50) (ok = false), (msg = "Con tarjeta, desde $0.50 (o 0 = gratis)");
+			submit.textContent = !ok ? msg : c === 0 ? "Descargar gratis" : `Continuar con ${fmt(c)}`;
+			submit.disabled = !ok;
+			input.setAttribute("aria-invalid", String(!ok));
+			presets.forEach((b) => b.classList.toggle("is-active", parse(b.dataset.amount) === c));
+		};
+		presets.forEach((b) =>
+			b.addEventListener("click", () => {
+				input.value = b.dataset.amount;
+				update();
+				input.focus();
+			}),
+		);
+		input?.addEventListener("input", update);
+		update();
 	}
 
 	// ── Galería del producto ──
@@ -255,41 +354,32 @@
 		});
 	});
 
-	// ── Popup de bienvenida (una vez cada 14 días; nunca si ya copió el código) ──
+	// ── Popup de bienvenida: flotante y no modal; una vez cada 14 días y nunca si ya copió el código.
+	//    Al cerrarlo queda una pestaña discreta ("🎁 10% OFF") para volver a verlo. ──
 	const pop = $("[data-welcome]");
+	const tab = $("[data-pop-open]");
 	if (pop) {
 		const KEY = "mk_welcome_at";
 		const last = Number(store.get(KEY) || 0);
-		const due = Date.now() - last > 14 * 86400_000 && !store.get("mk_coupon");
-		let lastFocus = null;
+		const used = () => !!store.get("mk_coupon");
+		const due = Date.now() - last > 14 * 86400_000 && !used();
+		const showTab = (on) => tab && (tab.hidden = !on || used());
 		const open = () => {
-			if (!pop.hidden) return;
 			store.set(KEY, String(Date.now()));
-			lastFocus = document.activeElement;
 			pop.hidden = false;
-			$(".mk-pop-code", pop)?.focus();
+			requestAnimationFrame(() => pop.classList.add("is-open"));
+			showTab(false);
 		};
 		const close = () => {
+			pop.classList.remove("is-open");
 			pop.hidden = true;
-			lastFocus?.focus?.();
+			showTab(true);
 		};
 		$$("[data-pop-close]", pop).forEach((el) => el.addEventListener("click", close));
+		$("[data-pop-used]", pop)?.addEventListener("click", () => setTimeout(close, 1400));
+		tab?.addEventListener("click", open);
 		document.addEventListener("keydown", (e) => {
-			if (pop.hidden) return;
-			if (e.key === "Escape") close();
-			if (e.key === "Tab") {
-				const f = $$("button, a[href], input", pop).filter((x) => x.offsetParent !== null);
-				if (!f.length) return;
-				const first = f[0];
-				const lastEl = f[f.length - 1];
-				if (e.shiftKey && document.activeElement === first) {
-					e.preventDefault();
-					lastEl.focus();
-				} else if (!e.shiftKey && document.activeElement === lastEl) {
-					e.preventDefault();
-					first.focus();
-				}
-			}
+			if (e.key === "Escape" && !pop.hidden) close();
 		});
 		if (due) {
 			let armed = true;
@@ -298,16 +388,17 @@
 				armed = false;
 				open();
 			};
-			setTimeout(trigger, 9000);
+			setTimeout(trigger, 6000);
 			window.addEventListener(
 				"scroll",
 				() => {
 					const h = document.documentElement;
-					if (h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight) > 0.45) trigger();
+					if (h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight) > 0.35) trigger();
 				},
 				{ passive: true },
 			);
-			if (finePointer) document.addEventListener("mouseleave", (e) => e.clientY <= 0 && trigger());
+		} else {
+			showTab(!!last);
 		}
 	}
 })();

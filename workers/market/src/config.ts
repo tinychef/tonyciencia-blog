@@ -42,6 +42,9 @@ export interface Config {
 	productionHostnames: string[];
 	/** Código promocional del popup de bienvenida (o null). Se valida contra el proveedor antes de mostrarse. */
 	welcomeCoupon: string | null;
+	/** Crear el cupón de bienvenida en el proveedor si no existe (cron). */
+	welcomeAutocreate: boolean;
+	welcomePercent: number;
 	/** Enlace https de reservas con pago (o null). */
 	bookingUrl: string | null;
 }
@@ -209,6 +212,8 @@ export function loadConfig(env: Env): BootResult {
 			r2Presign: mode === "live" ? r2Presign : null,
 			productionHostnames,
 			welcomeCoupon,
+			welcomeAutocreate: env.WELCOME_COUPON_AUTOCREATE === "true",
+			welcomePercent: intVar(env.WELCOME_COUPON_PERCENT, 10, 1, 100),
 			bookingUrl,
 		},
 	};

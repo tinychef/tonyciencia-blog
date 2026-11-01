@@ -31,6 +31,9 @@
 		"EMAIL_LINK_TTL_DAYS": "14",
 		// Popup "10 % en tu primera compra". Solo aparece si el proveedor de pagos da el código por válido.
 		"WELCOME_COUPON": "TONYCIENCIA",
+		// "true": el cron crea en Stripe (si falta) el cupón del 10 % "once" + el código, con metadata market=true.
+		"WELCOME_COUPON_AUTOCREATE": "true",
+		"WELCOME_COUPON_PERCENT": "10",
 		// Agenda con pago (Google Calendar). Vacío = botón para pedir horarios por correo.
 		"BOOKING_URL": ""
 	},
@@ -62,6 +65,8 @@
 				"DOWNLOAD_URL_TTL_SECONDS": "300",
 				"EMAIL_LINK_TTL_DAYS": "14",
 				"WELCOME_COUPON": "TONYCIENCIA",
+				"WELCOME_COUPON_AUTOCREATE": "true",
+				"WELCOME_COUPON_PERCENT": "10",
 				"BOOKING_URL": ""
 			},
 			"d1_databases": [
@@ -93,6 +98,8 @@
 				"DOWNLOAD_URL_TTL_SECONDS": "300",
 				"EMAIL_LINK_TTL_DAYS": "14",
 				"WELCOME_COUPON": "TONYCIENCIA",
+				"WELCOME_COUPON_AUTOCREATE": "true",
+				"WELCOME_COUPON_PERCENT": "10",
 				"BOOKING_URL": ""
 			},
 			"d1_databases": [
@@ -130,6 +137,8 @@
 				"DOWNLOAD_URL_TTL_SECONDS": "300",
 				"EMAIL_LINK_TTL_DAYS": "14",
 				"WELCOME_COUPON": "TONYCIENCIA",
+				"WELCOME_COUPON_AUTOCREATE": "true",
+				"WELCOME_COUPON_PERCENT": "10",
 				"BOOKING_URL": ""
 			},
 			"d1_databases": [
