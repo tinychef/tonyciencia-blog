@@ -33,7 +33,8 @@ ul { list-style: none; }
 .card { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
 .card .cv { display: block; aspect-ratio: 16 / 10; background: #000; }
 .card .cv img { width: 100%; height: 100%; display: block; object-fit: cover; }
-.card .bdg { position: absolute; top: 10px; left: 10px; height: 28px; display: inline-flex; align-items: center; padding: 0 10px; border-radius: 8px; font-size: 13px; font-weight: 700; background: var(--text); color: #0b0b0c; }
+.card .top { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 28px; }
+.card .bdg { flex: none; height: 26px; display: inline-flex; align-items: center; padding: 0 10px; border-radius: 8px; font-size: 13px; font-weight: 700; background: var(--text); color: #0b0b0c; }
 .card .bdg.sale { background: var(--green); color: var(--on-green); }
 .card .bd { padding: 14px 16px 16px; }
 .kind { font-size: 13px; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
@@ -146,7 +147,9 @@ h1.pn { margin-top: 10px; font-size: 30px; line-height: 1.1; letter-spacing: -0.
 .warn { border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; color: #cfcfd4; font-size: 15px; background: var(--surface); }
 .warn li { padding: 4px 0 4px 16px; position: relative; }
 .warn li::before { content: ""; position: absolute; left: 0; top: 13px; width: 6px; height: 6px; border-radius: 50%; background: var(--muted); }
-.sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 10; background: rgba(21,21,23,.98); border-top: 1px solid var(--line); padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.sticky { display: none; }
+.show-sticky .sticky { display: flex; }
+.show-sticky .sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 10; background: rgba(21,21,23,.98); border-top: 1px solid var(--line); padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); align-items: center; justify-content: space-between; gap: 12px; }
 .sticky .p { font-size: 14px; color: var(--muted); line-height: 1.25; }
 .sticky .p b { display: block; font-size: 19px; color: var(--text); }
 .sticky .btn { height: 48px; padding: 0 20px; font-size: 16px; }

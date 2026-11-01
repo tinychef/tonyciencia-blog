@@ -33,7 +33,8 @@ ul { list-style: none; }
 .card { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
 .card .cv { display: block; aspect-ratio: 16 / 10; background: #000; }
 .card .cv img { width: 100%; height: 100%; display: block; object-fit: cover; }
-.card .bdg { position: absolute; top: 10px; left: 10px; height: 28px; display: inline-flex; align-items: center; padding: 0 10px; border-radius: 8px; font-size: 13px; font-weight: 700; background: var(--text); color: #0b0b0c; }
+.card .top { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 28px; }
+.card .bdg { flex: none; height: 26px; display: inline-flex; align-items: center; padding: 0 10px; border-radius: 8px; font-size: 13px; font-weight: 700; background: var(--text); color: #0b0b0c; }
 .card .bdg.sale { background: var(--green); color: var(--on-green); }
 .card .bd { padding: 14px 16px 16px; }
 .kind { font-size: 13px; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
@@ -118,39 +119,33 @@ ul { list-style: none; }
 </div>
 	<ul class="gridB"><li class="cardB" id="cardB-anuncios">
 	<a class="cv" href="#" tabindex="-1"><img src="../png/B-portada-anuncios.png" width="1080" height="1080" alt="Anuncios Infinitos" fetchpriority="high"></a>
-	<span class="bdg sale">−57 %</span>
 	<h3><a href="#">Anuncios Infinitos</a></h3>
 	<p class="k">Agente de IA · Publicidad</p>
-	<div class="pt"><span class="tagp">$33.33</span><s>$76.90</s></div>
+	<div class="pt"><span class="tagp">$33.33</span><s>$76.90</s><span style="color: var(--green); font-weight: 750; font-size: 13px;">−57 %</span></div>
 </li><li class="cardB" id="cardB-specreel">
 	<a class="cv" href="#" tabindex="-1"><img src="../png/B-portada-specreel.png" width="1080" height="1080" alt="SpecReel" loading="lazy"></a>
-	<span class="bdg sale">−67 %</span>
 	<h3><a href="#">SpecReel</a></h3>
 	<p class="k">Skill · Video 3D</p>
-	<div class="pt"><span class="tagp">$12</span><s>$36.90</s></div>
+	<div class="pt"><span class="tagp">$12</span><s>$36.90</s><span style="color: var(--green); font-weight: 750; font-size: 13px;">−67 %</span></div>
 </li><li class="cardB" id="cardB-stick">
 	<a class="cv" href="#" tabindex="-1"><img src="../png/B-portada-stick.png" width="1080" height="1080" alt="SpecReel Stick" loading="lazy"></a>
-	
 	<h3><a href="#">SpecReel Stick</a></h3>
 	<p class="k">Skill · Video animado</p>
 	<div class="pt"><span class="tagp">$12</span></div>
 </li><li class="cardB" id="cardB-pagespeed">
 	<a class="cv" href="#" tabindex="-1"><img src="../png/B-portada-pagespeed.png" width="1080" height="1080" alt="PageSpeed Forensics" loading="lazy"></a>
-	<span class="bdg ">Paga lo que quieras</span>
 	<h3><a href="#">PageSpeed Forensics</a></h3>
-	<p class="k">Skill · SEO y velocidad</p>
+	<p class="k">Skill · SEO web</p>
 	<div class="pt"><span class="tagp">$0+</span><span class="pw">sugerido $9</span></div>
 </li><li class="cardB" id="cardB-cutpilot">
 	<a class="cv" href="#" tabindex="-1"><img src="../png/B-portada-cutpilot.png" width="1080" height="1080" alt="CutPilot" loading="lazy"></a>
-	
 	<h3><a href="#">CutPilot</a></h3>
 	<p class="k">Editor de video · En tu PC</p>
 	<div class="pt"><span class="tagp">$12</span></div>
 </li><li class="cardB" id="cardB-motor">
 	<a class="cv" href="#" tabindex="-1"><img src="../png/B-portada-motor.png" width="1080" height="1080" alt="Motor creativo" loading="lazy"></a>
-	<span class="bdg ">Paga lo que quieras</span>
 	<h3><a href="#">Motor creativo</a></h3>
-	<p class="k">13 agentes · Claude Code</p>
+	<p class="k">13 agentes de IA</p>
 	<div class="pt"><span class="tagp">$0+</span><span class="pw">sugerido $19</span></div>
 </li></ul>
 	<section class="sec" aria-labelledby="t-trust"><h2 id="t-trust">Compra sin riesgo</h2><ul class="trust">
