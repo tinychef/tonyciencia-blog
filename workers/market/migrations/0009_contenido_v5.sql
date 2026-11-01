@@ -26,7 +26,7 @@ UPDATE products SET description = rtrim(substr(description, 1, instr(description
 WHERE slug = 'anuncios-infinitos'
 	AND instr(description, char(10) || '## Preguntas frecuentes' || char(10)) > 0
 	AND instr(description, '¿Incluye una extensión de Chrome? No.') > instr(description, '## Preguntas frecuentes')
-	AND description LIKE '%In English: a Spanish-language ad-strategy agent%One-time payment.';
+	AND instr(description, 'In English: a Spanish-language ad-strategy agent') > 0 AND substr(description, -length('One-time payment.')) = 'One-time payment.';
 
 -- Las 2 preguntas que solo estaban en la descripción pasan a la FAQ de la ficha (texto tal cual).
 UPDATE products SET faq = json_insert(json_insert(faq,
@@ -66,7 +66,7 @@ WHERE slug = 'cutpilot' AND availability = 'available' AND meta_description = 'E
 -- Las dos, solo si CutPilot está Disponible (si volviera a «Próximamente», la lista de espera sería cierta).
 -- Si el dueño ya había retocado la frase pero conserva la coletilla, solo se quita la coletilla.
 UPDATE products SET meta_description = rtrim(substr(meta_description, 1, length(meta_description) - length(' Lista de espera.'))), updated_at = 1793592000000
-WHERE slug = 'cutpilot' AND availability = 'available' AND meta_description LIKE '% Lista de espera.';
+WHERE slug = 'cutpilot' AND availability = 'available' AND substr(meta_description, -length(' Lista de espera.')) = ' Lista de espera.';
 
 UPDATE products SET meta_title = 'CutPilot: edita videos con Claude Code y quita muletillas', updated_at = 1793592000000
 WHERE slug = 'cutpilot' AND meta_title = 'Edita videos con Claude Code en local — CutPilot';
@@ -82,7 +82,7 @@ WHERE slug = 'specreel' AND meta_description = 'Skill para Claude Code y Codex q
 --     «Es la misma oferta…»). Guarda: sigue empezando en inglés y la versión en español viene después.
 UPDATE products SET description = substr(description, instr(description, 'SpecReel es una skill para Claude Code y Codex que convierte')), updated_at = 1793592000000
 WHERE slug = 'specreel'
-	AND description LIKE 'SpecReel is an agent skill for Claude Code and Codex%'
+	AND substr(description, 1, length('SpecReel is an agent skill for Claude Code and Codex')) = 'SpecReel is an agent skill for Claude Code and Codex'
 	AND instr(description, '## Descripción en español') > 0
 	AND instr(description, 'SpecReel es una skill para Claude Code y Codex que convierte') > instr(description, '## Descripción en español');
 
@@ -153,7 +153,7 @@ WHERE slug = 'specreel'
 	AND instr(description, '## Refund policy') = 0
 	AND instr(description, '## Política de reembolso') > 0
 	AND instr(description, '«funciona o te devolvemos el dinero»') > instr(description, '## Política de reembolso')
-	AND description LIKE '%Soporte: contact@tonyciencia.com';
+	AND substr(description, -length('Soporte: contact@tonyciencia.com')) = 'Soporte: contact@tonyciencia.com';
 
 -- 3d. FAQ: la respuesta de reembolso pasa a la política del market (solo si sigue siendo la vieja) y se agregan 3
 --     preguntas que solo estaban en inglés (solo si no existen).
