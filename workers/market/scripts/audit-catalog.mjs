@@ -16,7 +16,11 @@ const warn = (w, m) => add("warn", w, m);
 
 async function get(path, { head = false } = {}) {
 	const url = path.startsWith("http") ? path : `${origin}${path}`;
-	const res = await fetch(url, { method: head ? "HEAD" : "GET", redirect: "manual", headers: { "user-agent": "MarketTony-Audit/1.0" } });
+	const res = await fetch(url, {
+		method: head ? "HEAD" : "GET",
+		redirect: "manual",
+		headers: { "user-agent": "Mozilla/5.0 (compatible; MarketTony-Audit/1.0; +https://tonyciencia.com/market)", accept: "text/html,application/json,*/*" },
+	});
 	return { url, status: res.status, headers: res.headers, text: head ? "" : await res.text() };
 }
 
@@ -37,6 +41,14 @@ const jsonLd = (html) =>
 const cents = (s) => Math.round(Number(String(s).replace(/[^0-9.]/g, "")) * 100);
 
 const status = await get("/market/estado.json");
+if (status.status === 403 || status.status === 503) {
+	// Cloudflare (protección contra bots) bloquea muchas IPs de datacenter, p. ej. los runners de GitHub Actions.
+	// No es un error del market: Googlebot y Google-Merchant son bots verificados y sí pasan.
+	const msg = `Cloudflare bloqueó esta auditoría (${status.status}) desde esta red. Córrela desde otra red (o por el agente E-commerce Manager).`;
+	if (asJson) console.log(JSON.stringify({ origin, blocked: true, report: [], issues: [{ level: "warn", where: "red", msg }] }));
+	else console.error(msg);
+	process.exit(3);
+}
 if (status.status !== 200) {
 	console.error(`No se pudo leer ${status.url} (${status.status}). ¿Está desplegado el market v3?`);
 	process.exit(2);
