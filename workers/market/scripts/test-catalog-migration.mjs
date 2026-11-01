@@ -452,3 +452,136 @@ db.exec(sql("0012_edit_pro_desde_cero.sql"));
 	}
 	console.log("✓ migración 0012 segura (Edit Pro desde $0)");
 }
+
+// ── 0013: títulos, taglines, metas y etiquetas por palabra clave (ES + i18n.en) ──
+{
+	const base13 = () => {
+		const d = prodDb();
+		for (const f of ["0009_contenido_v5.sql", "0010_nombres_v6.sql", "0011_ingles.sql", "0012_edit_pro_desde_cero.sql"]) d.exec(sql(f));
+		return d;
+	};
+	const db13 = base13();
+	const pre13 = rowsOf(db13);
+	db13.exec(sql("0013_titulos_keywords.sql"));
+	const v13 = rowsOf(db13);
+	db13.exec(sql("0013_titulos_keywords.sql"));
+	assert.deepEqual(rowsOf(db13), v13, "0013 es idempotente");
+
+	// Nombre (lo que va antes de «:») y la línea de la tarjeta, en los dos idiomas.
+	const EXPECT = {
+		"anuncios-infinitos": {
+			es: ["Anuncios Automáticos: agente de anuncios con inteligencia artificial", "Anuncios con inteligencia artificial: tu agente investiga y escribe los ads"],
+			en: ["Automatic Ads: AI advertising agent that writes your ads in Spanish", "AI ads in Spanish: your agent researches your business and writes the ads"],
+		},
+		specreel: {
+			es: ["Motion 3D Video: crea videos explicativos 3D con IA y Claude Code", "Videos explicativos con IA: pides un tema y recibes un MP4 3D narrado"],
+			en: ["Motion 3D Video: AI explainer and 3D product videos with Claude Code", "AI explainer videos: give your agent a topic, get a narrated 3D MP4"],
+		},
+		"specreel-stick": {
+			es: ["SpecReel Stick: videos de palitos animados con IA para Reels y TikTok", "Animaciones de palitos con IA: cuentas la idea y recibes el MP4 con música"],
+			en: ["SpecReel Stick: AI stick figure animation videos with Claude Code", "Stick figure animation with AI: tell your agent the idea, get the MP4"],
+		},
+		"pagespeed-forensics": {
+			es: ["PageSpeed Forensics: mejora tu PageSpeed móvil con Claude Code", "¿PageSpeed móvil atascado en 85? Encuentra la causa y prueba arreglos"],
+			en: ["PageSpeed Forensics: find why your mobile PageSpeed score is low", "Low PageSpeed mobile score? Find the cause with evidence and test fixes"],
+		},
+		cutpilot: {
+			es: ["Edit Pro para YouTube: edita con IA tus videos hablados en español", "Edita con IA tus videos en español: quita muletillas y silencios, subtitula"],
+			en: ["Edit Pro for YouTube: AI video editor for Spanish talking videos", "AI video editor for Spanish videos: cuts filler words and silences"],
+		},
+		"motor-creativo-claude-code": {
+			es: ["Creative Factory: 13 agentes de IA para diseño gráfico, video y PDF", "Agentes de IA para diseño gráfico: pides la pieza y Claude Code la produce"],
+			en: ["Creative Factory: 13 AI agents for graphic design, video and PDF", "AI agents for graphic design: ask in Spanish and Claude Code makes it"],
+		},
+	};
+	// Palabra clave principal: en el título o la línea, y en el meta título o la meta descripción.
+	const KEYWORD = {
+		"anuncios-infinitos": { es: ["anuncios con inteligencia artificial", "anuncios con inteligencia artificial"], en: ["ai advertising agent", "ai advertising agent"] },
+		specreel: { es: ["videos explicativos con ia", "videos explicativos con ia"], en: ["ai explainer", "ai explainer"] },
+		"specreel-stick": { es: ["videos de palitos animados", "videos de palitos animados"], en: ["stick figure animation", "stick figure animation"] },
+		"pagespeed-forensics": { es: ["pagespeed móvil", "pagespeed móvil"], en: ["mobile pagespeed score", "pagespeed insights mobile score"] },
+		cutpilot: { es: ["edita con ia", "videos para youtube con ia"], en: ["ai video editor", "ai video editor"] },
+		"motor-creativo-claude-code": { es: ["agentes de ia para diseño gráfico", "agentes de ia para diseño gráfico"], en: ["ai agents for graphic design", "ai agents for graphic design"] },
+	};
+	const len = (s) => [...s].length;
+	const CHANGED = ["title", "tagline", "meta_title", "meta_description", "tags", "i18n", "updated_at"];
+	const EN_TOUCHED = ["title", "tagline", "meta_title", "meta_description", "tags"];
+	assert.deepEqual(Object.keys(v13).sort(), Object.keys(EXPECT).sort(), "los 6 productos activos");
+	for (const [slug, r] of Object.entries(v13)) {
+		const p = pre13[slug];
+		for (const k of Object.keys(p)) if (!CHANGED.includes(k)) assert.equal(r[k], p[k], `${slug}: 0013 no toca ${k}`);
+		const en = JSON.parse(r.i18n).en;
+		const enPre = JSON.parse(p.i18n).en;
+		for (const k of Object.keys(enPre)) if (!EN_TOUCHED.includes(k)) assert.deepEqual(en[k], enPre[k], `${slug}: 0013 no toca i18n.en.${k}`);
+		assert.deepEqual(Object.keys(en).sort(), Object.keys(enPre).sort(), `${slug}: i18n.en con las mismas claves`);
+		const es = { title: r.title, tagline: r.tagline, meta_title: r.meta_title, meta_description: r.meta_description, tags: JSON.parse(r.tags) };
+		for (const [lang, f] of [["es", es], ["en", en]]) {
+			const tag = `${slug} (${lang})`;
+			assert.deepEqual([f.title, f.tagline], EXPECT[slug][lang], `${tag}: título y línea de la tarjeta`);
+			const name = (lang === "es" ? p.title : enPre.title).split(":")[0];
+			assert.equal(f.title.split(":")[0], name, `${tag}: el nombre de marca no cambia`);
+			assert.ok(len(f.title) <= 70, `${tag}: title ≤ 70 (${len(f.title)})`);
+			assert.ok(len(f.tagline) <= 75, `${tag}: tagline ≤ 75 (${len(f.tagline)})`);
+			assert.ok(len(f.meta_title) <= 60, `${tag}: meta_title ≤ 60 (${len(f.meta_title)})`);
+			assert.ok(len(f.meta_description) >= 120 && len(f.meta_description) <= 160, `${tag}: meta_description 120–160 (${len(f.meta_description)})`);
+			assert.ok(Array.isArray(f.tags) && f.tags.length >= 5 && f.tags.length <= 7 && f.tags.every((t) => typeof t === "string" && t.trim()), `${tag}: 5–7 etiquetas`);
+			assert.equal(new Set(f.tags.map((t) => t.toLowerCase())).size, f.tags.length, `${tag}: etiquetas sin repetir`);
+			const [kwTop, kwMeta] = KEYWORD[slug][lang];
+			assert.ok(`${f.title} ${f.tagline}`.toLowerCase().includes(kwTop), `${tag}: «${kwTop}» en el título o la línea`);
+			assert.ok(`${f.meta_title} ${f.meta_description}`.toLowerCase().includes(kwMeta), `${tag}: «${kwMeta}» en las metas`);
+			assert.ok(!/^YouTube/i.test(f.title) && !/claude/i.test(name), `${tag}: sin «YouTube» al inicio ni «Claude» en el nombre`);
+		}
+		assert.ok(r.title !== p.title && r.tagline !== p.tagline, `${slug}: título y línea cambian`);
+	}
+	// Honestidad: Anuncios escribe prompts y textos (no publica ni genera imágenes); Edit Pro y Anuncios avisan del español.
+	const an13 = v13["anuncios-infinitos"];
+	const anText = [an13.title, an13.tagline, an13.meta_title, an13.meta_description, an13.tags, an13.i18n].join(" ");
+	assert.ok(!/\bpublica|genera (imágenes|videos)|automatiza tus (ads|anuncios)|publishes|generates (images|videos)/i.test(anText), "Anuncios: no promete publicar ni generar imágenes");
+	for (const s of ["anuncios-infinitos", "cutpilot"]) {
+		const en = JSON.parse(v13[s].i18n).en;
+		assert.ok(/Spanish/.test(en.title) && /Spanish/.test(en.tagline) && /Spanish/.test(en.meta_title) && /Spanish/.test(en.meta_description), `${s}: en inglés avisa que es en español`);
+	}
+	const ep13 = v13.cutpilot;
+	assert.ok(/español/.test(ep13.title) && /español/.test(ep13.tagline) && /español/.test(ep13.meta_title) && /español/.test(ep13.meta_description), "Edit Pro: solo videos en español, a la vista");
+	assert.ok(/Spanish/.test(JSON.parse(v13["motor-creativo-claude-code"].i18n).en.meta_description), "Creative Factory: agentes en español");
+	assert.ok(!/garantiza|\b100\b/i.test(v13["pagespeed-forensics"].title + v13["pagespeed-forensics"].tagline + v13["pagespeed-forensics"].meta_description), "PageSpeed: no promete 100");
+	const enAll = Object.values(v13).map((r) => JSON.parse(r.i18n).en);
+	for (const en of enAll) assert.ok(!/\b(para|con|que|los|las|una|del)\b/.test([en.title, en.tagline, en.meta_title, en.meta_description, ...en.tags].join(" ")), `${en.title}: sin español en el inglés`);
+
+	// Lo que el dueño editó a mano no se pisa (campo por campo); lo demás sí se actualiza.
+	const dbOwn13 = base13();
+	dbOwn13.exec(`
+		UPDATE products SET title = 'Anuncios Automáticos: título del dueño' WHERE slug = 'anuncios-infinitos';
+		UPDATE products SET tagline = 'Línea del dueño.' WHERE slug = 'specreel';
+		UPDATE products SET tags = '["etiqueta del dueño"]' WHERE slug = 'cutpilot';
+		UPDATE products SET i18n = json_set(i18n, '$.en.title', 'Creative Factory: owner title') WHERE slug = 'motor-creativo-claude-code';
+		UPDATE products SET i18n = json_set(i18n, '$.en.tags', json('["owner tag"]')) WHERE slug = 'specreel-stick';
+		UPDATE products SET meta_description = 'Meta descripción propia del dueño.' WHERE slug = 'pagespeed-forensics';
+	`);
+	// Mismas etiquetas que en producción pero guardadas con otro formato (espacios): se reconocen y se actualizan.
+	const anTagsPre = JSON.parse(pre13["anuncios-infinitos"].tags);
+	dbOwn13.prepare("UPDATE products SET tags = ? WHERE slug = 'anuncios-infinitos'").run(JSON.stringify(anTagsPre, null, 2));
+	dbOwn13.exec(sql("0013_titulos_keywords.sql"));
+	const o13 = rowsOf(dbOwn13);
+	assert.equal(o13["anuncios-infinitos"].title, "Anuncios Automáticos: título del dueño");
+	assert.equal(o13["anuncios-infinitos"].tagline, EXPECT["anuncios-infinitos"].es[1], "el resto de la ficha sí se actualiza");
+	assert.deepEqual(JSON.parse(o13["anuncios-infinitos"].tags), JSON.parse(v13["anuncios-infinitos"].tags), "etiquetas iguales con otro formato: se actualizan");
+	assert.equal(o13.specreel.tagline, "Línea del dueño.");
+	assert.equal(o13.specreel.title, EXPECT.specreel.es[0]);
+	assert.equal(o13.cutpilot.tags, '["etiqueta del dueño"]');
+	assert.equal(o13.cutpilot.title, EXPECT.cutpilot.es[0]);
+	assert.equal(o13["pagespeed-forensics"].meta_description, "Meta descripción propia del dueño.");
+	const cfOwn = JSON.parse(o13["motor-creativo-claude-code"].i18n).en;
+	assert.equal(cfOwn.title, "Creative Factory: owner title");
+	assert.equal(cfOwn.tagline, EXPECT["motor-creativo-claude-code"].en[1]);
+	const stOwn = JSON.parse(o13["specreel-stick"].i18n).en;
+	assert.deepEqual(stOwn.tags, ["owner tag"]);
+	assert.equal(stOwn.title, EXPECT["specreel-stick"].en[0]);
+	// Sin inglés (i18n vacío, o texto inválido): no falla ni inventa un JSON.
+	const dbNo = base13();
+	dbNo.exec("UPDATE products SET i18n = '{}' WHERE slug = 'specreel'; UPDATE products SET i18n = 'roto' WHERE slug = 'cutpilot';");
+	dbNo.exec(sql("0013_titulos_keywords.sql"));
+	assert.equal(dbNo.prepare("SELECT i18n FROM products WHERE slug = 'specreel'").get().i18n, "{}");
+	assert.equal(dbNo.prepare("SELECT i18n FROM products WHERE slug = 'cutpilot'").get().i18n, "roto");
+	console.log("✓ migración 0013 segura (palabras clave: longitudes, idempotente, ES + i18n.en, no pisa lo editado a mano)");
+}
