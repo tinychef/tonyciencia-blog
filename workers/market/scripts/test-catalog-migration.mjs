@@ -268,3 +268,13 @@ assert.equal(o9["motor-creativo-claude-code"].title, "H1 del dueño");
 assert.equal(o9["motor-creativo-claude-code"].compat, '{"works":["claude-code","codex"],"includes":[]}');
 assert.ok(!JSON.parse(o9["motor-creativo-claude-code"].faq).some((f) => f.q.includes("Antigravity")), "sin Antigravity en compat, no se agrega su pregunta");
 console.log("✓ migración 0009 segura (contenido v5 sobre la copia de producción; no pisa lo editado a mano)");
+
+// ── D1 rechaza patrones LIKE/GLOB largos («LIKE or GLOB pattern too complex», límite de 50 bytes) aunque node:sqlite los
+// acepte. Pasó con la 0009 en producción: ninguna migración puede tener un patrón así. Usar instr()/substr().
+for (const f of readdirSync(new URL("../migrations/", import.meta.url)).filter((n) => n.endsWith(".sql"))) {
+	const text = readFileSync(new URL(`../migrations/${f}`, import.meta.url), "utf8");
+	for (const m of text.matchAll(/\b(?:LIKE|GLOB)\s+'((?:[^']|'')*)'/gi)) {
+		assert.ok(Buffer.byteLength(m[1]) <= 50, `${f}: patrón LIKE/GLOB de ${Buffer.byteLength(m[1])} bytes (D1 admite hasta 50): ${m[1].slice(0, 60)}…`);
+	}
+}
+console.log("✓ ningún patrón LIKE/GLOB supera el límite de D1");
