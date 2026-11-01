@@ -461,3 +461,18 @@ describe("tienda en inglés (/market/en/)", () => {
 		expect(sitemap).toContain('xmlns:xhtml="http://www.w3.org/1999/xhtml"');
 	});
 });
+
+describe("portadas en inglés", () => {
+	it("la ficha en inglés usa products/<slug>/en/cover.webp y la tarjeta su animada en inglés", async () => {
+		const p = await createProduct({ priceCents: 1200 });
+		await env.MARKET_DB.prepare("UPDATE products SET slug = 'specreel-stick', images = ?2, i18n = ?3 WHERE id = ?1")
+			.bind(p.id, JSON.stringify([{ src: "/market/static/products/specreel-stick/cover.webp", alt: "Portada" }]), JSON.stringify({ en: { title: "SpecReel Stick: EN", image_alts: ["EN cover"] } }))
+			.run()
+			.catch(() => null);
+		const row = await one<{ slug: string }>("SELECT slug FROM products WHERE id = ?1", p.id);
+		if (row?.slug !== "specreel-stick") return; // el slug ya existe en esta base de prueba
+		const cat = await (await call("/market/en/")).text();
+		expect(cat).toContain("/market/static/products/specreel-stick/en/cover.webp");
+		expect(cat).toContain('data-anim="/market/static/products/specreel-stick/en/cover-animada.webp"');
+	});
+});

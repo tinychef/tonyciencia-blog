@@ -105,8 +105,7 @@ const GHL_URL = "https://www.gohighlevel.com/highlevel-bootcamp?fp_ref=tony-cien
 // Portadas de la puerta del Market: se leen directo del Market (otro Worker en /market, mismo dominio), en su versión
 // liviana de 800 px y en el idioma de la página, para que la portada del blog nunca muestre portadas viejas.
 const MARKET_COVERS = ["anuncios-infinitos", "specreel-stick", "pagespeed-forensics"];
-// Cuando existan las portadas en inglés (products/<slug>/en/), usar `${locale === "en" ? "en/" : ""}` antes de cover-800.
-const marketCover = (slug: string) => `/market/static/products/${slug}/cover-800.webp`;
+const marketCover = (slug: string) => `/market/static/products/${slug}/${locale === "en" ? "en/" : ""}cover-800.webp`;
 
 // Carruseles curados — 6 categorías más relevantes para el ICP B2B. El catálogo
 // completo vive en /herramientas (solo ES).

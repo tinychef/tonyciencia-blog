@@ -80,6 +80,8 @@ const CSS = `
 .pf .pf-g b { position: absolute; inset: 0; display: grid; place-items: center; font-weight: 800; letter-spacing: -0.04em; }
 .pf .pf-glbl { margin-top: 12px; font-size: 30px; font-weight: 800; letter-spacing: -0.01em; }
 .pf .pf-lbl { font: 700 28px "JetBrains Mono", monospace; letter-spacing: .1em; color: #a1a1a8; margin-bottom: 14px; }
+.pf .pf-seal { display: inline-flex; align-items: center; gap: 12px; font: 800 44px "Inter Tight", sans-serif; letter-spacing: -0.01em; padding: 8px 22px 10px; border-radius: 14px; background: #f5f5f7; color: #0d0d0f; white-space: nowrap; }
+.pf .pf-seal svg { width: 36px; height: 36px; }
 .pf .pf-tag { display: inline-block; font: 800 46px "Inter Tight", sans-serif; padding: 6px 22px 8px; border-radius: 12px; background: #f5f5f7; color: #0d0d0f; }
 /* CutPilot */
 .pf .pf-tl { position: absolute; left: 88px; right: 88px; top: 568px; height: 376px; border: 3px solid #2e2e33; border-radius: 24px; background: #121215; overflow: hidden; }
@@ -113,12 +115,16 @@ const CSS = `
 
 const top = (name, logos = "") => `<div class="pf-top"><div class="pf-name">${name}</div>${logos ? `<div class="pf-logos">${logos}</div>` : ""}</div>`;
 const spritePos = (k) => `${((k % 7) / 6) * 100}% ${(Math.floor(k / 7) / 4) * 100}%`;
+const GLOBE = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`;
 const CHECK = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>`;
 
 // Funciones de cuadro: se copian tal cual a la página (sin cierres sobre variables del generador).
 const ease = { io: "const io = (x) => (x < .5 ? 2 * x * x : 1 - (-2 * x + 2) ** 2 / 2), oc = (x) => 1 - (1 - x) ** 3, cl = (x) => Math.min(1, Math.max(0, x));" };
 
 const P = {};
+// Idioma de la portada que se está generando: es (tienda en español) o en (/market/en/).
+let LANG = "es";
+const tr = (es, en) => (LANG === "en" ? en : es);
 
 // ───────────── 1. Anuncios Automáticos ─────────────
 P["anuncios-infinitos"] = {
@@ -128,13 +134,13 @@ P["anuncios-infinitos"] = {
 		return `
 	<div class="pf-dots"></div>
 	<div class="pf-glow" style="left: 840px; top: 140px; width: 760px; height: 760px;"></div>
-	<div class="pf-top"><div class="pf-name" style="font-size: 56px; line-height: 1.02; display: block;">Anuncios<br><u>Automáticos</u></div><div class="pf-logos" style="gap: 10px; padding: 0 24px;">${CLAUDE}<span class="pf-t" style="font-size: 38px;">Claude Code</span>${SEP}${chatgpt(L)}<span class="pf-t" style="font-size: 38px;">Codex</span>${SEP}${ANTIGRAVITY}<span class="pf-t" style="font-size: 38px;">Antigravity</span></div></div>
-	<p class="pf-h" style="top: 200px; font-size: 120px;">Anuncios<br>automáticos<br><b>mientras<br>descansas.</b></p>
-	<p class="pf-sub" style="top: 672px;">Tu agente investiga y escribe;<br>tú revisas y publicas.</p>
-	<div style="position: absolute; left: 88px; top: 808px;"><span class="pf-chip">App + Agente</span></div>
-	<div class="pf-q">${cards.map(([k, n], j) => `<div class="pf-adc" data-j="${j}"><div class="pf-adh">${k ? si(k, 42) : ""}<b>${n}</b><span class="pf-st"></span></div>${["Gancho", "Cuerpo", "Llamado a la acción"].map((r) => `<div class="pf-adr"><span>${r}</span><i><em></em></i></div>`).join("")}</div>`).join("")}</div>
+	<div class="pf-top"><div class="pf-name" style="font-size: 56px; line-height: 1.02; display: block;">${tr("Anuncios<br><u>Automáticos</u>", "Automatic<br><u>Ads</u>")}</div><div class="pf-logos" style="gap: 10px; padding: 0 24px;">${CLAUDE}<span class="pf-t" style="font-size: 38px;">Claude Code</span>${SEP}${chatgpt(L)}<span class="pf-t" style="font-size: 38px;">Codex</span>${SEP}${ANTIGRAVITY}<span class="pf-t" style="font-size: 38px;">Antigravity</span></div></div>
+	${tr(`<p class="pf-h" style="top: 200px; font-size: 120px;">Anuncios<br>automáticos<br><b>mientras<br>descansas.</b></p>`, `<p class="pf-h" style="top: 214px; font-size: 128px;">Automatic<br>ads while<br><b>you rest.</b></p>`)}
+	<p class="pf-sub" style="top: 672px;">${tr("Tu agente investiga y escribe;<br>tú revisas y publicas.", "Your agent researches and writes;<br>you review and publish.")}</p>
+	<div style="position: absolute; left: 88px; top: 808px; display: flex; align-items: center; gap: 22px;"><span class="pf-chip">${tr("App + Agente", "App + Agent")}</span>${tr("", `<span class="pf-seal">${GLOBE}In Spanish</span>`)}</div>
+	<div class="pf-q">${cards.map(([k, n], j) => `<div class="pf-adc" data-j="${j}"><div class="pf-adh">${k ? si(k, 42) : ""}<b>${n}</b><span class="pf-st"></span></div>${tr(["Gancho", "Cuerpo", "Llamado a la acción"], ["Hook", "Body", "Call to action"]).map((r) => `<div class="pf-adr"><span>${r}</span><i><em></em></i></div>`).join("")}</div>`).join("")}</div>
 	<div class="pf-plat">${si("meta", 92)}${si("googleads", 82)}${si("tiktok", 82)}<span class="pf-t">LinkedIn</span></div>
-	<p class="pf-note">Ilustración del flujo: el agente escribe gancho, cuerpo y llamado a la acción de cada anuncio.<br>Las marcas son de sus titulares; solo indican compatibilidad.</p>`;
+	<p class="pf-note">${tr("Ilustración del flujo: el agente escribe gancho, cuerpo y llamado a la acción de cada anuncio.<br>Las marcas son de sus titulares; solo indican compatibilidad.", "Flow illustration: the agent writes the hook, body and call to action of each ad. The agent works in Spanish.<br>Brands belong to their owners and are shown only to indicate compatibility.")}</p>`;
 	},
 	update: function (root, t) {
 		const io = (x) => (x < .5 ? 2 * x * x : 1 - (-2 * x + 2) ** 2 / 2), cl = (x) => Math.min(1, Math.max(0, x));
@@ -146,7 +152,8 @@ P["anuncios-infinitos"] = {
 			c.querySelectorAll(".pf-adr em").forEach((e, k) => { e.style.width = `${cl(fill * 3 - k) * 100}%`; });
 			const done = fill >= 1;
 			c.classList.toggle("pf-ok", done);
-			c.querySelector(".pf-st").innerHTML = done ? `${c.dataset.check}Para revisar` : u < 0.4 ? "En cola" : "Escribiendo";
+			const en = root.dataset.lang === "en";
+			c.querySelector(".pf-st").innerHTML = done ? `${c.dataset.check}${en ? "Ready to review" : "Para revisar"}` : u < 0.4 ? (en ? "Queued" : "En cola") : (en ? "Writing" : "Escribiendo");
 		});
 	},
 	init: `root.querySelectorAll(".pf-adc").forEach((c) => { c.dataset.check = ${JSON.stringify(CHECK)}; });`,
@@ -155,7 +162,7 @@ P["anuncios-infinitos"] = {
 // ───────────── 2. Motion 3D Video (SpecReel) ─────────────
 const SR_TILES = [
 	// [sprite, cuadro fijo, caja, rotación, rótulo, clase del rótulo]
-	["anim-celula.webp", 30, "left: 690px; top: 262px; width: 316px; height: 562px;", -5, "Célula", ""],
+	["anim-celula.webp", 30, "left: 690px; top: 262px; width: 316px; height: 562px;", -5, ["Célula", "Cell"], ""],
 	["anim-showreel.webp", 34, "left: 1196px; top: 262px; width: 316px; height: 562px;", 5, "Showreel", "r"],
 	["anim-micro.webp", 1, "left: 938px; top: 186px; width: 380px; height: 676px; border-color: #30d158;", 0, "Microneedling", ""],
 ];
@@ -165,10 +172,10 @@ P.specreel = {
 	<div class="pf-dots"></div>
 	<div class="pf-glow" style="left: 700px; top: 120px; width: 900px; height: 900px;"></div>
 	${top(`Motion <u>3D</u> Video`)}
-	<p class="pf-pain" style="top: 214px;"><s>Línea de tiempo.</s><br><s>Créditos por minuto.</s></p>
-	<p class="pf-h" style="top: 384px; font-size: 138px;">Video 3D<br>con tu<br><b>agente.</b></p>
-	${SR_TILES.map(([sp, k, box, rot, cap, cc]) => `<div class="pf-tile" style="${box} transform: rotate(${rot}deg);"><div class="pf-sprite" style="background-image: url(assets/specreel/${sp}); background-position: ${spritePos(k)};"></div><span class="pf-cap ${cc}">${cap}</span></div>`).join("")}
-	<p class="pf-note">Clips reales de 3 de los 4 ejemplos incluidos (sin la botella).</p>`,
+	<p class="pf-pain" style="top: 214px;">${tr("<s>Línea de tiempo.</s><br><s>Créditos por minuto.</s>", "<s>Timeline editing.</s><br><s>Per-minute credits.</s>")}</p>
+	<p class="pf-h" style="top: 384px; font-size: 138px;">${tr("Video 3D<br>con tu<br><b>agente.</b>", "3D video<br>by your<br><b>agent.</b>")}</p>
+	${SR_TILES.map(([sp, k, box, rot, cap0, cc], _, __, cap = Array.isArray(cap0) ? tr(...cap0) : cap0) => `<div class="pf-tile" style="${box} transform: rotate(${rot}deg);"><div class="pf-sprite" style="background-image: url(assets/specreel/${sp}); background-position: ${spritePos(k)};"></div><span class="pf-cap ${cc}">${cap}</span></div>`).join("")}
+	<p class="pf-note">${tr("Clips reales de 3 de los 4 ejemplos incluidos (sin la botella).", "Real renders (Spanish examples): 3 of the 4 included example videos.")}</p>`,
 	update: function (root, t) {
 		const k = Math.floor(t * 10 + 1e-6) % 35;
 		root.querySelectorAll(".pf-sprite").forEach((el) => { el.style.backgroundPosition = `${((k % 7) / 6) * 100}% ${(Math.floor(k / 7) / 4) * 100}%`; });
@@ -177,16 +184,16 @@ P.specreel = {
 };
 
 // ───────────── 3. SpecReel Stick ─────────────
-const STICK = [["escena-1.jpg", "anim-1.webp", "1 % mejor cada día"], ["escena-2.jpg", "anim-2.webp", "Uno ahorra, otro gasta"], ["escena-3.jpg", "anim-3.webp", "El que empieza vs. el que espera"]];
+const STICK = [["escena-1.jpg", "anim-1.webp", ["1 % mejor cada día", "1% better every day"]], ["escena-2.jpg", "anim-2.webp", ["Uno ahorra, otro gasta", "One saves, one spends"]], ["escena-3.jpg", "anim-3.webp", ["El que empieza vs. el que espera", "One starts, one waits"]]];
 P["specreel-stick"] = {
 	fps: 10, frames: 35, best: 0, quality: 50,
 	html: (anim) => `
 	<div class="pf-glow" style="left: 300px; top: 420px; width: 1000px; height: 700px;"></div>
 	${top(`SpecReel <u>Stick</u>`, `${CLAUDE}${T("Claude Code")}${SEP}${chatgpt(L)}${T("Codex")}`)}
-	<p class="pf-pain" style="top: 186px; font-size: 34px;"><s>Grabarte en cámara.</s> Tu agente anima.</p>
-	<p class="pf-h" style="top: 238px; font-size: 120px;">Tu idea en <b>muñequitos<br>de palo.</b></p>
-	${STICK.map(([still, sprite, cap], i) => `<div class="pf-tile" style="left: ${56 + i * 504}px; top: 470px; width: 480px; height: 480px; border-radius: 24px;">${anim ? `<div class="pf-sprite" style="background-image: url(assets/specreel-stick/${sprite});"></div>` : `<img src="assets/specreel-stick/${still}" width="480" height="480" alt="">`}<span class="pf-cap tr">${cap}</span></div>`).join("")}
-	<p class="pf-note" style="bottom: 16px; font-size: 15px;">Renders reales del motor incluido: el sketch de ejemplo y 2 guiones nuevos (bloque SKIT).</p>`,
+	<p class="pf-pain" style="top: 186px; font-size: 34px;">${tr("<s>Grabarte en cámara.</s> Tu agente anima.", "<s>Filming yourself.</s> Your agent animates.")}</p>
+	<p class="pf-h" style="top: 238px; font-size: 120px;">${tr("Tu idea en <b>muñequitos<br>de palo.</b>", "Your idea, in <b>stick<br>figures.</b>")}</p>
+	${STICK.map(([still, sprite, cap], i) => `<div class="pf-tile" style="left: ${56 + i * 504}px; top: 470px; width: 480px; height: 480px; border-radius: 24px;">${anim ? `<div class="pf-sprite" style="background-image: url(assets/specreel-stick/${sprite});"></div>` : `<img src="assets/specreel-stick/${still}" width="480" height="480" alt="">`}<span class="pf-cap tr">${tr(...cap)}</span></div>`).join("")}
+	<p class="pf-note" style="bottom: 16px; font-size: 15px;">${tr("Renders reales del motor incluido: el sketch de ejemplo y 2 guiones nuevos (bloque SKIT).", "Real renders (Spanish examples) from the included engine: the sample skit and 2 new scripts (SKIT block).")}</p>`,
 	update: P.specreel.update,
 	staticFixed: true,
 };
@@ -194,7 +201,7 @@ P["specreel-stick"] = {
 // ───────────── 4. PageSpeed Forensics ─────────────
 // Ejemplo (no medido) y coherente con la ponderación de Lighthouse 10+: 0,10·FCP + 0,25·LCP + 0,30·TBT
 // (+ 0,10·SI + 0,25·CLS, aquí en 0) = 3,2 + 2,75 + 3,0 ≈ 9.
-const PS = [["Rendimiento", 9], ["FCP", 32], ["LCP", 11], ["TBT", 10]];
+const PS = [[["Rendimiento", "Performance"], 9], ["FCP", 32], ["LCP", 11], ["TBT", 10]];
 const ringSvg = (size, stroke) => {
 	const r = (size - stroke) / 2, c = 2 * Math.PI * r, h = size / 2;
 	return `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" aria-hidden="true"><circle class="pf-rf" cx="${h}" cy="${h}" r="${r}" fill-opacity=".12" stroke-opacity=".22" stroke-width="${stroke}"/><circle class="pf-ra" cx="${h}" cy="${h}" r="${r}" fill="none" stroke-width="${stroke}" stroke-dasharray="${c}" stroke-dashoffset="${c}" data-c="${c}" transform="rotate(-90 ${h} ${h})"/></svg>`;
@@ -206,12 +213,12 @@ P["pagespeed-forensics"] = {
 	<div class="pf-dots"></div>
 	<div class="pf-glow" style="left: 760px; top: 380px; width: 860px; height: 640px; background: radial-gradient(closest-side, rgba(12,206,107,.16), rgba(12,206,107,0));"></div>
 	${top(`${si("pagespeed", 72)}<span>PageSpeed <u>Forensics</u></span>`)}
-	<p class="pf-pain" style="top: 214px;">¿Rendimiento móvil<br>en rojo?</p>
-	<p class="pf-h" style="top: 372px; font-size: 128px;">Encuentra<br>los puntos<br>que <b>faltan.</b></p>
-	<div class="pf-ps" style="top: 190px; display: flex; align-items: center; justify-content: space-between;"><span class="pf-tag">Ejemplo</span><span class="pf-lbl" style="margin: 0;">PAGESPEED · MÓVIL</span></div>
-	<div class="pf-ps" style="top: 290px;"><p class="pf-lbl">ANTES</p><div class="pf-row pf-before">${PS.map(([, v]) => `<div class="pf-col">${gauge(104, 10, 42, v)}</div>`).join("")}</div></div>
-	<div class="pf-ps" style="top: 480px;"><p class="pf-lbl" style="color: #0cce6b;">DESPUÉS</p><div class="pf-row pf-after">${PS.map(([l, v]) => `<div class="pf-col">${gauge(160, 14, 66, v)}<span class="pf-glbl">${l}</span></div>`).join("")}</div></div>
-	<p class="pf-note">Ejemplo ilustrativo, no un caso medido: Rendimiento y sus métricas de Lighthouse, que es lo que trabaja la skill.<br>No garantiza un puntaje. PageSpeed Insights es marca de Google; sin afiliación.</p>`,
+	<p class="pf-pain" style="top: 214px;">${tr("¿Rendimiento móvil<br>en rojo?", "Mobile Performance<br>in the red?")}</p>
+	<p class="pf-h" style="top: 372px; font-size: 128px;">${tr("Encuentra<br>los puntos<br>que <b>faltan.</b>", "Find the<br>missing<br><b>points.</b>")}</p>
+	<div class="pf-ps" style="top: 190px; display: flex; align-items: center; justify-content: space-between;"><span class="pf-tag">${tr("Ejemplo", "Example")}</span><span class="pf-lbl" style="margin: 0;">${tr("PAGESPEED · MÓVIL", "PAGESPEED · MOBILE")}</span></div>
+	<div class="pf-ps" style="top: 290px;"><p class="pf-lbl">${tr("ANTES", "BEFORE")}</p><div class="pf-row pf-before">${PS.map(([, v]) => `<div class="pf-col">${gauge(104, 10, 42, v)}</div>`).join("")}</div></div>
+	<div class="pf-ps" style="top: 480px;"><p class="pf-lbl" style="color: #0cce6b;">${tr("DESPUÉS", "AFTER")}</p><div class="pf-row pf-after">${PS.map(([l, v]) => `<div class="pf-col">${gauge(160, 14, 66, v)}<span class="pf-glbl">${Array.isArray(l) ? tr(...l) : l}</span></div>`).join("")}</div></div>
+	<p class="pf-note">${tr("Ejemplo ilustrativo, no un caso medido: Rendimiento y sus métricas de Lighthouse, que es lo que trabaja la skill.<br>No garantiza un puntaje. PageSpeed Insights es marca de Google; sin afiliación.", "Illustrative example, not a measured case: Performance and its Lighthouse metrics, which is what the skill works on.<br>No score is guaranteed. PageSpeed Insights is a Google trademark; not affiliated.")}</p>`,
 	update: function (root, t) {
 		const oc = (x) => 1 - (1 - x) ** 3, cl = (x) => Math.min(1, Math.max(0, x));
 		const col = (v) => (v < 50 ? "#ff4e42" : v < 90 ? "#ffa400" : "#0cce6b");
@@ -233,9 +240,9 @@ P["pagespeed-forensics"] = {
 const CUT = {
 	// clips que quedan [x, ancho] y cortes [x, ancho, rótulo] en coordenadas de la grabación (pista de 1218 px)
 	keep: [[8, 238], [348, 236], [688, 230], [1022, 166]],
-	cuts: [[250, 94, "eh…"], [588, 96, "silencio"], [922, 96, "retoma"]],
+	cuts: [[250, 94, "eh…"], [588, 96, ["silencio", "silence"]], [922, 96, ["retoma", "retake"]]],
 	words: [[0, "Hoy"], [0, "les"], [0, "muestro"], [1, "mi"], [1, "sistema:"], [2, "tres"], [3, "pasos."]],
-	gfx: [[0, "Título"], [1, "Logo"], [2, "Cifra: 3"], [3, "Lista"]],
+	gfx: [[0, ["Título", "Title"]], [1, "Logo"], [2, ["Cifra: 3", "Figure: 3"]], [3, ["Lista", "List"]]],
 	v: 450, t0: 0.25, pause: 0.45, len: 1218,
 };
 const wave = (seed, n) => {
@@ -253,23 +260,24 @@ P.cutpilot = {
 	html: () => `
 	<div class="pf-dots"></div>
 	<div class="pf-glow" style="left: 980px; top: 120px; width: 620px; height: 520px;"></div>
-	${top(`Edit <u>Pro</u> para YouTube`, `${CLAUDE}${T("Claude Code")}`)}
-	<p class="pf-pain" style="top: 204px;"><s>«eh…», silencios y retomas.</s></p>
-	<p class="pf-h" style="top: 280px; font-size: 140px; line-height: 1.0;">Tu video,<br><b>ya editado.</b></p>
-	<div class="pf-fmts"><div class="pf-fm on" style="width: 214px; height: 120px;">16:9</div><div class="pf-fm" style="width: 96px; height: 170px;">9:16</div><div class="pf-fm" style="width: 128px; height: 128px;">1:1</div></div>
+	${top(tr("Edit <u>Pro</u> para YouTube", "Edit <u>Pro</u> for YouTube"), `${CLAUDE}${T("Claude Code")}`)}
+	<p class="pf-pain" style="top: 204px;">${tr("<s>«eh…», silencios y retomas.</s>", "<s>Filler words, silences, retakes.</s>")}</p>
+	${tr(`<p class="pf-h" style="top: 280px; font-size: 140px; line-height: 1.0;">Tu video,<br><b>ya editado.</b></p>`, `<p class="pf-h" style="top: 282px; font-size: 128px; line-height: 1.02;">Your video,<br><b>already edited.</b></p>`)}
+	${tr("", `<div style="position: absolute; right: 88px; top: 178px;"><span class="pf-seal">${GLOBE}Spanish-language videos</span></div>`)}
+	<div class="pf-fmts"${tr("", ' style="top: 262px;"')}><div class="pf-fm on" style="width: 214px; height: 120px;">16:9</div><div class="pf-fm" style="width: 96px; height: 170px;">9:16</div><div class="pf-fm" style="width: 128px; height: 128px;">1:1</div></div>
 	<div class="pf-tl">
-		<div class="pf-hd"><div style="top: 44px;">Video</div><div style="top: 120px;">Audio</div><div style="top: 202px;">Subtítulos</div><div style="top: 282px;">Gráficos</div></div>
+		<div class="pf-hd"><div style="top: 44px;">Video</div><div style="top: 120px;">Audio</div><div style="top: 202px;">${tr("Subtítulos", "Captions")}</div><div style="top: 282px;">${tr("Gráficos", "Graphics")}</div></div>
 		<div class="pf-ruler">${[0, 1, 2, 3, 4, 5].map((k) => `<span style="left: ${14 + k * 200}px;">00:${String(k * 2).padStart(2, "0")}</span>`).join("")}</div>
 		<div class="pf-trk">
 			${CUT.keep.map(([x, w]) => `<div class="pf-clip v" data-x="${x}" style="width: ${w}px;"></div>`).join("")}
 			${CUT.keep.map(([x, w], i) => `<div class="pf-clip a" data-x="${x}" style="width: ${w}px;">${wave(17 + i * 31, Math.round(w / 7))}</div>`).join("")}
-			${CUT.cuts.map(([x, w, l], i) => `<div class="pf-cut" data-i="${i}"><span>${l}</span></div>`).join("")}
+			${CUT.cuts.map(([x, w, l], i) => `<div class="pf-cut" data-i="${i}"><span>${Array.isArray(l) ? tr(...l) : l}</span></div>`).join("")}
 			${CUT.words.map(([c, w]) => `<div class="pf-w" data-c="${c}">${w}</div>`).join("")}
-			${CUT.gfx.map(([c, l]) => `<div class="pf-gfx" data-x="${CUT.keep[c][0] + 2}" style="width: ${CUT.keep[c][1] - 4}px;">${l}</div>`).join("")}
+			${CUT.gfx.map(([c, l]) => `<div class="pf-gfx" data-x="${CUT.keep[c][0] + 2}" style="width: ${CUT.keep[c][1] - 4}px;">${Array.isArray(l) ? tr(...l) : l}</div>`).join("")}
 			<div class="pf-ph"></div>
 		</div>
 	</div>
-	<p class="pf-note" style="bottom: 16px; font-size: 15px;">Ilustración de la edición (no es una captura): cortes desde la transcripción, subtítulos palabra a palabra y gráficos.</p>`,
+	<p class="pf-note" style="bottom: 16px; font-size: 15px;">${tr("Ilustración de la edición (no es una captura): cortes desde la transcripción, subtítulos palabra a palabra y gráficos.", "Editing illustration (not a screenshot): cuts from the transcript, word-by-word captions and graphics. For videos spoken in Spanish.")}</p>`,
 	update: function (root, t) {
 		const D = root.__cut;
 		// palabras en fila dentro de su clip (ancho medido), en coordenadas de la grabación
@@ -293,7 +301,7 @@ P.cutpilot = {
 		root.querySelectorAll(".pf-gfx").forEach((el) => { el.style.opacity = +el.dataset.x - shift(+el.dataset.x) <= p + 2 ? 1 : 0.35; });
 		root.querySelector(".pf-ph").style.left = `${p}px`;
 	},
-	init: `root.__cut = ${JSON.stringify(CUT)};`,
+	init: `root.__cut = ${JSON.stringify({ ...CUT, cuts: CUT.cuts.map(([x, w]) => [x, w]) })};`,
 };
 
 // ───────────── 6. Creative Factory (Motor creativo) ─────────────
@@ -305,9 +313,9 @@ P["motor-creativo-claude-code"] = {
 	<div class="pf-glow" style="left: 820px; top: 140px; width: 780px; height: 780px;"></div>
 	${top(`Creative <u>Factory</u>`, `${CLAUDE}${T("Claude Code")}${SEP}${ANTIGRAVITY}${T("Antigravity")}`)}
 	<p class="pf-pain" style="top: 200px; font-size: 76px; font-weight: 800; color: #a1a1a8; letter-spacing: -0.03em;"><s style="text-decoration-thickness: 8px;">Adobe Creative Cloud</s></p>
-	<p class="pf-h" style="top: 322px; font-size: 128px;">13 apps<br>gratis.<br><b>Un agente<br>por app.</b></p>
+	<p class="pf-h" style="top: 322px; font-size: 128px;">${tr("13 apps<br>gratis.<br><b>Un agente<br>por app.</b>", "13 free<br>apps.<br><b>One agent<br>per app.</b>")}</p>
 	<div class="pf-apps">${APPS.map(([k, n]) => `<div class="pf-app"><img src="assets/crafts/${k}-240.webp" width="118" height="118" alt=""><span>${n}</span></div>`).join("")}</div>
-	<p class="pf-note">Íconos oficiales de las 13 apps open source de storytold (MIT OR Apache-2.0), que se descargan gratis.<br>Adobe Creative Cloud es marca de Adobe. Sin afiliación con Adobe, storytold ni Anthropic.</p>`,
+	<p class="pf-note">${tr("Íconos oficiales de las 13 apps open source de storytold (MIT OR Apache-2.0), que se descargan gratis.<br>Adobe Creative Cloud es marca de Adobe. Sin afiliación con Adobe, storytold ni Anthropic.", "Official icons of storytold's 13 open-source apps (MIT OR Apache-2.0), free to download.<br>Adobe Creative Cloud is an Adobe trademark. Not affiliated with Adobe, storytold or Anthropic.")}</p>`,
 	update: function (root, t) {
 		const oc = (x) => 1 - (1 - x) ** 3, cl = (x) => Math.min(1, Math.max(0, x));
 		const back = cl((t - 3.6) / 0.35);
@@ -332,11 +340,12 @@ const script = (p) => `<script>
 (() => {
 	// Portadas: cuadro = función pura de t. La fija muestra t = ${p.staticFixed ? "cuadros elegidos" : p.best.toFixed(2) + " s"}; la animada se graba con window.__frame(i).
 	const update = ${p.update.toString().replace(/^function\s*\(/, "function (")};
-	const S = document.querySelector('section.pf[data-out="cover"]'), A = document.querySelector('section.pf[data-out="cover-animada"]');
-	for (const root of [S, A]) { ${p.init ?? ""} }
-	const first = () => { ${p.staticFixed ? "" : `update(S, ${p.best});`} update(A, 0); };
+	// Una portada fija y una animada por idioma (cover / cover-animada y en/cover / en/cover-animada).
+	const S = [...document.querySelectorAll("section.pf:not([data-anim])")], A = [...document.querySelectorAll("section.pf[data-anim]")];
+	for (const root of [...S, ...A]) { ${p.init ?? ""} }
+	const first = () => { ${p.staticFixed ? "" : `S.forEach((s) => update(s, ${p.best}));`} A.forEach((a) => update(a, 0)); };
 	first(); document.fonts.ready.then(first);
-	window.__frame = (i) => { update(A, i / ${p.fps}); return new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))); };
+	window.__frame = (i) => { A.forEach((a) => update(a, i / ${p.fps})); return new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))); };
 })();
 </script>`;
 
@@ -344,11 +353,17 @@ const START = "<!-- portada-final:inicio -->", END = "<!-- portada-final:fin -->
 for (const [slug, p] of Object.entries(P)) {
 	const url = new URL(`${slug}.html`, DESIGN);
 	let html = readFileSync(url, "utf8");
+	const sections = ["es", "en"].map((lang) => {
+		LANG = lang;
+		const dir = lang === "en" ? "en/" : "";
+		return `<section class="frame pf" data-out="${dir}cover" data-lang="${lang}" data-cpu>${prefixHtml(p.html(false))}
+</section>
+<section class="frame pf" data-out="${dir}cover-animada" data-lang="${lang}" data-anim="${p.frames}" data-fps="${p.fps}" data-width="1600" data-quality="${p.quality}">${prefixHtml(p.html(true))}
+</section>`;
+	}).join("\n");
+	LANG = "es";
 	const section = `${START}
-<section class="frame pf" data-out="cover" data-cpu>${prefixHtml(p.html(false))}
-</section>
-<section class="frame pf" data-out="cover-animada" data-anim="${p.frames}" data-fps="${p.fps}" data-width="1600" data-quality="${p.quality}">${prefixHtml(p.html(true))}
-</section>
+${sections}
 ${script(p)}
 ${END}`;
 	if (html.includes(START)) html = html.slice(0, html.indexOf(START)) + section + html.slice(html.indexOf(END) + END.length);
