@@ -323,7 +323,11 @@ describe("dataLayer de GA4 (view_item_list, view_item, begin_checkout, purchase)
 		at('"begin_checkout"');
 		at("script[data-dl]");
 		at("form[data-checkout]");
-		// Ningún banner propio ni cookies nuevas desde el market.
-		expect(js).not.toMatch(/cookie_consent=\$\{|cookie_consent=accepted;/);
+		// Aviso propio del market (solo con GTM activo y sin decisión): la MISMA cookie y el MISMO evento que el del blog,
+		// y se arma después de cargar gtm.js (los valores por defecto denegados ya están puestos).
+		expect(js).toContain("cookie_consent=${value}; path=/; max-age=31536000; SameSite=Lax");
+		expect(js).toContain('new CustomEvent("tc:consent"');
+		expect(at('bar.className = "mk-consent"')).toBeGreaterThan(at("https://www.googletagmanager.com/gtm.js?id="));
+		expect(js).not.toMatch(/document\.cookie = `(?!cookie_consent=|scheme=)/);
 	});
 });

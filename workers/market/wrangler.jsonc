@@ -38,8 +38,8 @@
 		"BOOKING_URL": "",
 		// Google Tag Manager ("GTM-XXXXXXX"). Vacío = apagado: no se carga nada de Google y la CSP no abre sus dominios.
 		// Con valor, market.js fija Consent Mode v2 (denegado salvo cookie_consent=accepted del blog) y carga gtm.js.
-		// ANTES de llenarlo en production: actualizar «Cookies» en la política de privacidad del market
-		// (src/views/legal.tsx dice que la tienda no usa cookies de publicidad).
+		// production: contenedor «tonyciencia.com» (cuenta Tony Ciencia, GA4 G-4X663G1K3X), activado el 2026-11-01 junto con
+		// el aviso de cookies del market y la sección «Cookies» de la política de privacidad (src/views/legal.tsx).
 		"GTM_ID": ""
 	},
 	"d1_databases": [
@@ -147,7 +147,7 @@
 				"WELCOME_COUPON_AUTOCREATE": "true",
 				"WELCOME_COUPON_PERCENT": "10",
 				"BOOKING_URL": "",
-				"GTM_ID": ""
+				"GTM_ID": "GTM-M7CP7J73"
 			},
 			"d1_databases": [
 				{
