@@ -1,0 +1,600 @@
+{
+	"$comment": "Copia de los textos de las 6 fichas tal como se veían en producción el 2026-11-01 (leídos del HTML público de /market/producto/<slug>; la descripción se reconstruyó desde su HTML). Solo para scripts/test-catalog-migration.mjs: prueba la migración 0009 sobre datos tipo producción. compat = valores de la migración 0007 (coinciden con lo que muestra la ficha).",
+	"products": [
+		{
+			"slug": "anuncios-infinitos",
+			"title": "Anuncios Infinitos: agente de IA con 250+ prompts de anuncios",
+			"meta_title": "Prompts de anuncios con IA: 250+ para Meta, Google y TikTok",
+			"meta_description": "Agente de IA en español que investiga tu negocio y tu competencia y te entrega 250+ prompts de anuncios para Meta, Google, TikTok y LinkedIn. Pago único.",
+			"tagline": "Tu estratega de publicidad con IA: investiga tu negocio y te entrega 250+ prompts de anuncios, cada uno con su razón.",
+			"description": "Agente de IA en español que investiga tu negocio y a tu competencia y te entrega 250+ prompts de anuncios para Meta, Google, TikTok y LinkedIn. Pago único.\n\nSi estás armando tus anuncios en Canva a las 11 de la noche, esto es para ti.\n\nAnuncios Infinitos es un sistema que trabaja como tu estratega de publicidad. Abres la carpeta en tu herramienta de IA, escribes /ads y conversas con Tony, el agente. En una sesión de 20 a 40 minutos te entrega lo que normalmente tarda semanas: la investigación de tu negocio y de tu competencia, tus clientes ideales, la estrategia y cientos de indicaciones de anuncios, cada una con su razón.\n\nNo es una IA que hace imágenes bonitas. Es la que decide qué anunciar, a quién y con qué ángulo; después escribe los prompts para producirlo.\n\n## Qué recibes en tu primera sesión\n\n- Análisis de tu marca y de tu competencia, investigada con herramientas reales (no inventada).\n- De 2 a 4 perfiles de tu cliente ideal.\n- Mínimo 5 categorías de anuncio × 50 prompts = 250+ prompts, en archivos separados por categoría.\n- Los textos de cada anuncio: gancho, cuerpo y llamado a la acción, revisados para que no suenen a IA.\n- La estrategia de campañas: cómo organizarlas, cuánto invertir y qué medir.\n- Un Puntaje de Preparación (0 a 100) con las 3 cosas que conviene arreglar antes de gastar.\n- De 3 a 5 tareas de contenido propio (por ejemplo un testimonio o el fundador a cámara), con mini guion.\n- Un reporte interactivo para abrir en el navegador.\n- Si lo pides: guiones de video 9:16 para Reels y TikTok, y una biblioteca de memes.\n- Si lo pides: tu plan de ataque de 6 meses.\n\n## Qué trae el ZIP\n\n- El agente Tony: el conocimiento y las reglas (22 archivos de skills).\n- La app local: un panel en tu navegador para pegar tus claves con botones y chatear sin terminal.\n- 3 guías en PDF: cómo se conecta todo, cómo se usa el agente y cómo se usa la app.\n\n## El método por dentro\n\n26 categorías psicológicas de anuncios, 37 formatos visuales, 8 voces de copywriting, guías de Meta, Google, TikTok y LinkedIn, y marcos de estrategia reconocidos (estados de conciencia, niveles de sofisticación, Cialdini, AIDA, trabajos por hacer).\n\n## Vuelves cada mes\n\nLe llevas tus números reales. Tony diagnostica por qué se movieron, arma el mes siguiente y genera un lote nuevo basado en el ángulo que ya te funcionó. Guarda en tu carpeta lo que aprendió, incluido lo que no conviene repetir.\n\n## Pago único\n\nSin suscripción. Lo usas con todos tus negocios o clientes, todos los meses.\n\n## Qué necesitas\n\n- Una herramienta de IA compatible: Claude Code, Cursor, Codex, Antigravity o Gemini (puede tener su propio costo).\n- Node.js (gratis) para abrir la app local.\n- Para convertir los prompts en imágenes y video: un generador como Nano Banana o Google Flow, con tu propia cuenta. El ZIP no incluye generador.\n- Tres claves gratuitas (Firecrawl, Apify y Serper) para la investigación profunda; se configuran en unos 5 minutos con botones.\n\n## Para quién es\n\nDueños de negocio, media buyers, freelancers y agencias pequeñas que hacen su propia publicidad en español y quieren dejar de producir anuncios de uno en uno.\n\n## Para quién no es\n\nSi buscas una garantía de ventas, esto no la da: entrega estrategia, prompts y textos; el resultado depende de tu oferta, tu presupuesto y tu ejecución. Tampoco es para quien no quiere invertir nada en pauta ni en una herramienta de IA.\n\nTodo en español. Algunos enlaces de registro dentro del ZIP son de afiliado; no cambian tu precio.\n\n## Preguntas frecuentes\n\n¿Necesito saber programar? No. Abres la app o la herramienta de IA y conversas con Tony.\n\n¿Genera las imágenes y los videos? No. Escribe los prompts. Los conviertes en imagen o video con el generador que ya uses (por ejemplo Nano Banana o Google Flow), con tu cuenta.\n\n¿Incluye una extensión de Chrome? No. El paquete trae el agente, la app local y las guías.\n\n¿Funciona sin las claves de Firecrawl, Apify y Serper? Sí, pero investiga menos: no podrá ver los anuncios que tu competencia tiene activos ni leer reseñas a escala. Las tres son gratuitas y se configuran en unos 5 minutos.\n\n¿Garantiza ventas? No. Entrega estrategia, prompts y textos. El resultado depende de tu oferta, tu presupuesto y tu ejecución.\n\n¿Qué herramientas de IA necesito? Una compatible: Claude Code, Cursor, Codex, Antigravity o Gemini. La app local usa tu sesión de Claude iniciada.\n\n¿Sirve para cualquier negocio? Está pensado para negocios de habla hispana que pautan en Meta, Google, TikTok o LinkedIn. Tony te pregunta lo que necesita de tu negocio antes de proponer nada.\n\nIn English: a Spanish-language ad-strategy agent that researches your business and competitors and delivers 250+ ad prompts for Meta, Google, TikTok and LinkedIn. One-time payment.",
+			"highlights": [
+				"Investigación real de tu marca y de tu competencia, con herramientas de verdad (no inventada)",
+				"250+ prompts: mínimo 5 categorías × 50 prompts, en archivos separados",
+				"Textos completos de cada anuncio: gancho, cuerpo y llamado a la acción",
+				"Estrategia de campañas, inversión y métricas, más un Puntaje de Preparación de 0 a 100",
+				"App local para usarlo sin terminal y 3 guías en PDF",
+				"Pago único: lo usas con todos tus negocios o clientes, todos los meses"
+			],
+			"specs": [
+				{
+					"label": "Formato",
+					"value": "ZIP: agente (22 archivos de skills), app local y 3 guías en PDF"
+				},
+				{
+					"label": "Idioma",
+					"value": "Español"
+				},
+				{
+					"label": "Funciona con",
+					"value": "Claude Code, Cursor, Codex, Antigravity o Gemini"
+				},
+				{
+					"label": "Plataformas de anuncios",
+					"value": "Meta, Google, TikTok y LinkedIn"
+				},
+				{
+					"label": "Requisitos",
+					"value": "Node.js (gratis) y una herramienta de IA compatible"
+				},
+				{
+					"label": "Licencia",
+					"value": "Pago único, sin suscripción"
+				}
+			],
+			"faq": [
+				{
+					"q": "¿Necesito saber programar?",
+					"a": "No. Abres la app o tu herramienta de IA y conversas con Tony, el agente."
+				},
+				{
+					"q": "¿Genera las imágenes y los videos?",
+					"a": "No. Escribe los prompts y los textos. Los conviertes en imagen o video con el generador que ya uses (por ejemplo Nano Banana o Google Flow), con tu cuenta."
+				},
+				{
+					"q": "¿Funciona sin las claves de Firecrawl, Apify y Serper?",
+					"a": "Sí, pero investiga menos. Las tres son gratuitas y se configuran en unos 5 minutos con botones."
+				},
+				{
+					"q": "¿Garantiza ventas?",
+					"a": "No. Entrega estrategia, prompts y textos. El resultado depende de tu oferta, tu presupuesto y tu ejecución."
+				},
+				{
+					"q": "¿Sirve para cualquier negocio?",
+					"a": "Está pensado para negocios de habla hispana que pautan en Meta, Google, TikTok o LinkedIn. Tony te pregunta lo que necesita antes de proponer nada."
+				}
+			],
+			"tags": [
+				"prompts de anuncios",
+				"anuncios con IA",
+				"Meta Ads",
+				"Google Ads",
+				"TikTok Ads",
+				"LinkedIn Ads",
+				"agente de IA en español"
+			],
+			"images": [
+				{
+					"src": "/market/static/products/anuncios-infinitos/cover.webp",
+					"alt": "Anuncios Infinitos: 250+ prompts de anuncios para Meta, Google, TikTok y LinkedIn"
+				},
+				{
+					"src": "/market/static/products/anuncios-infinitos/screen-1.webp",
+					"alt": "Sesión con Tony, el agente: investigación de tu negocio y puntaje de preparación"
+				},
+				{
+					"src": "/market/static/products/anuncios-infinitos/screen-2.webp",
+					"alt": "Entregables de Anuncios Infinitos: carpetas de prompts por categoría, estrategia y plan"
+				},
+				{
+					"src": "/market/media/images/6f1d3a2e-7b4c-4e8a-9c11-5a0b1d2e3f01/portada.png",
+					"alt": "Portada de Anuncios Infinitos: agente de IA con 250+ prompts de anuncios"
+				},
+				{
+					"src": "/market/media/images/6f1d3a2e-7b4c-4e8a-9c11-5a0b1d2e3f01/dolor.png",
+					"alt": "El problema: hacer anuncios de uno en uno"
+				},
+				{
+					"src": "/market/media/images/6f1d3a2e-7b4c-4e8a-9c11-5a0b1d2e3f01/diferencial.png",
+					"alt": "Lo que hace diferente a Anuncios Infinitos"
+				},
+				{
+					"src": "/market/media/images/6f1d3a2e-7b4c-4e8a-9c11-5a0b1d2e3f01/que-recibes.png",
+					"alt": "Qué recibes con Anuncios Infinitos"
+				},
+				{
+					"src": "/market/media/images/6f1d3a2e-7b4c-4e8a-9c11-5a0b1d2e3f01/como-funciona.png",
+					"alt": "Cómo funciona Anuncios Infinitos"
+				}
+			],
+			"compat": "{\"works\":[\"claude-code\",\"codex\",\"cursor\",\"gemini\",\"antigravity\",\"meta\",\"google-ads\",\"tiktok\",\"linkedin\"],\"includes\":[\"agent|Agente de anuncios\",\"chrome-ext\"]}"
+		},
+		{
+			"slug": "specreel",
+			"title": "SpecReel: videos 3D explicativos y de producto con Claude Code y Codex",
+			"meta_title": "SpecReel: crea videos 3D con Claude Code y Codex",
+			"meta_description": "Skill para Claude Code y Codex que convierte cualquier tema en un video 3D narrado, con subtítulos, música y cámara de cine. Corre en tu PC. Pago único.",
+			"tagline": "Pide un video a tu agente y recibe un MP4 3D narrado, con subtítulos, música y cámara de cine.",
+			"description": "SpecReel is an agent skill for Claude Code and Codex that turns any topic into a narrated, captioned 3D video — product launches, processes, data stories and explainers.\n\n## Ask for a video. Get a finished MP4.\n\nWrite one prompt: topic, audience, length, language. Your agent plans the piece, writes the script, voices it with your local text-to-speech or a studio voice from Fish Audio, builds 3D scenes and camera moves timed to every spoken word, adds music and sound effects, and renders an MP4 with karaoke captions and an .srt file.\n\nNo timeline editing. No per-minute video credits. It all runs on your computer.\n\n## New in 2.0\n\n- Cinematic camera: 16 moves (push-in, orbit, crane, dolly-zoom, whip-pan, rack focus and more) and 8 transitions, each anchored to a spoken word.\n- Brand kits: start from your logo or HEX colors, or pick one of three brand-inspired palettes the agent suggests. 13 built-in palettes in bold, dark, pastel and light moods, with WCAG contrast checks.\n- Windows, macOS and Linux: the Doctor detects your OS, GPU and hardware encoder, and one command installs the rest. Fast on NVIDIA or Apple Silicon, works on CPU.\n- Studio voice in two minutes: a setup assistant connects Fish Audio (a separate paid service) and keeps your API key out of the chat. Free local voices are still included.\n- Cleaner sound: automatic whooshes and risers, a closing chime and a true-peak limiter that lands every mix at −14 LUFS.\n\n## One workflow, any topic\n\n- Product & promo: turntable hero shots, parts that lift away, feature callouts, an end card with your CTA.\n- Process / how it works: numbered steps that appear as they are spoken, with connections and moving packets.\n- Data stories: bars and lines that grow on the words that name them, count-ups and result chips.\n- Explainers: science, health, tech, finance and education, with hero objects, macro zooms, cross-sections and data cards.\n- Tutorials & brand stories: mix the recipes in your brand colors, with your logo and your end card.\n\n## Without SpecReel → with SpecReel\n\n- The agent writes a one-off animation that breaks at render time → a deterministic, frame-by-frame engine built for narrated video.\n- Voice, captions and motion drift apart → every event is anchored to a spoken word with word-level timestamps.\n- You find mistakes after a long render → two approval checkpoints, and the agent renders stills, looks at them and scores them before the final render.\n- A crash or closed laptop means starting over → progress lives in specs/STATE.md and the loop resumes where it stopped.\n- Unclear voice licenses → a Doctor script flags non-commercial models before you use them for clients.\n\n## What's inside (v2.0)\n\n- The SpecReel agent skill (open SKILL.md format) plus 11 reference guides (new: cinematography) the agent loads on demand.\n- 3D engine (Three.js): scene director with a camera rig (16 moves, 8 transitions), depth of field, labels, scale bars, callouts and chips.\n- Brand kit tool: suggests three brand-inspired palettes with a preview sheet, builds a kit from your colors or your logo, checks contrast and styles the captions to match.\n- 7 scene recipes: product hero, process flow, data story, end card, hero object, micro and data card.\n- Audio pipeline: 13 voice adapters (Kokoro, Chatterbox, Piper, XTTS, Fish Speech, OpenAI-compatible servers, any CLI, Windows and macOS voices, eSpeak, ElevenLabs, Fish Audio), an ASR round-trip check, word alignment, procedural music and SFX, and a mix at −14 LUFS.\n- Resumable multi-lane renderer, a cross-platform encoder that uses your hardware encoder when available, and a one-command installer for Windows, macOS and Linux.\n- Loop runners: /ralph-loop for Claude Code, and loop.ps1 and loop.sh for unattended runs with Claude Code or Codex.\n- Spec templates: constitution, brief, spec, script, storyboard, plan, tasks and state.\n- 4 example productions with their specs: Showreel (English, 21 s), a brand-kit bottle demo (vertical, 17 s), Cell demo (Spanish, 15 s) and a Microneedling explainer (Spanish, 47 s).\n- Docs in English and Spanish: setup for Windows, macOS and Linux, a spec-driven master plan and an audio migration guide.\n\n## What you get out\n\n- MP4 (H.264, 30 fps) in 9:16 (1080×1920), 1:1, 4:5 or 16:9.\n- Burned-in karaoke captions plus an .srt file.\n- A cover frame, CREDITS.md and a QA REPORT.md for every video.\n- Narration in any language your voice engine supports.\n\n## Requirements\n\n- Claude Code or Codex (billed separately by Anthropic or OpenAI).\n- Node.js 20+, Python 3.10+, ffmpeg and Playwright Chromium (the included installer sets them up).\n- Windows 10/11, macOS or Linux (auto-detected). An NVIDIA GPU or Apple Silicon is recommended; CPU-only works, just slower.\n- A voice: free local Kokoro (Apache-2.0, runs on CPU, set up by the Doctor), or Fish Audio or ElevenLabs with your own API key.\n- Basic comfort with a terminal. The agent does the rest.\n\n## One price, one license\n\n- One-time payment (current price shown above). No subscription, no membership.\n- License: 1 creator. Unlimited videos for your own brand, your channels and your clients: commercial and agency work included.\n- Delivery: instant download of one ZIP with everything, plus free 2.x updates.\n- The license covers the videos you make. Reselling or sharing the skill files is not allowed.\n\n## FAQ\n\nDo I need to know how to code? Not to get started. You describe the video in plain language; the agent writes and fixes the scene code. You will run a few terminal commands during setup.\n\nWhat kinds of videos can it make? Explainers, product and promo videos, how-it-works processes, data stories and tutorials, built from illustrated 3D scenes with labels and captions. It does not make photoreal people, avatars or lip-sync, and it does not edit camera footage.\n\nDoes it work with both Claude Code and Codex? Yes. Install steps for both are included, and the skill follows the open SKILL.md format.\n\nIs there a cost per video? Not from SpecReel. With a local voice you only pay for your agent usage. Cloud voices bill you directly.\n\nDoes it work on a Mac? Yes. Windows, macOS and Linux are detected automatically, and one command installs the dependencies. Apple Silicon renders fast.\n\nHow long does a video take to render? It depends on your hardware and the length. The 21-second showreel rendered in about 8 minutes on a 2-core cloud machine without a GPU. A GPU is typically much faster, and a low-resolution animatic lets you iterate quickly.\n\nWhich languages? Narration in any language your voice engine supports. Kokoro covers English, Spanish, French, Italian, Portuguese, Japanese, Chinese and Hindi; Chatterbox Multilingual covers 23 languages; ElevenLabs and Fish Audio cover more. Docs come in English and Spanish.\n\nWhich voice sounds best? The free local voices are good. For studio quality, the included assistant connects Fish Audio (a separate paid service) in about two minutes.\n\nCan I use my brand? Yes. Give the agent your logo or HEX colors and it builds a brand kit: palette, fonts, caption style and an end card with your CTA. No kit yet? It suggests three brand-inspired palettes with a preview.\n\nCan I use the videos commercially? Yes, for your own brand and for clients. Check the license of the voice model you choose; the Doctor flags non-commercial ones.\n\nDo I get updates? Every 2.x update is free: you get an email with the new download link.\n\nRefunds? 14 days. If you can't get the included demo to render after we've tried to help, you get your money back.\n\nSpecReel is an independent product, not affiliated with Anthropic or OpenAI. Claude Code and Codex are trademarks of their owners and are named only to describe compatibility. The Fish Audio link in the voice assistant is an affiliate link; Fish Audio is a separate service with its own pricing.\n\n## After you download: start here\n\n- Unzip specreel-v2.0.0.zip and open README.md (Spanish: README.es.md).\n- Install the skill: Claude Code → copy skills/specreel to ~/.claude/skills/ (Windows: %USERPROFILE%\\.claude\\skills\\). Codex → copy it to ~/.agents/skills/.\n- Set up and render the demo: run python scripts/setup.py from the skill folder (it detects Windows, macOS or Linux and installs what is missing), then follow \"First video in 5 minutes\" in README.md.\n\nThen open your agent in an empty folder and paste a kickoff prompt from docs/en/SDD-PLAN.md.\n\nOptional, studio voice: inside your video project run python tools/tts/fish_setup.py. It opens Fish Audio, asks for your key with hidden input and stores it safely in .env.\n\nNeed help? Reply to your receipt email or write to contact@tonyciencia.com with your license key, the file .svs/env.json (it contains no secrets) and the output of the failing command.\n\n## Refund policy\n\n14-day \"it runs or your money back\" guarantee. If you can't render the included demo on a supported system (Windows 10/11, macOS or Linux with Node 20+, Python 3.10+ and ffmpeg) after we've tried to help, email us within 14 days of purchase with your license key and .svs/env.json and we'll refund you in full.\n\n## Descripción en español\n\nSpecReel: crea videos 3D explicativos y de producto con Claude Code y Codex. Es la misma oferta y los mismos archivos; el ZIP trae documentación en español e inglés.\n\nSpecReel es una skill para Claude Code y Codex que convierte cualquier tema en un video 3D narrado y con subtítulos: lanzamientos de producto, procesos, historias con datos y explicativos.\n\n## Pide un video. Recibe un MP4 terminado.\n\nEscribe una instrucción con el tema, el público, la duración y el idioma. Tu agente planifica la pieza, escribe el guion, lo locuta con tu TTS local o con una voz de estudio de Fish Audio, construye escenas 3D y movimientos de cámara sincronizados con cada palabra, agrega música y efectos, y renderiza un MP4 con subtítulos karaoke y su archivo .srt.\n\nSin editar línea de tiempo y sin créditos por minuto. Todo corre en tu computador.\n\n## Novedades de la 2.0\n\n- Cámara de cine: 16 movimientos (push-in, órbita, grúa, dolly-zoom, whip-pan, rack focus y más) y 8 transiciones, cada uno anclado a una palabra del guion.\n- Kit de marca: parte de tu logo o de tus colores HEX, o elige entre tres paletas inspiradas en marcas que te propone el agente. 13 paletas incluidas en estilos intenso, oscuro, pastel y claro, con contraste revisado (WCAG).\n- Windows, macOS y Linux: el Doctor detecta tu sistema, tu GPU y tu codificador de video, y un comando instala el resto. Rápido con NVIDIA o Apple Silicon; en CPU también funciona.\n- Voz de estudio en dos minutos: un asistente conecta Fish Audio (servicio aparte, de pago) sin que tu clave pase por el chat. Las voces locales gratis siguen incluidas.\n- Mejor sonido: whooshes y risers automáticos, cierre con campanita y un limitador true-peak que deja cada mezcla en −14 LUFS.\n\n## Un solo flujo para cualquier tema\n\n- Producto y promo: el producto girando, piezas que se separan, etiquetas de características y un cierre con tu llamado a la acción.\n- Procesos («cómo funciona»): pasos numerados que aparecen al nombrarlos, con conexiones y paquetes en movimiento.\n- Historias con datos: barras y líneas que crecen con las palabras que las nombran, contadores y resultados destacados.\n- Explicativos: ciencia, salud, tecnología, finanzas y educación, con objeto principal, zoom macro, cortes y tarjetas de datos.\n- Tutoriales e historias de marca: combina las recetas con los colores de tu marca, tu logo y tu cierre.\n\n## Por qué es distinto\n\n- Planifica antes de renderizar: brief, spec, guion y storyboard, con dos aprobaciones tuyas.\n- Todo sincronizado: cada animación, etiqueta y sonido se ancla a una palabra hablada.\n- Revisa su propio trabajo: renderiza fotogramas, los mira, los puntúa con una rúbrica y corrige.\n- No pierde el hilo: el estado queda en specs/STATE.md y el loop se reanuda donde quedó.\n- Licencias claras: el Doctor detecta tus voces locales y avisa de los modelos no comerciales. Puedes pasar a ElevenLabs o Fish Audio cambiando una línea.\n\n## Qué incluye (v2.0)\n\n- La skill SpecReel (formato abierto SKILL.md) y 11 guías de referencia (nueva: cinematografía).\n- Un motor 3D (Three.js) con director de escenas, cámara de cine (16 movimientos y 8 transiciones), profundidad de campo, etiquetas y barras de escala, más kits de marca con 13 paletas o tus propios colores.\n- 7 recetas de escena: producto, proceso, datos, cierre, objeto principal, micro y tarjeta de datos.\n- Audio con 13 adaptadores de voz, verificación por ASR, alineación por palabra, música y efectos, y mezcla a −14 LUFS.\n- Render reanudable en varios carriles, codificación con aceleración por hardware, instalador de un comando para Windows, macOS y Linux, y loops para Claude Code y Codex.\n- 4 producciones de ejemplo con sus specs: Showreel (inglés), demo v2 de la botella con kit de marca (vertical), Demo de la célula y Microneedling (español).\n- Documentación en español e inglés.\n\n## Requisitos\n\n- Claude Code o Codex (se pagan aparte).\n- Node 20+, Python 3.10+, ffmpeg y Playwright Chromium (el instalador incluido los configura).\n- Windows, macOS o Linux (se detecta solo). GPU NVIDIA o Apple Silicon recomendados; en CPU también funciona, más lento.\n- Una voz: Kokoro local y gratis (la instala el Doctor), o Fish Audio o ElevenLabs con tu propia clave.\n\n## Precio y licencia\n\n- Pago único (el precio vigente se muestra arriba). Sin suscripción ni membresía.\n- Licencia: 1 persona, videos ilimitados para tu marca, tus canales y tus clientes (uso comercial incluido).\n- Entrega: descarga inmediata de un ZIP con todo, y actualizaciones 2.x gratis.\n- La licencia cubre los videos que haces; no permite revender ni compartir los archivos de la skill.\n- SpecReel es un producto independiente, sin afiliación con Anthropic ni OpenAI. Claude Code y Codex son marcas de sus dueños y se nombran solo para indicar compatibilidad. El enlace de Fish Audio del asistente de voz es de afiliado; Fish Audio es un servicio aparte con sus propios precios.\n\n## Política de reembolso\n\nGarantía de 14 días «funciona o te devolvemos el dinero». Si no logras renderizar el demo incluido en un sistema compatible (Windows 10/11, macOS o Linux con Node 20+, Python 3.10+ y ffmpeg) después de que intentemos ayudarte, escríbenos dentro de los 14 días posteriores a la compra con tu clave de licencia y el archivo .svs/env.json, y te devolvemos el 100 %.\n\nSoporte: contact@tonyciencia.com",
+			"highlights": [
+				"Escribes una instrucción; recibes un MP4 terminado con subtítulos karaoke y archivo .srt",
+				"Cámara de cine: 16 movimientos y 8 transiciones anclados a cada palabra",
+				"Kit de marca desde tu logo o tus colores HEX, con contraste revisado",
+				"Voces locales gratis o de estudio (Fish Audio, ElevenLabs) con tu propia clave",
+				"9:16, 1:1, 4:5 y 16:9 — Windows, macOS y Linux",
+				"Pago único con actualizaciones 2.x gratis"
+			],
+			"specs": [
+				{
+					"label": "Versión",
+					"value": "2.0"
+				},
+				{
+					"label": "Formato",
+					"value": "ZIP con la skill, el motor 3D, recetas de escena, ejemplos y documentación"
+				},
+				{
+					"label": "Funciona con",
+					"value": "Claude Code y Codex"
+				},
+				{
+					"label": "Sistemas",
+					"value": "Windows 10/11, macOS y Linux"
+				},
+				{
+					"label": "Salida",
+					"value": "MP4 H.264 a 30 fps en 9:16, 1:1, 4:5 o 16:9, con .srt"
+				},
+				{
+					"label": "Documentación",
+					"value": "Inglés y español"
+				},
+				{
+					"label": "Licencia",
+					"value": "1 creador, uso comercial y para clientes incluido"
+				}
+			],
+			"faq": [
+				{
+					"q": "¿Necesito saber programar?",
+					"a": "No para empezar. Describes el video en lenguaje natural y el agente escribe y corrige el código de las escenas. Durante la instalación corres algunos comandos en la terminal."
+				},
+				{
+					"q": "¿Hay un costo por video?",
+					"a": "No por parte de SpecReel. Con una voz local solo pagas el uso de tu agente; las voces en la nube te cobran directamente."
+				},
+				{
+					"q": "¿Funciona en Mac?",
+					"a": "Sí. Windows, macOS y Linux se detectan solos y un comando instala las dependencias. Apple Silicon renderiza rápido."
+				},
+				{
+					"q": "¿Puedo usar los videos comercialmente?",
+					"a": "Sí, para tu marca y para clientes. Revisa la licencia de la voz que elijas; el Doctor avisa de los modelos no comerciales."
+				},
+				{
+					"q": "¿Y si no me funciona?",
+					"a": "Tienes 14 días: si no logras renderizar el demo incluido en un sistema compatible después de que intentemos ayudarte, te devolvemos el dinero."
+				}
+			],
+			"tags": [
+				"videos con Claude Code",
+				"videos con Codex",
+				"videos 3D con IA",
+				"video explicativo con IA",
+				"video de producto con IA",
+				"subtítulos karaoke"
+			],
+			"images": [
+				{
+					"src": "/market/static/products/specreel/cover.webp",
+					"alt": "SpecReel: pide un video a tu agente y recibe un MP4 3D narrado, compatible con Claude Code y Codex"
+				},
+				{
+					"src": "/market/static/products/specreel/screen-1.webp",
+					"alt": "SpecReel: 16 movimientos de cámara y 8 transiciones anclados a cada palabra"
+				},
+				{
+					"src": "/market/static/products/specreel/screen-2.webp",
+					"alt": "SpecReel: kit de marca y salida en 9:16, 1:1, 4:5 y 16:9"
+				},
+				{
+					"src": "/market/media/images/7a2b4c6d-1e3f-4a5b-8c7d-9e0f1a2b3c4d/cover-1-hero-v2.png",
+					"alt": "SpecReel: pide un video a tu agente y recibe el video terminado, compatible con Claude Code y Codex"
+				},
+				{
+					"src": "/market/media/images/7a2b4c6d-1e3f-4a5b-8c7d-9e0f1a2b3c4d/cover-2-any-topic-v2.png",
+					"alt": "SpecReel: cualquier tema, estilo y formato, con 16 movimientos de cámara y 8 transiciones"
+				}
+			],
+			"compat": "{\"works\":[\"claude-code\",\"codex\",\"ffmpeg\",\"windows\",\"macos\",\"linux\"],\"includes\":[]}"
+		},
+		{
+			"slug": "specreel-stick",
+			"title": "SpecReel Stick: videos de muñequitos de palo con Claude Code y Codex",
+			"meta_title": "Videos de muñequitos de palo con Claude Code y Codex",
+			"meta_description": "SpecReel Stick: skill para Claude Code y Codex que crea sketches de muñequitos de palo en MP4, con subtítulos, música y efectos. Corre en tu computador.",
+			"tagline": "Le cuentas la idea a tu agente y te devuelve un sketch de muñequitos de palo en MP4, con subtítulos, música y efectos.",
+			"description": "SpecReel Stick es una skill para Claude Code y Codex que hace sketches cortos con muñequitos de palo. Le das una idea del tipo «uno ahorra y el otro gasta» o «1 % mejor cada día» y tu agente escribe las líneas, anima a dos personajes (el protagonista, con sombrero) sobre un escenario limpio, agrega el contador y el número final, mezcla música y efectos, y te entrega un MP4 con subtítulos. Todo corre en tu computador.\n\n## Qué problema resuelve\n\nUn sketch animado de 15 segundos tiene muchas piezas: guion, animación, tiempos de los subtítulos, música y efectos. SpecReel Stick le da a tu agente un método y un motor para armarlas: primero escribe el brief, la spec, el guion y el storyboard, te pide tu aprobación y solo entonces anima. Mientras construye, renderiza fotogramas de prueba, los mira y los corrige antes del render final.\n\n## Cómo funciona, en 3 pasos\n\n- Abres Claude Code o Codex en una carpeta vacía y le cuentas la idea: quién hace qué, quién no y cuál es el remate.\n- Revisas el guion y el storyboard (punto de control A) y luego la hoja de fotogramas (punto de control B).\n- Recibes el MP4, el archivo .srt, la portada, los créditos y un reporte técnico del render.\n\n## Qué recibes\n\n- La skill SpecReel Stick, con sus instrucciones, referencias y plantillas de especificación.\n- Un motor de animación 3D (three.js) con muñequitos con sombrero (bombín, chistera, gorra o gorro de lana), 23 poses, gestos por capas, caminatas, carreras y saltos.\n- Escenario con reflejo y sombras, utilería (escalones que crecen, banco, caja y teléfono), bocadillos, nubes de pensamiento, emotes y etiquetas.\n- Diseño Reel/Story con titular arriba y subtítulos karaoke abajo, estilo noir por defecto o tu kit de marca (desde tu logo, tus colores HEX o 25 paletas inspiradas en marcas conocidas, con contraste revisado).\n- Música y efectos generados por código, mezclados a −14 LUFS.\n- Un sketch de ejemplo listo para editar («1 % mejor cada día»), con su video de muestra.\n- Instalador y diagnóstico (Doctor) para Windows, macOS y Linux, y guías en español e inglés.\n\n## Para quién es\n\nCreadores y marcas que publican Reels, TikTok o Shorts sobre hábitos, productividad, dinero o mentalidad y quieren piezas cortas con un contraste claro entre dos personajes, sin grabarse en cámara.\n\n## Requisitos\n\n- Claude Code o Codex, con tu propia cuenta (no incluidos).\n- Node 20+, Python 3.10+, ffmpeg y Playwright Chromium. El instalador incluido revisa qué falta y lo instala (con winget, brew, apt, dnf o pacman); la instalación automática también descarga una voz local de unos 350 MB.\n- Windows 10/11, macOS 12+ o Linux. Funciona con o sin GPU; sin GPU el render es más lento.\n\n## Importante\n\n- No convierte fotos ni personas en muñecos de palitos. Los personajes son figuras genéricas creadas por código; puedes cambiar su sombrero, sus colores y sus movimientos, pero no copiar el aspecto de alguien.\n- Está pensado para sketches de 12 a 30 segundos con dos personajes y una comparación. Las historias nuevas las programa tu agente sobre el sketch de ejemplo, así que el resultado depende de tu agente y de tus indicaciones.\n- Los personajes no tienen boca: hablan con bocadillos y subtítulos.\n- La música es sintetizada por código, no una biblioteca de canciones.\n- Las voces en la nube (ElevenLabs, Fish Audio) se pagan aparte, y algunos modelos de voz locales no permiten uso comercial.\n- Es la versión 1.0 e incluye un sketch de ejemplo.",
+			"highlights": [
+				"Sketches de 12 a 30 s: dos personajes, una comparación, un contador y un número final",
+				"Muñequitos 3D con sombrero (bombín, chistera, gorra o gorro), 23 poses, caminatas, carreras y saltos",
+				"Bocadillos, nubes de pensamiento, 6 emotes y utilería: escalones que crecen, banco, caja y teléfono",
+				"Sin voz por defecto: subtítulos karaoke, archivo .srt, música y efectos generados por código",
+				"Estilo noir (negro con un acento rojo) o tu kit de marca desde tu logo o tus colores HEX",
+				"9:16, 1:1, 4:5 y 16:9 — Windows, macOS y Linux, con o sin GPU"
+			],
+			"specs": [
+				{
+					"label": "Versión",
+					"value": "1.0"
+				},
+				{
+					"label": "Formato",
+					"value": "ZIP con la skill, el motor de animación, un sketch de ejemplo y guías"
+				},
+				{
+					"label": "Funciona con",
+					"value": "Claude Code y Codex (no incluidos)"
+				},
+				{
+					"label": "Requisitos",
+					"value": "Node 20+, Python 3.10+, ffmpeg y Playwright Chromium"
+				},
+				{
+					"label": "Sistemas",
+					"value": "Windows 10/11, macOS 12+ y Linux"
+				},
+				{
+					"label": "Salida",
+					"value": "MP4 H.264 (30 fps por defecto) en 9:16, 1:1, 4:5 o 16:9, con .srt y portada"
+				},
+				{
+					"label": "Licencia",
+					"value": "1 creador: uso comercial de tus videos, propios o para clientes; actualizaciones 1.x gratis"
+				}
+			],
+			"faq": [
+				{
+					"q": "¿Convierte una foto mía en un muñeco de palitos?",
+					"a": "No. Los personajes son muñequitos genéricos dibujados por código: eliges su sombrero, sus colores y sus movimientos, pero no se parecen a una persona real. La única imagen que puedes darle es tu logo, para sacar la paleta de colores."
+				},
+				{
+					"q": "¿Necesito saber programar?",
+					"a": "No para empezar. Le describes la idea a tu agente y él escribe y ajusta el código del sketch. Para instalarlo sí corres algunos comandos en la terminal."
+				},
+				{
+					"q": "¿Necesito grabar mi voz?",
+					"a": "No. Por defecto el sketch va sin voz: los subtítulos cuentan la historia y la música marca el ritmo. Si quieres narrador, puedes usar una voz local o ElevenLabs o Fish Audio con tu propia cuenta."
+				},
+				{
+					"q": "¿Necesito tener SpecReel?",
+					"a": "No. SpecReel Stick trae su propio motor y funciona solo. SpecReel es otro producto, para videos explicativos 3D de productos, procesos o datos."
+				},
+				{
+					"q": "¿Puedo usar los videos comercialmente?",
+					"a": "Los videos que hagas son tuyos y puedes publicarlos en tu marca y tus canales, incluso monetizados. Si agregas una voz, revisa su licencia: algunos modelos locales no permiten uso comercial y el Doctor te avisa."
+				}
+			],
+			"tags": [
+				"videos de muñequitos de palo",
+				"animación de stick figures",
+				"videos con Claude Code",
+				"videos con Codex",
+				"reels animados de hábitos",
+				"videos sin voz con subtítulos",
+				"sketches animados para TikTok"
+			],
+			"images": [
+				{
+					"src": "/market/static/products/specreel-stick/cover.webp",
+					"alt": "SpecReel Stick: tres fotogramas reales de un sketch de muñequitos de palo en formato vertical 9:16"
+				},
+				{
+					"src": "/market/static/products/specreel-stick/screen-1.webp",
+					"alt": "Cómo funciona SpecReel Stick: apruebas guion y fotogramas, y recibes el MP4 de un sketch de 4 líneas"
+				},
+				{
+					"src": "/market/static/products/specreel-stick/screen-2.webp",
+					"alt": "Fotograma real anotado: contador, número final, protagonista con sombrero, escalones, emotes y subtítulos"
+				}
+			],
+			"compat": "{\"works\":[\"claude-code\",\"codex\",\"python\",\"node\",\"ffmpeg\",\"windows\",\"macos\",\"linux\"],\"includes\":[]}"
+		},
+		{
+			"slug": "pagespeed-forensics",
+			"title": "PageSpeed Forensics: skill de Claude Code para PageSpeed móvil",
+			"meta_title": "PageSpeed Forensics: skill de Claude Code para PageSpeed",
+			"meta_description": "Skill para Claude Code que encuentra con evidencia por qué tu web no pasa de 85–90 en PageSpeed móvil: red de laboratorio, trazas, Lighthouse y prueba visual.",
+			"tagline": "Descubre con evidencia por qué tu web saca 85 en PageSpeed móvil y 100 en tu PC, y prueba arreglos sin recompilar.",
+			"description": "## Qué es\n\nPageSpeed Forensics es una skill para Claude Code (y cualquier agente que lea SKILL.md) para el último tramo del puntaje móvil en PageSpeed Insights y Lighthouse. Trae un método paso a paso, 6 guías técnicas y 11 scripts de Node.js sin dependencias, salvo sharp (opcional) para la comparación visual.\n\n## Qué problema resuelve\n\nLos consejos de siempre (comprimir imágenes, diferir JavaScript, precargar la imagen del LCP) suelen dejar una página cerca de 85. Los puntos que faltan en móvil se esconden donde esas listas no miran: cómo cruza el HTML la red, cuándo Chrome produce el primer cuadro y cómo el simulador de Lighthouse convierte una corrida en puntaje.\n\nSi Lighthouse marca 100 en tu PC y PageSpeed marca 85, si la primera pintura sale 1–2 s tarde sin que nada la bloquee, o si el TBT viene casi todo del administrador de etiquetas, esta skill busca la causa y la demuestra con evidencia.\n\n## Cómo funciona en 3 pasos\n\n- Lee el informe real: psi-report guarda de pagespeed.web.dev los puntajes, las métricas, las auditorías con sus tablas, el entorno de prueba, la captura final y la tira de cuadros, sin llave de API.\n- Reproduce PageSpeed en tu computador: un proxy local agrega latencia y tiempo de servidor, y entrega el HTML en tandas tipo arranque lento de TCP. Corres Lighthouse 3–5 veces por variante y comparas medianas de métricas simuladas y observadas.\n- Prueba y verifica: el proxy aplica arreglos sin recompilar (CSS en línea, sin precarga de fuentes o imágenes, content-visibility o CSS propio). Antes de pasar nada al código comparas capturas en gris con desenfoque y revisas anclas, elementos fixed y la altura de la página.\n\n## Qué recibes\n\n- SKILL.md: el método en 6 pasos, una tabla síntoma → causa y una plantilla de informe (hallazgo, evidencia, causa, arreglo, riesgo, cómo revertir y si requiere decisión del dueño)\n- 6 guías: congelamiento del primer cuadro, primera tanda TCP (initcwnd), arreglos del camino de render y sus trampas, particularidades de Lighthouse y PageSpeed, etiquetas de terceros y verificación\n- 11 scripts: flight-proxy, burst-timing, lh-runs, lh-summary, trace-milestones, main-thread-per-second, trace-first-frame, psi-report, screens, visual-diff y section-heights\n- README en español e inglés y archivo de licencia\n\n## Para quién es\n\n- Desarrolladores y agencias con sitios que no pasan de ~85–90 en móvil después de aplicar los consejos típicos\n- Equipos con landing pages en Next.js o React (las guías traen notas específicas de Next.js)\n- Quien necesita explicar con datos por qué PageSpeed y su computador no dan el mismo puntaje\n\n## Requisitos\n\n- Node.js 22 o superior\n- Google Chrome o Chromium (o la variable CHROME_PATH)\n- Internet para Lighthouse (se ejecuta con npx, sin instalar) y para leer PageSpeed\n- sharp, solo para la comparación visual (npm i -D sharp)\n- Un build de producción de tu sitio servido por HTTP en tu computador, para el laboratorio\n- Claude Code u otro agente que lea SKILL.md (o correr los scripts a mano)\n\n## Notas importantes\n\n- No garantiza un puntaje: encuentra causas y mide cada cambio con medianas. El resultado depende de tu sitio y de lo que decidas cambiar.\n- Algunos arreglos son decisiones de negocio (diferir la analítica, cambiar el servidor o poner un CDN): la skill te muestra el costo y la decisión es tuya.\n- Los datos de campo de CrUX tardan 28 días en reflejar un cambio.\n- La skill, las guías y la salida de los scripts están en inglés; el README está en español e inglés.\n- psi-report lee la página web de PageSpeed: si Google cambia su diseño, ese script puede dejar de funcionar.\n- Ampliar la ventana TCP inicial del servidor requiere acceso de administrador a un servidor Linux, o un CDN.\n- Producto independiente, sin afiliación con Google. PageSpeed Insights, Lighthouse y Chrome son marcas de Google.",
+			"highlights": [
+				"Laboratorio que imita la red de PageSpeed: latencia, tiempo de servidor y HTML en tandas tipo arranque lento de TCP",
+				"Detecta el «congelamiento del primer cuadro»: huecos sin cuadros antes de la primera pintura, marcados FROZEN en la traza",
+				"Mide la primera tanda TCP de tu servidor (initcwnd) en conexiones nuevas y abiertas, y te dice si tu <head> cabe",
+				"Prueba arreglos sin recompilar: CSS en línea, sin precarga de fuentes o imágenes, content-visibility o CSS propio",
+				"Medianas de 3–5 corridas de Lighthouse con métricas simuladas y observadas, elemento LCP y sus partes",
+				"Verificación visual en gris con desenfoque, más revisión de anclas, elementos fixed y altura de la página"
+			],
+			"specs": [
+				{
+					"label": "Formato",
+					"value": "ZIP con la skill (SKILL.md), 11 scripts de Node.js, 6 guías técnicas, README y licencia"
+				},
+				{
+					"label": "Funciona con",
+					"value": "Claude Code u otro agente que lea SKILL.md; los scripts también corren solos en la terminal"
+				},
+				{
+					"label": "Requisitos",
+					"value": "Node.js 22+, Google Chrome o Chromium e internet; sharp solo para la comparación visual"
+				},
+				{
+					"label": "Sistemas",
+					"value": "Windows, macOS y Linux (rutas de Chrome previstas para los tres)"
+				},
+				{
+					"label": "Salida",
+					"value": "JSON de Lighthouse y PageSpeed, trazas, capturas PNG y resúmenes en la terminal"
+				},
+				{
+					"label": "Idioma",
+					"value": "README en español e inglés; skill, guías y salida de los scripts en inglés"
+				},
+				{
+					"label": "Licencia",
+					"value": "MIT (archivo LICENSE incluido)"
+				}
+			],
+			"faq": [
+				{
+					"q": "¿Necesito una llave de API de Google PageSpeed?",
+					"a": "No. El script psi-report abre pagespeed.web.dev en Chrome sin interfaz y guarda puntajes, métricas, auditorías, el entorno de prueba y la tira de cuadros. Como lee la página web, si Google cambia su diseño ese script puede dejar de funcionar."
+				},
+				{
+					"q": "¿Garantiza 100 en PageSpeed?",
+					"a": "No. Encuentra las causas y mide cada cambio con la mediana de varias corridas. El resultado depende de tu sitio y de lo que decidas cambiar; algunos arreglos (diferir la analítica, tocar el servidor o poner un CDN) son decisiones tuyas, y los datos de campo de CrUX tardan 28 días en moverse."
+				},
+				{
+					"q": "¿Sirve solo para Next.js?",
+					"a": "No. Los scripts trabajan con cualquier sitio que entregue HTML: el laboratorio necesita un build de producción servido por HTTP en tu computador y la medición de red, un sitio en HTTPS. Las guías traen notas específicas solo para Next.js; para otros stacks, el consejo es general."
+				},
+				{
+					"q": "¿Necesito Claude Code?",
+					"a": "Está hecha como skill para Claude Code y para cualquier agente que lea SKILL.md. Los 11 scripts también se pueden correr a mano con Node.js desde la terminal, siguiendo el README."
+				},
+				{
+					"q": "¿Está en español?",
+					"a": "El README está en español e inglés. La skill, las 6 guías y la salida de los scripts están en inglés."
+				},
+				{
+					"q": "¿Cuánto cuesta?",
+					"a": "Tú eliges: es «paga lo que quieras». Escribe 0 para descargarla gratis o apoya el proyecto con el monto que quieras; con tarjeta, desde $0.50 USD."
+				}
+			],
+			"tags": [
+				"mejorar PageSpeed móvil",
+				"optimizar Core Web Vitals",
+				"subir puntaje de Lighthouse",
+				"LCP y FCP lentos en móvil",
+				"skill para Claude Code",
+				"auditoría de rendimiento web",
+				"optimizar Next.js para PageSpeed"
+			],
+			"images": [
+				{
+					"src": "/market/static/products/pagespeed-forensics/cover.webp",
+					"alt": "PageSpeed Forensics: traza que muestra 2067 ms sin cuadros antes de la primera pintura, marcada FROZEN"
+				},
+				{
+					"src": "/market/static/products/pagespeed-forensics/screen-1.webp",
+					"alt": "Método de PageSpeed Forensics en 6 pasos con sus scripts y la plantilla de informe"
+				},
+				{
+					"src": "/market/static/products/pagespeed-forensics/screen-2.webp",
+					"alt": "burst-timing: el <head> no cabe en la primera tanda TCP, y los 6 modos del proxy para probar arreglos"
+				}
+			],
+			"compat": "{\"works\":[\"claude-code\",\"pagespeed\",\"lighthouse\",\"chrome\",\"node\"],\"includes\":[]}"
+		},
+		{
+			"slug": "cutpilot",
+			"title": "CutPilot: edita tus videos hablados con Claude Code, en tu PC",
+			"meta_title": "Edita videos con Claude Code en local — CutPilot",
+			"meta_description": "Edita videos hablados en español con Claude Code: quita muletillas y silencios, agrega subtítulos y gráficos y exporta en 16:9, 9:16 y 1:1. Lista de espera.",
+			"tagline": "Dejas tu grabación en una carpeta y recibes el video limpio, subtitulado, con gráficos y revisado por un QA automático.",
+			"description": "CutPilot es un editor automático para videos hablados que corre en tu computador. Le das un video hablado en español y te devuelve el video limpio, con subtítulos, gráficos animados y sonido nivelado, en horizontal, vertical o cuadrado.\n\n## El problema que resuelve\n\nEditar un video a cámara se va en tareas repetitivas: buscar los «eh» y los silencios, cortar las frases que repetiste, poner subtítulos, nivelar el audio y sacar una versión vertical. Este estudio hace ese trabajo a partir de la transcripción palabra por palabra, para que tú solo revises.\n\n## Cómo funciona, en 3 pasos\n\n- Copias tu grabación en la carpeta entrada/ o la arrastras al panel de Chrome.\n- El estudio limpia el audio, transcribe, quita muletillas, silencios y retomas, y Claude propone los gráficos indicando en qué palabra va cada uno.\n- Revisas la hoja de contacto si quieres aprobar antes del render, y recibes el video final con su informe de calidad.\n\n## Qué recibes\n\n- El orquestador editar.py y los módulos del pipeline: reducción de ruido, transcripción, limpieza, plan visual, detección de cara, render, mezcla y QA.\n- El proyecto de Remotion con subtítulos palabra a palabra, tarjetas de datos, listas, títulos de capítulo, zooms, intro y cierre.\n- Una skill y un subagente revisor para Claude Code, más un hook que protege tus videos originales.\n- La extensión de Chrome con su servidor local: cola de trabajos, kit de marca, ajustes y diagnóstico.\n- 55 efectos de sonido CC0 (Kenney), 28 fuentes con licencia OFL y herramientas para renderizar sin internet e importar música que ya descargaste (por ejemplo, de la biblioteca de audio de YouTube).\n- Un instalador que descarga los modelos y DeepFilterNet desde sus fuentes oficiales, con verificación SHA-256.\n- Tests automáticos y un archivo config.yaml con todos los parámetros comentados.\n\n## Para quién es\n\nCreadores, profesores, coaches y equipos de marketing que graban videos hablados en español y usan Claude Code, y que prefieren procesar en su propio computador en vez de pagar créditos por minuto.\n\n## Requisitos\n\n- uv (instala Python 3.12), Node.js LTS y ffmpeg 7 o más nuevo.\n- DeepFilterNet para la reducción de ruido (opcional: el instalador lo descarga; sin él se usa el filtro de ffmpeg, con menos calidad).\n- Claude Code para las decisiones de IA (opcional).\n- GPU NVIDIA recomendada; sin ella, Whisper corre en la CPU.\n- Unos 20 GB libres: el modelo de Whisper se descarga la primera vez (unos 1,6 GB).\n\n## Limitaciones honestas\n\n- Probado solo en Windows 10/11. macOS y Linux no están verificados y la extensión de Chrome se registra sola solo en Windows.\n- Edita el video que le das y lo entrega en tres formatos: no corta varios reels de una grabación larga ni escribe títulos o descripciones.\n- Solo videos en español.\n- La instalación usa la terminal y la extensión se carga en modo desarrollador de Chrome.\n- Renderizar toma tiempo: la estimación medida es de 35 a 45 minutos por formato para 10 minutos de crudo.\n- Whisper puede confundir palabras en clips muy cortos y una repetición intencional puede cortarse: revisa el .srt y la lista de cortes del informe.\n- Remotion se rige por su propia licencia; las empresas de más de 3 empleados necesitan la de empresa. Otras dependencias que se instalan aparte tienen sus propias licencias (detalle en THIRD_PARTY_NOTICES.md).\n- Para música y logos de marcas usa solo material con licencia: el estudio registra la fuente y la licencia de cada recurso, pero la responsabilidad del uso es tuya.",
+			"highlights": [
+				"Quita muletillas, silencios, repeticiones y retomas leyendo la transcripción palabra por palabra (Whisper + VAD)",
+				"Claude planifica los gráficos: logos de marcas, cifras, listas de pasos, títulos de capítulo y zooms",
+				"Render en 16:9, 9:16 y 1:1 con Remotion, con detección de cara para no taparla y centrar el vertical",
+				"QA automático: -14 LUFS, desfase de audio y solapes, con hoja de contacto e informe de cada video",
+				"Exporta .srt, .vtt, EDL CMX3600 para Premiere o Resolve y capítulos para YouTube",
+				"Panel lateral de Chrome con cola de trabajos, kit de marca y ajustes, todo en tu computador"
+			],
+			"specs": [
+				{
+					"label": "Versión",
+					"value": "2.3 (Python + Remotion)"
+				},
+				{
+					"label": "Formato",
+					"value": "ZIP con el código (Python + Remotion), skill y subagente para Claude Code, extensión de Chrome, 55 efectos CC0, fuentes OFL y tests"
+				},
+				{
+					"label": "Funciona con",
+					"value": "Claude Code (opcional: sin él usa un plan sin IA)"
+				},
+				{
+					"label": "Probado en",
+					"value": "Windows 10/11 con GPU NVIDIA de 4 GB; macOS y Linux sin verificar"
+				},
+				{
+					"label": "Requisitos",
+					"value": "uv (Python 3.12), Node.js LTS, ffmpeg 7+ y ~20 GB libres. GPU NVIDIA, DeepFilterNet y Claude Code opcionales"
+				},
+				{
+					"label": "Idioma de los videos",
+					"value": "Español"
+				},
+				{
+					"label": "Salida",
+					"value": "MP4 en 16:9, 9:16 o 1:1, .srt, .vtt, .edl, capítulos e informe"
+				},
+				{
+					"label": "Licencia",
+					"value": "1 creador: uso comercial de tus videos, propios o para clientes; sin reventa del software"
+				}
+			],
+			"faq": [
+				{
+					"q": "¿Necesito una licencia de Remotion?",
+					"a": "Depende de ti. Remotion tiene su propia licencia: es gratis para personas, empresas de hasta 3 empleados y organizaciones sin fines de lucro; si tu empresa es más grande, necesitas la licencia de empresa de Remotion. Remotion no viene dentro del ZIP: se instala con npm desde su fuente oficial."
+				},
+				{
+					"q": "¿Necesito una tarjeta gráfica?",
+					"a": "No es obligatoria: sin GPU NVIDIA, Whisper transcribe en la CPU, más lento. El estudio se midió en una GTX 1650 de 4 GB: un crudo de 49,5 s tardó unos 40 s en transcribirse y unos 110 s en renderizarse en 16:9. Para 10 minutos de crudo la estimación es de 35 a 45 minutos por formato."
+				},
+				{
+					"q": "¿Hay un costo por video?",
+					"a": "El estudio no cobra por minuto. Las decisiones de IA usan Claude Code en tu computador y consumen tu plan; cada informe anota el costo estimado y las respuestas se guardan en caché para no pagar dos veces. Sin Claude Code, el estudio usa un plan automático sin IA."
+				},
+				{
+					"q": "¿Funciona en Mac o Linux?",
+					"a": "Se desarrolló y probó en Windows. Incluye un instalador para macOS y Linux, pero esas plataformas no están verificadas, y el registro automático de la extensión de Chrome existe solo para Windows."
+				},
+				{
+					"q": "¿Sirve para videos en inglés?",
+					"a": "No. La transcripción está fijada en español y la detección de muletillas está pensada para el español."
+				},
+				{
+					"q": "¿Saca varios reels de un video largo?",
+					"a": "No. Edita el video que le das (quita muletillas, silencios y retomas, agrega subtítulos y gráficos) y lo entrega en 16:9, 9:16 y 1:1. Tampoco escribe títulos ni descripciones; sí genera los capítulos para YouTube."
+				}
+			],
+			"tags": [
+				"editar videos con Claude Code",
+				"quitar muletillas de un video",
+				"cortar silencios automáticamente",
+				"subtítulos automáticos en español",
+				"editar videos con Whisper",
+				"video vertical 9:16 automático",
+				"editar videos con Remotion"
+			],
+			"images": [
+				{
+					"src": "/market/static/products/cutpilot/cover.webp",
+					"alt": "CutPilot: transcripción con muletillas y retomas tachadas, línea de tiempo con cortes y el video en 16:9, 1:1 y 9:16"
+				},
+				{
+					"src": "/market/static/products/cutpilot/screen-1.webp",
+					"alt": "Cómo funciona CutPilot: copias el video, se limpia y transcribe, Claude propone gráficos, y render con QA de -14 LUFS"
+				},
+				{
+					"src": "/market/static/products/cutpilot/screen-2.webp",
+					"alt": "CutPilot entrega el mismo video en 16:9, 1:1 y 9:16, más .srt, .vtt, EDL, capítulos, hoja de contacto e informe de QA"
+				}
+			],
+			"compat": "{\"works\":[\"claude-code\",\"python\",\"ffmpeg\",\"windows\"],\"includes\":[\"agent|Editor de video\",\"chrome-ext|Panel de Chrome\"]}"
+		},
+		{
+			"slug": "motor-creativo-claude-code",
+			"title": "Motor creativo para Claude Code: 13 agentes para diseño, video y docs",
+			"meta_title": "Agentes de Claude Code para diseño, video y PDF",
+			"meta_description": "13 agentes de Claude Code en español que operan apps open source de diseño, video, audio, PDF y oficina vía MCP. Router, panel local y QA. Para Windows.",
+			"tagline": "Pide en español la pieza que necesitas y un agente de Claude Code la produce con apps open source en tu PC.",
+			"description": "Un kit para Claude Code que trabaja como un estudio creativo en español. Le pides una pieza en lenguaje natural y un agente especializado la produce con una app open source de escritorio, a través del servidor MCP oficial de esa app.\n\nNo es un programa de diseño propio: orquesta 13 apps open source de storytold publicadas en GitHub (PhotoCraft, LightCraft, VectorCraft, FilmCraft, EffectCraft, DesignCraft, PdfCraft, FigCraft, SoundCraft, DeckCraft, WordCraft, GridCraft y CADCraft) para imagen, foto, vector, video, animación, maquetación, PDF, interfaz, audio, presentaciones, documentos, planillas y CAD.\n\n## El problema que resuelve\n\nConectar Claude Code a una docena de apps creativas suele terminar con todos los servidores MCP cargados a la vez, cientos de herramientas ocupando contexto y agentes que no saben qué app usar. Aquí cada app tiene su propio subagente, y su MCP se conecta solo mientras ese agente trabaja. La sesión principal solo decide a quién delegar.\n\n## Cómo funciona en 3 pasos\n\n- Pides: escribes el encargo en la terminal de Claude Code o en el panel local y adjuntas tu archivo.\n- El router decide: clasifica el pedido (por ejemplo, VECTOR o SLIDES), elige el agente y su skill, y si la tarea combina apps las encadena en serie.\n- El agente produce y revisa: trabaja sobre una copia, exporta a output/<proyecto>/ y mira el resultado antes de entregarlo. Al final, el agente revisor y los comandos revisar y empaquetar arman la entrega.\n\n## Lo que recibes\n\n- 13 subagentes de app y 1 agente revisor de solo lectura (qa-agent).\n- 14 skills de flujo por app, incluida mixed para encadenar apps, y las skills kit-de-marca y entrega.\n- CLI artcraft.py con doctor, route, marcas, revisar, empaquetar, sync, probe, smoke, actualizaciones, actualizar y volver.\n- Router de intención en español e inglés, con su batería de casos de prueba.\n- Hooks de Claude Code: contexto al iniciar sesión, aviso diario de versiones nuevas y protección de originales y binarios.\n- Panel web local para usar las 13 apps sin escribir comandos.\n- Registro de marcas (marcas.json) con plantilla para dar de alta a cada cliente: logos, paleta, fuentes y reglas que los agentes respetan.\n- Perfiles MCP por app para abrir una sesión de Claude Code dedicada a una sola app.\n- Documentación de arquitectura, índice maestro y registro de herramientas con formatos y límites de cada app.\n\n## Para quién es\n\n- Diseñadores, community managers y agencias pequeñas que ya usan Claude Code y producen piezas para varios clientes.\n- Quien quiere probar apps open source de escritorio para imagen, video y oficina operadas por agentes.\n- Equipos que necesitan que la IA no invente datos: los agentes dejan marcadores visibles como [precio] cuando falta información.\n\n## Requisitos\n\n- Windows x64 (desarrollado en Windows 11).\n- Claude Code instalado y con sesión iniciada; cada pedido consume uso de tu plan.\n- Python 3.10 o superior y Git.\n- Las 13 apps de storytold, que se descargan gratis desde sus releases oficiales en GitHub (no vienen en el paquete).\n- ffmpeg y Google Chrome para algunas funciones. python artcraft.py doctor te dice qué falta.\n\n## Limitaciones honestas\n\n- Solo Windows: las apps se instalan como binarios portables para Windows x64.\n- Las apps son de terceros y están en versiones 0.x. FilmCraft no transcribe ni corta silencios automáticamente, CADCraft abre cerca del 30 % de los formatos de AutoCAD, FigCraft importa .fig en modo best effort y SoundCraft exporta solo WAV, AIFF o FLAC.\n- No reemplaza tu criterio: revisa cada pieza antes de entregarla a un cliente.\n- Las versiones, formatos y límites de las apps pueden cambiar con cada release de sus autores.\n- Este kit no está afiliado a storytold ni a Anthropic. Los nombres de las apps y Claude son marcas de sus titulares; se nombran solo para indicar compatibilidad.",
+			"highlights": [
+				"13 subagentes de Claude Code (imagen, foto, vector, video, animación, maquetación, PDF, interfaz, audio, presentaciones, documentos, planillas y CAD), cada uno con su skill y el MCP oficial de su app, que se conecta solo mientras trabaja.",
+				"Router de intención en español e inglés: `python artcraft.py route \"<pedido>\"` devuelve categoría, agentes y skills, y encadena varias apps en tareas mixtas (p. ej. vector → animación).",
+				"Panel web local (127.0.0.1) para pedir en lenguaje natural, adjuntar un archivo y descargar el resultado, con hasta 4 consultas en paralelo e historial por app.",
+				"Instalador/actualizador de las apps desde sus releases oficiales en GitHub con doble verificación SHA256, prueba MCP antes de registrar y vuelta atrás con `volver`.",
+				"Agente revisor de solo lectura y comandos `revisar` y `empaquetar`: medidas, marcadores sin completar y ZIP de entrega con índice.",
+				"Hooks de Claude Code que impiden sobrescribir los archivos originales de tus clientes y los binarios, y te avisan una vez al día si hay versiones nuevas de las apps."
+			],
+			"specs": [
+				{
+					"label": "Formato",
+					"value": "Carpeta de proyecto (ZIP) con CLI en Python, agentes, skills y hooks de Claude Code y panel web local"
+				},
+				{
+					"label": "Funciona con",
+					"value": "Claude Code + 13 apps open source de storytold (MIT o Apache-2.0), que se descargan gratis desde sus releases oficiales con verificación SHA256"
+				},
+				{
+					"label": "Requisitos",
+					"value": "Windows 10/11 x64, Python 3.10+ y Git; Claude Code con sesión iniciada (consume tu plan). ffmpeg y Chrome/Edge opcionales"
+				},
+				{
+					"label": "Sistemas",
+					"value": "Solo Windows 10/11 x64 (el instalador usa las versiones portables para Windows)"
+				},
+				{
+					"label": "Salida",
+					"value": "Archivos en output/<proyecto>/: PSD, PNG, SVG, PDF, MP4, PPTX, DOCX, XLSX, CSV, DXF/DWG, WAV/FLAC, según la app"
+				},
+				{
+					"label": "Idioma",
+					"value": "Español (agentes, skills, router, panel y documentación)"
+				},
+				{
+					"label": "Incluye",
+					"value": "CLI y router, 13 agentes + revisor QA, skills, hooks, panel local «Studio Motor», guía de instalación, licencia y avisos de terceros. Las apps (~1 GB) se descargan aparte"
+				},
+				{
+					"label": "Licencia",
+					"value": "1 creador: uso propio y comercial de lo que produces; sin reventa del motor"
+				}
+			],
+			"faq": [
+				{
+					"q": "¿Incluye las 13 apps?",
+					"a": "No. Son apps open source de terceros (storytold, en GitHub) y se descargan aparte desde sus releases oficiales. El motor las registra, comprueba el SHA256 de cada descarga, prueba su servidor MCP y te avisa cuando hay versiones nuevas."
+				},
+				{
+					"q": "¿Funciona en Mac o Linux?",
+					"a": "No en esta versión. El instalador y el registro de apps usan los binarios portables de Windows x64. El router y la CLI son Python, pero las apps están preparadas solo para Windows."
+				},
+				{
+					"q": "¿Necesito una API key?",
+					"a": "No. Usa tu propia sesión de Claude Code; el panel lanza Claude Code en modo sin ventana. Cada pedido consume uso de tu plan de Claude: en las pruebas del autor, una consulta simple tardó unos 30 segundos y las largas entre 1 y 4 minutos."
+				},
+				{
+					"q": "¿Mis archivos se procesan en mi PC?",
+					"a": "Las apps y el panel corren en tu equipo (el panel solo escucha en 127.0.0.1) y tus originales se copian antes de tocarlos. Pero Claude Code envía a Anthropic lo que el agente lee para razonar, como cualquier uso de Claude Code."
+				},
+				{
+					"q": "¿Qué tan maduras son las apps?",
+					"a": "Son versiones 0.x. Sus propios documentos lo dicen: FilmCraft es joven y no transcribe ni corta silencios automáticamente, CADCraft abre cerca del 30 % de los formatos de AutoCAD y FigCraft importa .fig en modo best effort. Cada agente avisa qué no puede hacer su app."
+				},
+				{
+					"q": "¿El motor se conecta a internet?",
+					"a": "Para instalar o actualizar las apps las descarga de sus releases oficiales en GitHub, y una vez al día consulta la API de GitHub para avisarte si hay versiones nuevas. Lo que pides en Claude Code lo procesa Claude con tu cuenta, como cualquier sesión de Claude Code."
+				}
+			],
+			"tags": [
+				"agentes de Claude Code para diseño",
+				"automatizar diseño gráfico con IA",
+				"servidores MCP para diseño y video",
+				"editar PDF con Claude Code",
+				"crear presentaciones y planillas con IA",
+				"apps open source de diseño con IA",
+				"subagentes y skills para Claude Code"
+			],
+			"images": [
+				{
+					"src": "/market/static/products/motor-creativo-claude-code/cover.webp",
+					"alt": "Motor creativo para Claude Code: 13 agentes en español y el router eligiendo animación y presentaciones"
+				},
+				{
+					"src": "/market/static/products/motor-creativo-claude-code/screen-1.webp",
+					"alt": "Salida real del router: un pedido en español se asigna a su categoría, su agente y su skill"
+				},
+				{
+					"src": "/market/static/products/motor-creativo-claude-code/screen-2.webp",
+					"alt": "Ilustración del panel local para pedir piezas, con el veredicto del agente revisor antes de entregar"
+				}
+			],
+			"compat": "{\"works\":[\"claude-code\",\"python\",\"windows\"],\"includes\":[\"agent|13 agentes creativos\"]}"
+		}
+	]
+}

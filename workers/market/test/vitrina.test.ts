@@ -178,7 +178,7 @@ describe("SEO y Google Merchant", () => {
 	it("la ficha trae meta título, descripción, imagen para compartir y Product + BreadcrumbList", async () => {
 		const html = await (await call("/market/producto/cutpilot")).text();
 		// Con el sufijo pasaría de 60 caracteres: Google lo cortaría, así que va sin sufijo.
-		expect(html).toContain("<title>Edita videos con Claude Code en local — CutPilot</title>");
+		expect(html).toContain("<title>CutPilot: edita videos con Claude Code y quita muletillas</title>"); // meta título de la migración 0009
 		expect(html).toMatch(/<meta name="description" content="Edita videos hablados en español con Claude Code/);
 		expect(html).toContain('property="og:image" content="http://localhost:8787/market/static/products/cutpilot/cover.webp"');
 		const ld = JSON.parse(html.match(PRODUCT_JSONLD)![1]!);

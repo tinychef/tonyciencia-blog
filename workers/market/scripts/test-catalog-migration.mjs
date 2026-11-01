@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Prueba las migraciones 0002/0003 sobre una copia SIMULADA de producción (los dos productos reales con las
+// Prueba las migraciones (0002 a 0009) sobre una copia SIMULADA de producción (los dos productos reales con las
 // imágenes que subió el dueño desde el admin). Comprueba que:
 //   - no se tocan precios, títulos ni archivos;
 //   - las portadas nuevas quedan primero y las del dueño se conservan detrás;
@@ -7,7 +7,7 @@
 //   - aplicar 0003 dos veces no duplica nada.
 // Usa node:sqlite (Node 22.13+), el mismo SQLite que D1.
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { DatabaseSync } from "node:sqlite";
 import { fileURLToPath } from "node:url";
@@ -140,3 +140,131 @@ assert.equal(r8["carruseles-infinitos"].active, 0);
 assert.equal(r8.cutpilot.active, 1, "CutPilot no se toca");
 assert.equal(r8["anuncios-infinitos"].active, 1);
 console.log("✓ migración 0008 segura (solo retira kit-n8n y carruseles sin archivo)");
+
+// ── 0009: contenido v5 (Anuncios Automáticos, SpecReel solo en español, metas SEO, compat) ──
+// Base: copia de las 6 fichas tal como estaban en producción el 2026-11-01 (scripts/fixtures/).
+const prodSnap = JSON.parse(readFileSync(join(root, "scripts", "fixtures", "produccion-2026-11-01.json"), "utf8")).products;
+const before9 = readdirSync(join(root, "migrations")).filter((f) => f.endsWith(".sql") && f < "0009").sort();
+const PRICES = {
+	"anuncios-infinitos": ["fixed", 3333, 7690],
+	specreel: ["fixed", 1200, 3690],
+	"specreel-stick": ["fixed", 1200, null],
+	"pagespeed-forensics": ["pwyw", 900, null],
+	cutpilot: ["fixed", 1200, null],
+	"motor-creativo-claude-code": ["pwyw", 1900, null],
+};
+const TEXT_COLS = ["title", "summary", "tagline", "meta_title", "meta_description", "description", "images", "highlights", "specs", "faq", "tags", "compat"];
+function prodDb() {
+	const d = new DatabaseSync(":memory:");
+	d.exec(sql(before9[0]));
+	for (const [id, slug] of [["6f1d3a2e-7b4c-4e8a-9c11-5a0b1d2e3f01", "anuncios-infinitos"], ["7a2b4c6d-1e3f-4a5b-8c7d-9e0f1a2b3c4d", "specreel"]])
+		d.prepare("INSERT INTO products (id, slug, title, price_cents, currency, kind, active, created_at, updated_at) VALUES (?, ?, 't', 7690, 'usd', 'paid', 1, 1, 1)").run(id, slug);
+	for (const f of before9.slice(1)) d.exec(sql(f));
+	const up = d.prepare(
+		`UPDATE products SET title = ?, summary = ?, tagline = ?, meta_title = ?, meta_description = ?, description = ?, images = ?, highlights = ?, specs = ?, faq = ?, tags = ?, compat = ?,
+		 price_mode = ?, price_cents = ?, compare_at_cents = ?, min_price_cents = 0, availability = 'available', file_key = ?, active = 1 WHERE slug = ?`,
+	);
+	for (const p of prodSnap) {
+		const [mode, price, was] = PRICES[p.slug];
+		// El resumen no se ve en la ficha pública: se simula uno que nombra el producto.
+		const summary = `${p.slug === "anuncios-infinitos" ? "Anuncios Infinitos: " : ""}resumen de ${p.slug}`;
+		up.run(p.title, summary, p.tagline, p.meta_title, p.meta_description, p.description, JSON.stringify(p.images), JSON.stringify(p.highlights), JSON.stringify(p.specs), JSON.stringify(p.faq), JSON.stringify(p.tags), p.compat, mode, price, was, `products/${p.slug}.zip`, p.slug);
+	}
+	return d;
+}
+const rowsOf = (d) => Object.fromEntries(d.prepare("SELECT * FROM products WHERE active = 1").all().map((r) => [r.slug, { ...r }]));
+
+const db9 = prodDb();
+const pre9 = rowsOf(db9);
+db9.exec(sql("0009_contenido_v5.sql"));
+const v9 = rowsOf(db9);
+db9.exec(sql("0009_contenido_v5.sql"));
+assert.deepEqual(rowsOf(db9), v9, "0009 es idempotente");
+
+for (const [slug, r] of Object.entries(v9)) {
+	for (const k of ["price_mode", "price_cents", "compare_at_cents", "min_price_cents", "availability", "file_key", "active", "id"]) assert.equal(r[k], pre9[slug][k], `${slug}: no toca ${k}`);
+	assert.ok(r.meta_title.length <= 60, `${slug}: meta título ≤ 60 (${r.meta_title.length})`);
+	assert.ok(r.meta_description.length >= 120 && r.meta_description.length <= 160, `${slug}: meta descripción 120–160 (${r.meta_description.length})`);
+	assert.ok(r.title.length <= 70, `${slug}: H1 ≤ 70 (${r.title.length})`);
+	for (const k of ["images", "highlights", "specs", "faq", "tags", "compat"]) JSON.parse(r[k]);
+	const compat = JSON.parse(r.compat);
+	assert.ok(!JSON.stringify(compat).toLowerCase().includes("grok"), `${slug}: sin Grok`);
+}
+
+// 1. Anuncios Automáticos (el slug no cambia; ninguna promesa de «infinitos»).
+const an = v9["anuncios-infinitos"];
+assert.equal(an.title, "Anuncios Automáticos: 250+ prompts para anuncios publicitarios con IA");
+assert.equal(an.meta_title, "Anuncios Automáticos: 250+ prompts para anuncios con IA");
+assert.ok(an.meta_description.startsWith("Anuncios Automáticos: agente de IA en español"));
+for (const k of TEXT_COLS) assert.ok(!/infinit/i.test(an[k].replaceAll("anuncios-infinitos", "")), `anuncios: «${k}» ya no dice Infinitos`);
+assert.ok(an.description.includes("Anuncios Automáticos es un sistema"));
+assert.ok(an.description.endsWith("no cambian tu precio."), "termina antes de la FAQ duplicada");
+assert.ok(!an.description.includes("## Preguntas frecuentes") && !an.description.includes("In English"));
+assert.ok(an.description.includes("## Para quién no es"), "conserva el resto de la descripción");
+assert.ok(JSON.parse(an.images).every((i, n) => i.src === JSON.parse(pre9["anuncios-infinitos"].images)[n].src), "no toca las rutas de las imágenes");
+assert.ok(JSON.parse(an.images).some((i) => i.alt === "Qué recibes con Anuncios Automáticos"));
+const anFaq = JSON.parse(an.faq);
+assert.equal(anFaq.length, 7);
+assert.equal(anFaq.find((f) => f.q === "¿Incluye una extensión de Chrome?")?.a, "No. El paquete trae el agente, la app local y las guías.");
+assert.ok(anFaq.some((f) => f.q === "¿Qué herramientas de IA necesito?"));
+const anCompat = JSON.parse(an.compat);
+assert.deepEqual(anCompat.includes, ["agent|Agente de anuncios", "node|App local"], "sin extensión de Chrome");
+assert.deepEqual(anCompat.works, JSON.parse(pre9["anuncios-infinitos"].compat).works, "«Funciona con» igual (ya tenía codex y antigravity)");
+assert.ok(/\bnode: \{/.test(readFileSync(join(root, "src", "lib", "brands.ts"), "utf8")), "la clave node existe en brands.ts");
+
+// 2. CutPilot: sin «Lista de espera».
+assert.ok(!/lista de espera/i.test(v9.cutpilot.meta_description));
+assert.equal(v9.cutpilot.meta_title, "CutPilot: edita videos con Claude Code y quita muletillas");
+assert.equal(v9.cutpilot.title, pre9.cutpilot.title, "H1 de CutPilot sin cambio");
+
+// 3. SpecReel: solo en español, reembolso del market y soporte business@.
+const sr = v9.specreel;
+assert.ok(sr.description.startsWith("SpecReel es una skill para Claude Code y Codex que convierte"));
+assert.ok(!/\b(the|and|your|you|with)\b/i.test(sr.description), "sin texto en inglés");
+assert.ok(!/contact@|funciona o te devolvemos|Descripción en español/.test(sr.description));
+assert.ok(sr.description.includes("Soporte: business@tonyciencia.com"));
+assert.ok(sr.description.includes("dentro de los 14 días posteriores a la compra y todavía no descargaste el producto, o si el archivo está dañado"));
+for (const h of ["## Qué obtienes", "## Requisitos", "## Después de descargar", "## Reembolsos y soporte", "Plantillas de spec:", "eSpeak", "Microneedling (español, 47 s)", "soltura con la terminal"])
+	assert.equal(sr.description.split(h).length - 1, 1, `SpecReel: «${h}» una sola vez`);
+assert.ok(sr.description.length < pre9.specreel.description.length * 0.6, "la descripción quedó en una sola versión");
+const srFaq = JSON.parse(sr.faq);
+assert.equal(srFaq.length, 8);
+assert.ok(srFaq.find((f) => f.q === "¿Y si no me funciona?").a.includes("business@tonyciencia.com"));
+assert.ok(!JSON.stringify(srFaq).includes("renderizar el demo incluido"), "sin la garantía vieja");
+assert.equal(sr.meta_title, "SpecReel: videos explicativos 3D con Claude Code y Codex");
+assert.equal(sr.title, pre9.specreel.title, "H1 de SpecReel sin cambio");
+
+// 5. Compatibilidad: Antigravity solo en el Motor creativo (y Anuncios, que ya lo tenía); codex se mantiene.
+const works = (s) => JSON.parse(v9[s].compat).works;
+assert.deepEqual(works("motor-creativo-claude-code"), ["claude-code", "antigravity", "python", "windows"]);
+assert.ok(JSON.parse(v9["motor-creativo-claude-code"].faq).some((f) => f.q === "¿Funciona con Antigravity u otros agentes?"));
+for (const s of ["specreel", "specreel-stick", "pagespeed-forensics", "cutpilot"]) {
+	assert.deepEqual(works(s), JSON.parse(pre9[s].compat).works, `${s}: «Funciona con» sin cambios`);
+	assert.ok(!works(s).includes("antigravity"));
+}
+for (const s of ["anuncios-infinitos", "specreel", "specreel-stick"]) assert.ok(works(s).includes("codex"), `${s}: conserva codex`);
+for (const s of ["specreel-stick", "pagespeed-forensics", "cutpilot", "motor-creativo-claude-code"])
+	assert.equal(v9[s].description, pre9[s].description, `${s}: descripción intacta`);
+assert.equal(v9["motor-creativo-claude-code"].title, "Motor creativo: 13 agentes de Claude Code para diseño, video y PDF");
+
+// Lo que el dueño ya editó a mano no se pisa (salvo el cambio de nombre, que está aprobado).
+const dbOwner = prodDb();
+dbOwner.exec(`
+	UPDATE products SET title = 'Anuncios Infinitos PRO', meta_title = 'Mi meta título', compat = '{"works":["claude-code"],"includes":["agent|Agente","chrome-ext"]}' WHERE slug = 'anuncios-infinitos';
+	UPDATE products SET meta_description = 'Texto propio del dueño para CutPilot. Lista de espera.' WHERE slug = 'cutpilot';
+	UPDATE products SET description = 'Descripción nueva del dueño, solo en español.', faq = '[{"q":"¿Y si no me funciona?","a":"Respuesta del dueño."}]' WHERE slug = 'specreel';
+	UPDATE products SET meta_title = 'Meta del dueño', title = 'H1 del dueño', compat = '{"works":["claude-code","codex"],"includes":[]}' WHERE slug = 'motor-creativo-claude-code';
+`);
+dbOwner.exec(sql("0009_contenido_v5.sql"));
+const o9 = rowsOf(dbOwner);
+assert.equal(o9["anuncios-infinitos"].title, "Anuncios Automáticos PRO", "solo cambia el nombre");
+assert.equal(o9["anuncios-infinitos"].meta_title, "Mi meta título");
+assert.equal(o9["anuncios-infinitos"].compat, '{"works":["claude-code"],"includes":["agent|Agente","chrome-ext"]}', "compat editado a mano: no se toca");
+assert.equal(o9.cutpilot.meta_description, "Texto propio del dueño para CutPilot.", "solo quita la coletilla");
+assert.equal(o9.specreel.description, "Descripción nueva del dueño, solo en español.");
+assert.equal(JSON.parse(o9.specreel.faq)[0].a, "Respuesta del dueño.");
+assert.equal(o9["motor-creativo-claude-code"].meta_title, "Meta del dueño");
+assert.equal(o9["motor-creativo-claude-code"].title, "H1 del dueño");
+assert.equal(o9["motor-creativo-claude-code"].compat, '{"works":["claude-code","codex"],"includes":[]}');
+assert.ok(!JSON.parse(o9["motor-creativo-claude-code"].faq).some((f) => f.q.includes("Antigravity")), "sin Antigravity en compat, no se agrega su pregunta");
+console.log("✓ migración 0009 segura (contenido v5 sobre la copia de producción; no pisa lo editado a mano)");
