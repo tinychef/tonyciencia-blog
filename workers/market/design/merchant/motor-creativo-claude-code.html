@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="und">
+<head>
+<meta charset="utf-8">
+<title>Merchant · Creative Factory</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root { --bg: #0d0d0f; --p1: #141417; --p2: #1b1b1f; --p3: #26262b; --line: #2e2e33; --fg: #f5f5f7; --mut: #8e8e96; --dim: #4a4a52; --g: #30d158; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #333; font-family: "Inter Tight", system-ui, sans-serif; }
+.m { width: 1500px; height: 1500px; position: relative; overflow: hidden; background: var(--bg); color: var(--fg); margin-bottom: 40px; }
+.dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,.06) 1.6px, transparent 1.6px); background-size: 32px 32px; }
+.win { position: absolute; left: 70px; top: 90px; width: 1360px; height: 1320px; border: 3px solid var(--line); border-radius: 30px; background: var(--p1); overflow: hidden; box-shadow: 0 40px 90px rgba(0,0,0,.55); }
+.bar { height: 66px; border-bottom: 3px solid var(--line); display: flex; align-items: center; gap: 14px; padding: 0 26px; background: var(--p2); }
+.bar i { width: 18px; height: 18px; border-radius: 50%; background: var(--dim); }
+.ln { display: block; height: 16px; border-radius: 8px; background: var(--p3); }
+
+.apps { position: absolute; left: 60px; right: 60px; top: 50%; transform: translateY(-50%); display: flex; flex-wrap: wrap; justify-content: center; gap: 46px 36px; }
+.app { width: 236px; text-align: center; }
+.app img { display: block; width: 236px; height: 236px; border-radius: 52px; box-shadow: 0 24px 50px rgba(0,0,0,.5); }
+.app span { display: block; margin-top: 16px; font-size: 30px; font-weight: 700; color: #c7c7cc; letter-spacing: -0.01em; }
+</style>
+</head>
+<body>
+<section class="m" data-out="merchant"><div class="dots"></div>
+	<div class="apps"><div style="display: flex; justify-content: center; gap: 36px; width: 100%;"><div class="app"><img src="../assets/crafts/photocraft-240.webp" width="236" height="236" alt=""><span>PhotoCraft</span></div><div class="app"><img src="../assets/crafts/lightcraft-240.webp" width="236" height="236" alt=""><span>LightCraft</span></div><div class="app"><img src="../assets/crafts/vectorcraft-240.webp" width="236" height="236" alt=""><span>VectorCraft</span></div><div class="app"><img src="../assets/crafts/filmcraft-240.webp" width="236" height="236" alt=""><span>FilmCraft</span></div></div><div style="display: flex; justify-content: center; gap: 36px; width: 100%;"><div class="app"><img src="../assets/crafts/effectcraft-240.webp" width="236" height="236" alt=""><span>EffectCraft</span></div><div class="app"><img src="../assets/crafts/designcraft-240.webp" width="236" height="236" alt=""><span>DesignCraft</span></div><div class="app"><img src="../assets/crafts/pdfcraft-240.webp" width="236" height="236" alt=""><span>PdfCraft</span></div><div class="app"><img src="../assets/crafts/figcraft-240.webp" width="236" height="236" alt=""><span>FigCraft</span></div><div class="app"><img src="../assets/crafts/soundcraft-240.webp" width="236" height="236" alt=""><span>SoundCraft</span></div></div><div style="display: flex; justify-content: center; gap: 36px; width: 100%;"><div class="app"><img src="../assets/crafts/deckcraft-240.webp" width="236" height="236" alt=""><span>DeckCraft</span></div><div class="app"><img src="../assets/crafts/wordcraft-240.webp" width="236" height="236" alt=""><span>WordCraft</span></div><div class="app"><img src="../assets/crafts/gridcraft-240.webp" width="236" height="236" alt=""><span>GridCraft</span></div><div class="app"><img src="../assets/crafts/cadcraft-240.webp" width="236" height="236" alt=""><span>CADCraft</span></div></div></div></section>
+</body>
+</html>

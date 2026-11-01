@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="und">
+<head>
+<meta charset="utf-8">
+<title>Merchant · PageSpeed Forensics</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root { --bg: #0d0d0f; --p1: #141417; --p2: #1b1b1f; --p3: #26262b; --line: #2e2e33; --fg: #f5f5f7; --mut: #8e8e96; --dim: #4a4a52; --g: #30d158; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #333; font-family: "Inter Tight", system-ui, sans-serif; }
+.m { width: 1500px; height: 1500px; position: relative; overflow: hidden; background: var(--bg); color: var(--fg); margin-bottom: 40px; }
+.dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,.06) 1.6px, transparent 1.6px); background-size: 32px 32px; }
+.win { position: absolute; left: 70px; top: 90px; width: 1360px; height: 1320px; border: 3px solid var(--line); border-radius: 30px; background: var(--p1); overflow: hidden; box-shadow: 0 40px 90px rgba(0,0,0,.55); }
+.bar { height: 66px; border-bottom: 3px solid var(--line); display: flex; align-items: center; gap: 14px; padding: 0 26px; background: var(--p2); }
+.bar i { width: 18px; height: 18px; border-radius: 50%; background: var(--dim); }
+.ln { display: block; height: 16px; border-radius: 8px; background: var(--p3); }
+
+.sec { position: absolute; left: 40px; right: 40px; border: 3px solid var(--line); border-radius: 22px; background: var(--p2); }
+.strip { display: flex; gap: 18px; position: absolute; left: 30px; top: 30px; }
+.ph { width: 186px; height: 330px; border-radius: 16px; background: #f2f2f4; border: 3px solid #3a3a42; padding: 14px 12px; display: flex; flex-direction: column; gap: 10px; }
+.ph.blank { background: #f2f2f4; }
+.w { display: block; border-radius: 6px; background: #c9c9cf; }
+.w.hdr { height: 24px; background: #1d1d21; }
+.w.hero { height: 110px; background: #30d158; opacity: .85; }
+.w.txt { height: 12px; }
+.w.btn { height: 30px; width: 60%; background: #1d1d21; }
+.frz { position: absolute; left: 24px; top: 380px; width: 610px; height: 22px; border: 4px solid #ffa400; border-top: 0; border-radius: 0 0 10px 10px; }
+.frz-i { position: absolute; left: 305px; top: 396px; color: #ffa400; }
+.axis { position: absolute; left: 30px; right: 30px; top: 470px; height: 3px; background: var(--dim); }
+.mk { position: absolute; top: 372px; height: 104px; width: 4px; background: var(--g); }
+.mk span { position: absolute; top: 108px; left: -22px; font: 700 26px "JetBrains Mono", monospace; color: var(--g); }
+.fl { position: absolute; bottom: 30px; width: 168px; display: flex; flex-wrap: wrap-reverse; gap: 4px; }
+.fl i { width: 24px; height: 24px; border-radius: 4px; background: #8e8e96; }
+.fl.g i { background: var(--g); }
+.head { position: absolute; top: 24px; bottom: 24px; width: 0; border-left: 4px dashed #ffa400; }
+.head span { position: absolute; left: 12px; top: 0; font: 700 26px "JetBrains Mono", monospace; color: #ffa400; white-space: nowrap; }
+.sbs { position: absolute; left: 30px; bottom: 30px; display: flex; align-items: flex-end; gap: 14px; }
+.sb { width: 44px; display: flex; flex-direction: column-reverse; gap: 3px; }
+.sb i { display: block; border-radius: 4px; }
+.rws { position: absolute; left: 30px; right: 30px; top: 40px; display: flex; flex-direction: column; gap: 46px; }
+.rw { position: relative; height: 30px; border-bottom: 3px solid var(--dim); }
+.rw i { position: absolute; top: 2px; width: 26px; height: 26px; border-radius: 50%; opacity: .55; }
+.rw b { position: absolute; top: -14px; width: 6px; height: 58px; border-radius: 3px; }
+</style>
+</head>
+<body>
+<section class="m" data-out="merchant"><div class="dots"></div>
+	<div class="win"><div class="bar"><i></i><i></i><i></i></div>
+		<div class="sec" style="top: 96px; height: 520px;">
+			<div class="strip"><div class="ph blank"></div><div class="ph blank"></div><div class="ph blank"></div><div class="ph"><span class="w hdr"></span><span class="w hero"></span></div><div class="ph"><span class="w hdr"></span><span class="w hero"></span><span class="w txt"></span><span class="w txt"></span></div><div class="ph"><span class="w hdr"></span><span class="w hero"></span><span class="w txt"></span><span class="w txt"></span><span class="w btn"></span><span class="w txt"></span></div></div>
+			<div class="frz"></div><div class="frz-i"><svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="#ffa400" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12h20M12 2v20M20 16l-4-4 4-4M4 8l4 4-4 4M16 4l-4 4-4-4M8 20l4-4 4 4"/></svg></div>
+			<div class="axis"></div>
+			<div class="mk" style="left: 668px;"><span>FCP</span></div><div class="mk" style="left: 1080px;"><span>LCP</span></div>
+		</div>
+		<div class="sec" style="top: 646px; height: 330px; width: 610px;">
+			<div class="fl g" style="left: 34px;"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="fl" style="left: 222px;"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="fl" style="left: 410px;"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+			<div class="head" style="left: 300px;"><span>&lt;/head&gt;</span></div>
+		</div>
+		<div class="sec" style="top: 646px; height: 330px; left: 680px;">
+			<div class="sbs"><div class="sb"><i style="height: 4px; background: #ffa400;"></i><i style="height: 0px; background: #8e8e96;"></i><i style="height: 0px; background: #30d158;"></i></div><div class="sb"><i style="height: 4px; background: #ffa400;"></i><i style="height: 0px; background: #8e8e96;"></i><i style="height: 0px; background: #30d158;"></i></div><div class="sb"><i style="height: 44px; background: #ffa400;"></i><i style="height: 42px; background: #8e8e96;"></i><i style="height: 24px; background: #30d158;"></i></div><div class="sb"><i style="height: 35px; background: #ffa400;"></i><i style="height: 77px; background: #8e8e96;"></i><i style="height: 44px; background: #30d158;"></i></div><div class="sb"><i style="height: 35px; background: #ffa400;"></i><i style="height: 77px; background: #8e8e96;"></i><i style="height: 14px; background: #30d158;"></i></div><div class="sb"><i style="height: 43px; background: #ffa400;"></i><i style="height: 83px; background: #8e8e96;"></i><i style="height: 21px; background: #30d158;"></i></div><div class="sb"><i style="height: 52px; background: #ffa400;"></i><i style="height: 48px; background: #8e8e96;"></i><i style="height: 31px; background: #30d158;"></i></div><div class="sb"><i style="height: 69px; background: #ffa400;"></i><i style="height: 51px; background: #8e8e96;"></i><i style="height: 29px; background: #30d158;"></i></div><div class="sb"><i style="height: 70px; background: #ffa400;"></i><i style="height: 52px; background: #8e8e96;"></i><i style="height: 15px; background: #30d158;"></i></div></div>
+		</div>
+		<div class="sec" style="top: 1006px; height: 270px;">
+			<div class="rws"><div class="rw"><i style="left: 150px; background: #8e8e96;"></i><i style="left: 214px; background: #8e8e96;"></i><i style="left: 260px; background: #8e8e96;"></i><i style="left: 300px; background: #8e8e96;"></i><i style="left: 372px; background: #8e8e96;"></i><b style="left: 260px; background: #8e8e96;"></b></div><div class="rw"><i style="left: 520px; background: #30d158;"></i><i style="left: 566px; background: #30d158;"></i><i style="left: 602px; background: #30d158;"></i><i style="left: 640px; background: #30d158;"></i><i style="left: 690px; background: #30d158;"></i><b style="left: 602px; background: #30d158;"></b></div><div class="rw"><i style="left: 880px; background: #30d158;"></i><i style="left: 930px; background: #30d158;"></i><i style="left: 962px; background: #30d158;"></i><i style="left: 1000px; background: #30d158;"></i><i style="left: 1060px; background: #30d158;"></i><b style="left: 962px; background: #30d158;"></b></div></div>
+		</div>
+	</div></section>
+</body>
+</html>
