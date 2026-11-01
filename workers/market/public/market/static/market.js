@@ -44,6 +44,19 @@
 		return { ad_storage: v, ad_user_data: v, ad_personalization: v, analytics_storage: v };
 	};
 	gtag("consent", "default", consent(false));
+	// Quien rechazó: se borran las cookies de medición que hubieran quedado de una aceptación anterior (con el
+	// consentimiento denegado Google deja de usarlas, pero no las borra). Mismo criterio que CookieConsent.astro del blog.
+	const clearTrackingCookies = () => {
+		const names = document.cookie
+			.split(";")
+			.map((c) => (c.split("=")[0] || "").trim())
+			.filter((n) => /^(_ga(_.+)?|_gid|_gcl_.+|_fbp|_fbc)$/.test(n));
+		const host = location.hostname;
+		const root = host.split(".").slice(-2).join(".");
+		const domains = new Set(["", host, `.${host}`, `.${root}`]);
+		for (const n of names) for (const d of domains) document.cookie = `${n}=; path=/; max-age=0${d ? `; domain=${d}` : ""}`;
+	};
+	if (/(?:^|;\s*)cookie_consent=rejected/.test(document.cookie)) clearTrackingCookies();
 	if ((document.cookie.match(/(?:^|;\s*)cookie_consent=([^;]+)/) || [])[1] === "accepted") gtag("consent", "update", consent(true));
 	window.addEventListener("tc:consent", (e) => gtag("consent", "update", consent(!!e.detail && e.detail.value === "accepted")));
 	const gtmId = doc.dataset.gtm || "";
@@ -72,6 +85,7 @@
 				const secure = location.protocol === "https:" ? "; Secure" : "";
 				document.cookie = `cookie_consent=${value}; path=/; max-age=31536000; SameSite=Lax${secure}`;
 				window.dispatchEvent(new CustomEvent("tc:consent", { detail: { value } }));
+				if (value === "rejected") clearTrackingCookies();
 				bar.remove();
 				document.body.classList.remove("has-consent-bar");
 			};
