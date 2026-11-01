@@ -19,6 +19,19 @@ optimización completa para SEO, Google Merchant Center y Google Shopping. Todo 
 | Agente E-commerce Manager | Subagente + skill con el procedimiento completo (publicar un repo, precios, ofertas, fichas, imágenes, SEO, feed, ZIP, despliegue, revisión semanal). Su primera tarea fue este rediseño. | `.claude/agents/ecommerce-manager.md`, `.claude/skills/ecommerce-manager/` |
 | Agente Content & Affiliate Manager | Subagente + skill + scripts (Markdown → post JSON, validador SEO/afiliados, buscador de la base de 139 partners). Enlaces de afiliado solo de la base, con `rel="sponsored nofollow"` y aviso de afiliados. Primer artículo escrito por el agente. | `.claude/agents/content-affiliate-manager.md`, `.claude/skills/articulo-afiliados/`, `scripts/content/`, `docs/AGENTE-CONTENIDO.md` |
 
+### Verificado en producción (01-11-2026, ~04:10 UTC)
+
+- `/market/estado.json`: Anuncios Infinitos 33.33 (antes 76.90) y SpecReel 12 (antes 36.90) disponibles; **SpecReel
+  Stick** (12) y **PageSpeed Forensics** (paga lo que quieras desde $0) **disponibles con su ZIP en R2** (subidos con
+  hash fijado: respuesta `stored`; un segundo intento responde `already`); Motor creativo y CutPilot «Próximamente».
+- **Cupón**: el cron lo creó en Stripe (`welcomeSetup.status = "created"`) y la tienda lo valida (TONYCIENCIA, 10 %).
+  El popup y los precios con cupón ($30 en Anuncios Infinitos, $10.80 en SpecReel/SpecReel Stick) ya se ven.
+- Auditoría (`scripts/audit-catalog.mjs`): **0 errores** en las 8 fichas, el feed (`sale_price` correcto) y el sitemap.
+- Lighthouse móvil: catálogo **Rendimiento 99 · SEO 100 · Accesibilidad 96**; ficha **99 · SEO 100** (LCP 1,8 s, CLS 0).
+- Sin scroll horizontal a 390 px (catálogo y fichas). Artículo nuevo publicado: `/posts/herramientas-ia-videos-marketing-2026`.
+- Lo que **no** pude probar: un cobro real con tarjeta y el inicio de sesión con Google (requieren tu cuenta). La lógica
+  está cubierta por 99 pruebas y el E2E completo en maqueta; el primer pedido real conviene revisarlo en `/market/admin/pedidos`.
+
 ## 2. Decisiones que tomé (y por qué)
 
 1. **La herramienta de «muñequitos de palo» no convierte fotos en muñecos.** El repo `specreel-stick` crea *sketches*
@@ -56,6 +69,12 @@ optimización completa para SEO, Google Merchant Center y Google Shopping. Todo 
    marcas de IA para la versión de venta; con eso, el agente E-commerce Manager arma el paquete limpio.
 4. **SpecReel**: la tienda dice «actualizaciones 2.x gratis» pero el `LICENSE.md` del repo dice 1.x. Elige una.
 5. **Base de afiliados**: cuando la tengas, agrégala en `content/affiliates/extra.json` (formato en el README de esa carpeta).
+6. **Agentes programados** (claude.ai → tareas programadas): «Agente de contenido Tony Ciencia» (martes y viernes 13:31,
+   hora de Denver) y «Agente e-commerce Market Tony» (lunes 13:34). Abren PR y nunca hacen merge. Esas sesiones no
+   tienen el conector de GitHub: si no pueden abrir el PR, dejan el enlace para abrirlo con un clic. Para que lo abran
+   solos, edita la tarea desde claude.ai y agrégale el conector de GitHub. Cambia el horario si no estás en esa zona.
+7. **Cloudflare**: la «detección por JavaScript» (Bot Fight Mode) inyecta un script en línea que la CSP del market
+   bloquea a propósito (sin efecto para los compradores). Si quieres esa señal en /market, desactívala o usa reglas WAF.
 
 ## 4. Vuelta atrás
 
