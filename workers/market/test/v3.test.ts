@@ -632,3 +632,18 @@ describe("revisión SEO v6", () => {
 		for (const [id, n] of received) expect(n, id).toBeGreaterThanOrEqual(2);
 	});
 });
+
+describe("CSP con nonce (scripts que inyecta Cloudflare)", () => {
+	it("cada respuesta HTML trae un nonce distinto en script-src y nada de unsafe-inline", async () => {
+		const a = (await call("/market/")).headers.get("content-security-policy") ?? "";
+		const b = (await call("/market/")).headers.get("content-security-policy") ?? "";
+		const na = a.match(/'nonce-([A-Za-z0-9+/=]{20,})'/)?.[1];
+		const nb = b.match(/'nonce-([A-Za-z0-9+/=]{20,})'/)?.[1];
+		expect(na).toBeTruthy();
+		expect(nb).toBeTruthy();
+		expect(na).not.toBe(nb);
+		expect(a).toMatch(/script-src 'self' 'nonce-/);
+		expect(a).not.toContain("unsafe-inline' https://static");
+		expect(a.match(/script-src[^;]*/)?.[0]).not.toContain("unsafe-inline");
+	});
+});
