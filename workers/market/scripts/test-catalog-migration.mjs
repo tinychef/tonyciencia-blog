@@ -99,3 +99,22 @@ db2.prepare("INSERT INTO products (id, slug, title, price_cents, currency, kind,
 db2.exec(sql("0004_precios_flexibles.sql"));
 assert.equal(db2.prepare("SELECT price_cents FROM products WHERE slug = 'specreel'").get().price_cents, 2900);
 console.log("✓ migraciones 0004/0005 seguras sobre datos tipo producción");
+
+// ── v4: lanzamiento de CutPilot y del Motor creativo (0006) ─────────────
+db.exec(sql("0006_lanzamiento_cutpilot_motor.sql"));
+const v4 = Object.fromEntries(db.prepare("SELECT slug, summary, specs, faq, description, images, availability FROM products").all().map((r) => [r.slug, r]));
+for (const slug of ["cutpilot", "motor-creativo-claude-code"]) {
+	const r = v4[slug];
+	assert.ok(!/Próximamente/.test(r.summary), `${slug}: el resumen ya no dice Próximamente`);
+	assert.ok(!JSON.parse(r.specs).some((s) => s.label === "Estado"), `${slug}: sin fila «Estado»`);
+	assert.ok(!/## Estado/.test(r.description), `${slug}: sin sección «Estado»`);
+	assert.ok(!/adobe/i.test(r.description), `${slug}: no menciona Adobe`);
+	assert.equal(JSON.parse(r.images).length, 3, `${slug}: portada + 2 pantallas`);
+	assert.equal(r.availability, "coming_soon", `${slug}: pasa a Disponible solo cuando llega su ZIP`);
+}
+assert.ok(!/ArtCraft/.test(v4["motor-creativo-claude-code"].description), "el motor no usa la marca ArtCraft como propia");
+// Un producto ya lanzado no se reescribe.
+db.prepare("UPDATE products SET title = 'Del dueño', file_key = 'x', availability = 'available' WHERE slug = 'cutpilot'").run();
+db.exec(sql("0006_lanzamiento_cutpilot_motor.sql"));
+assert.equal(db.prepare("SELECT title FROM products WHERE slug = 'cutpilot'").get().title, "Del dueño");
+console.log("✓ migración 0006 segura (solo fichas «Próximamente» sin archivo)");

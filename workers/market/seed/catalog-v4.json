@@ -18,12 +18,12 @@
 			],
 			"specs": [
 				{
-					"label": "Motor",
-					"value": "Estudio de video v2.2 (Python + Remotion)"
+					"label": "Versión",
+					"value": "2.3 (Python + Remotion)"
 				},
 				{
 					"label": "Formato",
-					"value": "ZIP con el código (Python + Remotion), skill y subagente para Claude Code, extensión de Chrome y tests"
+					"value": "ZIP con el código (Python + Remotion), skill y subagente para Claude Code, extensión de Chrome, 55 efectos CC0, fuentes OFL y tests"
 				},
 				{
 					"label": "Funciona con",
@@ -31,11 +31,11 @@
 				},
 				{
 					"label": "Probado en",
-					"value": "Windows con GPU NVIDIA de 4 GB; macOS y Linux sin verificar"
+					"value": "Windows 10/11 con GPU NVIDIA de 4 GB; macOS y Linux sin verificar"
 				},
 				{
 					"label": "Requisitos",
-					"value": "Python 3.12 con uv, Node.js, ffmpeg y DeepFilterNet; 20 GB libres recomendados"
+					"value": "uv (Python 3.12), Node.js LTS, ffmpeg 7+ y ~20 GB libres. GPU NVIDIA, DeepFilterNet y Claude Code opcionales"
 				},
 				{
 					"label": "Idioma de los videos",
@@ -44,6 +44,10 @@
 				{
 					"label": "Salida",
 					"value": "MP4 en 16:9, 9:16 o 1:1, .srt, .vtt, .edl, capítulos e informe"
+				},
+				{
+					"label": "Licencia",
+					"value": "1 creador: uso comercial de tus videos, propios o para clientes; sin reventa del software"
 				}
 			],
 			"faq": [
@@ -66,9 +70,13 @@
 				{
 					"q": "¿Sirve para videos en inglés?",
 					"a": "No. La transcripción está fijada en español y la detección de muletillas está pensada para el español."
+				},
+				{
+					"q": "¿Saca varios reels de un video largo?",
+					"a": "No. Edita el video que le das (quita muletillas, silencios y retomas, agrega subtítulos y gráficos) y lo entrega en 16:9, 9:16 y 1:1. Tampoco escribe títulos ni descripciones; sí genera los capítulos para YouTube."
 				}
 			],
-			"description": "CutPilot es un editor automático para videos hablados que corre en tu computador. Le das un video hablado en español y te devuelve el video limpio, con subtítulos, gráficos animados y sonido nivelado, en horizontal, vertical o cuadrado.\n\n## El problema que resuelve\n\nEditar un video a cámara se va en tareas repetitivas: buscar los «eh» y los silencios, cortar las frases que repetiste, poner subtítulos, nivelar el audio y sacar una versión vertical. Este estudio hace ese trabajo a partir de la transcripción palabra por palabra, para que tú solo revises.\n\n## Cómo funciona, en 3 pasos\n\n- Copias tu grabación en la carpeta entrada/ o la arrastras al panel de Chrome.\n- El estudio limpia el audio, transcribe, quita muletillas, silencios y retomas, y Claude propone los gráficos indicando en qué palabra va cada uno.\n- Revisas la hoja de contacto si quieres aprobar antes del render, y recibes el video final con su informe de calidad.\n\n## Qué recibes\n\n- El orquestador editar.py y los módulos del pipeline: reducción de ruido, transcripción, limpieza, plan visual, detección de cara, render, mezcla y QA.\n- El proyecto de Remotion con subtítulos palabra a palabra, tarjetas de datos, listas, títulos de capítulo, zooms, intro y cierre.\n- Una skill y un subagente revisor para Claude Code, más un hook que protege tus videos originales.\n- La extensión de Chrome con su servidor local: cola de trabajos, kit de marca, ajustes y diagnóstico.\n- Herramientas para descargar efectos de sonido CC0, renderizar sin internet e importar música de la biblioteca de YouTube que ya descargaste.\n- Tests automáticos y un archivo config.yaml con todos los parámetros comentados.\n\n## Para quién es\n\nCreadores, profesores, coaches y equipos de marketing que graban videos hablados en español y usan Claude Code, y que prefieren procesar en su propio computador en vez de pagar créditos por minuto.\n\n## Requisitos\n\n- Python 3.12 con uv, Node.js y ffmpeg.\n- El binario de DeepFilterNet para la reducción de ruido.\n- Claude Code para las decisiones de IA (opcional).\n- GPU NVIDIA recomendada; sin ella, Whisper corre en la CPU.\n- Unos 20 GB libres: el modelo de Whisper se descarga la primera vez (unos 1,6 GB).\n\n## Limitaciones honestas\n\n- Probado solo en Windows. macOS y Linux no están verificados.\n- Solo videos en español.\n- La instalación usa la terminal y la extensión se carga en modo desarrollador de Chrome.\n- Renderizar toma tiempo: la estimación medida es de 35 a 45 minutos por formato para 10 minutos de crudo.\n- Whisper puede confundir palabras en clips muy cortos y una repetición intencional puede cortarse: revisa el .srt y la lista de cortes del informe.\n- Remotion se rige por su propia licencia; las empresas de más de 3 empleados necesitan la de empresa.\n- Para música y logos de marcas usa solo material con licencia: el estudio registra la fuente y la licencia de cada recurso, pero la responsabilidad del uso es tuya.",
+			"description": "CutPilot es un editor automático para videos hablados que corre en tu computador. Le das un video hablado en español y te devuelve el video limpio, con subtítulos, gráficos animados y sonido nivelado, en horizontal, vertical o cuadrado.\n\n## El problema que resuelve\n\nEditar un video a cámara se va en tareas repetitivas: buscar los «eh» y los silencios, cortar las frases que repetiste, poner subtítulos, nivelar el audio y sacar una versión vertical. Este estudio hace ese trabajo a partir de la transcripción palabra por palabra, para que tú solo revises.\n\n## Cómo funciona, en 3 pasos\n\n- Copias tu grabación en la carpeta entrada/ o la arrastras al panel de Chrome.\n- El estudio limpia el audio, transcribe, quita muletillas, silencios y retomas, y Claude propone los gráficos indicando en qué palabra va cada uno.\n- Revisas la hoja de contacto si quieres aprobar antes del render, y recibes el video final con su informe de calidad.\n\n## Qué recibes\n\n- El orquestador editar.py y los módulos del pipeline: reducción de ruido, transcripción, limpieza, plan visual, detección de cara, render, mezcla y QA.\n- El proyecto de Remotion con subtítulos palabra a palabra, tarjetas de datos, listas, títulos de capítulo, zooms, intro y cierre.\n- Una skill y un subagente revisor para Claude Code, más un hook que protege tus videos originales.\n- La extensión de Chrome con su servidor local: cola de trabajos, kit de marca, ajustes y diagnóstico.\n- 55 efectos de sonido CC0 (Kenney), 28 fuentes con licencia OFL y herramientas para renderizar sin internet e importar música que ya descargaste (por ejemplo, de la biblioteca de audio de YouTube).\n- Un instalador que descarga los modelos y DeepFilterNet desde sus fuentes oficiales, con verificación SHA-256.\n- Tests automáticos y un archivo config.yaml con todos los parámetros comentados.\n\n## Para quién es\n\nCreadores, profesores, coaches y equipos de marketing que graban videos hablados en español y usan Claude Code, y que prefieren procesar en su propio computador en vez de pagar créditos por minuto.\n\n## Requisitos\n\n- uv (instala Python 3.12), Node.js LTS y ffmpeg 7 o más nuevo.\n- DeepFilterNet para la reducción de ruido (opcional: el instalador lo descarga; sin él se usa el filtro de ffmpeg, con menos calidad).\n- Claude Code para las decisiones de IA (opcional).\n- GPU NVIDIA recomendada; sin ella, Whisper corre en la CPU.\n- Unos 20 GB libres: el modelo de Whisper se descarga la primera vez (unos 1,6 GB).\n\n## Limitaciones honestas\n\n- Probado solo en Windows 10/11. macOS y Linux no están verificados y la extensión de Chrome se registra sola solo en Windows.\n- Edita el video que le das y lo entrega en tres formatos: no corta varios reels de una grabación larga ni escribe títulos o descripciones.\n- Solo videos en español.\n- La instalación usa la terminal y la extensión se carga en modo desarrollador de Chrome.\n- Renderizar toma tiempo: la estimación medida es de 35 a 45 minutos por formato para 10 minutos de crudo.\n- Whisper puede confundir palabras en clips muy cortos y una repetición intencional puede cortarse: revisa el .srt y la lista de cortes del informe.\n- Remotion se rige por su propia licencia; las empresas de más de 3 empleados necesitan la de empresa. Otras dependencias que se instalan aparte tienen sus propias licencias (detalle en THIRD_PARTY_NOTICES.md).\n- Para música y logos de marcas usa solo material con licencia: el estudio registra la fuente y la licencia de cada recurso, pero la responsabilidad del uso es tuya.",
 			"images": [
 				{
 					"src": "/market/static/products/cutpilot/cover.webp",
