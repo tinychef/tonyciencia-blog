@@ -52,14 +52,18 @@ const bootMiddleware: MiddlewareHandler<AppEnv> = async (c, next) => {
 	await next();
 };
 
-const CSP = [
+const cspFor = (nonce: string) => [
 	"default-src 'self'",
 	// Miniaturas de YouTube (video de demostración de un producto).
 	"img-src 'self' data: https://i.ytimg.com",
 	"style-src 'self' 'unsafe-inline'",
-	// Único JS propio: /market/static/market.js (galería, filtros, menú, popup). Nada en línea.
+	// Único JS propio: /market/static/market.js (galería, filtros, menú, popup). Nada en línea nuestro.
 	// + Cloudflare Web Analytics (beacon que inyecta el borde de Cloudflare).
-	"script-src 'self' https://static.cloudflareinsights.com",
+	// + nonce por respuesta: Bot Fight Mode (plan Free) inyecta siempre un script en línea de "JavaScript detections" y
+	//   Cloudflare le agrega el nonce que lee de este encabezado; su script externo vive en /cdn-cgi/challenge-platform/
+	//   ('self'). Sin nonce, la CSP lo bloqueaba y dejaba un error en la consola (H15 de la revisión SEO v6).
+	//   https://developers.cloudflare.com/cloudflare-challenges/challenge-types/javascript-detections/
+	`script-src 'self' 'nonce-${nonce}' https://static.cloudflareinsights.com`,
 	"connect-src 'self' https://cloudflareinsights.com",
 	"font-src 'self'",
 	// Video de demostración (YouTube sin cookies) y agenda de reservas de Google Calendar.
@@ -78,7 +82,11 @@ const securityHeaders: MiddlewareHandler<AppEnv> = async (c, next) => {
 	if (!h.has("referrer-policy")) h.set("Referrer-Policy", "strict-origin-when-cross-origin");
 	h.set("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
 	if ((h.get("content-type") ?? "").startsWith("text/html")) {
-		if (!h.has("content-security-policy")) h.set("Content-Security-Policy", CSP);
+		if (!h.has("content-security-policy")) {
+			const bytes = crypto.getRandomValues(new Uint8Array(16));
+			const nonce = btoa(String.fromCharCode(...bytes));
+			h.set("Content-Security-Policy", cspFor(nonce));
+		}
 		if (!h.has("x-frame-options")) h.set("X-Frame-Options", "DENY");
 		if (!h.has("cache-control")) h.set("Cache-Control", "no-store");
 	}
