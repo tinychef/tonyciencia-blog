@@ -587,20 +587,22 @@ fieldset.mk-fieldset legend { padding: 0 var(--spacing-2); font-weight: 600; fon
    Market v3 — vitrina tipo marketplace: jerarquía de precios, OFERTA real,
    "paga lo que quieras", filtros/orden, popup flotante no invasivo.
    ════════════════════════════════════════════════════════════════════ */
-:root {
-	--mk-sale: #ff4f3a;
-	--mk-sale-bg: rgba(255, 79, 58, 0.14);
-	--mk-sale-ink: #ffffff;
-	--mk-sale-solid: #d92d20;
-	--mk-free: #22c55e;
-	--mk-pwyw: #7c3aed;
-	--mk3-card-bg: color-mix(in srgb, var(--color-surface) 92%, transparent);
+/* Paleta estandarizada del market (precios, ofertas, cupón, etiquetas).
+   Monocromática como el sitio + UN color semántico para el ahorro (el verde de éxito del tema, ajustado a AA).
+   Etiquetas fuertes = invertidas (fondo color de texto). Sin rojos ni degradados en precios ni cupón. */
+:root, :root.dark {
+	--mk-deal: #30d158;
+	--mk-deal-bg: rgba(48, 209, 88, 0.12);
+	--mk-inv-bg: var(--color-text);
+	--mk-inv-ink: var(--color-bg);
+	--mk-chip-bg: var(--color-surface);
+	--mk-chip-ink: var(--color-text);
+	--mk-chip-line: var(--color-border);
+	--mk3-card-bg: var(--color-surface);
 }
 :root.light {
-	--mk-sale: #c4320a;
-	--mk-sale-bg: rgba(217, 45, 32, 0.08);
-	--mk-free: #15803d;
-	--mk-pwyw: #6d28d9;
+	--mk-deal: #1a7f37;
+	--mk-deal-bg: rgba(26, 127, 55, 0.08);
 }
 
 /* ── Héroe compacto con búsqueda ── */
@@ -642,7 +644,7 @@ fieldset.mk-fieldset legend { padding: 0 var(--spacing-2); font-weight: 600; fon
 .mk3-feature img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
 .mk3-feature-tag {
 	position: absolute; top: 14px; left: 14px; z-index: 1; padding: 6px 12px; border-radius: 999px;
-	background: var(--mk-sale-solid); color: var(--mk-sale-ink); font-weight: 800; font-size: 0.8rem; letter-spacing: 0.04em;
+	background: var(--mk-inv-bg); color: var(--mk-inv-ink); font-weight: 800; font-size: 0.8rem; letter-spacing: 0.04em;
 	box-shadow: 0 8px 24px -8px rgba(217, 45, 32, 0.8);
 }
 .mk3-feature-body { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; align-items: center; justify-content: space-between; padding: 14px 18px 16px; }
@@ -707,9 +709,9 @@ fieldset.mk-fieldset legend { padding: 0 var(--spacing-2); font-weight: 600; fon
 .mk3-card.is-soon .mk3-media img { filter: saturate(0.85); }
 
 /* Chips de las tarjetas */
-.mk-chip--sale { background: var(--mk-sale-solid) !important; color: var(--mk-sale-ink) !important; border-color: transparent !important; font-weight: 800; letter-spacing: 0.03em; }
-.mk-chip--free { background: var(--mk-free) !important; color: #04150a !important; border-color: transparent !important; font-weight: 800; }
-.mk-chip--pwyw { background: var(--mk-pwyw) !important; color: #fff !important; border-color: transparent !important; font-weight: 700; }
+.mk-chip--sale { background: var(--mk-inv-bg) !important; color: var(--mk-inv-ink) !important; border-color: transparent !important; font-weight: 800; letter-spacing: 0.03em; }
+.mk-chip--free { background: var(--mk-inv-bg) !important; color: #04150a !important; border-color: transparent !important; font-weight: 800; }
+.mk-chip--pwyw { background: var(--color-text-secondary) !important; color: #fff !important; border-color: transparent !important; font-weight: 700; }
 
 /* ── Precio: actual grande, anterior tachado, ahorro, cupón ── */
 .mk3-price { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
@@ -717,10 +719,10 @@ fieldset.mk-fieldset legend { padding: 0 var(--spacing-2); font-weight: 600; fon
 .mk3-price-row { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 6px; }
 .mk3-price-now { font-size: 1.45rem; font-weight: 800; letter-spacing: -0.02em; color: var(--color-text); font-variant-numeric: tabular-nums; }
 .mk3-price-cur { font-size: 0.72rem; font-weight: 700; color: var(--color-muted); }
-.mk3-price-was { color: var(--color-muted); font-size: 0.95rem; text-decoration-thickness: 2px; text-decoration-color: var(--mk-sale); }
-.mk3-price.is-sale .mk3-price-now { color: var(--mk-sale); }
-.mk3-price-save { display: inline-flex; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 700; color: var(--mk-sale); }
-.mk3-off { padding: 1px 7px; border-radius: 6px; background: var(--mk-sale-solid); color: var(--mk-sale-ink); font-size: 0.75rem; }
+.mk3-price-was { color: var(--color-muted); font-size: 0.95rem; text-decoration-thickness: 2px; text-decoration-color: var(--color-text-secondary); }
+.mk3-price.is-sale .mk3-price-now { color: var(--color-text-secondary); }
+.mk3-price-save { display: inline-flex; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 700; color: var(--color-text-secondary); }
+.mk3-off { padding: 1px 7px; border-radius: 6px; background: var(--mk-inv-bg); color: var(--mk-inv-ink); font-size: 0.75rem; }
 .mk3-price-note { font-size: 0.8rem; color: var(--color-text-secondary); }
 .mk3-price-coupon { font-size: 0.78rem; color: var(--color-text-secondary); }
 .mk3-price-coupon b { color: var(--color-text); }
@@ -730,15 +732,15 @@ fieldset.mk-fieldset legend { padding: 0 var(--spacing-2); font-weight: 600; fon
 .mk3-price--lg .mk3-price-coupon { font-size: 0.9rem; }
 
 /* ── Ficha: caja de compra ── */
-.mk3-buybox.is-sale { border-color: color-mix(in srgb, var(--mk-sale) 55%, var(--color-border)); box-shadow: 0 20px 60px -35px rgba(217, 45, 32, 0.6); }
+.mk3-buybox.is-sale { border-color: color-mix(in srgb, var(--color-text-secondary) 55%, var(--color-border)); box-shadow: 0 20px 60px -35px rgba(217, 45, 32, 0.6); }
 .mk3-buybox-flag {
 	display: inline-block; margin-bottom: 10px; padding: 5px 12px; border-radius: 999px; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.04em;
-	background: var(--mk-sale-bg); color: var(--mk-sale);
+	background: var(--color-accent-muted); color: var(--color-text-secondary);
 }
 .mk3-buybox .mk3-price { margin-bottom: 14px; }
 .mk3-ribbon {
 	position: absolute; top: 16px; left: 16px; z-index: 2; padding: 7px 14px; border-radius: 999px; font-weight: 800; font-size: 0.85rem;
-	background: var(--mk-sale-solid); color: var(--mk-sale-ink); box-shadow: 0 10px 30px -10px rgba(217, 45, 32, 0.8);
+	background: var(--mk-inv-bg); color: var(--mk-inv-ink); box-shadow: 0 10px 30px -10px rgba(217, 45, 32, 0.8);
 }
 .mk3-paynote { margin-top: 10px; font-size: 0.82rem; }
 
@@ -750,21 +752,21 @@ fieldset.mk-fieldset legend { padding: 0 var(--spacing-2); font-weight: 600; fon
 	display: flex; align-items: center; gap: 6px; padding: 0 14px; min-height: 56px; border-radius: 14px;
 	border: 1.5px solid var(--color-border); background: var(--color-bg); font-size: 1.4rem; font-weight: 800;
 }
-.mk3-amount:focus-within { border-color: var(--mk-pwyw); box-shadow: 0 0 0 4px color-mix(in srgb, var(--mk-pwyw) 25%, transparent); }
+.mk3-amount:focus-within { border-color: var(--color-text-secondary); box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-text-secondary) 25%, transparent); }
 .mk3-amount input { flex: 1; min-width: 0; width: 100%; border: 0; outline: 0; background: transparent; color: var(--color-text); font: inherit; font-variant-numeric: tabular-nums; }
-.mk3-amount input[aria-invalid="true"] { color: var(--mk-sale); }
+.mk3-amount input[aria-invalid="true"] { color: var(--color-text-secondary); }
 .mk3-amount-cur { font-size: 0.8rem; color: var(--color-muted); font-weight: 700; }
 .mk3-presets { display: flex; flex-wrap: wrap; gap: 8px; }
 .mk3-preset {
 	padding: 8px 14px; border-radius: 999px; border: 1px solid var(--color-border); background: transparent; color: var(--color-text);
 	font-weight: 700; cursor: pointer; font-size: 0.9rem;
 }
-.mk3-preset:hover, .mk3-preset.is-active { border-color: var(--mk-pwyw); background: color-mix(in srgb, var(--mk-pwyw) 16%, transparent); }
+.mk3-preset:hover, .mk3-preset.is-active { border-color: var(--color-text-secondary); background: color-mix(in srgb, var(--color-text-secondary) 16%, transparent); }
 .mk3-pwyw [data-pwyw-submit]:disabled { opacity: 0.55; cursor: not-allowed; }
 
-.mk3-nav-sale { color: var(--mk-sale) !important; font-weight: 700; }
-.mk3-kicker-sale { color: var(--mk-sale) !important; }
-.mk-buybar-price s { color: var(--color-muted); font-weight: 500; font-size: 0.85em; text-decoration-color: var(--mk-sale); }
+.mk3-nav-sale { color: var(--color-text-secondary) !important; font-weight: 700; }
+.mk3-kicker-sale { color: var(--color-text-secondary) !important; }
+.mk-buybar-price s { color: var(--color-muted); font-weight: 500; font-size: 0.85em; text-decoration-color: var(--color-text-secondary); }
 
 /* ── Popup de bienvenida: flotante, no modal ── */
 .mk3-pop {
@@ -842,3 +844,44 @@ fieldset.mk-fieldset legend { padding: 0 var(--spacing-2); font-weight: 600; fon
 	.mk-has-buybar .mk3-pop { bottom: calc(84px + env(safe-area-inset-bottom)); }
 	.mk-has-buybar .mk3-pop-tab { bottom: calc(148px + env(safe-area-inset-bottom)); }
 }
+
+/* ═══ Paleta estandarizada: reglas finales ═══ */
+.mk-announce { background: var(--color-bg-subtle); color: var(--color-text-secondary); border-bottom: 1px solid var(--color-border-subtle); animation: none; font-weight: 500; }
+.mk-code-btn { background: var(--mk-inv-bg); color: var(--mk-inv-ink); }
+.mk-code-btn:hover { background: var(--mk-inv-bg); opacity: 0.9; }
+.mk-brand-tag { background: var(--mk-inv-bg); color: var(--mk-inv-ink); }
+.mk-grad { background: linear-gradient(92deg, var(--color-text) 0%, var(--color-muted) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; animation: none; }
+.mk3-hero-bg { background: radial-gradient(45% 60% at 20% 30%, var(--color-accent-muted), transparent 70%), radial-gradient(40% 55% at 85% 20%, var(--color-accent-muted), transparent 70%); filter: none; }
+.mk-btn-glow::before { display: none; }
+
+/* Etiquetas: dos estilos, fuerte (invertida) y neutra. */
+.mk-chip--sale, .mk-chip--free { background: var(--mk-inv-bg) !important; color: var(--mk-inv-ink) !important; border-color: transparent !important; font-weight: 700; letter-spacing: 0.02em; }
+.mk-chip--pwyw, .mk-chip--new, .mk-chip--soon, .mk-chip--hot, .mk-chip--plain {
+	background: var(--mk-chip-bg) !important; color: var(--mk-chip-ink) !important; border: 1px solid var(--mk-chip-line) !important; font-weight: 600;
+}
+.mk3-feature-tag, .mk3-ribbon { background: var(--mk-inv-bg); color: var(--mk-inv-ink); box-shadow: 0 6px 18px -8px rgba(0, 0, 0, 0.45); font-weight: 700; }
+
+/* Precio: actual en color de texto, anterior tachado en gris, ahorro en el verde semántico. */
+.mk3-price-now, .mk3-price.is-sale .mk3-price-now { color: var(--color-text); }
+.mk3-price-was { color: var(--color-muted); text-decoration-color: currentColor; text-decoration-thickness: 1.5px; }
+.mk3-price-save { color: var(--mk-deal); font-weight: 600; }
+.mk3-off { background: var(--mk-deal-bg); color: var(--mk-deal); font-weight: 700; border-radius: 6px; }
+.mk3-price-coupon { color: var(--color-text-secondary); }
+.mk3-price-coupon b { color: var(--color-text); font-family: ui-monospace, "SFMono-Regular", Menlo, monospace; font-weight: 600; letter-spacing: 0.03em; }
+.mk-buybar-price s { color: var(--color-muted); text-decoration-color: currentColor; }
+
+/* Caja de compra y «paga lo que quieras»: sin bordes ni brillos de color. */
+.mk3-buybox.is-sale { border-color: var(--color-border); box-shadow: none; }
+.mk3-buybox-flag { background: var(--color-accent-muted); color: var(--color-text-secondary); font-weight: 600; letter-spacing: 0; }
+.mk3-nav-sale, .mk3-kicker-sale { color: inherit !important; }
+.mk3-nav-sale { font-weight: 600; }
+.mk3-amount:focus-within { border-color: var(--color-text-secondary); box-shadow: 0 0 0 4px var(--color-accent-ring); }
+.mk3-amount input[aria-invalid="true"] { color: var(--color-error); }
+.mk3-preset:hover, .mk3-preset.is-active { border-color: var(--color-text); background: var(--color-accent-muted); }
+
+/* Cupón y popup: neutros. */
+.mk-pop-code { border: 1.5px dashed var(--color-border) !important; background: var(--color-bg-subtle) !important; color: var(--color-text) !important; }
+.mk3-pop::before { display: none; }
+.mk3-pop { border-color: var(--color-border); box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.55); }
+.mk3-pop-badge { background: var(--mk-inv-bg); color: var(--mk-inv-ink); box-shadow: none; }
+.mk3-pop-tab { background: var(--mk-inv-bg); color: var(--mk-inv-ink); }
