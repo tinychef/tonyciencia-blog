@@ -87,7 +87,7 @@
 		{
 			"slug": "motor-creativo-claude-code",
 			"title": "Motor creativo para Claude Code: 13 agentes para diseño, video y docs",
-			"summary": "Kit en español que convierte Claude Code en un estudio creativo: 13 agentes, cada uno con su skill y el MCP oficial de una app open source ArtCraft, más router, CLI, panel local y QA de entregas.",
+			"summary": "Kit en español que convierte Claude Code en un estudio creativo: 13 agentes, cada uno con su skill y el MCP de una app open source de storytold, más router, CLI, panel local y QA de entregas.",
 			"tagline": "Pide en español la pieza que necesitas y un agente de Claude Code la produce con apps open source en tu PC.",
 			"meta_title": "Agentes de Claude Code para diseño, video y PDF",
 			"meta_description": "13 agentes de Claude Code en español que operan apps open source de diseño, video, audio, PDF y oficina vía MCP. Router, panel local y QA. Para Windows.",
@@ -106,15 +106,15 @@
 				},
 				{
 					"label": "Funciona con",
-					"value": "Claude Code + las 13 apps open source ArtCraft de storytold (se descargan aparte, gratis, desde GitHub)"
+					"value": "Claude Code + 13 apps open source de storytold (MIT o Apache-2.0), que se descargan gratis desde sus releases oficiales con verificación SHA256"
 				},
 				{
 					"label": "Requisitos",
-					"value": "Claude Code con sesión iniciada (consume uso de tu plan), Python 3.10 o superior, Git; ffmpeg y Google Chrome para algunas funciones"
+					"value": "Windows 10/11 x64, Python 3.10+ y Git; Claude Code con sesión iniciada (consume tu plan). ffmpeg y Chrome/Edge opcionales"
 				},
 				{
 					"label": "Sistemas",
-					"value": "Windows x64 (las apps se instalan como binarios portables para Windows; desarrollado en Windows 11)"
+					"value": "Solo Windows 10/11 x64 (el instalador usa las versiones portables para Windows)"
 				},
 				{
 					"label": "Salida",
@@ -123,6 +123,14 @@
 				{
 					"label": "Idioma",
 					"value": "Español (agentes, skills, router, panel y documentación)"
+				},
+				{
+					"label": "Incluye",
+					"value": "CLI y router, 13 agentes + revisor QA, skills, hooks, panel local «Studio Motor», guía de instalación, licencia y avisos de terceros. Las apps (~1 GB) se descargan aparte"
+				},
+				{
+					"label": "Licencia",
+					"value": "1 creador: uso propio y comercial de lo que produces; sin reventa del motor"
 				}
 			],
 			"faq": [
@@ -132,7 +140,7 @@
 				},
 				{
 					"q": "¿Funciona en Mac o Linux?",
-					"a": "No en esta versión. El registro y el actualizador usan los binarios portables de Windows x64 y el panel busca claude.exe. El router y la CLI son Python, pero las apps y el panel están preparados solo para Windows."
+					"a": "No en esta versión. El instalador y el registro de apps usan los binarios portables de Windows x64. El router y la CLI son Python, pero las apps están preparadas solo para Windows."
 				},
 				{
 					"q": "¿Necesito una API key?",
@@ -145,9 +153,13 @@
 				{
 					"q": "¿Qué tan maduras son las apps?",
 					"a": "Son versiones 0.x. Sus propios documentos lo dicen: FilmCraft es joven y no transcribe ni corta silencios automáticamente, CADCraft abre cerca del 30 % de los formatos de AutoCAD y FigCraft importa .fig en modo best effort. Cada agente avisa qué no puede hacer su app."
+				},
+				{
+					"q": "¿El motor se conecta a internet?",
+					"a": "Para instalar o actualizar las apps las descarga de sus releases oficiales en GitHub, y una vez al día consulta la API de GitHub para avisarte si hay versiones nuevas. Lo que pides en Claude Code lo procesa Claude con tu cuenta, como cualquier sesión de Claude Code."
 				}
 			],
-			"description": "Un kit para Claude Code que trabaja como un estudio creativo en español. Le pides una pieza en lenguaje natural y un agente especializado la produce con una app open source de escritorio, a través del servidor MCP oficial de esa app.\n\nNo es un programa de diseño propio: orquesta las 13 apps open source ArtCraft (de storytold, publicadas en GitHub) para imagen, foto, vector, video, animación, maquetación, PDF, interfaz, audio, presentaciones, documentos, planillas y CAD.\n\n## El problema que resuelve\n\nConectar Claude Code a una docena de apps creativas suele terminar con todos los servidores MCP cargados a la vez, cientos de herramientas ocupando contexto y agentes que no saben qué app usar. Aquí cada app tiene su propio subagente, y su MCP se conecta solo mientras ese agente trabaja. La sesión principal solo decide a quién delegar.\n\n## Cómo funciona en 3 pasos\n\n- Pides: escribes el encargo en la terminal de Claude Code o en el panel local y adjuntas tu archivo.\n- El router decide: clasifica el pedido (por ejemplo, VECTOR o SLIDES), elige el agente y su skill, y si la tarea combina apps las encadena en serie.\n- El agente produce y revisa: trabaja sobre una copia, exporta a output/<proyecto>/ y mira el resultado antes de entregarlo. Al final, el agente revisor y los comandos revisar y empaquetar arman la entrega.\n\n## Lo que recibes\n\n- 13 subagentes de app y 1 agente revisor de solo lectura (qa-agent).\n- 14 skills de flujo por app, incluida mixed para encadenar apps, y las skills kit-de-marca y entrega.\n- CLI artcraft.py con doctor, route, marcas, revisar, empaquetar, sync, probe, smoke, actualizaciones, actualizar y volver.\n- Router de intención en español e inglés, con su batería de casos de prueba.\n- Hooks de Claude Code: contexto al iniciar sesión, aviso diario de versiones nuevas y protección de originales y binarios.\n- Panel web local para usar las 13 apps sin escribir comandos.\n- Registro de marcas (marcas.json) con plantilla para dar de alta a cada cliente: logos, paleta, fuentes y reglas que los agentes respetan.\n- Perfiles MCP por app para abrir una sesión de Claude Code dedicada a una sola app.\n- Documentación de arquitectura, índice maestro y registro de herramientas con formatos y límites de cada app.\n\n## Para quién es\n\n- Diseñadores, community managers y agencias pequeñas que ya usan Claude Code y producen piezas para varios clientes.\n- Quien quiere probar apps open source de escritorio para imagen, video y oficina operadas por agentes.\n- Equipos que necesitan que la IA no invente datos: los agentes dejan marcadores visibles como [precio] cuando falta información.\n\n## Requisitos\n\n- Windows x64 (desarrollado en Windows 11).\n- Claude Code instalado y con sesión iniciada; cada pedido consume uso de tu plan.\n- Python 3.10 o superior y Git.\n- Las 13 apps ArtCraft, que se descargan gratis desde sus releases oficiales en GitHub (no vienen en el paquete).\n- ffmpeg y Google Chrome para algunas funciones. python artcraft.py doctor te dice qué falta.\n\n## Limitaciones honestas\n\n- Solo Windows: las apps se instalan como binarios portables para Windows x64.\n- Las apps son de terceros y están en versiones 0.x. FilmCraft no transcribe ni corta silencios automáticamente, CADCraft abre cerca del 30 % de los formatos de AutoCAD, FigCraft importa .fig en modo best effort y SoundCraft exporta solo WAV, AIFF o FLAC.\n- No reemplaza tu criterio: revisa cada pieza antes de entregarla a un cliente.\n- Las versiones, formatos y límites de las apps pueden cambiar con cada release de sus autores.\n- Este kit no está afiliado a storytold ni a Anthropic. ArtCraft y Claude son marcas de sus titulares.",
+			"description": "Un kit para Claude Code que trabaja como un estudio creativo en español. Le pides una pieza en lenguaje natural y un agente especializado la produce con una app open source de escritorio, a través del servidor MCP oficial de esa app.\n\nNo es un programa de diseño propio: orquesta 13 apps open source de storytold publicadas en GitHub (PhotoCraft, LightCraft, VectorCraft, FilmCraft, EffectCraft, DesignCraft, PdfCraft, FigCraft, SoundCraft, DeckCraft, WordCraft, GridCraft y CADCraft) para imagen, foto, vector, video, animación, maquetación, PDF, interfaz, audio, presentaciones, documentos, planillas y CAD.\n\n## El problema que resuelve\n\nConectar Claude Code a una docena de apps creativas suele terminar con todos los servidores MCP cargados a la vez, cientos de herramientas ocupando contexto y agentes que no saben qué app usar. Aquí cada app tiene su propio subagente, y su MCP se conecta solo mientras ese agente trabaja. La sesión principal solo decide a quién delegar.\n\n## Cómo funciona en 3 pasos\n\n- Pides: escribes el encargo en la terminal de Claude Code o en el panel local y adjuntas tu archivo.\n- El router decide: clasifica el pedido (por ejemplo, VECTOR o SLIDES), elige el agente y su skill, y si la tarea combina apps las encadena en serie.\n- El agente produce y revisa: trabaja sobre una copia, exporta a output/<proyecto>/ y mira el resultado antes de entregarlo. Al final, el agente revisor y los comandos revisar y empaquetar arman la entrega.\n\n## Lo que recibes\n\n- 13 subagentes de app y 1 agente revisor de solo lectura (qa-agent).\n- 14 skills de flujo por app, incluida mixed para encadenar apps, y las skills kit-de-marca y entrega.\n- CLI artcraft.py con doctor, route, marcas, revisar, empaquetar, sync, probe, smoke, actualizaciones, actualizar y volver.\n- Router de intención en español e inglés, con su batería de casos de prueba.\n- Hooks de Claude Code: contexto al iniciar sesión, aviso diario de versiones nuevas y protección de originales y binarios.\n- Panel web local para usar las 13 apps sin escribir comandos.\n- Registro de marcas (marcas.json) con plantilla para dar de alta a cada cliente: logos, paleta, fuentes y reglas que los agentes respetan.\n- Perfiles MCP por app para abrir una sesión de Claude Code dedicada a una sola app.\n- Documentación de arquitectura, índice maestro y registro de herramientas con formatos y límites de cada app.\n\n## Para quién es\n\n- Diseñadores, community managers y agencias pequeñas que ya usan Claude Code y producen piezas para varios clientes.\n- Quien quiere probar apps open source de escritorio para imagen, video y oficina operadas por agentes.\n- Equipos que necesitan que la IA no invente datos: los agentes dejan marcadores visibles como [precio] cuando falta información.\n\n## Requisitos\n\n- Windows x64 (desarrollado en Windows 11).\n- Claude Code instalado y con sesión iniciada; cada pedido consume uso de tu plan.\n- Python 3.10 o superior y Git.\n- Las 13 apps de storytold, que se descargan gratis desde sus releases oficiales en GitHub (no vienen en el paquete).\n- ffmpeg y Google Chrome para algunas funciones. python artcraft.py doctor te dice qué falta.\n\n## Limitaciones honestas\n\n- Solo Windows: las apps se instalan como binarios portables para Windows x64.\n- Las apps son de terceros y están en versiones 0.x. FilmCraft no transcribe ni corta silencios automáticamente, CADCraft abre cerca del 30 % de los formatos de AutoCAD, FigCraft importa .fig en modo best effort y SoundCraft exporta solo WAV, AIFF o FLAC.\n- No reemplaza tu criterio: revisa cada pieza antes de entregarla a un cliente.\n- Las versiones, formatos y límites de las apps pueden cambiar con cada release de sus autores.\n- Este kit no está afiliado a storytold ni a Anthropic. Los nombres de las apps y Claude son marcas de sus titulares; se nombran solo para indicar compatibilidad.",
 			"images": [
 				{
 					"src": "/market/static/products/motor-creativo-claude-code/cover.webp",

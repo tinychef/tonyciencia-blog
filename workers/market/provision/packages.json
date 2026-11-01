@@ -20,6 +20,30 @@
 			"fileName": "specreel-stick-1.0.zip",
 			"exclude": [],
 			"activate": true
+		},
+		{
+			"slug": "motor-creativo-claude-code",
+			"repo": "tinychef/artcraft-studio-engine",
+			"localPath": "../../../artcraft-studio-engine",
+			"ref": "0c501571e9318688a84784ff9e5f56406ccad921",
+			"prefix": "motor-creativo-claude-code/",
+			"fileName": "motor-creativo-claude-code-2.2.zip",
+			"exclude": [
+				"01_INSUMOS_Y_MARCA/01_*",
+				"01_INSUMOS_Y_MARCA/marcas.json",
+				"01_INSUMOS_Y_MARCA/fuentes",
+				"03_SCRIPTS_DE_PRODUCCION/03_01_render_social",
+				"03_SCRIPTS_DE_PRODUCCION/03_02_vector_etiquetas",
+				"03_SCRIPTS_DE_PRODUCCION/03_04_vectorizacion",
+				".claude/skills/campana-redes",
+				".claude/skills/render-social",
+				".claude/skills/etiquetas-optimus",
+				"artcraft-workspace/PRODUCT.md",
+				"artcraft-workspace/DESIGN.md",
+				"artcraft-workspace/.impeccable",
+				".gitattributes"
+			],
+			"activate": true
 		}
 	]
 }
