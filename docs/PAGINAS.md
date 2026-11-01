@@ -90,7 +90,7 @@ Lista al 2026-11-01, sacada de los sitemaps en producción y de `content/posts/`
 - https://tonyciencia.com/market/producto/motor-creativo-claude-code
 - https://tonyciencia.com/market/producto/pagespeed-forensics
 - https://tonyciencia.com/market/producto/specreel
-- https://tonyciencia.com/market/producto/specreel-stick
+- https://tonyciencia.com/market/producto/stick-sketch — Stick Sketch (antes «SpecReel Stick»; /market/producto/specreel-stick responde 301 aquí)
 - https://tonyciencia.com/market/agentes-para-empresas
 - https://tonyciencia.com/market/legal/privacidad
 - https://tonyciencia.com/market/legal/reembolsos
@@ -105,7 +105,7 @@ Lista al 2026-11-01, sacada de los sitemaps en producción y de `content/posts/`
 - https://tonyciencia.com/market/en/product/motor-creativo-claude-code
 - https://tonyciencia.com/market/en/product/pagespeed-forensics
 - https://tonyciencia.com/market/en/product/specreel
-- https://tonyciencia.com/market/en/product/specreel-stick
+- https://tonyciencia.com/market/en/product/stick-sketch — Stick Sketch (/market/en/product/specreel-stick responde 301 aquí)
 
 ## Archivos para buscadores
 

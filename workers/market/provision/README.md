@@ -23,6 +23,17 @@ con lo publicado aquí.
    Respuestas: `stored` (guardado y, si `activate`, producto disponible), `already` (ya estaba), 400 (no coincide), 404.
 4. Comprueba `https://tonyciencia.com/market/estado.json` → el producto aparece con `hasFile: true` y `availability: "available"`.
 
+## Productos que cambiaron de slug
+
+- **`stick-sketch`** (antes `specreel-stick`, «SpecReel Stick»; migración `0015`): mismo ZIP y mismo SHA-256 que antes.
+  El `fileName` (`specreel-stick-1.0.zip`) y la carpeta raíz del ZIP (`specreel-stick/`) no cambian, porque por dentro
+  el producto sigue llamándose SpecReel Stick y cambiarlos cambiaría el hash. **No hay que volver a subirlo**: la
+  migración copia al producto nuevo el `file_key` que ya tenía el viejo en producción
+  (`products/specreel-stick/<hash>/specreel-stick-1.0.zip`). Si alguien lo sube igual a `/market/provision/stick-sketch`,
+  el Worker guarda una segunda copia en `products/stick-sketch/<hash>/…` y la ficha pasa a usarla (inofensivo).
+- `specreel-stick` ya no está en el manifiesto: el producto está retirado y un PUT a su slug responde 404 (así nadie
+  puede reactivarlo subiendo el archivo).
+
 ## Seguridad
 
 - Quien llame al endpoint no puede subir nada distinto del archivo publicado en el manifiesto (el hash está en un

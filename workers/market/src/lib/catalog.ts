@@ -25,10 +25,19 @@ export function categoryLabel(slug: string): string | null {
 export const MERCHANT_IMAGES: Readonly<Record<string, readonly string[]>> = {
 	"anuncios-infinitos": ["merchant.jpg"],
 	specreel: ["merchant.jpg"],
-	"specreel-stick": ["merchant.jpg", "merchant-2.jpg"],
+	"stick-sketch": ["merchant.jpg", "merchant-2.jpg"],
 	"pagespeed-forensics": ["merchant.jpg"],
 	cutpilot: ["merchant.jpg"],
 	"motor-creativo-claude-code": ["merchant.jpg"],
+};
+
+/**
+ * Productos que cambiaron de slug (rebranding): slug viejo → slug nuevo. El viejo queda retirado (active = 0, conserva
+ * sus pedidos y su lista de espera) y su ficha responde 301 a la nueva en el mismo idioma, en vez de ir al catálogo.
+ * - specreel-stick → stick-sketch: «SpecReel Stick» pasó a llamarse «Stick Sketch» (migración 0015).
+ */
+export const RENAMED_PRODUCTS: Readonly<Record<string, string>> = {
+	"specreel-stick": "stick-sketch",
 };
 
 /** Rutas públicas de las imágenes de Merchant de un producto (vacío si no tiene). */

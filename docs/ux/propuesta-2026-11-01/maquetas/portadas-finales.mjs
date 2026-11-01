@@ -9,7 +9,9 @@
 //   node docs/ux/propuesta-2026-11-01/maquetas/portadas-finales.mjs
 //   cd workers/market && for s in anuncios-infinitos specreel specreel-stick pagespeed-forensics cutpilot motor-creativo-claude-code; do
 //     node scripts/render-covers.mjs $s --solo=cover,cover-animada; done
-import { readFileSync, writeFileSync } from "node:fs";
+// specreel-stick pasó a llamarse Stick Sketch (slug stick-sketch, migración 0015) con una portada propia en
+// design/stick-sketch.html: este generador ya no la toca (design/specreel-stick.html no existe y se salta).
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 
 const DESIGN = new URL("../../../../workers/market/design/", import.meta.url);
 const brandsSrc = readFileSync(new URL("../src/lib/brands.ts", DESIGN), "utf8");
@@ -352,6 +354,10 @@ const script = (p) => `<script>
 const START = "<!-- portada-final:inicio -->", END = "<!-- portada-final:fin -->";
 for (const [slug, p] of Object.entries(P)) {
 	const url = new URL(`${slug}.html`, DESIGN);
+	if (!existsSync(url)) {
+		console.log(`- design/${slug}.html no existe (producto renombrado o retirado): se salta`);
+		continue;
+	}
 	let html = readFileSync(url, "utf8");
 	const sections = ["es", "en"].map((lang) => {
 		LANG = lang;
