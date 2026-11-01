@@ -55,8 +55,8 @@ const CSS = `
 .pf .pf-cap.r { left: auto; right: 16px; }
 .pf .pf-cap.tr { left: auto; right: 14px; bottom: auto; top: 14px; }
 /* Anuncios: cola de anuncios */
-.pf .pf-q { position: absolute; left: 872px; top: 196px; width: 640px; height: 540px; overflow: hidden; }
-.pf .pf-adc { position: absolute; left: 0; right: 0; top: 0; height: 168px; border: 3px solid #2e2e33; border-radius: 20px; background: #17171a; padding: 16px 22px; }
+.pf .pf-q { position: absolute; left: 872px; top: 192px; width: 640px; height: 566px; overflow: hidden; }
+.pf .pf-adc { position: absolute; left: 0; right: 0; top: 0; height: 178px; border: 3px solid #2e2e33; border-radius: 20px; background: #17171a; padding: 16px 22px; }
 .pf .pf-adc.ok { border-color: #30d158; }
 .pf .pf-adh { display: flex; align-items: center; gap: 14px; height: 48px; }
 .pf .pf-adh svg { width: 42px; height: 42px; flex: none; }
@@ -142,7 +142,7 @@ P["anuncios-infinitos"] = {
 		root.querySelectorAll(".pf-adc").forEach((c) => {
 			const j = +c.dataset.j, p = (((j - s + 1) % 4) + 4) % 4 - 1, u = (((t - j + 3) % 4) + 4) % 4;
 			const fill = cl((u - 0.4) / 1.8);
-			c.style.transform = `translateY(${p * 186}px)`;
+			c.style.transform = `translateY(${p * 194}px)`;
 			c.querySelectorAll(".pf-adr em").forEach((e, k) => { e.style.width = `${cl(fill * 3 - k) * 100}%`; });
 			const done = fill >= 1;
 			c.classList.toggle("pf-ok", done);
@@ -160,7 +160,7 @@ const SR_TILES = [
 	["anim-micro.webp", 1, "left: 952px; top: 176px; width: 360px; height: 640px; border-color: #30d158;", 0, "Microneedling", ""],
 ];
 P.specreel = {
-	fps: 10, frames: 35, best: 0, quality: 55,
+	fps: 8, frames: 28, best: 0, quality: 42,
 	html: (anim) => `
 	<div class="pf-dots"></div>
 	<div class="pf-glow" style="left: 700px; top: 120px; width: 900px; height: 900px;"></div>
@@ -179,7 +179,7 @@ P.specreel = {
 // ───────────── 3. SpecReel Stick ─────────────
 const STICK = [["escena-1.jpg", "anim-1.webp", "1 % mejor cada día"], ["escena-2.jpg", "anim-2.webp", "Uno ahorra, otro gasta"], ["escena-3.jpg", "anim-3.webp", "El que empieza vs. el que espera"]];
 P["specreel-stick"] = {
-	fps: 10, frames: 35, best: 0, quality: 55,
+	fps: 10, frames: 35, best: 0, quality: 50,
 	html: (anim) => `
 	<div class="pf-glow" style="left: 300px; top: 420px; width: 1000px; height: 700px;"></div>
 	${top(`SpecReel <u>Stick</u>`, `${CLAUDE}${T("Claude Code")}${SEP}${chatgpt(L)}${T("Codex")}`)}

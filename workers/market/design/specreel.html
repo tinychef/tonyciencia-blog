@@ -167,7 +167,7 @@
 	<div class="pf-tile" style="left: 712px; top: 246px; width: 300px; height: 533px; transform: rotate(-5deg);"><div class="pf-sprite" style="background-image: url(assets/specreel/anim-celula.webp); background-position: 33.33333333333333% 100%;"></div><span class="pf-cap">Célula</span></div><div class="pf-tile" style="left: 1212px; top: 246px; width: 300px; height: 533px; transform: rotate(5deg);"><div class="pf-sprite" style="background-image: url(assets/specreel/anim-showreel.webp); background-position: 100% 100%;"></div><span class="pf-cap pf-r">Showreel</span></div><div class="pf-tile" style="left: 952px; top: 176px; width: 360px; height: 640px; border-color: #30d158; transform: rotate(0deg);"><div class="pf-sprite" style="background-image: url(assets/specreel/anim-micro.webp); background-position: 16.666666666666664% 0%;"></div><span class="pf-cap">Microneedling</span></div>
 	<p class="pf-note">Clips reales de 3 de los 4 ejemplos incluidos (sin la botella).</p>
 </section>
-<section class="frame pf" data-out="cover-animada" data-anim="35" data-fps="10" data-width="1600" data-quality="55">
+<section class="frame pf" data-out="cover-animada" data-anim="28" data-fps="8" data-width="1600" data-quality="42">
 	<div class="pf-dots"></div>
 	<div class="pf-glow" style="left: 700px; top: 120px; width: 900px; height: 900px;"></div>
 	<div class="pf-top"><div class="pf-name">Motion <u>3D</u> Video</div></div>
@@ -187,7 +187,7 @@
 	for (const root of [S, A]) {  }
 	
 	update(A, 0);
-	window.__frame = (i) => { update(A, i / 10); return new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))); };
+	window.__frame = (i) => { update(A, i / 8); return new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))); };
 })();
 </script>
 <!-- portada-final:fin -->
