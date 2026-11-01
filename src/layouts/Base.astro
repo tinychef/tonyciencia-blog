@@ -98,7 +98,7 @@ const navItems = [
 	{ href: locale === "en" ? "/en/posts" : "/posts", label: t("nav.blog") },
 	{ href: locale === "en" ? "/en/services" : "/servicios", label: t("nav.services") },
 	...(locale === "es" ? [{ href: "/herramientas", label: "Herramientas" }] : []),
-	{ href: "/market", label: "Market", market: true },
+	{ href: locale === "en" ? "/market/en/" : "/market", label: "Market", market: true },
 	{ href: locale === "en" ? "/en/about" : "/about", label: t("nav.aboutMe") },
 	{ href: locale === "en" ? "/en/contact" : "/contacto", label: t("nav.contact") },
 ];
@@ -189,7 +189,7 @@ const homeHref = locale === "en" ? "/en" : "/";
 							</a>
 						)
 					}
-					<a href="/market" class="nav-cta" aria-current={currentPath.startsWith("/market") ? "page" : undefined} hreflang={locale === "en" ? "es" : undefined}>
+					<a href={locale === "en" ? "/market/en/" : "/market"} class="nav-cta" aria-current={currentPath.startsWith("/market") ? "page" : undefined}>
 						<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 						<span>Market</span>
 					</a>
@@ -219,8 +219,7 @@ const homeHref = locale === "en" ? "/en" : "/";
 						href={item.href}
 						class:list={["mobile-menu-link", { "is-market": item.market }]}
 						aria-current={isActive(item.href) ? "page" : undefined}
-						hreflang={item.market && locale === "en" ? "es" : undefined}
-					>
+											>
 						<span>{item.label}</span>
 						{item.market ? <span class="mobile-menu-badge">{locale === "en" ? "Shop" : "Tienda"}</span> : <span class="mobile-menu-arrow" aria-hidden="true">→</span>}
 					</a>
@@ -1039,8 +1038,12 @@ const homeHref = locale === "en" ? "/en" : "/";
 				justify-content: center;
 				min-height: 52px;
 				border-radius: var(--radius-pill);
-				background: var(--color-accent);
-				color: var(--color-on-accent);
+				/* Degradado de la marca (tonos parecidos a Instagram, no iguales), el mismo en tema claro y oscuro.
+				   Todos los tonos dan ≥ 4,8:1 con texto blanco. */
+				background: linear-gradient(100deg, #cf3a4d 0%, #c92f6e 38%, #a43bc8 72%, #5a55e0 100%);
+				background-size: 140% 100%;
+				background-position: 0 0;
+				color: #fff;
 				font-weight: 600;
 				text-decoration: none;
 			}
@@ -1110,7 +1113,7 @@ const homeHref = locale === "en" ? "/en" : "/";
 				inset: -2px;
 				z-index: -1;
 				border-radius: inherit;
-				background: linear-gradient(92deg, #f5e400, #ff8a3d, #ff3d8b, #9b5cff, #44b1ff);
+				background: linear-gradient(92deg, #ffc35a, #ff7448, #f23d82, #a748e0, #5d6bf2, #ffc35a);
 				background-size: 200% 100%;
 				filter: blur(8px);
 				opacity: 0.45;
@@ -1120,8 +1123,8 @@ const homeHref = locale === "en" ? "/en" : "/";
 
 			.nav-cta:hover {
 				transform: translateY(-1px);
-				background: var(--color-accent-hover);
-				color: var(--color-on-accent);
+				background-position: 100% 0;
+				color: #fff;
 			}
 
 			.nav-cta:hover::before {
@@ -1148,7 +1151,7 @@ const homeHref = locale === "en" ? "/en" : "/";
 				width: 100%;
 				transform-origin: left;
 				transform: scaleX(var(--progress, 0));
-				background: linear-gradient(92deg, #f5e400, #ff8a3d, #ff3d8b, #9b5cff, #44b1ff);
+				background: linear-gradient(92deg, #ffc35a, #ff7448, #f23d82, #a748e0, #5d6bf2);
 				pointer-events: none;
 			}
 

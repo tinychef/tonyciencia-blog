@@ -1,4 +1,5 @@
 /** Datos estructurados (schema.org), feed de Google Merchant Center y sitemap del market. */
+import { hasEnglish, localize, productPath, storeRoot, type Lang } from "../lib/i18n";
 import { categoryLabel, seoDescription, seoTitle } from "../lib/catalog";
 import { fromPriceCents, isPwyw, pwywBounds, saleInfo } from "../lib/pricing";
 import type { ReviewRow, ShopProduct } from "./repo";
@@ -18,7 +19,7 @@ const validUntil = (now = Date.now()) => `${new Date(now).getUTCFullYear() + 1}-
  * - Oferta real: `priceSpecification` con el precio tachado (StrikethroughPrice), como pide Google para fichas de comerciante.
  * - "Paga lo que quieras": `price` = mínimo (lo menos que se puede pagar de verdad) y el sugerido como referencia.
  */
-function offerJsonLd(origin: string, p: ShopProduct) {
+function offerJsonLd(origin: string, p: ShopProduct, path = `/market/producto/${p.slug}`) {
 	const soon = p.availability === "coming_soon";
 	const cur = p.currency.toUpperCase();
 	const price = fromPriceCents(p);
@@ -26,7 +27,7 @@ function offerJsonLd(origin: string, p: ShopProduct) {
 	const pwyw = isPwyw(p);
 	return {
 		"@type": "Offer",
-		url: abs(origin, `/market/producto/${p.slug}`),
+		url: abs(origin, path),
 		price: (price / 100).toFixed(2),
 		priceCurrency: cur,
 		...(sale
@@ -82,7 +83,7 @@ function offerJsonLd(origin: string, p: ShopProduct) {
 	};
 }
 
-export function productJsonLd(origin: string, p: ShopProduct, reviews: ReviewRow[]) {
+export function productJsonLd(origin: string, p: ShopProduct, reviews: ReviewRow[], path = `/market/producto/${p.slug}`) {
 	const data: Record<string, unknown> = {
 		"@context": "https://schema.org",
 		"@type": "Product",
@@ -93,7 +94,7 @@ export function productJsonLd(origin: string, p: ShopProduct, reviews: ReviewRow
 		brand: BRAND,
 		category: categoryLabel(p.category) ?? undefined,
 		keywords: p.tags.join(", ") || undefined,
-		offers: offerJsonLd(origin, p),
+		offers: offerJsonLd(origin, p, path),
 	};
 	// Solo reseñas reales de compradores (nunca valores por defecto).
 	if (p.stats.ratingCount > 0 && p.stats.ratingAvg !== null) {
@@ -123,20 +124,23 @@ export function breadcrumbJsonLd(origin: string, items: Array<{ name: string; pa
 	};
 }
 
-export function catalogJsonLd(origin: string, products: ShopProduct[]) {
+export function catalogJsonLd(origin: string, products: ShopProduct[], lang: Lang = "es") {
 	return [
 		{
 			"@context": "https://schema.org",
 			"@type": "OnlineStore",
 			name: "Market Tony",
-			url: abs(origin, "/market"),
-			description: "Tienda de Tony Ciencia: agentes de IA, skills y plantillas para anuncios, video y automatización.",
+			url: abs(origin, storeRoot(lang)),
+			description:
+				lang === "en"
+					? "Tony Ciencia's store: AI agents, skills and templates for ads, video and automation."
+					: "Tienda de Tony Ciencia: agentes de IA, skills y plantillas para anuncios, video y automatización.",
 			parentOrganization: SELLER,
 		},
 		{
 			"@context": "https://schema.org",
 			"@type": "ItemList",
-			itemListElement: products.map((p, i) => ({ "@type": "ListItem", position: i + 1, url: abs(origin, `/market/producto/${p.slug}`), name: p.title })),
+			itemListElement: products.map((p, i) => ({ "@type": "ListItem", position: i + 1, url: abs(origin, productPath(p.slug, lang)), name: p.title })),
 		},
 	];
 }
@@ -218,10 +222,22 @@ export function merchantFeed(origin: string, products: ShopProduct[]): string {
 }
 
 export function sitemapXml(origin: string, products: ShopProduct[], legal: string[]): string {
-	const urls: Array<{ loc: string; lastmod?: number; image?: Array<{ src: string; alt: string }> }> = [
-		{ loc: "/market" },
+	type U = { loc: string; lastmod?: number; image?: Array<{ src: string; alt: string }>; alt?: { es: string; en: string } };
+	const catAlt = { es: "/market", en: "/market/en/" };
+	const urls: U[] = [
+		{ loc: "/market", alt: catAlt },
+		{ loc: "/market/en/", alt: catAlt },
 		{ loc: "/market/agentes-para-empresas" },
-		...products.map((p) => ({ loc: `/market/producto/${p.slug}`, lastmod: p.updated_at, image: p.images.slice(0, 5) })),
+		...products.flatMap((p): U[] => {
+			const es: U = { loc: productPath(p.slug, "es"), lastmod: p.updated_at, image: p.images.slice(0, 5) };
+			if (!hasEnglish(p)) return [es];
+			const alt = { es: productPath(p.slug, "es"), en: productPath(p.slug, "en") };
+			const en = localize(p, "en");
+			return [
+				{ ...es, alt },
+				{ loc: alt.en, lastmod: p.updated_at, image: en.images.slice(0, 5), alt },
+			];
+		}),
 		...legal.map((k) => ({ loc: `/market/legal/${k}` })),
 	];
 	const body = urls.map((u) =>
@@ -229,6 +245,9 @@ export function sitemapXml(origin: string, products: ShopProduct[], legal: strin
 			"<url>",
 			`<loc>${xml(abs(origin, u.loc))}</loc>`,
 			u.lastmod ? `<lastmod>${new Date(u.lastmod).toISOString().slice(0, 10)}</lastmod>` : "",
+			...(u.alt
+				? (["es", "en"] as const).map((l) => `<xhtml:link rel="alternate" hreflang="${l}" href="${xml(abs(origin, u.alt![l]))}"/>`)
+				: []),
 			...(u.image ?? []).map((i) => `<image:image><image:loc>${xml(abs(origin, i.src))}</image:loc></image:image>`),
 			"</url>",
 		]
@@ -237,7 +256,7 @@ export function sitemapXml(origin: string, products: ShopProduct[], legal: strin
 	);
 	return [
 		'<?xml version="1.0" encoding="UTF-8"?>',
-		'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
+		'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
 		...body,
 		"</urlset>",
 	].join("\n");

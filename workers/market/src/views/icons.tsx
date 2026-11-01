@@ -4,7 +4,7 @@
  */
 import type { FC } from "hono/jsx";
 import { raw } from "hono/html";
-import { BRANDS, SVG_PATHS } from "../lib/brands";
+import { BRANDS, EVENODD, SVG_PATHS } from "../lib/brands";
 
 const PATHS = {
 	bolt: '<path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/>',
@@ -52,7 +52,7 @@ export const BrandLogo: FC<{ k: string; size?: number }> = ({ k, size = 16 }) =>
 	const d = def.icon ? SVG_PATHS[def.icon] : null;
 	if (!d) return null;
 	return raw(
-		`<svg class="mk-brand-logo" viewBox="0 0 24 24" width="${size}" height="${size}" fill="currentColor" aria-hidden="true" focusable="false"><path d="${d}"/></svg>`,
+		`<svg class="mk-brand-logo" viewBox="0 0 24 24" width="${size}" height="${size}" fill="currentColor" aria-hidden="true" focusable="false"><path${def.icon && EVENODD.has(def.icon) ? ' fill-rule="evenodd"' : ""} d="${d}"/></svg>`,
 	);
 };
 

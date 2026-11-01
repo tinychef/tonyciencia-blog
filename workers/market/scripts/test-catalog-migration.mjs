@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Prueba las migraciones (0002 a 0009) sobre una copia SIMULADA de producción (los dos productos reales con las
+// Prueba las migraciones (0002 a 0010) sobre una copia SIMULADA de producción (los dos productos reales con las
 // imágenes que subió el dueño desde el admin). Comprueba que:
 //   - no se tocan precios, títulos ni archivos;
 //   - las portadas nuevas quedan primero y las del dueño se conservan detrás;
@@ -278,3 +278,177 @@ for (const f of readdirSync(new URL("../migrations/", import.meta.url)).filter((
 	}
 }
 console.log("✓ ningún patrón LIKE/GLOB supera el límite de D1");
+
+// ── 0010: nombres v6 (Motion 3D Video, Edit Pro para YouTube, Creative Factory; slugs iguales) ──
+// Base: producción tras la 0009 (el HTML público del 2026-11-01 coincide campo por campo con fixture + 0009).
+const db10 = prodDb();
+db10.exec(sql("0009_contenido_v5.sql"));
+// El resumen no se ve en la ficha pública: se simulan resúmenes que nombran cada producto.
+db10.exec(`
+	UPDATE products SET summary = 'SpecReel: videos 3D narrados. No confundir con SpecReel Stick.' WHERE slug = 'specreel';
+	UPDATE products SET summary = 'CutPilot: estudio de video local.' WHERE slug = 'cutpilot';
+	UPDATE products SET summary = 'Motor creativo para Claude Code: 13 agentes.' WHERE slug = 'motor-creativo-claude-code';
+`);
+const pre10 = rowsOf(db10);
+db10.exec(sql("0010_nombres_v6.sql"));
+const v10 = rowsOf(db10);
+db10.exec(sql("0010_nombres_v6.sql"));
+assert.deepEqual(rowsOf(db10), v10, "0010 es idempotente");
+for (const [slug, r] of Object.entries(v10)) {
+	for (const k of ["slug", "price_mode", "price_cents", "compare_at_cents", "availability", "file_key", "active", "id", "compat", "tags", "highlights"])
+		assert.equal(r[k], pre10[slug][k], `${slug}: 0010 no toca ${k}`);
+	assert.ok(r.meta_title.length <= 60, `${slug}: meta título ≤ 60 (${r.meta_title.length})`);
+	assert.ok(r.meta_description.length >= 120 && r.meta_description.length <= 160, `${slug}: meta descripción 120–160 (${r.meta_description.length})`);
+	assert.ok(r.title.length <= 70, `${slug}: H1 ≤ 70 (${r.title.length})`);
+	for (const k of ["images", "specs", "faq"]) JSON.parse(r[k]);
+	assert.deepEqual(JSON.parse(r.images).map((i) => i.src), JSON.parse(pre10[slug].images).map((i) => i.src), `${slug}: rutas de imágenes iguales`);
+}
+for (const s of ["anuncios-infinitos", "pagespeed-forensics"]) assert.deepEqual(v10[s], pre10[s], `${s}: sin cambios`);
+const count = (txt, s) => txt.split(s).length - 1;
+
+// specreel → Motion 3D Video (la skill sigue llamándose SpecReel: se aclara una vez en la descripción y en la FAQ).
+const m3 = v10.specreel;
+assert.equal(m3.title, "Motion 3D Video: videos explicativos y de producto con Claude Code");
+assert.equal(m3.meta_title, "Motion 3D Video: videos explicativos con Claude Code y Codex");
+assert.ok(m3.meta_description.startsWith("Motion 3D Video: skill para Claude Code y Codex"));
+assert.ok(m3.description.startsWith("Motion 3D Video es una skill para Claude Code y Codex que convierte"));
+assert.equal(count(m3.description, "la skill se llama SpecReel"), 1);
+assert.ok(m3.description.includes("Motion 3D Video es un producto independiente"));
+assert.ok(m3.description.includes("La skill SpecReel (formato abierto SKILL.md)"), "el nombre real de la skill se conserva");
+assert.ok(m3.description.includes("skills/specreel"), "rutas del ZIP intactas");
+assert.ok(JSON.parse(m3.images).every((i) => i.alt.startsWith("Motion 3D Video: ")));
+const m3Faq = JSON.parse(m3.faq);
+assert.equal(m3Faq.length, 9);
+assert.equal(m3Faq.filter((f) => f.q === "¿Por qué el ZIP dice SpecReel?").length, 1);
+assert.ok(m3Faq.some((f) => f.a.startsWith("No por parte de Motion 3D Video.")));
+assert.equal(m3.summary, "Motion 3D Video: videos 3D narrados. No confundir con SpecReel Stick.");
+assert.equal(v10.cutpilot.summary, "Edit Pro para YouTube: estudio de video local.");
+assert.equal(v10["motor-creativo-claude-code"].summary, "Creative Factory: 13 agentes.");
+const stFaq = JSON.parse(v10["specreel-stick"].faq);
+assert.ok(stFaq.some((f) => f.q === "¿Necesito tener Motion 3D Video?" && f.a.includes("Motion 3D Video (la skill SpecReel) es otro producto")));
+assert.ok(v10["specreel-stick"].title.startsWith("SpecReel Stick:"), "SpecReel Stick no cambia de nombre");
+assert.equal(v10["specreel-stick"].description, pre10["specreel-stick"].description);
+
+// cutpilot → Edit Pro para YouTube («YouTube» nunca al inicio del nombre).
+const ep = v10.cutpilot;
+assert.equal(ep.title, "Edit Pro para YouTube: edita tus videos hablados con Claude Code");
+assert.equal(ep.meta_title, "Edit Pro para YouTube: edita videos con Claude Code");
+assert.ok(ep.meta_description.startsWith("Edit Pro para YouTube:") && ep.meta_description.includes("Shorts y Reels"));
+assert.ok(ep.description.startsWith("Edit Pro para YouTube es un editor automático para videos hablados"));
+assert.equal(count(ep.description, "Por dentro se llama CutPilot"), 1);
+assert.ok(ep.description.includes("no corta varios reels de una grabación larga"), "la limitación sigue a la vista");
+assert.ok(!JSON.stringify(JSON.parse(ep.images).map((i) => i.alt)).includes("CutPilot"));
+const epFaq = JSON.parse(ep.faq);
+assert.ok(epFaq.some((f) => f.q === "¿Por qué el ZIP dice CutPilot?"));
+assert.ok(epFaq.find((f) => f.q === "¿Sirve para Shorts, Reels y TikTok?").a.includes("No corta varios clips"));
+for (const r of Object.values(v10)) assert.ok(!/^YouTube/i.test(r.title), "ningún nombre empieza con YouTube");
+
+// motor-creativo-claude-code → Creative Factory.
+const cf = v10["motor-creativo-claude-code"];
+assert.equal(cf.title, "Creative Factory: 13 agentes de Claude Code para diseño, video y PDF");
+assert.equal(cf.meta_title, "Creative Factory: agentes de Claude Code para diseño gráfico");
+assert.ok(cf.meta_description.startsWith("Creative Factory: 13 subagentes de Claude Code"));
+assert.ok(cf.description.startsWith("Creative Factory es un kit para Claude Code que trabaja como un estudio creativo"));
+assert.equal(count(cf.description, "Por dentro se llama «Motor creativo para Claude Code»"), 1);
+assert.ok(JSON.parse(cf.images)[0].alt.startsWith("Creative Factory: 13 agentes de Claude Code en español"));
+assert.ok(cf.specs.includes("sin reventa de Creative Factory") && cf.specs.includes("Studio Motor"), "el panel conserva su nombre real");
+const cfFaq = JSON.parse(cf.faq);
+assert.ok(cfFaq.some((f) => f.q === "¿Creative Factory se conecta a internet?"));
+assert.ok(cfFaq.some((f) => f.a.includes("Creative Factory las registra")));
+assert.ok(cfFaq.some((f) => f.q === "¿Por qué el ZIP dice «Motor creativo para Claude Code»?"));
+assert.ok(!/\b[Ee]l motor\b|Motor creativo:/.test(cf.faq + cf.title + cf.meta_title));
+
+// Lo que el dueño editó a mano no se pisa.
+const dbOwn10 = prodDb();
+dbOwn10.exec(sql("0009_contenido_v5.sql"));
+dbOwn10.exec(`
+	UPDATE products SET title = 'SpecReel 2: título del dueño', meta_title = 'Meta del dueño', description = 'Texto del dueño.' WHERE slug = 'specreel';
+	UPDATE products SET title = 'CutPilot del dueño', meta_description = 'Descripción propia del dueño.' WHERE slug = 'cutpilot';
+	UPDATE products SET title = 'Motor del dueño', faq = '[{"q":"¿El motor se conecta?","a":"Del dueño."}]' WHERE slug = 'motor-creativo-claude-code';
+`);
+dbOwn10.exec(sql("0010_nombres_v6.sql"));
+const o10 = rowsOf(dbOwn10);
+assert.equal(o10.specreel.title, "SpecReel 2: título del dueño");
+assert.equal(o10.specreel.meta_title, "Meta del dueño");
+assert.equal(o10.specreel.description, "Texto del dueño.");
+assert.equal(o10.cutpilot.title, "CutPilot del dueño");
+assert.equal(o10.cutpilot.meta_description, "Descripción propia del dueño.");
+assert.ok(!o10.cutpilot.faq.includes("¿Por qué el ZIP dice CutPilot?"), "sin el nombre nuevo, no se agrega la pregunta del nombre interno");
+assert.equal(o10["motor-creativo-claude-code"].title, "Motor del dueño");
+assert.equal(o10["motor-creativo-claude-code"].faq, '[{"q":"¿El motor se conecta?","a":"Del dueño."}]');
+console.log("✓ migración 0010 segura (nombres v6 sobre producción tras la 0009; no pisa lo editado a mano)");
+
+// ── 0011: fichas en inglés (columna i18n = {"en": {...}}) ──
+const db11 = prodDb();
+for (const f of ["0009_contenido_v5.sql", "0010_nombres_v6.sql"]) db11.exec(sql(f));
+const pre11 = rowsOf(db11);
+db11.exec(sql("0011_ingles.sql"));
+const v11 = rowsOf(db11);
+db11.exec(sql("0011_ingles.sql").replace(/ALTER TABLE[^;]+;/, ""));
+assert.deepEqual(rowsOf(db11), v11, "0011 aplicada dos veces no cambia nada");
+const EN_KEYS = ["title", "tagline", "summary", "meta_title", "meta_description", "description", "highlights", "specs", "faq", "tags", "image_alts"];
+const NAMES = {
+	"anuncios-infinitos": "Automatic Ads",
+	specreel: "Motion 3D Video",
+	"specreel-stick": "SpecReel Stick",
+	"pagespeed-forensics": "PageSpeed Forensics",
+	cutpilot: "Edit Pro for YouTube",
+	"motor-creativo-claude-code": "Creative Factory",
+};
+assert.deepEqual(Object.keys(v11).sort(), Object.keys(NAMES).sort(), "los 6 productos activos");
+for (const [slug, r] of Object.entries(v11)) {
+	for (const k of Object.keys(pre11[slug])) if (k !== "i18n" && k !== "updated_at") assert.equal(r[k], pre11[slug][k], `${slug}: 0011 no toca ${k}`);
+	assert.equal(db11.prepare("SELECT json_valid(i18n) AS ok FROM products WHERE slug = ?").get(slug).ok, 1, `${slug}: i18n es JSON válido para SQLite`);
+	const en = JSON.parse(r.i18n).en;
+	assert.ok(en, `${slug}: tiene i18n.en`);
+	assert.deepEqual(Object.keys(en).sort(), [...EN_KEYS].sort(), `${slug}: todas las claves`);
+	assert.ok(en.title.startsWith(`${NAMES[slug]}:`), `${slug}: título con el nombre en inglés`);
+	assert.ok(en.title.length <= 70, `${slug}: title ≤ 70 (${en.title.length})`);
+	assert.ok(en.meta_title.length <= 60, `${slug}: meta_title ≤ 60 (${en.meta_title.length})`);
+	assert.ok(en.meta_description.length >= 120 && en.meta_description.length <= 160, `${slug}: meta_description 120–160 (${en.meta_description.length})`);
+	assert.equal(en.image_alts.length, JSON.parse(r.images).length, `${slug}: un ALT por imagen`);
+	assert.ok(en.image_alts.every((a) => typeof a === "string" && a.length > 10));
+	const specsEs = JSON.parse(r.specs);
+	assert.equal(en.specs.length, specsEs.length, `${slug}: mismas filas en la ficha técnica`);
+	assert.ok(en.specs.every((s) => s.label && s.value));
+	assert.ok(en.faq.length >= 3 && en.faq.every((f) => f.q.endsWith("?") && f.a));
+	assert.ok(en.highlights.length >= 4 && en.highlights.length <= 6);
+	assert.ok(en.tags.length >= 5 && en.tags.length <= 7);
+	// Sin restos en español en los textos que ve el comprador (los nombres internos y rutas sí se citan).
+	const visible = [en.title, en.tagline, en.meta_title, en.meta_description, en.description, ...en.highlights, ...en.faq.flatMap((f) => [f.q, f.a])].join("\n");
+	assert.ok(!/\b(para|con|que|los|las|una|del)\b/.test(visible.replace(/«[^»]*»|"[^"]*"|\[precio\]|Motor creativo para Claude Code/g, "")), `${slug}: sin frases en español`);
+	assert.ok(!/Anuncios Automáticos|Edit Pro para YouTube|Anuncios Infinitos/.test(visible), `${slug}: nombres en inglés`);
+	assert.ok(!/\$\d/.test(en.description) || slug === "pagespeed-forensics", `${slug}: sin precios fijos en la descripción`);
+}
+// Honestidad con el idioma: los productos que solo funcionan en español lo dicen en inglés, arriba y en la ficha técnica.
+const en11 = (s) => JSON.parse(v11[s].i18n).en;
+for (const s of ["anuncios-infinitos", "cutpilot"]) {
+	const en = en11(s);
+	assert.ok(/Spanish/.test(en.title + en.meta_title) && /Spanish/.test(en.meta_description), `${s}: título y meta dicen Spanish`);
+	assert.ok(en.specs.some((x) => /^Spanish only/.test(x.value)), `${s}: «Spanish only» en la ficha técnica`);
+	assert.ok(/^(Is it in English\?|Does it work for videos in English\?)$/.test(en.faq[0].q) && en.faq[0].a.startsWith("No."), `${s}: primera pregunta = idioma`);
+}
+assert.ok(en11("motor-creativo-claude-code").faq[0].a.startsWith("No.") && /Spanish/.test(en11("motor-creativo-claude-code").meta_description));
+assert.ok(en11("pagespeed-forensics").faq.some((f) => f.q === "Is it in English?" && f.a.startsWith("Yes.")));
+assert.ok(en11("specreel").description.includes("the skill is called SpecReel"));
+assert.ok(en11("cutpilot").description.includes("Inside it is called CutPilot"));
+assert.ok(!/^YouTube/.test(en11("cutpilot").title), "«YouTube» no va al inicio del nombre");
+// No pisa un i18n ya escrito (por ejemplo desde el admin).
+const db11b = prodDb();
+for (const f of ["0009_contenido_v5.sql", "0010_nombres_v6.sql", "0011_ingles.sql"]) db11b.exec(sql(f));
+db11b.prepare(`UPDATE products SET i18n = '{"en":{"title":"Owner title"}}' WHERE slug = 'specreel'`).run();
+db11b.exec(sql("0011_ingles.sql").replace(/ALTER TABLE[^;]+;/, ""));
+assert.equal(db11b.prepare("SELECT i18n FROM products WHERE slug = 'specreel'").get().i18n, '{"en":{"title":"Owner title"}}');
+console.log("✓ migración 0011 segura (inglés: JSON válido, metas, un ALT por imagen, idempotente, no pisa i18n editado)");
+
+// ── 0012: Edit Pro para YouTube desde $0 (sugerido $12) ──
+db.exec(sql("0012_edit_pro_desde_cero.sql"));
+db.exec(sql("0012_edit_pro_desde_cero.sql"));
+{
+	const r = db.prepare("SELECT price_mode, min_price_cents, price_cents FROM products WHERE slug = 'cutpilot'").get();
+	if (r.price_cents === 1200) {
+		assert.equal(r.price_mode, "pwyw");
+		assert.equal(r.min_price_cents, 0);
+	}
+	console.log("✓ migración 0012 segura (Edit Pro desde $0)");
+}

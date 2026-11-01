@@ -102,8 +102,11 @@ const formatDate = (date: Date | null | undefined) =>
 const GHL_URL = "https://www.gohighlevel.com/highlevel-bootcamp?fp_ref=tony-ciencia-llc-57";
 
 
-// Portadas de la puerta del Market (copias livianas en public/assets/market/; el Market es otro Worker en /market).
-const MARKET_COVERS = ["anuncios-infinitos", "specreel", "cutpilot"];
+// Portadas de la puerta del Market: se leen directo del Market (otro Worker en /market, mismo dominio), en su versión
+// liviana de 800 px y en el idioma de la página, para que la portada del blog nunca muestre portadas viejas.
+const MARKET_COVERS = ["anuncios-infinitos", "specreel-stick", "pagespeed-forensics"];
+// Cuando existan las portadas en inglés (products/<slug>/en/), usar `${locale === "en" ? "en/" : ""}` antes de cover-800.
+const marketCover = (slug: string) => `/market/static/products/${slug}/cover-800.webp`;
 
 // Carruseles curados — 6 categorías más relevantes para el ICP B2B. El catálogo
 // completo vive en /herramientas (solo ES).
@@ -147,10 +150,10 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 			</div>
 
 			<div class="doors">
-				<a href="/market" class="door door--market" hreflang={locale === "en" ? "es" : undefined}>
+				<a href={locale === "en" ? "/market/en/" : "/market"} class="door door--market" data-glow>
 					<span class="door-media door-media--market" aria-hidden="true">
 						{MARKET_COVERS.map((slug, i) => (
-							<img src={`/assets/market/${slug}.webp`} alt="" width="800" height="500" class={`door-cover door-cover--${i + 1}`} fetchpriority={i === 0 ? "high" : undefined} />
+							<img src={marketCover(slug)} alt="" width="800" height="500" class={`door-cover door-cover--${i + 1}`} fetchpriority={i === 0 ? "high" : undefined} />
 						))}
 					</span>
 					<span class="door-body">
@@ -161,7 +164,7 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 					</span>
 				</a>
 
-				<div class="door door--me">
+				<div class="door door--me" data-glow>
 					<div class="door-media yt-facade" data-yt={latestVideo.id}>
 						<a href={`https://www.youtube.com/watch?v=${latestVideo.id}`} target="_blank" rel="noopener" aria-label={`${COPY.videoPlay}: ${latestVideo.title}`}>
 							<img src={`https://i.ytimg.com/vi/${latestVideo.id}/hqdefault.jpg`} alt="" width="480" height="360" />
@@ -283,9 +286,55 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 			box.replaceChildren(frame);
 		});
 	});
+
+	// Luz en el borde: una tarjeta a la vez, al azar, cada 7 s (nada con «reducir movimiento» ni con la pestaña oculta).
+	const glowDoors = [...document.querySelectorAll<HTMLElement>(".door[data-glow]")];
+	if (glowDoors.length && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+		let last: HTMLElement | null = null;
+		const tick = () => {
+			if (document.hidden) return;
+			const pool = glowDoors.filter((d) => d !== last);
+			const d = pool[Math.floor(Math.random() * pool.length)] ?? glowDoors[0];
+			last = d;
+			d.classList.remove("is-glow");
+			void d.offsetWidth;
+			d.classList.add("is-glow");
+			window.setTimeout(() => d.classList.remove("is-glow"), 6200);
+		};
+		window.setTimeout(tick, 1800);
+		window.setInterval(tick, 7000);
+	}
 </script>
 
 <style>
+	/* Luz que recorre el borde de una tarjeta, una a la vez y al azar (ver el script de abajo): tonos de la marca
+	   parecidos a los de Instagram, núcleo claro y halo suave, despacio. */
+	@property --door-sweep { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+	.door[data-glow]::before,
+	.door[data-glow]::after {
+		content: "";
+		position: absolute;
+		inset: -1px;
+		border-radius: calc(var(--radius-xl) + 1px);
+		pointer-events: none;
+		opacity: 0;
+		background: conic-gradient(from var(--door-sweep), transparent 0deg, transparent 250deg, #ffc35a 290deg, #ff7448 310deg, #f23d82 328deg, #a748e0 343deg, #fff 352deg, #5d6bf2 356deg, transparent 360deg);
+	}
+	.door[data-glow]::after {
+		z-index: 3;
+		padding: 1.5px;
+		-webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+		-webkit-mask-composite: xor;
+		mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+	}
+	.door[data-glow]::before { z-index: -1; filter: blur(16px); }
+	.door[data-glow].is-glow::after { animation: door-sweep 6s cubic-bezier(0.45, 0.05, 0.3, 1) both, door-fade 6s ease both; }
+	.door[data-glow].is-glow::before { animation: door-sweep 6s cubic-bezier(0.45, 0.05, 0.3, 1) both, door-halo 6s ease both; }
+	@keyframes door-sweep { from { --door-sweep: 0deg; } to { --door-sweep: 360deg; } }
+	@keyframes door-fade { 0% { opacity: 0; } 15% { opacity: 1; } 80% { opacity: 1; } 100% { opacity: 0; } }
+	@keyframes door-halo { 0% { opacity: 0; } 20% { opacity: 0.5; } 75% { opacity: 0.5; } 100% { opacity: 0; } }
+	@media (prefers-reduced-motion: reduce) { .door[data-glow]::before, .door[data-glow]::after { display: none; } }
+
 	/* ── Hero: saludo + dos puertas (Market y conocer a Tony) ── */
 	.hero {
 		position: relative;
@@ -385,8 +434,8 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 		border: 1px solid var(--color-border-subtle);
 		border-radius: var(--radius-xl);
 		background: var(--color-bg-subtle);
-		overflow: hidden;
 		color: var(--color-text);
+		isolation: isolate;
 		text-decoration: none;
 		transition: transform 300ms var(--ease-out), border-color 200ms ease, box-shadow 300ms ease;
 	}
@@ -410,6 +459,8 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 		display: block;
 		aspect-ratio: 16 / 9;
 		overflow: hidden;
+		/* La tarjeta ya no recorta (para que la luz del borde se vea por fuera): la imagen redondea sus esquinas. */
+		border-radius: calc(var(--radius-xl) - 1px) calc(var(--radius-xl) - 1px) 0 0;
 	}
 
 	/* Portadas en abanico; se abren un poco al pasar el cursor. */

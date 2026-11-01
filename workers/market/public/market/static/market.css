@@ -1149,3 +1149,67 @@ a.mk3-preset { display: inline-flex; align-items: center; justify-content: cente
 	.mk-product-page .mk-badges { margin-bottom: 8px; }
 }
 .mk5-cover picture { display: block; width: 100%; height: 100%; }
+
+/* Ficha en escritorio: galería + «Funciona con» + beneficios a la izquierda; compra a la derecha (fija al bajar).
+   Así la columna izquierda no queda vacía bajo la galería. En celular: galería, compra y después lo demás. */
+@media (min-width: 921px) {
+	.mk-product2 { grid-template-areas: "gal info" "extra info"; grid-template-rows: auto 1fr; }
+	.mk-product2 > .mk-gallery2 { grid-area: gal; }
+	.mk-product2 > .mk-info { grid-area: info; align-self: stretch; }
+	.mk-product2 > .mk-extra { grid-area: extra; }
+}
+.mk-extra { display: grid; gap: var(--spacing-4); align-content: start; min-width: 0; }
+.mk-extra .mk3-compat-box { margin: 0; }
+/* Detalles del producto: etiqueta arriba y valor debajo, a todo el ancho de la caja (antes el valor quedaba en una columna angosta). */
+.mk-specs dl { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+.mk-specs dt { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 12px; }
+.mk-specs dt:first-child { margin-top: 0; }
+.mk-detail-grid { grid-template-columns: minmax(0, 1fr) 360px; }
+@media (max-width: 920px) { .mk-detail-grid { grid-template-columns: minmax(0, 1fr); } }
+/* Tarjeta en escritorio: la línea de valor completa (hasta 3 líneas), sin cortar con «…» a mitad de frase. */
+@media (min-width: 720px) { .mk5-line { -webkit-line-clamp: 3; } }
+
+/* Selector de idioma ES/EN (en la cabecera; el idioma activo resaltado) */
+.mk-lang { display: inline-flex; align-items: center; height: 36px; padding: 3px; border-radius: 999px; border: 1px solid var(--color-border); font-size: 12px; font-weight: 800; letter-spacing: 0.06em; color: var(--color-text-secondary); text-decoration: none; }
+.mk-lang span { display: inline-grid; place-items: center; min-width: 30px; height: 28px; border-radius: 999px; }
+.mk-lang span.is-on { background: var(--color-text); color: var(--color-bg); }
+.mk-lang:hover { color: var(--color-text); border-color: var(--color-text-secondary); }
+@media (max-width: 380px) { .mk-lang { display: none; } }
+
+/* Luz que recorre el borde de una tarjeta (una a la vez, elegida al azar por market.js): un trazo con los tonos de la
+   marca (cálidos a violeta, parecidos pero no iguales a Instagram), con núcleo claro y un halo suave detrás. */
+@property --mk-sweep { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+:root {
+	--mk-ig-1: #ffc35a;
+	--mk-ig-2: #ff7448;
+	--mk-ig-3: #f23d82;
+	--mk-ig-4: #a748e0;
+	--mk-ig-5: #5d6bf2;
+}
+.mk5-grid > li { position: relative; border-radius: var(--mk5-radius); isolation: isolate; }
+.mk5-grid > li::before,
+.mk5-grid > li::after {
+	content: ""; position: absolute; inset: -1px; border-radius: calc(var(--mk5-radius) + 1px); pointer-events: none; opacity: 0;
+	background: conic-gradient(from var(--mk-sweep), transparent 0deg, transparent 250deg, var(--mk-ig-1) 290deg, var(--mk-ig-2) 310deg, var(--mk-ig-3) 328deg, var(--mk-ig-4) 343deg, #fff 352deg, var(--mk-ig-5) 356deg, transparent 360deg);
+	transition: opacity 900ms ease;
+}
+/* El trazo: solo el borde (máscara que deja ver 1,5 px). */
+.mk5-grid > li::after {
+	z-index: 2; padding: 1.5px;
+	-webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+	mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+}
+/* El halo: el mismo trazo desenfocado detrás de la tarjeta. */
+.mk5-grid > li::before { z-index: -1; filter: blur(14px); }
+.mk5-grid > li.is-glow::after { animation: mk-sweep 6s cubic-bezier(0.45, 0.05, 0.3, 1) both, mk-sweep-fade 6s ease both; }
+.mk5-grid > li.is-glow::before { animation: mk-sweep 6s cubic-bezier(0.45, 0.05, 0.3, 1) both, mk-sweep-halo 6s ease both; }
+@keyframes mk-sweep { from { --mk-sweep: 0deg; } to { --mk-sweep: 360deg; } }
+@keyframes mk-sweep-fade { 0% { opacity: 0; } 15% { opacity: 1; } 80% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes mk-sweep-halo { 0% { opacity: 0; } 20% { opacity: 0.55; } 75% { opacity: 0.55; } 100% { opacity: 0; } }
+:root.light .mk5-grid > li.is-glow::before { animation-name: mk-sweep, mk-sweep-halo-light; }
+@keyframes mk-sweep-halo-light { 0% { opacity: 0; } 20% { opacity: 0.35; } 75% { opacity: 0.35; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .mk5-grid > li::before, .mk5-grid > li::after { display: none; } }
+/* v5.1: sin la categoría arriba; el título más grande y con más peso. */
+.mk5-top { justify-content: flex-start; min-height: 0; }
+.mk5-title { font-size: clamp(23px, 2.6vw, 27px); font-weight: 800; letter-spacing: -0.022em; line-height: 1.12; }
+.mk5-line { font-size: 16.5px; }

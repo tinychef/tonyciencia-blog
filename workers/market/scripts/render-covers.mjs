@@ -8,6 +8,7 @@
 //       node scripts/render-covers.mjs specreel --solo=cover    → solo esas salidas (separadas por coma)
 //       node scripts/render-covers.mjs --solo=cover,cover-animada  → solo las portadas de todos
 //
+// Con data-cpu, la sección se graba en un Chromium sin GPU (ver más abajo).
 // Portadas animadas: una sección con data-anim="<n.º de cuadros>" (y opcionales data-fps, data-width,
 // data-quality) se graba cuadro a cuadro llamando a window.__frame(i) (async, determinista) y se guarda
 // como WebP animado en bucle. Ver design/specreel-stick.html.
@@ -51,6 +52,7 @@ ims[0].save(sys.argv[2], 'WEBP', save_all=True, append_images=ims[1:], duration=
 
 const browser = await chromium.launch({ args: ["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader"] });
 const page = await browser.newPage({ viewport: { width: 1600, height: 1000 }, deviceScaleFactor: 1 });
+let cpu = null; // Chromium sin GPU, solo para las portadas animadas
 for (const file of files) {
 	const slug = file.replace(/\.html$/, "");
 	const outDir = join(outRoot, slug);
@@ -67,24 +69,43 @@ for (const file of files) {
 		const quality = Number((await frame.getAttribute("data-quality")) ?? QUALITY);
 		const width = Number((await frame.getAttribute("data-width")) ?? 0);
 		const anim = Number((await frame.getAttribute("data-anim")) ?? 0);
+		// Secciones con data-cpu (las portadas de docs/ux/propuesta-2026-11-01) se graban en un Chromium sin raster
+		// por GPU: con swiftshader, las capturas de una sección que no está arriba salen con mosaicos mezclados de
+		// otras secciones (y en una animación cada cuadro sale distinto → WebP enorme).
+		const useCpu = anim > 0 || (await frame.getAttribute("data-cpu")) !== null;
+		let shoot = (path) => frame.screenshot({ path }), cp = null;
+		if (useCpu) {
+			cpu ??= await chromium.launch();
+			cp = await cpu.newPage({ viewport: { width: 1600, height: 1000 }, deviceScaleFactor: 1 });
+			await cp.goto(pathToFileURL(join(designDir, file)).href, { waitUntil: "networkidle" });
+			await cp.evaluate(() => document.fonts.ready);
+			await cp.waitForFunction(() => (window.__ready ?? true) === true, null, { timeout: 10_000 }).catch(() => {});
+			// La sección se fija arriba a la izquierda (sin desplazar la página) y se captura la ventana.
+			await cp.$eval(`section.frame[data-out="${name}"]`, (el) => { scrollTo(0, 0); Object.assign(el.style, { position: "fixed", left: "0", top: "0", zIndex: "2147483647", margin: "0" }); });
+			await cp.waitForTimeout(200);
+			const clip = { x: 0, y: 0, width: 1600, height: 1000 };
+			shoot = (path) => cp.screenshot({ path, clip });
+		}
 		if (anim > 0) {
 			const fps = Number((await frame.getAttribute("data-fps")) ?? 10);
 			const tmp = join(tmpdir(), `cover-anim-${slug}-${name}`);
 			rmSync(tmp, { recursive: true, force: true });
 			mkdirSync(tmp, { recursive: true });
 			for (let i = 0; i < anim; i++) {
-				await page.evaluate((k) => window.__frame(k), i);
-				await frame.screenshot({ path: join(tmp, `f_${String(i).padStart(4, "0")}.png`) });
+				await cp.evaluate((k) => window.__frame(k), i);
+				await shoot(join(tmp, `f_${String(i).padStart(4, "0")}.png`));
 			}
 			execFileSync("python3", ["-I", "-c", toAnimWebp, tmp, webp, String(Math.round(1000 / fps)), String(quality), String(width)]);
 			rmSync(tmp, { recursive: true, force: true });
 		} else {
 			const png = join(outDir, `${name}.png`);
-			await frame.screenshot({ path: png });
+			await shoot(png);
 			execFileSync("python3", ["-I", "-c", toWebp, png, webp, String(quality), String(width)]);
 			rmSync(png);
 		}
+		await cp?.close();
 		console.log(`✓ ${slug}/${name}.webp  ${(statSync(webp).size / 1024).toFixed(0)} KB${anim ? `  (${anim} cuadros)` : ""}`);
 	}
 }
 await browser.close();
+await cpu?.close();
