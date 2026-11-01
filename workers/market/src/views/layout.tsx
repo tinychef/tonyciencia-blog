@@ -5,6 +5,7 @@ import type { User } from "../services/repo";
 import type { WelcomeOffer } from "../services/welcome";
 import { formatPrice } from "../lib/money";
 import { BrandLogo, Icon } from "./icons";
+import { storeRoot, t, type Lang } from "../lib/i18n";
 
 export interface PageMeta {
 	title: string;
@@ -24,6 +25,8 @@ export interface PageMeta {
 	/** Para og:product (precio en centavos). */
 	priceCents?: number;
 	currency?: string;
+	/** Versiones de la misma página en cada idioma (hreflang y el selector ES/EN). */
+	alternates?: { es: string; en: string };
 }
 
 export interface LayoutProps {
@@ -34,6 +37,7 @@ export interface LayoutProps {
 	csrf: string | null;
 	theme: "light" | "dark";
 	welcome: WelcomeOffer | null;
+	lang?: Lang;
 	children?: Child;
 }
 
@@ -44,9 +48,13 @@ function jsonLdScript(data: object) {
 	return raw(`<script type="application/ld+json">${JSON.stringify(data).replace(/</g, "\\u003c")}</script>`);
 }
 
-const STATIC_VERSION = "7";
+const STATIC_VERSION = "8";
 
-export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, theme, welcome, children }) => {
+export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, theme, welcome, lang = "es", children }) => {
+	const tr = (es: string) => t(lang, es);
+	const root = storeRoot(lang);
+	const other: Lang = lang === "en" ? "es" : "en";
+	const otherHref = meta.alternates ? meta.alternates[other] : storeRoot(other);
 	const fullTitle = meta.fullTitle ?? (meta.title === "Market Tony" ? "Market Tony — Tony Ciencia" : `${meta.title} — Market Tony`);
 	const canonical = new URL(meta.path, config.origin).toString();
 	const image = new URL(meta.image ?? "/market/static/products/anuncios-infinitos/cover.webp", config.origin).toString();
@@ -60,7 +68,7 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 				: "un descuento"
 		: "";
 	return (
-		<html lang="es" class={theme}>
+		<html lang={lang} class={theme}>
 			<head>
 				<meta charset="utf-8" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -76,7 +84,10 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 				<meta property="og:image:width" content="1600" />
 				<meta property="og:image:height" content="1000" />
 				<meta property="og:site_name" content="Tony Ciencia" />
-				<meta property="og:locale" content="es_ES" />
+				<meta property="og:locale" content={lang === "en" ? "en_US" : "es_ES"} />
+				{meta.alternates && <link rel="alternate" hreflang="es" href={new URL(meta.alternates.es, config.origin).toString()} />}
+				{meta.alternates && <link rel="alternate" hreflang="en" href={new URL(meta.alternates.en, config.origin).toString()} />}
+				{meta.alternates && <link rel="alternate" hreflang="x-default" href={new URL(meta.alternates.es, config.origin).toString()} />}
 				{meta.priceCents !== undefined && <meta property="product:price:amount" content={(meta.priceCents / 100).toFixed(2)} />}
 				{meta.priceCents !== undefined && <meta property="product:price:currency" content={(meta.currency ?? "usd").toUpperCase()} />}
 				<meta name="twitter:card" content="summary_large_image" />
@@ -96,7 +107,7 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 			</head>
 			<body>
 				<a href="#contenido" class="mk-skip">
-					Saltar al contenido
+					{tr("Saltar al contenido")}
 				</a>
 				{config.mode === "mock" && (
 					<div class="mk-mockbar" role="note">
@@ -106,8 +117,8 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 				{welcome && (
 					<div class="mk-announce">
 						<span>
-							<Icon name="gift" size={15} /> {welcome.percentOff ? `${welcome.percentOff} %` : "Descuento"} en tu 1.ª compra con{" "}
-							<button type="button" class="mk-code-btn" data-copy={welcome.code} aria-label={`Copiar el código ${welcome.code}`}>
+							<Icon name="gift" size={15} /> {welcome.percentOff ? `${welcome.percentOff} %` : lang === "en" ? "Discount" : "Descuento"} {tr("en tu 1.ª compra con")}{" "}
+							<button type="button" class="mk-code-btn" data-copy={welcome.code} aria-label={`${lang === "en" ? "Copy the code" : "Copiar el código"} ${welcome.code}`}>
 								{welcome.code}
 							</button>
 						</span>
@@ -115,20 +126,20 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 				)}
 				<header class="mk-header" data-header>
 					<nav class="mk-nav" aria-label="Principal">
-						<a href="/market" class="mk-brand" aria-label="Market Tony — inicio de la tienda">
+						<a href={root} class="mk-brand" aria-label={lang === "en" ? "Market Tony — store home" : "Market Tony — inicio de la tienda"}>
 							<img src="/market/static/site/logo-blanco.webp" alt="Tony Ciencia" class="logo-dark" width="32" height="32" />
 							<img src="/market/static/site/logo-negro.webp" alt="Tony Ciencia" class="logo-light" width="32" height="32" />
 							<span class="mk-brand-tag">Market</span>
 						</a>
 						<div class="mk-links">
-							<a href="/market#catalogo" aria-current={is("/market")} class="mk-hide-sm">
-								Catálogo
+							<a href={`${root}#catalogo`} aria-current={is("/market") ?? is("/market/en")} class="mk-hide-sm">
+								{tr("Catálogo")}
 							</a>
-							<a href="/market/?filtro=ofertas#catalogo" class="mk-hide-sm mk3-nav-sale">
-								Ofertas
+							<a href={`${root}?filtro=ofertas#catalogo`} class="mk-hide-sm mk3-nav-sale">
+								{tr("Ofertas")}
 							</a>
 							<a href="/market/agentes-para-empresas" aria-current={is("/market/agentes-para-empresas")} class="mk-hide-sm">
-								Agentes para empresas
+								{tr("Agentes para empresas")}
 							</a>
 							<a href={siteHref} class="mk-hide-sm">
 								Blog
@@ -138,30 +149,34 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 									Admin
 								</a>
 							)}
-							<button type="button" class="mk-theme" data-theme-toggle aria-label="Cambiar a tema claro u oscuro" aria-pressed={theme === "dark" ? "true" : "false"}>
+							<a href={otherHref} class="mk-lang" hreflang={other} lang={other} aria-label={lang === "en" ? "Ver en español" : "View in English"}>
+								<span aria-hidden="true" class={lang === "es" ? "is-on" : undefined}>ES</span>
+								<span aria-hidden="true" class={lang === "en" ? "is-on" : undefined}>EN</span>
+							</a>
+							<button type="button" class="mk-theme" data-theme-toggle aria-label={tr("Cambiar a tema claro u oscuro")} aria-pressed={theme === "dark" ? "true" : "false"}>
 								<Icon name="sun" size={18} class="mk-theme-sun" />
 								<Icon name="moon" size={18} class="mk-theme-moon" />
 							</button>
 							{user ? (
 								<a href="/market/mis-compras" aria-current={is("/market/mis-compras")} class="mk-pill-link">
-									Mis compras
+									{tr("Mis compras")}
 								</a>
 							) : (
 								<a href={`/market/entrar?next=${encodeURIComponent(meta.path)}`} aria-current={is("/market/entrar")} class="mk-pill-link">
-									Entrar
+									{tr("Entrar")}
 								</a>
 							)}
 							{user && (
 								<form method="post" action="/market/salir" class="mk-hide-sm">
 									<CsrfField csrf={csrf} />
 									<button type="submit" class="mk-linkbtn">
-										Salir
+										{tr("Salir")}
 									</button>
 								</form>
 							)}
 							{/* Menú móvil: <details> funciona sin JS; market.js lo cierra con Escape, al tocar fuera o al navegar. */}
 							<details class="mk-menu" data-menu>
-								<summary aria-label="Abrir menú">
+								<summary aria-label={tr("Abrir menú")}>
 									<span class="mk-burger" aria-hidden="true">
 										<i></i>
 										<i></i>
@@ -170,25 +185,28 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 								</summary>
 								<div class="mk-menu-panel">
 									<div class="mk-menu-head">
-										<span>Menú</span>
-										<button type="button" class="mk-menu-close" data-menu-close aria-label="Cerrar menú">
+										<span>{tr("Menú")}</span>
+										<button type="button" class="mk-menu-close" data-menu-close aria-label={tr("Cerrar menú")}>
 											<Icon name="close" size={18} />
 										</button>
 									</div>
-									<a href="/market#catalogo">Catálogo</a>
-									<a href="/market/?filtro=ofertas#catalogo">Ofertas</a>
-									<a href="/market/?filtro=gratis#catalogo">Desde $0</a>
-									<a href="/market/agentes-para-empresas">Agentes para empresas</a>
-									{user ? <a href="/market/mis-compras">Mis compras</a> : <a href={`/market/entrar?next=${encodeURIComponent(meta.path)}`}>Entrar</a>}
+									<a href={`${root}#catalogo`}>{tr("Catálogo")}</a>
+									<a href={`${root}?filtro=ofertas#catalogo`}>{tr("Ofertas")}</a>
+									<a href={`${root}?filtro=gratis#catalogo`}>{tr("Desde $0")}</a>
+									<a href="/market/agentes-para-empresas">{tr("Agentes para empresas")}</a>
+									{user ? <a href="/market/mis-compras">{tr("Mis compras")}</a> : <a href={`/market/entrar?next=${encodeURIComponent(meta.path)}`}>{tr("Entrar")}</a>}
+									<a href={otherHref} hreflang={other} lang={other}>
+										{lang === "en" ? "Ver en español" : "View in English"}
+									</a>
 									{isAdmin && <a href="/market/admin">Admin</a>}
 									<a href={siteHref}>
-										<Icon name="back" size={16} /> Volver al blog
+										<Icon name="back" size={16} /> {tr("Volver al blog")}
 									</a>
 									{user && (
 										<form method="post" action="/market/salir">
 											<CsrfField csrf={csrf} />
 											<button type="submit" class="mk-linkbtn">
-												Salir de mi cuenta
+												{tr("Salir de mi cuenta")}
 											</button>
 										</form>
 									)}
@@ -208,7 +226,7 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 								<img src="/market/static/site/logo-negro.webp" alt="Tony Ciencia" class="logo-light" width="32" height="32" loading="lazy" />
 								<span class="mk-brand-tag">Market</span>
 							</a>
-							<p>Herramientas de IA en español para crear anuncios, videos y automatizaciones. Pago único, descarga inmediata.</p>
+							<p>{tr("Herramientas de IA en español para crear anuncios, videos y automatizaciones. Pago único, descarga inmediata.")}</p>
 							<div class="mk-social">
 								<a href="https://youtube.com/@tonyciencia" target="_blank" rel="noopener" aria-label="YouTube">
 									YouTube
@@ -221,29 +239,29 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 								</a>
 							</div>
 						</div>
-						<nav aria-label="Tienda">
-							<b>Tienda</b>
-							<a href="/market#catalogo">Catálogo</a>
-							<a href="/market/agentes-para-empresas">Agentes para empresas</a>
-							<a href="/market/mis-compras">Mis compras</a>
+						<nav aria-label={tr("Tienda")}>
+							<b>{tr("Tienda")}</b>
+							<a href={`${root}#catalogo`}>{tr("Catálogo")}</a>
+							<a href="/market/agentes-para-empresas">{tr("Agentes para empresas")}</a>
+							<a href="/market/mis-compras">{tr("Mis compras")}</a>
 						</nav>
-						<nav aria-label="Ayuda">
-							<b>Ayuda</b>
-							<a href="mailto:business@tonyciencia.com">Soporte</a>
-							<a href="/market/legal/reembolsos">Reembolsos</a>
-							<a href={config.mode === "live" ? "/contacto" : "https://tonyciencia.com/contacto"}>Contacto</a>
+						<nav aria-label={tr("Ayuda")}>
+							<b>{tr("Ayuda")}</b>
+							<a href="mailto:business@tonyciencia.com">{tr("Soporte")}</a>
+							<a href="/market/legal/reembolsos">{tr("Reembolsos")}</a>
+							<a href={config.mode === "live" ? "/contacto" : "https://tonyciencia.com/contacto"}>{tr("Contacto")}</a>
 						</nav>
 						<nav aria-label="Legal">
 							<b>Legal</b>
-							<a href="/market/legal/terminos">Términos</a>
-							<a href="/market/legal/privacidad">Privacidad</a>
+							<a href="/market/legal/terminos">{tr("Términos")}</a>
+							<a href="/market/legal/privacidad">{tr("Privacidad")}</a>
 							<a href={siteHref}>Tony Ciencia</a>
 						</nav>
 					</div>
 					<div class="mk-footer-bottom">
 						<span class="mk-pay">
 							<span class="mk-pay-stripe">
-								<Icon name="lock" size={14} /> Pagos seguros con <BrandLogo k="stripe" size={16} /> Stripe
+								<Icon name="lock" size={14} /> {tr("Pagos seguros con")} <BrandLogo k="stripe" size={16} /> Stripe
 							</span>
 							<span>Visa · Mastercard · Amex · Apple Pay · Google Pay</span>
 						</span>

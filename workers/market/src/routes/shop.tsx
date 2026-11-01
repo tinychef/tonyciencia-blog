@@ -1,3 +1,4 @@
+import { categoryLabelIn, hasEnglish, localize, productPath, storeRoot, type Lang } from "../lib/i18n";
 import type { Hono, MiddlewareHandler } from "hono";
 import { clientIp, deps, type AppEnv, type Ctx } from "../context";
 import { hit, RATE_RULES } from "../lib/ratelimit";
@@ -57,9 +58,11 @@ export function registerShop(app: Hono<AppEnv>) {
 	app.use("/market", welcomeMiddleware);
 	app.use("/market/producto/*", welcomeMiddleware);
 	app.use("/market/agentes-para-empresas", welcomeMiddleware);
+	app.use("/market/en", welcomeMiddleware);
+	app.use("/market/en/*", welcomeMiddleware);
 
-	app.get("/market", async (c) => {
-		const products = await listShopProducts(c.env.MARKET_DB);
+	const catalogPage = async (c: Ctx, lang: Lang) => {
+		const products = (await listShopProducts(c.env.MARKET_DB)).map((p) => localize(p, lang));
 		const rawCat = c.req.query("categoria") ?? "";
 		const category = CATEGORIES.some((x) => x.slug === rawCat) ? rawCat : null;
 		const query = (c.req.query("q") ?? "").slice(0, 60);
@@ -72,25 +75,33 @@ export function registerShop(app: Hono<AppEnv>) {
 			c,
 			{
 				title: "Market Tony",
-				fullTitle: "Mi stack de herramientas de IA en español | Market Tony",
-				path: "/market",
+				fullTitle: lang === "en" ? "AI agents and skills for Claude Code and Codex | Market Tony" : "Mi stack de herramientas de IA en español | Market Tony",
+				path: lang === "en" ? "/market/en/" : "/market",
 				description:
-					"Agentes y skills de IA en español para Claude Code y Codex: anuncios, videos 3D, edición de video y PageSpeed. Pago único o paga lo que quieras.",
+					lang === "en"
+						? "AI agents and skills for Claude Code and Codex: ad prompts, 3D explainer videos, talking-head video editing and PageSpeed fixes. One-time payment."
+						: "Agentes y skills de IA en español para Claude Code y Codex: anuncios, videos 3D, edición de video y PageSpeed. Pago único o paga lo que quieras.",
 				image: products.find((p) => p.images[0])?.images[0]?.src,
-				jsonLd: [...catalogJsonLd(origin, products), faqJsonLd(storeFaq(products.some((p) => p.availability === "coming_soon")))],
+				alternates: { es: "/market/", en: "/market/en/" },
+				jsonLd: [...catalogJsonLd(origin, products, lang), faqJsonLd(storeFaq(products.some((p) => p.availability === "coming_soon"), lang))],
 			},
 			<Catalog products={products} welcome={c.get("welcome")} category={category} query={query} sort={sort} filter={filter} />,
 		);
-	});
+	};
+	app.get("/market", (c) => catalogPage(c, "es"));
+	app.get("/market/en", (c) => catalogPage(c, "en"));
+	app.get("/market/en/", (c) => catalogPage(c, "en"));
 
-	app.get("/market/producto/:slug", async (c) => {
-		const slug = c.req.param("slug");
+	const productPage = async (c: Ctx, lang: Lang) => {
+		const slug = c.req.param("slug") ?? "";
 		if (!isSlug(slug)) return renderMessage(c, 404, "Producto no encontrado", "Revisa el enlace o vuelve al catálogo.");
 		const db = c.env.MARKET_DB;
-		const product = await getShopProduct(db, slug);
+		const base = await getShopProduct(db, slug);
+		if (base && lang === "en" && !hasEnglish(base)) return c.redirect(productPath(slug, "es"), 302);
+		const product = base ? localize(base, lang) : null;
 		if (!product) {
 			// Un producto retirado (existe pero está inactivo) redirige al catálogo en vez de dar 404.
-			if (await getProductBySlug(db, slug, false)) return c.redirect("/market/", 301);
+			if (await getProductBySlug(db, slug, false)) return c.redirect(storeRoot(lang), 301);
 			return renderMessage(c, 404, "Producto no encontrado", "Este producto no existe o ya no está disponible.");
 		}
 		const user = c.get("user");
@@ -126,11 +137,11 @@ export function registerShop(app: Hono<AppEnv>) {
 									: null);
 		const notice = aviso === "lista-ok" ? "¡Listo! Te avisaremos por correo el día del lanzamiento." : aviso === "resena-ok" ? "¡Gracias por tu reseña!" : null;
 		// Relacionados: misma categoría primero, luego el resto (disponibles antes que próximos).
-		const others = all.filter((p) => p.id !== product.id);
+		const others = all.filter((p) => p.id !== product.id).map((p) => localize(p, lang));
 		const related = [...others.filter((p) => p.category === product.category), ...others.filter((p) => p.category !== product.category)].slice(0, 3);
 		const origin = c.get("config").origin;
-		const path = `/market/producto/${product.slug}`;
-		const cat = categoryLabel(product.category);
+		const path = productPath(product.slug, lang);
+		const cat = categoryLabelIn(lang, product.category, categoryLabel(product.category));
 		return render(
 			c,
 			{
@@ -143,11 +154,12 @@ export function registerShop(app: Hono<AppEnv>) {
 				ogType: "product",
 				priceCents: fromPriceCents(product),
 				currency: product.currency,
+				alternates: hasEnglish(base!) ? { es: productPath(product.slug, "es"), en: productPath(product.slug, "en") } : undefined,
 				jsonLd: [
-					productJsonLd(origin, product, reviews),
+					productJsonLd(origin, product, reviews, path),
 					breadcrumbJsonLd(origin, [
-						{ name: "Market Tony", path: "/market" },
-						...(cat ? [{ name: cat, path: `/market/?categoria=${product.category}` }] : []),
+						{ name: "Market Tony", path: storeRoot(lang) },
+						...(cat ? [{ name: cat, path: `${storeRoot(lang)}?categoria=${product.category}` }] : []),
 						{ name: product.title, path },
 					]),
 					...(product.faq.length ? [faqJsonLd(product.faq)] : []),
@@ -174,7 +186,9 @@ export function registerShop(app: Hono<AppEnv>) {
 				})()}
 			/>,
 		);
-	});
+	};
+	app.get("/market/producto/:slug", (c) => productPage(c, "es"));
+	app.get("/market/en/product/:slug", (c) => productPage(c, "en"));
 
 	// "Avísame cuando salga": solo para productos próximos. Guarda el correo; nada más.
 	app.post("/market/producto/:slug/avisame", async (c) => {

@@ -1,3 +1,4 @@
+import { parseI18n, type ProductLocale } from "../lib/i18n";
 import { parseCompat, type Compat } from "../lib/brands";
 /** Acceso a datos de D1. Todas las consultas usan parámetros (nunca concatenación de strings). */
 
@@ -45,6 +46,8 @@ export interface ProductRow {
 	max_price_cents: number | null;
 	// ── Logos de compatibilidad (migración 0007) ──
 	compat: string;
+	// ── Versión en inglés (migración 0011; filas anteriores no la traen) ──
+	i18n?: string;
 }
 
 export interface ProductSpec {
@@ -57,8 +60,9 @@ export interface ProductFaq {
 	a: string;
 }
 
-export type Product = Omit<ProductRow, "images" | "tags" | "highlights" | "specs" | "faq" | "compat"> & {
+export type Product = Omit<ProductRow, "images" | "tags" | "highlights" | "specs" | "faq" | "compat" | "i18n"> & {
 	compat: Compat;
+	i18n: { en?: ProductLocale };
 	images: ProductImage[];
 	tags: string[];
 	highlights: string[];
@@ -155,6 +159,7 @@ const toProduct = (r: ProductRow): Product => ({
 	min_price_cents: r.min_price_cents ?? 0,
 	max_price_cents: r.max_price_cents ?? null,
 	compat: parseCompat(r.compat),
+	i18n: parseI18n(r.i18n),
 	images: parseImages(r.images),
 	tags: parseJsonArray(r.tags, isStr),
 	highlights: parseJsonArray(r.highlights, isStr),

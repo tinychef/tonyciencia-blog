@@ -1168,3 +1168,10 @@ a.mk3-preset { display: inline-flex; align-items: center; justify-content: cente
 @media (max-width: 920px) { .mk-detail-grid { grid-template-columns: minmax(0, 1fr); } }
 /* Tarjeta en escritorio: la línea de valor completa (hasta 3 líneas), sin cortar con «…» a mitad de frase. */
 @media (min-width: 720px) { .mk5-line { -webkit-line-clamp: 3; } }
+
+/* Selector de idioma ES/EN (en la cabecera; el idioma activo resaltado) */
+.mk-lang { display: inline-flex; align-items: center; height: 36px; padding: 3px; border-radius: 999px; border: 1px solid var(--color-border); font-size: 12px; font-weight: 800; letter-spacing: 0.06em; color: var(--color-text-secondary); text-decoration: none; }
+.mk-lang span { display: inline-grid; place-items: center; min-width: 30px; height: 28px; border-radius: 999px; }
+.mk-lang span.is-on { background: var(--color-text); color: var(--color-bg); }
+.mk-lang:hover { color: var(--color-text); border-color: var(--color-text-secondary); }
+@media (max-width: 380px) { .mk-lang { display: none; } }

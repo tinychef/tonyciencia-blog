@@ -8,6 +8,7 @@ import { CsrfField } from "./layout";
 import { BRANDS, type CompatItem } from "../lib/brands";
 import { BrandLogo, CATEGORY_ICON, Icon, type IconName } from "./icons";
 import { Description } from "./render";
+import { categoryLabelIn, productPath, salesLabel, storeRoot, t as tl, useLang, useT, type Lang } from "../lib/i18n";
 
 // ── Piezas comunes ───────────────────────────────────────────────────
 
@@ -54,15 +55,16 @@ const BadgeList: FC<{ badges: Badge[]; class?: string }> = ({ badges, class: cls
  * precio con el cupón de bienvenida (solo precio fijo). "Paga lo que quieras" muestra el mínimo y el sugerido.
  */
 export const PriceBlock: FC<{ product: Product; welcome: WelcomeOffer | null; size?: "sm" | "lg" }> = ({ product, welcome, size = "sm" }) => {
+	const tr = useT();
 	const cur = product.currency.toUpperCase();
 	const soon = product.availability === "coming_soon";
 	if (product.kind === "free") {
 		return (
 			<span class={`mk3-price mk3-price--${size}`}>
 				<span class="mk3-price-row">
-					<span class="mk3-price-now">Gratis</span>
+					<span class="mk3-price-now">$0</span>
 				</span>
-				<span class="mk3-price-note">Descarga inmediata</span>
+				<span class="mk3-price-note">{tr("Descarga inmediata")}</span>
 			</span>
 		);
 	}
@@ -70,13 +72,13 @@ export const PriceBlock: FC<{ product: Product; welcome: WelcomeOffer | null; si
 		const { min } = pwywBounds(product);
 		return (
 			<span class={`mk3-price mk3-price--${size}`}>
-				<span class="mk3-price-label">{soon ? "Precio previsto" : "Tú pones el precio"}</span>
+				<span class="mk3-price-label">{tr(soon ? "Precio previsto" : "Tú pones el precio")}</span>
 				<span class="mk3-price-row">
-					<span class="mk3-price-from">Desde</span>
+					<span class="mk3-price-from">{tr("Desde")}</span>
 					<span class="mk3-price-now">{amount(min, product.currency)}</span>
 					<span class="mk3-price-cur">{cur}</span>
 				</span>
-				<span class="mk3-price-note">Sugerido {formatPrice(product.price_cents, product.currency)}</span>
+				<span class="mk3-price-note">{tr("Sugerido")} {formatPrice(product.price_cents, product.currency)}</span>
 			</span>
 		);
 	}
@@ -84,26 +86,26 @@ export const PriceBlock: FC<{ product: Product; welcome: WelcomeOffer | null; si
 	const couponPrice = size === "lg" && !soon && welcome?.percentOff ? priceWithPercentOff(product.price_cents, welcome.percentOff) : null;
 	return (
 		<span class={`mk3-price mk3-price--${size} ${sale && !soon ? "is-sale" : ""}`}>
-			{soon && <span class="mk3-price-label">Precio previsto</span>}
+			{soon && <span class="mk3-price-label">{tr("Precio previsto")}</span>}
 			<span class="mk3-price-row">
 				<span class="mk3-price-now">{amount(product.price_cents, product.currency)}</span>
 				<span class="mk3-price-cur">{cur}</span>
 				{sale && (
-					<s class="mk3-price-was" aria-label={`Precio anterior ${formatPrice(sale.wasCents, product.currency)}`}>
+					<s class="mk3-price-was" aria-label={`${tr("Precio anterior")} ${formatPrice(sale.wasCents, product.currency)}`}>
 						{amount(sale.wasCents, product.currency)}
 					</s>
 				)}
 			</span>
 			{sale && !soon ? (
 				<span class="mk3-price-save">
-					<span class="mk3-off">−{sale.percent}%</span> Ahorras {formatPrice(sale.saveCents, product.currency)}
+					<span class="mk3-off">−{sale.percent}%</span> {tr("Ahorras")} {formatPrice(sale.saveCents, product.currency)}
 				</span>
 			) : (
-				<span class="mk3-price-note">{soon ? "Lista de espera abierta" : "Pago único · sin suscripción"}</span>
+				<span class="mk3-price-note">{tr(soon ? "Lista de espera abierta" : "Pago único · sin suscripción")}</span>
 			)}
 			{couponPrice !== null && (
 				<span class="mk3-price-coupon">
-					{formatPrice(couponPrice, product.currency)} con <b>{welcome!.code}</b> en tu 1.ª compra
+					{formatPrice(couponPrice, product.currency)} {tr("con")} <b>{welcome!.code}</b> {tr("en tu 1.ª compra")}
 				</span>
 			)}
 		</span>
@@ -112,20 +114,21 @@ export const PriceBlock: FC<{ product: Product; welcome: WelcomeOffer | null; si
 
 /** Logos de compatibilidad (máx. `max`; el resto como «+N»). Marcas sin logo permitido van como texto. */
 export const CompatRow: FC<{ items: CompatItem[]; max?: number; class?: string }> = ({ items, max = 5, class: cls }) => {
+	const tr = useT();
 	if (!items.length) return null;
 	const shown = items.slice(0, max);
 	const rest = items.length - shown.length;
 	return (
-		<span class={`mk3-compat ${cls ?? ""}`} role="list" aria-label={`Funciona con: ${items.map((i) => i.label).join(", ")}`}>
+		<span class={`mk3-compat ${cls ?? ""}`} role="list" aria-label={`${tr("Funciona con")}: ${items.map((i) => tr(i.label)).join(", ")}`}>
 			{shown.map((i) =>
 				BRANDS[i.k]?.icon ? (
 					<span class="mk3-compat-logo" role="listitem" title={i.label}>
 						<BrandLogo k={i.k} size={15} />
-						<span class="mk-visually-hidden">{i.label}</span>
+						<span class="mk-visually-hidden">{tr(i.label)}</span>
 					</span>
 				) : (
 					<span class="mk3-compat-text" role="listitem">
-						{i.label}
+						{tr(i.label)}
 					</span>
 				),
 			)}
@@ -140,17 +143,19 @@ const IncludeIcon: FC<{ item: CompatItem; size?: number }> = ({ item, size = 18 
 
 /** «2 en 1»: lo que viene dentro del producto, con sus logos. */
 export const IncludesBox: FC<{ items: CompatItem[]; compact?: boolean }> = ({ items, compact }) => {
+	const tr = useT();
+	const lang = useLang();
 	if (items.length < 2) return null;
 	return (
 		<div class={`mk3-includes ${compact ? "mk3-includes--compact" : ""}`}>
-			<span class="mk3-includes-badge">{items.length} en 1</span>
+			<span class="mk3-includes-badge">{lang === "en" ? `${items.length}-in-1` : `${items.length} en 1`}</span>
 			<span class="mk3-includes-list">
 				{items.map((it, i) => (
 					<>
 						{i > 0 && <span class="mk3-includes-plus" aria-hidden="true">+</span>}
 						<span class="mk3-includes-item">
 							<IncludeIcon item={it} size={compact ? 15 : 18} />
-							<span class="mk3-includes-label">{it.label}</span>
+							<span class="mk3-includes-label">{tr(it.label)}</span>
 						</span>
 					</>
 				))}
@@ -160,6 +165,7 @@ export const IncludesBox: FC<{ items: CompatItem[]; compact?: boolean }> = ({ it
 };
 
 const Meta: FC<{ p: ShopProduct }> = ({ p }) => {
+	const lang = useLang();
 	const hasRating = p.stats.ratingCount > 0 && p.stats.ratingAvg !== null;
 	if (!hasRating && p.stats.sales === 0) return null;
 	return (
@@ -171,12 +177,12 @@ const Meta: FC<{ p: ShopProduct }> = ({ p }) => {
 					<span class="mk-muted">({p.stats.ratingCount})</span>
 				</span>
 			)}
-			{p.stats.sales > 0 && <span class="mk-meta-sales">{salesText(p.stats.sales)}</span>}
+			{p.stats.sales > 0 && <span class="mk-meta-sales">{salesLabel(lang, p.stats.sales)}</span>}
 		</span>
 	);
 };
 
-const productUrl = (slug: string) => `/market/producto/${slug}`;
+const productUrl = (slug: string, lang: Lang = "es") => productPath(slug, lang);
 
 /** Texto de búsqueda de la tarjeta (filtro instantáneo de market.js). */
 const searchText = (p: ShopProduct) => [p.title, p.tagline, p.summary, ...p.tags, categoryLabel(p.category) ?? ""].join(" ").toLowerCase();
@@ -196,16 +202,17 @@ export const shortName = (title: string) => (title.split(":")[0] ?? title).trim(
  * «Paga lo que quieras» muestra el mínimo con «+» ($0+) y el sugerido. Nunca la palabra «Gratis»: el número.
  */
 export const PriceTag: FC<{ product: Product }> = ({ product }) => {
+	const tr = useT();
 	const soon = product.availability === "coming_soon";
 	if (product.kind === "free") return <span class="mk5-price"><span class="mk5-tag">$0</span></span>;
 	if (isPwyw(product)) {
 		const { min } = pwywBounds(product);
 		return (
 			<span class="mk5-price">
-				<span class="mk5-tag" aria-label={`Desde ${formatPrice(min, product.currency)}`}>
+				<span class="mk5-tag" aria-label={`${tr("Desde")} ${formatPrice(min, product.currency)}`}>
 					{amount(min, product.currency)}+
 				</span>
-				<span class="mk5-note">sugerido {amount(product.price_cents, product.currency)}</span>
+				<span class="mk5-note">{tr("sugerido")} {amount(product.price_cents, product.currency)}</span>
 			</span>
 		);
 	}
@@ -215,24 +222,25 @@ export const PriceTag: FC<{ product: Product }> = ({ product }) => {
 			<span class="mk5-tag">{amount(product.price_cents, product.currency)}</span>
 			{sale && !soon && (
 				<>
-					<s class="mk5-was" aria-label={`Precio anterior ${formatPrice(sale.wasCents, product.currency)}`}>
+					<s class="mk5-was" aria-label={`${tr("Precio anterior")} ${formatPrice(sale.wasCents, product.currency)}`}>
 						{amount(sale.wasCents, product.currency)}
 					</s>
 					<span class="mk5-off">−{sale.percent} %</span>
 				</>
 			)}
-			{soon && <span class="mk5-note">precio previsto</span>}
+			{soon && <span class="mk5-note">{tr("precio previsto")}</span>}
 		</span>
 	);
 };
 
 /** Una sola etiqueta en la tarjeta, la que más pesa en la decisión: oferta real > paga lo que quieras > próximamente > más vendido. */
-function primaryBadge(p: ShopProduct, maxSales: number): Badge | null {
+function primaryBadge(p: ShopProduct, maxSales: number, lang: Lang = "es"): Badge | null {
 	const sale = saleInfo(p);
-	if (sale && p.availability === "available") return { label: `Oferta −${sale.percent} %`, tone: "sale" };
-	if (p.availability === "coming_soon") return { label: "Próximamente", tone: "soon" };
-	if (isPwyw(p)) return { label: "Paga lo que quieras", tone: "pwyw" };
-	return badgesFor(p, maxSales).find((b) => b.tone === "hot") ?? null;
+	if (sale && p.availability === "available") return { label: `${lang === "en" ? "Sale" : "Oferta"} −${sale.percent} %`, tone: "sale" };
+	if (p.availability === "coming_soon") return { label: tl(lang, "Próximamente"), tone: "soon" };
+	if (isPwyw(p)) return { label: tl(lang, "Paga lo que quieras"), tone: "pwyw" };
+	const hot = badgesFor(p, maxSales).find((b) => b.tone === "hot");
+	return hot ? { ...hot, label: tl(lang, hot.label) } : null;
 }
 
 export const ProductCard: FC<{ p: ShopProduct; maxSales: number; welcome: WelcomeOffer | null; eager?: boolean; hidden?: boolean }> = ({
@@ -241,10 +249,12 @@ export const ProductCard: FC<{ p: ShopProduct; maxSales: number; welcome: Welcom
 	eager,
 	hidden,
 }) => {
+	const lang = useLang();
+	const tr = useT();
 	const cover = p.images[0];
 	const soon = p.availability === "coming_soon";
 	const sale = saleInfo(p);
-	const badge = primaryBadge(p, maxSales);
+	const badge = primaryBadge(p, maxSales, lang);
 	const bundle = p.compat.includes.length >= 2 ? p.compat.includes : null;
 	return (
 		<li
@@ -269,7 +279,7 @@ export const ProductCard: FC<{ p: ShopProduct; maxSales: number; welcome: Welcom
 							loading={eager ? "eager" : "lazy"}
 							fetchpriority={eager ? "high" : undefined}
 							decoding={eager ? undefined : "async"}
-							data-anim={ANIMATED_COVERS.has(p.slug) && cover.src.endsWith("/cover.webp") ? cover.src.replace(/cover\.webp$/, "cover-animada.webp") : undefined}
+							data-anim={ANIMATED_COVERS.has(p.slug) && cover.src.endsWith("cover.webp") ? cover.src.replace(/cover\.webp$/, "cover-animada.webp") : undefined}
 						/>
 					) : (
 						<span class="mk3-media-empty" aria-hidden="true"></span>
@@ -277,11 +287,11 @@ export const ProductCard: FC<{ p: ShopProduct; maxSales: number; welcome: Welcom
 				</div>
 				<div class="mk5-body">
 					<div class="mk5-top">
-						<p class="mk5-kind">{categoryLabel(p.category) ?? "Producto digital"}</p>
+						<p class="mk5-kind">{categoryLabelIn(lang, p.category, categoryLabel(p.category)) ?? tr("Producto digital")}</p>
 						{badge && <span class={`mk5-badge mk5-badge--${badge.tone}`}>{badge.label}</span>}
 					</div>
 					<h3 class="mk5-title">
-						<a href={productUrl(p.slug)} class="mk-stretch">
+						<a href={productUrl(p.slug, lang)} class="mk-stretch">
 							{shortName(p.title)}
 						</a>
 					</h3>
@@ -291,7 +301,7 @@ export const ProductCard: FC<{ p: ShopProduct; maxSales: number; welcome: Welcom
 						{bundle && (
 							<span class="mk5-incl">
 								<i aria-hidden="true"></i>
-								{bundle.map((b) => b.label).join(" + ")}
+								{bundle.map((b) => tr(b.label)).join(" + ")}
 							</span>
 						)}
 						<CompatRow items={p.compat.works} max={5} />
@@ -299,7 +309,7 @@ export const ProductCard: FC<{ p: ShopProduct; maxSales: number; welcome: Welcom
 					<div class="mk5-buy">
 						<PriceTag product={p} />
 						<span class="mk5-go" aria-hidden="true">
-							{soon ? "Avísame" : sale ? "Ver oferta" : isPwyw(p) ? "Elegir precio" : "Ver"}
+							{tr(soon ? "Avísame" : sale ? "Ver oferta" : isPwyw(p) ? "Elegir precio" : "Ver")}
 							<Icon name="arrow" size={16} />
 						</span>
 					</div>
@@ -318,7 +328,9 @@ const TRUST: Array<{ icon: IconName; title: string; text: string; href?: string 
 	{ icon: "chat", title: "Soporte en español", text: "Te responde una persona: business@tonyciencia.com" },
 ];
 
-export const TrustStrip: FC<{ compact?: boolean }> = ({ compact }) => (
+export const TrustStrip: FC<{ compact?: boolean }> = ({ compact }) => {
+	const tr = useT();
+	return (
 	<ul class={`mk-trust ${compact ? "mk-trust--compact" : ""}`}>
 		{TRUST.map((t) => (
 			<li>
@@ -326,13 +338,14 @@ export const TrustStrip: FC<{ compact?: boolean }> = ({ compact }) => (
 					<Icon name={t.icon} size={18} />
 				</span>
 				<span>
-					<b>{t.href ? <a href={t.href}>{t.title}</a> : t.title}</b>
-					{!compact && <small>{t.text}</small>}
+					<b>{t.href ? <a href={t.href}>{tr(t.title)}</a> : tr(t.title)}</b>
+					{!compact && <small>{tr(t.text)}</small>}
 				</span>
 			</li>
 		))}
 	</ul>
-);
+	);
+};
 
 // ── Catálogo ─────────────────────────────────────────────────────────
 
@@ -378,6 +391,8 @@ export function matchesFilter(p: ShopProduct, filter: CatalogFilter): boolean {
 }
 
 export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query, sort = "destacados", filter = null }) => {
+	const lang = useLang();
+	const tr = useT();
 	const maxSales = Math.max(0, ...products.map((p) => p.stats.sales));
 	const q = query.trim().toLowerCase();
 	const visible = (p: ShopProduct) => (!category || p.category === category) && (!q || searchText(p).includes(q)) && matchesFilter(p, filter);
@@ -396,79 +411,79 @@ export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query, 
 		const base: Record<string, string | null> = { categoria: category, q: query || null, orden: sort === "destacados" ? null : sort, filtro: filter };
 		for (const [k, v] of Object.entries({ ...base, ...extra })) if (v) u.set(k, v);
 		const s = u.toString();
-		return `/market/${s ? `?${s}` : ""}#catalogo`;
+		return `${storeRoot(lang)}${s ? `?${s}` : ""}#catalogo`;
 	};
 	return (
 		<>
 			<section class="tc-shell mk5-catalog" id="catalogo" aria-labelledby="catalogo-titulo">
 				<div class="mk5-intro">
-					<h1 id="catalogo-titulo">Mi stack de herramientas</h1>
-					<p>Agentes y skills de IA en español para anuncios, video y SEO · pago único · descarga inmediata</p>
+					<h1 id="catalogo-titulo">{tr("Mi stack de herramientas")}</h1>
+					<p>{tr("Agentes y skills de IA en español para anuncios, video y SEO · pago único · descarga inmediata")}</p>
 				</div>
-				<form class="mk3-toolbar" method="get" action="/market/#catalogo" data-catalog-form>
+				<form class="mk3-toolbar" method="get" action={`${storeRoot(lang)}#catalogo`} data-catalog-form>
 					<label class="mk-visually-hidden" for="mk-q">
-						Buscar en el catálogo
+						{tr("Buscar en el catálogo")}
 					</label>
-					<input id="mk-q" class="mk3-toolbar-q" type="search" name="q" value={query} placeholder="Buscar en el catálogo…" autocomplete="off" maxlength={60} data-filter-input />
+					<input id="mk-q" class="mk3-toolbar-q" type="search" name="q" value={query} placeholder={tr("Buscar en el catálogo…")} autocomplete="off" maxlength={60} data-filter-input />
 					<label class="mk-visually-hidden" for="mk-cat">
-						Categoría
+						{tr("Categoría")}
 					</label>
 					<select id="mk-cat" name="categoria" data-filter-cat>
-						<option value="">Todas las categorías</option>
+						<option value="">{tr("Todas las categorías")}</option>
 						{cats.map((c) => (
 							<option value={c.slug} selected={category === c.slug}>
-								{c.label}
+								{categoryLabelIn(lang, c.slug, c.label)}
 							</option>
 						))}
 					</select>
 					<label class="mk-visually-hidden" for="mk-sort">
-						Ordenar por
+						{tr("Ordenar por")}
 					</label>
 					<select id="mk-sort" name="orden" data-filter-sort>
 						{SORTS.map((s) => (
 							<option value={s.value} selected={sort === s.value}>
-								{s.label}
+								{tr(s.label)}
 							</option>
 						))}
 					</select>
 					{filter && <input type="hidden" name="filtro" value={filter} />}
 					<noscript>
 						<button type="submit" class="tc-btn tc-btn--secondary">
-							Aplicar
+							{tr("Aplicar")}
 						</button>
 					</noscript>
 				</form>
-				<nav class="mk3-pills" aria-label="Filtros rápidos">
+				<nav class="mk3-pills" aria-label={tr("Filtros rápidos")}>
 					<a href={keep({ filtro: null, categoria: null })} class="mk3-pill" aria-current={!filter && !category ? "true" : undefined} data-quick="">
-						Todo <small>{products.length}</small>
+						{tr("Todo")} <small>{products.length}</small>
 					</a>
 					{deals.length > 0 && (
 						<a href={keep({ filtro: "ofertas", categoria: null })} class="mk3-pill" aria-current={filter === "ofertas" ? "true" : undefined} data-quick="ofertas">
-							Ofertas <small>{deals.length}</small>
+							{tr("Ofertas")} <small>{deals.length}</small>
 						</a>
 					)}
 					{freeCount > 0 && (
 						<a href={keep({ filtro: "gratis", categoria: null })} class="mk3-pill" aria-current={filter === "gratis" ? "true" : undefined} data-quick="gratis">
-							Desde $0 <small>{freeCount}</small>
+							{tr("Desde $0")} <small>{freeCount}</small>
 						</a>
 					)}
 					{soonCount > 0 && (
 						<a href={keep({ filtro: "disponibles" })} class="mk3-pill" aria-current={filter === "disponibles" ? "true" : undefined} data-quick="disponibles">
-							Disponibles ahora
+							{tr("Disponibles ahora")}
 						</a>
 					)}
 					{cats.length > 1 &&
 						cats.map((c) => (
 							<a href={keep({ categoria: c.slug, filtro: null })} class="mk3-pill" data-cat-filter={c.slug} aria-current={category === c.slug ? "true" : undefined}>
-								{c.label} <small>{products.filter((p) => p.category === c.slug).length}</small>
+								{categoryLabelIn(lang, c.slug, c.label)} <small>{products.filter((p) => p.category === c.slug).length}</small>
 							</a>
 						))}
 				</nav>
 				<p class="mk-visually-hidden" data-filter-count>
-					{shown.length} {shown.length === 1 ? "producto" : "productos"}
+					{shown.length} {tr(shown.length === 1 ? "producto" : "productos")}
 				</p>
 				{products.length === 0 ? (
-					<p class="mk-alert">Todavía no hay productos publicados. Vuelve pronto.</p>
+					<p class="mk-alert">{tr("Todavía no hay productos publicados. Vuelve pronto.")}</p>
 				) : (
 					<>
 						<ul class="mk5-grid" data-filter-grid>
@@ -478,7 +493,7 @@ export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query, 
 							))}
 						</ul>
 						<p class="mk-empty" data-filter-empty hidden={shown.length > 0 ? true : undefined}>
-							No encontramos productos con esos filtros. <a href="/market#catalogo">Ver todos</a>
+							{tr("No encontramos productos con esos filtros.")} <a href={`${storeRoot(lang)}#catalogo`}>{tr("Ver todos")}</a>
 						</p>
 					</>
 				)}
@@ -487,14 +502,15 @@ export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query, 
 			<section class="tc-shell mk-section">
 				<a href="/market/agentes-para-empresas" class="mk-service-banner">
 					<div>
-						<p class="mk-kicker">Servicio a medida</p>
-						<h2>¿Prefieres que lo construyamos por ti?</h2>
+						<p class="mk-kicker">{tr("Servicio a medida")}</p>
+						<h2>{tr("¿Prefieres que lo construyamos por ti?")}</h2>
 						<p>
-							Diseñamos y entregamos agentes de IA para tu empresa: ventas por WhatsApp, atención, agenda y automatizaciones conectadas a tu
-							CRM. Reserva un diagnóstico y ve los horarios disponibles antes de pagar.
+							{tr(
+								"Diseñamos y entregamos agentes de IA para tu empresa: ventas por WhatsApp, atención, agenda y automatizaciones conectadas a tu CRM. Reserva un diagnóstico y ve los horarios disponibles antes de pagar.",
+							)}
 						</p>
 						<span class="tc-btn tc-btn--primary">
-							Ver el servicio <Icon name="arrow" size={16} />
+							{tr("Ver el servicio")} <Icon name="arrow" size={16} />
 						</span>
 					</div>
 					<img src="/market/static/products/agentes-para-empresas/mascota.webp" alt="" width="260" height="260" loading="lazy" class="mk-float" />
@@ -504,22 +520,22 @@ export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query, 
 			<section class="tc-shell mk-section" aria-labelledby="porque-titulo">
 				<div class="mk-section-head">
 					<div>
-						<p class="mk-kicker">Por qué Market Tony</p>
-						<h2 id="porque-titulo">Herramientas prácticas, compra sin riesgo</h2>
+						<p class="mk-kicker">{tr("Por qué Market Tony")}</p>
+						<h2 id="porque-titulo">{tr("Herramientas prácticas, compra sin riesgo")}</h2>
 					</div>
 				</div>
 				<div class="mk-why">
 					<div>
-						<b>Enfocadas en un trabajo concreto</b>
-						<p>Cada producto resuelve una tarea puntual: anuncios, video, SEO técnico o automatización. Las fichas dicen qué hace y qué no.</p>
+						<b>{tr("Enfocadas en un trabajo concreto")}</b>
+						<p>{tr("Cada producto resuelve una tarea puntual: anuncios, video, SEO técnico o automatización. Las fichas dicen qué hace y qué no.")}</p>
 					</div>
 					<div>
-						<b>Pago único o tú eliges el precio</b>
-						<p>Sin suscripciones. Algunos productos son «paga lo que quieras»: desde $0. Las herramientas de IA que uses aparte tienen su propio costo.</p>
+						<b>{tr("Pago único o tú eliges el precio")}</b>
+						<p>{tr("Sin suscripciones. Algunos productos son «paga lo que quieras»: desde $0. Las herramientas de IA que uses aparte tienen su propio costo.")}</p>
 					</div>
 					<div>
-						<b>En español y con soporte</b>
-						<p>Guías e instrucciones en español. Si algo no funciona, te responde una persona por correo.</p>
+						<b>{tr("En español y con soporte")}</b>
+						<p>{tr("Guías e instrucciones en español. Si algo no funciona, te responde una persona por correo.")}</p>
 					</div>
 				</div>
 				<TrustStrip />
@@ -528,12 +544,12 @@ export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query, 
 			<section class="tc-shell mk-section mk-faq-wrap" aria-labelledby="faq-titulo">
 				<div class="mk-section-head">
 					<div>
-						<p class="mk-kicker">Preguntas frecuentes</p>
-						<h2 id="faq-titulo">Antes de comprar</h2>
+						<p class="mk-kicker">{tr("Preguntas frecuentes")}</p>
+						<h2 id="faq-titulo">{tr("Antes de comprar")}</h2>
 					</div>
 				</div>
 				<div class="mk-faq">
-					{storeFaq(soonCount > 0).map((f) => (
+					{storeFaq(soonCount > 0, lang).map((f) => (
 						<details>
 							<summary>{f.q}</summary>
 							<p>{f.a}</p>
@@ -548,7 +564,27 @@ export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query, 
 const SOON_FAQ_Q = "¿Qué significa «Próximamente»?";
 
 /** Preguntas del catálogo; la de «Próximamente» solo cuando hay productos en esa etapa. */
-export const storeFaq = (hasSoon: boolean) => (hasSoon ? STORE_FAQ : STORE_FAQ.filter((f) => f.q !== SOON_FAQ_Q));
+export const storeFaq = (hasSoon: boolean, lang: Lang = "es") => {
+	const list = lang === "en" ? STORE_FAQ_EN : STORE_FAQ;
+	return hasSoon ? list : list.filter((f) => f.q !== SOON_FAQ_Q && f.q !== SOON_FAQ_Q_EN);
+};
+
+const SOON_FAQ_Q_EN = "What does “Coming soon” mean?";
+
+export const STORE_FAQ_EN = [
+	{ q: "How do I get what I buy?", a: "As soon as the payment clears, the product shows up in “My purchases” and you get an email with your personal download link." },
+	{ q: "Do I need an account?", a: "You sign in with your Google account, no passwords. We only store your email and name." },
+	{ q: "Is it a one-time payment?", a: "Yes. There are no subscriptions. Some tools need external services (for example Claude Code or Codex), which you pay separately to their provider." },
+	{
+		q: "What does “pay what you want” mean?",
+		a: "You choose how much to pay, from the minimum shown on the page (sometimes $0) up to $999,999.99 USD, the most Stripe allows. Enter $0 to download it for free; card payments start at $0.50.",
+	},
+	{ q: "Are the crossed-out prices real?", a: "Yes. We only cross out a price when the product was actually sold at that price before the sale." },
+	{ q: "How does the welcome coupon work?", a: "It's a discount on your first paid purchase at Market Tony, on fixed-price products. Enter the code on the product page before paying; it's applied at Stripe's secure checkout." },
+	{ q: "Can I get a refund?", a: "Yes, within 14 days of purchase if you haven't downloaded the product yet, or if the file is damaged. Details in the refund policy." },
+	{ q: "Are the products in English?", a: "Most tools are built for Spanish-speaking creators: guides and agent output are in Spanish unless the product page says otherwise. Each page lists its languages." },
+	{ q: SOON_FAQ_Q_EN, a: "These tools are still in development. You can't buy them yet: leave your email under “Notify me” and we'll write on launch day." },
+];
 
 export const STORE_FAQ = [
 	{ q: "¿Cómo recibo lo que compro?", a: "Apenas se confirma el pago, el producto aparece en «Mis compras» y te llega un correo con tu enlace de descarga personal." },
@@ -593,25 +629,41 @@ const GoogleIcon = () => (
 	</svg>
 );
 
-export const LoginButton: FC<{ next: string; mode: "mock" | "live"; label?: string }> = ({ next, mode, label }) => (
-	<a class="tc-btn tc-btn--primary mk-btn-block" href={`/market/auth/start?next=${encodeURIComponent(next)}`}>
-		{mode === "live" ? <GoogleIcon /> : null}
-		{label ?? (mode === "live" ? "Continuar con Google" : "Entrar con usuario de prueba (maqueta)")}
-	</a>
-);
+export const LoginButton: FC<{ next: string; mode: "mock" | "live"; label?: string }> = ({ next, mode, label }) => {
+	const tr = useT();
+	return (
+		<a class="tc-btn tc-btn--primary mk-btn-block" href={`/market/auth/start?next=${encodeURIComponent(next)}`}>
+			{mode === "live" ? <GoogleIcon /> : null}
+			{label ?? (mode === "live" ? tr("Continuar con Google") : "Entrar con usuario de prueba (maqueta)")}
+		</a>
+	);
+};
 
-const PayNote: FC<{ mode: "mock" | "live" }> = ({ mode }) => (
+const PayNote: FC<{ mode: "mock" | "live" }> = ({ mode }) => {
+	const tr = useT();
+	return (
 	<p class="mk-muted mk3-paynote">
 		{mode === "live" ? (
 			<>
-				<Icon name="lock" size={13} /> Pago seguro con Stripe.
+				<Icon name="lock" size={13} /> {tr("Pago seguro con Stripe.")}
 			</>
 		) : (
 			"Pago SIMULADO (modo maqueta)."
-		)} Recibes el enlace de descarga en tu correo y en Mis compras. Al
-		comprar aceptas los <a href="/market/legal/terminos">Términos</a> y la <a href="/market/legal/reembolsos">Política de reembolsos</a>.
+		)}{" "}
+		{useLang() === "en" ? (
+			<>
+				You get the download link by email and in My purchases. By buying you accept the <a href="/market/legal/terminos">Terms</a> and the{" "}
+				<a href="/market/legal/reembolsos">Refund policy</a> (in Spanish).
+			</>
+		) : (
+			<>
+				Recibes el enlace de descarga en tu correo y en Mis compras. Al comprar aceptas los <a href="/market/legal/terminos">Términos</a> y la{" "}
+				<a href="/market/legal/reembolsos">Política de reembolsos</a>.
+			</>
+		)}
 	</p>
-);
+	);
+};
 
 /** Montos rápidos para "paga lo que quieras": 0 (si se puede), el sugerido y dos más. */
 export function pwywPresets(p: Product): number[] {
@@ -622,6 +674,7 @@ export function pwywPresets(p: Product): number[] {
 }
 
 const PwywForm: FC<{ product: Product; csrf: string | null; mode: "mock" | "live"; initial?: number | null }> = ({ product, csrf, mode, initial }) => {
+	const tr = useT();
 	const path = productUrl(product.slug);
 	const { min, max } = pwywBounds(product);
 	const suggested = initial ?? Math.max(product.price_cents, min);
@@ -629,7 +682,7 @@ const PwywForm: FC<{ product: Product; csrf: string | null; mode: "mock" | "live
 		<form method="post" action={`${path}/comprar`} class="mk3-pwyw" data-pwyw data-min={String(min)} data-max={String(max)}>
 			<CsrfField csrf={csrf} />
 			<label for="monto" class="mk3-pwyw-label">
-				Tú eliges el precio
+				{tr("Tú eliges el precio")}
 			</label>
 			<div class="mk3-amount">
 				<span aria-hidden="true">$</span>
@@ -647,7 +700,7 @@ const PwywForm: FC<{ product: Product; csrf: string | null; mode: "mock" | "live
 				/>
 				<span class="mk3-amount-cur">USD</span>
 			</div>
-			<div class="mk3-presets" role="group" aria-label="Montos rápidos">
+			<div class="mk3-presets" role="group" aria-label={tr("Montos rápidos")}>
 				{pwywPresets(product).map((v) => (
 					<button type="button" class="mk3-preset" data-amount={(v / 100).toFixed(v % 100 === 0 ? 0 : 2)}>
 						{amount(v, product.currency)}
@@ -655,17 +708,17 @@ const PwywForm: FC<{ product: Product; csrf: string | null; mode: "mock" | "live
 				))}
 			</div>
 			<p class="mk-hint" id="monto-ayuda">
-				{min === 0 ? "Escribe 0 para descargarlo gratis, o apoya al creador con lo que quieras. " : `Mínimo ${formatPrice(min, product.currency)}. `}
-				Pagos con tarjeta desde $0.50 hasta {formatPrice(Math.min(max, STRIPE_MAX_CENTS), product.currency)}.
+				{min === 0 ? `${tr("Escribe 0 para descargarlo gratis, o apoya al creador con lo que quieras.")} ` : `${tr("Mínimo")} ${formatPrice(min, product.currency)}. `}
+				{tr("Pagos con tarjeta desde $0.50 hasta")} {formatPrice(Math.min(max, STRIPE_MAX_CENTS), product.currency)}.
 			</p>
 			{min === 0 && (
 				<label class="mk-check">
 					<input type="checkbox" name="marketing" value="1" />
-					<span>Quiero recibir novedades y recursos de Tony Ciencia por correo (opcional).</span>
+					<span>{tr("Quiero recibir novedades y recursos de Tony Ciencia por correo (opcional).")}</span>
 				</label>
 			)}
 			<button type="submit" class="tc-btn tc-btn--primary mk-btn-block mk-btn-glow" data-pwyw-submit>
-				Continuar con {formatPrice(suggested, product.currency)}
+				{tr("Continuar con")} {formatPrice(suggested, product.currency)}
 			</button>
 			<PayNote mode={mode} />
 		</form>
@@ -673,10 +726,12 @@ const PwywForm: FC<{ product: Product; csrf: string | null; mode: "mock" | "live
 };
 
 const BuyActions: FC<ProductViewProps> = ({ product, loggedIn, owned, csrf, mode, welcome, userEmail, pwywInitial }) => {
-	const path = productUrl(product.slug);
+	const tr = useT();
+	const lang = useLang();
+	const path = productUrl(product.slug, lang);
 	if (product.availability === "coming_soon") {
 		return (
-			<form method="post" action={`${path}/avisame`} class="mk-form" data-waitlist>
+			<form method="post" action={`${productUrl(product.slug)}/avisame`} class="mk-form" data-waitlist>
 				<CsrfField csrf={csrf} />
 				<div class="mk-field">
 					<label for="aviso-email">Avísame cuando salga</label>
@@ -693,10 +748,10 @@ const BuyActions: FC<ProductViewProps> = ({ product, loggedIn, owned, csrf, mode
 		return (
 			<>
 				<p class="mk-alert mk-alert--ok" style="margin-bottom: var(--spacing-4)">
-					<strong>Ya es tuyo.</strong> Puedes descargarlo cuando quieras desde Mis compras.
+					<strong>{tr("Ya es tuyo.")}</strong> {tr("Puedes descargarlo cuando quieras desde Mis compras.")}
 				</p>
 				<a class="tc-btn tc-btn--primary mk-btn-block" href="/market/mis-compras">
-					Ir a Mis compras
+					{tr("Ir a Mis compras")}
 				</a>
 			</>
 		);
@@ -707,38 +762,38 @@ const BuyActions: FC<ProductViewProps> = ({ product, loggedIn, owned, csrf, mode
 		const suggested = Math.max(product.price_cents, pwywBounds(product).min);
 		return (
 			<div class="mk3-pwyw">
-				<p class="mk3-pwyw-label">Tú eliges el precio</p>
-				<div class="mk3-presets" role="group" aria-label="Montos rápidos">
+				<p class="mk3-pwyw-label">{tr("Tú eliges el precio")}</p>
+				<div class="mk3-presets" role="group" aria-label={tr("Montos rápidos")}>
 					{pwywPresets(product).map((v) => (
-						<a class={`mk3-preset ${v === suggested ? "is-on" : ""}`} href={login(v)} aria-label={`Elegir ${formatPrice(v, product.currency)}`}>
+						<a class={`mk3-preset ${v === suggested ? "is-on" : ""}`} href={login(v)} aria-label={`${tr("Elegir precio")}: ${formatPrice(v, product.currency)}`}>
 							{amount(v, product.currency)}
 						</a>
 					))}
 				</div>
-				<LoginButton next={`${path}?monto=${(suggested / 100).toFixed(suggested % 100 === 0 ? 0 : 2)}#comprar`} mode={mode} label={mode === "live" ? `Continuar con ${amount(suggested, product.currency)}` : undefined} />
-				<p class="mk-muted">Entras con tu cuenta de Google, sin contraseña. Después puedes cambiar el monto.</p>
+				<LoginButton next={`${path}?monto=${(suggested / 100).toFixed(suggested % 100 === 0 ? 0 : 2)}#comprar`} mode={mode} label={mode === "live" ? `${tr("Continuar con")} ${amount(suggested, product.currency)}` : undefined} />
+				<p class="mk-muted">{tr("Entras con tu cuenta de Google, sin contraseña. Después puedes cambiar el monto.")}</p>
 			</div>
 		);
 	}
 	if (!loggedIn) {
-		const label = mode === "live" ? (product.kind === "free" ? "Entrar con Google para descargar" : isPwyw(product) ? "Entrar con Google para elegir tu precio" : "Entrar con Google para comprar") : undefined;
+		const label = mode === "live" ? tr(product.kind === "free" ? "Entrar con Google para descargar" : isPwyw(product) ? "Entrar con Google para elegir tu precio" : "Entrar con Google para comprar") : undefined;
 		return (
 			<>
 				<LoginButton next={`${path}#comprar`} mode={mode} label={label} />
-				<p class="mk-muted">Sin contraseñas: entras con tu cuenta de Google. Solo guardamos tu correo y tu nombre.</p>
+				<p class="mk-muted">{tr("Sin contraseñas: entras con tu cuenta de Google. Solo guardamos tu correo y tu nombre.")}</p>
 			</>
 		);
 	}
 	if (product.kind === "free") {
 		return (
-			<form method="post" action={`${path}/obtener`} class="mk-form">
+			<form method="post" action={`${productUrl(product.slug)}/obtener`} class="mk-form">
 				<CsrfField csrf={csrf} />
 				<label class="mk-check">
 					<input type="checkbox" name="marketing" value="1" />
 					<span>Quiero recibir por correo novedades y recursos de Tony Ciencia. Es opcional y puedes darte de baja cuando quieras.</span>
 				</label>
 				<button type="submit" class="tc-btn tc-btn--primary mk-btn-block">
-					Descargar gratis
+					{tr("Descargar gratis")}
 				</button>
 				<p class="mk-muted">Lo descargas aquí mismo y además te enviamos el enlace por correo.</p>
 			</form>
@@ -746,13 +801,13 @@ const BuyActions: FC<ProductViewProps> = ({ product, loggedIn, owned, csrf, mode
 	}
 	if (isPwyw(product)) return <PwywForm product={product} csrf={csrf} mode={mode} initial={pwywInitial} />;
 	return (
-		<form method="post" action={`${path}/comprar`}>
+		<form method="post" action={`${productUrl(product.slug)}/comprar`}>
 			<CsrfField csrf={csrf} />
 			<details class="mk-coupon" open={welcome ? true : undefined}>
-				<summary>¿Tienes un cupón?</summary>
+				<summary>{tr("¿Tienes un cupón?")}</summary>
 				<div class="mk-field">
 					<label for="cupon" class="mk-visually-hidden">
-						Código de cupón
+						{tr("Código de cupón")}
 					</label>
 					<input
 						id="cupon"
@@ -762,14 +817,14 @@ const BuyActions: FC<ProductViewProps> = ({ product, loggedIn, owned, csrf, mode
 						autocomplete="off"
 						autocapitalize="characters"
 						spellcheck={false}
-						placeholder={welcome ? welcome.code : "Código (opcional)"}
+						placeholder={welcome ? welcome.code : tr("Código (opcional)")}
 						data-coupon-input
 					/>
-					<span class="mk-hint">{welcome ? `Usa ${welcome.code} en tu primera compra. ` : ""}El descuento se aplica al pagar con Stripe.</span>
+					<span class="mk-hint">{welcome ? (lang === "en" ? `Use ${welcome.code} on your first purchase. ` : `Usa ${welcome.code} en tu primera compra. `) : ""}{tr("El descuento se aplica al pagar con Stripe.")}</span>
 				</div>
 			</details>
 			<button type="submit" class="tc-btn tc-btn--primary mk-btn-block mk-btn-glow">
-				Comprar ahora · {formatPrice(product.price_cents, product.currency)}
+				{tr("Comprar ahora")} · {formatPrice(product.price_cents, product.currency)}
 			</button>
 			<PayNote mode={mode} />
 		</form>
@@ -777,11 +832,12 @@ const BuyActions: FC<ProductViewProps> = ({ product, loggedIn, owned, csrf, mode
 };
 
 const RatingSummary: FC<{ product: ShopProduct; breakdown: Record<number, number> }> = ({ product, breakdown }) => {
+	const tr = useT();
 	const { ratingAvg, ratingCount } = product.stats;
 	if (!ratingCount || ratingAvg === null) {
 		return (
 			<p class="mk-muted">
-				Aún no hay reseñas. Las reseñas solo las pueden dejar personas que tienen el producto, desde <a href="/market/mis-compras">Mis compras</a>.
+				{tr("Aún no hay reseñas. Las reseñas solo las pueden dejar personas que tienen el producto, desde")} <a href="/market/mis-compras">{tr("Mis compras")}</a>.
 			</p>
 		);
 	}
@@ -791,7 +847,7 @@ const RatingSummary: FC<{ product: ShopProduct; breakdown: Record<number, number
 				<b>{ratingText(ratingAvg)}</b>
 				<Stars value={ratingAvg} />
 				<span class="mk-muted">
-					{ratingCount} {ratingCount === 1 ? "reseña" : "reseñas"} de compradores verificados
+					{ratingCount} {tr(ratingCount === 1 ? "reseña" : "reseñas")} {tr("de compradores verificados")}
 				</span>
 			</div>
 			<ul class="mk-bars">
@@ -814,9 +870,10 @@ const RatingSummary: FC<{ product: ShopProduct; breakdown: Record<number, number
 
 /** Precio corto de la barra fija del celular. */
 const BuybarPrice: FC<{ product: Product }> = ({ product }) => {
-	if (product.availability === "coming_soon") return <span class="mk-buybar-price">Próximamente</span>;
+	const tr = useT();
+	if (product.availability === "coming_soon") return <span class="mk-buybar-price">{tr("Próximamente")}</span>;
 	if (product.kind === "free") return <span class="mk-buybar-price">$0</span>;
-	if (isPwyw(product)) return <span class="mk-buybar-price">Desde {amount(pwywBounds(product).min, product.currency)}</span>;
+	if (isPwyw(product)) return <span class="mk-buybar-price">{tr("Desde")} {amount(pwywBounds(product).min, product.currency)}</span>;
 	const sale = saleInfo(product);
 	return (
 		<span class="mk-buybar-price">
@@ -828,7 +885,9 @@ const BuybarPrice: FC<{ product: Product }> = ({ product }) => {
 
 export const ProductPage: FC<ProductViewProps> = (props) => {
 	const { product, flash, notice, reviews, breakdown, related, maxSales, welcome } = props;
-	const cat = categoryLabel(product.category);
+	const lang = useLang();
+	const tr = useT();
+	const cat = categoryLabelIn(lang, product.category, categoryLabel(product.category));
 	const soon = product.availability === "coming_soon";
 	const images = product.images;
 	const sale = saleInfo(product);
@@ -836,10 +895,10 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 		<div class="mk-product-page" style={product.accent ? `--accent: ${product.accent}` : undefined}>
 			<div class="mk-product-glow" aria-hidden="true"></div>
 			<div class="tc-shell">
-				<nav class="mk-crumbs" aria-label="Ruta">
-					<a href="/market">Market</a>
+				<nav class="mk-crumbs" aria-label={tr("Ruta")}>
+					<a href={storeRoot(lang)}>Market</a>
 					<span aria-hidden="true">/</span>
-					{cat ? <a href={`/market/?categoria=${product.category}#catalogo`}>{cat}</a> : <span>Producto</span>}
+					{cat ? <a href={`${storeRoot(lang)}?categoria=${product.category}#catalogo`}>{cat}</a> : <span>{tr("Producto digital")}</span>}
 					<span aria-hidden="true">/</span>
 					<span aria-current="page">{product.title.split(":")[0]}</span>
 				</nav>
@@ -876,19 +935,19 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 							)}
 							{images.length > 1 && (
 								<>
-									<button type="button" class="mk-gal-nav mk-gal-prev" aria-label="Imagen anterior" data-gal-prev>
+									<button type="button" class="mk-gal-nav mk-gal-prev" aria-label={tr("Imagen anterior")} data-gal-prev>
 										‹
 									</button>
-									<button type="button" class="mk-gal-nav mk-gal-next" aria-label="Imagen siguiente" data-gal-next>
+									<button type="button" class="mk-gal-nav mk-gal-next" aria-label={tr("Imagen siguiente")} data-gal-next>
 										›
 									</button>
 								</>
 							)}
 						</div>
 						{images.length > 1 && (
-							<div class="mk-thumbs" role="tablist" aria-label="Imágenes del producto">
+							<div class="mk-thumbs" role="tablist" aria-label={tr("Imágenes del producto")}>
 								{images.map((img, i) => (
-									<a href={`#imagen-${i + 1}`} class={`mk-thumb ${i === 0 ? "is-active" : ""}`} data-thumb={String(i)} role="tab" aria-selected={i === 0 ? "true" : "false"} aria-label={`Ver imagen ${i + 1}: ${img.alt}`}>
+									<a href={`#imagen-${i + 1}`} class={`mk-thumb ${i === 0 ? "is-active" : ""}`} data-thumb={String(i)} role="tab" aria-selected={i === 0 ? "true" : "false"} aria-label={`${lang === "en" ? "View image" : "Ver imagen"} ${i + 1}: ${img.alt}`}>
 										<img src={img.src} alt="" width="160" height="100" loading="lazy" decoding="async" />
 									</a>
 								))}
@@ -898,7 +957,7 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 
 					<div class="mk-info">
 						<div class="mk-info-sticky">
-							<BadgeList badges={cardBadges(product, maxSales)} />
+							<BadgeList badges={cardBadges(product, maxSales).map((b) => ({ ...b, label: lang === "en" ? tr(b.label.replace("OFERTA", "SALE")) : b.label }))} />
 							<h1>
 								{shortName(product.title)}
 								{product.title.includes(":") && (
@@ -919,10 +978,10 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 									</a>
 								) : null}
 								{product.stats.sales > 0 && <span class="mk-meta-sales">{salesText(product.stats.sales)}</span>}
-								<span class="mk-muted">{soon ? "En desarrollo" : product.kind === "free" ? "Recurso gratis" : "Producto digital · Descarga inmediata"}</span>
+								<span class="mk-muted">{tr(soon ? "En desarrollo" : product.kind === "free" ? "Recurso gratis" : "Producto digital · Descarga inmediata")}</span>
 							</div>
 							<div class={`tc-card mk-buybox2 mk3-buybox ${sale && !soon ? "is-sale" : ""}`} id="comprar">
-								{sale && !soon && <p class="mk3-buybox-flag">Oferta · antes {formatPrice(sale.wasCents, product.currency)}</p>}
+								{sale && !soon && <p class="mk3-buybox-flag">{tr("Oferta · antes")} {formatPrice(sale.wasCents, product.currency)}</p>}
 								<PriceBlock product={product} welcome={welcome} size="lg" />
 								<BuyActions {...props} />
 							</div>
@@ -935,16 +994,16 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 								<IncludesBox items={product.compat.includes} />
 								{product.compat.works.length > 0 && (
 									<>
-										<p class="mk3-compat-title">Funciona con</p>
+										<p class="mk3-compat-title">{tr("Funciona con")}</p>
 										<ul class="mk3-compat-list">
 											{product.compat.works.map((it) => (
 												<li>
 													{BRANDS[it.k]?.icon ? <BrandLogo k={it.k} size={16} /> : <Icon name="check" size={14} />}
-													{it.label}
+													{tr(it.label)}
 												</li>
 											))}
 										</ul>
-										<p class="mk3-compat-fine">Las marcas pertenecen a sus titulares; se muestran solo para indicar compatibilidad.</p>
+										<p class="mk3-compat-fine">{tr("Las marcas pertenecen a sus titulares; se muestran solo para indicar compatibilidad.")}</p>
 									</>
 								)}
 							</div>
@@ -964,11 +1023,11 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 					</div>
 				</div>
 
-				<nav class="mk-tabs" aria-label="Secciones del producto">
-					<a href="#descripcion">Descripción</a>
-					{product.specs.length > 0 && <a href="#detalles">Detalles</a>}
-					{product.faq.length > 0 && <a href="#preguntas">Preguntas</a>}
-					{!soon && <a href="#resenas">Reseñas</a>}
+				<nav class="mk-tabs" aria-label={tr("Secciones del producto")}>
+					<a href="#descripcion">{tr("Descripción")}</a>
+					{product.specs.length > 0 && <a href="#detalles">{tr("Detalles")}</a>}
+					{product.faq.length > 0 && <a href="#preguntas">{tr("Preguntas")}</a>}
+					{!soon && <a href="#resenas">{tr("Reseñas")}</a>}
 				</nav>
 
 				<div class="mk-detail-grid">
@@ -977,7 +1036,7 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 							<section class="mk-block" aria-label="Video">
 								<div class="mk-yt" data-yt={product.video_id}>
 									<a href={`https://www.youtube.com/watch?v=${product.video_id}`} target="_blank" rel="noopener">
-										<img src={`https://i.ytimg.com/vi/${product.video_id}/hqdefault.jpg`} alt={`Video de ${product.title}`} loading="lazy" width="480" height="360" />
+										<img src={`https://i.ytimg.com/vi/${product.video_id}/hqdefault.jpg`} alt={`${lang === "en" ? "Video:" : "Video de"} ${product.title}`} loading="lazy" width="480" height="360" />
 										<span class="mk-yt-play" aria-hidden="true">
 											▶
 										</span>
@@ -987,14 +1046,14 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 						)}
 						<section class="mk-block mk-description" id="descripcion" aria-labelledby="descripcion-t">
 							<h2 class="mk-block-title" id="descripcion-t">
-								Descripción
+								{tr("Descripción")}
 							</h2>
 							{product.description ? <Description text={product.description} /> : <p>{product.summary}</p>}
 						</section>
 						{product.faq.length > 0 && (
 							<section class="mk-block" id="preguntas" aria-labelledby="preguntas-t">
 								<h2 class="mk-block-title" id="preguntas-t">
-									Preguntas frecuentes
+									{tr("Preguntas frecuentes")}
 								</h2>
 								<div class="mk-faq">
 									{product.faq.map((f) => (
@@ -1009,7 +1068,7 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 						{!soon && (
 							<section class="mk-block" id="resenas" aria-labelledby="resenas-t">
 								<h2 class="mk-block-title" id="resenas-t">
-									Reseñas
+									{tr("Reseñas")}
 								</h2>
 								<RatingSummary product={product} breakdown={breakdown} />
 								{reviews.length > 0 && (
@@ -1018,9 +1077,9 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 											<li class="tc-card">
 												<div class="mk-review-head">
 													<Stars value={r.rating} />
-													<b>{r.display_name || "Comprador verificado"}</b>
-													<span class="mk-chip mk-chip--plain">Compra verificada</span>
-													<span class="mk-muted">{new Date(r.created_at).toLocaleDateString("es", { year: "numeric", month: "short", day: "numeric" })}</span>
+													<b>{r.display_name || tr("Comprador verificado")}</b>
+													<span class="mk-chip mk-chip--plain">{tr("Compra verificada")}</span>
+													<span class="mk-muted">{new Date(r.created_at).toLocaleDateString(lang === "en" ? "en-US" : "es", { year: "numeric", month: "short", day: "numeric" })}</span>
 												</div>
 												{r.body && <p>{r.body}</p>}
 											</li>
@@ -1034,7 +1093,7 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 						{product.specs.length > 0 && (
 							<section class="tc-card mk-specs" id="detalles" aria-labelledby="detalles-t">
 								<h2 class="mk-block-title" id="detalles-t">
-									Detalles del producto
+									{tr("Detalles del producto")}
 								</h2>
 								<dl>
 									{product.specs.map((s) => (
@@ -1043,19 +1102,19 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 											<dd>{s.value}</dd>
 										</>
 									))}
-									<dt>Precio</dt>
+									<dt>{tr("Precio")}</dt>
 									<dd>
 										{product.kind === "free"
-											? "Gratis"
+											? "$0"
 											: isPwyw(product)
-												? `Paga lo que quieras (desde ${formatPrice(pwywBounds(product).min, product.currency)})`
+												? `${tr("Paga lo que quieras")} (${lang === "en" ? "from" : "desde"} ${formatPrice(pwywBounds(product).min, product.currency)})`
 												: sale
-													? `${formatPrice(product.price_cents, product.currency)} (antes ${formatPrice(sale.wasCents, product.currency)})`
+													? `${formatPrice(product.price_cents, product.currency)} (${lang === "en" ? "was" : "antes"} ${formatPrice(sale.wasCents, product.currency)})`
 													: formatPrice(product.price_cents, product.currency)}
 									</dd>
-									<dt>Entrega</dt>
-									<dd>Descarga digital inmediata</dd>
-									<dt>Vendido por</dt>
+									<dt>{tr("Entrega")}</dt>
+									<dd>{tr("Descarga digital inmediata")}</dd>
+									<dt>{tr("Vendido por")}</dt>
 									<dd>Tony Ciencia LLC</dd>
 								</dl>
 							</section>
@@ -1063,7 +1122,7 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 						{product.tags.length > 0 && (
 							<div class="mk-tags">
 								{product.tags.map((t) => (
-									<a href={`/market/?q=${encodeURIComponent(t)}#catalogo`} class="mk-tag">
+									<a href={`${storeRoot(lang)}?q=${encodeURIComponent(t)}#catalogo`} class="mk-tag">
 										{t}
 									</a>
 								))}
@@ -1076,11 +1135,11 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 					<section class="mk-section" aria-labelledby="rel-t">
 						<div class="mk-section-head">
 							<div>
-								<p class="mk-kicker">Sigue explorando</p>
-								<h2 id="rel-t">Completa tu kit</h2>
+								<p class="mk-kicker">{tr("Sigue explorando")}</p>
+								<h2 id="rel-t">{tr("Completa tu kit")}</h2>
 							</div>
-							<a href="/market#catalogo" class="mk-textlink">
-								Ver todo el catálogo <Icon name="arrow" size={15} />
+							<a href={`${storeRoot(lang)}#catalogo`} class="mk-textlink">
+								{tr("Ver todo el catálogo")} <Icon name="arrow" size={15} />
 							</a>
 						</div>
 						<ul class="mk3-grid mk3-grid--3">
@@ -1097,7 +1156,7 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 					<span class="mk-buybar-title">{product.title.split(":")[0]}</span>
 					<BuybarPrice product={product} />
 					<a href="#comprar" class="tc-btn tc-btn--primary">
-						{soon ? "Avísame" : product.kind === "free" ? "Descargar" : isPwyw(product) ? "Elegir precio" : isBuyable(product) ? "Comprar" : "Ver"}
+						{tr(soon ? "Avísame" : product.kind === "free" ? "Descargar" : isPwyw(product) ? "Elegir precio" : isBuyable(product) ? "Comprar" : "Ver")}
 					</a>
 				</div>
 			</div>

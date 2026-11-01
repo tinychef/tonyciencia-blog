@@ -4,6 +4,7 @@ import { raw } from "hono/html";
 import type { ContentfulStatusCode } from "hono/utils/http-status";
 import type { Ctx } from "../context";
 import { Layout, type PageMeta } from "./layout";
+import { LangContext, langFromPath } from "../lib/i18n";
 
 /** Respeta el tema elegido en el sitio (cookie "scheme" del blog); oscuro por defecto, como el sitio. */
 function themeFrom(c: Ctx): "light" | "dark" {
@@ -11,6 +12,7 @@ function themeFrom(c: Ctx): "light" | "dark" {
 }
 
 export function render(c: Ctx, meta: PageMeta, body: Child, status: ContentfulStatusCode = 200) {
+	const lang = langFromPath(c.req.path);
 	return c.html(
 		<>
 			{raw("<!doctype html>")}
@@ -22,8 +24,9 @@ export function render(c: Ctx, meta: PageMeta, body: Child, status: ContentfulSt
 			csrf={c.get("csrf")}
 			theme={themeFrom(c)}
 			welcome={c.get("welcome") ?? null}
+			lang={lang}
 		>
-				{body}
+				<LangContext.Provider value={lang}>{body}</LangContext.Provider>
 			</Layout>
 		</>,
 		status,
