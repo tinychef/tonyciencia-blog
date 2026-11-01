@@ -328,6 +328,8 @@ describe("dataLayer de GA4 (view_item_list, view_item, begin_checkout, purchase)
 		expect(js).toContain("cookie_consent=${value}; path=/; max-age=31536000; SameSite=Lax");
 		expect(js).toContain('new CustomEvent("tc:consent"');
 		expect(at('bar.className = "mk-consent"')).toBeGreaterThan(at("https://www.googletagmanager.com/gtm.js?id="));
-		expect(js).not.toMatch(/document\.cookie = `(?!cookie_consent=|scheme=)/);
+		// Solo escribe cookie_consent y scheme; las demás asignaciones son para BORRAR cookies de medición (max-age=0).
+		expect(js).not.toMatch(/document\.cookie = `(?!cookie_consent=|scheme=|\$\{n\}=; path=\/; max-age=0)/);
+		expect(js).toContain('if (value === "rejected") clearTrackingCookies();');
 	});
 });

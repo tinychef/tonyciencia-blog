@@ -28,11 +28,27 @@ const rejectLabel = locale === "en" ? "Reject" : "Rechazar";
 	// Values: "accepted" | "rejected". No cookie yet = undecided.
 	const COOKIE_NAME = "cookie_consent";
 
+	// Al rechazar (y en cada visita de quien rechazó) se borran las cookies de medición que hubieran quedado de una
+	// aceptación anterior: con el consentimiento denegado Google deja de usarlas, pero no las borra.
+	function clearTrackingCookies() {
+		const names = document.cookie
+			.split(";")
+			.map((c) => c.split("=")[0]?.trim() ?? "")
+			.filter((n) => /^(_ga(_.+)?|_gid|_gcl_.+|_fbp|_fbc)$/.test(n));
+		const host = location.hostname;
+		const root = host.split(".").slice(-2).join(".");
+		const domains = new Set(["", host, `.${host}`, `.${root}`]);
+		for (const n of names) for (const d of domains) document.cookie = `${n}=; path=/; max-age=0${d ? `; domain=${d}` : ""}`;
+	}
+
 	function setConsentCookie(value: "accepted" | "rejected") {
 		const secure = location.protocol === "https:" ? "; Secure" : "";
 		document.cookie = `${COOKIE_NAME}=${value}; path=/; max-age=31536000; SameSite=Lax${secure}`;
 		window.dispatchEvent(new CustomEvent("tc:consent", { detail: { value } }));
+		if (value === "rejected") clearTrackingCookies();
 	}
+
+	if (/(?:^|;\s*)cookie_consent=rejected/.test(document.cookie)) clearTrackingCookies();
 
 	const banner = document.getElementById("cookie-consent");
 	const acceptBtn = document.getElementById("cookie-accept-btn");
