@@ -51,6 +51,7 @@ ims[0].save(sys.argv[2], 'WEBP', save_all=True, append_images=ims[1:], duration=
 
 const browser = await chromium.launch({ args: ["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader"] });
 const page = await browser.newPage({ viewport: { width: 1600, height: 1000 }, deviceScaleFactor: 1 });
+let cpu = null; // Chromium sin GPU, solo para las portadas animadas
 for (const file of files) {
 	const slug = file.replace(/\.html$/, "");
 	const outDir = join(outRoot, slug);
@@ -72,16 +73,23 @@ for (const file of files) {
 			const tmp = join(tmpdir(), `cover-anim-${slug}-${name}`);
 			rmSync(tmp, { recursive: true, force: true });
 			mkdirSync(tmp, { recursive: true });
-			// Con raster por GPU (swiftshader), la primera captura tras desplazar la página puede salir con mosaicos
-			// viejos de la sección de arriba: se lleva la sección a la vista y se descarta una captura de calentamiento.
-			await frame.scrollIntoViewIfNeeded();
-			await page.evaluate(() => window.__frame(0));
-			await page.waitForTimeout(300);
-			await frame.screenshot();
+			// Las portadas animadas se graban en un Chromium sin raster por GPU: con swiftshader, capturas seguidas
+			// de la misma escena salen con mosaicos mezclados de otras secciones (cuadros distintos → WebP enorme).
+			cpu ??= await chromium.launch();
+			const cp = await cpu.newPage({ viewport: { width: 1600, height: 1000 }, deviceScaleFactor: 1 });
+			await cp.goto(pathToFileURL(join(designDir, file)).href, { waitUntil: "networkidle" });
+			await cp.evaluate(() => document.fonts.ready);
+			await cp.waitForFunction(() => (window.__ready ?? true) === true, null, { timeout: 10_000 }).catch(() => {});
+			// La sección se fija arriba a la izquierda (sin desplazar la página) y se captura la ventana.
+			await cp.$eval(`section.frame[data-out="${name}"]`, (el) => { scrollTo(0, 0); Object.assign(el.style, { position: "fixed", left: "0", top: "0", zIndex: "2147483647", margin: "0" }); });
+			await cp.evaluate(() => window.__frame(0));
+			await cp.waitForTimeout(200);
+			const clip = { x: 0, y: 0, width: 1600, height: 1000 };
 			for (let i = 0; i < anim; i++) {
-				await page.evaluate((k) => window.__frame(k), i);
-				await frame.screenshot({ path: join(tmp, `f_${String(i).padStart(4, "0")}.png`) });
+				await cp.evaluate((k) => window.__frame(k), i);
+				await cp.screenshot({ path: join(tmp, `f_${String(i).padStart(4, "0")}.png`), clip });
 			}
+			await cp.close();
 			execFileSync("python3", ["-I", "-c", toAnimWebp, tmp, webp, String(Math.round(1000 / fps)), String(quality), String(width)]);
 			rmSync(tmp, { recursive: true, force: true });
 		} else {
@@ -94,3 +102,4 @@ for (const file of files) {
 	}
 }
 await browser.close();
+await cpu?.close();
