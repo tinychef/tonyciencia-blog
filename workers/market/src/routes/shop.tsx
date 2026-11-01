@@ -142,7 +142,7 @@ export function registerShop(app: Hono<AppEnv>) {
 					productJsonLd(origin, product, reviews),
 					breadcrumbJsonLd(origin, [
 						{ name: "Market Tony", path: "/market" },
-						...(cat ? [{ name: cat, path: `/market?categoria=${product.category}` }] : []),
+						...(cat ? [{ name: cat, path: `/market/?categoria=${product.category}` }] : []),
 						{ name: product.title, path },
 					]),
 					...(product.faq.length ? [faqJsonLd(product.faq)] : []),

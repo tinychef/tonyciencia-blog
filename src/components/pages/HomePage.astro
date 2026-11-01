@@ -1,4 +1,5 @@
 ---
+import { postSlug } from "../../utils/post-slug";
 import { getEmDashCollection, getSiteSettings } from "emdash";
 import Base from "../../layouts/Base.astro";
 import ToolsStack from "../../components/ToolsStack.astro";
@@ -137,7 +138,7 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 	<section class="hero">
 		<div class="tc-shell">
 			<div class="hero-intro">
-				<p class="hero-hello"><span class="hero-wave" aria-hidden="true">👋</span> {COPY.hello}</p>
+				<p class="hero-hello"><span class="hero-wave" aria-hidden="true"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg></span> {COPY.hello}</p>
 				<h1 class="hero-title">
 					{COPY.titleA}<br />
 					<span class="tc-gradient-text">{COPY.titleB}</span>
@@ -239,7 +240,7 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 				<ul class="line-list">
 					{latestPosts.map((post) => (
 						<li>
-							<a href={`${COPY.posts}/${post.id}`} class="line-item">
+							<a href={`${COPY.posts}/${postSlug(post.id)}`} class="line-item">
 								<span class="line-main">
 									<strong>{post.data.title}</strong>
 									{post.data.publishedAt && <time>{formatDate(post.data.publishedAt)}</time>}

@@ -1,3 +1,4 @@
+import { BRANDS } from "../lib/brands";
 import type { FC } from "hono/jsx";
 import { centsToInput, formatPrice } from "../lib/money";
 import type { OutboxRow } from "../services/outbox";
@@ -160,6 +161,19 @@ export const AdminProductForm: FC<ProductFormProps> = ({ product, csrf, errors, 
 						<span class="mk-hint">Ej.: 77 o 77.50. Ignorado si es gratis. Mínimo 0.50. En «paga lo que quieras» es el precio SUGERIDO.</span>
 					</div>
 				</div>
+				<fieldset class="mk-form-row">
+					<legend>Logos de compatibilidad</legend>
+					<div class="mk-field">
+						<label for="f-cw">Funciona con</label>
+						<input id="f-cw" type="text" name="compat_works" maxlength={400} value={v("compat_works", product ? product.compat.works.map((i) => (i.label === BRANDS[i.k]?.label ? i.k : `${i.k}|${i.label}`)).join(", ") : "")} />
+						<span class="mk-hint">Claves separadas por coma: {Object.keys(BRANDS).join(", ")}. Etiqueta propia: clave|Texto.</span>
+					</div>
+					<div class="mk-field">
+						<label for="f-ci">Incluye (2 o más = «N en 1»)</label>
+						<input id="f-ci" type="text" name="compat_includes" maxlength={400} value={v("compat_includes", product ? product.compat.includes.map((i) => (i.label === BRANDS[i.k]?.label ? i.k : `${i.k}|${i.label}`)).join(", ") : "")} />
+						<span class="mk-hint">Ej.: agent|Agente de anuncios, chrome-ext</span>
+					</div>
+				</fieldset>
 				<fieldset class="mk-form-row">
 					<legend>Modo de precio (como Gumroad)</legend>
 					<div class="mk-field">

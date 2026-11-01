@@ -94,7 +94,7 @@ export const LibraryPage: FC<LibraryProps> = ({ user, items, csrf, highlight, no
 							)}
 							{!it.revoked_at && (
 								<details class="mk-review-form" id={`resena-${it.slug}`}>
-									<summary>{it.my_rating ? `Tu reseña: ${"★".repeat(it.my_rating)}${"☆".repeat(5 - it.my_rating)} · Editar` : "★ Dejar una reseña"}</summary>
+									<summary>{it.my_rating ? `Tu reseña: ${it.my_rating} de 5 · Editar` : "Dejar una reseña"}</summary>
 									<form method="post" action={`/market/producto/${it.slug}/resena`} class="mk-form">
 										<CsrfField csrf={csrf} />
 										<fieldset class="mk-rate">
@@ -103,7 +103,8 @@ export const LibraryPage: FC<LibraryProps> = ({ user, items, csrf, highlight, no
 												<>
 													<input type="radio" id={`r-${it.entitlement_id}-${n}`} name="rating" value={String(n)} required checked={it.my_rating === n} />
 													<label for={`r-${it.entitlement_id}-${n}`} title={`${n} de 5`}>
-														★<span class="mk-visually-hidden">{n} de 5</span>
+														<span class="mk-star-lg" aria-hidden="true"></span>
+														<span class="mk-visually-hidden">{n} de 5</span>
 													</label>
 												</>
 											))}

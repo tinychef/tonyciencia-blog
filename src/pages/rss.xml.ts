@@ -1,3 +1,4 @@
+import { postSlug } from "../utils/post-slug";
 import type { APIRoute } from "astro";
 import { getEmDashCollection, getSiteSettings } from "emdash";
 import { postTerms } from "../utils/terms";
@@ -27,7 +28,7 @@ export const GET: APIRoute = async ({ site, url }) => {
 	const items = itemsWithMeta
 		.map(({ post, categories, bylines }) => {
 			const pubDate = post.data.publishedAt!.toUTCString();
-			const postUrl = `${siteUrl}/posts/${post.id}`;
+			const postUrl = `${siteUrl}/posts/${postSlug(post.id)}`;
 			const title = escapeXml(post.data.title || "Untitled");
 			const description = escapeXml(post.data.excerpt || "");
 

@@ -136,7 +136,8 @@ describe("redirección tras login", () => {
 	it("solo acepta rutas internas del market", async () => {
 		const { safeNextPath } = await import("../src/lib/validate");
 		expect(safeNextPath("/market/mis-compras")).toBe("/market/mis-compras");
-		expect(safeNextPath("/market?x=1")).toBe("/market?x=1");
+		// "/market?…" no llega al Worker en producción: se normaliza a "/market/?…".
+		expect(safeNextPath("/market?x=1")).toBe("/market/?x=1");
 		for (const bad of ["/marketing-digital", "//evil.com/market", "https://evil.com/market", "/market/\\evil", "/\\evil.com", "javascript:alert(1)"]) {
 			expect(safeNextPath(bad), bad).toBe("/market");
 		}

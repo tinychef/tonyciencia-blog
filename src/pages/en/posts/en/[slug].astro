@@ -1,0 +1,7 @@
+---
+// Algunos artículos en inglés del CMS tienen el slug con "en/" adelante; las listas los enlazaban como
+// /en/posts/en/<slug> (404). Ahora los enlaces se normalizan (src/utils/post-slug.ts) y esta ruta redirige
+// los que ya circulan.
+const { slug } = Astro.params;
+return Astro.redirect(slug ? `/en/posts/${slug}` : "/en/posts", 301);
+---

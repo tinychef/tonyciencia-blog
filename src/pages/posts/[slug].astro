@@ -1,4 +1,5 @@
 ---
+import { postSlug } from "../../utils/post-slug";
 import {
 	getEmDashEntry,
 	getEmDashCollection,
@@ -207,7 +208,7 @@ const faqItems = extractFaqItems(post.data.faq_items);
 const staticTranslation = getStaticPosts("en").find((candidate) => candidate.data.translation_of === slug);
 const cmsTranslation = await cmsTranslationPromise;
 const translatedPost = cmsTranslation ?? staticTranslation;
-const alternatePath = translatedPost ? `/en/posts/${translatedPost.id}` : undefined;
+const alternatePath = translatedPost ? `/en/posts/${postSlug(translatedPost.id)}` : undefined;
 
 // Fetch tags for related posts (bylines are already hydrated by getEmDashCollection)
 const otherPostsWithTags = await Promise.all(
@@ -418,7 +419,7 @@ const publishDate =
 								<PostCard
 									title={p.data.title}
 									excerpt={p.data.excerpt}
-									href={`/posts/${p.id}`}
+									href={`/posts/${postSlug(p.id)}`}
 									date={p.data.publishedAt ?? undefined}
 									readingTime={getReadingTime(p.data.content)}
 									tags={postTags.map((t) => ({ slug: t.slug, label: t.label }))}

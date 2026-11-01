@@ -4,6 +4,7 @@ import type { Config } from "../config";
 import type { User } from "../services/repo";
 import type { WelcomeOffer } from "../services/welcome";
 import { formatPrice } from "../lib/money";
+import { BrandLogo, Icon } from "./icons";
 
 export interface PageMeta {
 	title: string;
@@ -105,7 +106,7 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 				{welcome && (
 					<div class="mk-announce">
 						<span>
-							🎁 {offerText} en tu primera compra con el código{" "}
+							<Icon name="gift" size={15} /> {offerText} en tu primera compra con el código{" "}
 							<button type="button" class="mk-code-btn" data-copy={welcome.code} aria-label={`Copiar el código ${welcome.code}`}>
 								{welcome.code}
 							</button>
@@ -123,7 +124,7 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 							<a href="/market#catalogo" aria-current={is("/market")} class="mk-hide-sm">
 								Catálogo
 							</a>
-							<a href="/market?filtro=ofertas#catalogo" class="mk-hide-sm mk3-nav-sale">
+							<a href="/market/?filtro=ofertas#catalogo" class="mk-hide-sm mk3-nav-sale">
 								Ofertas
 							</a>
 							<a href="/market/agentes-para-empresas" aria-current={is("/market/agentes-para-empresas")} class="mk-hide-sm">
@@ -137,6 +138,10 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 									Admin
 								</a>
 							)}
+							<button type="button" class="mk-theme" data-theme-toggle aria-label="Cambiar a tema claro u oscuro" aria-pressed={theme === "dark" ? "true" : "false"}>
+								<Icon name="sun" size={18} class="mk-theme-sun" />
+								<Icon name="moon" size={18} class="mk-theme-moon" />
+							</button>
 							{user ? (
 								<a href="/market/mis-compras" aria-current={is("/market/mis-compras")} class="mk-pill-link">
 									Mis compras
@@ -167,16 +172,18 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 									<div class="mk-menu-head">
 										<span>Menú</span>
 										<button type="button" class="mk-menu-close" data-menu-close aria-label="Cerrar menú">
-											✕
+											<Icon name="close" size={18} />
 										</button>
 									</div>
 									<a href="/market#catalogo">Catálogo</a>
-									<a href="/market?filtro=ofertas#catalogo">Ofertas</a>
-									<a href="/market?filtro=gratis#catalogo">Desde $0</a>
+									<a href="/market/?filtro=ofertas#catalogo">Ofertas</a>
+									<a href="/market/?filtro=gratis#catalogo">Desde $0</a>
 									<a href="/market/agentes-para-empresas">Agentes para empresas</a>
 									{user ? <a href="/market/mis-compras">Mis compras</a> : <a href={`/market/entrar?next=${encodeURIComponent(meta.path)}`}>Entrar</a>}
 									{isAdmin && <a href="/market/admin">Admin</a>}
-									<a href={siteHref}>← Volver al blog</a>
+									<a href={siteHref}>
+										<Icon name="back" size={16} /> Volver al blog
+									</a>
 									{user && (
 										<form method="post" action="/market/salir">
 											<CsrfField csrf={csrf} />
@@ -235,7 +242,9 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 					</div>
 					<div class="mk-footer-bottom">
 						<span class="mk-pay">
-							<span>🔒 Pagos con Stripe</span>
+							<span class="mk-pay-stripe">
+								<Icon name="lock" size={14} /> Pagos seguros con <BrandLogo k="stripe" size={16} /> Stripe
+							</span>
 							<span>Visa · Mastercard · Amex · Apple Pay · Google Pay</span>
 						</span>
 						<p>
@@ -250,10 +259,10 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 						    (a los segundos o al bajar), y después queda una pestaña discreta para volver a abrirlo. */}
 						<aside class="mk3-pop" data-welcome hidden aria-labelledby="mk-pop-title">
 							<button type="button" class="mk3-pop-x" data-pop-close aria-label="Cerrar">
-								✕
+								<Icon name="close" size={16} />
 							</button>
 							<div class="mk3-pop-badge" aria-hidden="true">
-								<b>{welcome.percentOff ? `−${welcome.percentOff}%` : "🎁"}</b>
+								{welcome.percentOff ? <b>−{welcome.percentOff}%</b> : <Icon name="gift" size={28} />}
 								<span>1.ª compra</span>
 							</div>
 							<div class="mk3-pop-body">
@@ -265,14 +274,14 @@ export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, the
 										<small data-copy-label>Copiar</small>
 									</button>
 									<a href="/market#catalogo" class="mk3-pop-link" data-pop-close>
-										Ver productos →
+										Ver productos <Icon name="arrow" size={15} />
 									</a>
 								</div>
 								<p class="mk3-pop-fine">Válido una vez por cuenta, en productos de precio fijo.</p>
 							</div>
 						</aside>
 						<button type="button" class="mk3-pop-tab" data-pop-open hidden aria-label={`Ver el cupón de ${offerText} en tu primera compra`}>
-							🎁 {welcome.percentOff ? `${welcome.percentOff}% OFF` : "Cupón"}
+							<Icon name="gift" size={15} /> {welcome.percentOff ? `${welcome.percentOff}% OFF` : "Cupón"}
 						</button>
 					</>
 				)}

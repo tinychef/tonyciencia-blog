@@ -346,3 +346,50 @@ describe("R2: escritura verificada por SHA-256 (camino real de la carga con hash
 		expect((await bucket.head(key))?.size).toBe(good.length);
 	});
 });
+
+describe("ronda 3: enlaces, emojis, logos y tema", () => {
+	const EMOJI = /[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}]/u;
+
+	it("ningún enlace ni formulario apunta a /market?… (en producción eso cae en el 404 del blog)", async () => {
+		const p = await createProduct({ priceCents: 1200 });
+		await env.MARKET_DB.prepare("UPDATE products SET category = 'video', tags = '[\"videos con IA\"]' WHERE id = ?1").bind(p.id).run();
+		for (const path of ["/market", `/market/producto/${p.slug}`, "/market/agentes-para-empresas"]) {
+			const html = await (await call(path)).text();
+			expect(html, path).not.toMatch(/(href|action)="\/market\?/);
+			expect(html, path).not.toMatch(/"item":"[^"]*\/market\?/);
+		}
+	});
+
+	it("la tienda no usa emojis: íconos y logos son SVG", async () => {
+		const p = await createProduct({ priceCents: 1200 });
+		for (const path of ["/market", `/market/producto/${p.slug}`]) {
+			const html = await (await call(path)).text();
+			const text = html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, "");
+			expect(text.match(EMOJI)?.[0] ?? null, path).toBeNull();
+			expect(html).toContain('class="mk-ic');
+		}
+	});
+
+	it("logos de compatibilidad y «2 en 1» en tarjeta y ficha; marcas sin logo permitido van como texto", async () => {
+		const p = await createProduct({ priceCents: 3333 });
+		await env.MARKET_DB.prepare("UPDATE products SET compat = ?2 WHERE id = ?1")
+			.bind(p.id, JSON.stringify({ works: ["claude-code", "codex", "chrome", "inventada"], includes: ["agent|Agente de anuncios", "chrome-ext"] }))
+			.run();
+		const product = (await getProductBySlug(env.MARKET_DB, p.slug))!;
+		expect(product.compat.works.map((w) => w.k)).toEqual(["claude-code", "codex", "chrome"]);
+		const card = await (await call("/market")).text();
+		expect(card).toContain("2 en 1");
+		const html = await (await call(`/market/producto/${p.slug}`)).text();
+		expect(html).toContain("Funciona con");
+		expect(html).toContain("Agente de anuncios");
+		expect(html).toContain("Extensión de Chrome");
+		expect(html).toContain('class="mk-brand-logo"');
+		expect(html).toMatch(/<li>[\s\S]{0,400}?Codex<\/li>/);
+	});
+
+	it("botón de tema claro/oscuro con la misma cookie que el blog", async () => {
+		const html = await (await call("/market", { headers: { cookie: "scheme=light" } })).text();
+		expect(html).toContain('<html lang="es" class="light">');
+		expect(html).toContain("data-theme-toggle");
+	});
+});

@@ -1,3 +1,4 @@
+import { parseCompat, type Compat } from "../lib/brands";
 /** Acceso a datos de D1. Todas las consultas usan parámetros (nunca concatenación de strings). */
 
 export interface ProductImage {
@@ -42,6 +43,8 @@ export interface ProductRow {
 	price_mode: "fixed" | "pwyw";
 	min_price_cents: number;
 	max_price_cents: number | null;
+	// ── Logos de compatibilidad (migración 0007) ──
+	compat: string;
 }
 
 export interface ProductSpec {
@@ -54,7 +57,8 @@ export interface ProductFaq {
 	a: string;
 }
 
-export type Product = Omit<ProductRow, "images" | "tags" | "highlights" | "specs" | "faq"> & {
+export type Product = Omit<ProductRow, "images" | "tags" | "highlights" | "specs" | "faq" | "compat"> & {
+	compat: Compat;
 	images: ProductImage[];
 	tags: string[];
 	highlights: string[];
@@ -150,6 +154,7 @@ const toProduct = (r: ProductRow): Product => ({
 	price_mode: r.price_mode === "pwyw" && r.kind === "paid" ? "pwyw" : "fixed",
 	min_price_cents: r.min_price_cents ?? 0,
 	max_price_cents: r.max_price_cents ?? null,
+	compat: parseCompat(r.compat),
 	images: parseImages(r.images),
 	tags: parseJsonArray(r.tags, isStr),
 	highlights: parseJsonArray(r.highlights, isStr),

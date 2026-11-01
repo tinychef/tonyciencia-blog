@@ -1,0 +1,5 @@
+---
+// Igual que /en/posts/en/<slug>: un slug con "en/" adelante pertenece a la versión en inglés.
+const { slug } = Astro.params;
+return Astro.redirect(slug ? `/en/posts/${slug}` : "/en/posts", 301);
+---

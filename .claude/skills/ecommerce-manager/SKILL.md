@@ -13,6 +13,7 @@ Todo desde `workers/market/` (usa `pnpm wrangler …`, nunca `wrangler` a secas)
 ```bash
 cd workers/market && pnpm install --frozen-lockfile
 node scripts/audit-catalog.mjs                 # producción: fichas, JSON-LD, feed, sitemap, imágenes
+node ../../scripts/audit-site.mjs              # sitio entero: 404 y recursos rotos (blog + market)
 curl -s https://tonyciencia.com/market/estado.json   # productos, precios, archivo y cupón activo
 ```
 
@@ -27,6 +28,8 @@ curl -s https://tonyciencia.com/market/estado.json   # productos, precios, archi
 | Portadas | `design/<slug>.html` (frames 1600×1000) → `pnpm render:covers <slug>` → `public/market/static/products/<slug>/` |
 | Archivo entregable | `provision/packages.json` → `node scripts/build-product-zip.mjs <slug>` → PUT con hash fijado |
 | Categorías | `src/lib/catalog.ts` → `CATEGORIES` |
+| Logos «Funciona con» / «Incluye» (N en 1) | columna `compat` (admin o migración); claves en `src/lib/brands.ts` (Simple Icons CC0; marcas sin logo permitido van como texto) |
+| Enlaces al catálogo con filtros | siempre `/market/?…` (con barra): `/market?…` no llega al Worker en producción |
 | Cupón de bienvenida | `wrangler.jsonc` → `WELCOME_COUPON`, `WELCOME_COUPON_PERCENT`, `WELCOME_COUPON_AUTOCREATE` (el cron lo crea en Stripe) |
 
 Migraciones: solo agregan o actualizan con guardas (`WHERE … = valor_anterior`, `ON CONFLICT DO NOTHING`, "solo si sigue

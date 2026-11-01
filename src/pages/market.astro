@@ -1,0 +1,6 @@
+---
+// /market con parámetros (/market?categoria=…, ?q=…, ?filtro=…) NO llega al Worker del market: la ruta de Cloudflare
+// "tonyciencia.com/market" solo coincide sin query string, así que la petición cae en el blog (y daba 404).
+// /market/?… sí la captura "tonyciencia.com/market/*". Redirección permanente para enlaces viejos o compartidos.
+return Astro.redirect(`/market/${Astro.url.search}`, 301);
+---

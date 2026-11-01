@@ -1,4 +1,5 @@
 ---
+import { postSlug } from "../../utils/post-slug";
 import { getEmDashCollection } from "emdash";
 import Base from "../../layouts/Base.astro";
 import PostCard from "../../components/PostCard.astro";
@@ -71,7 +72,7 @@ const postsRoute = locale === "en" ? "/en/posts" : "/posts";
 						<PostCard
 							title={post.data.title}
 							excerpt={post.data.excerpt}
-							href={`${postsRoute}/${post.id}`}
+							href={`${postsRoute}/${postSlug(post.id)}`}
 							date={post.data.publishedAt ?? undefined}
 							readingTime={getReadingTime(post.data.content)}
 						/>
