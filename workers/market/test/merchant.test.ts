@@ -76,20 +76,20 @@ describe("imágenes de Merchant Center", () => {
 
 describe("feeds de Merchant (español e inglés)", () => {
 	it("feed en español: categoría 313, merchant.jpg, capturas, envío 0 y enlace a la ficha canónica", async () => {
-		await whileAvailable("specreel-stick", async () => {
+		await whileAvailable("stick-sketch", async () => {
 			const res = await call("/market/feed.xml");
 			expect(res.headers.get("content-type")).toMatch(/application\/xml/);
 			const feed = await res.text();
 			expect(feed).toContain("<link>http://localhost:8787/market/</link>");
 			expect(feed).toContain("<language>es</language>");
-			const item = itemOf(feed, "specreel-stick")!;
+			const item = itemOf(feed, "stick-sketch")!;
 			expect(item).toBeTruthy();
 			expect(item).toContain("<g:google_product_category>313</g:google_product_category>");
-			expect(item).toContain("<g:image_link>http://localhost:8787/market/static/products/specreel-stick/merchant.jpg</g:image_link>");
+			expect(item).toContain("<g:image_link>http://localhost:8787/market/static/products/stick-sketch/merchant.jpg</g:image_link>");
 			// Adicionales: solo merchant-2.jpg (las capturas llevan titulares: Google las rechaza).
 			const extra = [...item.matchAll(/<g:additional_image_link>([^<]+)<\/g:additional_image_link>/g)].map((m) => m[1]);
 			expect(extra).toEqual([
-				"http://localhost:8787/market/static/products/specreel-stick/merchant-2.jpg",
+				"http://localhost:8787/market/static/products/stick-sketch/merchant-2.jpg",
 			]);
 			expect(item).not.toMatch(/<g:additional_image_link>[^<]*cover/);
 			expect(item).toContain("<g:shipping><g:country>US</g:country><g:service>Descarga digital</g:service><g:price>0.00 USD</g:price></g:shipping>");
@@ -99,29 +99,29 @@ describe("feeds de Merchant (español e inglés)", () => {
 			expect(item).toContain("<g:availability>in_stock</g:availability>");
 			expect(item).toContain("<g:price>12.00 USD</g:price>");
 			expect(item).toMatch(/<g:product_type>Productos digitales &gt; [^<]+<\/g:product_type>/);
-			expect(item).toContain("<link>http://localhost:8787/market/producto/specreel-stick</link>");
+			expect(item).toContain("<link>http://localhost:8787/market/producto/stick-sketch</link>");
 			// El enlace del feed es la canónica de la ficha.
-			expect(canonicalOf(await (await call("/market/producto/specreel-stick")).text())).toBe("http://localhost:8787/market/producto/specreel-stick");
+			expect(canonicalOf(await (await call("/market/producto/stick-sketch")).text())).toBe("http://localhost:8787/market/producto/stick-sketch");
 		});
 	});
 
 	it("feed en inglés: textos de i18n.en, enlaces /market/en/… y solo fichas con versión en inglés", async () => {
 		const sinIngles = await createProduct({ priceCents: 2500 });
 		await env.MARKET_DB.prepare(`UPDATE products SET images = '[{"src":"/market/static/products/specreel/cover.webp","alt":"x"}]' WHERE id = ?1`).bind(sinIngles.id).run();
-		await whileAvailable("specreel-stick", async () => {
+		await whileAvailable("stick-sketch", async () => {
 			const res = await call("/market/en/feed.xml");
 			expect(res.status).toBe(200);
 			expect(res.headers.get("content-type")).toMatch(/application\/xml/);
 			const feed = await res.text();
 			expect(feed).toContain("<link>http://localhost:8787/market/en/</link>");
 			expect(feed).toContain("<language>en</language>");
-			const item = itemOf(feed, "specreel-stick")!;
+			const item = itemOf(feed, "stick-sketch")!;
 			expect(item).toBeTruthy();
-			const en = (await getProductBySlug(env.MARKET_DB, "specreel-stick"))!.i18n.en!;
+			const en = (await getProductBySlug(env.MARKET_DB, "stick-sketch"))!.i18n.en!;
 			expect(item).toContain(`<title>${xmlText((en.meta_title || en.title)!)}</title>`);
-			expect(item).toContain("<link>http://localhost:8787/market/en/product/specreel-stick</link>");
+			expect(item).toContain("<link>http://localhost:8787/market/en/product/stick-sketch</link>");
 			expect(item).toContain("<g:google_product_category>313</g:google_product_category>");
-			expect(item).toContain("<g:image_link>http://localhost:8787/market/static/products/specreel-stick/merchant.jpg</g:image_link>");
+			expect(item).toContain("<g:image_link>http://localhost:8787/market/static/products/stick-sketch/merchant.jpg</g:image_link>");
 			expect(item).toContain("<g:service>Digital download</g:service><g:price>0.00 USD</g:price>");
 			expect(item).toMatch(/<g:product_type>Digital products &gt; [^<]+<\/g:product_type>/);
 			expect(item).toContain("<g:price>12.00 USD</g:price>");
@@ -129,7 +129,7 @@ describe("feeds de Merchant (español e inglés)", () => {
 			// Sin versión en inglés no va al feed en inglés (su /market/en/product/… redirige a la ficha en español).
 			expect(feed).not.toContain(`<g:id>${sinIngles.slug}</g:id>`);
 			expect(await (await call("/market/feed.xml")).text()).toContain(`<g:id>${sinIngles.slug}</g:id>`);
-			expect(canonicalOf(await (await call("/market/en/product/specreel-stick")).text())).toBe("http://localhost:8787/market/en/product/specreel-stick");
+			expect(canonicalOf(await (await call("/market/en/product/stick-sketch")).text())).toBe("http://localhost:8787/market/en/product/stick-sketch");
 		});
 	});
 
@@ -175,8 +175,8 @@ describe("JSON-LD de la ficha: envío y devoluciones", () => {
 	});
 
 	it("también en la ficha en inglés", async () => {
-		await whileAvailable("specreel-stick", async () => {
-			const ld = JSON.parse((await (await call("/market/en/product/specreel-stick")).text()).match(PRODUCT_JSONLD)![1]!);
+		await whileAvailable("stick-sketch", async () => {
+			const ld = JSON.parse((await (await call("/market/en/product/stick-sketch")).text()).match(PRODUCT_JSONLD)![1]!);
 			expect(ld.offers.shippingDetails.shippingRate).toEqual({ "@type": "MonetaryAmount", value: "0", currency: "USD" });
 			expect(ld.offers.hasMerchantReturnPolicy.merchantReturnDays).toBe(14);
 		});
@@ -235,11 +235,11 @@ describe("dataLayer de GA4 (view_item_list, view_item, begin_checkout, purchase)
 		const items = dl[0]!.ecommerce.items as Array<Record<string, unknown>>;
 		expect(items.length).toBeGreaterThan(0);
 		expect(items.map((i) => i.index)).toEqual(items.map((_, i) => i));
-		const stick = items.find((i) => i.item_id === "specreel-stick")!;
+		const stick = items.find((i) => i.item_id === "stick-sketch")!;
 		expect(stick).toMatchObject({ item_brand: "Tony Ciencia", quantity: 1, item_list_id: "catalogo" });
 		expect(typeof stick.price).toBe("number");
 		const en = dlOf(await (await call("/market/en/")).text())!;
-		expect(en[0]!.ecommerce.items.find((i: { item_id: string }) => i.item_id === "specreel-stick").item_name).toBe(stick.item_name);
+		expect(en[0]!.ecommerce.items.find((i: { item_id: string }) => i.item_id === "stick-sketch").item_name).toBe(stick.item_name);
 		// Con un filtro, solo lo que se ve al cargar (y nada si no se ve ninguno).
 		const video = dlOf(await (await call("/market/?categoria=video")).text())!;
 		expect(video[0]!.ecommerce.items.length).toBeLessThan(items.length);

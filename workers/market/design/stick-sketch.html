@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+	/* Pantallas de Stick Sketch (en el ZIP: SpecReel Stick): el preset "noir" del propio producto — negro, blanco y un solo rojo.
+	   Todas las imágenes son fotogramas reales del sketch de ejemplo incluido (preview.mp4). */
+	:root { --bg: #090909; --panel: #111112; --line: #262628; --fg: #f4f4f4; --mut: #9a9a9e; --dim: #5f5f63; --red: #e0262d; }
+	* { box-sizing: border-box; margin: 0; padding: 0; }
+	body { background: #333; }
+	.frame { width: 1600px; height: 1000px; position: relative; overflow: hidden; background: radial-gradient(900px 600px at 78% 45%, #1a0b0c 0%, transparent 70%), var(--bg); color: var(--fg); font-family: "Manrope", sans-serif; }
+	.mono { font-family: "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: 0.2em; }
+	.eyebrow { position: absolute; left: 100px; display: flex; align-items: center; gap: 14px; font-size: 18px; font-weight: 600; }
+	.eyebrow i { width: 14px; height: 14px; background: var(--red); display: block; }
+	.eyebrow span { color: var(--mut); font-weight: 500; }
+	h1, h2 { font-weight: 800; letter-spacing: -0.045em; line-height: 0.96; }
+	h1 em, h2 em { font-style: normal; color: var(--red); }
+	.legal { position: absolute; left: 100px; bottom: 40px; font-size: 13px; color: #6a6a6e; }
+	.chips { display: flex; gap: 12px; }
+	.chip { border: 1.5px solid #3a3a3d; border-radius: 8px; padding: 12px 18px; font-weight: 700; font-size: 18px; letter-spacing: 0.04em; }
+	.phone { position: absolute; border-radius: 30px; overflow: hidden; border: 2px solid #2c2c2f; background: var(--bg); box-shadow: 0 40px 90px rgba(0, 0, 0, 0.7), 0 0 0 8px #141415; }
+	.phone img { display: block; width: 100%; height: 100%; object-fit: cover; }
+	/* Recorte de un fotograma 1080×1920: --x, --y, --w (zona a mostrar) y --cw (ancho del contenedor). */
+	.crop { position: relative; overflow: hidden; width: calc(var(--cw) * 1px); height: calc(var(--cw) * var(--h) / var(--w) * 1px); background: var(--bg); }
+	.crop img { position: absolute; width: calc(1080px * var(--cw) / var(--w)); left: calc(-1px * var(--x) * var(--cw) / var(--w)); top: calc(-1px * var(--y) * var(--cw) / var(--w)); }
+
+	/* ── Portada ── */
+	.cover .eyebrow { top: 160px; }
+	.cover h1 { position: absolute; left: 96px; top: 214px; font-size: 104px; width: 660px; }
+	.cover .sub { position: absolute; left: 100px; top: 568px; width: 600px; font-size: 26px; line-height: 1.45; color: #c4c4c8; }
+	.idea { position: absolute; left: 100px; top: 724px; display: flex; align-items: center; gap: 16px; border: 1.5px solid var(--line); background: var(--panel); border-radius: 14px; padding: 16px 22px; }
+	.idea .k { font-family: "IBM Plex Mono"; font-size: 14px; color: var(--mut); letter-spacing: 0.16em; text-transform: uppercase; }
+	.idea b { font-size: 24px; font-weight: 700; }
+	.idea b em { font-style: normal; color: var(--red); }
+	.cover .chips { position: absolute; left: 100px; top: 826px; }
+	.fan .phone:nth-child(1) { left: 770px; top: 215px; width: 310px; height: 551px; transform: rotate(-7deg); opacity: 0.9; }
+	.fan .phone:nth-child(2) { left: 1228px; top: 215px; width: 310px; height: 551px; transform: rotate(7deg); opacity: 0.9; }
+	.fan .phone:nth-child(3) { left: 965px; top: 92px; width: 410px; height: 729px; z-index: 2; }
+	.fmt { position: absolute; left: 790px; right: 50px; top: 866px; text-align: center; font-size: 17px; color: #b8b8bc; }
+	.fmt b { color: var(--red); font-weight: 600; }
+
+	/* ── Pantalla 1 ── */
+	.s1 .eyebrow { top: 92px; }
+	.s1 h2 { position: absolute; left: 96px; top: 140px; font-size: 84px; width: 660px; }
+	.flow { position: absolute; left: 820px; top: 110px; width: 690px; display: grid; gap: 16px; }
+	.step { display: grid; grid-template-columns: 56px 1fr; gap: 18px; align-items: center; }
+	.step .n { width: 56px; height: 56px; border-radius: 50%; border: 1.5px solid #3a3a3d; display: grid; place-items: center; font-family: "IBM Plex Mono"; font-weight: 600; font-size: 20px; }
+	.step .n.ck { background: var(--red); border-color: var(--red); color: #fff; }
+	.step b { display: block; font-size: 25px; font-weight: 700; letter-spacing: -0.01em; }
+	.step span { display: block; margin-top: 3px; font-size: 18px; color: var(--mut); }
+	.strip { position: absolute; left: 100px; top: 384px; display: flex; gap: 22px; }
+	.beat { width: 333px; }
+	.beat .crop { border-radius: 14px; border: 1.5px solid var(--line); }
+	.beat .k { margin-top: 16px; font-size: 13px; color: var(--red); font-weight: 600; }
+	.beat p { margin-top: 6px; font-size: 19px; line-height: 1.35; color: #d8d8dc; font-weight: 600; }
+	.files { position: absolute; left: 100px; bottom: 56px; display: flex; gap: 12px; align-items: center; }
+	.files .mono { font-size: 14px; color: var(--mut); margin-right: 8px; }
+	.file { border: 1.5px solid var(--line); border-radius: 8px; padding: 9px 14px; font-family: "IBM Plex Mono"; font-size: 16px; color: #d0d0d4; background: var(--panel); }
+	.file b { color: #fff; font-weight: 600; }
+
+	/* ── Pantalla 2 ── */
+	.s2 .eyebrow { top: 92px; }
+	.s2 h2 { position: absolute; left: 96px; top: 140px; font-size: 78px; width: 700px; }
+	.s2 .lead { position: absolute; left: 100px; top: 330px; width: 600px; font-size: 22px; line-height: 1.5; color: #bdbdc1; }
+	.legend { position: absolute; left: 100px; top: 470px; width: 620px; display: grid; gap: 14px; }
+	.legend > div { display: grid; grid-template-columns: 38px 1fr; gap: 16px; align-items: center; font-size: 22px; font-weight: 700; }
+	.legend > div span { color: var(--mut); font-weight: 500; }
+	.dot { width: 38px; height: 38px; border-radius: 50%; background: var(--red); color: #fff; display: grid; place-items: center; font-family: "IBM Plex Mono"; font-weight: 600; font-size: 17px; box-shadow: 0 0 0 4px rgba(224, 38, 45, 0.25); }
+	.s2 .chips { position: absolute; left: 100px; bottom: 74px; }
+	.s2 .chip { font-size: 16px; padding: 10px 14px; }
+	.shot { position: absolute; left: 790px; top: 82px; }
+	.shot .crop { border-radius: 20px; border: 1.5px solid #2c2c2f; box-shadow: 0 40px 100px rgba(0, 0, 0, 0.7); }
+	.shot .dot { position: absolute; z-index: 2; }
+	.shot .tag { position: absolute; right: 18px; bottom: -36px; font-size: 13px; color: var(--mut); }
+</style>
+<link data-portada href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style id="portada">
+/* Portada de Stick Sketch (sistema v5, dirección A: grafito #0d0d0f, Inter Tight, un solo verde #30d158, dolor → solución,
+   logos arriba). Las tres escenas son renders reales del motor incluido (docs/ux/propuesta-2026-11-01/portadas-finales.md,
+   «SpecReel Stick»). Tamaños pensados para la tarjeta en celular (≈360 px de ancho, escala 0,225): titular 136 px → 31 px,
+   nombre 76 px → 17 px, dolor 46 px → 10 px. */
+.frame.ss { background: #0d0d0f; color: #f5f5f7; font-family: "Inter Tight", system-ui, sans-serif; }
+.ss * { box-sizing: border-box; margin: 0; padding: 0; }
+.ss .ss-dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,.075) 1.6px, transparent 1.6px); background-size: 32px 32px; -webkit-mask: linear-gradient(90deg, transparent 30%, #000 75%); mask: linear-gradient(90deg, transparent 30%, #000 75%); }
+.ss .ss-glow { position: absolute; left: 250px; top: 470px; width: 1100px; height: 620px; border-radius: 50%; background: radial-gradient(closest-side, rgba(48,209,88,.20), rgba(48,209,88,0)); }
+.ss .ss-top { position: absolute; left: 88px; right: 88px; top: 40px; height: 108px; display: flex; align-items: center; justify-content: space-between; }
+.ss .ss-name { font-size: 76px; line-height: 1; font-weight: 800; letter-spacing: -0.03em; word-spacing: 0.12em; white-space: nowrap; }
+.ss .ss-name u { text-decoration: underline; text-decoration-color: #30d158; text-decoration-thickness: 10px; text-underline-offset: 13px; text-decoration-skip-ink: none; }
+.ss .ss-logos { display: flex; align-items: center; gap: 16px; height: 104px; padding: 0 30px; border: 3px solid #2e2e33; border-radius: 24px; background: #17171a; }
+.ss .ss-logos img, .ss .ss-logos svg { display: block; width: 72px; height: 72px; flex: none; color: #f5f5f7; }
+.ss .ss-logos span { font-size: 46px; font-weight: 800; letter-spacing: -0.015em; white-space: nowrap; }
+.ss .ss-logos i { width: 3px; height: 56px; background: #3a3a40; margin: 0 12px; }
+.ss .ss-pain { position: absolute; left: 88px; top: 176px; font-size: 46px; line-height: 1.1; font-weight: 600; letter-spacing: -0.015em; color: #8e8e96; white-space: nowrap; }
+.ss .ss-pain s { text-decoration-thickness: 5px; text-decoration-color: rgba(245,245,247,.55); }
+.ss .ss-pain b { color: #f5f5f7; font-weight: 700; }
+.ss .ss-h { position: absolute; left: 84px; top: 236px; font-size: 136px; line-height: 0.94; font-weight: 800; letter-spacing: -0.045em; white-space: nowrap; }
+.ss .ss-h b { font-weight: 800; color: #30d158; }
+.ss .ss-out { position: absolute; right: 88px; top: 398px; font-size: 40px; font-weight: 800; letter-spacing: -0.01em; white-space: nowrap; border: 4px solid #30d158; border-radius: 18px; padding: 8px 24px 11px; background: #13281a; }
+.ss .ss-tile { position: absolute; top: 522px; width: 458px; height: 440px; overflow: hidden; border: 4px solid #2e2e33; border-radius: 24px; background: #000; box-shadow: 0 30px 70px rgba(0,0,0,.6); }
+.ss .ss-pic { position: absolute; left: 0; top: 0; width: 450px; height: 450px; display: block; }
+.ss .ss-sprite { background-repeat: no-repeat; background-size: 700% 500%; }
+.ss .ss-cap { position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); white-space: nowrap; font-size: 27px; font-weight: 700; letter-spacing: -0.01em; color: #f5f5f7; background: rgba(13,13,15,.88); border: 2px solid #3a3a40; border-radius: 10px; padding: 3px 14px 6px; }
+.ss .ss-note { position: absolute; right: 88px; bottom: 12px; font: 500 15px/1.3 "JetBrains Mono", monospace; color: #6e6e76; text-align: right; white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<!-- portadas: inicio -->
+<section class="frame ss" data-out="cover" data-lang="es" data-cpu>
+	<div class="ss-dots"></div>
+	<div class="ss-glow"></div>
+	<div class="ss-top"><div class="ss-name">Stick <u>Sketch</u></div><div class="ss-logos"><img src="assets/logos/claude.svg" width="72" height="72" alt=""><span>Claude Code</span><i></i><svg fill="currentColor" fill-rule="evenodd" width="72" height="72" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9.205 8.658v-2.26c0-.19.072-.333.238-.428l4.543-2.616c.619-.357 1.356-.523 2.117-.523 2.854 0 4.662 2.212 4.662 4.566 0 .167 0 .357-.024.547l-4.71-2.759a.797.797 0 00-.856 0l-5.97 3.473zm10.609 8.8V12.06c0-.333-.143-.57-.429-.737l-5.97-3.473 1.95-1.118a.433.433 0 01.476 0l4.543 2.617c1.309.76 2.189 2.378 2.189 3.948 0 1.808-1.07 3.473-2.76 4.163zM7.802 12.703l-1.95-1.142c-.167-.095-.239-.238-.239-.428V5.899c0-2.545 1.95-4.472 4.591-4.472 1 0 1.927.333 2.712.928L8.23 5.067c-.285.166-.428.404-.428.737v6.898zM12 15.128l-2.795-1.57v-3.33L12 8.658l2.795 1.57v3.33L12 15.128zm1.796 7.23c-1 0-1.927-.332-2.712-.927l4.686-2.712c.285-.166.428-.404.428-.737v-6.898l1.974 1.142c.167.095.238.238.238.428v5.233c0 2.545-1.974 4.472-4.614 4.472zm-5.637-5.303l-4.544-2.617c-1.308-.761-2.188-2.378-2.188-3.948A4.482 4.482 0 014.21 6.327v5.423c0 .333.143.571.428.738l5.947 3.449-1.95 1.118a.432.432 0 01-.476 0zm-.262 3.9c-2.688 0-4.662-2.021-4.662-4.519 0-.19.024-.38.047-.57l4.686 2.71c.286.167.571.167.856 0l5.97-3.448v2.26c0 .19-.07.333-.237.428l-4.543 2.616c-.619.357-1.356.523-2.117.523zm5.899 2.83a5.947 5.947 0 005.827-4.756C22.287 18.339 24 15.84 24 13.296c0-1.665-.713-3.282-1.998-4.448.119-.5.19-.999.19-1.498 0-3.401-2.759-5.947-5.946-5.947-.642 0-1.26.095-1.88.31A5.962 5.962 0 0010.205 0a5.947 5.947 0 00-5.827 4.757C1.713 5.447 0 7.945 0 10.49c0 1.666.713 3.283 1.998 4.448-.119.5-.19 1-.19 1.499 0 3.401 2.759 5.946 5.946 5.946.642 0 1.26-.095 1.88-.309a5.96 5.96 0 004.162 1.713z"></path></svg><span>Codex</span></div></div>
+	<p class="ss-pain"><s>Grabarte en cámara.</s> <s>Animar a mano.</s> <b>Lo anima tu agente.</b></p>
+	<p class="ss-h">Tu idea en <b>muñequitos<br>de palo.</b></p>
+	<p class="ss-out">MP4 · subtítulos · música</p>
+	<div class="ss-tile" style="left: 88px;"><img class="ss-pic" src="assets/specreel-stick/escena-1.jpg" width="450" height="450" alt=""><span class="ss-cap">1 % mejor cada día</span></div>
+	<div class="ss-tile" style="left: 571px;"><img class="ss-pic" src="assets/specreel-stick/escena-2.jpg" width="450" height="450" alt=""><span class="ss-cap">Uno ahorra, otro gasta</span></div>
+	<div class="ss-tile" style="left: 1054px;"><img class="ss-pic" src="assets/specreel-stick/escena-3.jpg" width="450" height="450" alt=""><span class="ss-cap">El que empieza vs. el que espera</span></div>
+	<p class="ss-note">Renders reales del motor incluido (en el ZIP se llama SpecReel Stick): el sketch de ejemplo y 2 guiones nuevos (bloque SKIT).</p>
+</section>
+<section class="frame ss" data-out="cover-animada" data-lang="es" data-anim="35" data-fps="10" data-width="1600" data-quality="50">
+	<div class="ss-dots"></div>
+	<div class="ss-glow"></div>
+	<div class="ss-top"><div class="ss-name">Stick <u>Sketch</u></div><div class="ss-logos"><img src="assets/logos/claude.svg" width="72" height="72" alt=""><span>Claude Code</span><i></i><svg fill="currentColor" fill-rule="evenodd" width="72" height="72" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9.205 8.658v-2.26c0-.19.072-.333.238-.428l4.543-2.616c.619-.357 1.356-.523 2.117-.523 2.854 0 4.662 2.212 4.662 4.566 0 .167 0 .357-.024.547l-4.71-2.759a.797.797 0 00-.856 0l-5.97 3.473zm10.609 8.8V12.06c0-.333-.143-.57-.429-.737l-5.97-3.473 1.95-1.118a.433.433 0 01.476 0l4.543 2.617c1.309.76 2.189 2.378 2.189 3.948 0 1.808-1.07 3.473-2.76 4.163zM7.802 12.703l-1.95-1.142c-.167-.095-.239-.238-.239-.428V5.899c0-2.545 1.95-4.472 4.591-4.472 1 0 1.927.333 2.712.928L8.23 5.067c-.285.166-.428.404-.428.737v6.898zM12 15.128l-2.795-1.57v-3.33L12 8.658l2.795 1.57v3.33L12 15.128zm1.796 7.23c-1 0-1.927-.332-2.712-.927l4.686-2.712c.285-.166.428-.404.428-.737v-6.898l1.974 1.142c.167.095.238.238.238.428v5.233c0 2.545-1.974 4.472-4.614 4.472zm-5.637-5.303l-4.544-2.617c-1.308-.761-2.188-2.378-2.188-3.948A4.482 4.482 0 014.21 6.327v5.423c0 .333.143.571.428.738l5.947 3.449-1.95 1.118a.432.432 0 01-.476 0zm-.262 3.9c-2.688 0-4.662-2.021-4.662-4.519 0-.19.024-.38.047-.57l4.686 2.71c.286.167.571.167.856 0l5.97-3.448v2.26c0 .19-.07.333-.237.428l-4.543 2.616c-.619.357-1.356.523-2.117.523zm5.899 2.83a5.947 5.947 0 005.827-4.756C22.287 18.339 24 15.84 24 13.296c0-1.665-.713-3.282-1.998-4.448.119-.5.19-.999.19-1.498 0-3.401-2.759-5.947-5.946-5.947-.642 0-1.26.095-1.88.31A5.962 5.962 0 0010.205 0a5.947 5.947 0 00-5.827 4.757C1.713 5.447 0 7.945 0 10.49c0 1.666.713 3.283 1.998 4.448-.119.5-.19 1-.19 1.499 0 3.401 2.759 5.946 5.946 5.946.642 0 1.26-.095 1.88-.309a5.96 5.96 0 004.162 1.713z"></path></svg><span>Codex</span></div></div>
+	<p class="ss-pain"><s>Grabarte en cámara.</s> <s>Animar a mano.</s> <b>Lo anima tu agente.</b></p>
+	<p class="ss-h">Tu idea en <b>muñequitos<br>de palo.</b></p>
+	<p class="ss-out">MP4 · subtítulos · música</p>
+	<div class="ss-tile" style="left: 88px;"><div class="ss-pic ss-sprite" style="background-image: url(assets/specreel-stick/anim-1.webp);"></div><span class="ss-cap">1 % mejor cada día</span></div>
+	<div class="ss-tile" style="left: 571px;"><div class="ss-pic ss-sprite" style="background-image: url(assets/specreel-stick/anim-2.webp);"></div><span class="ss-cap">Uno ahorra, otro gasta</span></div>
+	<div class="ss-tile" style="left: 1054px;"><div class="ss-pic ss-sprite" style="background-image: url(assets/specreel-stick/anim-3.webp);"></div><span class="ss-cap">El que empieza vs. el que espera</span></div>
+	<p class="ss-note">Renders reales del motor incluido (en el ZIP se llama SpecReel Stick): el sketch de ejemplo y 2 guiones nuevos (bloque SKIT).</p>
+</section>
+<section class="frame ss" data-out="en/cover" data-lang="en" data-cpu>
+	<div class="ss-dots"></div>
+	<div class="ss-glow"></div>
+	<div class="ss-top"><div class="ss-name">Stick <u>Sketch</u></div><div class="ss-logos"><img src="assets/logos/claude.svg" width="72" height="72" alt=""><span>Claude Code</span><i></i><svg fill="currentColor" fill-rule="evenodd" width="72" height="72" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9.205 8.658v-2.26c0-.19.072-.333.238-.428l4.543-2.616c.619-.357 1.356-.523 2.117-.523 2.854 0 4.662 2.212 4.662 4.566 0 .167 0 .357-.024.547l-4.71-2.759a.797.797 0 00-.856 0l-5.97 3.473zm10.609 8.8V12.06c0-.333-.143-.57-.429-.737l-5.97-3.473 1.95-1.118a.433.433 0 01.476 0l4.543 2.617c1.309.76 2.189 2.378 2.189 3.948 0 1.808-1.07 3.473-2.76 4.163zM7.802 12.703l-1.95-1.142c-.167-.095-.239-.238-.239-.428V5.899c0-2.545 1.95-4.472 4.591-4.472 1 0 1.927.333 2.712.928L8.23 5.067c-.285.166-.428.404-.428.737v6.898zM12 15.128l-2.795-1.57v-3.33L12 8.658l2.795 1.57v3.33L12 15.128zm1.796 7.23c-1 0-1.927-.332-2.712-.927l4.686-2.712c.285-.166.428-.404.428-.737v-6.898l1.974 1.142c.167.095.238.238.238.428v5.233c0 2.545-1.974 4.472-4.614 4.472zm-5.637-5.303l-4.544-2.617c-1.308-.761-2.188-2.378-2.188-3.948A4.482 4.482 0 014.21 6.327v5.423c0 .333.143.571.428.738l5.947 3.449-1.95 1.118a.432.432 0 01-.476 0zm-.262 3.9c-2.688 0-4.662-2.021-4.662-4.519 0-.19.024-.38.047-.57l4.686 2.71c.286.167.571.167.856 0l5.97-3.448v2.26c0 .19-.07.333-.237.428l-4.543 2.616c-.619.357-1.356.523-2.117.523zm5.899 2.83a5.947 5.947 0 005.827-4.756C22.287 18.339 24 15.84 24 13.296c0-1.665-.713-3.282-1.998-4.448.119-.5.19-.999.19-1.498 0-3.401-2.759-5.947-5.946-5.947-.642 0-1.26.095-1.88.31A5.962 5.962 0 0010.205 0a5.947 5.947 0 00-5.827 4.757C1.713 5.447 0 7.945 0 10.49c0 1.666.713 3.283 1.998 4.448-.119.5-.19 1-.19 1.499 0 3.401 2.759 5.946 5.946 5.946.642 0 1.26-.095 1.88-.309a5.96 5.96 0 004.162 1.713z"></path></svg><span>Codex</span></div></div>
+	<p class="ss-pain"><s>Filming yourself.</s> <s>Animating by hand.</s> <b>Your agent animates it.</b></p>
+	<p class="ss-h">Your idea, in <b>stick<br>figures.</b></p>
+	<p class="ss-out">MP4 · captions · music</p>
+	<div class="ss-tile" style="left: 88px;"><img class="ss-pic" src="assets/specreel-stick/escena-1.jpg" width="450" height="450" alt=""><span class="ss-cap">1% better every day</span></div>
+	<div class="ss-tile" style="left: 571px;"><img class="ss-pic" src="assets/specreel-stick/escena-2.jpg" width="450" height="450" alt=""><span class="ss-cap">One saves, one spends</span></div>
+	<div class="ss-tile" style="left: 1054px;"><img class="ss-pic" src="assets/specreel-stick/escena-3.jpg" width="450" height="450" alt=""><span class="ss-cap">One starts, one waits</span></div>
+	<p class="ss-note">Real renders (Spanish examples) from the included engine (SpecReel Stick in the ZIP): the sample skit and 2 new scripts (SKIT block).</p>
+</section>
+<section class="frame ss" data-out="en/cover-animada" data-lang="en" data-anim="35" data-fps="10" data-width="1600" data-quality="50">
+	<div class="ss-dots"></div>
+	<div class="ss-glow"></div>
+	<div class="ss-top"><div class="ss-name">Stick <u>Sketch</u></div><div class="ss-logos"><img src="assets/logos/claude.svg" width="72" height="72" alt=""><span>Claude Code</span><i></i><svg fill="currentColor" fill-rule="evenodd" width="72" height="72" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9.205 8.658v-2.26c0-.19.072-.333.238-.428l4.543-2.616c.619-.357 1.356-.523 2.117-.523 2.854 0 4.662 2.212 4.662 4.566 0 .167 0 .357-.024.547l-4.71-2.759a.797.797 0 00-.856 0l-5.97 3.473zm10.609 8.8V12.06c0-.333-.143-.57-.429-.737l-5.97-3.473 1.95-1.118a.433.433 0 01.476 0l4.543 2.617c1.309.76 2.189 2.378 2.189 3.948 0 1.808-1.07 3.473-2.76 4.163zM7.802 12.703l-1.95-1.142c-.167-.095-.239-.238-.239-.428V5.899c0-2.545 1.95-4.472 4.591-4.472 1 0 1.927.333 2.712.928L8.23 5.067c-.285.166-.428.404-.428.737v6.898zM12 15.128l-2.795-1.57v-3.33L12 8.658l2.795 1.57v3.33L12 15.128zm1.796 7.23c-1 0-1.927-.332-2.712-.927l4.686-2.712c.285-.166.428-.404.428-.737v-6.898l1.974 1.142c.167.095.238.238.238.428v5.233c0 2.545-1.974 4.472-4.614 4.472zm-5.637-5.303l-4.544-2.617c-1.308-.761-2.188-2.378-2.188-3.948A4.482 4.482 0 014.21 6.327v5.423c0 .333.143.571.428.738l5.947 3.449-1.95 1.118a.432.432 0 01-.476 0zm-.262 3.9c-2.688 0-4.662-2.021-4.662-4.519 0-.19.024-.38.047-.57l4.686 2.71c.286.167.571.167.856 0l5.97-3.448v2.26c0 .19-.07.333-.237.428l-4.543 2.616c-.619.357-1.356.523-2.117.523zm5.899 2.83a5.947 5.947 0 005.827-4.756C22.287 18.339 24 15.84 24 13.296c0-1.665-.713-3.282-1.998-4.448.119-.5.19-.999.19-1.498 0-3.401-2.759-5.947-5.946-5.947-.642 0-1.26.095-1.88.31A5.962 5.962 0 0010.205 0a5.947 5.947 0 00-5.827 4.757C1.713 5.447 0 7.945 0 10.49c0 1.666.713 3.283 1.998 4.448-.119.5-.19 1-.19 1.499 0 3.401 2.759 5.946 5.946 5.946.642 0 1.26-.095 1.88-.309a5.96 5.96 0 004.162 1.713z"></path></svg><span>Codex</span></div></div>
+	<p class="ss-pain"><s>Filming yourself.</s> <s>Animating by hand.</s> <b>Your agent animates it.</b></p>
+	<p class="ss-h">Your idea, in <b>stick<br>figures.</b></p>
+	<p class="ss-out">MP4 · captions · music</p>
+	<div class="ss-tile" style="left: 88px;"><div class="ss-pic ss-sprite" style="background-image: url(assets/specreel-stick/anim-1.webp);"></div><span class="ss-cap">1% better every day</span></div>
+	<div class="ss-tile" style="left: 571px;"><div class="ss-pic ss-sprite" style="background-image: url(assets/specreel-stick/anim-2.webp);"></div><span class="ss-cap">One saves, one spends</span></div>
+	<div class="ss-tile" style="left: 1054px;"><div class="ss-pic ss-sprite" style="background-image: url(assets/specreel-stick/anim-3.webp);"></div><span class="ss-cap">One starts, one waits</span></div>
+	<p class="ss-note">Real renders (Spanish examples) from the included engine (SpecReel Stick in the ZIP): the sample skit and 2 new scripts (SKIT block).</p>
+</section>
+<script>
+(() => {
+	// Portada animada: cuadro = función pura de t (35 cuadros a 10 fps, 3,5 s en bucle). La fija usa los fotogramas finales.
+	const update = (root, t) => {
+		const k = Math.floor(t * 10 + 1e-6) % 35;
+		root.querySelectorAll(".ss-sprite").forEach((el) => { el.style.backgroundPosition = `${((k % 7) / 6) * 100}% ${(Math.floor(k / 7) / 4) * 100}%`; });
+	};
+	const A = [...document.querySelectorAll("section.ss[data-anim]")];
+	const first = () => A.forEach((a) => update(a, 0));
+	first(); document.fonts.ready.then(first);
+	window.__frame = (i) => { A.forEach((a) => update(a, i / 10)); return new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))); };
+})();
+</script>
+<!-- portadas: fin -->
+
+<section class="frame s1" data-out="screen-1">
+	<div class="eyebrow mono"><i></i>Stick Sketch <span>· Cómo funciona</span></div>
+	<h2>Tú apruebas.<br>Tu agente <em>anima.</em></h2>
+	<div class="flow">
+		<div class="step"><span class="n">1</span><div><b>Le cuentas la idea</b><span>Quién hace qué, quién no y cuál es el remate.</span></div></div>
+		<div class="step"><span class="n ck">A</span><div><b>Apruebas el guion y el storyboard</b><span>Antes de animar nada.</span></div></div>
+		<div class="step"><span class="n ck">B</span><div><b>Revisas la hoja de fotogramas</b><span>Después viene el render final.</span></div></div>
+	</div>
+	<div class="strip">
+		<div class="beat"><div class="crop" style="--x: 88; --y: 460; --w: 905; --h: 1070; --cw: 333;"><img src="assets/specreel-stick/beat-1-partida.jpg" alt=""></div><div class="k mono">Línea 1</div><p>Dos personas. El mismo punto de partida.</p></div>
+		<div class="beat"><div class="crop" style="--x: 88; --y: 460; --w: 905; --h: 1070; --cw: 333;"><img src="assets/specreel-stick/beat-2-mejora.jpg" alt=""></div><div class="k mono">Línea 2</div><p>Uno mejora un 1% cada día.</p></div>
+		<div class="beat"><div class="crop" style="--x: 88; --y: 460; --w: 905; --h: 1070; --cw: 333;"><img src="assets/specreel-stick/beat-3-espera.jpg" alt=""></div><div class="k mono">Línea 3</div><p>El otro espera el momento perfecto.</p></div>
+		<div class="beat"><div class="crop" style="--x: 88; --y: 460; --w: 905; --h: 1070; --cw: 333;"><img src="assets/specreel-stick/beat-4-final.jpg" alt=""></div><div class="k mono">Línea 4</div><p>Al año: 37 veces mejor.</p></div>
+	</div>
+	<div class="files"><span class="mono">Recibes</span><span class="file"><b>sketch</b>.mp4</span><span class="file"><b>sketch</b>.srt</span><span class="file"><b>sketch</b>_cover.jpg</span><span class="file"><b>CREDITS</b>.md</span><span class="file"><b>REPORT</b>.md</span></div>
+</section>
+
+<section class="frame s2" data-out="screen-2">
+	<div class="eyebrow mono"><i></i>Stick Sketch <span>· Qué trae</span></div>
+	<h2>Dos personajes.<br>Una <em>comparación.</em></h2>
+	<p class="lead">Sketches de 12 a 30 segundos: el protagonista actúa, el otro lo deja para mañana y el final cae en un número.</p>
+	<div class="legend">
+		<div><span class="dot">1</span><div>Contador en pantalla</div></div>
+		<div><span class="dot">2</span><div>Número final <span>· el remate</span></div></div>
+		<div><span class="dot">3</span><div>Protagonista con sombrero <span>· 23 poses</span></div></div>
+		<div><span class="dot">4</span><div>Utilería <span>· escalones que crecen</span></div></div>
+		<div><span class="dot">5</span><div>Emotes <span>· 6 tipos</span></div></div>
+		<div><span class="dot">6</span><div>Subtítulos karaoke <span>· y archivo .srt</span></div></div>
+	</div>
+	<div class="chips"><span class="chip">Sin voz por defecto</span><span class="chip">Música y efectos por código</span><span class="chip">Noir o tu marca</span></div>
+	<div class="shot">
+		<!-- zona: escenario + subtítulo del fotograma final (x 60–1020, y 440–1530) -->
+		<div class="crop" style="--x: 60; --y: 440; --w: 960; --h: 1090; --cw: 720;"><img src="assets/specreel-stick/beat-4-final.jpg" alt=""></div>
+		<span class="dot" style="left: 206px; top: 96px;">1</span>
+		<span class="dot" style="left: 460px; top: 196px;">2</span>
+		<span class="dot" style="left: 546px; top: 300px;">3</span>
+		<span class="dot" style="left: 256px; top: 524px;">4</span>
+		<span class="dot" style="left: 136px; top: 336px;">5</span>
+		<span class="dot" style="left: 124px; top: 750px;">6</span>
+		<span class="tag mono">Fotograma real del ejemplo incluido</span>
+	</div>
+</section>
+</body>
+</html>

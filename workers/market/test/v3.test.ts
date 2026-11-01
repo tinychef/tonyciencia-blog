@@ -432,7 +432,7 @@ describe("tienda en inglés (/market/en/)", () => {
 		await env.MARKET_DB.prepare("UPDATE products SET images = ?2, i18n = ?3, title = 'Producto: en español' WHERE id = ?1")
 			.bind(
 				p.id,
-				JSON.stringify([{ src: `/market/static/products/specreel-stick/cover.webp`, alt: "Portada" }]),
+				JSON.stringify([{ src: `/market/static/products/stick-sketch/cover.webp`, alt: "Portada" }]),
 				JSON.stringify({ en: { title: "Product in English: subtitle", tagline: "English tagline", image_alts: ["English cover"] } }),
 			)
 			.run();
@@ -465,16 +465,63 @@ describe("tienda en inglés (/market/en/)", () => {
 
 describe("portadas en inglés", () => {
 	it("la ficha en inglés usa products/<slug>/en/cover.webp y la tarjeta su animada en inglés", async () => {
-		const p = await createProduct({ priceCents: 1200 });
-		await env.MARKET_DB.prepare("UPDATE products SET slug = 'specreel-stick', images = ?2, i18n = ?3 WHERE id = ?1")
-			.bind(p.id, JSON.stringify([{ src: "/market/static/products/specreel-stick/cover.webp", alt: "Portada" }]), JSON.stringify({ en: { title: "SpecReel Stick: EN", image_alts: ["EN cover"] } }))
-			.run()
-			.catch(() => null);
-		const row = await one<{ slug: string }>("SELECT slug FROM products WHERE id = ?1", p.id);
-		if (row?.slug !== "specreel-stick") return; // el slug ya existe en esta base de prueba
+		// Producto real del catálogo (lo crea la migración 0015 con su versión en inglés).
+		const row = await one<{ images: string; active: number }>("SELECT images, active FROM products WHERE slug = 'stick-sketch'");
+		expect(row?.active).toBe(1);
+		expect(JSON.parse(row!.images)[0].src).toBe("/market/static/products/stick-sketch/cover.webp");
 		const cat = await (await call("/market/en/")).text();
-		expect(cat).toContain("/market/static/products/specreel-stick/en/cover.webp");
-		expect(cat).toContain('data-anim="/market/static/products/specreel-stick/en/cover-animada-800.webp"');
+		expect(cat).toContain("/market/static/products/stick-sketch/en/cover.webp");
+		expect(cat).toContain("/market/static/products/stick-sketch/en/cover-800.webp 800w");
+		expect(cat).toContain('data-anim="/market/static/products/stick-sketch/en/cover-animada-800.webp"');
+		const es = await (await call("/market/")).text();
+		expect(es).toContain('data-anim="/market/static/products/stick-sketch/cover-animada-800.webp"');
+		const ficha = await (await call("/market/en/product/stick-sketch")).text();
+		expect(ficha).toContain('src="/market/static/products/stick-sketch/en/cover.webp"');
+	});
+});
+
+describe("rebranding: SpecReel Stick → Stick Sketch (migración 0015)", () => {
+	it("la ficha vieja (retirada) responde 301 a la nueva en su idioma (con su query); los demás retirados siguen yendo al catálogo", async () => {
+		expect((await one<{ active: number }>("SELECT active FROM products WHERE slug = 'specreel-stick'"))?.active).toBe(0);
+		for (const [from, to] of [
+			["/market/producto/specreel-stick", "/market/producto/stick-sketch"],
+			["/market/en/product/specreel-stick", "/market/en/product/stick-sketch"],
+			["/market/producto/specreel-stick?utm_source=ig&utm_medium=bio", "/market/producto/stick-sketch?utm_source=ig&utm_medium=bio"],
+		] as const) {
+			const r = await call(from);
+			expect(r.status, from).toBe(301);
+			expect(r.headers.get("location"), from).toBe(to);
+			expect((await call(to)).status, to).toBe(200);
+		}
+		// Con barra final: primero la forma canónica (301) y de ahí a la nueva.
+		const slash = await call("/market/en/product/specreel-stick/");
+		expect(slash.status).toBe(301);
+		expect(slash.headers.get("location")).toBe("/market/en/product/specreel-stick");
+		const other = await call("/market/producto/kit-n8n-agentes-ia");
+		expect(other.status).toBe(301);
+		expect(other.headers.get("location")).toBe("/market/");
+		// El slug viejo ya no está en el manifiesto: nadie puede reactivarlo subiendo el archivo.
+		expect((await call("/market/provision/specreel-stick", { method: "PUT", body: "x" })).status).toBe(404);
+	});
+
+	it("ficha nueva: USD 36.90 fijo sin precio tachado ni ventas, mismo «Funciona con» y versión en inglés", async () => {
+		const p = (await getProductBySlug(env.MARKET_DB, "stick-sketch"))!;
+		const old = (await getProductBySlug(env.MARKET_DB, "specreel-stick", false))!;
+		expect(p).toMatchObject({ price_cents: 3690, price_mode: "fixed", kind: "paid", compare_at_cents: null, sales_offset: 0, category: "video" });
+		expect(saleInfo(p)).toBeNull();
+		expect(p.compat).toEqual(old.compat);
+		expect(p.file_key).toBe(old.file_key);
+		expect(p.title.startsWith("Stick Sketch:")).toBe(true);
+		expect(p.i18n.en?.title?.startsWith("Stick Sketch:")).toBe(true);
+		expect(p.images.map((i) => i.src)).toEqual(["cover", "screen-1", "screen-2"].map((f) => `/market/static/products/stick-sketch/${f}.webp`));
+		expect(p.i18n.en?.image_alts).toHaveLength(3);
+		expect(await count("SELECT COUNT(*) AS n FROM reviews WHERE product_id = ?1", p.id)).toBe(0);
+		for (const path of ["/market/producto/stick-sketch", "/market/en/product/stick-sketch"]) {
+			const html = await (await call(path)).text();
+			expect(html, path).toContain("Stick Sketch");
+			expect(html, path).toContain("SpecReel Stick"); // nombre dentro del ZIP, dicho en la ficha
+			expect(html, path).not.toContain("mk5-was");
+		}
 	});
 });
 
@@ -615,7 +662,7 @@ describe("revisión SEO v6", () => {
 		const all = [
 			{ id: "anuncios-infinitos", category: "anuncios" },
 			{ id: "specreel", category: "video" },
-			{ id: "specreel-stick", category: "video" },
+			{ id: "stick-sketch", category: "video" },
 			{ id: "pagespeed-forensics", category: "seo-web" },
 			{ id: "cutpilot", category: "video" },
 			{ id: "motor-creativo-claude-code", category: "agentes" },

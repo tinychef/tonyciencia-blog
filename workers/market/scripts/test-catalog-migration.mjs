@@ -7,7 +7,7 @@
 //   - aplicar 0003 dos veces no duplica nada.
 // Usa node:sqlite (Node 22.13+), el mismo SQLite que D1.
 import assert from "node:assert/strict";
-import { readdirSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { DatabaseSync } from "node:sqlite";
 import { fileURLToPath } from "node:url";
@@ -584,4 +584,124 @@ db.exec(sql("0012_edit_pro_desde_cero.sql"));
 	assert.equal(dbNo.prepare("SELECT i18n FROM products WHERE slug = 'specreel'").get().i18n, "{}");
 	assert.equal(dbNo.prepare("SELECT i18n FROM products WHERE slug = 'cutpilot'").get().i18n, "roto");
 	console.log("✓ migración 0013 segura (palabras clave: longitudes, idempotente, ES + i18n.en, no pisa lo editado a mano)");
+}
+
+// ── 0015: rebranding SpecReel Stick → Stick Sketch (slug nuevo, USD 36.90 fijo, mismo ZIP; el viejo se retira) ──
+{
+	// Las migraciones intermedias que existan (p. ej. una 0014 que llegue en paralelo) se aplican igual que en producción.
+	const between = readdirSync(join(root, "migrations")).filter((f) => f.endsWith(".sql") && f > "0013_titulos_keywords.sql" && f < "0015").sort();
+	const ZIP = { key: "products/specreel-stick/edb6bb36287071a7/specreel-stick-1.0.zip", name: "specreel-stick-1.0.zip", size: 2635491 };
+	const base15 = () => {
+		const d = prodDb();
+		for (const f of ["0009_contenido_v5.sql", "0010_nombres_v6.sql", "0011_ingles.sql", "0012_edit_pro_desde_cero.sql", "0013_titulos_keywords.sql", ...between]) d.exec(sql(f));
+		// Producción hoy: SpecReel Stick a la venta con su ZIP real (provision/manifest.json) y una lista de espera.
+		d.prepare("UPDATE products SET file_key = ?, file_name = ?, file_size = ?, availability = 'available', active = 1 WHERE slug = 'specreel-stick'").run(ZIP.key, ZIP.name, ZIP.size);
+		d.prepare("INSERT INTO waitlist (id, product_id, email, created_at) VALUES ('w-stick', (SELECT id FROM products WHERE slug = 'specreel-stick'), 'espera@x.y', 1)").run();
+		return d;
+	};
+	const all = (d) => Object.fromEntries(d.prepare("SELECT * FROM products").all().map((r) => [r.slug, { ...r }]));
+	const len = (s) => [...s].length;
+
+	const db15 = base15();
+	const pre15 = all(db15);
+	assert.ok(!pre15["stick-sketch"], "antes de la 0015 no existe stick-sketch");
+	db15.exec(sql("0015_stick_sketch.sql"));
+	const v15 = all(db15);
+	db15.exec(sql("0015_stick_sketch.sql"));
+	assert.deepEqual(all(db15), v15, "0015 es idempotente");
+
+	const ss = v15["stick-sketch"];
+	const old = v15["specreel-stick"];
+	assert.ok(ss, "crea stick-sketch");
+	// El viejo: retirado, no borrado; solo cambian active y updated_at. Los demás productos no se tocan.
+	assert.equal(old.active, 0, "specreel-stick queda retirado");
+	for (const k of Object.keys(old)) if (!["active", "updated_at"].includes(k)) assert.equal(old[k], pre15["specreel-stick"][k], `specreel-stick: 0015 no toca ${k}`);
+	for (const [slug, r] of Object.entries(v15)) if (!["stick-sketch", "specreel-stick"].includes(slug)) assert.deepEqual(r, pre15[slug], `${slug}: sin cambios`);
+	assert.equal(db15.prepare("SELECT COUNT(*) AS n FROM waitlist WHERE product_id = ?").get(old.id).n, 1, "la lista de espera del viejo se conserva");
+	assert.equal(db15.prepare("SELECT COUNT(*) AS n FROM reviews WHERE product_id = ?").get(ss.id).n, 0, "sin reseñas copiadas");
+
+	// Precio: USD 36.90 fijo, sin precio anterior (nunca se cobró) ni ventas de fuera.
+	assert.deepEqual(
+		[ss.price_cents, ss.price_mode, ss.kind, ss.currency, ss.compare_at_cents, ss.sales_offset, ss.min_price_cents, ss.max_price_cents, ss.active],
+		[3690, "fixed", "paid", "usd", null, 0, 0, null, 1],
+	);
+	// Archivo: el mismo ZIP del viejo (no se vuelve a subir) → a la venta desde el primer momento.
+	assert.deepEqual([ss.file_key, ss.file_name, ss.file_size, ss.availability], [ZIP.key, ZIP.name, ZIP.size, "available"]);
+	const manifest = JSON.parse(readFileSync(join(root, "provision", "manifest.json"), "utf8")).files;
+	const entry = manifest.find((f) => f.slug === "stick-sketch");
+	assert.ok(entry && entry.fileName === ZIP.name && entry.size === ZIP.size && ZIP.key.includes(`/${entry.sha256.slice(0, 16)}/`), "manifiesto: mismo ZIP y mismo SHA-256");
+	assert.ok(!manifest.some((f) => f.slug === "specreel-stick"), "el slug retirado sale del manifiesto");
+	assert.equal(ss.compat, old.compat, "mismos logos «Funciona con»");
+	assert.deepEqual(JSON.parse(ss.compat).works, ["claude-code", "codex", "python", "node", "ffmpeg", "windows", "macos", "linux"]);
+	assert.equal(ss.sort_order, old.sort_order, "mismo lugar en el catálogo");
+	assert.equal(ss.download_limit, old.download_limit);
+	assert.equal(ss.category, "video");
+
+	// Ficha en español e inglés.
+	const en = JSON.parse(ss.i18n).en;
+	assert.equal(db15.prepare("SELECT json_valid(i18n) AS ok FROM products WHERE slug = 'stick-sketch'").get().ok, 1);
+	assert.deepEqual(Object.keys(en).sort(), [...EN_KEYS].sort(), "i18n.en con todas las claves");
+	const esF = { ...ss, highlights: JSON.parse(ss.highlights), specs: JSON.parse(ss.specs), faq: JSON.parse(ss.faq), tags: JSON.parse(ss.tags) };
+	const images = JSON.parse(ss.images);
+	for (const [lang, f] of [["es", esF], ["en", en]]) {
+		const tag = `stick-sketch (${lang})`;
+		assert.ok(f.title.startsWith("Stick Sketch: "), `${tag}: el nombre nuevo encabeza el título`);
+		assert.ok(len(f.title) <= 70, `${tag}: title ≤ 70 (${len(f.title)})`);
+		assert.ok(len(f.tagline) <= 75, `${tag}: tagline ≤ 75 (${len(f.tagline)})`);
+		assert.ok(len(f.summary) <= 220, `${tag}: summary ≤ 220`);
+		assert.ok(len(f.meta_title) <= 60, `${tag}: meta_title ≤ 60 (${len(f.meta_title)})`);
+		assert.ok(len(f.meta_description) >= 120 && len(f.meta_description) <= 160, `${tag}: meta_description 120–160 (${len(f.meta_description)})`);
+		assert.ok(f.highlights.length >= 4 && f.highlights.length <= 6, `${tag}: 4–6 beneficios`);
+		assert.ok(f.faq.length >= 3 && f.faq.every((x) => x.q.endsWith("?") && x.a), `${tag}: FAQ`);
+		assert.ok(f.tags.length >= 5 && f.tags.length <= 7 && new Set(f.tags.map((t) => t.toLowerCase())).size === f.tags.length, `${tag}: 5–7 etiquetas sin repetir`);
+		assert.ok(!/\$\s?\d|36[.,]90|USD/.test(f.description), `${tag}: sin precios en la descripción`);
+		assert.ok(!/SpecReel Stick/.test([f.title, f.tagline, f.meta_title, f.meta_description, ...f.tags].join(" ")), `${tag}: el nombre viejo no aparece como nombre del producto`);
+		assert.ok(!/^YouTube/i.test(f.title) && !/claude|codex/i.test(f.title.split(":")[0]), `${tag}: sin marcas ajenas en el nombre`);
+	}
+	assert.ok(ss.title.toLowerCase().includes("videos de muñequitos de palo con ia"), "ES: palabra clave en el título");
+	assert.ok(ss.meta_title.toLowerCase().includes("videos de muñequitos de palo con ia") && ss.meta_description.toLowerCase().includes("muñequitos de palo con ia"));
+	assert.ok(esF.tags.includes("videos de palitos animados"), "ES: conserva la palabra clave de la 0013");
+	assert.ok(en.title.toLowerCase().includes("ai stick figure animation") && en.meta_title.toLowerCase().includes("ai stick figure animation"), "EN: palabra clave");
+	assert.equal(en.specs.length, esF.specs.length, "mismas filas en la ficha técnica");
+	assert.deepEqual(esF.specs.map((s) => s.label), ["Versión", "Formato", "Funciona con", "Requisitos", "Sistemas", "Salida", "Idioma", "Licencia"]);
+	assert.equal(en.image_alts.length, images.length, "un ALT en inglés por imagen");
+	// El nombre interno (dentro del ZIP) se dice con naturalidad, una vez en la descripción y en la FAQ.
+	assert.equal(count(ss.description, "En el ZIP la skill se llama SpecReel Stick"), 1);
+	assert.equal(count(en.description, "Inside the ZIP the skill is called SpecReel Stick"), 1);
+	assert.ok(esF.faq.some((f) => f.q === "¿Por qué el ZIP dice SpecReel Stick?") && en.faq.some((f) => f.q === "Why does the ZIP say SpecReel Stick?"));
+	assert.ok(esF.faq.some((f) => f.q === "¿Necesito tener Motion 3D Video?"), "la FAQ nombra a Motion 3D Video por su nombre actual");
+	for (const h of ["## El problema que resuelve", "## Cómo funciona, en 3 pasos", "## Qué recibes", "## Para quién es", "## Requisitos", "## Importante"])
+		assert.equal(count(ss.description, h), 1, `ES: sección «${h}»`);
+	// Sin restos en español en lo que ve el comprador en inglés (los nombres y rutas citados sí).
+	const visibleEn = [en.title, en.tagline, en.meta_title, en.meta_description, en.description, ...en.highlights, ...en.faq.flatMap((f) => [f.q, f.a]), ...en.tags].join("\n");
+	assert.ok(!/\b(para|con|que|los|las|una|del)\b/.test(visibleEn.replace(/«[^»]*»|"[^"]*"/g, "")), "EN: sin frases en español");
+	// Imágenes: portada + 2 pantallas del slug nuevo, todas en disco (y las de la tarjeta, el inglés y Merchant).
+	assert.deepEqual(images.map((i) => i.src), ["cover", "screen-1", "screen-2"].map((f) => `/market/static/products/stick-sketch/${f}.webp`));
+	assert.ok(images.every((i) => i.alt.length > 20));
+	const pub = join(root, "public", "market", "static", "products", "stick-sketch");
+	for (const f of ["cover.webp", "cover-800.webp", "cover-animada.webp", "cover-animada-800.webp", "screen-1.webp", "screen-2.webp", "en/cover.webp", "en/cover-800.webp", "en/cover-animada.webp", "en/cover-animada-800.webp", "merchant.jpg", "merchant-2.jpg"])
+		assert.ok(existsSync(join(pub, f)), `falta public/…/stick-sketch/${f}`);
+
+	// Guardas. a) stick-sketch ya existe (p. ej. creada a mano en el admin): no se pisa y, como no tiene el mismo archivo,
+	// el viejo sigue a la venta.
+	const dbOwn = base15();
+	dbOwn.prepare("INSERT INTO products (id, slug, title, price_cents, currency, kind, active, created_at, updated_at) VALUES ('own', 'stick-sketch', 'Del dueño', 4200, 'usd', 'paid', 1, 1, 1)").run();
+	dbOwn.exec(sql("0015_stick_sketch.sql"));
+	const o15 = all(dbOwn);
+	assert.deepEqual([o15["stick-sketch"].title, o15["stick-sketch"].price_cents], ["Del dueño", 4200]);
+	assert.equal(o15["specreel-stick"].active, 1, "sin el mismo archivo en el nuevo, el viejo no se retira");
+	// b) Base sin el ZIP (local, pruebas): el nuevo entra como «Próximamente» y sin archivo.
+	const dbNoFile = base15();
+	dbNoFile.exec("UPDATE products SET file_key = NULL, file_name = NULL, file_size = NULL, availability = 'coming_soon' WHERE slug = 'specreel-stick'");
+	dbNoFile.exec(sql("0015_stick_sketch.sql"));
+	const n15 = all(dbNoFile);
+	assert.deepEqual([n15["stick-sketch"].availability, n15["stick-sketch"].file_key, n15["stick-sketch"].active], ["coming_soon", null, 1]);
+	// c) Sin specreel-stick en la base: crea el nuevo con los logos de hoy y no falla.
+	const dbNone = base15();
+	dbNone.exec("DELETE FROM waitlist; DELETE FROM products WHERE slug = 'specreel-stick'");
+	dbNone.exec(sql("0015_stick_sketch.sql"));
+	const z15 = all(dbNone)["stick-sketch"];
+	assert.deepEqual([z15.availability, z15.file_key, z15.sort_order, z15.download_limit], ["coming_soon", null, 8, 5]);
+	assert.deepEqual(JSON.parse(z15.compat).works, JSON.parse(ss.compat).works);
+	console.log("✓ migración 0015 segura (Stick Sketch: USD 36.90 sin tachado, mismo ZIP, viejo retirado sin borrar, ES + EN, idempotente, guardas)");
 }
