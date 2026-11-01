@@ -288,10 +288,12 @@ export const ProductCard: FC<{ p: ShopProduct; maxSales: number; welcome: Welcom
 					)}
 				</div>
 				<div class="mk5-body">
-					<div class="mk5-top">
-						<p class="mk5-kind">{categoryLabelIn(lang, p.category, categoryLabel(p.category)) ?? tr("Producto digital")}</p>
-						{badge && <span class={`mk5-badge mk5-badge--${badge.tone}`}>{badge.label}</span>}
-					</div>
+					{/* Sin la categoría arriba («Video con IA»…): el título manda. La etiqueta (oferta, paga lo que quieras) sí. */}
+					{badge && (
+						<div class="mk5-top">
+							<span class={`mk5-badge mk5-badge--${badge.tone}`}>{badge.label}</span>
+						</div>
+					)}
 					<h3 class="mk5-title">
 						<a href={productUrl(p.slug, lang)} class="mk-stretch">
 							{shortName(p.title)}

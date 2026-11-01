@@ -1209,3 +1209,7 @@ a.mk3-preset { display: inline-flex; align-items: center; justify-content: cente
 :root.light .mk5-grid > li.is-glow::before { animation-name: mk-sweep, mk-sweep-halo-light; }
 @keyframes mk-sweep-halo-light { 0% { opacity: 0; } 20% { opacity: 0.35; } 75% { opacity: 0.35; } 100% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .mk5-grid > li::before, .mk5-grid > li::after { display: none; } }
+/* v5.1: sin la categoría arriba; el título más grande y con más peso. */
+.mk5-top { justify-content: flex-start; min-height: 0; }
+.mk5-title { font-size: clamp(23px, 2.6vw, 27px); font-weight: 800; letter-spacing: -0.022em; line-height: 1.12; }
+.mk5-line { font-size: 16.5px; }

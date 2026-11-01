@@ -143,8 +143,8 @@
 .pf .pf-cap.pf-r { left: auto; right: 16px; }
 .pf .pf-cap.pf-tr { left: auto; right: 14px; bottom: auto; top: 14px; }
 /* Anuncios: cola de anuncios */
-.pf .pf-q { position: absolute; left: 872px; top: 196px; width: 640px; height: 540px; overflow: hidden; }
-.pf .pf-adc { position: absolute; left: 0; right: 0; top: 0; height: 168px; border: 3px solid #2e2e33; border-radius: 20px; background: #17171a; padding: 16px 22px; }
+.pf .pf-q { position: absolute; left: 872px; top: 192px; width: 640px; height: 566px; overflow: hidden; }
+.pf .pf-adc { position: absolute; left: 0; right: 0; top: 0; height: 178px; border: 3px solid #2e2e33; border-radius: 20px; background: #17171a; padding: 16px 22px; }
 .pf .pf-adc.pf-ok { border-color: #30d158; }
 .pf .pf-adh { display: flex; align-items: center; gap: 14px; height: 48px; }
 .pf .pf-adh svg { width: 42px; height: 42px; flex: none; }
@@ -183,7 +183,7 @@
 .pf .pf-clip.pf-a svg { position: absolute; left: 6px; top: 4px; width: calc(100% - 12px); height: calc(100% - 8px); }
 .pf .pf-cut { position: absolute; top: 44px; height: 158px; overflow: hidden; border-left: 3px dashed #6a6a72; border-right: 3px dashed #6a6a72; background: repeating-linear-gradient(135deg, rgba(255,255,255,.06) 0 10px, transparent 10px 20px); }
 .pf .pf-cut span { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font: 700 22px "JetBrains Mono", monospace; color: #c7c7cc; white-space: nowrap; text-decoration: line-through; text-decoration-thickness: 3px; background: #121215; padding: 2px 8px; border-radius: 6px; }
-.pf .pf-w { position: absolute; top: 216px; height: 44px; display: grid; place-items: center; padding: 0 12px; border-radius: 8px; background: #1d1d21; font-size: 24px; font-weight: 700; color: #6e6e76; white-space: nowrap; }
+.pf .pf-w { position: absolute; top: 216px; height: 44px; display: grid; place-items: center; padding: 0 11px; border-radius: 8px; background: #1d1d21; font-size: 24px; font-weight: 700; color: #6e6e76; white-space: nowrap; }
 .pf .pf-w.pf-done { background: #2e2e33; color: #f5f5f7; }
 .pf .pf-w.pf-on { background: #30d158; color: #0d0d0f; }
 .pf .pf-gfx { position: absolute; top: 294px; height: 48px; display: flex; align-items: center; padding: 0 16px; border-radius: 10px; border: 3px solid #30d158; background: #13281a; font-size: 24px; font-weight: 800; color: #f5f5f7; white-space: nowrap; }
@@ -193,7 +193,7 @@
 .pf .pf-fm { border: 4px solid #4a4a52; border-radius: 14px; display: grid; place-items: end start; padding: 10px 12px; font: 700 26px "JetBrains Mono", monospace; background: #17171a; color: #d7d7dc; }
 .pf .pf-fm.pf-on { border-color: #30d158; }
 /* Motor */
-.pf .pf-apps { position: absolute; left: 842px; top: 238px; width: 670px; display: flex; flex-wrap: wrap; justify-content: center; gap: 28px 18px; }
+.pf .pf-apps { position: absolute; left: 842px; top: 318px; width: 670px; display: flex; flex-wrap: wrap; justify-content: center; gap: 28px 18px; }
 .pf .pf-app { width: 118px; text-align: center; }
 .pf .pf-app img { display: block; width: 118px; height: 118px; border-radius: 26px; }
 .pf .pf-app span { display: block; margin-top: 8px; font-size: 18px; font-weight: 700; color: #a1a1a8; }
@@ -202,7 +202,7 @@
 <body>
 
 <!-- portada-final:inicio -->
-<section class="frame pf" data-out="cover">
+<section class="frame pf" data-out="cover" data-cpu>
 	<div class="pf-dots"></div>
 	<div class="pf-glow" style="left: 760px; top: 380px; width: 860px; height: 640px; background: radial-gradient(closest-side, rgba(12,206,107,.16), rgba(12,206,107,0));"></div>
 	<div class="pf-top"><div class="pf-name"><svg viewBox="0 0 24 24" width="72" height="72" fill="#f5f5f7" aria-hidden="true"><path d="M22.363 1.636H1.635C.732 1.636 0 2.37.001 3.273L0 20.727v.003c0 .903.733 1.634 1.635 1.634h20.73c.904 0 1.635-.734 1.635-1.637V3.273c.016-.89-.76-1.64-1.637-1.637zM3.979 2.886c.492-.507 1.279.28.77.772-.491.508-1.278-.279-.77-.771zM1.8 2.89c.507-.509 1.28.265.772.771-.493.502-1.274-.28-.772-.771zm21.7 17.838c.012.611-.524 1.148-1.137 1.136H1.635A1.137 1.137 0 0 1 .5 20.727L.501 4.91H23.5v15.819zM11 16.159l5.946-4.577c.235-.2.576.129.389.372l-.002-.002-3.936 6.35a1.638 1.638 0 0 1-2.448.405c-.785-.668-.811-1.835.05-2.548zm4.763-.75c.09-.168 2.002-3.181 2.06-3.35 2.056 1.813 3.029 4.382 2.898 7.026h-3.819c.073-1.39-.29-2.678-1.139-3.676zm-8.679 3.682H3.278c-.357-7.022 7.148-11.735 13.39-7.92l-3.461 2.618c-3.3-.762-6.364 1.71-6.123 5.302z"/></svg><span>PageSpeed <u>Forensics</u></span></div></div>
@@ -244,8 +244,8 @@
 	};
 	const S = document.querySelector('section.pf[data-out="cover"]'), A = document.querySelector('section.pf[data-out="cover-animada"]');
 	for (const root of [S, A]) {  }
-	update(S, 3.9);
-	update(A, 0);
+	const first = () => { update(S, 3.9); update(A, 0); };
+	first(); document.fonts.ready.then(first);
 	window.__frame = (i) => { update(A, i / 10); return new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))); };
 })();
 </script>

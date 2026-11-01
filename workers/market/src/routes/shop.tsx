@@ -292,7 +292,8 @@ export function registerShop(app: Hono<AppEnv>) {
 			return renderMessage(c, 429, "Demasiados intentos", "Espera unos minutos antes de volver a intentar el pago.");
 		}
 		const product = await getProductBySlug(db, slug);
-		if (!product || product.kind !== "paid") return renderMessage(c, 404, "Producto no encontrado", "Este producto no está a la venta.");
+		// Un producto «Próximamente» nunca se cobra, aunque sea «paga lo que quieras» (antes de validar el monto).
+		if (!product || product.kind !== "paid" || product.availability === "coming_soon") return renderMessage(c, 404, "Producto no encontrado", "Este producto no está a la venta.");
 		const d = deps(c);
 
 		let amountCents: number | null = null;

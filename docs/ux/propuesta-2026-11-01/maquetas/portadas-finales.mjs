@@ -95,7 +95,7 @@ const CSS = `
 .pf .pf-clip.a svg { position: absolute; left: 6px; top: 4px; width: calc(100% - 12px); height: calc(100% - 8px); }
 .pf .pf-cut { position: absolute; top: 44px; height: 158px; overflow: hidden; border-left: 3px dashed #6a6a72; border-right: 3px dashed #6a6a72; background: repeating-linear-gradient(135deg, rgba(255,255,255,.06) 0 10px, transparent 10px 20px); }
 .pf .pf-cut span { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font: 700 22px "JetBrains Mono", monospace; color: #c7c7cc; white-space: nowrap; text-decoration: line-through; text-decoration-thickness: 3px; background: #121215; padding: 2px 8px; border-radius: 6px; }
-.pf .pf-w { position: absolute; top: 216px; height: 44px; display: grid; place-items: center; padding: 0 12px; border-radius: 8px; background: #1d1d21; font-size: 24px; font-weight: 700; color: #6e6e76; white-space: nowrap; }
+.pf .pf-w { position: absolute; top: 216px; height: 44px; display: grid; place-items: center; padding: 0 11px; border-radius: 8px; background: #1d1d21; font-size: 24px; font-weight: 700; color: #6e6e76; white-space: nowrap; }
 .pf .pf-w.done { background: #2e2e33; color: #f5f5f7; }
 .pf .pf-w.on { background: #30d158; color: #0d0d0f; }
 .pf .pf-gfx { position: absolute; top: 294px; height: 48px; display: flex; align-items: center; padding: 0 16px; border-radius: 10px; border: 3px solid #30d158; background: #13281a; font-size: 24px; font-weight: 800; color: #f5f5f7; white-space: nowrap; }
@@ -105,7 +105,7 @@ const CSS = `
 .pf .pf-fm { border: 4px solid #4a4a52; border-radius: 14px; display: grid; place-items: end start; padding: 10px 12px; font: 700 26px "JetBrains Mono", monospace; background: #17171a; color: #d7d7dc; }
 .pf .pf-fm.on { border-color: #30d158; }
 /* Motor */
-.pf .pf-apps { position: absolute; left: 842px; top: 238px; width: 670px; display: flex; flex-wrap: wrap; justify-content: center; gap: 28px 18px; }
+.pf .pf-apps { position: absolute; left: 842px; top: 318px; width: 670px; display: flex; flex-wrap: wrap; justify-content: center; gap: 28px 18px; }
 .pf .pf-app { width: 118px; text-align: center; }
 .pf .pf-app img { display: block; width: 118px; height: 118px; border-radius: 26px; }
 .pf .pf-app span { display: block; margin-top: 8px; font-size: 18px; font-weight: 700; color: #a1a1a8; }
@@ -155,9 +155,9 @@ P["anuncios-infinitos"] = {
 // ───────────── 2. Motion 3D Video (SpecReel) ─────────────
 const SR_TILES = [
 	// [sprite, cuadro fijo, caja, rotación, rótulo, clase del rótulo]
-	["anim-celula.webp", 30, "left: 712px; top: 246px; width: 300px; height: 533px;", -5, "Célula", ""],
-	["anim-showreel.webp", 34, "left: 1212px; top: 246px; width: 300px; height: 533px;", 5, "Showreel", "r"],
-	["anim-micro.webp", 1, "left: 952px; top: 176px; width: 360px; height: 640px; border-color: #30d158;", 0, "Microneedling", ""],
+	["anim-celula.webp", 30, "left: 690px; top: 262px; width: 316px; height: 562px;", -5, "Célula", ""],
+	["anim-showreel.webp", 34, "left: 1196px; top: 262px; width: 316px; height: 562px;", 5, "Showreel", "r"],
+	["anim-micro.webp", 1, "left: 938px; top: 186px; width: 380px; height: 676px; border-color: #30d158;", 0, "Microneedling", ""],
 ];
 P.specreel = {
 	fps: 8, frames: 28, best: 0, quality: 42,
@@ -231,10 +231,11 @@ P["pagespeed-forensics"] = {
 
 // ───────────── 5. Edit Pro para YouTube (CutPilot) ─────────────
 const CUT = {
-	cuts: [[250, 96, "eh…"], [590, 132, "silencio"], [930, 116, "retoma"]],
-	keep: [[8, 238], [350, 236], [726, 200], [1050, 160]],
-	words: [[10, "Hoy"], [96, "les"], [168, "voy a"], [354, "mostrar"], [500, "mi"], [560, "sistema."], [728, "Tiene"], [866, "tres"], [1052, "pasos."]],
-	gfx: [[10, 250, "Título"], [354, 214, "Logo"], [728, 190, "Cifra: 3"], [1052, 150, "Lista"]],
+	// clips que quedan [x, ancho] y cortes [x, ancho, rótulo] en coordenadas de la grabación (pista de 1218 px)
+	keep: [[8, 238], [348, 236], [688, 230], [1022, 166]],
+	cuts: [[250, 94, "eh…"], [588, 96, "silencio"], [922, 96, "retoma"]],
+	words: [[0, "Hoy"], [0, "les"], [0, "muestro"], [1, "mi"], [1, "sistema:"], [2, "tres"], [3, "pasos."]],
+	gfx: [[0, "Título"], [1, "Logo"], [2, "Cifra: 3"], [3, "Lista"]],
 	v: 450, t0: 0.25, pause: 0.45, len: 1218,
 };
 const wave = (seed, n) => {
@@ -263,14 +264,18 @@ P.cutpilot = {
 			${CUT.keep.map(([x, w]) => `<div class="pf-clip v" data-x="${x}" style="width: ${w}px;"></div>`).join("")}
 			${CUT.keep.map(([x, w], i) => `<div class="pf-clip a" data-x="${x}" style="width: ${w}px;">${wave(17 + i * 31, Math.round(w / 7))}</div>`).join("")}
 			${CUT.cuts.map(([x, w, l], i) => `<div class="pf-cut" data-i="${i}"><span>${l}</span></div>`).join("")}
-			${CUT.words.map(([x, w]) => `<div class="pf-w" data-x="${x}">${w}</div>`).join("")}
-			${CUT.gfx.map(([x, w, l]) => `<div class="pf-gfx" data-x="${x}" style="width: ${w}px;">${l}</div>`).join("")}
+			${CUT.words.map(([c, w]) => `<div class="pf-w" data-c="${c}">${w}</div>`).join("")}
+			${CUT.gfx.map(([c, l]) => `<div class="pf-gfx" data-x="${CUT.keep[c][0] + 2}" style="width: ${CUT.keep[c][1] - 4}px;">${l}</div>`).join("")}
 			<div class="pf-ph"></div>
 		</div>
 	</div>
 	<p class="pf-note" style="bottom: 16px; font-size: 15px;">Ilustración de la edición (no es una captura): cortes desde la transcripción, subtítulos palabra a palabra y gráficos.</p>`,
 	update: function (root, t) {
-		const D = root.__cut, io = (x) => (x < .5 ? 2 * x * x : 1 - (-2 * x + 2) ** 2 / 2), cl = (x) => Math.min(1, Math.max(0, x));
+		const D = root.__cut;
+		// palabras en fila dentro de su clip (ancho medido), en coordenadas de la grabación
+		const nx = D.keep.map(([x]) => x + 4);
+		root.querySelectorAll(".pf-w").forEach((el) => { const ci = +el.dataset.c; el.dataset.x = nx[ci]; nx[ci] += el.offsetWidth + 8; });
+		const io = (x) => (x < .5 ? 2 * x * x : 1 - (-2 * x + 2) ** 2 / 2), cl = (x) => Math.min(1, Math.max(0, x));
 		const c = D.cuts.map((_, i) => io(cl((t - D.T[i]) / D.pause)));
 		const shift = (x) => D.cuts.reduce((a, [cx, cw], i) => a + (cx < x ? cw * c[i] : 0), 0);
 		const end = D.len - D.cuts.reduce((a, k) => a + k[1], 0);
@@ -329,8 +334,8 @@ const script = (p) => `<script>
 	const update = ${p.update.toString().replace(/^function\s*\(/, "function (")};
 	const S = document.querySelector('section.pf[data-out="cover"]'), A = document.querySelector('section.pf[data-out="cover-animada"]');
 	for (const root of [S, A]) { ${p.init ?? ""} }
-	${p.staticFixed ? "" : `update(S, ${p.best});`}
-	update(A, 0);
+	const first = () => { ${p.staticFixed ? "" : `update(S, ${p.best});`} update(A, 0); };
+	first(); document.fonts.ready.then(first);
 	window.__frame = (i) => { update(A, i / ${p.fps}); return new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))); };
 })();
 </script>`;
@@ -340,7 +345,7 @@ for (const [slug, p] of Object.entries(P)) {
 	const url = new URL(`${slug}.html`, DESIGN);
 	let html = readFileSync(url, "utf8");
 	const section = `${START}
-<section class="frame pf" data-out="cover">${prefixHtml(p.html(false))}
+<section class="frame pf" data-out="cover" data-cpu>${prefixHtml(p.html(false))}
 </section>
 <section class="frame pf" data-out="cover-animada" data-anim="${p.frames}" data-fps="${p.fps}" data-width="1600" data-quality="${p.quality}">${prefixHtml(p.html(true))}
 </section>

@@ -440,3 +440,15 @@ db11b.prepare(`UPDATE products SET i18n = '{"en":{"title":"Owner title"}}' WHERE
 db11b.exec(sql("0011_ingles.sql").replace(/ALTER TABLE[^;]+;/, ""));
 assert.equal(db11b.prepare("SELECT i18n FROM products WHERE slug = 'specreel'").get().i18n, '{"en":{"title":"Owner title"}}');
 console.log("✓ migración 0011 segura (inglés: JSON válido, metas, un ALT por imagen, idempotente, no pisa i18n editado)");
+
+// ── 0012: Edit Pro para YouTube desde $0 (sugerido $12) ──
+db.exec(sql("0012_edit_pro_desde_cero.sql"));
+db.exec(sql("0012_edit_pro_desde_cero.sql"));
+{
+	const r = db.prepare("SELECT price_mode, min_price_cents, price_cents FROM products WHERE slug = 'cutpilot'").get();
+	if (r.price_cents === 1200) {
+		assert.equal(r.price_mode, "pwyw");
+		assert.equal(r.min_price_cents, 0);
+	}
+	console.log("✓ migración 0012 segura (Edit Pro desde $0)");
+}
