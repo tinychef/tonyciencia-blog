@@ -99,3 +99,19 @@ Pendientes del dueño:
 2. **Revisión legal** de los `LICENSE.md` (borradores en lenguaje simple). CutPilot importa `pedalboard` y `piper-tts` (GPL-3.0; no van en el ZIP, los instala `uv`). Verificar si Tony Ciencia LLC necesita licencia de empresa de Remotion.
 3. Hacer merge de las ramas en los repos de producto cuando las pruebes. Después del merge: en el motor, `python artcraft.py sync` (los agentes y perfiles MCP ahora se generan en cada máquina); en el estudio, `uv sync --group tts` si usas Chatterbox.
 4. Avisar a la lista de espera de CutPilot y del Motor creativo (`/market/admin/lista-espera`).
+
+## 6. Ronda 3 (pedido del dueño: 404, logos, tarjetas, tema, sin emojis, CutPilot a 12)
+
+- **404**: el rastreo completo del sitio (432 URLs) encontró 64. 59 eran `/market?…` (filtros, categorías, etiquetas,
+  «Ofertas» de la cabecera): la ruta de Cloudflare `tonyciencia.com/market` no admite parámetros y esas URLs caían en
+  el blog. Ahora el market enlaza `/market/?…` y el blog redirige `/market?…` → `/market/?…` (301). Los otros 5 eran
+  `/en/posts/en/<slug>` (slugs del CMS con `en/` adelante): enlaces normalizados (`src/utils/post-slug.ts`) y
+  redirección 301. Repetir: `node scripts/audit-site.mjs`.
+- **Logos** (SVG de Simple Icons, CC0): «Funciona con» en tarjetas y fichas (Claude Code, Chrome, PageSpeed, Lighthouse,
+  Gemini, Cursor, n8n…). OpenAI/Codex, Windows y LinkedIn van como texto (sus dueños pidieron retirar los logos).
+  **«2 en 1»**: Anuncios Infinitos (agente de anuncios + extensión de Chrome — lo indicó el dueño; confirmar que el ZIP
+  la trae) y CutPilot (editor + panel de Chrome).
+- **Tarjetas**: misma altura por diseño (sin huecos), panel de precio propio; ofertas en horizontal (sin columnas vacías).
+- **Tema claro/oscuro**: botón en la cabecera con transición circular; misma cookie `scheme` que el blog.
+- **Sin emojis** en el market y en el blog: íconos SVG.
+- **CutPilot a USD 12** (sin precio tachado: nunca se vendió a 29.90).

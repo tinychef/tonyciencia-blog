@@ -5,6 +5,7 @@ import { hit, RATE_RULES } from "../lib/ratelimit";
 import { checkCsrf } from "../lib/session";
 import { cleanLine, cleanText, isId, isSlug, parseIntInRange, parseUsdToCents, safeFileName } from "../lib/validate";
 import { STRIPE_MAX_CENTS, STRIPE_MIN_CENTS, parseBuyerAmount } from "../lib/pricing";
+import { compatFromInput } from "../lib/brands";
 import { retryEmail, sendOne, type OutboxRow } from "../services/outbox";
 import { CATEGORIES, HEX_COLOR_RE, YOUTUBE_ID_RE } from "../lib/catalog";
 import {
@@ -80,6 +81,8 @@ async function saveProduct(c: Ctx, existing: Product | null, form: FormData): Pr
 		kind: str("kind"),
 		price: str("price"),
 		price_mode: str("price_mode"),
+		compat_works: str("compat_works"),
+		compat_includes: str("compat_includes"),
 		min_price: str("min_price"),
 		max_price: str("max_price"),
 		summary: str("summary"),
@@ -256,6 +259,7 @@ async function saveProduct(c: Ctx, existing: Product | null, form: FormData): Pr
 		priceMode,
 		minPriceCents,
 		maxPriceCents,
+		compatFromInput(values.compat_works, values.compat_includes),
 	];
 	try {
 		if (existing) {
@@ -265,7 +269,7 @@ async function saveProduct(c: Ctx, existing: Product | null, form: FormData): Pr
 					   file_key = ?9, file_name = ?10, file_size = ?11, download_limit = ?12, active = ?13, sort_order = ?14, updated_at = ?15,
 					   tagline = ?16, category = ?17, tags = ?18, badge = ?19, accent = ?20, meta_title = ?21, meta_description = ?22,
 					   highlights = ?23, specs = ?24, faq = ?25, video_id = ?26, compare_at_cents = ?27, availability = ?28, sales_offset = ?29,
-					   price_mode = ?30, min_price_cents = ?31, max_price_cents = ?32
+					   price_mode = ?30, min_price_cents = ?31, max_price_cents = ?32, compat = ?33
 					 WHERE id = ?1`,
 				)
 				.bind(productId, slug, title, summary, description, priceCents, kind, JSON.stringify(images), fileKey, fileName, fileSize, downloadLimit, wantsActive ? 1 : 0, sortOrder, now, ...merch)
@@ -276,9 +280,9 @@ async function saveProduct(c: Ctx, existing: Product | null, form: FormData): Pr
 					`INSERT INTO products (id, slug, title, summary, description, price_cents, currency, kind, images, file_key, file_name, file_size,
 					   download_limit, active, sort_order, created_at, updated_at,
 					   tagline, category, tags, badge, accent, meta_title, meta_description, highlights, specs, faq, video_id, compare_at_cents, availability, sales_offset,
-					   price_mode, min_price_cents, max_price_cents)
+					   price_mode, min_price_cents, max_price_cents, compat)
 					 VALUES (?1, ?2, ?3, ?4, ?5, ?6, 'usd', ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, ?15,
-					   ?16, ?17, ?18, ?19, ?20, ?21, ?22, ?23, ?24, ?25, ?26, ?27, ?28, ?29, ?30, ?31, ?32)`,
+					   ?16, ?17, ?18, ?19, ?20, ?21, ?22, ?23, ?24, ?25, ?26, ?27, ?28, ?29, ?30, ?31, ?32, ?33)`,
 				)
 				.bind(productId, slug, title, summary, description, priceCents, kind, JSON.stringify(images), fileKey, fileName, fileSize, downloadLimit, wantsActive ? 1 : 0, sortOrder, now, ...merch)
 				.run();

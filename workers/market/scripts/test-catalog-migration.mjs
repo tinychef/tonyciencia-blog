@@ -118,3 +118,16 @@ db.prepare("UPDATE products SET title = 'Del dueño', file_key = 'x', availabili
 db.exec(sql("0006_lanzamiento_cutpilot_motor.sql"));
 assert.equal(db.prepare("SELECT title FROM products WHERE slug = 'cutpilot'").get().title, "Del dueño");
 console.log("✓ migración 0006 segura (solo fichas «Próximamente» sin archivo)");
+
+// ── 0007: logos de compatibilidad y CutPilot a USD 12 (sin precio tachado: nunca se vendió a 29.90) ──
+db.exec(sql("0007_logos_y_cutpilot.sql"));
+const c7 = db.prepare("SELECT price_cents, compare_at_cents FROM products WHERE slug = 'cutpilot'").get();
+// En esta base de prueba el dueño ya había lanzado CutPilot (título "Del dueño") con el precio previsto 29.90.
+assert.equal(c7.price_cents, 1200);
+assert.equal(c7.compare_at_cents, null, "sin precio tachado inventado");
+const a7 = JSON.parse(db.prepare("SELECT compat FROM products WHERE slug = 'anuncios-infinitos'").get().compat);
+assert.deepEqual(a7.includes, ["agent|Agente de anuncios", "chrome-ext"]);
+db.prepare("UPDATE products SET price_cents = 1500 WHERE slug = 'cutpilot'").run();
+db.exec(sql("0007_logos_y_cutpilot.sql").replace(/ALTER TABLE[^;]+;/, ""));
+assert.equal(db.prepare("SELECT price_cents FROM products WHERE slug = 'cutpilot'").get().price_cents, 1500, "no pisa un precio cambiado a mano");
+console.log("✓ migración 0007 segura (logos y CutPilot a 12)");

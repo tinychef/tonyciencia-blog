@@ -48,6 +48,31 @@
 		});
 	});
 
+	// ── Tema claro / oscuro: misma cookie "scheme" que el blog; transición circular desde el botón ──
+	const themeBtn = $("[data-theme-toggle]");
+	if (themeBtn) {
+		const apply = (theme) => {
+			doc.classList.remove("light", "dark");
+			doc.classList.add(theme);
+			themeBtn.setAttribute("aria-pressed", String(theme === "dark"));
+			$('meta[name="theme-color"]')?.setAttribute("content", theme === "light" ? "#ffffff" : "#0a0a0b");
+			$('meta[name="color-scheme"]')?.setAttribute("content", theme);
+			const secure = location.protocol === "https:" ? "; Secure" : "";
+			document.cookie = `scheme=${theme}; path=/; max-age=31536000; SameSite=Lax${secure}`;
+		};
+		themeBtn.addEventListener("click", (e) => {
+			const next = doc.classList.contains("light") ? "dark" : "light";
+			if (!document.startViewTransition || reduced) return apply(next);
+			const r = themeBtn.getBoundingClientRect();
+			const x = e.clientX || r.left + r.width / 2;
+			const y = e.clientY || r.top + r.height / 2;
+			doc.style.setProperty("--vt-x", `${x}px`);
+			doc.style.setProperty("--vt-y", `${y}px`);
+			doc.style.setProperty("--vt-r", `${Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y))}px`);
+			document.startViewTransition(() => apply(next));
+		});
+	}
+
 	// ── Cabecera con sombra al bajar ──
 	const header = $("[data-header]");
 	if (header) {
@@ -56,7 +81,7 @@
 		onScroll();
 	}
 
-	// ── Menú móvil: se cierra con ✕, Escape, tocando fuera o al elegir un enlace ──
+	// ── Menú móvil: se cierra con el botón, Escape, tocando fuera o al elegir un enlace ──
 	const menu = $("[data-menu]");
 	if (menu) {
 		const close = () => menu.removeAttribute("open");
@@ -189,7 +214,9 @@
 			set("categoria", state.cat);
 			set("orden", state.sort, "destacados");
 			set("filtro", state.filter);
-			history.replaceState(null, "", url.pathname + url.search + url.hash);
+			// "/market?…" no llega al Worker del market en producción (la ruta exacta no admite parámetros).
+			const path = url.pathname === "/market" && url.search ? "/market/" : url.pathname;
+			history.replaceState(null, "", path + url.search + url.hash);
 		};
 		items.forEach((li) => (li.dataset.soon = li.dataset.soon === "1" ? "1" : "0"));
 		inputs.forEach((input) => {
@@ -359,7 +386,7 @@
 	});
 
 	// ── Popup de bienvenida: flotante y no modal; una vez cada 14 días y nunca si ya copió el código.
-	//    Al cerrarlo queda una pestaña discreta ("🎁 10% OFF") para volver a verlo. ──
+	//    Al cerrarlo queda una pestaña discreta («10% OFF») para volver a verlo. ──
 	const pop = $("[data-welcome]");
 	const tab = $("[data-pop-open]");
 	if (pop) {

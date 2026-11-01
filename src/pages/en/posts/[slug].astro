@@ -1,4 +1,5 @@
 ---
+import { postSlug } from "../../../utils/post-slug";
 import {
 	getEmDashEntry,
 	getEmDashCollection,
@@ -359,7 +360,7 @@ const publishDate =
 								<PostCard
 									title={p.data.title}
 									excerpt={p.data.excerpt}
-									href={`/en/posts/${p.id}`}
+									href={`/en/posts/${postSlug(p.id)}`}
 									date={p.data.publishedAt ?? undefined}
 									readingTime={getReadingTime(p.data.content)}
 									tags={postTags.map((tag) => ({ slug: tag.slug, label: tag.label }))}
@@ -376,7 +377,7 @@ const publishDate =
 	{
 		translationSlug && (
 			<div class="translation-banner">
-				<a href={`/posts/${translationSlug}`} class="translation-link">🇪🇸 {t("blog.readInOther")}</a>
+				<a href={`/posts/${translationSlug}`} class="translation-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-2px"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg> {t("blog.readInOther")}</a>
 			</div>
 		)
 	}

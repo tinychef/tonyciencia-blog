@@ -63,7 +63,9 @@ export function safeNextPath(v: unknown, fallback = "/market"): string {
 	try {
 		const u = new URL(v, "https://x.invalid");
 		if (u.origin !== "https://x.invalid") return fallback;
-		return u.pathname + u.search;
+		// En producción "/market?…" no llega al Worker del market (la ruta exacta no admite parámetros): "/market/?…".
+		const path = u.pathname === "/market" && u.search ? "/market/" : u.pathname;
+		return path + u.search;
 	} catch {
 		return fallback;
 	}

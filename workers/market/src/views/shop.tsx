@@ -5,6 +5,8 @@ import { STRIPE_MAX_CENTS, canBeFree, fromPriceCents, isPwyw, pwywBounds, saleIn
 import type { Product, ReviewRow, ShopProduct } from "../services/repo";
 import type { WelcomeOffer } from "../services/welcome";
 import { CsrfField } from "./layout";
+import { BRANDS, type CompatItem } from "../lib/brands";
+import { BrandLogo, CATEGORY_ICON, Icon, type IconName } from "./icons";
 import { Description } from "./render";
 
 // ── Piezas comunes ───────────────────────────────────────────────────
@@ -53,31 +55,33 @@ const BadgeList: FC<{ badges: Badge[]; class?: string }> = ({ badges, class: cls
  */
 export const PriceBlock: FC<{ product: Product; welcome: WelcomeOffer | null; size?: "sm" | "lg" }> = ({ product, welcome, size = "sm" }) => {
 	const cur = product.currency.toUpperCase();
+	const soon = product.availability === "coming_soon";
 	if (product.kind === "free") {
 		return (
 			<span class={`mk3-price mk3-price--${size}`}>
 				<span class="mk3-price-row">
 					<span class="mk3-price-now">Gratis</span>
 				</span>
+				<span class="mk3-price-note">Descarga inmediata</span>
 			</span>
 		);
 	}
-	const soon = product.availability === "coming_soon";
 	if (isPwyw(product)) {
 		const { min } = pwywBounds(product);
 		return (
 			<span class={`mk3-price mk3-price--${size}`}>
-				<span class="mk3-price-label">{soon ? "Precio previsto" : "Paga lo que quieras"}</span>
+				<span class="mk3-price-label">{soon ? "Precio previsto" : "Tú pones el precio"}</span>
 				<span class="mk3-price-row">
-					<span class="mk3-price-now">{min === 0 ? "$0+" : `${amount(min, product.currency)}+`}</span>
+					<span class="mk3-price-from">Desde</span>
+					<span class="mk3-price-now">{amount(min, product.currency)}</span>
 					<span class="mk3-price-cur">{cur}</span>
 				</span>
-				<span class="mk3-price-note">Sugerido: {formatPrice(product.price_cents, product.currency)}</span>
+				<span class="mk3-price-note">Sugerido {formatPrice(product.price_cents, product.currency)}</span>
 			</span>
 		);
 	}
 	const sale = saleInfo(product);
-	const couponPrice = !soon && welcome?.percentOff ? priceWithPercentOff(product.price_cents, welcome.percentOff) : null;
+	const couponPrice = size === "lg" && !soon && welcome?.percentOff ? priceWithPercentOff(product.price_cents, welcome.percentOff) : null;
 	return (
 		<span class={`mk3-price mk3-price--${size} ${sale && !soon ? "is-sale" : ""}`}>
 			{soon && <span class="mk3-price-label">Precio previsto</span>}
@@ -90,10 +94,12 @@ export const PriceBlock: FC<{ product: Product; welcome: WelcomeOffer | null; si
 					</s>
 				)}
 			</span>
-			{sale && !soon && (
+			{sale && !soon ? (
 				<span class="mk3-price-save">
 					<span class="mk3-off">−{sale.percent}%</span> Ahorras {formatPrice(sale.saveCents, product.currency)}
 				</span>
+			) : (
+				<span class="mk3-price-note">{soon ? "Lista de espera abierta" : "Pago único · sin suscripción"}</span>
 			)}
 			{couponPrice !== null && (
 				<span class="mk3-price-coupon">
@@ -101,6 +107,55 @@ export const PriceBlock: FC<{ product: Product; welcome: WelcomeOffer | null; si
 				</span>
 			)}
 		</span>
+	);
+};
+
+/** Logos de compatibilidad (máx. `max`; el resto como «+N»). Marcas sin logo permitido van como texto. */
+export const CompatRow: FC<{ items: CompatItem[]; max?: number; class?: string }> = ({ items, max = 5, class: cls }) => {
+	if (!items.length) return null;
+	const shown = items.slice(0, max);
+	const rest = items.length - shown.length;
+	return (
+		<span class={`mk3-compat ${cls ?? ""}`} role="list" aria-label={`Funciona con: ${items.map((i) => i.label).join(", ")}`}>
+			{shown.map((i) =>
+				BRANDS[i.k]?.icon ? (
+					<span class="mk3-compat-logo" role="listitem" title={i.label}>
+						<BrandLogo k={i.k} size={15} />
+						<span class="mk-visually-hidden">{i.label}</span>
+					</span>
+				) : (
+					<span class="mk3-compat-text" role="listitem">
+						{i.label}
+					</span>
+				),
+			)}
+			{rest > 0 && <span class="mk3-compat-more">+{rest}</span>}
+		</span>
+	);
+};
+
+/** Ícono de una pieza incluida: logo de la marca o, si es genérica (agente), un ícono de interfaz. */
+const IncludeIcon: FC<{ item: CompatItem; size?: number }> = ({ item, size = 18 }) =>
+	BRANDS[item.k]?.icon ? <BrandLogo k={item.k} size={size} /> : <Icon name={item.k === "agent" ? "bot" : "box"} size={size} />;
+
+/** «2 en 1»: lo que viene dentro del producto, con sus logos. */
+export const IncludesBox: FC<{ items: CompatItem[]; compact?: boolean }> = ({ items, compact }) => {
+	if (items.length < 2) return null;
+	return (
+		<div class={`mk3-includes ${compact ? "mk3-includes--compact" : ""}`}>
+			<span class="mk3-includes-badge">{items.length} en 1</span>
+			<span class="mk3-includes-list">
+				{items.map((it, i) => (
+					<>
+						{i > 0 && <span class="mk3-includes-plus" aria-hidden="true">+</span>}
+						<span class="mk3-includes-item">
+							<IncludeIcon item={it} size={compact ? 15 : 18} />
+							<span class="mk3-includes-label">{it.label}</span>
+						</span>
+					</>
+				))}
+			</span>
+		</div>
 	);
 };
 
@@ -136,6 +191,7 @@ export const ProductCard: FC<{ p: ShopProduct; maxSales: number; welcome: Welcom
 	const cover = p.images[0];
 	const soon = p.availability === "coming_soon";
 	const sale = saleInfo(p);
+	const bundle = p.compat.includes.length >= 2;
 	return (
 		<li
 			class="mk3-item"
@@ -152,20 +208,25 @@ export const ProductCard: FC<{ p: ShopProduct; maxSales: number; welcome: Welcom
 				<div class="mk3-media">
 					{cover ? <img src={cover.src} alt={cover.alt} loading={eager ? "eager" : "lazy"} width="800" height="500" decoding="async" /> : <span class="mk3-media-empty" aria-hidden="true"></span>}
 					<BadgeList badges={cardBadges(p, maxSales)} class="mk3-badges" />
+					{bundle && <span class="mk3-bundle">{p.compat.includes.length} en 1</span>}
 				</div>
 				<div class="mk3-body">
-					{categoryLabel(p.category) && <p class="mk3-kind">{categoryLabel(p.category)}</p>}
+					<div class="mk3-toprow">
+						<p class="mk3-kind">{categoryLabel(p.category) ?? "Producto digital"}</p>
+						<Meta p={p} />
+					</div>
 					<h3 class="mk3-title">
 						<a href={productUrl(p.slug)} class="mk-stretch">
 							{p.title}
 						</a>
 					</h3>
 					<p class="mk3-tagline">{p.tagline || p.summary}</p>
-					<Meta p={p} />
-					<div class="mk3-foot">
+					<div class="mk3-slot">{bundle ? <IncludesBox items={p.compat.includes} compact /> : <CompatRow items={p.compat.works} max={5} />}</div>
+					<div class="mk3-buy">
 						<PriceBlock product={p} welcome={welcome} />
-						<span class={`mk3-cta ${soon ? "mk3-cta--ghost" : ""}`} aria-hidden="true">
-							{soon ? "Avísame" : p.kind === "free" ? "Descargar" : isPwyw(p) ? "Elegir precio" : "Ver producto"}
+						<span class={`mk3-go ${soon ? "mk3-go--ghost" : ""}`} aria-hidden="true">
+							{soon ? "Avísame" : p.kind === "free" ? "Descargar" : isPwyw(p) ? "Elegir precio" : "Ver"}
+							<Icon name="arrow" size={16} />
 						</span>
 					</div>
 				</div>
@@ -174,25 +235,52 @@ export const ProductCard: FC<{ p: ShopProduct; maxSales: number; welcome: Welcom
 	);
 };
 
-const Check = () => (
-	<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-		<path d="M20 6 9 17l-5-5" />
-	</svg>
-);
+/** Oferta destacada en horizontal (imagen + datos): llena el ancho sin columnas vacías. */
+export const DealCard: FC<{ p: ShopProduct; maxSales: number; eager?: boolean }> = ({ p, maxSales, eager }) => {
+	const cover = p.images[0];
+	return (
+		<li class="mk3-deal">
+			<article class="mk3-deal-card" style={p.accent ? `--accent: ${p.accent}` : undefined}>
+				<div class="mk3-deal-media">
+					{cover && <img src={cover.src} alt={cover.alt} loading={eager ? "eager" : "lazy"} width="800" height="500" decoding="async" />}
+					<BadgeList badges={cardBadges(p, maxSales)} class="mk3-badges" />
+				</div>
+				<div class="mk3-deal-body">
+					{categoryLabel(p.category) && <p class="mk3-kind">{categoryLabel(p.category)}</p>}
+					<h3 class="mk3-deal-title">
+						<a href={productUrl(p.slug)} class="mk-stretch">
+							{p.title}
+						</a>
+					</h3>
+					<p class="mk3-deal-tagline">{p.tagline || p.summary}</p>
+					{p.compat.includes.length >= 2 ? <IncludesBox items={p.compat.includes} compact /> : <CompatRow items={p.compat.works} max={6} />}
+					<div class="mk3-buy">
+						<PriceBlock product={p} welcome={null} size="lg" />
+						<span class="mk3-go" aria-hidden="true">
+							Ver oferta <Icon name="arrow" size={16} />
+						</span>
+					</div>
+				</div>
+			</article>
+		</li>
+	);
+};
 
-const TRUST = [
-	{ icon: "⚡", title: "Descarga inmediata", text: "En tu correo y en Mis compras apenas se confirma el pago." },
-	{ icon: "🔒", title: "Pago seguro con Stripe", text: "No vemos ni guardamos los datos de tu tarjeta." },
-	{ icon: "↩", title: "Reembolso en 14 días", text: "Si aún no lo descargaste.", href: "/market/legal/reembolsos" },
-	{ icon: "💬", title: "Soporte en español", text: "Te responde una persona: business@tonyciencia.com" },
+const Check = () => <Icon name="check" size={18} />;
+
+const TRUST: Array<{ icon: IconName; title: string; text: string; href?: string }> = [
+	{ icon: "bolt", title: "Descarga inmediata", text: "En tu correo y en Mis compras apenas se confirma el pago." },
+	{ icon: "lock", title: "Pago seguro con Stripe", text: "No vemos ni guardamos los datos de tu tarjeta." },
+	{ icon: "refund", title: "Reembolso en 14 días", text: "Si aún no lo descargaste.", href: "/market/legal/reembolsos" },
+	{ icon: "chat", title: "Soporte en español", text: "Te responde una persona: business@tonyciencia.com" },
 ];
 
 export const TrustStrip: FC<{ compact?: boolean }> = ({ compact }) => (
 	<ul class={`mk-trust ${compact ? "mk-trust--compact" : ""}`}>
 		{TRUST.map((t) => (
 			<li>
-				<span class="mk-trust-ic" aria-hidden="true">
-					{t.icon}
+				<span class="mk-trust-ic">
+					<Icon name={t.icon} size={18} />
 				</span>
 				<span>
 					<b>{t.href ? <a href={t.href}>{t.title}</a> : t.title}</b>
@@ -225,7 +313,6 @@ const SORTS: Array<{ value: CatalogSort; label: string }> = [
 	{ value: "valorados", label: "Mejor valorados" },
 ];
 
-const CATEGORY_ICONS: Record<string, string> = { anuncios: "📣", video: "🎬", automatizacion: "⚙️", contenido: "✍️", "seo-web": "🚀", diseno: "🎨", agentes: "🤖" };
 
 /** Orden del servidor (sin JS). Disponibles siempre antes que "Próximamente". */
 export function sortProducts(list: ShopProduct[], sort: CatalogSort): ShopProduct[] {
@@ -268,7 +355,7 @@ export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query, 
 		const base: Record<string, string | null> = { categoria: category, q: query || null, orden: sort === "destacados" ? null : sort, filtro: filter };
 		for (const [k, v] of Object.entries({ ...base, ...extra })) if (v) u.set(k, v);
 		const s = u.toString();
-		return `/market${s ? `?${s}` : ""}#catalogo`;
+		return `/market/${s ? `?${s}` : ""}#catalogo`;
 	};
 	return (
 		<>
@@ -282,12 +369,12 @@ export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query, 
 							Herramientas de IA <span class="mk-grad">que trabajan por ti</span>
 						</h1>
 						<p class="mk-lead">Agentes, skills y plantillas en español para anuncios, video, SEO y automatización. Pago único y descarga inmediata.</p>
-						<form class="mk3-search" method="get" action="/market#catalogo" role="search">
+						<form class="mk3-search" method="get" action="/market/#catalogo" role="search">
 							<label class="mk-visually-hidden" for="mk-q-hero">
 								Buscar productos
 							</label>
-							<span class="mk3-search-ic" aria-hidden="true">
-								⌕
+							<span class="mk3-search-ic">
+								<Icon name="search" size={18} />
 							</span>
 							<input id="mk-q-hero" type="search" name="q" value={query} placeholder="¿Qué quieres crear? Videos, anuncios, SEO…" autocomplete="off" maxlength={60} data-filter-input />
 							<button type="submit" class="tc-btn tc-btn--primary">
@@ -298,7 +385,7 @@ export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query, 
 							<p class="mk3-popular">
 								<span>Populares:</span>
 								{popular.map((t) => (
-									<a href={`/market?q=${encodeURIComponent(t)}#catalogo`}>{t}</a>
+									<a href={`/market/?q=${encodeURIComponent(t)}#catalogo`}>{t}</a>
 								))}
 							</p>
 						)}
@@ -312,7 +399,9 @@ export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query, 
 								</li>
 							)}
 							<li>Pago único · sin suscripción</li>
-							<li>🔒 Stripe</li>
+							<li>
+								<Icon name="lock" size={14} /> Pago seguro con Stripe
+							</li>
 						</ul>
 					</div>
 					{featured && featured.images[0] && (
@@ -322,7 +411,9 @@ export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query, 
 							<span class="mk3-feature-body">
 								<span class="mk3-feature-title">{featured.title.split(":")[0]}</span>
 								<PriceBlock product={featured} welcome={null} />
-								<span class="mk3-feature-cta">{featuredSale ? "Ver oferta →" : "Ver producto →"}</span>
+								<span class="mk3-feature-cta">
+									{featuredSale ? "Ver oferta" : "Ver producto"} <Icon name="arrow" size={16} />
+								</span>
 							</span>
 						</a>
 					)}
@@ -333,8 +424,8 @@ export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query, 
 				<section class="tc-shell mk3-cats" aria-label="Categorías">
 					{cats.map((c) => (
 						<a href={keep({ categoria: c.slug })} class="mk3-cat" data-cat-filter={c.slug} aria-current={category === c.slug ? "true" : undefined}>
-							<span class="mk3-cat-ic" aria-hidden="true">
-								{CATEGORY_ICONS[c.slug] ?? "✦"}
+							<span class="mk3-cat-ic">
+								<Icon name={CATEGORY_ICON[c.slug] ?? "sparkle"} size={20} />
 							</span>
 							<span class="mk3-cat-name">{c.label}</span>
 							<span class="mk3-cat-n">
@@ -357,12 +448,12 @@ export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query, 
 							<p class="mk-muted">Precio anterior real tachado. Pago único, descarga inmediata.</p>
 						</div>
 						<a href={keep({ filtro: "ofertas" })} class="mk-textlink">
-							Ver todas las ofertas →
+							Ver todas las ofertas <Icon name="arrow" size={15} />
 						</a>
 					</div>
-					<ul class="mk3-grid mk3-grid--deals">
+					<ul class="mk3-deals-list">
 						{deals.slice(0, 3).map((p, i) => (
-							<ProductCard p={p} maxSales={maxSales} welcome={welcome} eager={i < 1} />
+							<DealCard p={p} maxSales={maxSales} eager={i < 1} />
 						))}
 					</ul>
 				</section>
@@ -378,7 +469,7 @@ export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query, 
 						</p>
 					</div>
 				</div>
-				<form class="mk3-toolbar" method="get" action="/market#catalogo" data-catalog-form>
+				<form class="mk3-toolbar" method="get" action="/market/#catalogo" data-catalog-form>
 					<label class="mk-visually-hidden" for="mk-q">
 						Buscar en el catálogo
 					</label>
@@ -455,7 +546,9 @@ export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query, 
 							Diseñamos y entregamos agentes de IA para tu empresa: ventas por WhatsApp, atención, agenda y automatizaciones conectadas a tu
 							CRM. Reserva un diagnóstico y ve los horarios disponibles antes de pagar.
 						</p>
-						<span class="tc-btn tc-btn--primary">Ver el servicio →</span>
+						<span class="tc-btn tc-btn--primary">
+							Ver el servicio <Icon name="arrow" size={16} />
+						</span>
 					</div>
 					<img src="/market/static/products/agentes-para-empresas/mascota.webp" alt="" width="260" height="260" loading="lazy" class="mk-float" />
 				</a>
@@ -555,7 +648,13 @@ export const LoginButton: FC<{ next: string; mode: "mock" | "live"; label?: stri
 
 const PayNote: FC<{ mode: "mock" | "live" }> = ({ mode }) => (
 	<p class="mk-muted mk3-paynote">
-		{mode === "live" ? "🔒 Pago seguro con Stripe." : "Pago SIMULADO (modo maqueta)."} Recibes el enlace de descarga en tu correo y en Mis compras. Al
+		{mode === "live" ? (
+			<>
+				<Icon name="lock" size={13} /> Pago seguro con Stripe.
+			</>
+		) : (
+			"Pago SIMULADO (modo maqueta)."
+		)} Recibes el enlace de descarga en tu correo y en Mis compras. Al
 		comprar aceptas los <a href="/market/legal/terminos">Términos</a> y la <a href="/market/legal/reembolsos">Política de reembolsos</a>.
 	</p>
 );
@@ -725,7 +824,10 @@ const RatingSummary: FC<{ product: ShopProduct; breakdown: Record<number, number
 			<ul class="mk-bars">
 				{[5, 4, 3, 2, 1].map((n) => (
 					<li>
-						<span>{n} ★</span>
+						<span class="mk-bar-n">
+							{n}
+							<span class="mk-star-sm" aria-hidden="true"></span>
+						</span>
 						<span class="mk-bar">
 							<i style={`width: ${ratingCount ? Math.round(((breakdown[n] ?? 0) / ratingCount) * 100) : 0}%`}></i>
 						</span>
@@ -764,7 +866,7 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 				<nav class="mk-crumbs" aria-label="Ruta">
 					<a href="/market">Market</a>
 					<span aria-hidden="true">/</span>
-					{cat ? <a href={`/market?categoria=${product.category}#catalogo`}>{cat}</a> : <span>Producto</span>}
+					{cat ? <a href={`/market/?categoria=${product.category}#catalogo`}>{cat}</a> : <span>Producto</span>}
 					<span aria-hidden="true">/</span>
 					<span aria-current="page">{product.title.split(":")[0]}</span>
 				</nav>
@@ -845,6 +947,25 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 								<BuyActions {...props} />
 							</div>
 							{!soon && <TrustStrip compact />}
+							{(product.compat.works.length > 0 || product.compat.includes.length >= 2) && (
+								<div class="mk3-compat-box">
+									<IncludesBox items={product.compat.includes} />
+									{product.compat.works.length > 0 && (
+										<>
+											<p class="mk3-compat-title">Funciona con</p>
+											<ul class="mk3-compat-list">
+												{product.compat.works.map((it) => (
+													<li>
+														{BRANDS[it.k]?.icon ? <BrandLogo k={it.k} size={16} /> : <Icon name="check" size={14} />}
+														{it.label}
+													</li>
+												))}
+											</ul>
+											<p class="mk3-compat-fine">Las marcas pertenecen a sus titulares; se muestran solo para indicar compatibilidad.</p>
+										</>
+									)}
+								</div>
+							)}
 							{product.highlights.length > 0 && (
 								<ul class="mk-highlights">
 									{product.highlights.slice(0, 6).map((h) => (
@@ -960,7 +1081,7 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 						{product.tags.length > 0 && (
 							<div class="mk-tags">
 								{product.tags.map((t) => (
-									<a href={`/market?q=${encodeURIComponent(t)}#catalogo`} class="mk-tag">
+									<a href={`/market/?q=${encodeURIComponent(t)}#catalogo`} class="mk-tag">
 										{t}
 									</a>
 								))}
@@ -977,7 +1098,7 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 								<h2 id="rel-t">Completa tu kit</h2>
 							</div>
 							<a href="/market#catalogo" class="mk-textlink">
-								Ver todo el catálogo →
+								Ver todo el catálogo <Icon name="arrow" size={15} />
 							</a>
 						</div>
 						<ul class="mk3-grid mk3-grid--3">

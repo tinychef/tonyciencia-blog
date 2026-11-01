@@ -115,7 +115,7 @@
 .mk-links > a.mk-pill-link::after { display: none; }
 .mk-links > a.mk-pill-link:hover { color: var(--color-on-accent); background: var(--color-accent-hover); }
 
-/* Menú móvil (details/summary): siempre se puede cerrar (✕, Escape, tocar fuera). */
+/* Menú móvil (details/summary): siempre se puede cerrar (botón cerrar, Escape, tocar fuera). */
 .mk-menu { display: none; position: relative; }
 .mk-menu > summary { list-style: none; cursor: pointer; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 10px; border: 1px solid var(--color-border); }
 .mk-menu > summary::-webkit-details-marker { display: none; }
@@ -306,13 +306,13 @@
 
 /* ── Estrellas y cifras reales ── */
 .mk-stars { position: relative; display: inline-block; font-size: 0.95rem; line-height: 1; letter-spacing: 1px; color: var(--color-border); }
-.mk-stars::before { content: "★★★★★"; }
+.mk-stars::before { content: none; }
 .mk-stars-fill { position: absolute; left: 0; top: 0; overflow: hidden; white-space: nowrap; color: var(--mk-star); }
-.mk-stars-fill::before { content: "★★★★★"; }
+.mk-stars-fill::before { content: none; }
 .mk-meta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 0.85rem; }
 .mk-meta-rating { display: inline-flex; align-items: center; gap: 6px; color: var(--color-text); }
 .mk-meta-sales { color: var(--color-text-secondary); font-weight: 600; }
-.mk-meta-sales::before { content: "🔥 "; }
+
 
 /* ── Banner de servicio y bloques ── */
 .mk-service-banner {
@@ -885,3 +885,174 @@ fieldset.mk-fieldset legend { padding: 0 var(--spacing-2); font-weight: 600; fon
 .mk3-pop { border-color: var(--color-border); box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.55); }
 .mk3-pop-badge { background: var(--mk-inv-bg); color: var(--mk-inv-ink); box-shadow: none; }
 .mk3-pop-tab { background: var(--mk-inv-bg); color: var(--mk-inv-ink); }
+
+/* ═══ Ronda 3: íconos SVG, tarjetas compactas, panel de precio, logos de compatibilidad, tema ═══ */
+.mk-ic, .mk-brand-logo { display: inline-block; vertical-align: -0.18em; flex: none; }
+.mk-trust-ic { display: inline-grid; place-items: center; color: var(--color-text); }
+.mk3-cat-ic { color: var(--color-text); }
+.mk3-search-ic { display: inline-flex; color: var(--color-muted); }
+.mk-textlink, .mk3-feature-cta, .mk-service-banner .tc-btn { display: inline-flex; align-items: center; gap: 6px; }
+.mk-pay-stripe { display: inline-flex; align-items: center; gap: 6px; }
+.mk-menu-panel a { display: flex; align-items: center; gap: 8px; }
+.mk3-hero-trust li { align-items: center; }
+.mk-announce > span { display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; justify-content: center; }
+
+/* Estrellas y ventas sin glifos: máscaras SVG que toman el color del tema. */
+.mk-stars { position: relative; display: inline-block; width: 80px; height: 15px; vertical-align: -2px; }
+.mk-stars::before, .mk-stars-fill::before { content: none !important; }
+.mk-stars, .mk-stars-fill {
+	-webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 15'%3E%3Cg%3E%3Cpath id='s' d='M7.5 0l2.2 4.6 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5L.3 5.3l5-.7z'/%3E%3Cuse href='%23s' x='16'/%3E%3Cuse href='%23s' x='32'/%3E%3Cuse href='%23s' x='48'/%3E%3Cuse href='%23s' x='64'/%3E%3C/g%3E%3C/svg%3E") left / 80px 15px no-repeat;
+	mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 15'%3E%3Cg%3E%3Cpath id='s' d='M7.5 0l2.2 4.6 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5L.3 5.3l5-.7z'/%3E%3Cuse href='%23s' x='16'/%3E%3Cuse href='%23s' x='32'/%3E%3Cuse href='%23s' x='48'/%3E%3Cuse href='%23s' x='64'/%3E%3C/g%3E%3C/svg%3E") left / 80px 15px no-repeat;
+}
+.mk-stars { background: var(--color-border); }
+.mk-stars-fill { position: absolute; inset: 0 auto 0 0; background: var(--color-text); -webkit-mask-size: 80px 15px; mask-size: 80px 15px; }
+.mk-star-sm {
+	display: inline-block; width: 11px; height: 11px; margin-left: 3px; vertical-align: -1px; background: currentColor;
+	-webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 15'%3E%3Cpath d='M7.5 0l2.2 4.6 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5L.3 5.3l5-.7z'/%3E%3C/svg%3E") center / contain no-repeat;
+	mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 15'%3E%3Cpath d='M7.5 0l2.2 4.6 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5L.3 5.3l5-.7z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+.mk-meta-sales { display: inline-flex; align-items: center; gap: 5px; }
+.mk-meta-sales::before {
+	content: "" !important; width: 14px; height: 14px; background: var(--mk-deal);
+	-webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 7 13.5 15.5 8.5 10.5 2 17'/%3E%3Cpath d='M16 7h6v6'/%3E%3C/svg%3E") center / contain no-repeat;
+	mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 7 13.5 15.5 8.5 10.5 2 17'/%3E%3Cpath d='M16 7h6v6'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* ── Tarjeta compacta: alturas parejas por diseño (sin huecos), precio en un panel propio ── */
+.mk3-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); align-items: stretch; }
+.mk3-body { gap: 8px; padding: 14px 16px 16px; }
+.mk3-title { font-size: 1.02rem; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.6em; }
+.mk3-tagline { font-size: 0.88rem; min-height: 2.9em; }
+.mk3-buy {
+	margin-top: auto; display: flex; align-items: flex-end; justify-content: space-between; gap: 12px;
+	padding-top: 12px; border-top: 1px solid var(--color-border-subtle, var(--color-border));
+}
+.mk3-go {
+	position: relative; z-index: 2; pointer-events: none; flex-shrink: 0; display: inline-flex; align-items: center; gap: 6px;
+	height: 36px; padding: 0 14px; border-radius: 999px; font-weight: 700; font-size: 0.85rem;
+	background: var(--mk-inv-bg); color: var(--mk-inv-ink); transition: gap 160ms var(--mk-ease);
+}
+.mk3-go--ghost { background: transparent; color: var(--color-text); border: 1px solid var(--color-border); }
+.mk3-card:hover .mk3-go { gap: 10px; }
+.mk3-cta, .mk3-foot { display: none; }
+
+/* Panel de precio: número grande, moneda pequeña, anterior tachado y una sola línea de apoyo. */
+.mk3-price { gap: 3px; }
+.mk3-price-row { align-items: baseline; gap: 0 6px; }
+.mk3-price-now { font-size: 1.5rem; line-height: 1; }
+.mk3-price-from { font-size: 0.78rem; font-weight: 600; color: var(--color-text-secondary); }
+.mk3-price-cur { font-size: 0.7rem; letter-spacing: 0.04em; }
+.mk3-price-label { font-size: 0.68rem; }
+.mk3-price-note { font-size: 0.78rem; color: var(--color-muted); }
+.mk3-price-save { font-size: 0.78rem; }
+.mk3-price--lg .mk3-price-now { font-size: clamp(2.2rem, 4vw, 2.8rem); }
+.mk3-price--lg .mk3-price-note { font-size: 0.9rem; }
+
+/* Logos de compatibilidad */
+.mk3-compat { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-height: 28px; }
+.mk3-compat-logo, .mk3-compat-text, .mk3-compat-more {
+	display: inline-flex; align-items: center; justify-content: center; height: 26px; border-radius: 8px;
+	border: 1px solid var(--color-border-subtle, var(--color-border)); background: var(--color-bg-subtle); color: var(--color-text-secondary);
+}
+.mk3-compat-logo { width: 30px; }
+.mk3-compat-text, .mk3-compat-more { padding: 0 8px; font-size: 0.72rem; font-weight: 600; }
+.mk3-card:hover .mk3-compat-logo { color: var(--color-text); }
+
+/* «N en 1» */
+.mk3-bundle {
+	position: absolute; right: 10px; bottom: 10px; padding: 5px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 800;
+	background: var(--mk-inv-bg); color: var(--mk-inv-ink); box-shadow: 0 6px 18px -8px rgba(0, 0, 0, 0.45);
+}
+.mk3-includes { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; padding: 12px 14px; border-radius: 14px; border: 1px solid var(--color-border); background: var(--color-bg-subtle); }
+.mk3-includes-badge { padding: 3px 9px; border-radius: 999px; font-size: 0.75rem; font-weight: 800; background: var(--mk-inv-bg); color: var(--mk-inv-ink); }
+.mk3-includes-list { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; font-weight: 600; font-size: 0.92rem; color: var(--color-text); }
+.mk3-includes-item { display: inline-flex; align-items: center; gap: 6px; }
+.mk3-includes-plus { color: var(--color-muted); font-weight: 400; }
+.mk3-includes--compact { padding: 6px 8px; gap: 6px; border-radius: 10px; min-height: 28px; }
+.mk3-includes--compact .mk3-includes-badge { display: none; }
+.mk3-includes--compact .mk3-includes-list { font-size: 0.78rem; gap: 4px 6px; }
+
+/* Ficha: bloque «Funciona con» */
+.mk3-compat-box { display: grid; gap: 10px; margin: 18px 0 6px; }
+.mk3-compat-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted); }
+.mk3-compat-list { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+.mk3-compat-list li {
+	display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 999px; font-size: 0.86rem; font-weight: 600;
+	border: 1px solid var(--color-border); background: var(--color-surface); color: var(--color-text);
+}
+.mk3-compat-fine { font-size: 0.72rem; color: var(--color-muted); }
+
+/* Ofertas en horizontal: la sección ocupa todo el ancho, sin columnas vacías. */
+.mk3-deals-list { list-style: none; display: grid; gap: 16px; }
+.mk3-deal-card {
+	position: relative; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); overflow: hidden; border-radius: 20px;
+	background: var(--mk3-card-bg); border: 1px solid var(--color-border-subtle, var(--color-border));
+	transition: transform 220ms var(--mk-ease), border-color 220ms;
+}
+.mk3-deal-card:hover { transform: translateY(-3px); border-color: var(--color-border); }
+.mk3-deal-media { position: relative; background: var(--color-bg-subtle); }
+.mk3-deal-media img { width: 100%; height: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.mk3-deal-body { display: flex; flex-direction: column; gap: 10px; padding: clamp(16px, 2.4vw, 28px); }
+.mk3-deal-title { font-size: clamp(1.15rem, 1.8vw, 1.4rem); line-height: 1.25; letter-spacing: -0.02em; }
+.mk3-deal-title a { color: var(--color-text); text-decoration: none; }
+.mk3-deal-tagline { color: var(--color-text-secondary); font-size: 0.95rem; line-height: 1.5; }
+
+/* Botón de tema */
+.mk-theme {
+	display: inline-grid; place-items: center; width: 38px; height: 38px; border-radius: 999px; cursor: pointer;
+	border: 1px solid var(--color-border); background: transparent; color: var(--color-text);
+}
+.mk-theme:hover { background: var(--color-accent-muted); }
+.mk-theme .mk-theme-sun { display: none; }
+:root.dark .mk-theme .mk-theme-sun, :root:not(.light) .mk-theme .mk-theme-sun { display: inline-block; }
+:root.dark .mk-theme .mk-theme-moon, :root:not(.light) .mk-theme .mk-theme-moon { display: none; }
+:root.light .mk-theme .mk-theme-moon { display: inline-block; }
+:root.light .mk-theme .mk-theme-sun { display: none; }
+::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+::view-transition-new(root) { animation: mk-reveal 520ms cubic-bezier(0.4, 0, 0.2, 1); }
+@keyframes mk-reveal {
+	from { clip-path: circle(0 at var(--vt-x, 50%) var(--vt-y, 0)); }
+	to { clip-path: circle(var(--vt-r, 150vmax) at var(--vt-x, 50%) var(--vt-y, 0)); }
+}
+body, .mk-header, .mk3-card, .mk3-deal-card, .tc-card { transition: background-color 240ms ease, border-color 240ms ease, color 240ms ease; }
+
+@media (max-width: 760px) {
+	.mk3-deal-card { grid-template-columns: 1fr; }
+	.mk3-buy { align-items: center; }
+}
+@media (max-width: 640px) {
+	.mk3-title, .mk3-tagline { min-height: 0; }
+	.mk3-buy { flex-direction: row; }
+	.mk-theme { width: 34px; height: 34px; }
+}
+@media (prefers-reduced-motion: reduce) {
+	::view-transition-new(root) { animation: none; }
+}
+.mk-star-lg {
+	display: inline-block; width: 26px; height: 26px; background: currentColor;
+	-webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 15'%3E%3Cpath d='M7.5 0l2.2 4.6 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5L.3 5.3l5-.7z'/%3E%3C/svg%3E") center / contain no-repeat;
+	mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 15'%3E%3Cpath d='M7.5 0l2.2 4.6 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5L.3 5.3l5-.7z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+/* Altura pareja: una sola línea para logos o «N en 1»; ventas y estrellas en la línea de la categoría. */
+.mk3-toprow { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 18px; }
+.mk3-toprow .mk-meta { font-size: 0.76rem; gap: 8px; flex-wrap: nowrap; }
+.mk3-toprow .mk-stars { transform: scale(0.85); transform-origin: left center; }
+.mk3-slot { min-height: 28px; display: flex; align-items: center; }
+.mk3-includes--compact { width: 100%; padding: 0 8px; height: 28px; border-radius: 8px; flex-wrap: nowrap; overflow: hidden; }
+.mk3-includes--compact .mk3-includes-list { flex-wrap: nowrap; white-space: nowrap; overflow: hidden; min-width: 0; }
+.mk3-includes--compact .mk3-includes-item { min-width: 0; }
+.mk3-includes--compact .mk3-includes-item:last-child { overflow: hidden; text-overflow: ellipsis; display: inline-block; }
+.mk3-includes--compact .mk3-includes-item svg { margin-right: 5px; vertical-align: -0.2em; }
+.mk3-includes--compact .mk3-includes-list { display: flex; width: 100%; font-size: 0.76rem; }
+.mk3-includes--compact .mk3-includes-item { display: inline-flex; align-items: center; gap: 5px; flex: 0 1 auto; min-width: 0; overflow: visible; }
+.mk3-includes--compact .mk3-includes-item svg { margin-right: 0; flex: none; }
+.mk3-includes-label { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mk3-includes--compact .mk3-includes-plus { flex: none; }
+@media (max-width: 640px) {
+	.mk3-pop-tab { display: none !important; }
+	.mk3-deal-card .mk3-buy { flex-direction: column; align-items: stretch; gap: 12px; }
+	.mk3-deal-card .mk3-go { justify-content: center; height: 42px; }
+	.mk3-deal-card .mk3-price-save { flex-wrap: wrap; }
+	.mk3-hero-trust { gap: 6px 14px; }
+}
+.mk3-deal-title, .mk3-deal-tagline, .mk3-deal-body .mk3-kind { margin: 0; }

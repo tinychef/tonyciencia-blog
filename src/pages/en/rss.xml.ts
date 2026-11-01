@@ -1,3 +1,4 @@
+import { postSlug } from "../../utils/post-slug";
 import type { APIRoute } from "astro";
 import { getEmDashCollection, getSiteSettings } from "emdash";
 import { postTerms } from "../../utils/terms";
@@ -25,7 +26,7 @@ export const GET: APIRoute = async ({ url }) => {
 
 	const items = itemsWithMeta
 		.map(({ post, categories, bylines }) => {
-			const postUrl = `${siteUrl}/en/posts/${post.id}`;
+			const postUrl = `${siteUrl}/en/posts/${postSlug(post.id)}`;
 			const categoryTags = categories
 				.map((c) => `      <category>${escapeXml(c.label)}</category>`)
 				.join("\n");

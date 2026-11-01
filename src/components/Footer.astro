@@ -200,7 +200,7 @@ const year = new Date().getFullYear();
       <div class="footer-controls">
         {alternatePath && (
           <a href={alternatePath} class="footer-lang" hreflang={locale === "en" ? "es" : "en"} lang={locale === "en" ? "es" : "en"}>
-            {locale === "en" ? "🌐 Leer en español" : "🌐 Read in English"}
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-2px"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg> {locale === "en" ? "Leer en español" : "Read in English"}
           </a>
         )}
         <a href="#main-content" class="back-to-top-link" id="footer-top">
