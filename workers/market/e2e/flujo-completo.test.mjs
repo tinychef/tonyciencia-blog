@@ -49,13 +49,13 @@ test("flujo completo en modo maqueta", { timeout: 120_000 }, async () => {
 
 	// 1) Catálogo
 	await page.goto(`${BASE}/market`);
-	await assert.doesNotReject(page.getByRole("heading", { name: /Herramientas de IA/, level: 1 }).waitFor());
-	assert.ok((await page.locator(".mk3-card").count()) >= 5, "el catálogo muestra al menos 5 productos");
+	await assert.doesNotReject(page.getByRole("heading", { name: /Mi stack de herramientas/, level: 1 }).waitFor());
+	assert.ok((await page.locator(".mk5-card").count()) >= 5, "el catálogo muestra al menos 5 productos");
 	assert.ok(await page.getByText("MODO MAQUETA").isVisible(), "la banda de maqueta debe verse");
 	await page.screenshot({ path: join(OUT, "01-catalogo.png"), fullPage: true });
 
 	// 2) Producto de pago → login de maqueta → vuelve al producto
-	await page.getByRole("link", { name: /Anuncios Infinitos/ }).first().click();
+	await page.getByRole("link", { name: /Anuncios (Automáticos|Infinitos)/ }).first().click();
 	await page.waitForURL(/\/market\/producto\/anuncios-infinitos(#comprar)?$/);
 	await page.screenshot({ path: join(OUT, "02-producto.png"), fullPage: true });
 	await page.getByRole("link", { name: /usuario de prueba/ }).click();

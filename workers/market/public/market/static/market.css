@@ -1148,3 +1148,4 @@ a.mk3-preset { display: inline-flex; align-items: center; justify-content: cente
 	.mk-product-page .mk3-buybox .mk3-price--lg .mk3-price-now { font-size: 40px; }
 	.mk-product-page .mk-badges { margin-bottom: 8px; }
 }
+.mk5-cover picture { display: block; width: 100%; height: 100%; }

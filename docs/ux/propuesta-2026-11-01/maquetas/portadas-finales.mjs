@@ -42,8 +42,8 @@ const CSS = `
 .pf .pf-mono { font-family: "JetBrains Mono", monospace; }
 /* Anuncios */
 .pf .ad-grid { position: absolute; left: 892px; top: 196px; width: 620px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.pf .ad { height: 160px; border: 3px solid #2e2e33; border-radius: 20px; background: #17171a; padding: 20px 24px; display: flex; flex-direction: column; justify-content: space-between; }
-.pf .ad h4 { font-size: 36px; line-height: 1; font-weight: 800; letter-spacing: -0.02em; }
+.pf .ad { height: 166px; border: 3px solid #2e2e33; border-radius: 20px; background: #17171a; padding: 20px 24px; display: flex; flex-direction: column; justify-content: space-between; }
+.pf .ad h4 { font-size: 34px; line-height: 0.98; font-weight: 800; letter-spacing: -0.02em; }
 .pf .ad p { display: flex; align-items: baseline; gap: 10px; }
 .pf .ad p b { font-size: 62px; line-height: 0.9; font-weight: 800; color: #30d158; letter-spacing: -0.03em; }
 .pf .ad p span { font-size: 26px; font-weight: 600; color: #a1a1a8; }
@@ -93,10 +93,10 @@ const CSS = `
 .pf .fm { border: 4px solid #4a4a52; border-radius: 14px; display: grid; place-items: end start; padding: 10px 12px; font: 700 26px "JetBrains Mono", monospace; background: #17171a; color: #d7d7dc; }
 .pf .fm.on { border-color: #30d158; }
 /* Motor */
-.pf .apps { position: absolute; left: 896px; top: 200px; width: 616px; display: flex; flex-wrap: wrap; justify-content: center; gap: 24px 20px; }
-.pf .app { width: 106px; text-align: center; }
-.pf .app img { display: block; width: 106px; height: 106px; border-radius: 24px; }
-.pf .app span { display: block; margin-top: 8px; font-size: 17px; font-weight: 700; color: #a1a1a8; letter-spacing: -0.01em; }
+.pf .apps { position: absolute; left: 842px; top: 222px; width: 670px; display: flex; flex-wrap: wrap; justify-content: center; gap: 28px 18px; }
+.pf .app { width: 118px; text-align: center; }
+.pf .app img { display: block; width: 118px; height: 118px; border-radius: 26px; }
+.pf .app span { display: block; margin-top: 8px; font-size: 18px; font-weight: 700; color: #a1a1a8; letter-spacing: -0.01em; }
 `;
 
 const top = (name, logos) => `<div class="pf-top"><div class="pf-name"><i></i>${name}</div><div class="pf-logos">${logos}</div></div>`;
@@ -135,7 +135,7 @@ const COVERS = {
 	"anuncios-infinitos": () => `
 	<div class="pf-dots"></div>
 	<div class="pf-glow" style="left: 860px; top: 120px; width: 760px; height: 760px;"></div>
-	${top("Anuncios Automáticos", `${CLAUDE}<span class="t">Claude Code</span>${SEP}<span class="t">Codex</span>${SEP}${ANTIGRAVITY}`)}
+	${top("Anuncios Automáticos", `${CLAUDE}<span class="t">Claude Code</span>${SEP}<span class="t">Codex</span>${SEP}${ANTIGRAVITY}<span class="t">Antigravity</span>`).replace('class="pf-logos"', 'class="pf-logos" style="gap: 16px; padding: 0 24px;"').replaceAll('class="t"', 'class="t" style="font-size: 40px;"')}
 	<p class="pf-pain" style="top: 200px;"><s>Anuncios de uno en uno.</s></p>
 	<p class="pf-h" style="top: 278px;"><b style="font-size: 230px; letter-spacing: -0.05em;">250+</b><br>prompts en<br>una sesión.</p>
 	<div style="position: absolute; left: 88px; top: 846px;"><span class="pf-chip"><i></i>Agente + app local</span></div>
@@ -153,7 +153,7 @@ const COVERS = {
 	<p class="pf-pain" style="top: 196px;"><s>Línea de tiempo.</s><br><s>Créditos por minuto.</s></p>
 	<p class="pf-h" style="top: 366px; font-size: 150px;">Video 3D<br>con tu<br><b>agente.</b></p>
 	<div class="tile" style="left: 852px; top: 268px; width: 252px; height: 448px; transform: rotate(-6deg);"><img src="assets/specreel/celula.jpg" alt=""><span class="cap">Célula</span></div>
-	<div class="tile" style="left: 1278px; top: 268px; width: 252px; height: 448px; transform: rotate(6deg);"><img src="assets/specreel/barras.jpg" alt=""><span class="cap">Showreel</span></div>
+	<div class="tile" style="left: 1278px; top: 268px; width: 252px; height: 448px; transform: rotate(6deg);"><img src="assets/specreel/barras.jpg" alt=""><span class="cap" style="left: auto; right: 14px;">Showreel</span></div>
 	<div class="tile" style="left: 1040px; top: 196px; width: 296px; height: 526px; border-color: #30d158;"><img src="assets/specreel/cabeza.jpg" alt=""><span class="cap">Microneedling</span></div>
 	<div style="position: absolute; left: 852px; right: 88px; top: 790px; display: flex; justify-content: center; gap: 14px;"><span class="pf-chip" style="font-size: 32px;"><i></i>MP4 3D narrado</span><span class="pf-chip" style="font-size: 32px;">subtítulos + .srt</span></div>
 	<p class="pf-note">Cuadros reales de 3 de los 4 ejemplos incluidos.</p>`,
@@ -182,17 +182,17 @@ const COVERS = {
 	<div class="pf-glow" style="left: 980px; top: 120px; width: 620px; height: 520px;"></div>
 	${top("CutPilot", `${CLAUDE}<span class="t">Claude Code</span>`)}
 	<p class="pf-pain" style="top: 196px;"><s>«eh…», silencios y retomas.</s></p>
-	<p class="pf-h" style="top: 278px; font-size: 148px;">Tu video,<br><b>ya editado.</b></p>
+	<p class="pf-h" style="top: 268px; font-size: 140px; line-height: 1.02;">Tu video,<br><b>ya editado.</b></p>
 	<div class="fmts"><div class="fm on" style="width: 214px; height: 120px;">16:9</div><div class="fm" style="width: 96px; height: 170px;">9:16</div><div class="fm" style="width: 128px; height: 128px;">1:1</div></div>
 	<div class="tl">
 		<div class="hd"><div style="top: 44px;">Video</div><div style="top: 116px;">Audio</div><div style="top: 202px;">Subtítulos</div><div style="top: 282px;">Gráficos</div></div>
-		<div class="ruler">${[0, 1, 2, 3, 4, 5, 6].map((k) => `<span style="left: ${14 + k * 200}px;">00:0${k * 2}</span>`).join("")}</div>
+		<div class="ruler">${[0, 1, 2, 3, 4, 5].map((k) => `<span style="left: ${14 + k * 200}px;">00:${String(k * 2).padStart(2, "0")}</span>`).join("")}</div>
 		<div class="row" style="top: 44px;">${keep.map(([x, w]) => `<div class="clip v" style="left: ${x}px; width: ${w}px;"></div>`).join("")}</div>
 		<div class="row" style="top: 116px; height: 80px;">${keep.map(([x, w], i) => `<div class="clip a" style="left: ${x}px; width: ${w}px;">${wave(17 + i * 31, Math.round(w / 7))}</div>`).join("")}</div>
 		${cuts.map(([x, w, t]) => `<div class="cut" style="left: ${200 + x - 4}px; width: ${w}px;"><span>${t}</span></div>`).join("")}
 		<div class="row" style="top: 202px;">${words.map(([x, t, on]) => `<div class="w${on ? " on" : ""}" style="left: ${x}px;">${t}</div>`).join("")}</div>
 		<div class="row" style="top: 282px;">${gfx.map(([x, w, t]) => `<div class="gfx" style="left: ${x}px; width: ${w}px;">${t}</div>`).join("")}</div>
-		<div class="ph" style="left: ${200 + 760}px;"></div>
+		<div class="ph" style="left: ${200 + 724}px;"></div>
 	</div>
 	<p class="pf-note" style="bottom: 18px; font-size: 16px;">Ilustración de la edición (no es una captura): cortes desde la transcripción, subtítulos palabra a palabra y gráficos.</p>`;
 	},
@@ -205,7 +205,7 @@ const COVERS = {
 	${top("Motor creativo", `${CLAUDE}<span class="t">Claude Code</span>`)}
 	<p class="pf-pain" style="top: 200px;"><s>Todos los MCP a la vez.</s></p>
 	<p class="pf-h" style="top: 284px;">13 apps<br>gratis.<br><b>Un agente<br>por app.</b></p>
-	<div class="apps">${apps.map(([k, n]) => `<div class="app"><img src="assets/crafts/${k}-240.webp" width="106" height="106" alt=""><span>${n}</span></div>`).join("")}</div>
+	<div class="apps">${apps.map(([k, n]) => `<div class="app"><img src="assets/crafts/${k}-240.webp" width="118" height="118" alt=""><span>${n}</span></div>`).join("")}</div>
 	<p class="pf-note">Íconos oficiales de las 13 apps open source de storytold (MIT OR Apache-2.0),<br>que se descargan gratis. Sin afiliación con storytold ni con Anthropic.</p>`;
 	},
 };
@@ -214,23 +214,29 @@ const ANIM_SCRIPT = `<script>
 	// Portada animada (render-covers.mjs → data-anim): cada cuadro es función pura de i (sprites 7×5, 10 fps).
 	window.__frame = (i) => {
 		const k = i % 35, x = (k % 7) / 6 * 100, y = Math.floor(k / 7) / 4 * 100;
-		document.querySelectorAll(".sprite").forEach((el) => { el.style.backgroundPosition = x + "% " + y + "%"; });
+		document.querySelectorAll(".pf-sprite").forEach((el) => { el.style.backgroundPosition = x + "% " + y + "%"; });
 		return new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
 	};
 	window.__frame(0);
 </script>`;
 
+// Todas las clases propias llevan el prefijo pf- para no chocar con las de las pantallas del mismo archivo.
+const KEEP = new Set(["frame", "pf"]);
+const pfx = (n) => (KEEP.has(n) || n.startsWith("pf-") ? n : `pf-${n}`);
+const prefixHtml = (h) => h.replace(/class="([^"]*)"/g, (_, c) => `class="${c.split(/\s+/).filter(Boolean).map(pfx).join(" ")}"`);
+const prefixCss = (c) => c.replace(/\.([a-z][a-z0-9-]*)/g, (_, n) => `.${pfx(n)}`);
+
 const START = "<!-- portada-final:inicio -->", END = "<!-- portada-final:fin -->";
 for (const [slug, make] of Object.entries(COVERS)) {
 	const url = new URL(`${slug}.html`, DESIGN);
 	let html = readFileSync(url, "utf8");
-	let section = `${START}\n<section class="frame pf" data-out="cover">${make()}\n</section>\n`;
-	if (slug === "specreel-stick") section += `<section class="frame pf" data-out="cover-animada" data-anim="35" data-fps="10" data-width="1200" data-quality="62">${stick(true)}\n</section>\n${ANIM_SCRIPT}\n`;
+	let section = `${START}\n<section class="frame pf" data-out="cover">${prefixHtml(make())}\n</section>\n`;
+	if (slug === "specreel-stick") section += `<section class="frame pf" data-out="cover-animada" data-anim="35" data-fps="10" data-width="1600" data-quality="62">${prefixHtml(stick(true))}\n</section>\n${ANIM_SCRIPT}\n`;
 	section += END;
 	if (html.includes(START)) html = html.slice(0, html.indexOf(START)) + section + html.slice(html.indexOf(END) + END.length);
 	else html = html.replace(/<section class="frame cover" data-out="cover">[\s\S]*?<\/section>/, section);
 	html = html.replace(/\n?<style id="portada-final">[\s\S]*?<\/style>/, "").replace(/\n?<link data-portada-final [^>]*>/, "");
-	html = html.replace("</head>", `${FONTS.replace("<link ", "<link data-portada-final ")}\n<style id="portada-final">${CSS}</style>\n</head>`);
+	html = html.replace("</head>", `${FONTS.replace("<link ", "<link data-portada-final ")}\n<style id="portada-final">${prefixCss(CSS)}</style>\n</head>`);
 	// SpecReel: el script 3D dibujaba también la portada anterior; sin ella, se salta los lienzos que ya no existen.
 	if (slug === "specreel" && !html.includes("if (!el) return;")) html = html.replace("function render(el, {", "function render(el, {").replace(/(function render\(el, \{[^\n]*\n)/, "$1\t\tif (!el) return;\n");
 	writeFileSync(url, html);

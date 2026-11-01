@@ -1,0 +1,107 @@
+{
+  "title": "Uno ahorra, otro gasta",
+  "slug": "uno-ahorra-otro-gasta",
+  "lang": "es",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "palette": "brand",
+  "commercial": true,
+  "cloud_allowed": false,
+  "tail": 2.2,
+  "lead_silence": 0.35,
+  "vignette": 0.16,
+  "grain": 0.045,
+  "voice": {
+    "provider": "auto",
+    "voice": null,
+    "lang": "es",
+    "speed": 1.0,
+    "reference_wav": null,
+    "model": null,
+    "base_url": null,
+    "cmd": null,
+    "allow_noncommercial": false
+  },
+  "align": {
+    "model": null
+  },
+  "captions": {
+    "enabled": true,
+    "size": 64,
+    "lineH": 82,
+    "maxChars": 23,
+    "maxWords": 4,
+    "auto_emph": true,
+    "band": 0,
+    "style": "karaoke"
+  },
+  "music": {
+    "enabled": true,
+    "key": "D",
+    "mode": "major",
+    "bpm": 96,
+    "arp": true,
+    "seed": 5
+  },
+  "sfx": {
+    "auto": true
+  },
+  "mix": {
+    "voice_lufs": -16,
+    "music_lufs": -29,
+    "sfx_lufs": -27,
+    "target_lufs": -14,
+    "true_peak": -1.0,
+    "duck_db": 5
+  },
+  "render": {
+    "msaa": 4
+  },
+  "style": "stick",
+  "layout": {
+    "type": "framed",
+    "preset": "noir",
+    "title": {
+      "text": "Uno ahorra, otro gasta",
+      "kicker": "",
+      "accentWords": [
+        "ahorra,"
+      ]
+    },
+    "footer": ""
+  },
+  "brand": {
+    "name": "Market Tony",
+    "mood": "dark",
+    "primary": "#30D158",
+    "secondary": null,
+    "neutral": "#0D0D0F",
+    "palette": {
+      "bg0": "#0D0D0F",
+      "bg1": "#0A0A0B",
+      "bg2": "#060607",
+      "grid": "#313233",
+      "ink": "#F0F5F1",
+      "ink2": "#9EA1A0",
+      "ink3": "#6C6E6E",
+      "accent": "#30D158",
+      "gold": "#78E192",
+      "gold2": "#A2E8B3",
+      "onAccent": "#111111",
+      "plate": "#0D0D0F",
+      "blood": "#9A6340",
+      "tissue": "#504845",
+      "fat": "#514E46",
+      "ivory": "#B1AEAA",
+      "espresso": "#060607",
+      "dark": true,
+      "keyCol": "#E7E7E7",
+      "sky": "#CFCFCF",
+      "gnd": "#050506",
+      "rim": "#CBF3D5",
+      "glow": "#78E192",
+      "captionStyle": "karaoke"
+    }
+  }
+}

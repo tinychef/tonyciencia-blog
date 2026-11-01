@@ -126,8 +126,8 @@
 .pf .pf-name i { width: 22px; height: 22px; border-radius: 6px; background: #30d158; }
 .pf .pf-logos { display: flex; align-items: center; gap: 20px; height: 96px; padding: 0 30px; border: 3px solid #2e2e33; border-radius: 22px; background: #17171a; }
 .pf .pf-logos img, .pf .pf-logos svg { display: block; width: 64px; height: 64px; }
-.pf .pf-logos .t { font-size: 46px; font-weight: 800; letter-spacing: -0.015em; white-space: nowrap; }
-.pf .pf-logos .sep { width: 3px; height: 50px; background: #3a3a40; }
+.pf .pf-logos .pf-t { font-size: 46px; font-weight: 800; letter-spacing: -0.015em; white-space: nowrap; }
+.pf .pf-logos .pf-sep { width: 3px; height: 50px; background: #3a3a40; }
 .pf .pf-pain { position: absolute; left: 88px; font-size: 50px; line-height: 1.1; font-weight: 600; letter-spacing: -0.015em; color: #8e8e96; }
 .pf .pf-pain s { text-decoration-thickness: 6px; text-decoration-color: rgba(245,245,247,.55); }
 .pf .pf-h { position: absolute; left: 88px; font-size: 136px; line-height: 0.94; font-weight: 800; letter-spacing: -0.045em; }
@@ -137,62 +137,62 @@
 .pf .pf-chip i { width: 16px; height: 16px; border-radius: 4px; background: #30d158; }
 .pf .pf-mono { font-family: "JetBrains Mono", monospace; }
 /* Anuncios */
-.pf .ad-grid { position: absolute; left: 892px; top: 196px; width: 620px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.pf .ad { height: 160px; border: 3px solid #2e2e33; border-radius: 20px; background: #17171a; padding: 20px 24px; display: flex; flex-direction: column; justify-content: space-between; }
-.pf .ad h4 { font-size: 36px; line-height: 1; font-weight: 800; letter-spacing: -0.02em; }
-.pf .ad p { display: flex; align-items: baseline; gap: 10px; }
-.pf .ad p b { font-size: 62px; line-height: 0.9; font-weight: 800; color: #30d158; letter-spacing: -0.03em; }
-.pf .ad p span { font-size: 26px; font-weight: 600; color: #a1a1a8; }
-.pf .ad.sum { background: #30d158; border-color: #30d158; color: #0d0d0f; }
-.pf .ad.sum h4 { font-size: 30px; }
-.pf .ad.sum p b { color: #0d0d0f; font-size: 76px; }
-.pf .ad.sum p span { color: #0d0d0f; }
-.pf .plat { position: absolute; left: 892px; width: 620px; top: 774px; display: flex; align-items: center; justify-content: space-between; color: #d7d7dc; }
-.pf .plat .lg { display: flex; align-items: center; gap: 26px; }
-.pf .plat .t { font-size: 40px; font-weight: 800; }
-.pf .plat small { font-size: 28px; font-weight: 600; color: #a1a1a8; }
+.pf .pf-ad-grid { position: absolute; left: 892px; top: 196px; width: 620px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.pf .pf-ad { height: 166px; border: 3px solid #2e2e33; border-radius: 20px; background: #17171a; padding: 20px 24px; display: flex; flex-direction: column; justify-content: space-between; }
+.pf .pf-ad h4 { font-size: 34px; line-height: 0.98; font-weight: 800; letter-spacing: -0.02em; }
+.pf .pf-ad p { display: flex; align-items: baseline; gap: 10px; }
+.pf .pf-ad p b { font-size: 62px; line-height: 0.9; font-weight: 800; color: #30d158; letter-spacing: -0.03em; }
+.pf .pf-ad p span { font-size: 26px; font-weight: 600; color: #a1a1a8; }
+.pf .pf-ad.pf-sum { background: #30d158; border-color: #30d158; color: #0d0d0f; }
+.pf .pf-ad.pf-sum h4 { font-size: 30px; }
+.pf .pf-ad.pf-sum p b { color: #0d0d0f; font-size: 76px; }
+.pf .pf-ad.pf-sum p span { color: #0d0d0f; }
+.pf .pf-plat { position: absolute; left: 892px; width: 620px; top: 774px; display: flex; align-items: center; justify-content: space-between; color: #d7d7dc; }
+.pf .pf-plat .pf-lg { display: flex; align-items: center; gap: 26px; }
+.pf .pf-plat .pf-t { font-size: 40px; font-weight: 800; }
+.pf .pf-plat small { font-size: 28px; font-weight: 600; color: #a1a1a8; }
 /* Tiles de video (SpecReel / Stick) */
-.pf .tile { position: absolute; overflow: hidden; border: 4px solid #2e2e33; border-radius: 26px; background: #000; box-shadow: 0 30px 60px rgba(0,0,0,.55); }
-.pf .tile img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.pf .tile .cap { position: absolute; left: 14px; bottom: 14px; font: 700 20px "JetBrains Mono", monospace; background: rgba(13,13,15,.82); color: #f5f5f7; border: 2px solid #3a3a40; border-radius: 8px; padding: 4px 10px; }
-.pf .tile.sq .cap { left: auto; right: 14px; bottom: auto; top: 14px; }
-.pf .sprite { width: 100%; height: 100%; background-repeat: no-repeat; background-size: 700% 500%; }
+.pf .pf-tile { position: absolute; overflow: hidden; border: 4px solid #2e2e33; border-radius: 26px; background: #000; box-shadow: 0 30px 60px rgba(0,0,0,.55); }
+.pf .pf-tile img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.pf .pf-tile .pf-cap { position: absolute; left: 14px; bottom: 14px; font: 700 20px "JetBrains Mono", monospace; background: rgba(13,13,15,.82); color: #f5f5f7; border: 2px solid #3a3a40; border-radius: 8px; padding: 4px 10px; }
+.pf .pf-tile.pf-sq .pf-cap { left: auto; right: 14px; bottom: auto; top: 14px; }
+.pf .pf-sprite { width: 100%; height: 100%; background-repeat: no-repeat; background-size: 700% 500%; }
 /* PageSpeed */
-.pf .ps { position: absolute; left: 812px; width: 700px; }
-.pf .ps-row { display: flex; justify-content: space-between; }
-.pf .g { position: relative; width: 154px; text-align: center; }
-.pf .g b { position: absolute; left: 0; right: 0; top: 0; height: 154px; display: grid; place-items: center; font-size: 60px; font-weight: 800; letter-spacing: -0.04em; }
-.pf .g p { margin-top: 10px; font-size: 21px; line-height: 1.15; font-weight: 600; color: #a1a1a8; }
-.pf .ps-lbl { font: 700 28px "JetBrains Mono", monospace; letter-spacing: .1em; margin-bottom: 16px; color: #a1a1a8; }
-.pf .tag { display: inline-block; font: 800 46px "Inter Tight", sans-serif; letter-spacing: .01em; padding: 6px 22px 8px; border-radius: 12px; background: #f5f5f7; color: #0d0d0f; }
+.pf .pf-ps { position: absolute; left: 812px; width: 700px; }
+.pf .pf-ps-row { display: flex; justify-content: space-between; }
+.pf .pf-g { position: relative; width: 154px; text-align: center; }
+.pf .pf-g b { position: absolute; left: 0; right: 0; top: 0; height: 154px; display: grid; place-items: center; font-size: 60px; font-weight: 800; letter-spacing: -0.04em; }
+.pf .pf-g p { margin-top: 10px; font-size: 21px; line-height: 1.15; font-weight: 600; color: #a1a1a8; }
+.pf .pf-ps-lbl { font: 700 28px "JetBrains Mono", monospace; letter-spacing: .1em; margin-bottom: 16px; color: #a1a1a8; }
+.pf .pf-tag { display: inline-block; font: 800 46px "Inter Tight", sans-serif; letter-spacing: .01em; padding: 6px 22px 8px; border-radius: 12px; background: #f5f5f7; color: #0d0d0f; }
 /* CutPilot */
-.pf .tl { position: absolute; left: 88px; right: 88px; top: 568px; height: 376px; border: 3px solid #2e2e33; border-radius: 24px; background: #121215; overflow: hidden; }
-.pf .tl .hd { position: absolute; left: 0; top: 0; bottom: 0; width: 200px; border-right: 3px solid #2e2e33; background: #17171a; }
-.pf .tl .hd div, .pf .tl .row { position: absolute; height: 72px; }
-.pf .tl .hd div { left: 24px; right: 10px; display: flex; align-items: center; font-size: 28px; font-weight: 800; color: #d7d7dc; }
-.pf .tl .ruler { position: absolute; left: 200px; right: 0; top: 0; height: 44px; border-bottom: 2px solid #2e2e33; font: 600 17px "JetBrains Mono", monospace; color: #6e6e76; }
-.pf .tl .ruler span { position: absolute; top: 12px; }
-.pf .tl .row { left: 200px; right: 0; }
-.pf .clip { position: absolute; top: 9px; bottom: 9px; border-radius: 10px; }
-.pf .clip.v { background: #2a2a30; border: 2px solid #3a3a42; }
-.pf .clip.v::after { content: ""; position: absolute; left: 10px; top: 9px; width: 38px; height: 30px; border-radius: 6px; background: #3f3f47; }
-.pf .clip.a { background: #1b2a20; border: 2px solid #2a4a33; overflow: hidden; }
-.pf .clip.a svg { position: absolute; inset: 4px 6px; width: calc(100% - 12px); height: calc(100% - 8px); }
-.pf .cut { position: absolute; top: 44px; height: 158px; border-left: 3px dashed #4a4a52; border-right: 3px dashed #4a4a52; background: repeating-linear-gradient(135deg, rgba(255,255,255,.05) 0 10px, transparent 10px 20px); }
-.pf .cut span { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font: 700 22px "JetBrains Mono", monospace; color: #a1a1a8; white-space: nowrap; text-decoration: line-through; text-decoration-thickness: 3px; background: #121215; padding: 2px 8px; border-radius: 6px; }
-.pf .w { position: absolute; top: 14px; bottom: 14px; display: grid; place-items: center; padding: 0 12px; border-radius: 8px; background: #26262b; font-size: 24px; font-weight: 700; color: #d7d7dc; }
-.pf .w.on { background: #30d158; color: #0d0d0f; }
-.pf .gfx { position: absolute; top: 12px; bottom: 12px; display: flex; align-items: center; padding: 0 16px; border-radius: 10px; border: 3px solid #30d158; background: #13281a; font-size: 24px; font-weight: 800; color: #f5f5f7; white-space: nowrap; }
-.pf .ph { position: absolute; top: 30px; bottom: 0; width: 4px; background: #30d158; }
-.pf .ph::before { content: ""; position: absolute; left: -10px; top: -2px; width: 24px; height: 18px; border-radius: 4px; background: #30d158; }
-.pf .fmts { position: absolute; right: 88px; top: 236px; display: flex; align-items: flex-end; gap: 22px; }
-.pf .fm { border: 4px solid #4a4a52; border-radius: 14px; display: grid; place-items: end start; padding: 10px 12px; font: 700 26px "JetBrains Mono", monospace; background: #17171a; color: #d7d7dc; }
-.pf .fm.on { border-color: #30d158; }
+.pf .pf-tl { position: absolute; left: 88px; right: 88px; top: 568px; height: 376px; border: 3px solid #2e2e33; border-radius: 24px; background: #121215; overflow: hidden; }
+.pf .pf-tl .pf-hd { position: absolute; left: 0; top: 0; bottom: 0; width: 200px; border-right: 3px solid #2e2e33; background: #17171a; }
+.pf .pf-tl .pf-hd div, .pf .pf-tl .pf-row { position: absolute; height: 72px; }
+.pf .pf-tl .pf-hd div { left: 24px; right: 10px; display: flex; align-items: center; font-size: 28px; font-weight: 800; color: #d7d7dc; }
+.pf .pf-tl .pf-ruler { position: absolute; left: 200px; right: 0; top: 0; height: 44px; border-bottom: 2px solid #2e2e33; font: 600 17px "JetBrains Mono", monospace; color: #6e6e76; }
+.pf .pf-tl .pf-ruler span { position: absolute; top: 12px; }
+.pf .pf-tl .pf-row { left: 200px; right: 0; }
+.pf .pf-clip { position: absolute; top: 9px; bottom: 9px; border-radius: 10px; }
+.pf .pf-clip.pf-v { background: #2a2a30; border: 2px solid #3a3a42; }
+.pf .pf-clip.pf-v::after { content: ""; position: absolute; left: 10px; top: 9px; width: 38px; height: 30px; border-radius: 6px; background: #3f3f47; }
+.pf .pf-clip.pf-a { background: #1b2a20; border: 2px solid #2a4a33; overflow: hidden; }
+.pf .pf-clip.pf-a svg { position: absolute; inset: 4px 6px; width: calc(100% - 12px); height: calc(100% - 8px); }
+.pf .pf-cut { position: absolute; top: 44px; height: 158px; border-left: 3px dashed #4a4a52; border-right: 3px dashed #4a4a52; background: repeating-linear-gradient(135deg, rgba(255,255,255,.05) 0 10px, transparent 10px 20px); }
+.pf .pf-cut span { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font: 700 22px "JetBrains Mono", monospace; color: #a1a1a8; white-space: nowrap; text-decoration: line-through; text-decoration-thickness: 3px; background: #121215; padding: 2px 8px; border-radius: 6px; }
+.pf .pf-w { position: absolute; top: 14px; bottom: 14px; display: grid; place-items: center; padding: 0 12px; border-radius: 8px; background: #26262b; font-size: 24px; font-weight: 700; color: #d7d7dc; }
+.pf .pf-w.pf-on { background: #30d158; color: #0d0d0f; }
+.pf .pf-gfx { position: absolute; top: 12px; bottom: 12px; display: flex; align-items: center; padding: 0 16px; border-radius: 10px; border: 3px solid #30d158; background: #13281a; font-size: 24px; font-weight: 800; color: #f5f5f7; white-space: nowrap; }
+.pf .pf-ph { position: absolute; top: 30px; bottom: 0; width: 4px; background: #30d158; }
+.pf .pf-ph::before { content: ""; position: absolute; left: -10px; top: -2px; width: 24px; height: 18px; border-radius: 4px; background: #30d158; }
+.pf .pf-fmts { position: absolute; right: 88px; top: 236px; display: flex; align-items: flex-end; gap: 22px; }
+.pf .pf-fm { border: 4px solid #4a4a52; border-radius: 14px; display: grid; place-items: end start; padding: 10px 12px; font: 700 26px "JetBrains Mono", monospace; background: #17171a; color: #d7d7dc; }
+.pf .pf-fm.pf-on { border-color: #30d158; }
 /* Motor */
-.pf .apps { position: absolute; left: 896px; top: 200px; width: 616px; display: flex; flex-wrap: wrap; justify-content: center; gap: 24px 20px; }
-.pf .app { width: 106px; text-align: center; }
-.pf .app img { display: block; width: 106px; height: 106px; border-radius: 24px; }
-.pf .app span { display: block; margin-top: 8px; font-size: 17px; font-weight: 700; color: #a1a1a8; letter-spacing: -0.01em; }
+.pf .pf-apps { position: absolute; left: 842px; top: 222px; width: 670px; display: flex; flex-wrap: wrap; justify-content: center; gap: 28px 18px; }
+.pf .pf-app { width: 118px; text-align: center; }
+.pf .pf-app img { display: block; width: 118px; height: 118px; border-radius: 26px; }
+.pf .pf-app span { display: block; margin-top: 8px; font-size: 18px; font-weight: 700; color: #a1a1a8; letter-spacing: -0.01em; }
 </style>
 </head>
 <body>
@@ -201,12 +201,12 @@
 <section class="frame pf" data-out="cover">
 	<div class="pf-dots"></div>
 	<div class="pf-glow" style="left: 760px; top: 420px; width: 820px; height: 620px; background: radial-gradient(closest-side, rgba(12,206,107,.18), rgba(12,206,107,0));"></div>
-	<div class="pf-top"><div class="pf-name"><i></i>PageSpeed Forensics</div><div class="pf-logos"><svg viewBox="0 0 24 24" width="64" height="64" fill="#f5f5f7" aria-hidden="true"><path d="M22.363 1.636H1.635C.732 1.636 0 2.37.001 3.273L0 20.727v.003c0 .903.733 1.634 1.635 1.634h20.73c.904 0 1.635-.734 1.635-1.637V3.273c.016-.89-.76-1.64-1.637-1.637zM3.979 2.886c.492-.507 1.279.28.77.772-.491.508-1.278-.279-.77-.771zM1.8 2.89c.507-.509 1.28.265.772.771-.493.502-1.274-.28-.772-.771zm21.7 17.838c.012.611-.524 1.148-1.137 1.136H1.635A1.137 1.137 0 0 1 .5 20.727L.501 4.91H23.5v15.819zM11 16.159l5.946-4.577c.235-.2.576.129.389.372l-.002-.002-3.936 6.35a1.638 1.638 0 0 1-2.448.405c-.785-.668-.811-1.835.05-2.548zm4.763-.75c.09-.168 2.002-3.181 2.06-3.35 2.056 1.813 3.029 4.382 2.898 7.026h-3.819c.073-1.39-.29-2.678-1.139-3.676zm-8.679 3.682H3.278c-.357-7.022 7.148-11.735 13.39-7.92l-3.461 2.618c-3.3-.762-6.364 1.71-6.123 5.302z"/></svg><span class="t">PageSpeed</span><span class="sep"></span><img src="assets/logos/claude.svg" width="64" height="64" alt=""><span class="t">Claude Code</span></div></div>
+	<div class="pf-top"><div class="pf-name"><i></i>PageSpeed Forensics</div><div class="pf-logos"><svg viewBox="0 0 24 24" width="64" height="64" fill="#f5f5f7" aria-hidden="true"><path d="M22.363 1.636H1.635C.732 1.636 0 2.37.001 3.273L0 20.727v.003c0 .903.733 1.634 1.635 1.634h20.73c.904 0 1.635-.734 1.635-1.637V3.273c.016-.89-.76-1.64-1.637-1.637zM3.979 2.886c.492-.507 1.279.28.77.772-.491.508-1.278-.279-.77-.771zM1.8 2.89c.507-.509 1.28.265.772.771-.493.502-1.274-.28-.772-.771zm21.7 17.838c.012.611-.524 1.148-1.137 1.136H1.635A1.137 1.137 0 0 1 .5 20.727L.501 4.91H23.5v15.819zM11 16.159l5.946-4.577c.235-.2.576.129.389.372l-.002-.002-3.936 6.35a1.638 1.638 0 0 1-2.448.405c-.785-.668-.811-1.835.05-2.548zm4.763-.75c.09-.168 2.002-3.181 2.06-3.35 2.056 1.813 3.029 4.382 2.898 7.026h-3.819c.073-1.39-.29-2.678-1.139-3.676zm-8.679 3.682H3.278c-.357-7.022 7.148-11.735 13.39-7.92l-3.461 2.618c-3.3-.762-6.364 1.71-6.123 5.302z"/></svg><span class="pf-t">PageSpeed</span><span class="pf-sep"></span><img src="assets/logos/claude.svg" width="64" height="64" alt=""><span class="pf-t">Claude Code</span></div></div>
 	<p class="pf-pain" style="top: 200px;">¿Todo en 100…<br>menos Rendimiento?</p>
 	<p class="pf-h" style="top: 352px; font-size: 128px;">Encuentra<br>los puntos<br>que <b>faltan.</b></p>
-	<div class="ps" style="top: 186px;"><span class="tag">Ejemplo</span></div>
-	<div class="ps" style="top: 290px;"><p class="ps-lbl">ANTES</p><div class="ps-row"><div class="g" style="opacity:1"><svg width="154" height="154" viewBox="0 0 154 154" aria-hidden="true" style="opacity:1"><circle cx="77" cy="77" r="70" fill="#ffa400" fill-opacity=".12" stroke="#ffa400" stroke-opacity=".22" stroke-width="14"/><circle cx="77" cy="77" r="70" fill="none" stroke="#ffa400" stroke-width="14" stroke-dasharray="439.822971502571" stroke-dashoffset="219.9114857512855" transform="rotate(-90 77 77)"/></svg><b style="color:#ffa400">50</b><p>Rendimiento</p></div><div class="g" style="opacity:0.5"><svg width="154" height="154" viewBox="0 0 154 154" aria-hidden="true" style="opacity:1"><circle cx="77" cy="77" r="70" fill="#0cce6b" fill-opacity=".12" stroke="#0cce6b" stroke-opacity=".22" stroke-width="14"/><circle cx="77" cy="77" r="70" fill="none" stroke="#0cce6b" stroke-width="14" stroke-dasharray="439.822971502571" stroke-dashoffset="0" transform="rotate(-90 77 77)"/></svg><b style="color:#0cce6b">100</b><p>Accesibilidad</p></div><div class="g" style="opacity:0.5"><svg width="154" height="154" viewBox="0 0 154 154" aria-hidden="true" style="opacity:1"><circle cx="77" cy="77" r="70" fill="#0cce6b" fill-opacity=".12" stroke="#0cce6b" stroke-opacity=".22" stroke-width="14"/><circle cx="77" cy="77" r="70" fill="none" stroke="#0cce6b" stroke-width="14" stroke-dasharray="439.822971502571" stroke-dashoffset="0" transform="rotate(-90 77 77)"/></svg><b style="color:#0cce6b">100</b><p>Prácticas recomendadas</p></div><div class="g" style="opacity:0.5"><svg width="154" height="154" viewBox="0 0 154 154" aria-hidden="true" style="opacity:1"><circle cx="77" cy="77" r="70" fill="#0cce6b" fill-opacity=".12" stroke="#0cce6b" stroke-opacity=".22" stroke-width="14"/><circle cx="77" cy="77" r="70" fill="none" stroke="#0cce6b" stroke-width="14" stroke-dasharray="439.822971502571" stroke-dashoffset="0" transform="rotate(-90 77 77)"/></svg><b style="color:#0cce6b">100</b><p>SEO</p></div></div></div>
-	<div class="ps" style="top: 600px;"><p class="ps-lbl" style="color: #0cce6b;">DESPUÉS</p><div class="ps-row"><div class="g" style="opacity:1"><svg width="154" height="154" viewBox="0 0 154 154" aria-hidden="true" style="opacity:1"><circle cx="77" cy="77" r="70" fill="#0cce6b" fill-opacity=".12" stroke="#0cce6b" stroke-opacity=".22" stroke-width="14"/><circle cx="77" cy="77" r="70" fill="none" stroke="#0cce6b" stroke-width="14" stroke-dasharray="439.822971502571" stroke-dashoffset="0" transform="rotate(-90 77 77)"/></svg><b style="color:#0cce6b">100</b><p>Rendimiento</p></div><div class="g" style="opacity:1"><svg width="154" height="154" viewBox="0 0 154 154" aria-hidden="true" style="opacity:1"><circle cx="77" cy="77" r="70" fill="#0cce6b" fill-opacity=".12" stroke="#0cce6b" stroke-opacity=".22" stroke-width="14"/><circle cx="77" cy="77" r="70" fill="none" stroke="#0cce6b" stroke-width="14" stroke-dasharray="439.822971502571" stroke-dashoffset="0" transform="rotate(-90 77 77)"/></svg><b style="color:#0cce6b">100</b><p>Accesibilidad</p></div><div class="g" style="opacity:1"><svg width="154" height="154" viewBox="0 0 154 154" aria-hidden="true" style="opacity:1"><circle cx="77" cy="77" r="70" fill="#0cce6b" fill-opacity=".12" stroke="#0cce6b" stroke-opacity=".22" stroke-width="14"/><circle cx="77" cy="77" r="70" fill="none" stroke="#0cce6b" stroke-width="14" stroke-dasharray="439.822971502571" stroke-dashoffset="0" transform="rotate(-90 77 77)"/></svg><b style="color:#0cce6b">100</b><p>Prácticas recomendadas</p></div><div class="g" style="opacity:1"><svg width="154" height="154" viewBox="0 0 154 154" aria-hidden="true" style="opacity:1"><circle cx="77" cy="77" r="70" fill="#0cce6b" fill-opacity=".12" stroke="#0cce6b" stroke-opacity=".22" stroke-width="14"/><circle cx="77" cy="77" r="70" fill="none" stroke="#0cce6b" stroke-width="14" stroke-dasharray="439.822971502571" stroke-dashoffset="0" transform="rotate(-90 77 77)"/></svg><b style="color:#0cce6b">100</b><p>SEO</p></div></div></div>
+	<div class="pf-ps" style="top: 186px;"><span class="pf-tag">Ejemplo</span></div>
+	<div class="pf-ps" style="top: 290px;"><p class="pf-ps-lbl">ANTES</p><div class="pf-ps-row"><div class="pf-g" style="opacity:1"><svg width="154" height="154" viewBox="0 0 154 154" aria-hidden="true" style="opacity:1"><circle cx="77" cy="77" r="70" fill="#ffa400" fill-opacity=".12" stroke="#ffa400" stroke-opacity=".22" stroke-width="14"/><circle cx="77" cy="77" r="70" fill="none" stroke="#ffa400" stroke-width="14" stroke-dasharray="439.822971502571" stroke-dashoffset="219.9114857512855" transform="rotate(-90 77 77)"/></svg><b style="color:#ffa400">50</b><p>Rendimiento</p></div><div class="pf-g" style="opacity:0.5"><svg width="154" height="154" viewBox="0 0 154 154" aria-hidden="true" style="opacity:1"><circle cx="77" cy="77" r="70" fill="#0cce6b" fill-opacity=".12" stroke="#0cce6b" stroke-opacity=".22" stroke-width="14"/><circle cx="77" cy="77" r="70" fill="none" stroke="#0cce6b" stroke-width="14" stroke-dasharray="439.822971502571" stroke-dashoffset="0" transform="rotate(-90 77 77)"/></svg><b style="color:#0cce6b">100</b><p>Accesibilidad</p></div><div class="pf-g" style="opacity:0.5"><svg width="154" height="154" viewBox="0 0 154 154" aria-hidden="true" style="opacity:1"><circle cx="77" cy="77" r="70" fill="#0cce6b" fill-opacity=".12" stroke="#0cce6b" stroke-opacity=".22" stroke-width="14"/><circle cx="77" cy="77" r="70" fill="none" stroke="#0cce6b" stroke-width="14" stroke-dasharray="439.822971502571" stroke-dashoffset="0" transform="rotate(-90 77 77)"/></svg><b style="color:#0cce6b">100</b><p>Prácticas recomendadas</p></div><div class="pf-g" style="opacity:0.5"><svg width="154" height="154" viewBox="0 0 154 154" aria-hidden="true" style="opacity:1"><circle cx="77" cy="77" r="70" fill="#0cce6b" fill-opacity=".12" stroke="#0cce6b" stroke-opacity=".22" stroke-width="14"/><circle cx="77" cy="77" r="70" fill="none" stroke="#0cce6b" stroke-width="14" stroke-dasharray="439.822971502571" stroke-dashoffset="0" transform="rotate(-90 77 77)"/></svg><b style="color:#0cce6b">100</b><p>SEO</p></div></div></div>
+	<div class="pf-ps" style="top: 600px;"><p class="pf-ps-lbl" style="color: #0cce6b;">DESPUÉS</p><div class="pf-ps-row"><div class="pf-g" style="opacity:1"><svg width="154" height="154" viewBox="0 0 154 154" aria-hidden="true" style="opacity:1"><circle cx="77" cy="77" r="70" fill="#0cce6b" fill-opacity=".12" stroke="#0cce6b" stroke-opacity=".22" stroke-width="14"/><circle cx="77" cy="77" r="70" fill="none" stroke="#0cce6b" stroke-width="14" stroke-dasharray="439.822971502571" stroke-dashoffset="0" transform="rotate(-90 77 77)"/></svg><b style="color:#0cce6b">100</b><p>Rendimiento</p></div><div class="pf-g" style="opacity:1"><svg width="154" height="154" viewBox="0 0 154 154" aria-hidden="true" style="opacity:1"><circle cx="77" cy="77" r="70" fill="#0cce6b" fill-opacity=".12" stroke="#0cce6b" stroke-opacity=".22" stroke-width="14"/><circle cx="77" cy="77" r="70" fill="none" stroke="#0cce6b" stroke-width="14" stroke-dasharray="439.822971502571" stroke-dashoffset="0" transform="rotate(-90 77 77)"/></svg><b style="color:#0cce6b">100</b><p>Accesibilidad</p></div><div class="pf-g" style="opacity:1"><svg width="154" height="154" viewBox="0 0 154 154" aria-hidden="true" style="opacity:1"><circle cx="77" cy="77" r="70" fill="#0cce6b" fill-opacity=".12" stroke="#0cce6b" stroke-opacity=".22" stroke-width="14"/><circle cx="77" cy="77" r="70" fill="none" stroke="#0cce6b" stroke-width="14" stroke-dasharray="439.822971502571" stroke-dashoffset="0" transform="rotate(-90 77 77)"/></svg><b style="color:#0cce6b">100</b><p>Prácticas recomendadas</p></div><div class="pf-g" style="opacity:1"><svg width="154" height="154" viewBox="0 0 154 154" aria-hidden="true" style="opacity:1"><circle cx="77" cy="77" r="70" fill="#0cce6b" fill-opacity=".12" stroke="#0cce6b" stroke-opacity=".22" stroke-width="14"/><circle cx="77" cy="77" r="70" fill="none" stroke="#0cce6b" stroke-width="14" stroke-dasharray="439.822971502571" stroke-dashoffset="0" transform="rotate(-90 77 77)"/></svg><b style="color:#0cce6b">100</b><p>SEO</p></div></div></div>
 	<p class="pf-note">Ejemplo ilustrativo, no un caso medido: la skill trabaja el Rendimiento y no garantiza un puntaje.<br>PageSpeed Insights es marca de Google; sin afiliación.</p>
 </section>
 <!-- portada-final:fin -->
