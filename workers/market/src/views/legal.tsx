@@ -4,7 +4,7 @@ import type { FC } from "hono/jsx";
  * Textos legales BASE de Market Tony — BORRADOR para revisión del dueño (y, idealmente, de un abogado).
  * No son asesoría legal. Al cambiar algo sustancial, actualizar LEGAL_UPDATED.
  */
-export const LEGAL_UPDATED = "29 de octubre de 2026";
+export const LEGAL_UPDATED = "1 de noviembre de 2026";
 const SELLER = "Tony Ciencia LLC";
 const EMAIL = "business@tonyciencia.com";
 const ADDRESS = "8206 Louisiana Blvd NE, Ste A #6812, Albuquerque, NM 87113, Estados Unidos";
@@ -146,7 +146,9 @@ export const LEGAL_DOCS: Record<"terminos" | "privacidad" | "reembolsos", LegalD
 			{
 				h: "Cookies",
 				p: [
-					"Market Tony usa solo cookies necesarias: una de sesión (para mantenerte conectado) y una temporal durante el inicio de sesión. Son HttpOnly y seguras. También leemos tu preferencia de tema claro/oscuro del sitio. No usamos cookies de publicidad en la tienda.",
+					"Cookies necesarias: una de sesión (para mantenerte conectado), una temporal durante el inicio de sesión (las dos HttpOnly y seguras), cookie_consent (guarda tu decisión sobre cookies, 12 meses) y las de seguridad de Cloudflare. También leemos tu preferencia de tema claro/oscuro del sitio.",
+					"Cookies de analítica (solo si las aceptas): usamos Google Tag Manager para cargar Google Analytics 4 (_ga, _ga_*), que mide visitas y compras de la tienda (por ejemplo qué productos se ven y cuándo se completa una compra), sin tu correo ni tus datos de pago. Mientras no aceptes, Google funciona con el consentimiento denegado y no guarda cookies de seguimiento.",
+					"Puedes aceptar o rechazar en el aviso de cookies; para cambiar tu decisión, borra las cookies de tonyciencia.com y el aviso volverá a aparecer. Detalle completo en la política de cookies del sitio: https://tonyciencia.com/legal/cookies",
 				],
 			},
 		],

@@ -1174,7 +1174,7 @@ a.mk3-preset { display: inline-flex; align-items: center; justify-content: cente
 .mk-lang span { display: inline-grid; place-items: center; min-width: 30px; height: 28px; border-radius: 999px; }
 .mk-lang span.is-on { background: var(--color-text); color: var(--color-bg); }
 .mk-lang:hover { color: var(--color-text); border-color: var(--color-text-secondary); }
-@media (max-width: 380px) { .mk-lang { display: none; } }
+@media (max-width: 520px) { .mk-lang { display: none; } }
 
 /* Luz que recorre el borde de una tarjeta (una a la vez, elegida al azar por market.js): un trazo con los tonos de la
    marca (cálidos a violeta, parecidos pero no iguales a Instagram), con núcleo claro y un halo suave detrás. */
@@ -1213,3 +1213,25 @@ a.mk3-preset { display: inline-flex; align-items: center; justify-content: cente
 .mk5-top { justify-content: flex-start; min-height: 0; }
 .mk5-title { font-size: clamp(23px, 2.6vw, 27px); font-weight: 800; letter-spacing: -0.022em; line-height: 1.12; }
 .mk5-line { font-size: 16.5px; }
+
+/* Aviso de cookies del market (lo crea market.js solo si GTM está activo y no hay decisión en cookie_consent). */
+.mk-consent {
+	position: fixed; z-index: 95; left: 0; right: 0; bottom: 0;
+	display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px 20px;
+	padding: 12px max(16px, env(safe-area-inset-left, 0px)) calc(12px + env(safe-area-inset-bottom, 0px));
+	background: var(--color-surface); border-top: 1px solid var(--color-border); color: var(--color-text);
+	box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.18); font-size: 14.5px;
+}
+.mk-consent p { margin: 0; max-width: 62ch; color: var(--color-text-secondary); }
+.mk-consent a { color: var(--color-text); text-decoration: underline; text-underline-offset: 2px; }
+.mk-consent-actions { display: flex; gap: 8px; }
+.mk-consent button {
+	min-height: 40px; padding: 0 16px; border-radius: 999px; font: inherit; font-weight: 650; cursor: pointer;
+	border: 1px solid var(--color-border); background: transparent; color: var(--color-text);
+}
+.mk-consent button.is-primary { background: var(--color-text); color: var(--color-bg); border-color: var(--color-text); }
+.mk-consent button:focus-visible { outline: 2px solid var(--color-text); outline-offset: 2px; }
+/* Mientras está el aviso, lo flotante de abajo (popup del cupón, su pestaña y la barra de compra) sube para no taparse. */
+body.has-consent-bar .mk3-pop, body.has-consent-bar .mk3-pop-tab { bottom: 96px; }
+body.has-consent-bar .mk-buybar { bottom: 72px; }
+@media (max-width: 600px) { body.has-consent-bar .mk3-pop, body.has-consent-bar .mk3-pop-tab { bottom: 130px; } body.has-consent-bar .mk-buybar { bottom: 112px; } }

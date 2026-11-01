@@ -32,7 +32,8 @@
 
 	// ── Google Tag Manager con Consent Mode v2 ──
 	// Consentimiento: la misma cookie "cookie_consent" del banner del blog (mismo dominio). Sin decisión o con
-	// "rejected" todo queda denegado; el market no muestra banner propio. GTM solo se carga si el servidor puso
+	// "rejected" todo queda denegado. Si GTM está activo y todavía no hay decisión, el market muestra su propio aviso
+	// (quien entra directo a /market nunca vio el del blog). GTM solo se carga si el servidor puso
 	// <html data-gtm="GTM-…"> (variable GTM_ID); los valores por defecto se fijan ANTES de cargar gtm.js.
 	const dataLayer = (window.dataLayer = window.dataLayer || []);
 	function gtag() {
@@ -52,6 +53,35 @@
 		gtm.async = true;
 		gtm.src = `https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(gtmId)}`;
 		document.head.appendChild(gtm);
+
+		// Aviso de cookies del market: misma cookie y mismo evento que el del blog (CookieConsent.astro).
+		if (!/(?:^|;\s*)cookie_consent=/.test(document.cookie)) {
+			const en = (doc.lang || "es").startsWith("en");
+			const bar = document.createElement("div");
+			bar.className = "mk-consent";
+			bar.setAttribute("role", "region");
+			bar.setAttribute("aria-label", en ? "Cookie notice" : "Aviso de cookies");
+			bar.innerHTML = `<p>${
+				en
+					? "We use analytics cookies (Google Analytics) only if you accept, to improve the store."
+					: "Usamos cookies de analítica (Google Analytics) solo si las aceptas, para mejorar la tienda."
+			} <a href="${en ? "/en/legal/cookies-en" : "/legal/cookies"}">${en ? "Learn more" : "Más información"}</a></p><div class="mk-consent-actions"><button type="button" data-consent="rejected">${
+				en ? "Reject" : "Rechazar"
+			}</button><button type="button" data-consent="accepted" class="is-primary">${en ? "Accept" : "Aceptar"}</button></div>`;
+			const decide = (value) => {
+				const secure = location.protocol === "https:" ? "; Secure" : "";
+				document.cookie = `cookie_consent=${value}; path=/; max-age=31536000; SameSite=Lax${secure}`;
+				window.dispatchEvent(new CustomEvent("tc:consent", { detail: { value } }));
+				bar.remove();
+				document.body.classList.remove("has-consent-bar");
+			};
+			bar.addEventListener("click", (e) => {
+				const btn = e.target.closest("[data-consent]");
+				if (btn) decide(btn.dataset.consent);
+			});
+			document.body.appendChild(bar);
+			document.body.classList.add("has-consent-bar");
+		}
 	}
 
 	// ── Comercio electrónico de GA4 (src/lib/analytics.ts): la página trae los eventos en <script type="application/json"
