@@ -387,7 +387,8 @@ describe("ronda 3: enlaces, emojis, logos y tema", () => {
 		expect(html).toContain("Agente de anuncios");
 		expect(html).toContain("Extensión de Chrome");
 		expect(html).toContain('class="mk-brand-logo"');
-		expect(html).toMatch(/<li>[\s\S]{0,400}?Codex<\/li>/);
+		// Codex lleva el logo de OpenAI (lobe-icons, MIT), con fill-rule evenodd.
+		expect(html).toMatch(/<li><svg class="mk-brand-logo"[^>]*><path fill-rule="evenodd"[\s\S]{0,2000}?Codex<\/li>/);
 	});
 
 	it("botón de tema claro/oscuro con la misma cookie que el blog", async () => {

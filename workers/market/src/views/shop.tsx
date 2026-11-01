@@ -181,8 +181,12 @@ const productUrl = (slug: string) => `/market/producto/${slug}`;
 /** Texto de búsqueda de la tarjeta (filtro instantáneo de market.js). */
 const searchText = (p: ShopProduct) => [p.title, p.tagline, p.summary, ...p.tags, categoryLabel(p.category) ?? ""].join(" ").toLowerCase();
 
-/** Productos con portada animada (WebP en bucle) junto a su cover.webp: public/market/static/products/<slug>/cover-animada.webp. */
-const ANIMATED_COVERS = new Set(["specreel-stick"]);
+/**
+ * Productos con portada animada (WebP en bucle) junto a su cover.webp: public/market/static/products/<slug>/cover-animada.webp.
+ * La tarjeta carga primero la portada fija (rápida, buena para el LCP) y market.js la cambia por la animada cuando la
+ * tarjeta entra en pantalla, salvo con «reducir movimiento» o ahorro de datos.
+ */
+export const ANIMATED_COVERS = new Set(["anuncios-infinitos", "specreel", "specreel-stick", "pagespeed-forensics", "cutpilot", "motor-creativo-claude-code"]);
 
 /** Nombre corto del producto (antes de los dos puntos), para tarjetas y migas. */
 export const shortName = (title: string) => (title.split(":")[0] ?? title).trim();
@@ -257,21 +261,16 @@ export const ProductCard: FC<{ p: ShopProduct; maxSales: number; welcome: Welcom
 			<article class={`mk5-card ${soon ? "is-soon" : ""}`}>
 				<div class="mk5-cover">
 					{cover ? (
-						<picture>
-							{/* Portada animada (si existe) solo para quien no pidió reducir el movimiento. */}
-							{ANIMATED_COVERS.has(p.slug) && cover.src.endsWith("/cover.webp") && (
-								<source media="(prefers-reduced-motion: no-preference)" srcset={cover.src.replace(/cover\.webp$/, "cover-animada.webp")} type="image/webp" />
-							)}
-							<img
-								src={cover.src}
-								alt={cover.alt}
-								width="800"
-								height="500"
-								loading={eager ? "eager" : "lazy"}
-								fetchpriority={eager ? "high" : undefined}
-								decoding={eager ? undefined : "async"}
-							/>
-						</picture>
+						<img
+							src={cover.src}
+							alt={cover.alt}
+							width="800"
+							height="500"
+							loading={eager ? "eager" : "lazy"}
+							fetchpriority={eager ? "high" : undefined}
+							decoding={eager ? undefined : "async"}
+							data-anim={ANIMATED_COVERS.has(p.slug) && cover.src.endsWith("/cover.webp") ? cover.src.replace(/cover\.webp$/, "cover-animada.webp") : undefined}
+						/>
 					) : (
 						<span class="mk3-media-empty" aria-hidden="true"></span>
 					)}

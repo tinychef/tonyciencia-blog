@@ -157,6 +157,29 @@
 		}
 	}
 
+	// ── Portadas animadas: primero la fija (rápida), la animada cuando la tarjeta entra en pantalla ──
+	const animImgs = $$("img[data-anim]");
+	const saveData = navigator.connection && navigator.connection.saveData;
+	if (animImgs.length && !reduced && !saveData && "IntersectionObserver" in window) {
+		const swap = (img) => {
+			const src = img.dataset.anim;
+			if (!src) return;
+			delete img.dataset.anim;
+			const pre = new Image();
+			pre.onload = () => (img.src = src);
+			pre.src = src;
+		};
+		const start = () => {
+			const io = new IntersectionObserver(
+				(entries) => entries.forEach((e) => e.isIntersecting && (io.unobserve(e.target), swap(e.target))),
+				{ rootMargin: "200px 0px" },
+			);
+			animImgs.forEach((img) => io.observe(img));
+		};
+		if (document.readyState === "complete") start();
+		else window.addEventListener("load", start, { once: true });
+	}
+
 	// ── Catálogo: búsqueda, categoría, filtros rápidos y orden, al instante (sin JS funciona igual por GET) ──
 	const grid = $("[data-filter-grid]");
 	if (grid) {
