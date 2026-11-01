@@ -424,3 +424,40 @@ describe("v5: catálogo «Mi stack de herramientas» y precios con número", () 
 		expect(bad).toMatch(/id="monto"[^>]*value="9"/);
 	});
 });
+
+describe("tienda en inglés (/market/en/)", () => {
+	it("catálogo y ficha en inglés: interfaz, título, alt y portada en inglés; hreflang y selector ES/EN", async () => {
+		const p = await createProduct({ priceCents: 1200 });
+		await env.MARKET_DB.prepare("UPDATE products SET images = ?2, i18n = ?3, title = 'Producto: en español' WHERE id = ?1")
+			.bind(
+				p.id,
+				JSON.stringify([{ src: `/market/static/products/specreel-stick/cover.webp`, alt: "Portada" }]),
+				JSON.stringify({ en: { title: "Product in English: subtitle", tagline: "English tagline", image_alts: ["English cover"] } }),
+			)
+			.run();
+		const cat = await (await call("/market/en/")).text();
+		expect(cat).toContain('<html lang="en"');
+		expect(cat).toContain('<h1 id="catalogo-titulo">My tool stack</h1>');
+		expect(cat).toContain("English tagline");
+		expect(cat).toContain('hreflang="es" href="http://localhost:8787/market/"');
+		expect(cat).toContain('class="mk-lang"');
+		const row = { slug: p.slug };
+		const en = await (await call(`/market/en/product/${row.slug}`)).text();
+		expect(en).toContain("Product in English");
+		expect(en).toContain('alt="English cover"');
+		expect(en).toContain(`hreflang="en" href="http://localhost:8787/market/en/product/${row.slug}"`);
+		const es = await (await call(`/market/producto/${row.slug}`)).text();
+		expect(es).toContain('<html lang="es"');
+		expect(es).toContain("Producto");
+	});
+
+	it("una ficha sin inglés redirige a la española y el sitemap anuncia las dos versiones", async () => {
+		const p = await createProduct({ priceCents: 900 });
+		const r = await call(`/market/en/product/${p.slug}`);
+		expect(r.status).toBe(302);
+		expect(r.headers.get("location")).toBe(`/market/producto/${p.slug}`);
+		const sitemap = await (await call("/market/sitemap.xml")).text();
+		expect(sitemap).toContain("<loc>http://localhost:8787/market/en/</loc>");
+		expect(sitemap).toContain('xmlns:xhtml="http://www.w3.org/1999/xhtml"');
+	});
+});

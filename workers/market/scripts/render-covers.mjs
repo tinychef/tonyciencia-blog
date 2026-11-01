@@ -72,6 +72,12 @@ for (const file of files) {
 			const tmp = join(tmpdir(), `cover-anim-${slug}-${name}`);
 			rmSync(tmp, { recursive: true, force: true });
 			mkdirSync(tmp, { recursive: true });
+			// Con raster por GPU (swiftshader), la primera captura tras desplazar la página puede salir con mosaicos
+			// viejos de la sección de arriba: se lleva la sección a la vista y se descarta una captura de calentamiento.
+			await frame.scrollIntoViewIfNeeded();
+			await page.evaluate(() => window.__frame(0));
+			await page.waitForTimeout(300);
+			await frame.screenshot();
 			for (let i = 0; i < anim; i++) {
 				await page.evaluate((k) => window.__frame(k), i);
 				await frame.screenshot({ path: join(tmp, `f_${String(i).padStart(4, "0")}.png`) });
