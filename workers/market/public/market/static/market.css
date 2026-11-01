@@ -1149,3 +1149,22 @@ a.mk3-preset { display: inline-flex; align-items: center; justify-content: cente
 	.mk-product-page .mk-badges { margin-bottom: 8px; }
 }
 .mk5-cover picture { display: block; width: 100%; height: 100%; }
+
+/* Ficha en escritorio: galería + «Funciona con» + beneficios a la izquierda; compra a la derecha (fija al bajar).
+   Así la columna izquierda no queda vacía bajo la galería. En celular: galería, compra y después lo demás. */
+@media (min-width: 921px) {
+	.mk-product2 { grid-template-areas: "gal info" "extra info"; grid-template-rows: auto 1fr; }
+	.mk-product2 > .mk-gallery2 { grid-area: gal; }
+	.mk-product2 > .mk-info { grid-area: info; align-self: stretch; }
+	.mk-product2 > .mk-extra { grid-area: extra; }
+}
+.mk-extra { display: grid; gap: var(--spacing-4); align-content: start; min-width: 0; }
+.mk-extra .mk3-compat-box { margin: 0; }
+/* Detalles del producto: etiqueta arriba y valor debajo, a todo el ancho de la caja (antes el valor quedaba en una columna angosta). */
+.mk-specs dl { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+.mk-specs dt { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 12px; }
+.mk-specs dt:first-child { margin-top: 0; }
+.mk-detail-grid { grid-template-columns: minmax(0, 1fr) 360px; }
+@media (max-width: 920px) { .mk-detail-grid { grid-template-columns: minmax(0, 1fr); } }
+/* Tarjeta en escritorio: la línea de valor completa (hasta 3 líneas), sin cortar con «…» a mitad de frase. */
+@media (min-width: 720px) { .mk5-line { -webkit-line-clamp: 3; } }

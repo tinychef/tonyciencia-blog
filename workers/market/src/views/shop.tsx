@@ -874,7 +874,6 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 							) : (
 								<div class="mk-gallery2-empty" aria-hidden="true"></div>
 							)}
-							{sale && !soon && <span class="mk3-ribbon">OFERTA −{sale.percent}%</span>}
 							{images.length > 1 && (
 								<>
 									<button type="button" class="mk-gal-nav mk-gal-prev" aria-label="Imagen anterior" data-gal-prev>
@@ -928,38 +927,40 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 								<BuyActions {...props} />
 							</div>
 							{!soon && <TrustStrip compact />}
-							{(product.compat.works.length > 0 || product.compat.includes.length >= 2) && (
-								<div class="mk3-compat-box">
-									<IncludesBox items={product.compat.includes} />
-									{product.compat.works.length > 0 && (
-										<>
-											<p class="mk3-compat-title">Funciona con</p>
-											<ul class="mk3-compat-list">
-												{product.compat.works.map((it) => (
-													<li>
-														{BRANDS[it.k]?.icon ? <BrandLogo k={it.k} size={16} /> : <Icon name="check" size={14} />}
-														{it.label}
-													</li>
-												))}
-											</ul>
-											<p class="mk3-compat-fine">Las marcas pertenecen a sus titulares; se muestran solo para indicar compatibilidad.</p>
-										</>
-									)}
-								</div>
-							)}
-							{product.highlights.length > 0 && (
-								<ul class="mk-highlights">
-									{product.highlights.slice(0, 6).map((h) => (
-										<li>
-											<span class="mk-hl-ic">
-												<Check />
-											</span>
-											{h}
-										</li>
-									))}
-								</ul>
-							)}
 						</div>
+					</div>
+					<div class="mk-extra">
+						{(product.compat.works.length > 0 || product.compat.includes.length >= 2) && (
+							<div class="mk3-compat-box">
+								<IncludesBox items={product.compat.includes} />
+								{product.compat.works.length > 0 && (
+									<>
+										<p class="mk3-compat-title">Funciona con</p>
+										<ul class="mk3-compat-list">
+											{product.compat.works.map((it) => (
+												<li>
+													{BRANDS[it.k]?.icon ? <BrandLogo k={it.k} size={16} /> : <Icon name="check" size={14} />}
+													{it.label}
+												</li>
+											))}
+										</ul>
+										<p class="mk3-compat-fine">Las marcas pertenecen a sus titulares; se muestran solo para indicar compatibilidad.</p>
+									</>
+								)}
+							</div>
+						)}
+						{product.highlights.length > 0 && (
+							<ul class="mk-highlights">
+								{product.highlights.slice(0, 6).map((h) => (
+									<li>
+										<span class="mk-hl-ic">
+											<Check />
+										</span>
+										{h}
+									</li>
+								))}
+							</ul>
+						)}
 					</div>
 				</div>
 
