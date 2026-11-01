@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Prueba las migraciones (0002 a 0009) sobre una copia SIMULADA de producción (los dos productos reales con las
+// Prueba las migraciones (0002 a 0010) sobre una copia SIMULADA de producción (los dos productos reales con las
 // imágenes que subió el dueño desde el admin). Comprueba que:
 //   - no se tocan precios, títulos ni archivos;
 //   - las portadas nuevas quedan primero y las del dueño se conservan detrás;
@@ -278,3 +278,102 @@ for (const f of readdirSync(new URL("../migrations/", import.meta.url)).filter((
 	}
 }
 console.log("✓ ningún patrón LIKE/GLOB supera el límite de D1");
+
+// ── 0010: nombres v6 (Motion 3D Video, Edit Pro para YouTube, Creative Factory; slugs iguales) ──
+// Base: producción tras la 0009 (el HTML público del 2026-11-01 coincide campo por campo con fixture + 0009).
+const db10 = prodDb();
+db10.exec(sql("0009_contenido_v5.sql"));
+// El resumen no se ve en la ficha pública: se simulan resúmenes que nombran cada producto.
+db10.exec(`
+	UPDATE products SET summary = 'SpecReel: videos 3D narrados. No confundir con SpecReel Stick.' WHERE slug = 'specreel';
+	UPDATE products SET summary = 'CutPilot: estudio de video local.' WHERE slug = 'cutpilot';
+	UPDATE products SET summary = 'Motor creativo para Claude Code: 13 agentes.' WHERE slug = 'motor-creativo-claude-code';
+`);
+const pre10 = rowsOf(db10);
+db10.exec(sql("0010_nombres_v6.sql"));
+const v10 = rowsOf(db10);
+db10.exec(sql("0010_nombres_v6.sql"));
+assert.deepEqual(rowsOf(db10), v10, "0010 es idempotente");
+for (const [slug, r] of Object.entries(v10)) {
+	for (const k of ["slug", "price_mode", "price_cents", "compare_at_cents", "availability", "file_key", "active", "id", "compat", "tags", "highlights"])
+		assert.equal(r[k], pre10[slug][k], `${slug}: 0010 no toca ${k}`);
+	assert.ok(r.meta_title.length <= 60, `${slug}: meta título ≤ 60 (${r.meta_title.length})`);
+	assert.ok(r.meta_description.length >= 120 && r.meta_description.length <= 160, `${slug}: meta descripción 120–160 (${r.meta_description.length})`);
+	assert.ok(r.title.length <= 70, `${slug}: H1 ≤ 70 (${r.title.length})`);
+	for (const k of ["images", "specs", "faq"]) JSON.parse(r[k]);
+	assert.deepEqual(JSON.parse(r.images).map((i) => i.src), JSON.parse(pre10[slug].images).map((i) => i.src), `${slug}: rutas de imágenes iguales`);
+}
+for (const s of ["anuncios-infinitos", "pagespeed-forensics"]) assert.deepEqual(v10[s], pre10[s], `${s}: sin cambios`);
+const count = (txt, s) => txt.split(s).length - 1;
+
+// specreel → Motion 3D Video (la skill sigue llamándose SpecReel: se aclara una vez en la descripción y en la FAQ).
+const m3 = v10.specreel;
+assert.equal(m3.title, "Motion 3D Video: videos explicativos y de producto con Claude Code");
+assert.equal(m3.meta_title, "Motion 3D Video: videos explicativos con Claude Code y Codex");
+assert.ok(m3.meta_description.startsWith("Motion 3D Video: skill para Claude Code y Codex"));
+assert.ok(m3.description.startsWith("Motion 3D Video es una skill para Claude Code y Codex que convierte"));
+assert.equal(count(m3.description, "la skill se llama SpecReel"), 1);
+assert.ok(m3.description.includes("Motion 3D Video es un producto independiente"));
+assert.ok(m3.description.includes("La skill SpecReel (formato abierto SKILL.md)"), "el nombre real de la skill se conserva");
+assert.ok(m3.description.includes("skills/specreel"), "rutas del ZIP intactas");
+assert.ok(JSON.parse(m3.images).every((i) => i.alt.startsWith("Motion 3D Video: ")));
+const m3Faq = JSON.parse(m3.faq);
+assert.equal(m3Faq.length, 9);
+assert.equal(m3Faq.filter((f) => f.q === "¿Por qué el ZIP dice SpecReel?").length, 1);
+assert.ok(m3Faq.some((f) => f.a.startsWith("No por parte de Motion 3D Video.")));
+assert.equal(m3.summary, "Motion 3D Video: videos 3D narrados. No confundir con SpecReel Stick.");
+assert.equal(v10.cutpilot.summary, "Edit Pro para YouTube: estudio de video local.");
+assert.equal(v10["motor-creativo-claude-code"].summary, "Creative Factory: 13 agentes.");
+const stFaq = JSON.parse(v10["specreel-stick"].faq);
+assert.ok(stFaq.some((f) => f.q === "¿Necesito tener Motion 3D Video?" && f.a.includes("Motion 3D Video (la skill SpecReel) es otro producto")));
+assert.ok(v10["specreel-stick"].title.startsWith("SpecReel Stick:"), "SpecReel Stick no cambia de nombre");
+assert.equal(v10["specreel-stick"].description, pre10["specreel-stick"].description);
+
+// cutpilot → Edit Pro para YouTube («YouTube» nunca al inicio del nombre).
+const ep = v10.cutpilot;
+assert.equal(ep.title, "Edit Pro para YouTube: edita tus videos hablados con Claude Code");
+assert.equal(ep.meta_title, "Edit Pro para YouTube: edita videos con Claude Code");
+assert.ok(ep.meta_description.startsWith("Edit Pro para YouTube:") && ep.meta_description.includes("Shorts y Reels"));
+assert.ok(ep.description.startsWith("Edit Pro para YouTube es un editor automático para videos hablados"));
+assert.equal(count(ep.description, "Por dentro se llama CutPilot"), 1);
+assert.ok(ep.description.includes("no corta varios reels de una grabación larga"), "la limitación sigue a la vista");
+assert.ok(!JSON.stringify(JSON.parse(ep.images).map((i) => i.alt)).includes("CutPilot"));
+const epFaq = JSON.parse(ep.faq);
+assert.ok(epFaq.some((f) => f.q === "¿Por qué el ZIP dice CutPilot?"));
+assert.ok(epFaq.find((f) => f.q === "¿Sirve para Shorts, Reels y TikTok?").a.includes("No corta varios clips"));
+for (const r of Object.values(v10)) assert.ok(!/^YouTube/i.test(r.title), "ningún nombre empieza con YouTube");
+
+// motor-creativo-claude-code → Creative Factory.
+const cf = v10["motor-creativo-claude-code"];
+assert.equal(cf.title, "Creative Factory: 13 agentes de Claude Code para diseño, video y PDF");
+assert.equal(cf.meta_title, "Creative Factory: agentes de Claude Code para diseño gráfico");
+assert.ok(cf.meta_description.startsWith("Creative Factory: 13 subagentes de Claude Code"));
+assert.ok(cf.description.startsWith("Creative Factory es un kit para Claude Code que trabaja como un estudio creativo"));
+assert.equal(count(cf.description, "Por dentro se llama «Motor creativo para Claude Code»"), 1);
+assert.ok(JSON.parse(cf.images)[0].alt.startsWith("Creative Factory: 13 agentes de Claude Code en español"));
+assert.ok(cf.specs.includes("sin reventa de Creative Factory") && cf.specs.includes("Studio Motor"), "el panel conserva su nombre real");
+const cfFaq = JSON.parse(cf.faq);
+assert.ok(cfFaq.some((f) => f.q === "¿Creative Factory se conecta a internet?"));
+assert.ok(cfFaq.some((f) => f.a.includes("Creative Factory las registra")));
+assert.ok(cfFaq.some((f) => f.q === "¿Por qué el ZIP dice «Motor creativo para Claude Code»?"));
+assert.ok(!/\b[Ee]l motor\b|Motor creativo:/.test(cf.faq + cf.title + cf.meta_title));
+
+// Lo que el dueño editó a mano no se pisa.
+const dbOwn10 = prodDb();
+dbOwn10.exec(sql("0009_contenido_v5.sql"));
+dbOwn10.exec(`
+	UPDATE products SET title = 'SpecReel 2: título del dueño', meta_title = 'Meta del dueño', description = 'Texto del dueño.' WHERE slug = 'specreel';
+	UPDATE products SET title = 'CutPilot del dueño', meta_description = 'Descripción propia del dueño.' WHERE slug = 'cutpilot';
+	UPDATE products SET title = 'Motor del dueño', faq = '[{"q":"¿El motor se conecta?","a":"Del dueño."}]' WHERE slug = 'motor-creativo-claude-code';
+`);
+dbOwn10.exec(sql("0010_nombres_v6.sql"));
+const o10 = rowsOf(dbOwn10);
+assert.equal(o10.specreel.title, "SpecReel 2: título del dueño");
+assert.equal(o10.specreel.meta_title, "Meta del dueño");
+assert.equal(o10.specreel.description, "Texto del dueño.");
+assert.equal(o10.cutpilot.title, "CutPilot del dueño");
+assert.equal(o10.cutpilot.meta_description, "Descripción propia del dueño.");
+assert.ok(!o10.cutpilot.faq.includes("¿Por qué el ZIP dice CutPilot?"), "sin el nombre nuevo, no se agrega la pregunta del nombre interno");
+assert.equal(o10["motor-creativo-claude-code"].title, "Motor del dueño");
+assert.equal(o10["motor-creativo-claude-code"].faq, '[{"q":"¿El motor se conecta?","a":"Del dueño."}]');
+console.log("✓ migración 0010 segura (nombres v6 sobre producción tras la 0009; no pisa lo editado a mano)");
