@@ -57,8 +57,10 @@ const CSP = [
 	// Miniaturas de YouTube (video de demostración de un producto).
 	"img-src 'self' data: https://i.ytimg.com",
 	"style-src 'self' 'unsafe-inline'",
-	// Único JS: /market/static/market.js (galería, filtros, menú, popup). Nada en línea.
-	"script-src 'self'",
+	// Único JS propio: /market/static/market.js (galería, filtros, menú, popup). Nada en línea.
+	// + Cloudflare Web Analytics (beacon que inyecta el borde de Cloudflare).
+	"script-src 'self' https://static.cloudflareinsights.com",
+	"connect-src 'self' https://cloudflareinsights.com",
 	"font-src 'self'",
 	// Video de demostración (YouTube sin cookies) y agenda de reservas de Google Calendar.
 	"frame-src 'self' https://www.youtube-nocookie.com https://calendar.google.com",

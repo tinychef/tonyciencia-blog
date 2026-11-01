@@ -593,7 +593,7 @@ fieldset.mk-fieldset legend { padding: 0 var(--spacing-2); font-weight: 600; fon
 	--mk-sale-ink: #ffffff;
 	--mk-sale-solid: #d92d20;
 	--mk-free: #22c55e;
-	--mk-pwyw: #8b5cf6;
+	--mk-pwyw: #7c3aed;
 	--mk3-card-bg: color-mix(in srgb, var(--color-surface) 92%, transparent);
 }
 :root.light {
@@ -828,3 +828,17 @@ fieldset.mk-fieldset legend { padding: 0 var(--spacing-2); font-weight: 600; fon
 .mk3-title, .mk3-kind, .mk3-tagline { margin: 0; }
 .mk3-title a { text-decoration: none; }
 .mk3-card:hover .mk3-title a { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Accesibilidad: enlaces dentro de texto distinguibles sin depender del color. */
+.mk-muted a, .mk-description a, .mk3-paynote a, .mk-faq p a, .mk-hint a { text-decoration: underline; text-underline-offset: 2px; }
+
+/* Popup más compacto y nunca encima de la barra de compra fija del celular. */
+.mk3-pop-body p:not(.mk3-pop-fine) { font-size: 0.82rem; }
+@media (max-width: 640px) {
+	.mk3-pop { padding: 14px 14px 12px; gap: 8px; }
+	.mk3-pop-body h2 { font-size: 1rem; margin-right: 34px; }
+	.mk3-pop-body p:not(.mk3-pop-fine) { display: none; }
+	.mk3-pop-actions { margin-top: 8px; }
+	.mk-has-buybar .mk3-pop { bottom: calc(84px + env(safe-area-inset-bottom)); }
+	.mk-has-buybar .mk3-pop-tab { bottom: calc(148px + env(safe-area-inset-bottom)); }
+}

@@ -314,7 +314,11 @@
 	const buybar = $("[data-buybar]");
 	const buybox = $("#comprar");
 	if (buybar && buybox && "IntersectionObserver" in window) {
-		new IntersectionObserver(([en]) => buybar.classList.toggle("is-visible", !en.isIntersecting && en.boundingClientRect.top < 0)).observe(buybox);
+		new IntersectionObserver(([en]) => {
+			const on = !en.isIntersecting && en.boundingClientRect.top < 0;
+			buybar.classList.toggle("is-visible", on);
+			doc.classList.toggle("mk-has-buybar", on);
+		}).observe(buybox);
 	}
 
 	// ── Pestañas de la ficha: marca la sección visible ──
