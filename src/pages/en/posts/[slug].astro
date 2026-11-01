@@ -16,6 +16,7 @@ import PostCard from "../../../components/PostCard.astro";
 import PostTitleCard from "../../../components/PostTitleCard.astro";
 import AuthorBio from "../../../components/AuthorBio.astro";
 import ArticleMeta from "../../../components/ArticleMeta.astro";
+import PortableTextLink from "../../../components/PortableTextLink.astro";
 import { getReadingTime } from "../../../utils/reading-time";
 import { resolveBlogSiteIdentity } from "../../../utils/site-identity";
 import { getStaticPost, getStaticPosts } from "../../../utils/static-posts";
@@ -320,7 +321,7 @@ const publishDate =
 				</header>
 
 				<div class="article-content">
-					<PortableText value={post.data.content} />
+					<PortableText value={post.data.content} components={{ mark: { link: PortableTextLink } }} />
 				</div>
 
 				<ArticleMeta publishedTime={post.data.publishedAt?.toISOString() ?? null} modifiedTime={post.data.updatedAt.toISOString()} readingTime={readingTime} locale={locale} />

@@ -1,0 +1,68 @@
+---
+/**
+ * Marca "link" de Portable Text para los posts del blog.
+ *
+ * Igual que la de EmDash (sanea el href y respeta markDef.blank), pero los enlaces
+ * de afiliado salen con rel="sponsored nofollow noopener" y en pestaña nueva, como
+ * pide Google para enlaces pagados. Afiliado = host de un enlace de la base
+ * (src/data/partners.generated.ts + content/affiliates/extra.json) o de una red de
+ * afiliación conocida. Se usa en src/pages/posts/[slug].astro y su versión /en.
+ */
+import { sanitizeHref } from "emdash";
+import { partners } from "../data/partners.generated";
+import extraAffiliates from "../../content/affiliates/extra.json";
+
+export interface Props {
+	node: {
+		markDef: {
+			_type: "link";
+			_key: string;
+			href: string;
+			blank?: boolean;
+		};
+	};
+}
+
+const { node } = Astro.props;
+const href = sanitizeHref(node?.markDef?.href);
+const blank = node?.markDef?.blank;
+
+const NETWORK_HOSTS = /(^|\.)(pxf\.io|sjv\.io|partnerlinks\.io|awin1\.com|shareasale\.com|linksynergy\.com|prf\.hn|go2cloud\.org|amzn\.to|partnerstack\.com|impact\.com)$/;
+
+function hostOf(url: string): string | null {
+	try {
+		return new URL(url).hostname.toLowerCase().replace(/^www\./, "");
+	} catch {
+		return null;
+	}
+}
+
+function isAffiliate(target: string): boolean {
+	if (!/^https?:/i.test(target)) return false;
+	let url: URL;
+	try {
+		url = new URL(target);
+	} catch {
+		return false;
+	}
+	const host = url.hostname.toLowerCase().replace(/^www\./, "");
+	if (NETWORK_HOSTS.test(host)) return true;
+	const links = [
+		...partners.map((p) => p.affiliateLink),
+		...(extraAffiliates as Array<{ affiliateLink?: string }>).map((p) => p.affiliateLink ?? ""),
+	];
+	for (const link of links) {
+		if (hostOf(link) !== host) continue;
+		// Si el enlace de afiliado es el sitio oficial + parámetro (p. ej. ?fpr=), solo cuenta con ese parámetro.
+		const params = [...new URL(link).searchParams.keys()];
+		if (params.length === 0 || params.some((key) => url.searchParams.has(key))) return true;
+	}
+	return false;
+}
+
+const sponsored = isAffiliate(href);
+const target = sponsored || blank ? "_blank" : undefined;
+const rel = sponsored ? "sponsored nofollow noopener" : blank ? "noopener noreferrer" : undefined;
+---
+
+<a href={href} target={target} rel={rel}><slot /></a>

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tonyciencia.com/schemas/affiliates-extra.json",
+  "title": "Afiliados extra de Tony Ciencia",
+  "description": "Entradas que se suman a src/data/partners.generated.ts. Una entrada con el mismo name que un partner generado lo reemplaza; con disabled: true lo retira. Lo leen scripts/content/*.mjs y el agente content-affiliate-manager.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["name"],
+    "anyOf": [
+      { "required": ["disabled"], "properties": { "disabled": { "const": true } } },
+      { "required": ["category", "affiliateLink"] }
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "name": { "type": "string", "minLength": 1, "description": "Nombre del programa tal como se mostrará (y clave para reemplazar uno generado)." },
+      "category": { "type": "string", "minLength": 1, "description": "Usa una categoría existente (pnpm aff:find --list-categories) o una nueva con el mismo estilo." },
+      "affiliateLink": { "type": "string", "format": "uri", "pattern": "^https://", "description": "Enlace de seguimiento exacto que entrega la red o el programa." },
+      "website": { "type": "string", "description": "Sitio oficial del producto (para verificar datos y citar fuentes)." },
+      "platform": { "type": "string", "description": "Red o programa: PartnerStack, Impact, Awin, Directo, etc." },
+      "commission": { "type": "string", "description": "Texto libre: \"30% recurrente 12 meses\", \"USD 50 por venta\"…" },
+      "cookieDays": { "type": "integer", "minimum": 0, "description": "Duración de la cookie en días." },
+      "priority": { "type": "integer", "minimum": 0, "maximum": 10, "description": "0–10. A igualdad de encaje, el agente prefiere el de mayor prioridad. aff:find ordena por este campo." },
+      "notes": { "type": "string", "description": "Reglas del anunciante, ángulos que funcionan, restricciones de marca, cupones vigentes." },
+      "disallowedTopics": { "type": "array", "items": { "type": "string" }, "description": "Temas en los que el anunciante no permite aparecer. El validador falla si coinciden con título, excerpt o keywords." },
+      "disabled": { "type": "boolean", "description": "true retira de la base un partner generado con el mismo name." }
+    }
+  }
+}
