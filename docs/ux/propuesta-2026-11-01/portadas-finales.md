@@ -187,3 +187,89 @@ Ficha = página de producción `https://tonyciencia.com/market/producto/<slug>`,
    contadores de cada escena vuelven a empezar (corte seco cada 3,5 s).
 7. El halo verde detrás de la prueba visual es un degradado de un solo tono (verde → transparente), no de colores; si
    prefieres cero degradados, se quita en una línea del CSS (`.pf-glow`).
+
+---
+
+## Ronda 2 (2026-11-01): las 6 con animación
+
+Cada producto tiene ahora `cover.webp` (fija, el mejor cuadro) y `cover-animada.webp` (bucle). En el generador, cada
+cuadro es una función pura del tiempo (`update(root, t)`) que se copia a `design/<slug>.html`. `render-covers.mjs`
+graba las secciones `data-anim` y `data-cpu` en un Chromium **sin raster por GPU**: con swiftshader, las capturas de
+una sección que no está arriba salían con mosaicos de otras secciones (una PageSpeed animada pesaba 1,5 MB por eso).
+
+| Producto | Fija | Animada | Bucle |
+|---|---|---|---|
+| Anuncios Automáticos | 75 KB | 302 KB | 4 s, 10 fps |
+| Motion 3D Video | 61 KB | 330 KB | 3,5 s, 8 fps |
+| SpecReel Stick | 58 KB | 341 KB | 3,5 s, 10 fps |
+| PageSpeed Forensics | 62 KB | 156 KB | 4 s, 10 fps |
+| Edit Pro para YouTube | 58 KB | 203 KB | 4 s, 10 fps |
+| Creative Factory | 101 KB | 321 KB | 4 s, 10 fps |
+
+Cambios comunes: nombre del producto más grande arriba a la izquierda con una palabra subrayada en `#30d158`;
+logos a 80 px (antes 64). **Codex lleva el logo de OpenAI/ChatGPT**: `design/assets/logos/chatgpt.svg`, copiado de
+`/home/user/estudio-video/recursos/logos/chatgpt.svg` (lobe-icons 1.95.1, MIT; `.json` de fuente al lado). Es
+monocromo (`fill="currentColor"`) y se dibuja en el blanco del texto.
+
+- **Anuncios Automáticos.** Titular «Anuncios automáticos mientras descansas.» (pedido del dueño) con la línea que
+  lo vuelve honesto, «Tu agente investiga y escribe; tú revisas y publicas.» (ficha: el agente investiga y escribe
+  prompts y textos; no publica ni genera imágenes). «App + Agente» = app local + agente (ficha, «Qué trae el ZIP»).
+  Animación: cola de 4 anuncios (Meta Ads, Google Ads, TikTok, LinkedIn) que suben y se van completando (Gancho, Cuerpo
+  y Llamado a la acción: la estructura que nombra la ficha) hasta «Para revisar». Las barras no llevan texto
+  inventado. Logos: Claude Code, Codex (OpenAI) y Antigravity (ficha, «Funciona con»); Meta, Google Ads y TikTok de
+  Simple Icons y LinkedIn en texto (Simple Icons lo retiró a pedido de LinkedIn). Se quitó «250+ prompts».
+- **Motion 3D Video (SpecReel).** Sin la placa de logos ni los chips. Tres tarjetas en movimiento (sprites 7×5
+  en `design/assets/specreel/anim-*.webp`):
+  - Célula: `examples/demo-celula/preview.mp4`, de 5,0 a 8,5 s.
+  - Showreel: `examples/showreel-en/preview.mp4`, de 7,0 a 14,0 s a doble velocidad (el proceso de pago con íconos 3D
+    y la gráfica de barras; la botella está en los primeros 6,5 s y no entra).
+  - Microneedling: los 8 paneles de `examples/microneedling-capilar/poster.jpg`, uno tras otro.
+- **SpecReel Stick.** Subtítulo de 48 a 34 px; las 3 escenas pasan de 440 a 480 px y los sprites se rehicieron desde
+  renders a resolución completa (el ejemplo, desde su `preview.mp4` de 1080×1920; los 2 sketches nuevos, renderizados
+  otra vez con el motor a escala 1).
+- **PageSpeed Forensics.** Logo de PageSpeed al lado del nombre; sin placa de logos (ni Claude ni la palabra
+  PageSpeed repetida). Círculos de **Rendimiento + métricas de Lighthouse** (lo único que trabaja la skill), no
+  Accesibilidad, Prácticas ni SEO. Valores de **ejemplo** (etiqueta «Ejemplo» y nota): Rendimiento 9, FCP 32, LCP 11 y
+  TBT 10, todos bajo 60 y uno bajo 10. Son coherentes con la ponderación de Lighthouse 10+ (FCP 10 %, SI 10 %,
+  LCP 25 %, TBT 30 %, CLS 25 %): 0,10·32 + 0,25·11 + 0,30·10 ≈ 9, con Speed Index y CLS (no mostrados) en 0. Animación:
+  la fila DESPUÉS sube de esos valores a 100 (el número cuenta y el arco se llena; color según el tramo de PageSpeed).
+- **Edit Pro para YouTube (CutPilot).** «para YouTube» y no «YouTube …» al inicio (normas de marca de YouTube, según
+  el dueño). Animación: el cabezal avanza, cada corte («eh…», silencio, retoma) se cierra y lo que sigue se corre a la
+  izquierda, y los subtítulos se encienden palabra por palabra. Frase de ejemplo en español («Hoy les muestro mi
+  sistema: tres pasos.»): el editor trabaja con videos hablados en español. Sigue rotulada como ilustración.
+- **Creative Factory (Motor creativo).** «Adobe Creative Cloud» grande y tachado, en texto (sin logo de Adobe), con
+  la nota «Adobe Creative Cloud es marca de Adobe. Sin afiliación…». Animación: los 13 íconos pasan de gris claro a
+  color uno tras otro, con un giro suave. Logos de Claude Code y Antigravity: la ficha ahora lista Antigravity y el
+  repo trae `ANTIGRAVITY.md` («Guía operativa para Google Antigravity»; FAQ de la ficha: «Sí, con límites»).
+
+## Ronda 3 (2026-11-01): portadas en inglés para `/market/en/`
+
+Salen del mismo generador con `LANG = "en"`. Cada `design/<slug>.html` trae ahora 4 secciones de portada
+(`cover`, `cover-animada`, `en/cover`, `en/cover-animada`); `render-covers.mjs` acepta `data-out` con subcarpeta.
+Generar: `node scripts/render-covers.mjs <slug> --solo=en/cover,en/cover-animada` y después
+`node scripts/make-cover-variants.mjs` (crea `en/cover-800.webp`).
+
+| Producto (slug) | `en/cover.webp` | `en/cover-animada.webp` | `en/cover-800.webp` |
+|---|---|---|---|
+| Automatic Ads (`anuncios-infinitos`) | 69 KB | 268 KB | sí |
+| Motion 3D Video (`specreel`) | 61 KB | 330 KB | sí |
+| SpecReel Stick (`specreel-stick`) | 56 KB | 346 KB | sí |
+| PageSpeed Forensics (`pagespeed-forensics`) | 60 KB | 154 KB | sí |
+| Edit Pro for YouTube (`cutpilot`) | 67 KB | 210 KB | sí |
+| Creative Factory (`motor-creativo-claude-code`) | 100 KB | 320 KB | sí |
+
+- Nombres en inglés: los del encargo (Automatic Ads, Motion 3D Video, SpecReel Stick, PageSpeed Forensics, Edit Pro
+  for YouTube, Creative Factory). Textos: traducción de los españoles, con el inglés de las fichas como referencia
+  (`workers/market/seed/i18n-en.mjs` y `migrations/0013`): por ejemplo «Ask your agent for a video…», «No timeline
+  editing. No per-minute video credits.», «Your idea, in stick figures», «Your video, already edited.», «13 free apps.
+  One agent per app.».
+- **Sello de idioma**: «In Spanish» junto a «App + Agent» en Automatic Ads (el agente responde en español; la nota lo
+  repite: «The agent works in Spanish.») y «Spanish-language videos» arriba a la derecha en Edit Pro for YouTube (la
+  nota: «For videos spoken in Spanish.»). Ícono de globo en SVG (estilo Lucide).
+- **Renders reales con texto en español** (SpecReel, Stick y los subtítulos de ejemplo de Edit Pro) se dejaron tal
+  cual, con la nota «Real renders (Spanish examples)». Los rótulos de las escenas de Stick van en inglés («1% better
+  every day», «One saves, one spends», «One starts, one waits»).
+- PageSpeed en inglés: «Example», «BEFORE/AFTER», «Performance», mismas cifras de ejemplo y la nota «Illustrative
+  example, not a measured case… No score is guaranteed. PageSpeed Insights is a Google trademark; not affiliated.».
+- Revisión: `docs/ux/propuesta-2026-11-01/final/en/<slug>.png`, `<slug>-358.png` y `<slug>-animada-cuadros.png`
+  (4 cuadros del bucle), y `final/en-358-todas.png` (las 6 a 358 px).

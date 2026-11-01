@@ -22,8 +22,7 @@ export const storeRoot = (lang: Lang) => (lang === "en" ? "/market/en/" : "/mark
 export const productPath = (slug: string, lang: Lang) => (lang === "en" ? `/market/en/product/${slug}` : `/market/producto/${slug}`);
 
 /** Productos con portada en inglés en public/market/static/products/<slug>/en/. */
-// Vacío hasta que existan las portadas en inglés (entonces: los 6 slugs). Sin portada en inglés se usa la española.
-export const EN_COVERS = new Set<string>([]);
+export const EN_COVERS = new Set(["anuncios-infinitos", "specreel", "specreel-stick", "pagespeed-forensics", "cutpilot", "motor-creativo-claude-code"]);
 
 export interface ProductLocale {
 	title?: string;

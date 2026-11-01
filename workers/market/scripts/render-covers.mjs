@@ -7,6 +7,7 @@
 //       node scripts/render-covers.mjs specreel                 → solo ese producto
 //       node scripts/render-covers.mjs specreel --solo=cover    → solo esas salidas (separadas por coma)
 //       node scripts/render-covers.mjs --solo=cover,cover-animada  → solo las portadas de todos
+//       node scripts/render-covers.mjs specreel --solo=en/cover,en/cover-animada → portadas en inglés (en/…)
 //
 // Con data-cpu, la sección se graba en un Chromium sin GPU (ver más abajo).
 // Portadas animadas: una sección con data-anim="<n.º de cuadros>" (y opcionales data-fps, data-width,
@@ -65,7 +66,8 @@ for (const file of files) {
 	for (const frame of frames) {
 		const name = await frame.getAttribute("data-out");
 		if (solo && !solo.includes(name)) continue;
-		const webp = join(outDir, `${name}.webp`);
+		const webp = join(outDir, `${name}.webp`); // data-out puede llevar subcarpeta (p. ej. en/cover)
+		mkdirSync(dirname(webp), { recursive: true });
 		const quality = Number((await frame.getAttribute("data-quality")) ?? QUALITY);
 		const width = Number((await frame.getAttribute("data-width")) ?? 0);
 		const anim = Number((await frame.getAttribute("data-anim")) ?? 0);
@@ -88,7 +90,7 @@ for (const file of files) {
 		}
 		if (anim > 0) {
 			const fps = Number((await frame.getAttribute("data-fps")) ?? 10);
-			const tmp = join(tmpdir(), `cover-anim-${slug}-${name}`);
+			const tmp = join(tmpdir(), `cover-anim-${slug}-${name.replace(/\//g, "-")}`);
 			rmSync(tmp, { recursive: true, force: true });
 			mkdirSync(tmp, { recursive: true });
 			for (let i = 0; i < anim; i++) {
