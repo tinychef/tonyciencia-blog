@@ -377,3 +377,66 @@ assert.ok(!o10.cutpilot.faq.includes("¿Por qué el ZIP dice CutPilot?"), "sin e
 assert.equal(o10["motor-creativo-claude-code"].title, "Motor del dueño");
 assert.equal(o10["motor-creativo-claude-code"].faq, '[{"q":"¿El motor se conecta?","a":"Del dueño."}]');
 console.log("✓ migración 0010 segura (nombres v6 sobre producción tras la 0009; no pisa lo editado a mano)");
+
+// ── 0011: fichas en inglés (columna i18n = {"en": {...}}) ──
+const db11 = prodDb();
+for (const f of ["0009_contenido_v5.sql", "0010_nombres_v6.sql"]) db11.exec(sql(f));
+const pre11 = rowsOf(db11);
+db11.exec(sql("0011_ingles.sql"));
+const v11 = rowsOf(db11);
+db11.exec(sql("0011_ingles.sql").replace(/ALTER TABLE[^;]+;/, ""));
+assert.deepEqual(rowsOf(db11), v11, "0011 aplicada dos veces no cambia nada");
+const EN_KEYS = ["title", "tagline", "summary", "meta_title", "meta_description", "description", "highlights", "specs", "faq", "tags", "image_alts"];
+const NAMES = {
+	"anuncios-infinitos": "Automatic Ads",
+	specreel: "Motion 3D Video",
+	"specreel-stick": "SpecReel Stick",
+	"pagespeed-forensics": "PageSpeed Forensics",
+	cutpilot: "Edit Pro for YouTube",
+	"motor-creativo-claude-code": "Creative Factory",
+};
+assert.deepEqual(Object.keys(v11).sort(), Object.keys(NAMES).sort(), "los 6 productos activos");
+for (const [slug, r] of Object.entries(v11)) {
+	for (const k of Object.keys(pre11[slug])) if (k !== "i18n" && k !== "updated_at") assert.equal(r[k], pre11[slug][k], `${slug}: 0011 no toca ${k}`);
+	assert.equal(db11.prepare("SELECT json_valid(i18n) AS ok FROM products WHERE slug = ?").get(slug).ok, 1, `${slug}: i18n es JSON válido para SQLite`);
+	const en = JSON.parse(r.i18n).en;
+	assert.ok(en, `${slug}: tiene i18n.en`);
+	assert.deepEqual(Object.keys(en).sort(), [...EN_KEYS].sort(), `${slug}: todas las claves`);
+	assert.ok(en.title.startsWith(`${NAMES[slug]}:`), `${slug}: título con el nombre en inglés`);
+	assert.ok(en.title.length <= 70, `${slug}: title ≤ 70 (${en.title.length})`);
+	assert.ok(en.meta_title.length <= 60, `${slug}: meta_title ≤ 60 (${en.meta_title.length})`);
+	assert.ok(en.meta_description.length >= 120 && en.meta_description.length <= 160, `${slug}: meta_description 120–160 (${en.meta_description.length})`);
+	assert.equal(en.image_alts.length, JSON.parse(r.images).length, `${slug}: un ALT por imagen`);
+	assert.ok(en.image_alts.every((a) => typeof a === "string" && a.length > 10));
+	const specsEs = JSON.parse(r.specs);
+	assert.equal(en.specs.length, specsEs.length, `${slug}: mismas filas en la ficha técnica`);
+	assert.ok(en.specs.every((s) => s.label && s.value));
+	assert.ok(en.faq.length >= 3 && en.faq.every((f) => f.q.endsWith("?") && f.a));
+	assert.ok(en.highlights.length >= 4 && en.highlights.length <= 6);
+	assert.ok(en.tags.length >= 5 && en.tags.length <= 7);
+	// Sin restos en español en los textos que ve el comprador (los nombres internos y rutas sí se citan).
+	const visible = [en.title, en.tagline, en.meta_title, en.meta_description, en.description, ...en.highlights, ...en.faq.flatMap((f) => [f.q, f.a])].join("\n");
+	assert.ok(!/\b(para|con|que|los|las|una|del)\b/.test(visible.replace(/«[^»]*»|"[^"]*"|\[precio\]|Motor creativo para Claude Code/g, "")), `${slug}: sin frases en español`);
+	assert.ok(!/Anuncios Automáticos|Edit Pro para YouTube|Anuncios Infinitos/.test(visible), `${slug}: nombres en inglés`);
+	assert.ok(!/\$\d/.test(en.description) || slug === "pagespeed-forensics", `${slug}: sin precios fijos en la descripción`);
+}
+// Honestidad con el idioma: los productos que solo funcionan en español lo dicen en inglés, arriba y en la ficha técnica.
+const en11 = (s) => JSON.parse(v11[s].i18n).en;
+for (const s of ["anuncios-infinitos", "cutpilot"]) {
+	const en = en11(s);
+	assert.ok(/Spanish/.test(en.title + en.meta_title) && /Spanish/.test(en.meta_description), `${s}: título y meta dicen Spanish`);
+	assert.ok(en.specs.some((x) => /^Spanish only/.test(x.value)), `${s}: «Spanish only» en la ficha técnica`);
+	assert.ok(/^(Is it in English\?|Does it work for videos in English\?)$/.test(en.faq[0].q) && en.faq[0].a.startsWith("No."), `${s}: primera pregunta = idioma`);
+}
+assert.ok(en11("motor-creativo-claude-code").faq[0].a.startsWith("No.") && /Spanish/.test(en11("motor-creativo-claude-code").meta_description));
+assert.ok(en11("pagespeed-forensics").faq.some((f) => f.q === "Is it in English?" && f.a.startsWith("Yes.")));
+assert.ok(en11("specreel").description.includes("the skill is called SpecReel"));
+assert.ok(en11("cutpilot").description.includes("Inside it is called CutPilot"));
+assert.ok(!/^YouTube/.test(en11("cutpilot").title), "«YouTube» no va al inicio del nombre");
+// No pisa un i18n ya escrito (por ejemplo desde el admin).
+const db11b = prodDb();
+for (const f of ["0009_contenido_v5.sql", "0010_nombres_v6.sql", "0011_ingles.sql"]) db11b.exec(sql(f));
+db11b.prepare(`UPDATE products SET i18n = '{"en":{"title":"Owner title"}}' WHERE slug = 'specreel'`).run();
+db11b.exec(sql("0011_ingles.sql").replace(/ALTER TABLE[^;]+;/, ""));
+assert.equal(db11b.prepare("SELECT i18n FROM products WHERE slug = 'specreel'").get().i18n, '{"en":{"title":"Owner title"}}');
+console.log("✓ migración 0011 segura (inglés: JSON válido, metas, un ALT por imagen, idempotente, no pisa i18n editado)");

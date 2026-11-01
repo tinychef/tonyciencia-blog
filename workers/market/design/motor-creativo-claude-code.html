@@ -119,78 +119,82 @@
 .pf * { box-sizing: border-box; margin: 0; padding: 0; }
 .pf .pf-dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,.075) 1.6px, transparent 1.6px); background-size: 32px 32px; -webkit-mask: linear-gradient(90deg, transparent 28%, #000 72%); mask: linear-gradient(90deg, transparent 28%, #000 72%); }
 .pf .pf-glow { position: absolute; border-radius: 50%; background: radial-gradient(closest-side, rgba(48,209,88,.20), rgba(48,209,88,0)); pointer-events: none; }
-.pf .pf-top { position: absolute; left: 88px; right: 88px; top: 56px; height: 96px; display: flex; align-items: center; justify-content: space-between; }
-.pf .pf-name { display: flex; align-items: center; gap: 16px; font-size: 40px; font-weight: 800; letter-spacing: -0.01em; }
-.pf .pf-name i { width: 22px; height: 22px; border-radius: 6px; background: #30d158; }
-.pf .pf-logos { display: flex; align-items: center; gap: 20px; height: 96px; padding: 0 30px; border: 3px solid #2e2e33; border-radius: 22px; background: #17171a; }
-.pf .pf-logos img, .pf .pf-logos svg { display: block; width: 64px; height: 64px; }
-.pf .pf-logos .pf-t { font-size: 46px; font-weight: 800; letter-spacing: -0.015em; white-space: nowrap; }
-.pf .pf-logos .pf-sep { width: 3px; height: 50px; background: #3a3a40; }
-.pf .pf-pain { position: absolute; left: 88px; font-size: 50px; line-height: 1.1; font-weight: 600; letter-spacing: -0.015em; color: #8e8e96; }
+.pf .pf-top { position: absolute; left: 88px; right: 88px; top: 48px; height: 112px; display: flex; align-items: center; justify-content: space-between; }
+.pf .pf-name { display: flex; align-items: center; gap: 22px; font-size: 62px; line-height: 1; font-weight: 800; letter-spacing: -0.025em; }
+.pf .pf-name u { text-decoration: underline; text-decoration-color: #30d158; text-decoration-thickness: 9px; text-underline-offset: 12px; text-decoration-skip-ink: none; }
+.pf .pf-logos { display: flex; align-items: center; gap: 14px; height: 112px; padding: 0 30px; border: 3px solid #2e2e33; border-radius: 24px; background: #17171a; }
+.pf .pf-logos img, .pf .pf-logos svg { display: block; width: 80px; height: 80px; flex: none; }
+.pf .pf-t { font-size: 50px; font-weight: 800; letter-spacing: -0.015em; white-space: nowrap; }
+.pf .pf-sep { width: 3px; height: 58px; background: #3a3a40; margin: 0 12px; }
+.pf .pf-pain { position: absolute; left: 88px; font-size: 48px; line-height: 1.1; font-weight: 600; letter-spacing: -0.015em; color: #8e8e96; }
 .pf .pf-pain s { text-decoration-thickness: 6px; text-decoration-color: rgba(245,245,247,.55); }
 .pf .pf-h { position: absolute; left: 88px; font-size: 136px; line-height: 0.94; font-weight: 800; letter-spacing: -0.045em; }
 .pf .pf-h b { font-weight: 800; color: #30d158; }
-.pf .pf-note { position: absolute; right: 88px; bottom: 26px; font: 500 18px/1.3 "JetBrains Mono", monospace; color: #6e6e76; text-align: right; }
-.pf .pf-chip { display: inline-flex; align-items: center; gap: 14px; font-size: 38px; font-weight: 700; border: 3px solid #2e2e33; border-radius: 14px; padding: 10px 22px; background: #17171a; }
-.pf .pf-chip i { width: 16px; height: 16px; border-radius: 4px; background: #30d158; }
-.pf .pf-mono { font-family: "JetBrains Mono", monospace; }
-/* Anuncios */
-.pf .pf-ad-grid { position: absolute; left: 892px; top: 196px; width: 620px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.pf .pf-ad { height: 166px; border: 3px solid #2e2e33; border-radius: 20px; background: #17171a; padding: 20px 24px; display: flex; flex-direction: column; justify-content: space-between; }
-.pf .pf-ad h4 { font-size: 34px; line-height: 0.98; font-weight: 800; letter-spacing: -0.02em; }
-.pf .pf-ad p { display: flex; align-items: baseline; gap: 10px; }
-.pf .pf-ad p b { font-size: 62px; line-height: 0.9; font-weight: 800; color: #30d158; letter-spacing: -0.03em; }
-.pf .pf-ad p span { font-size: 26px; font-weight: 600; color: #a1a1a8; }
-.pf .pf-ad.pf-sum { background: #30d158; border-color: #30d158; color: #0d0d0f; }
-.pf .pf-ad.pf-sum h4 { font-size: 30px; }
-.pf .pf-ad.pf-sum p b { color: #0d0d0f; font-size: 76px; }
-.pf .pf-ad.pf-sum p span { color: #0d0d0f; }
-.pf .pf-plat { position: absolute; left: 892px; width: 620px; top: 774px; display: flex; align-items: center; justify-content: space-between; color: #d7d7dc; }
-.pf .pf-plat .pf-lg { display: flex; align-items: center; gap: 26px; }
-.pf .pf-plat .pf-t { font-size: 40px; font-weight: 800; }
-.pf .pf-plat small { font-size: 28px; font-weight: 600; color: #a1a1a8; }
-/* Tiles de video (SpecReel / Stick) */
-.pf .pf-tile { position: absolute; overflow: hidden; border: 4px solid #2e2e33; border-radius: 26px; background: #000; box-shadow: 0 30px 60px rgba(0,0,0,.55); }
+.pf .pf-sub { position: absolute; left: 88px; font-size: 38px; line-height: 1.2; font-weight: 600; color: #c7c7cc; letter-spacing: -0.01em; }
+.pf .pf-note { position: absolute; right: 88px; bottom: 22px; font: 500 17px/1.3 "JetBrains Mono", monospace; color: #6e6e76; text-align: right; }
+.pf .pf-chip { display: inline-flex; align-items: center; gap: 18px; font-size: 64px; font-weight: 800; letter-spacing: -0.02em; border: 4px solid #30d158; border-radius: 20px; padding: 10px 30px 14px; background: #13281a; }
+/* Tarjetas de video (SpecReel, Stick) */
+.pf .pf-tile { position: absolute; overflow: hidden; border: 4px solid #2e2e33; border-radius: 26px; background: #000; box-shadow: 0 30px 70px rgba(0,0,0,.6); }
 .pf .pf-tile img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.pf .pf-tile .pf-cap { position: absolute; left: 14px; bottom: 14px; font: 700 20px "JetBrains Mono", monospace; background: rgba(13,13,15,.82); color: #f5f5f7; border: 2px solid #3a3a40; border-radius: 8px; padding: 4px 10px; }
-.pf .pf-tile.pf-sq .pf-cap { left: auto; right: 14px; bottom: auto; top: 14px; }
 .pf .pf-sprite { width: 100%; height: 100%; background-repeat: no-repeat; background-size: 700% 500%; }
+.pf .pf-cap { position: absolute; left: 16px; bottom: 16px; font: 700 22px "JetBrains Mono", monospace; background: rgba(13,13,15,.84); color: #f5f5f7; border: 2px solid #3a3a40; border-radius: 8px; padding: 4px 10px; }
+.pf .pf-cap.pf-r { left: auto; right: 16px; }
+.pf .pf-cap.pf-tr { left: auto; right: 14px; bottom: auto; top: 14px; }
+/* Anuncios: cola de anuncios */
+.pf .pf-q { position: absolute; left: 872px; top: 196px; width: 640px; height: 540px; overflow: hidden; }
+.pf .pf-adc { position: absolute; left: 0; right: 0; top: 0; height: 168px; border: 3px solid #2e2e33; border-radius: 20px; background: #17171a; padding: 16px 22px; }
+.pf .pf-adc.pf-ok { border-color: #30d158; }
+.pf .pf-adh { display: flex; align-items: center; gap: 14px; height: 48px; }
+.pf .pf-adh svg { width: 42px; height: 42px; flex: none; }
+.pf .pf-adh b { font-size: 34px; font-weight: 800; letter-spacing: -0.02em; }
+.pf .pf-st { margin-left: auto; display: inline-flex; align-items: center; gap: 8px; font: 700 21px "JetBrains Mono", monospace; color: #8e8e96; }
+.pf .pf-st svg { width: 26px; height: 26px; }
+.pf .pf-adc.pf-ok .pf-st { color: #30d158; }
+.pf .pf-adr { display: flex; align-items: center; gap: 14px; height: 30px; margin-top: 4px; }
+.pf .pf-adr span { width: 250px; font-size: 22px; font-weight: 600; color: #a1a1a8; }
+.pf .pf-adr i { position: relative; flex: 1; height: 14px; border-radius: 7px; background: #26262b; overflow: hidden; }
+.pf .pf-adr em { position: absolute; left: 0; top: 0; bottom: 0; width: 0; border-radius: 7px; background: #f5f5f7; }
+.pf .pf-adc.pf-ok .pf-adr em { background: #30d158; }
+.pf .pf-plat { position: absolute; left: 872px; width: 640px; top: 786px; display: flex; align-items: center; justify-content: space-between; }
+.pf .pf-plat .pf-t { font-size: 58px; color: #f5f5f7; }
 /* PageSpeed */
-.pf .pf-ps { position: absolute; left: 812px; width: 700px; }
-.pf .pf-ps-row { display: flex; justify-content: space-between; }
-.pf .pf-g { position: relative; width: 154px; text-align: center; }
-.pf .pf-g b { position: absolute; left: 0; right: 0; top: 0; height: 154px; display: grid; place-items: center; font-size: 60px; font-weight: 800; letter-spacing: -0.04em; }
-.pf .pf-g p { margin-top: 10px; font-size: 21px; line-height: 1.15; font-weight: 600; color: #a1a1a8; }
-.pf .pf-ps-lbl { font: 700 28px "JetBrains Mono", monospace; letter-spacing: .1em; margin-bottom: 16px; color: #a1a1a8; }
-.pf .pf-tag { display: inline-block; font: 800 46px "Inter Tight", sans-serif; letter-spacing: .01em; padding: 6px 22px 8px; border-radius: 12px; background: #f5f5f7; color: #0d0d0f; }
+.pf .pf-ps { position: absolute; left: 808px; width: 704px; }
+.pf .pf-row { display: flex; justify-content: space-between; }
+.pf .pf-col { width: 160px; display: flex; flex-direction: column; align-items: center; }
+.pf .pf-g { position: relative; }
+.pf .pf-g svg { display: block; }
+.pf .pf-g b { position: absolute; inset: 0; display: grid; place-items: center; font-weight: 800; letter-spacing: -0.04em; }
+.pf .pf-glbl { margin-top: 12px; font-size: 30px; font-weight: 800; letter-spacing: -0.01em; }
+.pf .pf-lbl { font: 700 28px "JetBrains Mono", monospace; letter-spacing: .1em; color: #a1a1a8; margin-bottom: 14px; }
+.pf .pf-tag { display: inline-block; font: 800 46px "Inter Tight", sans-serif; padding: 6px 22px 8px; border-radius: 12px; background: #f5f5f7; color: #0d0d0f; }
 /* CutPilot */
 .pf .pf-tl { position: absolute; left: 88px; right: 88px; top: 568px; height: 376px; border: 3px solid #2e2e33; border-radius: 24px; background: #121215; overflow: hidden; }
-.pf .pf-tl .pf-hd { position: absolute; left: 0; top: 0; bottom: 0; width: 200px; border-right: 3px solid #2e2e33; background: #17171a; }
-.pf .pf-tl .pf-hd div, .pf .pf-tl .pf-row { position: absolute; height: 72px; }
-.pf .pf-tl .pf-hd div { left: 24px; right: 10px; display: flex; align-items: center; font-size: 28px; font-weight: 800; color: #d7d7dc; }
-.pf .pf-tl .pf-ruler { position: absolute; left: 200px; right: 0; top: 0; height: 44px; border-bottom: 2px solid #2e2e33; font: 600 17px "JetBrains Mono", monospace; color: #6e6e76; }
-.pf .pf-tl .pf-ruler span { position: absolute; top: 12px; }
-.pf .pf-tl .pf-row { left: 200px; right: 0; }
-.pf .pf-clip { position: absolute; top: 9px; bottom: 9px; border-radius: 10px; }
-.pf .pf-clip.pf-v { background: #2a2a30; border: 2px solid #3a3a42; }
+.pf .pf-hd { position: absolute; left: 0; top: 0; bottom: 0; width: 200px; border-right: 3px solid #2e2e33; background: #17171a; z-index: 3; }
+.pf .pf-hd div { position: absolute; left: 24px; right: 10px; height: 72px; display: flex; align-items: center; font-size: 28px; font-weight: 800; color: #d7d7dc; }
+.pf .pf-ruler { position: absolute; left: 200px; right: 0; top: 0; height: 44px; border-bottom: 2px solid #2e2e33; font: 600 17px "JetBrains Mono", monospace; color: #6e6e76; }
+.pf .pf-ruler span { position: absolute; top: 12px; }
+.pf .pf-trk { position: absolute; left: 200px; right: 0; top: 0; bottom: 0; }
+.pf .pf-clip { position: absolute; border-radius: 10px; }
+.pf .pf-clip.pf-v { top: 53px; height: 54px; background: #2a2a30; border: 2px solid #3a3a42; }
 .pf .pf-clip.pf-v::after { content: ""; position: absolute; left: 10px; top: 9px; width: 38px; height: 30px; border-radius: 6px; background: #3f3f47; }
-.pf .pf-clip.pf-a { background: #1b2a20; border: 2px solid #2a4a33; overflow: hidden; }
-.pf .pf-clip.pf-a svg { position: absolute; inset: 4px 6px; width: calc(100% - 12px); height: calc(100% - 8px); }
-.pf .pf-cut { position: absolute; top: 44px; height: 158px; border-left: 3px dashed #4a4a52; border-right: 3px dashed #4a4a52; background: repeating-linear-gradient(135deg, rgba(255,255,255,.05) 0 10px, transparent 10px 20px); }
-.pf .pf-cut span { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font: 700 22px "JetBrains Mono", monospace; color: #a1a1a8; white-space: nowrap; text-decoration: line-through; text-decoration-thickness: 3px; background: #121215; padding: 2px 8px; border-radius: 6px; }
-.pf .pf-w { position: absolute; top: 14px; bottom: 14px; display: grid; place-items: center; padding: 0 12px; border-radius: 8px; background: #26262b; font-size: 24px; font-weight: 700; color: #d7d7dc; }
+.pf .pf-clip.pf-a { top: 125px; height: 62px; background: #1b2a20; border: 2px solid #2a4a33; overflow: hidden; }
+.pf .pf-clip.pf-a svg { position: absolute; left: 6px; top: 4px; width: calc(100% - 12px); height: calc(100% - 8px); }
+.pf .pf-cut { position: absolute; top: 44px; height: 158px; overflow: hidden; border-left: 3px dashed #6a6a72; border-right: 3px dashed #6a6a72; background: repeating-linear-gradient(135deg, rgba(255,255,255,.06) 0 10px, transparent 10px 20px); }
+.pf .pf-cut span { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font: 700 22px "JetBrains Mono", monospace; color: #c7c7cc; white-space: nowrap; text-decoration: line-through; text-decoration-thickness: 3px; background: #121215; padding: 2px 8px; border-radius: 6px; }
+.pf .pf-w { position: absolute; top: 216px; height: 44px; display: grid; place-items: center; padding: 0 12px; border-radius: 8px; background: #1d1d21; font-size: 24px; font-weight: 700; color: #6e6e76; white-space: nowrap; }
+.pf .pf-w.pf-done { background: #2e2e33; color: #f5f5f7; }
 .pf .pf-w.pf-on { background: #30d158; color: #0d0d0f; }
-.pf .pf-gfx { position: absolute; top: 12px; bottom: 12px; display: flex; align-items: center; padding: 0 16px; border-radius: 10px; border: 3px solid #30d158; background: #13281a; font-size: 24px; font-weight: 800; color: #f5f5f7; white-space: nowrap; }
-.pf .pf-ph { position: absolute; top: 30px; bottom: 0; width: 4px; background: #30d158; }
+.pf .pf-gfx { position: absolute; top: 294px; height: 48px; display: flex; align-items: center; padding: 0 16px; border-radius: 10px; border: 3px solid #30d158; background: #13281a; font-size: 24px; font-weight: 800; color: #f5f5f7; white-space: nowrap; }
+.pf .pf-ph { position: absolute; top: 30px; bottom: 0; width: 4px; background: #30d158; z-index: 2; }
 .pf .pf-ph::before { content: ""; position: absolute; left: -10px; top: -2px; width: 24px; height: 18px; border-radius: 4px; background: #30d158; }
-.pf .pf-fmts { position: absolute; right: 88px; top: 236px; display: flex; align-items: flex-end; gap: 22px; }
+.pf .pf-fmts { position: absolute; right: 88px; top: 250px; display: flex; align-items: flex-end; gap: 22px; }
 .pf .pf-fm { border: 4px solid #4a4a52; border-radius: 14px; display: grid; place-items: end start; padding: 10px 12px; font: 700 26px "JetBrains Mono", monospace; background: #17171a; color: #d7d7dc; }
 .pf .pf-fm.pf-on { border-color: #30d158; }
 /* Motor */
-.pf .pf-apps { position: absolute; left: 842px; top: 222px; width: 670px; display: flex; flex-wrap: wrap; justify-content: center; gap: 28px 18px; }
+.pf .pf-apps { position: absolute; left: 842px; top: 238px; width: 670px; display: flex; flex-wrap: wrap; justify-content: center; gap: 28px 18px; }
 .pf .pf-app { width: 118px; text-align: center; }
 .pf .pf-app img { display: block; width: 118px; height: 118px; border-radius: 26px; }
-.pf .pf-app span { display: block; margin-top: 8px; font-size: 18px; font-weight: 700; color: #a1a1a8; letter-spacing: -0.01em; }
+.pf .pf-app span { display: block; margin-top: 8px; font-size: 18px; font-weight: 700; color: #a1a1a8; }
 </style>
 </head>
 <body>
@@ -220,13 +224,44 @@
 <!-- portada-final:inicio -->
 <section class="frame pf" data-out="cover">
 	<div class="pf-dots"></div>
-	<div class="pf-glow" style="left: 820px; top: 120px; width: 780px; height: 780px;"></div>
-	<div class="pf-top"><div class="pf-name"><i></i>Motor creativo</div><div class="pf-logos"><img src="assets/logos/claude.svg" width="64" height="64" alt=""><span class="pf-t">Claude Code</span></div></div>
-	<p class="pf-pain" style="top: 200px;"><s>Todos los MCP a la vez.</s></p>
-	<p class="pf-h" style="top: 284px;">13 apps<br>gratis.<br><b>Un agente<br>por app.</b></p>
+	<div class="pf-glow" style="left: 820px; top: 140px; width: 780px; height: 780px;"></div>
+	<div class="pf-top"><div class="pf-name">Creative <u>Factory</u></div><div class="pf-logos"><img src="assets/logos/claude.svg" width="80" height="80" alt=""><span class="pf-t">Claude Code</span><span class="pf-sep"></span><img src="assets/logos/antigravity.svg" width="80" height="80" alt=""><span class="pf-t">Antigravity</span></div></div>
+	<p class="pf-pain" style="top: 200px; font-size: 76px; font-weight: 800; color: #a1a1a8; letter-spacing: -0.03em;"><s style="text-decoration-thickness: 8px;">Adobe Creative Cloud</s></p>
+	<p class="pf-h" style="top: 322px; font-size: 128px;">13 apps<br>gratis.<br><b>Un agente<br>por app.</b></p>
 	<div class="pf-apps"><div class="pf-app"><img src="assets/crafts/photocraft-240.webp" width="118" height="118" alt=""><span>PhotoCraft</span></div><div class="pf-app"><img src="assets/crafts/lightcraft-240.webp" width="118" height="118" alt=""><span>LightCraft</span></div><div class="pf-app"><img src="assets/crafts/vectorcraft-240.webp" width="118" height="118" alt=""><span>VectorCraft</span></div><div class="pf-app"><img src="assets/crafts/filmcraft-240.webp" width="118" height="118" alt=""><span>FilmCraft</span></div><div class="pf-app"><img src="assets/crafts/effectcraft-240.webp" width="118" height="118" alt=""><span>EffectCraft</span></div><div class="pf-app"><img src="assets/crafts/designcraft-240.webp" width="118" height="118" alt=""><span>DesignCraft</span></div><div class="pf-app"><img src="assets/crafts/pdfcraft-240.webp" width="118" height="118" alt=""><span>PdfCraft</span></div><div class="pf-app"><img src="assets/crafts/figcraft-240.webp" width="118" height="118" alt=""><span>FigCraft</span></div><div class="pf-app"><img src="assets/crafts/soundcraft-240.webp" width="118" height="118" alt=""><span>SoundCraft</span></div><div class="pf-app"><img src="assets/crafts/deckcraft-240.webp" width="118" height="118" alt=""><span>DeckCraft</span></div><div class="pf-app"><img src="assets/crafts/wordcraft-240.webp" width="118" height="118" alt=""><span>WordCraft</span></div><div class="pf-app"><img src="assets/crafts/gridcraft-240.webp" width="118" height="118" alt=""><span>GridCraft</span></div><div class="pf-app"><img src="assets/crafts/cadcraft-240.webp" width="118" height="118" alt=""><span>CADCraft</span></div></div>
-	<p class="pf-note">Íconos oficiales de las 13 apps open source de storytold (MIT OR Apache-2.0),<br>que se descargan gratis. Sin afiliación con storytold ni con Anthropic.</p>
+	<p class="pf-note">Íconos oficiales de las 13 apps open source de storytold (MIT OR Apache-2.0), que se descargan gratis.<br>Adobe Creative Cloud es marca de Adobe. Sin afiliación con Adobe, storytold ni Anthropic.</p>
 </section>
+<section class="frame pf" data-out="cover-animada" data-anim="40" data-fps="10" data-width="1600" data-quality="75">
+	<div class="pf-dots"></div>
+	<div class="pf-glow" style="left: 820px; top: 140px; width: 780px; height: 780px;"></div>
+	<div class="pf-top"><div class="pf-name">Creative <u>Factory</u></div><div class="pf-logos"><img src="assets/logos/claude.svg" width="80" height="80" alt=""><span class="pf-t">Claude Code</span><span class="pf-sep"></span><img src="assets/logos/antigravity.svg" width="80" height="80" alt=""><span class="pf-t">Antigravity</span></div></div>
+	<p class="pf-pain" style="top: 200px; font-size: 76px; font-weight: 800; color: #a1a1a8; letter-spacing: -0.03em;"><s style="text-decoration-thickness: 8px;">Adobe Creative Cloud</s></p>
+	<p class="pf-h" style="top: 322px; font-size: 128px;">13 apps<br>gratis.<br><b>Un agente<br>por app.</b></p>
+	<div class="pf-apps"><div class="pf-app"><img src="assets/crafts/photocraft-240.webp" width="118" height="118" alt=""><span>PhotoCraft</span></div><div class="pf-app"><img src="assets/crafts/lightcraft-240.webp" width="118" height="118" alt=""><span>LightCraft</span></div><div class="pf-app"><img src="assets/crafts/vectorcraft-240.webp" width="118" height="118" alt=""><span>VectorCraft</span></div><div class="pf-app"><img src="assets/crafts/filmcraft-240.webp" width="118" height="118" alt=""><span>FilmCraft</span></div><div class="pf-app"><img src="assets/crafts/effectcraft-240.webp" width="118" height="118" alt=""><span>EffectCraft</span></div><div class="pf-app"><img src="assets/crafts/designcraft-240.webp" width="118" height="118" alt=""><span>DesignCraft</span></div><div class="pf-app"><img src="assets/crafts/pdfcraft-240.webp" width="118" height="118" alt=""><span>PdfCraft</span></div><div class="pf-app"><img src="assets/crafts/figcraft-240.webp" width="118" height="118" alt=""><span>FigCraft</span></div><div class="pf-app"><img src="assets/crafts/soundcraft-240.webp" width="118" height="118" alt=""><span>SoundCraft</span></div><div class="pf-app"><img src="assets/crafts/deckcraft-240.webp" width="118" height="118" alt=""><span>DeckCraft</span></div><div class="pf-app"><img src="assets/crafts/wordcraft-240.webp" width="118" height="118" alt=""><span>WordCraft</span></div><div class="pf-app"><img src="assets/crafts/gridcraft-240.webp" width="118" height="118" alt=""><span>GridCraft</span></div><div class="pf-app"><img src="assets/crafts/cadcraft-240.webp" width="118" height="118" alt=""><span>CADCraft</span></div></div>
+	<p class="pf-note">Íconos oficiales de las 13 apps open source de storytold (MIT OR Apache-2.0), que se descargan gratis.<br>Adobe Creative Cloud es marca de Adobe. Sin afiliación con Adobe, storytold ni Anthropic.</p>
+</section>
+<script>
+(() => {
+	// Portadas: cuadro = función pura de t. La fija muestra t = 3.30 s; la animada se graba con window.__frame(i).
+	const update = function (root, t) {
+		const oc = (x) => 1 - (1 - x) ** 3, cl = (x) => Math.min(1, Math.max(0, x));
+		const back = cl((t - 3.6) / 0.35);
+		root.querySelectorAll(".pf-app").forEach((el, i) => {
+			const e = oc(cl((t - 0.25 - 0.2 * i) / 0.35)) * (1 - back);
+			const im = el.querySelector("img");
+			im.style.filter = `grayscale(${1 - e}) brightness(${1.45 - 0.45 * e}) contrast(${0.7 + 0.3 * e})`;
+			im.style.opacity = 0.5 + 0.5 * e;
+			im.style.transform = `rotate(${(1 - e) * -8}deg) scale(${0.9 + 0.1 * e})`;
+			el.querySelector("span").style.color = e > 0.5 ? "#f5f5f7" : "#6e6e76";
+		});
+	};
+	const S = document.querySelector('section.pf[data-out="cover"]'), A = document.querySelector('section.pf[data-out="cover-animada"]');
+	for (const root of [S, A]) {  }
+	update(S, 3.3);
+	update(A, 0);
+	window.__frame = (i) => { update(A, i / 10); return new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))); };
+})();
+</script>
 <!-- portada-final:fin -->
 
 <section class="frame s1" data-out="screen-1">
