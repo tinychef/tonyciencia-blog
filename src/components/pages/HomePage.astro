@@ -135,7 +135,12 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 })).filter((row) => row.partners.length > 0);
 ---
 
-<Base title={siteTitle} description={locale === "en" ? "AI · Automation · Growth" : siteTagline}>
+<Base
+	title={locale === "en" ? "Applied AI you can use today | Tony Ciencia" : "IA aplicada que puedes usar hoy | Tony Ciencia"}
+	description={locale === "en"
+		? "AI and automation guides, plus ready-to-use tools: AI agents, skills and templates for ads, video and automation."
+		: "Guías de IA y automatización en español, y herramientas listas para usar: agentes, skills y plantillas para anuncios, video y automatización."}
+>
 	<!-- Arriba solo dos caminos: el Market (principal) y conocer a Tony. Todo lo demás va más abajo. -->
 	<section class="hero">
 		<div class="tc-shell">
@@ -149,7 +154,7 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 			</div>
 
 			<div class="doors">
-				<a href={locale === "en" ? "/market/en/" : "/market"} class="door door--market" data-glow>
+				<a href={locale === "en" ? "/market/en/" : "/market/"} class="door door--market" data-glow>
 					<span class="door-media door-media--market" aria-hidden="true">
 						{MARKET_COVERS.map((slug, i) => (
 							<img src={marketCover(slug)} alt="" width="800" height="500" class={`door-cover door-cover--${i + 1}`} fetchpriority={i === 0 ? "high" : undefined} />

@@ -69,7 +69,11 @@ const altLocale = getAlternateLocale(locale);
 const t = useTranslations(locale);
 const hasTranslation = !languageFallback;
 const altPath = languageFallback || alternatePath || getLocalePath(Astro.url.pathname, altLocale);
-const canonicalUrl = canonical || new URL(Astro.url.pathname, Astro.site || Astro.url.origin).href;
+// La portada inglesa responde en /en y en /en/: una sola canónica (/en/, la del sitemap y del hreflang de /).
+// El resto del blog todavía acepta las dos formas (con y sin barra); ver docs/ux/propuesta-2026-11-01/seo-revision-v6.md (H14).
+const canonicalPath = Astro.url.pathname === "/en" ? "/en/" : Astro.url.pathname;
+const canonicalUrl = canonical || new URL(canonicalPath, Astro.site || Astro.url.origin).href;
+const defaultOgImage = new URL("/assets/og-default.webp", Astro.site ?? Astro.url.origin).href;
 const altUrl = new URL(altPath, Astro.site || Astro.url.origin).href;
 const xDefaultUrl = locale === "en" && hasTranslation ? altUrl : canonicalUrl;
 
@@ -98,13 +102,13 @@ const navItems = [
 	{ href: locale === "en" ? "/en/posts" : "/posts", label: t("nav.blog") },
 	{ href: locale === "en" ? "/en/services" : "/servicios", label: t("nav.services") },
 	...(locale === "es" ? [{ href: "/herramientas", label: "Herramientas" }] : []),
-	{ href: locale === "en" ? "/market/en/" : "/market", label: "Market", market: true },
+	{ href: locale === "en" ? "/market/en/" : "/market/", label: "Market", market: true },
 	{ href: locale === "en" ? "/en/about" : "/about", label: t("nav.aboutMe") },
 	{ href: locale === "en" ? "/en/contact" : "/contacto", label: t("nav.contact") },
 ];
 const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 const isActive = (href: string) => currentPath === href || currentPath.startsWith(`${href}/`);
-const homeHref = locale === "en" ? "/en" : "/";
+const homeHref = locale === "en" ? "/en/" : "/";
 ---
 
 <!doctype html>
@@ -130,7 +134,7 @@ const homeHref = locale === "en" ? "/en" : "/";
 		<meta property="og:url" content={canonicalUrl} />
 		<meta property="og:locale" content={locale === "en" ? "en_US" : "es_ES"} />
 		<meta property="og:locale:alternate" content={locale === "en" ? "es_ES" : "en_US"} />
-		<meta property="og:image" content={image ?? `${Astro.site ?? Astro.url.origin}/assets/og-default.webp`} />
+		<meta property="og:image" content={image ?? defaultOgImage} />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
 		<meta property="og:image:alt" content={`${title} — Tony Ciencia`} />
@@ -139,7 +143,7 @@ const homeHref = locale === "en" ? "/en" : "/";
 		<meta name="twitter:site" content="@tonyciencia" />
 		<meta name="twitter:title" content={pageTitle ?? title} />
 		<meta name="twitter:description" content={description ?? ""} />
-		<meta name="twitter:image" content={image ?? `${Astro.site ?? Astro.url.origin}/assets/og-default.webp`} />
+		<meta name="twitter:image" content={image ?? defaultOgImage} />
 		<link rel="icon" href={siteFavicon || "/favicon.ico"} sizes="any" />
 		<link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
 		<link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
@@ -189,7 +193,7 @@ const homeHref = locale === "en" ? "/en" : "/";
 							</a>
 						)
 					}
-					<a href={locale === "en" ? "/market/en/" : "/market"} class="nav-cta" aria-current={currentPath.startsWith("/market") ? "page" : undefined}>
+					<a href={locale === "en" ? "/market/en/" : "/market/"} class="nav-cta" aria-current={currentPath.startsWith("/market") ? "page" : undefined}>
 						<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 						<span>Market</span>
 					</a>

@@ -8,6 +8,9 @@
 	const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 	const $ = (sel, root = document) => root.querySelector(sel);
 	const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+	// Textos de la interfaz en el idioma de la página (/market/en/… → <html lang="en">).
+	const EN = doc.lang === "en";
+	const L = (es, en) => (EN ? en : es);
 	const store = {
 		get(k) {
 			try { return localStorage.getItem(k); } catch { return null; }
@@ -39,12 +42,12 @@
 			if (couponInput && !couponInput.value) couponInput.value = code;
 			try {
 				await navigator.clipboard.writeText(code);
-				toast(`Código ${code} copiado`);
+				toast(L(`Código ${code} copiado`, `Code ${code} copied`));
 			} catch {
-				toast(`Tu código: ${code}`);
+				toast(L(`Tu código: ${code}`, `Your code: ${code}`));
 			}
 			const label = $("[data-copy-label]", btn);
-			if (label) label.textContent = "¡Copiado!";
+			if (label) label.textContent = L("¡Copiado!", "Copied!");
 		});
 	});
 
@@ -250,7 +253,7 @@
 			const ordered = [...items].sort((a, b) => num(a, "soon") - num(b, "soon") || sorter(a, b));
 			ordered.forEach((li) => grid.appendChild(li));
 			if (empty) empty.hidden = shown > 0;
-			if (count) count.textContent = `${shown} ${shown === 1 ? "producto" : "productos"}`;
+			if (count) count.textContent = `${shown} ${shown === 1 ? L("producto", "product") : L("productos", "products")}`;
 			catLinks.forEach((a) => a.setAttribute("aria-current", String((a.dataset.catFilter || "") === state.cat)));
 			// Las píldoras son excluyentes: «Todo» solo se marca sin filtro ni categoría.
 			quick.forEach((a) => {
@@ -333,11 +336,11 @@
 			const c = parse(input.value);
 			let msg = "";
 			let ok = true;
-			if (c === null) (ok = false), (msg = "Escribe un monto válido");
-			else if (c < min) (ok = false), (msg = `Mínimo ${fmt(min)}`);
-			else if (c > max) (ok = false), (msg = `Máximo ${fmt(max)}`);
-			else if (c > 0 && c < 50) (ok = false), (msg = "Con tarjeta, desde $0.50 (o 0 = gratis)");
-			submit.textContent = !ok ? msg : c === 0 ? "Descargar gratis" : `Continuar con ${fmt(c)}`;
+			if (c === null) (ok = false), (msg = L("Escribe un monto válido", "Enter a valid amount"));
+			else if (c < min) (ok = false), (msg = `${L("Mínimo", "Minimum")} ${fmt(min)}`);
+			else if (c > max) (ok = false), (msg = `${L("Máximo", "Maximum")} ${fmt(max)}`);
+			else if (c > 0 && c < 50) (ok = false), (msg = L("Con tarjeta, desde $0.50 (o 0 = gratis)", "By card, from $0.50 (or 0 = free)"));
+			submit.textContent = !ok ? msg : c === 0 ? L("Descargar gratis", "Download for free") : `${L("Continuar con", "Continue with")} ${fmt(c)}`;
 			submit.disabled = !ok;
 			input.setAttribute("aria-invalid", String(!ok));
 			presets.forEach((b) => b.classList.toggle("is-active", parse(b.dataset.amount) === c));

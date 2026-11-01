@@ -8,7 +8,7 @@ import { CsrfField } from "./layout";
 import { BRANDS, type CompatItem } from "../lib/brands";
 import { BrandLogo, CATEGORY_ICON, Icon, type IconName } from "./icons";
 import { Description } from "./render";
-import { categoryLabelIn, productPath, salesLabel, storeRoot, t as tl, useLang, useT, type Lang } from "../lib/i18n";
+import { badgeLabelIn, categoryLabelIn, productPath, salesLabel, storeRoot, t as tl, useLang, useT, type Lang } from "../lib/i18n";
 
 // ── Piezas comunes ───────────────────────────────────────────────────
 
@@ -194,6 +194,13 @@ const searchText = (p: ShopProduct) => [p.title, p.tagline, p.summary, ...p.tags
  */
 export const ANIMATED_COVERS = new Set(["anuncios-infinitos", "specreel", "specreel-stick", "pagespeed-forensics", "cutpilot", "motor-creativo-claude-code"]);
 
+/**
+ * Versión liviana (800 px) de una portada del market: products/<slug>/[en/]cover.webp → cover-800.webp.
+ * `scripts/make-cover-variants.mjs` la genera para cada cover.webp; las imágenes del admin no la tienen.
+ */
+export const cover800 = (src: string): string | null =>
+	/^\/market\/static\/products\/[a-z0-9-]+\/(?:en\/)?cover\.webp$/.test(src) ? src.replace(/cover\.webp$/, "cover-800.webp") : null;
+
 /** Nombre corto del producto (antes de los dos puntos), para tarjetas y migas. */
 export const shortName = (title: string) => (title.split(":")[0] ?? title).trim();
 
@@ -281,7 +288,8 @@ export const ProductCard: FC<{ p: ShopProduct; maxSales: number; welcome: Welcom
 							decoding={eager ? undefined : "async"}
 							srcset={ANIMATED_COVERS.has(p.slug) && cover.src.endsWith("cover.webp") ? `${cover.src.replace(/cover\.webp$/, "cover-800.webp")} 800w, ${cover.src} 1600w` : undefined}
 							sizes={ANIMATED_COVERS.has(p.slug) && cover.src.endsWith("cover.webp") ? "(min-width: 1120px) 360px, (min-width: 720px) 50vw, 100vw" : undefined}
-							data-anim={ANIMATED_COVERS.has(p.slug) && cover.src.endsWith("cover.webp") ? cover.src.replace(/cover\.webp$/, "cover-animada.webp") : undefined}
+							// Animada de 800 px (no la de 1600): market.js quita srcset/sizes al cambiar, así que va el tamaño de la tarjeta.
+							data-anim={ANIMATED_COVERS.has(p.slug) && cover.src.endsWith("cover.webp") ? cover.src.replace(/cover\.webp$/, "cover-animada-800.webp") : undefined}
 						/>
 					) : (
 						<span class="mk3-media-empty" aria-hidden="true"></span>
@@ -421,7 +429,7 @@ export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query, 
 		<>
 			<section class="tc-shell mk5-catalog" id="catalogo" aria-labelledby="catalogo-titulo">
 				<div class="mk5-intro">
-					<h1 id="catalogo-titulo">{tr("Mi stack de herramientas")}</h1>
+					<h1 id="catalogo-titulo">{tr("Mi stack de herramientas de IA")}</h1>
 					<p>{tr("Agentes y skills de IA en español para anuncios, video y SEO · pago único · descarga inmediata")}</p>
 				</div>
 				<form class="mk3-toolbar" method="get" action={`${storeRoot(lang)}#catalogo`} data-catalog-form>
@@ -490,6 +498,8 @@ export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query, 
 					<p class="mk-alert">{tr("Todavía no hay productos publicados. Vuelve pronto.")}</p>
 				) : (
 					<>
+						{/* H2 para no saltar de H1 a los H3 de las tarjetas (orden de encabezados). */}
+						<h2 class="mk-visually-hidden">{tr("Productos")}</h2>
 						<ul class="mk5-grid" data-filter-grid>
 							{/* El filtro del servidor (sin JS) oculta lo que no coincide; market.js filtra y ordena al instante. */}
 							{ordered.map((p, i) => (
@@ -636,7 +646,8 @@ const GoogleIcon = () => (
 export const LoginButton: FC<{ next: string; mode: "mock" | "live"; label?: string }> = ({ next, mode, label }) => {
 	const tr = useT();
 	return (
-		<a class="tc-btn tc-btn--primary mk-btn-block" href={`/market/auth/start?next=${encodeURIComponent(next)}`}>
+		// nofollow: /market/auth/start redirige a Google, escribe en D1 y tiene límite por IP (robots.txt también lo bloquea).
+		<a class="tc-btn tc-btn--primary mk-btn-block" href={`/market/auth/start?next=${encodeURIComponent(next)}`} rel="nofollow">
 			{mode === "live" ? <GoogleIcon /> : null}
 			{label ?? (mode === "live" ? tr("Continuar con Google") : "Entrar con usuario de prueba (maqueta)")}
 		</a>
@@ -738,13 +749,13 @@ const BuyActions: FC<ProductViewProps> = ({ product, loggedIn, owned, csrf, mode
 			<form method="post" action={`${productUrl(product.slug)}/avisame`} class="mk-form" data-waitlist>
 				<CsrfField csrf={csrf} />
 				<div class="mk-field">
-					<label for="aviso-email">Avísame cuando salga</label>
-					<input id="aviso-email" type="email" name="email" required maxlength={254} autocomplete="email" placeholder="tu@correo.com" value={userEmail ?? undefined} />
+					<label for="aviso-email">{tr("Avísame cuando salga")}</label>
+					<input id="aviso-email" type="email" name="email" required maxlength={254} autocomplete="email" placeholder={tr("tu@correo.com")} value={userEmail ?? undefined} />
 				</div>
 				<button type="submit" class="tc-btn tc-btn--primary mk-btn-block mk-btn-glow">
-					Unirme a la lista de espera
+					{tr("Unirme a la lista de espera")}
 				</button>
-				<p class="mk-muted">Gratis y sin compromiso. Solo te escribimos para avisarte del lanzamiento.</p>
+				<p class="mk-muted">{tr("Gratis y sin compromiso. Solo te escribimos para avisarte del lanzamiento.")}</p>
 			</form>
 		);
 	}
@@ -769,7 +780,7 @@ const BuyActions: FC<ProductViewProps> = ({ product, loggedIn, owned, csrf, mode
 				<p class="mk3-pwyw-label">{tr("Tú eliges el precio")}</p>
 				<div class="mk3-presets" role="group" aria-label={tr("Montos rápidos")}>
 					{pwywPresets(product).map((v) => (
-						<a class={`mk3-preset ${v === suggested ? "is-on" : ""}`} href={login(v)} aria-label={`${tr("Elegir precio")}: ${formatPrice(v, product.currency)}`}>
+						<a class={`mk3-preset ${v === suggested ? "is-on" : ""}`} href={login(v)} rel="nofollow" aria-label={`${tr("Elegir precio")}: ${formatPrice(v, product.currency)}`}>
 							{amount(v, product.currency)}
 						</a>
 					))}
@@ -926,6 +937,9 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 										alt={img.alt}
 										width="1600"
 										height="1000"
+										// La principal (LCP) en 800 o 1600 px según el hueco; las del admin no tienen versión de 800.
+										srcset={i === 0 && cover800(img.src) ? `${cover800(img.src)} 800w, ${img.src} 1600w` : undefined}
+										sizes={i === 0 && cover800(img.src) ? "(min-width: 921px) 55vw, 100vw" : undefined}
 										loading={i === 0 ? "eager" : "lazy"}
 										fetchpriority={i === 0 ? "high" : undefined}
 										decoding={i === 0 ? undefined : "async"}
@@ -961,7 +975,7 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 
 					<div class="mk-info">
 						<div class="mk-info-sticky">
-							<BadgeList badges={cardBadges(product, maxSales).map((b) => ({ ...b, label: lang === "en" ? tr(b.label.replace("OFERTA", "SALE")) : b.label }))} />
+							<BadgeList badges={cardBadges(product, maxSales).map((b) => ({ ...b, label: lang === "en" ? badgeLabelIn(lang, tr(b.label.replace("OFERTA", "SALE"))) : b.label }))} />
 							<h1>
 								{shortName(product.title)}
 								{product.title.includes(":") && (

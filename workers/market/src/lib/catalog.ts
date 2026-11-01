@@ -35,6 +35,21 @@ export function badgesFor(p: ShopProduct, maxSales: number, now = Date.now()): B
 	return out;
 }
 
+/**
+ * «Completa tu kit»: misma categoría primero y después el resto. Cada lista rota según la posición de la ficha en el
+ * catálogo, para que todas las fichas reciban enlaces desde otras (antes las primeras del catálogo se los llevaban
+ * todos y Creative Factory no recibía ninguno).
+ */
+export function pickRelated<T extends { id: string; category: string }>(all: T[], id: string, n = 3): T[] {
+	const self = all.find((p) => p.id === id);
+	const pos = Math.max(0, all.findIndex((p) => p.id === id));
+	const rotate = (list: T[]) => (list.length ? [...list.slice(pos % list.length), ...list.slice(0, pos % list.length)] : list);
+	const others = all.filter((p) => p.id !== id);
+	const same = others.filter((p) => p.category === self?.category);
+	const rest = others.filter((p) => p.category !== self?.category);
+	return [...rotate(same), ...rotate(rest)].slice(0, n);
+}
+
 /** Precio con un cupón de porcentaje, redondeado como lo hace Stripe para una sola línea. */
 export function priceWithPercentOff(cents: number, percentOff: number): number {
 	return cents - Math.round((cents * percentOff) / 100);

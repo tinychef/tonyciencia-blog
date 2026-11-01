@@ -4,7 +4,7 @@ import { raw } from "hono/html";
 import type { ContentfulStatusCode } from "hono/utils/http-status";
 import type { Ctx } from "../context";
 import { Layout, type PageMeta } from "./layout";
-import { LangContext, langFromPath } from "../lib/i18n";
+import { LangContext, langFromPath, storeRoot, t } from "../lib/i18n";
 
 /** Respeta el tema elegido en el sitio (cookie "scheme" del blog); oscuro por defecto, como el sitio. */
 function themeFrom(c: Ctx): "light" | "dark" {
@@ -33,7 +33,10 @@ export function render(c: Ctx, meta: PageMeta, body: Child, status: ContentfulSt
 	);
 }
 
-/** Página de mensaje simple (errores, avisos). */
+/**
+ * Página de mensaje simple (errores, avisos). Los textos se escriben en español y se traducen con `t()` en
+ * /market/en/… (lo que no tenga traducción sale tal cual).
+ */
 export function renderMessage(
 	c: Ctx,
 	status: ContentfulStatusCode,
@@ -41,16 +44,18 @@ export function renderMessage(
 	message: string,
 	action?: { href: string; label: string },
 ) {
+	const lang = langFromPath(c.req.path);
+	const tr = (es: string) => t(lang, es);
 	return render(
 		c,
-		{ title, path: c.req.path, noindex: true },
+		{ title: tr(title), path: c.req.path, noindex: true },
 		<div class="mk-narrow mk-stack">
-			<p class="tc-eyebrow">{status >= 400 ? `Error ${status}` : "Aviso"}</p>
-			<h1 style="font-size: var(--font-size-2xl)">{title}</h1>
-			<p class="mk-lead">{message}</p>
+			<p class="tc-eyebrow">{status >= 400 ? `Error ${status}` : tr("Aviso")}</p>
+			<h1 style="font-size: var(--font-size-2xl)">{tr(title)}</h1>
+			<p class="mk-lead">{tr(message)}</p>
 			<p>
-				<a class="tc-btn tc-btn--secondary" href={action?.href ?? "/market"}>
-					{action?.label ?? "Volver al catálogo"}
+				<a class="tc-btn tc-btn--secondary" href={action?.href ?? storeRoot(lang)}>
+					{tr(action?.label ?? "Volver al catálogo")}
 				</a>
 			</p>
 		</div>,

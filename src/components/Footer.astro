@@ -62,17 +62,20 @@ const serviceLinks = locale === "en"
   ? [...externalServices, { label: "Custom AI agents", url: "/market/agentes-para-empresas" }, { label: "AI Resources", url: "/en/resources" }]
   : [...externalServices, { label: "Agentes a medida", url: "/market/agentes-para-empresas" }, { label: "Recursos IA", url: "/recursos-ia" }];
 
-// Market Tony (tienda en español, Worker aparte en /market).
+// Market Tony (Worker aparte en /market/; catálogo en inglés en /market/en/). Siempre con barra final: es la URL
+// canónica del catálogo y /market?… no llega al Worker en producción.
+const marketRoot = locale === "en" ? "/market/en/" : "/market/";
 const marketLinks = locale === "en"
   ? [
-      { label: "Market Tony", url: "/market" },
-      { label: "AI agents & skills", url: "/market#catalogo" },
-      { label: "My purchases", url: "/market/mis-compras" },
+      { label: "Market Tony", url: marketRoot, hreflang: undefined },
+      { label: "AI agents & skills", url: `${marketRoot}#catalogo`, hreflang: undefined },
+      // "Mis compras" solo existe en español.
+      { label: "My purchases", url: "/market/mis-compras", hreflang: "es" },
     ]
   : [
-      { label: "Market Tony", url: "/market" },
-      { label: "Agentes y skills de IA", url: "/market#catalogo" },
-      { label: "Mis compras", url: "/market/mis-compras" },
+      { label: "Market Tony", url: marketRoot, hreflang: undefined },
+      { label: "Agentes y skills de IA", url: `${marketRoot}#catalogo`, hreflang: undefined },
+      { label: "Mis compras", url: "/market/mis-compras", hreflang: undefined },
     ];
 
 const resourceLinks = locale === "en"
@@ -126,7 +129,7 @@ const year = new Date().getFullYear();
         <p class="newsletter-desc">{t("footer.newsletter.desc")}</p>
         <div class="footer-ctas">
           <a href={locale === "en" ? "/en/contact" : "/contacto"} class="newsletter-cta-btn">{locale === "en" ? "Get in touch" : "Contáctanos"}</a>
-          <a href="/market" class="newsletter-cta-btn newsletter-cta-btn--ghost" hreflang={locale === "en" ? "es" : undefined}>{locale === "en" ? "Visit the Market" : "Ir al Market"} →</a>
+          <a href={marketRoot} class="newsletter-cta-btn newsletter-cta-btn--ghost">{locale === "en" ? "Visit the Market" : "Ir al Market"} →</a>
         </div>
       </div>
     </div>
@@ -166,7 +169,7 @@ const year = new Date().getFullYear();
         <h4 class="footer-col-title">Market</h4>
         <ul class="footer-col-links">
           {marketLinks.map((link) => (
-            <li><a href={link.url} hreflang={locale === "en" ? "es" : undefined}>{link.label}</a></li>
+            <li><a href={link.url} hreflang={link.hreflang}>{link.label}</a></li>
           ))}
         </ul>
       </div>
