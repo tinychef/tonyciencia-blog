@@ -23,7 +23,11 @@ su procedimiento. El código del market vive en `workers/market/` (Worker de Clo
 3. **Datos reales en producción**: la base D1 es la fuente de verdad. Los cambios masivos van por migración
    versionada con guardas (no pisar lo que el dueño editó en `/market/admin`). Nunca consultes ni modifiques D1 de
    producción a mano.
-4. **Pagos**: precios en centavos; Stripe cobra entre USD 0.50 y 999,999.99; USD 0 se entrega sin Stripe. El cupón de
+4. **Precio de lanzamiento (regla dura del dueño, 2026-11-01)**: todo producto nuevo sale a precio fijo por encima de
+   USD 77, sin tachado. La oferta (`compare_at_cents` = ese precio) se pone solo cuando estuvo vigente de verdad al
+   menos 30 días seguidos sin bajar; en la revisión semanal, propón la oferta de los productos que ya cumplen 30 días.
+   Si el dueño pide otro precio para un producto concreto, manda lo que pidió (excepción: Stick a USD 36.90).
+   **Pagos**: precios en centavos; Stripe cobra entre USD 0.50 y 999,999.99; USD 0 se entrega sin Stripe. El cupón de
    bienvenida es solo para la primera compra y solo en precio fijo. No toques claves ni secretos.
 5. **Todo pasa por PR** con `pnpm typecheck && pnpm test && pnpm test:migration` en verde y la auditoría
    (`node scripts/audit-catalog.mjs`) sin errores. Al hacer merge a `main` el CI despliega solo.

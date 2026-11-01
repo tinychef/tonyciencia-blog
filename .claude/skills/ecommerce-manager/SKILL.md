@@ -57,6 +57,12 @@ Próximamente"). Nunca `DELETE` de productos con pedidos: para retirar uno, `act
 
 ## 3. Precios y ofertas
 
+- **Lanzamiento (regla dura, 2026-11-01)**: producto nuevo = precio fijo > USD 77 (`price_cents` ≥ 7701, por ejemplo
+  7790), `compare_at_cents = NULL`. Anota la fecha de lanzamiento en el resumen del PR. Pasados 30 días seguidos a ese
+  precio (sin bajarlo, ni con cupón general), la oferta usa ese precio como `compare_at_cents`. Antes de 30 días, o si
+  el precio bajó en ese tiempo, no hay tachado. Fuente: el «precio anterior» de la UE es el más bajo de los 30 días
+  previos (Directiva 98/6/CE, art. 6 bis) y Google exige que el precio original se haya cobrado.
+
 - Oferta: `compare_at_cents` = precio anterior real; la tienda calcula el % y el ahorro, muestra OFERTA, el tachado
   en tarjeta, ficha, barra móvil y checkout de Stripe, y publica `sale_price` en el feed y `StrikethroughPrice` en el
   JSON-LD. Sin precio anterior real, no hay oferta.
