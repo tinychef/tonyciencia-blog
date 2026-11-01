@@ -42,7 +42,7 @@ export function createAdapters(config: Config, env: Env): Adapters {
 			taxEnabled: config.stripeTaxEnabled,
 			taxCode: config.stripeTaxCode,
 		}),
-		storage: new R2FileStorage(env.MARKET_FILES!, config.sessionSecret, config.origin, config.r2Presign),
+		storage: new R2FileStorage(env.MARKET_FILES!, config.sessionSecret, config.origin),
 		email,
 		emailFallback:
 			config.emailFallback === "resend" && config.emailProvider !== "resend" ? new ResendEmailSender(config.resendApiKey!) : null,

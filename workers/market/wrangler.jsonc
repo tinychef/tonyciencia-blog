@@ -27,8 +27,7 @@
 		"EMAIL_REPLY_TO": "business@tonyciencia.com",
 		"STRIPE_TAX_ENABLED": "false",
 		"ALLOW_LIVE_PAYMENTS": "false",
-		"DOWNLOAD_URL_TTL_SECONDS": "300",
-		"EMAIL_LINK_TTL_DAYS": "14",
+		"DOWNLOAD_URL_TTL_SECONDS": "120",
 		// Popup "10 % en tu primera compra". Solo aparece si el proveedor de pagos da el código por válido.
 		"WELCOME_COUPON": "TONYCIENCIA",
 		// "true": el cron crea en Stripe (si falta) el cupón del 10 % "once" + el código, con metadata market=true.
@@ -67,8 +66,7 @@
 				"EMAIL_REPLY_TO": "business@tonyciencia.com",
 				"STRIPE_TAX_ENABLED": "false",
 				"ALLOW_LIVE_PAYMENTS": "false",
-				"DOWNLOAD_URL_TTL_SECONDS": "300",
-				"EMAIL_LINK_TTL_DAYS": "14",
+				"DOWNLOAD_URL_TTL_SECONDS": "120",
 				"WELCOME_COUPON": "TONYCIENCIA",
 				"WELCOME_COUPON_AUTOCREATE": "true",
 				"WELCOME_COUPON_PERCENT": "10",
@@ -101,8 +99,7 @@
 				"STRIPE_TAX_ENABLED": "false",
 				// Staging solo acepta claves sk_test_: dejar en "false".
 				"ALLOW_LIVE_PAYMENTS": "false",
-				"DOWNLOAD_URL_TTL_SECONDS": "300",
-				"EMAIL_LINK_TTL_DAYS": "14",
+				"DOWNLOAD_URL_TTL_SECONDS": "120",
 				"WELCOME_COUPON": "TONYCIENCIA",
 				"WELCOME_COUPON_AUTOCREATE": "true",
 				"WELCOME_COUPON_PERCENT": "10",
@@ -141,8 +138,7 @@
 				"STRIPE_TAX_ENABLED": "false",
 				// "true": el dueño aprobó cobrar de verdad con la clave sk_live (2026-10-29).
 				"ALLOW_LIVE_PAYMENTS": "true",
-				"DOWNLOAD_URL_TTL_SECONDS": "300",
-				"EMAIL_LINK_TTL_DAYS": "14",
+				"DOWNLOAD_URL_TTL_SECONDS": "120",
 				"WELCOME_COUPON": "TONYCIENCIA",
 				"WELCOME_COUPON_AUTOCREATE": "true",
 				"WELCOME_COUPON_PERCENT": "10",

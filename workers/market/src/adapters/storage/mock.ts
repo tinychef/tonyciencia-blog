@@ -66,7 +66,7 @@ export class MockFileStorage implements FileStorage {
 		await this.db.prepare("DELETE FROM mock_files WHERE key = ?1").bind(key).run();
 	}
 
-	createDownloadUrl(key: string, fileName: string, ttlSeconds: number): Promise<string> {
-		return createWorkerSignedUrl(this.secret, this.origin, "mock", key, fileName, ttlSeconds);
+	createDownloadUrl(key: string, fileName: string, ttlSeconds: number, userId: string): Promise<string> {
+		return createWorkerSignedUrl(this.secret, this.origin, "mock", key, fileName, ttlSeconds, userId);
 	}
 }

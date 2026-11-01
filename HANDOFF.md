@@ -308,8 +308,8 @@ Referencia completa en [`workers/market/.env.example`](workers/market/.env.examp
 
 | Nombre | Tipo | Dónde |
 |---|---|---|
-| `MODE` (`mock`/`live`), `SITE_URL`, `PAYMENT_PROVIDER`, `EMAIL_PROVIDER`, `EMAIL_FALLBACK_PROVIDER`, `EMAIL_FROM`, `EMAIL_REPLY_TO`, `STRIPE_TAX_ENABLED`, `STRIPE_TAX_CODE`, `ALLOW_LIVE_PAYMENTS`, `DOWNLOAD_URL_TTL_SECONDS`, `EMAIL_LINK_TTL_DAYS` | variable | `wrangler.jsonc` → `env.<entorno>.vars` |
-| `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `SESSION_SECRET`, `ADMIN_EMAIL`, `ADMIN_COPY_EMAIL`, `RESEND_API_KEY` (si se usa), `R2_ACCESS_KEY_ID`/`R2_SECRET_ACCESS_KEY`/`R2_ACCOUNT_ID` (opcionales) | secreto | `pnpm wrangler secret put NOMBRE --env <entorno>` |
+| `MODE` (`mock`/`live`), `SITE_URL`, `PAYMENT_PROVIDER`, `EMAIL_PROVIDER`, `EMAIL_FALLBACK_PROVIDER`, `EMAIL_FROM`, `EMAIL_REPLY_TO`, `STRIPE_TAX_ENABLED`, `STRIPE_TAX_CODE`, `ALLOW_LIVE_PAYMENTS`, `DOWNLOAD_URL_TTL_SECONDS` | variable | `wrangler.jsonc` → `env.<entorno>.vars` |
+| `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `SESSION_SECRET`, `ADMIN_EMAIL`, `ADMIN_COPY_EMAIL`, `RESEND_API_KEY` (si se usa) | secreto | `pnpm wrangler secret put NOMBRE --env <entorno>` |
 | `MARKET_DB` (D1), `MARKET_FILES` (R2 privado), `EMAIL` (send_email), `ASSETS` | binding | `wrangler.jsonc` |
 
 Blog: `PUBLIC_MARKET_URL` (opcional, por defecto `/market`) cambia el destino del botón flotante.

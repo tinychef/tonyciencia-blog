@@ -2,7 +2,6 @@ import { env } from "cloudflare:test";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { identityFromIdToken } from "../src/adapters/auth/google";
 import { signStripePayload } from "../src/adapters/payments/stripe-signature";
-import { presignUrl } from "../src/adapters/storage/presign";
 import type { Env } from "../src/env";
 import { base64UrlEncode } from "../src/lib/crypto";
 import { call, createProduct, one, uid, withCsrf, type Session } from "./helpers";
@@ -131,8 +130,12 @@ describe("modo live de punta a punta (externos simulados)", () => {
 
 		// Dos mensajes separados por Cloudflare Email Sending: cliente + copia admin.
 		expect(mail.sent.map((m) => m.to).sort()).toEqual(["copias@example.com", email].sort());
-		const link = mail.sent.find((m) => m.to === email)!.text.match(/Descargar: (\S+)/)![1]!;
+		const buyerMail = mail.sent.find((m) => m.to === email)!;
+		const link = buyerMail.text.match(/Descargar: (\S+)/)![1]!;
 		expect(link.startsWith(`${HOST}/market/descargas/`)).toBe(true);
+		// El correo no lleva llave: solo el enlace a la compra, que pide entrar con esta cuenta.
+		expect(new URL(link).search).toBe("");
+		expect(buyerMail.text).toContain(`entra con tu cuenta de Google ${email}`);
 		// Repetir el webhook no reenvía correos.
 		await live("/market/webhooks/pagos", { method: "POST", headers: { "stripe-signature": await signStripePayload("whsec_prueba_live", event) }, body: event }, e);
 		expect(mail.sent).toHaveLength(2);
@@ -143,32 +146,17 @@ describe("modo live de punta a punta (externos simulados)", () => {
 		expect(dl.status).toBe(303);
 		const fileUrl = new URL(dl.headers.get("location")!);
 		expect(fileUrl.origin).toBe(HOST);
-		const file = await live(fileUrl.pathname, {}, e);
+		// La URL del archivo solo sirve con la sesión de quien compró.
+		expect((await live(fileUrl.pathname, {}, e)).status).toBe(403);
+		const file = await live(fileUrl.pathname, { headers: { cookie: s.cookie } }, e);
 		expect(file.status).toBe(200);
 		expect(await file.text()).toBe("CONTENIDO DEL ZIP EN R2");
 
-		// El enlace del correo también funciona (misma lógica) y suma al contador.
-		const t = new URL(link).searchParams.get("t")!;
-		const viaEmail = await live(`/market/descargas/${ent.id}`, { method: "POST", headers: { origin: HOST, "content-type": "application/x-www-form-urlencoded" }, body: new URLSearchParams({ t }) }, e);
-		expect(viaEmail.status).toBe(303);
-		expect((await one<{ download_count: number }>("SELECT download_count FROM entitlements WHERE id = ?1", ent.id))?.download_count).toBe(2);
-	});
-
-	it("con credenciales S3 de R2 la descarga usa una URL prefirmada de R2 de vida corta", async () => {
-		const { e } = liveEnv({ R2_ACCESS_KEY_ID: "AKIDPRUEBA", R2_SECRET_ACCESS_KEY: "secreto-s3", R2_ACCOUNT_ID: "cuenta123", R2_BUCKET_NAME: "tonyciencia-market-files" });
-		const key = `products/presign-${uid()}/guia.pdf`;
-		await env.MARKET_FILES!.put(key, "%PDF-");
-		const p = await createProduct({ kind: "free", fileKey: key });
-		const s = await googleLogin(e, `presign-${uid()}@example.com`);
-		await form(`/market/producto/${p.slug}/obtener`, s, {}, e);
-		const ent = (await one<{ id: string }>("SELECT e.id FROM entitlements e JOIN users u ON u.id = e.user_id WHERE u.email = ?1", s.email))!;
-		const dl = await form(`/market/descargas/${ent.id}`, s, {}, e);
-		const u = new URL(dl.headers.get("location")!);
-		expect(u.host).toBe("cuenta123.r2.cloudflarestorage.com");
-		expect(u.pathname).toBe(`/tonyciencia-market-files/${key}`);
-		expect(u.searchParams.get("X-Amz-Expires")).toBe("300");
-		expect(u.searchParams.get("response-content-disposition")).toBe('attachment; filename="archivo-de-prueba.bin"');
-		expect(u.searchParams.get("X-Amz-Signature")).toMatch(/^[0-9a-f]{64}$/);
+		// Quien recibe el correo reenviado no descarga: el enlace lo manda a iniciar sesión.
+		const forwarded = await live(new URL(link).pathname, {}, e);
+		expect(forwarded.status).toBe(303);
+		expect(forwarded.headers.get("location")).toMatch(/^\/market\/entrar\?next=/);
+		expect((await one<{ download_count: number }>("SELECT download_count FROM entitlements WHERE id = ?1", ent.id))?.download_count).toBe(1);
 	});
 
 	it("el admin (solo ADMIN_EMAIL) sube el ZIP a R2 y activa el producto", async () => {
@@ -216,17 +204,3 @@ describe("validación del id_token de Google", () => {
 	});
 });
 
-describe("URL prefirmada SigV4", () => {
-	it("coincide con el vector oficial de AWS (GET object, query auth)", async () => {
-		const url = await presignUrl({
-			host: "examplebucket.s3.amazonaws.com",
-			path: "/test.txt",
-			region: "us-east-1",
-			accessKeyId: "AKIAIOSFODNN7EXAMPLE",
-			secretAccessKey: "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
-			expiresSeconds: 86400,
-			date: new Date("2013-05-24T00:00:00Z"),
-		});
-		expect(new URL(url).searchParams.get("X-Amz-Signature")).toBe("aeeed9bbccd4d02ee5c0109b86d86835f995330da4c265957d157751f604d404");
-	});
-});

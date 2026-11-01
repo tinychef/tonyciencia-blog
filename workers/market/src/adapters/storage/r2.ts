@@ -1,21 +1,11 @@
 import type { FileStorage, StoredObject } from "../types";
-import { presignUrl } from "./presign";
 import { createWorkerSignedUrl } from "./signed-url";
 
-export interface R2PresignConfig {
-	accessKeyId: string;
-	secretAccessKey: string;
-	accountId: string;
-	bucket: string;
-}
-
 /**
- * Archivos en R2 (bucket PRIVADO). Dos formas de URL firmada de vida corta:
- *  - por defecto: firmada por el Worker (/market/archivo/<token>), sin claves extra;
- *  - si hay credenciales S3 de R2 (R2_ACCESS_KEY_ID…): URL prefirmada directa de R2.
- *
- * ⚠ LIVE: put/get/head/delete probados contra el R2 local de Miniflare; la URL prefirmada S3
- * probada solo contra el vector oficial de AWS, NO contra R2 real (sin credenciales aquí).
+ * Archivos en R2 (bucket PRIVADO). Las descargas salen SIEMPRE por la URL firmada del Worker
+ * (/market/archivo/<token>), ligada a la cuenta que la pidió. Antes existía la opción de una URL
+ * prefirmada directa de R2 (credenciales S3): se quitó porque esa URL sirve a cualquiera que la
+ * tenga mientras no venza y no se puede atar a la sesión.
  */
 export class R2FileStorage implements FileStorage {
 	readonly name = "r2" as const;
@@ -24,7 +14,6 @@ export class R2FileStorage implements FileStorage {
 		private readonly bucket: R2Bucket,
 		private readonly secret: string,
 		private readonly origin: string,
-		private readonly presign: R2PresignConfig | null,
 	) {}
 
 	async put(key: string, data: ArrayBuffer | ReadableStream, opts: { contentType: string; size: number; sha256?: string }): Promise<void> {
@@ -54,19 +43,7 @@ export class R2FileStorage implements FileStorage {
 		await this.bucket.delete(key);
 	}
 
-	async createDownloadUrl(key: string, fileName: string, ttlSeconds: number): Promise<string> {
-		if (!this.presign) return createWorkerSignedUrl(this.secret, this.origin, "live", key, fileName, ttlSeconds);
-		return presignUrl({
-			host: `${this.presign.accountId}.r2.cloudflarestorage.com`,
-			path: `/${this.presign.bucket}/${key}`,
-			region: "auto",
-			accessKeyId: this.presign.accessKeyId,
-			secretAccessKey: this.presign.secretAccessKey,
-			expiresSeconds: ttlSeconds,
-			query: {
-				"response-content-disposition": `attachment; filename="${fileName}"`,
-				"response-content-type": "application/octet-stream",
-			},
-		});
+	createDownloadUrl(key: string, fileName: string, ttlSeconds: number, userId: string): Promise<string> {
+		return createWorkerSignedUrl(this.secret, this.origin, "live", key, fileName, ttlSeconds, userId);
 	}
 }

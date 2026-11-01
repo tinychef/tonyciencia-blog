@@ -21,7 +21,7 @@ describe("descargas: solo quien tiene el producto", () => {
 		expect(res.status).toBe(303);
 		const url = new URL(res.headers.get("location")!);
 		expect(url.pathname).toMatch(/^\/market\/archivo\//);
-		const file = await call(url.pathname);
+		const file = await call(url.pathname, { headers: { cookie: s.cookie } });
 		expect(file.status).toBe(200);
 		expect(file.headers.get("content-disposition")).toMatch(/attachment; filename="archivo-de-prueba.bin"/);
 		expect(file.headers.get("cache-control")).toBe("private, no-store");
@@ -46,26 +46,48 @@ describe("descargas: solo quien tiene el producto", () => {
 		expect((await postForm(`/market/descargas/${crypto.randomUUID()}`, s)).status).toBe(403);
 	});
 
-	it("token del correo: válido funciona; uno de OTRO acceso, falsificado o vencido → 403", async () => {
-		const a = await ownerWithFreeProduct();
-		const b = await ownerWithFreeProduct();
-		const goodForA = await signToken(MOCK_SESSION_SECRET, "dl-email", { e: a.ent.id, exp: Math.floor(Date.now() / 1000) + 3600 });
-		const expired = await signToken(MOCK_SESSION_SECRET, "dl-email", { e: a.ent.id, exp: Math.floor(Date.now() / 1000) - 10 });
-		const forged = await signToken("otro-secreto", "dl-email", { e: a.ent.id, exp: Math.floor(Date.now() / 1000) + 3600 });
-		const wrongPurpose = await signToken(MOCK_SESSION_SECRET, "file", { e: a.ent.id, exp: Math.floor(Date.now() / 1000) + 3600 });
-
-		expect((await postForm(`/market/descargas/${a.ent.id}`, null, { t: goodForA })).status).toBe(303);
-		expect((await postForm(`/market/descargas/${b.ent.id}`, null, { t: goodForA })).status).toBe(403);
-		for (const t of [expired, forged, wrongPurpose, "basura"]) {
-			expect((await postForm(`/market/descargas/${a.ent.id}`, null, { t })).status).toBe(403);
-		}
+	it("el correo reenviado NO da acceso: el enlace pide entrar con la cuenta de la compra", async () => {
+		const { ent } = await ownerWithFreeProduct();
+		// Sin sesión: al login, y de vuelta a la misma descarga.
+		const anon = await call(`/market/descargas/${ent.id}`);
+		expect(anon.status).toBe(303);
+		expect(anon.headers.get("location")).toBe(`/market/entrar?next=${encodeURIComponent(`/market/descargas/${ent.id}`)}`);
+		// Con la sesión de OTRA cuenta: 403, sin pistas de quién compró.
+		const otro = await loginMock(`reenviado-${uid()}@maqueta.test`);
+		const res = await call(`/market/descargas/${ent.id}`, { headers: { cookie: otro.cookie } });
+		expect(res.status).toBe(403);
+		expect(await res.text()).toMatch(/otra cuenta/);
+		expect((await one<{ download_count: number }>("SELECT download_count FROM entitlements WHERE id = ?1", ent.id))?.download_count).toBe(0);
 	});
 
-	it("el GET del enlace del correo no gasta descargas (escáneres de correo)", async () => {
-		const { ent } = await ownerWithFreeProduct();
-		const t = await signToken(MOCK_SESSION_SECRET, "dl-email", { e: ent.id, exp: Math.floor(Date.now() / 1000) + 3600 });
-		for (let i = 0; i < 3; i++) expect((await call(`/market/descargas/${ent.id}?t=${t}`)).status).toBe(200);
+	it("los enlaces viejos con token del correo ya no descargan (ni por GET ni por POST)", async () => {
+		const { s, ent } = await ownerWithFreeProduct();
+		const oldToken = await signToken(MOCK_SESSION_SECRET, "dl-email", { e: ent.id, exp: Math.floor(Date.now() / 1000) + 3600 });
+		// GET sin sesión → login (el token se ignora).
+		const get = await call(`/market/descargas/${ent.id}?t=${oldToken}`);
+		expect(get.status).toBe(303);
+		expect(get.headers.get("location")).toMatch(/^\/market\/entrar/);
+		// POST sin sesión, solo con el token → login; nunca una URL de archivo.
+		const post = await postForm(`/market/descargas/${ent.id}`, null, { t: oldToken });
+		expect(post.status).toBe(303);
+		expect(post.headers.get("location")).toMatch(/^\/market\/entrar/);
+		// El dueño con sesión sí llega a su compra.
+		const owner = await call(`/market/descargas/${ent.id}?t=${oldToken}`, { headers: { cookie: s.cookie } });
+		expect(owner.status).toBe(303);
+		expect(owner.headers.get("location")).toBe(`/market/mis-compras#acceso-${ent.id}`);
 		expect((await one<{ download_count: number }>("SELECT download_count FROM entitlements WHERE id = ?1", ent.id))?.download_count).toBe(0);
+	});
+
+	it("la URL del archivo es personal: sin sesión o con la sesión de otra cuenta → 403", async () => {
+		const { s, ent } = await ownerWithFreeProduct();
+		const res = await postForm(`/market/descargas/${ent.id}`, s);
+		const path = new URL(res.headers.get("location")!).pathname;
+		const anon = await call(path);
+		expect(anon.status).toBe(403);
+		expect(await anon.text()).toMatch(/personal/);
+		const otro = await loginMock(`copia-url-${uid()}@maqueta.test`);
+		expect((await call(path, { headers: { cookie: otro.cookie } })).status).toBe(403);
+		expect((await call(path, { headers: { cookie: s.cookie } })).status).toBe(200);
 	});
 
 	it("límite de descargas por compra", async () => {
@@ -83,14 +105,22 @@ describe("descargas: solo quien tiene el producto", () => {
 		expect((await postForm(`/market/descargas/${ent.id}`, s)).status).toBe(403);
 	});
 
-	it("la URL firmada de archivo vence y no se puede falsificar", async () => {
-		const expired = await createWorkerSignedUrl(MOCK_SESSION_SECRET, BASE, "mock", "mock/guia-gratis-PRUEBA.pdf", "x.pdf", -5);
-		expect((await call(new URL(expired).pathname)).status).toBe(403);
-		const forged = await createWorkerSignedUrl("secreto-falso", BASE, "mock", "mock/guia-gratis-PRUEBA.pdf", "x.pdf", 300);
-		expect((await call(new URL(forged).pathname)).status).toBe(403);
+	it("la URL firmada de archivo vence, no se puede falsificar y las viejas sin cuenta no valen", async () => {
+		const s = await loginMock(`firmas-${uid()}@maqueta.test`);
+		const userId = (await one<{ id: string }>("SELECT id FROM users WHERE email = ?1", s.email))!.id;
+		const get = (url: string) => call(new URL(url).pathname, { headers: { cookie: s.cookie } });
+		const ok = await createWorkerSignedUrl(MOCK_SESSION_SECRET, BASE, "mock", "mock/guia-gratis-PRUEBA.pdf", "x.pdf", 300, userId);
+		expect((await get(ok)).status).toBe(200);
+		const expired = await createWorkerSignedUrl(MOCK_SESSION_SECRET, BASE, "mock", "mock/guia-gratis-PRUEBA.pdf", "x.pdf", -5, userId);
+		expect((await get(expired)).status).toBe(403);
+		const forged = await createWorkerSignedUrl("secreto-falso", BASE, "mock", "mock/guia-gratis-PRUEBA.pdf", "x.pdf", 300, userId);
+		expect((await get(forged)).status).toBe(403);
 		// Un token emitido para live no sirve en mock (y viceversa).
-		const liveToken = await createWorkerSignedUrl(MOCK_SESSION_SECRET, BASE, "live", "mock/guia-gratis-PRUEBA.pdf", "x.pdf", 300);
-		expect((await call(new URL(liveToken).pathname)).status).toBe(403);
+		const liveToken = await createWorkerSignedUrl(MOCK_SESSION_SECRET, BASE, "live", "mock/guia-gratis-PRUEBA.pdf", "x.pdf", 300, userId);
+		expect((await get(liveToken)).status).toBe(403);
+		// Formato anterior (sin cuenta): ya no se acepta aunque la firma sea buena.
+		const legacy = await signToken(MOCK_SESSION_SECRET, "file", { k: "mock/guia-gratis-PRUEBA.pdf", f: "x.pdf", m: "mock", exp: Math.floor(Date.now() / 1000) + 300 });
+		expect((await call(`/market/archivo/${legacy}`, { headers: { cookie: s.cookie } })).status).toBe(403);
 	});
 
 	it("en maqueta un archivo que no es de prueba no se puede servir (no toca R2)", async () => {
@@ -101,8 +131,9 @@ describe("descargas: solo quien tiene el producto", () => {
 		const ent = (await one<{ id: string }>("SELECT e.id FROM entitlements e JOIN users u ON u.id = e.user_id WHERE u.email = ?1", s.email))!;
 		const res = await postForm(`/market/descargas/${ent.id}`, s);
 		expect(res.status).toBe(409);
-		const signed = await createWorkerSignedUrl(MOCK_SESSION_SECRET, BASE, "mock", "products/real/anuncios-infinitos.zip", "x.zip", 300);
-		const direct = await call(new URL(signed).pathname);
+		const userId = (await one<{ id: string }>("SELECT id FROM users WHERE email = ?1", s.email))!.id;
+		const signed = await createWorkerSignedUrl(MOCK_SESSION_SECRET, BASE, "mock", "products/real/anuncios-infinitos.zip", "x.zip", 300, userId);
+		const direct = await call(new URL(signed).pathname, { headers: { cookie: s.cookie } });
 		expect(direct.status).toBe(404);
 		expect(await direct.text()).not.toContain("CONTENIDO REAL");
 	});

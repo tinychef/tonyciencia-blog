@@ -15,10 +15,8 @@ export interface Env {
 	STRIPE_TAX_CODE?: string;
 	ALLOW_LIVE_PAYMENTS?: string;
 	DOWNLOAD_URL_TTL_SECONDS?: string;
-	EMAIL_LINK_TTL_DAYS?: string;
 	/** Hosts extra que cuentan como producción, separados por coma. */
 	PRODUCTION_HOSTNAMES?: string;
-	R2_BUCKET_NAME?: string;
 	/** Código de Stripe del popup "10 % en tu primera compra". El popup solo aparece si Stripe lo da por válido. */
 	WELCOME_COUPON?: string;
 	/** "true" = el cron crea en el proveedor de pagos el cupón de bienvenida si falta (idempotente). */
@@ -43,10 +41,6 @@ export interface Env {
 	ADMIN_EMAIL?: string;
 	ADMIN_COPY_EMAIL?: string;
 	RESEND_API_KEY?: string;
-	/** Opcionales: solo para URLs prefirmadas S3 de R2 (ver adapters/storage/r2.ts). */
-	R2_ACCESS_KEY_ID?: string;
-	R2_SECRET_ACCESS_KEY?: string;
-	R2_ACCOUNT_ID?: string;
 
 	// ── Bindings ──
 	MARKET_DB: D1Database;

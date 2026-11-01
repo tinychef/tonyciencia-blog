@@ -2,68 +2,53 @@ import type { Hono } from "hono";
 import { verifyFileToken } from "../adapters/storage/signed-url";
 import { clientIp, deps, type AppEnv } from "../context";
 import { hit, RATE_RULES } from "../lib/ratelimit";
-import { checkCsrf, checkOrigin } from "../lib/session";
+import { checkCsrf } from "../lib/session";
 import { isId, safeFileName } from "../lib/validate";
-import { authorizeDownload, emailTokenValid, loadEntitlement } from "../services/downloads";
-import { EmailDownloadPage } from "../views/account";
-import { render, renderMessage } from "../views/render";
+import { authorizeDownload, loadEntitlement } from "../services/downloads";
+import { renderMessage } from "../views/render";
 import { loginRedirect } from "./shop";
 
 const IMAGE_TYPES = new Set(["image/png", "image/jpeg", "image/webp", "image/gif"]);
 
 export function registerDownloads(app: Hono<AppEnv>) {
 	/**
-	 * Aterrizaje del enlace del correo. NO descarga ni gasta descargas (los escáneres de enlaces de
-	 * Gmail/Outlook abren los GET): solo muestra un botón que hace POST.
+	 * Aterrizaje del enlace del correo. Pide iniciar sesión con Google y solo muestra la compra si la
+	 * cuenta es la dueña: el correo reenviado no sirve a nadie más. NO descarga ni gasta descargas
+	 * (los escáneres de enlaces de Gmail/Outlook abren los GET). Los enlaces viejos con ?t= se tratan
+	 * igual: el token se ignora.
 	 */
 	app.get("/market/descargas/:id", async (c) => {
 		const id = c.req.param("id");
-		const token = c.req.query("t");
 		if (!isId(id)) return renderMessage(c, 404, "Enlace no válido", "Revisa el enlace o entra a Mis compras.");
-		if (!token) {
-			if (!c.get("user")) return loginRedirect(c, "/market/mis-compras");
-			return c.redirect(`/market/mis-compras#acceso-${id}`, 303);
-		}
-		// same-origin: el token de la URL no se filtra a otros sitios, y el POST conserva su Origin
-		// (con no-referrer el navegador enviaría "Origin: null" y fallaría la verificación de origen).
-		c.header("Referrer-Policy", "same-origin");
+		const user = c.get("user");
+		if (!user) return loginRedirect(c, `/market/descargas/${id}`);
 		const ent = await loadEntitlement(c.env.MARKET_DB, id);
-		if (!ent || !(await emailTokenValid(c.get("config").sessionSecret, id, token))) {
-			return renderMessage(c, 403, "Este enlace no es válido o ya venció", "Entra a Mis compras con tu cuenta de Google para descargar de nuevo.", {
-				href: "/market/mis-compras",
-				label: "Ir a Mis compras",
-			});
+		if (!ent || ent.user_id !== user.id) {
+			return renderMessage(
+				c,
+				403,
+				"Esta compra es de otra cuenta",
+				"Las descargas solo funcionan con la cuenta de Google con la que se hizo la compra. Si la compra es tuya, cierra sesión y entra con esa cuenta.",
+				{ href: "/market/mis-compras", label: "Ir a Mis compras" },
+			);
 		}
-		return render(
-			c,
-			{ title: `Descargar ${ent.title}`, path: `/market/descargas/${id}`, noindex: true },
-			<EmailDownloadPage entitlementId={id} token={token} title={ent.title} left={Math.max(0, ent.download_limit - ent.download_count)} limit={ent.download_limit} />,
-		);
+		return c.redirect(`/market/mis-compras#acceso-${id}`, 303);
 	});
 
-	/** Única puerta de descarga: botón de Mis compras (sesión) o del correo (token). */
+	/** Única puerta de descarga: el botón de Mis compras (sesión de la cuenta dueña + CSRF). */
 	app.post("/market/descargas/:id", async (c) => {
 		const id = c.req.param("id");
 		const form = await c.req.formData().catch(() => null);
-		const token = form?.get("t");
-		const viaEmail = typeof token === "string" && token.length > 0;
-		// Con token del correo basta el Origin (el token es el secreto); con sesión, además CSRF.
-		const okRequest = viaEmail ? checkOrigin(c) : await checkCsrf(c, form);
-		if (!okRequest) return renderMessage(c, 403, "Solicitud no válida", "Recarga la página e inténtalo de nuevo.");
+		if (!(await checkCsrf(c, form))) return renderMessage(c, 403, "Solicitud no válida", "Recarga la página e inténtalo de nuevo.");
 		if (!isId(id)) return renderMessage(c, 404, "Enlace no válido", "Revisa el enlace.");
 		const user = c.get("user");
-		if (!viaEmail && !user) return loginRedirect(c, "/market/mis-compras");
+		if (!user) return loginRedirect(c, `/market/descargas/${id}`);
 
 		const db = c.env.MARKET_DB;
-		const subject = user?.id ?? `ent:${id}`;
-		if (!(await hit(db, RATE_RULES.downloadUser, subject)) || !(await hit(db, RATE_RULES.downloadIp, clientIp(c)))) {
+		if (!(await hit(db, RATE_RULES.downloadUser, user.id)) || !(await hit(db, RATE_RULES.downloadIp, clientIp(c)))) {
 			return renderMessage(c, 429, "Demasiadas descargas seguidas", "Espera unos minutos y vuelve a intentarlo.");
 		}
-		const decision = await authorizeDownload(
-			deps(c),
-			id,
-			viaEmail ? { kind: "email", token: token as string } : { kind: "session", userId: user!.id },
-		);
+		const decision = await authorizeDownload(deps(c), id, user.id);
 		if (!decision.ok) {
 			const title = decision.status === 429 ? "Límite de descargas alcanzado" : decision.status === 409 ? "Archivo no disponible" : "No tienes acceso";
 			return renderMessage(c, decision.status, title, decision.message, { href: "/market/mis-compras", label: "Ir a Mis compras" });
@@ -72,7 +57,11 @@ export function registerDownloads(app: Hono<AppEnv>) {
 		return c.redirect(decision.url, 303);
 	});
 
-	/** Entrega firmada de vida corta (token HMAC con clave, nombre, modo y vencimiento). */
+	/**
+	 * Entrega firmada de vida corta (token HMAC con clave, nombre, modo, cuenta y vencimiento). Solo
+	 * entrega si la sesión del navegador es de la cuenta que pidió la descarga: la URL copiada,
+	 * pegada en otro navegador o reenviada no sirve.
+	 */
 	app.get("/market/archivo/:token", async (c) => {
 		if (!(await hit(c.env.MARKET_DB, RATE_RULES.fileFetch, clientIp(c)))) {
 			return renderMessage(c, 429, "Demasiadas descargas seguidas", "Espera unos minutos.");
@@ -81,6 +70,12 @@ export function registerDownloads(app: Hono<AppEnv>) {
 		const payload = await verifyFileToken(config.sessionSecret, c.req.param("token"));
 		if (!payload || payload.m !== config.mode) {
 			return renderMessage(c, 403, "Enlace vencido", "Este enlace de descarga duró unos minutos y ya venció. Pide uno nuevo desde Mis compras.", {
+				href: "/market/mis-compras",
+				label: "Ir a Mis compras",
+			});
+		}
+		if (c.get("user")?.id !== payload.u) {
+			return renderMessage(c, 403, "Este enlace es personal", "Solo funciona en el navegador de la cuenta que hizo la compra. Entra a Mis compras con esa cuenta para descargar.", {
 				href: "/market/mis-compras",
 				label: "Ir a Mis compras",
 			});
