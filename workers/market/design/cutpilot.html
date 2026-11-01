@@ -3,177 +3,308 @@
 <head>
 <meta charset="utf-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
 <style>
-	/* CutPilot: estudio de edición nocturno — grafito, violeta eléctrico y subtítulos lima. */
-	:root { --bg: #0c0b10; --panel: #15131c; --line: #2a2734; --fg: #f4f2fa; --mut: #8f8a9f; --vio: #9b5cff; --vio2: #c9a6ff; --lime: #d4ff3a; --red: #ff4d6d; }
+	/* CutPilot: sala de edición sobria — casi negro, blanco y un solo acento: el amarillo de la claqueta del propio
+	   panel de Chrome del producto (ui/extension/iconos). Todo es ilustración: no hay capturas ni cifras inventadas.
+	   Textos de la transcripción tomados del guion del video de prueba del repo (pipeline/crear_prueba.py).
+	   Subtítulos imitando studio/src/componentes/Subtitulos.tsx (Montserrat 900, palabra activa resaltada; en vertical,
+	   mayúsculas y píldora) y la tarjeta de lista de Graficos.tsx (panel oscuro, borde y números en el acento). */
+	:root { --bg: #0b0b0c; --panel: #141416; --panel2: #101012; --line: #27272b; --line2: #3a3a40; --fg: #f4f4f1; --mut: #a2a2a9; --dim: #6a6a72; --acc: #f4c430; --acc-ink: #1b1606; }
 	* { box-sizing: border-box; margin: 0; padding: 0; }
-	body { background: #222; }
-	.frame { width: 1600px; height: 1000px; position: relative; overflow: hidden; background: radial-gradient(1200px 700px at 85% 10%, #2a1650 0%, transparent 60%), var(--bg); color: var(--fg); font-family: "Space Grotesk", sans-serif; }
-	.mono { font-family: "JetBrains Mono", monospace; text-transform: uppercase; letter-spacing: 0.16em; }
-	.brand { position: absolute; left: 100px; top: 90px; display: flex; align-items: center; gap: 14px; font-size: 20px; font-weight: 700; }
-	.brand i { width: 34px; height: 34px; border-radius: 9px; background: var(--vio); display: grid; place-items: center; font-style: normal; font-size: 18px; }
-	.soon { position: absolute; left: 100px; top: 168px; background: var(--lime); color: #111; border-radius: 99px; padding: 8px 18px; font-family: "JetBrains Mono"; font-weight: 700; font-size: 16px; letter-spacing: 0.14em; }
-	h1, h2 { font-weight: 700; letter-spacing: -0.04em; line-height: 0.98; }
-	.cover h1 { position: absolute; left: 96px; top: 240px; font-size: 100px; width: 640px; }
-	.cover h1 em { font-style: normal; color: var(--vio2); }
-	.sub { position: absolute; left: 100px; top: 590px; width: 560px; font-size: 27px; line-height: 1.45; color: #bdb7cc; }
-	.chips { position: absolute; left: 100px; top: 770px; display: flex; gap: 12px; }
-	.chip { border: 1.5px solid var(--line); border-radius: 10px; padding: 12px 18px; font-size: 18px; font-weight: 500; background: rgba(255,255,255,0.02); }
-	.legal { position: absolute; left: 100px; bottom: 44px; font-size: 13px; color: #5d586b; }
-	.editor { position: absolute; right: 70px; top: 90px; width: 820px; height: 820px; background: var(--panel); border: 1.5px solid var(--line); border-radius: 22px; box-shadow: 0 40px 120px rgba(80, 30, 160, 0.35); overflow: hidden; }
-	.ebar { height: 50px; border-bottom: 1.5px solid var(--line); display: flex; align-items: center; gap: 9px; padding: 0 20px; }
-	.ebar i { width: 12px; height: 12px; border-radius: 50%; background: #3a3646; }
-	.ebar span { margin-left: 14px; font-family: "JetBrains Mono"; font-size: 13px; color: var(--mut); letter-spacing: 0.08em; }
-	.preview { margin: 22px; height: 400px; border-radius: 14px; background: linear-gradient(135deg, #3b2370, #1a1630 55%, #0f2a3a); position: relative; overflow: hidden; }
-	.person { position: absolute; left: 50%; bottom: -10px; transform: translateX(-50%); width: 300px; }
-	.capt { position: absolute; left: 0; right: 0; bottom: 46px; z-index: 1; text-align: center; font-weight: 700; font-size: 38px; letter-spacing: -0.02em; text-shadow: 0 3px 0 #000; }
-	.capt b { color: var(--lime); }
-	.rec { position: absolute; left: 18px; top: 16px; font-family: "JetBrains Mono"; font-size: 13px; color: #fff; display: flex; gap: 8px; align-items: center; }
-	.rec::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--red); }
-	.tracks { margin: 0 22px; display: grid; gap: 10px; }
-	.track { display: grid; grid-template-columns: 70px 1fr; gap: 12px; align-items: center; font-family: "JetBrains Mono"; font-size: 12px; color: var(--mut); }
-	.lane { height: 46px; border-radius: 8px; background: #1d1a26; position: relative; overflow: hidden; display: flex; gap: 3px; padding: 5px; }
-	.seg { border-radius: 5px; background: linear-gradient(180deg, #7c46e6, #5b2fb8); position: relative; overflow: hidden; }
-	.seg::after { content: ""; position: absolute; inset: 9px 4px; background: repeating-linear-gradient(90deg, rgba(255,255,255,0.55) 0 2px, transparent 2px 5px); mask: linear-gradient(180deg, transparent, #000 30%, #000 70%, transparent); opacity: 0.7; }
-	.cut { border-radius: 5px; background: repeating-linear-gradient(-45deg, rgba(255,77,109,0.55) 0 6px, rgba(255,77,109,0.15) 6px 12px); border: 1px dashed var(--red); }
-	.caps .seg { background: #2c3a10; }
-	.caps .seg::after { background: none; }
-	.caps .seg span { position: absolute; inset: 0; display: grid; place-items: center; color: var(--lime); font-size: 11px; font-family: "JetBrains Mono"; }
-	.playhead { position: absolute; top: 470px; bottom: 140px; left: 460px; width: 2px; background: var(--lime); }
-	.playhead::before { content: ""; position: absolute; top: -6px; left: -6px; border: 7px solid transparent; border-top-color: var(--lime); }
-	.estats { position: absolute; left: 22px; right: 22px; bottom: 22px; display: flex; gap: 10px; }
-	.estats div { flex: 1; border: 1.5px solid var(--line); border-radius: 12px; padding: 12px 14px; }
-	.estats b { display: block; font-size: 30px; letter-spacing: -0.03em; }
-	.estats span { font-family: "JetBrains Mono"; font-size: 11px; color: var(--mut); letter-spacing: 0.1em; text-transform: uppercase; }
-	.vphone { position: absolute; right: 30px; top: 190px; width: 230px; height: 420px; border-radius: 26px; border: 3px solid #2f2b3a; background: linear-gradient(160deg, #3b2370, #12202b); overflow: hidden; box-shadow: -30px 30px 80px rgba(0,0,0,0.6); }
-	.vphone .person { width: 250px; }
-	.vphone .capt { font-size: 22px; bottom: 60px; }
-	.vphone .tag { position: absolute; top: 14px; left: 14px; font-family: "JetBrains Mono"; font-size: 11px; background: rgba(0,0,0,0.5); padding: 4px 8px; border-radius: 6px; }
+	body { background: #333; }
+	.frame { width: 1600px; height: 1000px; position: relative; overflow: hidden; color: var(--fg); font-family: "Geist", sans-serif;
+		background: radial-gradient(900px 640px at 78% 40%, rgba(244, 196, 48, 0.05), transparent 65%), var(--bg); }
+	.mono { font-family: "Geist Mono", monospace; }
+	.eyebrow { position: absolute; left: 100px; display: flex; align-items: center; gap: 14px; font-family: "Geist Mono"; font-size: 18px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; }
+	.eyebrow svg { width: 22px; height: 16px; display: block; }
+	.eyebrow span { color: var(--mut); font-weight: 400; letter-spacing: 0.12em; }
+	h1, h2 { font-weight: 800; letter-spacing: -0.04em; line-height: 0.98; }
+	h1 em, h2 em { font-style: normal; color: var(--acc); }
+	.legal { position: absolute; left: 100px; bottom: 40px; font-size: 13px; color: #616168; }
+	.chips { display: flex; gap: 12px; flex-wrap: wrap; }
+	.chip { border: 1.5px solid var(--line2); border-radius: 10px; padding: 12px 18px; font-weight: 600; font-size: 19px; background: rgba(255, 255, 255, 0.02); }
 
-	/* Pantallas */
-	.screen h2 { position: absolute; left: 96px; top: 170px; font-size: 68px; width: 620px; }
-	.screen .lead { position: absolute; left: 100px; top: 420px; width: 560px; font-size: 24px; line-height: 1.5; color: #bdb7cc; }
-	.term { position: absolute; left: 100px; top: 610px; width: 600px; background: #08070b; border: 1.5px solid var(--line); border-radius: 14px; padding: 20px 22px; font-family: "JetBrains Mono"; font-size: 15px; line-height: 1.75; color: #c9c4d6; }
-	.term .p { color: var(--lime); }
-	.term .ok { color: #7ef0a8; }
-	.compare { position: absolute; right: 80px; top: 130px; width: 780px; display: grid; gap: 26px; }
-	.cmp { background: var(--panel); border: 1.5px solid var(--line); border-radius: 18px; padding: 22px; }
-	.cmp h3 { display: flex; justify-content: space-between; font-size: 22px; margin-bottom: 14px; }
-	.cmp h3 span { font-family: "JetBrains Mono"; color: var(--mut); font-size: 16px; font-weight: 400; }
-	.big { display: flex; gap: 10px; }
-	.big div { flex: 1; border: 1.5px solid var(--line); border-radius: 14px; padding: 16px; }
-	.big b { font-size: 46px; letter-spacing: -0.04em; display: block; }
-	.big span { color: var(--mut); font-size: 16px; }
-	.outs { position: absolute; right: 80px; top: 120px; width: 800px; height: 760px; }
-	.hframe { position: absolute; left: 0; top: 0; width: 520px; height: 292px; border-radius: 14px; overflow: hidden; background: linear-gradient(135deg, #3b2370, #1a1630 55%, #0f2a3a); border: 1.5px solid var(--line); }
-	.hframe .person { width: 220px; }
-	.hframe .capt { font-size: 24px; bottom: 26px; }
-	.reels { position: absolute; left: 0; top: 330px; display: flex; gap: 14px; }
-	.reel { width: 146px; height: 260px; border-radius: 16px; overflow: hidden; position: relative; border: 1.5px solid var(--line); }
-	.reel .person { width: 170px; }
-	.reel .n { position: absolute; left: 10px; top: 10px; font-family: "JetBrains Mono"; font-size: 11px; background: rgba(0,0,0,0.55); padding: 3px 7px; border-radius: 5px; }
-	.reel .capt { font-size: 15px; bottom: 34px; }
-	.side { position: absolute; left: 550px; top: 0; width: 250px; display: grid; gap: 14px; }
-	.card { background: var(--panel); border: 1.5px solid var(--line); border-radius: 14px; padding: 16px; font-size: 16px; }
-	.card .k { font-family: "JetBrains Mono"; font-size: 11px; color: var(--mut); letter-spacing: 0.12em; text-transform: uppercase; display: block; margin-bottom: 8px; }
-	.card li { list-style: none; display: flex; justify-content: space-between; padding: 3px 0; color: #d7d2e3; font-size: 15px; }
-	.card li span { font-family: "JetBrains Mono"; color: var(--vio2); font-size: 13px; }
-	.files { position: absolute; left: 0; top: 640px; display: flex; gap: 12px; }
-	.file { border: 1.5px solid var(--line); border-radius: 10px; padding: 12px 16px; font-family: "JetBrains Mono"; font-size: 15px; background: rgba(255,255,255,0.02); }
-	.file b { color: var(--lime); font-weight: 500; }
+	/* Ventana */
+	.win { position: absolute; background: var(--panel); border: 1.5px solid var(--line); border-radius: 20px; box-shadow: 0 40px 110px rgba(0, 0, 0, 0.6); overflow: hidden; }
+	.bar { height: 50px; border-bottom: 1.5px solid var(--line); display: flex; align-items: center; gap: 9px; padding: 0 22px; background: var(--panel2); }
+	.bar i { width: 12px; height: 12px; border-radius: 50%; background: #2e2e33; }
+	.bar span { margin-left: 12px; font-family: "Geist Mono"; font-size: 14.5px; color: var(--mut); }
+	.bar span b { color: var(--fg); font-weight: 500; }
+	.bar em { margin-left: auto; font-style: normal; font-family: "Geist Mono"; font-size: 12px; font-weight: 600; letter-spacing: 0.16em; color: var(--mut); border: 1.5px dashed #46464d; border-radius: 6px; padding: 4px 10px; }
+	.lbl { font-family: "Geist Mono"; font-size: 12.5px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); }
+
+	/* Transcripción con cortes */
+	.nw { white-space: nowrap; }
+	.tx { font-size: 21px; line-height: 1.95; color: #e6e6e2; }
+	.tx s { text-decoration: line-through; text-decoration-color: var(--acc); text-decoration-thickness: 2.5px; color: var(--dim); }
+	.tag { display: inline-block; vertical-align: 0.14em; margin: 0 2px 0 6px; font-family: "Geist Mono"; font-size: 11.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.5; padding: 0 7px; border-radius: 5px; color: var(--acc-ink); background: var(--acc); }
+	.anc { border-radius: 6px; padding: 1px 6px; margin: 0 -2px; background: rgba(255, 255, 255, 0.09); box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.5); color: #fff; font-weight: 600; }
+	.gtag { display: inline-block; vertical-align: 0.14em; margin: 0 2px 0 6px; font-family: "Geist Mono"; font-size: 11.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.5; padding: 0 7px; border-radius: 5px; color: #0b0b0c; background: #f4f4f1; }
+
+	/* Línea de tiempo */
+	.lane { display: grid; grid-template-columns: 92px 1fr; gap: 14px; align-items: center; }
+	.trk { height: 42px; display: flex; gap: 3px; }
+	.seg { flex: var(--f); border-radius: 5px; background: #222226; position: relative; overflow: hidden; }
+	.seg svg { position: absolute; inset: 6px 4px; width: calc(100% - 8px); height: calc(100% - 12px); }
+	.cut { flex: var(--f); border-radius: 5px; border: 1.5px solid rgba(244, 196, 48, 0.75); background: repeating-linear-gradient(-45deg, rgba(244, 196, 48, 0.42) 0 4px, rgba(244, 196, 48, 0.08) 4px 9px); }
+
+	/* Fotogramas de video (ilustración). --u = 1 % del ancho del fotograma. */
+	.vf { position: relative; overflow: hidden; border-radius: 12px; border: 1.5px solid var(--line2); background: radial-gradient(70% 80% at 72% 30%, #3a3a40 0%, #232327 55%, #18181b 100%); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55); }
+	.vf .bgl { position: absolute; left: 6%; top: 10%; width: 22%; height: 60%; border-radius: calc(var(--u) * 1); background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015)); }
+	.vf .person { position: absolute; }
+	.vf .face { position: absolute; border: 1.5px dashed rgba(255, 255, 255, 0.7); border-radius: calc(var(--u) * 1.2); }
+	.vf .face b { position: absolute; left: -1.5px; bottom: 100%; margin-bottom: 4px; font-family: "Geist Mono"; font-weight: 500; font-size: max(10px, calc(var(--u) * 2.2)); letter-spacing: 0.08em; color: rgba(255, 255, 255, 0.8); text-transform: uppercase; }
+	.vf .lst { position: absolute; background: rgba(12, 12, 14, 0.88); border: calc(var(--u) * 0.45) solid rgba(244, 196, 48, 0.9); border-radius: calc(var(--u) * 2.4); font-family: "Montserrat"; color: #fff; box-shadow: 0 calc(var(--u) * 1.5) calc(var(--u) * 4) rgba(0, 0, 0, 0.45); }
+	.vf .lst b { display: block; font-weight: 800; text-transform: uppercase; color: var(--acc); }
+	.vf .lst p { display: flex; align-items: center; font-weight: 700; line-height: 1.1; }
+	.vf .lst i { flex: none; border-radius: 50%; background: var(--acc); color: var(--acc-ink); display: grid; place-items: center; font-style: normal; font-weight: 900; }
+	.vf .cap { position: absolute; display: flex; flex-wrap: wrap; justify-content: center; text-align: center; column-gap: 0.3em !important; row-gap: 0.08em !important; font-family: "Montserrat"; font-weight: 900; line-height: 1.15; color: #fff; paint-order: stroke fill; }
+	.vf .cap span { -webkit-text-stroke: calc(var(--u) * 0.5) rgba(0, 0, 0, 0.9); paint-order: stroke fill; text-shadow: 0 calc(var(--u) * 0.4) calc(var(--u) * 1.4) rgba(0, 0, 0, 0.6); }
+	.vf .cap .on { color: var(--acc); }
+	.vf .cap .pill { background: var(--acc); color: var(--acc-ink); -webkit-text-stroke: 0; text-shadow: none; border-radius: 0.18em !important; padding: 0 0.12em !important; margin: 0 -0.12em !important; }
+
+	.vf.h { --u: calc(var(--w) / 100); width: var(--w); height: calc(var(--w) * 0.5625); }
+	.vf.h .person { left: 52%; top: 20%; width: 40%; }
+	.vf.h .face { left: 62.5%; top: 26%; width: 19%; height: 37%; }
+	.vf.h .lst { left: 6%; top: 11%; width: 36%; padding: calc(var(--u) * 2.2) calc(var(--u) * 2.6); }
+	.vf.h .lst b { font-size: calc(var(--u) * 1.7); letter-spacing: calc(var(--u) * 0.1); margin-bottom: calc(var(--u) * 1.1); }
+	.vf.h .lst p { font-size: calc(var(--u) * 2.5); gap: calc(var(--u) * 1.2); margin: calc(var(--u) * 0.9) 0; }
+	.vf.h .lst i { width: calc(var(--u) * 3.6); height: calc(var(--u) * 3.6); font-size: calc(var(--u) * 2); }
+	.vf.h .cap { left: 5%; right: 5%; top: 84%; translate: 0 -50%; font-size: calc(var(--u) * 3.5); column-gap: calc(var(--u) * 1); }
+
+	.vf.v { --u: calc(var(--w) / 100); width: var(--w); height: calc(var(--w) * 1.7778); border-radius: 14px; }
+	.vf.v .bgl { left: 8%; top: 8%; width: 30%; height: 44%; }
+	.vf.v .person { left: -5%; top: 38%; width: 110%; }
+	.vf.v .face { left: 23%; top: 41.5%; width: 54%; height: 31%; }
+	.vf.v .lst { left: 9%; right: 9%; top: 9%; padding: calc(var(--u) * 4.4) calc(var(--u) * 5.2); border-width: calc(var(--u) * 0.8); border-radius: calc(var(--u) * 4.4); }
+	.vf.v .lst b { font-size: calc(var(--u) * 3.6); letter-spacing: calc(var(--u) * 0.2); margin-bottom: calc(var(--u) * 2.2); }
+	.vf.v .lst p { font-size: calc(var(--u) * 5.4); gap: calc(var(--u) * 2.4); margin: calc(var(--u) * 1.8) 0; }
+	.vf.v .lst i { width: calc(var(--u) * 7); height: calc(var(--u) * 7); font-size: calc(var(--u) * 3.8); }
+	.vf.v .cap { left: 7%; right: 7%; top: 79%; translate: 0 -50%; font-size: calc(var(--u) * 8.6); column-gap: calc(var(--u) * 2.2); row-gap: calc(var(--u) * 0.8); text-transform: uppercase; }
+	.vf.v .cap .pill { border-radius: calc(var(--u) * 1.5); padding: 0 calc(var(--u) * 1.2); margin: 0 calc(var(--u) * -1.2); }
+
+	.vf.q { --u: calc(var(--w) / 100); width: var(--w); height: var(--w); }
+	.vf.q .person { left: 40%; top: 20%; width: 64%; }
+	.vf.q .face { left: 57%; top: 25%; width: 30%; height: 30%; }
+	.vf.q .lst { left: 6%; top: 8%; width: 48%; padding: calc(var(--u) * 3.2) calc(var(--u) * 3.6); border-width: calc(var(--u) * 0.6); border-radius: calc(var(--u) * 3.2); }
+	.vf.q .lst b { font-size: calc(var(--u) * 2.6); letter-spacing: calc(var(--u) * 0.14); margin-bottom: calc(var(--u) * 1.6); }
+	.vf.q .lst p { font-size: calc(var(--u) * 3.9); gap: calc(var(--u) * 1.8); margin: calc(var(--u) * 1.4) 0; }
+	.vf.q .lst i { width: calc(var(--u) * 5.2); height: calc(var(--u) * 5.2); font-size: calc(var(--u) * 2.8); }
+	.vf.q .cap { left: 6%; right: 6%; top: 82%; translate: 0 -50%; font-size: calc(var(--u) * 6.4); column-gap: calc(var(--u) * 1.6); text-transform: uppercase; }
+	.vf.q .cap .pill { border-radius: calc(var(--u) * 1.1); padding: 0 calc(var(--u) * 0.9); margin: 0 calc(var(--u) * -0.9); }
+
+	.fmt { font-family: "Geist Mono"; font-size: 13.5px; color: var(--mut); letter-spacing: 0.06em; }
+	.fmt b { color: var(--fg); font-weight: 600; }
+
+	/* ── Portada ── */
+	.cover .eyebrow { top: 160px; }
+	.cover h1 { position: absolute; left: 96px; top: 212px; font-size: 90px; width: 680px; }
+	.cover .sub { position: absolute; left: 100px; top: 530px; width: 610px; font-size: 25px; line-height: 1.5; color: #c4c4c9; }
+	.cover .chips { position: absolute; left: 100px; top: 738px; }
+	.cover .win { left: 800px; top: 92px; width: 710px; height: 474px; }
+	.cover .body { padding: 20px 26px 0; }
+	.cover .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+	.cover .head .lg { display: flex; gap: 16px; align-items: center; font-family: "Geist Mono"; font-size: 12px; color: var(--mut); letter-spacing: 0.06em; }
+	.cover .head .lg i { display: inline-block; width: 16px; height: 10px; border-radius: 3px; margin-right: 7px; vertical-align: -1px; }
+	.cover .tl { position: absolute; left: 26px; right: 26px; bottom: 22px; display: grid; gap: 10px; padding-top: 16px; border-top: 1.5px solid var(--line); }
+	.cover .row { position: absolute; left: 800px; width: 710px; top: 600px; }
+	.cover .row .lbl { display: flex; align-items: center; gap: 14px; }
+	.cover .row .lbl::after { content: ""; flex: 1; height: 1.5px; background: var(--line); }
+	.cover .fmts { position: absolute; left: 800px; width: 710px; top: 630px; height: 266px; display: flex; justify-content: space-between; align-items: flex-end; }
+	.cover .fmts > div { display: grid; gap: 10px; justify-items: start; }
+
+	/* ── Pantalla 1 ── */
+	.s1 .eyebrow, .s2 .eyebrow { top: 92px; }
+	.s1 h2 { position: absolute; left: 96px; top: 140px; font-size: 84px; width: 700px; }
+	.s1 .lead { position: absolute; left: 100px; top: 335px; width: 640px; font-size: 22px; line-height: 1.5; color: #bdbdc2; }
+	.dlg { position: absolute; left: 870px; top: 92px; width: 640px; background: var(--panel); border: 1.5px solid var(--line); border-radius: 20px; box-shadow: 0 40px 110px rgba(0, 0, 0, 0.6); padding: 24px 26px; }
+	.dlg .t { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+	.dlg .t b { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
+	.dlg .t em { font-style: normal; font-family: "Geist Mono"; font-size: 12px; font-weight: 600; letter-spacing: 0.16em; color: var(--mut); border: 1.5px dashed #46464d; border-radius: 6px; padding: 4px 10px; }
+	.segm { display: grid; grid-template-columns: 1fr 1fr; border: 1.5px solid var(--line2); border-radius: 12px; padding: 4px; gap: 4px; font-weight: 600; font-size: 17px; text-align: center; }
+	.segm span { padding: 10px; border-radius: 9px; color: var(--mut); }
+	.segm span.on { background: #222226; color: var(--fg); box-shadow: inset 0 0 0 1.5px var(--line2); }
+	.dlg .k { margin: 18px 0 10px; font-weight: 600; font-size: 16px; color: var(--mut); }
+	.fchips { display: flex; gap: 10px; }
+	.fchips span { padding: 9px 16px; border-radius: 999px; border: 1.5px solid var(--line2); font-weight: 600; font-size: 16px; }
+	.fchips span.on { background: rgba(244, 196, 48, 0.12); color: #f7d66a; border-color: rgba(244, 196, 48, 0.7); }
+	.fchips span.on::before { content: "✓ "; }
+	.sw { margin-top: 18px; display: flex; align-items: center; gap: 12px; font-size: 16.5px; font-weight: 500; }
+	.sw i { width: 44px; height: 26px; border-radius: 13px; background: var(--acc); position: relative; flex: none; }
+	.sw i::after { content: ""; position: absolute; top: 4px; left: 22px; width: 18px; height: 18px; border-radius: 50%; background: #fff; }
+	.sw small { color: var(--dim); font-family: "Geist Mono"; font-size: 13px; margin-left: auto; }
+	.steps { position: absolute; left: 100px; top: 490px; width: 1410px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+	.st { background: var(--panel); border: 1.5px solid var(--line); border-radius: 18px; padding: 24px 24px 20px; height: 392px; display: flex; flex-direction: column; }
+	.st .n { flex: none; width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid var(--line2); display: grid; place-items: center; font-family: "Geist Mono"; font-weight: 600; font-size: 19px; color: var(--fg); }
+	.st h3 { margin-top: 20px; font-size: 26px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.12; }
+	.st p { margin-top: 10px; font-size: 17px; line-height: 1.45; color: var(--mut); }
+	.st .mini { flex: none; margin-top: auto; height: 96px; border-top: 1.5px solid var(--line); padding-top: 18px; font-size: 16.5px; line-height: 1.75; }
+	.st .mini .file { display: inline-block; font-family: "Geist Mono"; font-size: 14.5px; border: 1.5px solid var(--line2); border-radius: 8px; padding: 6px 11px; background: #0f0f11; }
+	.st .mini .file b { color: var(--fg); font-weight: 500; }
+	.st .mini .file span { color: var(--dim); }
+	.st .mini .tag, .st .mini .gtag { margin-left: 4px; }
+	.st .mini .arrow { color: var(--dim); font-family: "Geist Mono"; margin: 0 6px; }
+	.ok { display: inline-flex; align-items: center; gap: 7px; font-family: "Geist Mono"; font-size: 14px; border: 1.5px solid var(--line2); border-radius: 8px; padding: 5px 10px; margin: 0 6px 8px 0; background: #0f0f11; }
+	.ok::before { content: "✓"; color: var(--acc); font-weight: 700; }
+
+	/* ── Pantalla 2 ── */
+	.s2 h2 { position: absolute; left: 96px; top: 140px; font-size: 84px; width: 680px; }
+	.s2 .lead { position: absolute; left: 100px; top: 335px; width: 610px; font-size: 22px; line-height: 1.5; color: #bdbdc2; }
+	.files { position: absolute; left: 100px; top: 492px; width: 640px; border: 1.5px solid var(--line); border-radius: 18px; background: var(--panel); overflow: hidden; }
+	.files .h { display: flex; justify-content: space-between; padding: 14px 22px; border-bottom: 1.5px solid var(--line); background: var(--panel2); }
+	.files .r { display: grid; grid-template-columns: 250px 1fr; gap: 18px; align-items: center; padding: 13px 22px; border-bottom: 1px solid #202024; font-size: 17.5px; color: #d6d6d9; }
+	.files .r:last-child { border-bottom: 0; }
+	.files .r code { font-family: "Geist Mono"; font-size: 15px; color: var(--fg); }
+	.files .r code span { color: var(--dim); }
+	.s2 .stage { position: absolute; left: 800px; top: 92px; width: 710px; height: 830px; }
+	.s2 .stage > div { position: absolute; }
+	.s2 .stage .fmt { margin-top: 12px; }
 </style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute">
 	<defs>
-		<symbol id="person" viewBox="0 0 300 300">
-			<defs><linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9e3ff"/><stop offset="1" stop-color="#9f93c9"/></linearGradient></defs>
-			<circle cx="150" cy="110" r="58" fill="url(#pg)"/>
-			<path d="M40 300 C 50 205, 100 182, 150 182 C 200 182, 250 205, 260 300 Z" fill="url(#pg)"/>
+		<linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6b6b73"/><stop offset="1" stop-color="#3a3a40"/></linearGradient>
+		<symbol id="person" viewBox="0 0 200 260">
+			<path d="M84 104 h32 v34 h-32 z" fill="#4a4a51"/>
+			<ellipse cx="100" cy="74" rx="33" ry="39" fill="url(#pg)"/>
+			<path d="M20 260 C 22 176, 58 138, 100 138 C 142 138, 178 176, 180 260 Z" fill="url(#pg)"/>
 		</symbol>
+		<symbol id="mark" viewBox="0 0 22 16"><rect x="0" y="1" width="8.5" height="14" rx="1.6" fill="#f4c430"/><rect x="13.5" y="1" width="8.5" height="14" rx="1.6" fill="#f4c430"/><path d="M11 0v16" stroke="#f4c430" stroke-width="1.4" stroke-dasharray="2 2"/></symbol>
 	</defs>
 </svg>
 
+<!-- ═══════════════ PORTADA ═══════════════ -->
 <section class="frame cover" data-out="cover">
-	<div class="brand"><i>✂</i>CutPilot</div>
-	<span class="soon">PRÓXIMAMENTE</span>
-	<h1>Edita videos con <em>Claude Code</em>.</h1>
-	<p class="sub">Le pasas tu grabación cruda. Tu agente quita silencios y muletillas, pone subtítulos y te entrega los reels.</p>
-	<div class="chips"><span class="chip">Claude Code</span><span class="chip">Codex</span><span class="chip">ffmpeg + Whisper</span></div>
-	<div class="editor">
-		<div class="ebar"><i></i><i></i><i></i><span>grabacion-cruda.mp4 → editado.mp4</span></div>
-		<div class="preview">
-			<span class="rec">00:07:42</span>
-			<svg class="person" viewBox="0 0 300 300"><use href="#person"/></svg>
-			<div class="capt" style="right: 200px;">esto es lo que <b>nadie</b> te dice</div>
+	<div class="eyebrow"><svg><use href="#mark"/></svg>CutPilot <span>· con Claude Code</span></div>
+	<h1>Tu grabación cruda, editada <em>en tu PC.</em></h1>
+	<p class="sub">Quita muletillas, silencios y retomas desde la transcripción, agrega subtítulos y gráficos que planifica Claude y exporta en 16:9, 9:16 y 1:1.</p>
+	<div class="chips"><span class="chip">Claude Code</span><span class="chip">Whisper</span><span class="chip">Remotion</span><span class="chip">Windows</span></div>
+
+	<div class="win">
+		<div class="bar"><i></i><i></i><i></i><span>grabacion.mp4 → <b>grabacion_final.mp4</b></span><em>ILUSTRACIÓN</em></div>
+		<div class="body">
+			<div class="head"><span class="lbl">Transcripción · palabra por palabra</span><span class="lg"><span><i style="background: var(--acc)"></i>corte</span><span><i style="box-shadow: inset 0 0 0 1.5px #fff; background: rgba(255,255,255,0.1)"></i>gráfico</span></span></div>
+			<p class="tx">
+				Hola, bienvenidos al canal. <s>Hoy les voy a mostrar cómo organizo todo mi </s><span class="nw"><s>trabajo con</s><span class="tag">retoma</span></span>
+				<span class="nw"><s>Eh…</s><span class="tag">muletilla</span></span> Hoy les voy a mostrar cómo organizo mi trabajo. <span class="nw"><s>Mmm…</s><span class="tag">muletilla</span></span>
+				Por eso, mi sistema tiene <span class="nw"><span class="anc">tres pasos</span><span class="gtag">lista</span>.</span> Primero, capturo todas las ideas…
+				Tercero, reviso <span class="nw"><s>reviso</s><span class="tag">repetición</span></span> mis prioridades cada mañana.
+			</p>
 		</div>
-		<div class="tracks">
-			<div class="track">VIDEO<div class="lane"><span class="seg" style="flex: 3"></span><span class="cut" style="flex: 0.6"></span><span class="seg" style="flex: 2.2"></span><span class="cut" style="flex: 0.4"></span><span class="seg" style="flex: 4"></span><span class="cut" style="flex: 0.8"></span><span class="seg" style="flex: 1.6"></span></div></div>
-			<div class="track">AUDIO<div class="lane"><span class="seg" style="flex: 3; background: linear-gradient(180deg,#3d7d6a,#2a5a4c)"></span><span class="cut" style="flex: 0.6"></span><span class="seg" style="flex: 2.2; background: linear-gradient(180deg,#3d7d6a,#2a5a4c)"></span><span class="cut" style="flex: 0.4"></span><span class="seg" style="flex: 4; background: linear-gradient(180deg,#3d7d6a,#2a5a4c)"></span><span class="cut" style="flex: 0.8"></span><span class="seg" style="flex: 1.6; background: linear-gradient(180deg,#3d7d6a,#2a5a4c)"></span></div></div>
-			<div class="track">SUBS<div class="lane caps"><span class="seg" style="flex: 2"><span>esto es</span></span><span class="seg" style="flex: 2.4"><span>lo que nadie</span></span><span class="seg" style="flex: 2"><span>te dice</span></span><span class="seg" style="flex: 3"><span>sobre editar</span></span><span class="seg" style="flex: 2.4"><span>con IA</span></span></div></div>
-		</div>
-		<div class="estats">
-			<div><b>214</b><span>cortes</span></div>
-			<div><b>37</b><span>muletillas</span></div>
-			<div><b>−41%</b><span>duración</span></div>
-			<div><b>5</b><span>reels 9:16</span></div>
+		<div class="tl">
+			<div class="lane"><span class="lbl">Original</span><div class="trk">
+				<span class="seg" style="--f: 2.2" data-w="3"></span><span class="cut" style="--f: 1.3"></span><span class="cut" style="--f: 0.45"></span><span class="seg" style="--f: 2.4" data-w="5"></span><span class="cut" style="--f: 0.5"></span><span class="seg" style="--f: 2.6" data-w="7"></span><span class="cut" style="--f: 0.6"></span><span class="seg" style="--f: 1.8" data-w="9"></span><span class="cut" style="--f: 0.35"></span><span class="seg" style="--f: 1.4" data-w="11"></span>
+			</div></div>
+			<div class="lane"><span class="lbl">Editado</span><div class="trk" style="width: 73%">
+				<span class="seg" style="--f: 2.2" data-w="3"></span><span class="seg" style="--f: 2.4" data-w="5"></span><span class="seg" style="--f: 2.6" data-w="7"></span><span class="seg" style="--f: 1.8" data-w="9"></span><span class="seg" style="--f: 1.4" data-w="11"></span>
+			</div></div>
 		</div>
 	</div>
-	<div class="vphone">
-		<span class="tag">REEL 9:16</span>
-		<svg class="person" viewBox="0 0 300 300" style="position:absolute;left:50%;bottom:-10px;transform:translateX(-50%)"><use href="#person"/></svg>
-		<div class="capt">lo que <b>nadie</b> te dice</div>
+
+	<div class="row"><div class="lbl">El mismo video editado, en 3 formatos</div></div>
+	<div class="fmts">
+		<div><div class="vf h" data-fmt="h" style="--w: 340px"></div><span class="fmt"><b>16:9</b> · YouTube</span></div>
+		<div><div class="vf q" data-fmt="q" style="--w: 200px"></div><span class="fmt"><b>1:1</b> · Feed</span></div>
+		<div><div class="vf v" data-fmt="v" style="--w: 130px"></div><span class="fmt"><b>9:16</b> · Reels</span></div>
 	</div>
-	<p class="legal">Producto en desarrollo. Claude Code y Codex son marcas de sus dueños; se nombran solo para indicar compatibilidad.</p>
+	<p class="legal">Ilustración, no una captura. Claude Code, Whisper y Remotion son marcas de sus dueños; se nombran solo para indicar compatibilidad.</p>
 </section>
 
-<section class="frame screen" data-out="screen-1">
-	<div class="brand"><i>✂</i>CutPilot</div>
-	<h2>De 18 minutos crudos a 11 que sí se ven.</h2>
-	<p class="lead">Silencios, muletillas, tomas repetidas y "eeeh" fuera. Tú apruebas los cortes antes del render.</p>
-	<div class="term">
-		<div><span class="p">❯</span> edita grabacion.mp4 --reels 5 --subtitulos</div>
-		<div class="ok">✓ Transcripción palabra por palabra (Whisper local)</div>
-		<div class="ok">✓ 214 cortes propuestos · 37 muletillas · 6 tomas falsas</div>
-		<div class="ok">✓ Subtítulos animados con tu estilo + .srt</div>
-		<div>… renderizando reels verticales (3/5)</div>
+<!-- ═══════════════ PANTALLA 1 · CÓMO FUNCIONA ═══════════════ -->
+<section class="frame s1" data-out="screen-1">
+	<div class="eyebrow"><svg><use href="#mark"/></svg>CutPilot <span>· Cómo funciona</span></div>
+	<h2>Tú grabas.<br>CutPilot <em>edita.</em></h2>
+	<p class="lead">Los cortes salen de la transcripción palabra por palabra, no de mirar la forma de onda. Si quieres, revisas la hoja de contacto y apruebas antes del render.</p>
+
+	<div class="dlg">
+		<div class="t"><b>grabacion.mp4</b><em>ILUSTRACIÓN</em></div>
+		<div class="segm"><span class="on">Limpiar y producir</span><span>Solo limpiar</span></div>
+		<p class="k">Formatos</p>
+		<div class="fchips"><span class="on">16:9 YouTube</span><span class="on">9:16 Reels/TikTok</span><span class="on">1:1 Feed</span></div>
+		<div class="sw"><i></i>Revisar la hoja de contacto antes del render<small>panel de Chrome</small></div>
 	</div>
-	<div class="compare">
-		<div class="cmp">
-			<h3>Grabación cruda <span>18:42</span></h3>
-			<div class="lane" style="height: 56px;"><span class="seg" style="flex: 2"></span><span class="cut" style="flex: 0.7"></span><span class="seg" style="flex: 1.4"></span><span class="cut" style="flex: 0.5"></span><span class="seg" style="flex: 2.6"></span><span class="cut" style="flex: 1.2"></span><span class="seg" style="flex: 1"></span><span class="cut" style="flex: 0.4"></span><span class="seg" style="flex: 2.2"></span><span class="cut" style="flex: 0.9"></span><span class="seg" style="flex: 1.5"></span></div>
+
+	<div class="steps">
+		<div class="st">
+			<span class="n">1</span>
+			<h3>Copias tu video</h3>
+			<p>A la carpeta entrada/ o arrastrándolo al panel lateral de Chrome. Tu archivo original nunca se modifica.</p>
+			<div class="mini"><span class="file"><span>entrada/</span><b>grabacion.mp4</b></span></div>
 		</div>
-		<div class="cmp">
-			<h3>Editado por tu agente <span>11:05</span></h3>
-			<div class="lane" style="height: 56px; width: 59%;"><span class="seg" style="flex: 2"></span><span class="seg" style="flex: 1.4"></span><span class="seg" style="flex: 2.6"></span><span class="seg" style="flex: 1"></span><span class="seg" style="flex: 2.2"></span><span class="seg" style="flex: 1.5"></span></div>
+		<div class="st">
+			<span class="n">2</span>
+			<h3>Limpia y transcribe</h3>
+			<p>Reduce el ruido, transcribe con Whisper + VAD y quita muletillas, silencios, repeticiones y retomas.</p>
+			<div class="mini"><s style="color: var(--dim); text-decoration-color: var(--acc); text-decoration-thickness: 2.5px;">Eh…</s><span class="tag">muletilla</span><br>reviso <s style="color: var(--dim); text-decoration-color: var(--acc); text-decoration-thickness: 2.5px;">reviso</s><span class="tag">repetición</span></div>
 		</div>
-		<div class="big">
-			<div><b>−41%</b><span>duración sin perder contenido</span></div>
-			<div><b>0</b><span>créditos por minuto: corre en tu PC</span></div>
+		<div class="st">
+			<span class="n">3</span>
+			<h3>Claude propone los gráficos</h3>
+			<p>Logos, cifras, listas de pasos, títulos de capítulo y zooms, anclados a la palabra exacta. Sin Claude Code, usa un plan sin IA.</p>
+			<div class="mini"><span class="anc">tres pasos</span><span class="arrow">→</span><span class="gtag">lista</span><br><span class="anc">cada mañana</span><span class="arrow">→</span><span class="gtag">zoom</span></div>
+		</div>
+		<div class="st">
+			<span class="n">4</span>
+			<h3>Render y QA</h3>
+			<p>Remotion en 16:9, 9:16 y 1:1 con detección de cara para no taparla. Después, un QA automático revisa el audio y los solapes.</p>
+			<div class="mini"><span class="ok">−14 LUFS</span><span class="ok">desfase</span><span class="ok">solapes</span></div>
 		</div>
 	</div>
+	<p class="legal" style="bottom: 34px;">Ilustración, no una captura. Claude Code, Whisper y Remotion son marcas de sus dueños; se nombran solo para indicar compatibilidad.</p>
 </section>
 
-<section class="frame screen" data-out="screen-2">
-	<div class="brand"><i>✂</i>CutPilot</div>
-	<h2>Una grabación. Todo tu contenido.</h2>
-	<p class="lead">Video largo para YouTube, reels verticales con el encuadre centrado en ti, capítulos, descripción y miniaturas.</p>
-	<div class="outs">
-		<div class="hframe"><svg class="person" viewBox="0 0 300 300" style="position:absolute;left:50%;bottom:-10px;transform:translateX(-50%)"><use href="#person"/></svg><div class="capt">editar con <b>IA</b> en 2026</div></div>
-		<div class="reels">
-			<div class="reel" style="background: linear-gradient(160deg,#3b2370,#12202b)"><span class="n">REEL 1</span><svg class="person" viewBox="0 0 300 300" style="position:absolute;left:50%;bottom:-8px;transform:translateX(-50%)"><use href="#person"/></svg><div class="capt">el <b>truco</b></div></div>
-			<div class="reel" style="background: linear-gradient(160deg,#4a1d5e,#141a2e)"><span class="n">REEL 2</span><svg class="person" viewBox="0 0 300 300" style="position:absolute;left:50%;bottom:-8px;transform:translateX(-50%)"><use href="#person"/></svg><div class="capt">3 <b>errores</b></div></div>
-			<div class="reel" style="background: linear-gradient(160deg,#1e3a5f,#1a1630)"><span class="n">REEL 3</span><svg class="person" viewBox="0 0 300 300" style="position:absolute;left:50%;bottom:-8px;transform:translateX(-50%)"><use href="#person"/></svg><div class="capt">sin <b>timeline</b></div></div>
-			<div class="reel" style="background: linear-gradient(160deg,#2b2b6b,#101820)"><span class="n">REEL 4</span><svg class="person" viewBox="0 0 300 300" style="position:absolute;left:50%;bottom:-8px;transform:translateX(-50%)"><use href="#person"/></svg><div class="capt">en <b>1 clic</b></div></div>
-			<div class="reel" style="background: linear-gradient(160deg,#3b2370,#0f2a3a)"><span class="n">REEL 5</span><svg class="person" viewBox="0 0 300 300" style="position:absolute;left:50%;bottom:-8px;transform:translateX(-50%)"><use href="#person"/></svg><div class="capt"><b>gratis</b></div></div>
-		</div>
-		<div class="side">
-			<div class="card"><span class="k">Capítulos</span><ul><li>Intro<span>00:00</span></li><li>El problema<span>01:12</span></li><li>Demo<span>03:40</span></li><li>Errores<span>07:05</span></li><li>Cierre<span>10:20</span></li></ul></div>
-			<div class="card"><span class="k">Miniaturas</span><div style="display:flex;gap:8px;"><i style="flex:1;height:52px;border-radius:8px;background:linear-gradient(135deg,#9b5cff,#3b2370)"></i><i style="flex:1;height:52px;border-radius:8px;background:linear-gradient(135deg,#d4ff3a,#5b7a00)"></i><i style="flex:1;height:52px;border-radius:8px;background:linear-gradient(135deg,#ff4d6d,#5e1430)"></i></div></div>
-		</div>
-		<div class="files"><span class="file"><b>editado</b>.mp4</span><span class="file"><b>subtitulos</b>.srt</span><span class="file"><b>descripcion</b>.md</span><span class="file"><b>reels</b>/ ×5</span></div>
+<!-- ═══════════════ PANTALLA 2 · QUÉ RECIBES ═══════════════ -->
+<section class="frame s2" data-out="screen-2">
+	<div class="eyebrow"><svg><use href="#mark"/></svg>CutPilot <span>· Qué recibes</span></div>
+	<h2>Un video.<br>Tres <em>formatos.</em></h2>
+	<p class="lead">El mismo video editado en horizontal, cuadrado y vertical. La cara se detecta para que los gráficos no la tapen y el vertical quede centrado.</p>
+	<div class="files">
+		<div class="h"><span class="lbl">salida/grabacion/</span><span class="lbl">para qué sirve</span></div>
+		<div class="r"><code><span>grabacion</span>_final.mp4 <span>×3</span></code><span>Video final en 16:9, 9:16 y 1:1</span></div>
+		<div class="r"><code><span>grabacion</span>.srt <span>·</span> .vtt</code><span>Subtítulos para YouTube y redes</span></div>
+		<div class="r"><code><span>grabacion</span>_cortes.edl</code><span>EDL CMX3600 para Premiere o Resolve</span></div>
+		<div class="r"><code><span>grabacion</span>_capitulos.txt</code><span>Capítulos para YouTube</span></div>
+		<div class="r"><code><span>grabacion</span>_contacto.jpg</code><span>Hoja de contacto para revisar</span></div>
+		<div class="r"><code><span>grabacion</span>_informe.md</code><span>QA: −14 LUFS, desfase y solapes</span></div>
 	</div>
+
+	<div class="stage">
+		<div style="left: 0; top: 0;"><div class="vf h" data-fmt="h" data-face="1" style="--w: 548px"></div><div class="fmt"><b>16:9</b> · YouTube</div></div>
+		<div style="left: 0; top: 362px;"><div class="vf q" data-fmt="q" style="--w: 330px"></div><div class="fmt"><b>1:1</b> · Feed</div></div>
+		<div style="left: 436px; top: 222px;"><div class="vf v" data-fmt="v" data-face="1" style="--w: 274px"></div><div class="fmt"><b>9:16</b> · Reels/TikTok</div></div>
+	</div>
+	<p class="legal">Ilustración, no una captura. Claude Code, Whisper y Remotion son marcas de sus dueños; se nombran solo para indicar compatibilidad.</p>
 </section>
+
+<script>
+	// Contenido común de cada fotograma (mismo video editado, distinto encuadre).
+	const CAP = {
+		h: '<span>mi</span><span>sistema</span><span>tiene</span><span class="on">tres</span><span>pasos.</span>',
+		q: '<span>tiene</span><span class="pill">tres</span><span>pasos</span>',
+		v: '<span>tiene</span><span class="pill">tres</span><span>pasos</span>',
+	};
+	document.querySelectorAll(".vf").forEach((el) => {
+		const f = el.dataset.fmt;
+		el.innerHTML = `<div class="bgl"></div><svg class="person" viewBox="0 0 200 260"><use href="#person"/></svg>`
+			+ (el.dataset.face ? `<div class="face"><b>cara</b></div>` : "")
+			+ `<div class="lst"><b>Mi sistema</b><p><i>1</i>Capturo</p><p><i>2</i>Organizo</p><p><i>3</i>Reviso</p></div>`
+			+ `<div class="cap">${CAP[f]}</div>`;
+	});
+	// Formas de onda deterministas (semilla fija) para la línea de tiempo.
+	function rng(seed) { let s = seed >>> 0; return () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296); }
+	document.querySelectorAll(".seg[data-w]").forEach((el) => {
+		const r = rng(Number(el.dataset.w) * 7919);
+		const n = Math.max(8, Math.round(parseFloat(getComputedStyle(el).getPropertyValue("--f")) * 16));
+		let bars = "";
+		for (let k = 0; k < n; k++) {
+			const env = 0.35 + 0.65 * Math.sin(Math.PI * (k + 0.5) / n) ** 0.6;
+			const h = Math.max(0.12, env * (0.35 + 0.65 * r()));
+			bars += `<rect x="${k * 4 + 0.6}" y="${(1 - h) * 10}" width="2.2" height="${h * 20}" rx="1.1"/>`;
+		}
+		el.innerHTML = `<svg viewBox="0 0 ${n * 4} 20" preserveAspectRatio="none" fill="#cfcfd4" opacity="0.75">${bars}</svg>`;
+	});
+</script>
 </body>
 </html>

@@ -5,12 +5,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-	/* Motor Creativo: estudio claro — papel cálido, tinta y un color por disciplina.
-	   Íconos dibujados a mano (sin logos de terceros). La salida de "route" es la real del router del repo. */
+	/* Motor Creativo: estudio claro — papel cálido, tinta y un solo acento (cobalto). Sin degradados de color ni un tono
+	   por disciplina: la tienda es monocroma. Íconos dibujados a mano (sin logos de terceros).
+	   La salida de "route" es la real del router del repo. */
 	:root {
 		--bg: #f5f1ea; --paper: #fffdf9; --ink: #17151c; --mut: #6a6470; --line: #e4ddd1; --term: #18161d; --tline: #2b2833;
-		--c-image: #ff6b5b; --c-photo: #ff9f1c; --c-vector: #f4c430; --c-video: #e63e6d; --c-motion: #9b5de5; --c-layout: #4361ee; --c-pdf: #d62828;
-		--c-ui: #00a6c8; --c-audio: #06c49a; --c-slides: #f15bb5; --c-docs: #3a86ff; --c-sheets: #2f9e44; --c-cad: #8d6e63; --c-qa: #17151c;
+		--acc: #2f4ac0; --acc-soft: #a9b8ff; --tile: #17151c; --dot: #b9b0a3;
+		--c-image: var(--tile); --c-photo: var(--tile); --c-vector: var(--tile); --c-video: var(--tile); --c-motion: var(--tile); --c-layout: var(--tile); --c-pdf: var(--tile);
+		--c-ui: var(--tile); --c-audio: var(--tile); --c-slides: var(--tile); --c-docs: var(--tile); --c-sheets: var(--tile); --c-cad: var(--tile); --c-qa: var(--tile);
 	}
 	* { box-sizing: border-box; margin: 0; padding: 0; }
 	body { background: #777; }
@@ -18,12 +20,11 @@
 		background: radial-gradient(circle at 1px 1px, #ddd5c7 1.2px, transparent 1.4px) 0 0 / 28px 28px, var(--bg); }
 	.mono { font-family: "JetBrains Mono", monospace; }
 	.top { position: absolute; left: 100px; display: flex; align-items: center; gap: 16px; }
-	.soon { display: inline-flex; align-items: center; gap: 10px; background: var(--ink); color: #fff; border-radius: 99px; padding: 9px 18px; font-family: "JetBrains Mono"; font-weight: 700; font-size: 15px; letter-spacing: 0.16em; }
-	.soon::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: #d4ff3a; }
+	.mk { width: 14px; height: 14px; border-radius: 3px; background: var(--acc); display: block; flex: none; }
 	.top .eb { font-family: "JetBrains Mono"; font-size: 16px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mut); }
 	.top .eb b { color: var(--ink); font-weight: 700; }
 	h1, h2 { font-weight: 900; letter-spacing: -0.03em; line-height: 1.0; }
-	.spec { background: linear-gradient(90deg, var(--c-image), var(--c-photo) 22%, var(--c-motion) 55%, var(--c-layout) 78%, var(--c-ui)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+	.spec { color: var(--acc); }
 	.legal { position: absolute; left: 100px; bottom: 40px; font-size: 13px; color: #8a8390; }
 	.chips { display: flex; gap: 12px; flex-wrap: wrap; }
 	.chip { border: 1.5px solid #d6cdbf; border-radius: 12px; padding: 12px 18px; font-weight: 700; font-size: 18px; background: var(--paper); }
@@ -34,7 +35,7 @@
 	.term .tb i { width: 11px; height: 11px; border-radius: 50%; background: #3a3644; }
 	.term .tb span { margin-left: 10px; font-size: 13px; color: #8f8a9a; }
 	.term .tc { padding: 16px 22px; font-size: 16px; line-height: 1.75; }
-	.p { color: #d4ff3a; }
+	.p { color: var(--acc-soft); }
 	.q { color: #ffd29a; }
 	.k { color: #8f8a9a; }
 	.cat { display: inline-block; border-radius: 6px; padding: 0 8px; font-weight: 700; color: #fff; font-size: 14px; line-height: 1.6; }
@@ -109,7 +110,7 @@
 	.res .ft .btn { font-family: "Figtree"; }
 	.verdict { position: absolute; left: 1010px; top: 736px; width: 500px; background: var(--term); color: #fff; border-radius: 18px; padding: 20px 24px; box-shadow: 0 30px 70px rgba(40, 30, 20, 0.28); display: grid; grid-template-columns: 46px 1fr; gap: 16px; align-items: center; }
 	.verdict small { display: block; font-family: "JetBrains Mono"; font-size: 13px; color: #a7a1b2; letter-spacing: 0.06em; }
-	.verdict b { display: inline-flex; margin-top: 6px; background: #2f9e44; color: #fff; border-radius: 8px; padding: 4px 10px; font-family: "JetBrains Mono"; font-size: 15px; letter-spacing: 0.06em; }
+	.verdict b { display: inline-flex; margin-top: 6px; background: var(--acc); color: #fff; border-radius: 8px; padding: 4px 10px; font-family: "JetBrains Mono"; font-size: 15px; letter-spacing: 0.06em; }
 	.verdict em { font-style: normal; font-family: "JetBrains Mono"; font-size: 13px; color: #a7a1b2; margin-left: 10px; }
 </style>
 </head>
@@ -138,7 +139,7 @@
 </svg>
 
 <section class="frame cover" data-out="cover">
-	<div class="top"><span class="soon">PRÓXIMAMENTE</span><span class="eb"><b>Motor creativo</b> · para Claude Code</span></div>
+	<div class="top"><i class="mk"></i><span class="eb"><b>Motor creativo</b> · para Claude Code</span></div>
 	<h1><span class="spec">13 agentes</span> creativos en español.</h1>
 	<p class="sub">Pides la pieza en lenguaje natural. El router elige al agente y este la produce con una app open source en tu PC.</p>
 	<div class="chips"><span class="chip">Claude Code</span><span class="chip">Windows x64</span><span class="chip">Panel local</span></div>
@@ -146,31 +147,31 @@
 		<div class="tb"><i></i><i></i><i></i><span>router de intención</span></div>
 		<div class="tc">
 			<div><span class="p">›</span> route <span class="q">"Diseña una presentación de ventas y anima el logo"</span></div>
-			<div><span class="k">categories</span>&nbsp; <span class="cat" style="background: var(--c-motion);">MOTION</span> <span class="cat" style="background: var(--c-slides);">SLIDES</span> <span class="cat" style="background: #4a4556;">MIXED</span></div>
+			<div><span class="k">categories</span>&nbsp; <span class="cat" style="background: var(--acc);">MOTION</span> <span class="cat" style="background: var(--acc);">SLIDES</span> <span class="cat" style="background: #4a4556;">MIXED</span></div>
 			<div><span class="k">agents</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; motion-agent · deck-agent</div>
 		</div>
 	</div>
 	<div class="grid">
 		<div class="tile"><span class="ic" style="background: var(--c-image)"><svg><use href="#i-image"/></svg></span><div><b>Imagen</b><small>image-agent</small></div></div>
 		<div class="tile"><span class="ic" style="background: var(--c-photo)"><svg><use href="#i-photo"/></svg></span><div><b>Foto</b><small>photo-agent</small></div></div>
-		<div class="tile"><span class="ic dark" style="background: var(--c-vector)"><svg><use href="#i-vector"/></svg></span><div><b>Vector</b><small>vector-agent</small></div></div>
+		<div class="tile"><span class="ic" style="background: var(--c-vector)"><svg><use href="#i-vector"/></svg></span><div><b>Vector</b><small>vector-agent</small></div></div>
 		<div class="tile"><span class="ic" style="background: var(--c-video)"><svg><use href="#i-video"/></svg></span><div><b>Video</b><small>video-agent</small></div></div>
-		<div class="tile on" style="--hue: var(--c-motion)"><span class="ic" style="background: var(--c-motion)"><svg><use href="#i-motion"/></svg></span><div><b>Animación</b><small>motion-agent</small></div></div>
+		<div class="tile on" style="--hue: var(--acc)"><span class="ic" style="background: var(--acc)"><svg><use href="#i-motion"/></svg></span><div><b>Animación</b><small>motion-agent</small></div></div>
 		<div class="tile"><span class="ic" style="background: var(--c-layout)"><svg><use href="#i-layout"/></svg></span><div><b>Maquetación</b><small>layout-agent</small></div></div>
 		<div class="tile"><span class="ic" style="background: var(--c-pdf)"><svg><use href="#i-pdf"/></svg></span><div><b>PDF</b><small>pdf-agent</small></div></div>
 		<div class="tile"><span class="ic" style="background: var(--c-ui)"><svg><use href="#i-ui"/></svg></span><div><b>Interfaz</b><small>ui-agent</small></div></div>
 		<div class="tile"><span class="ic" style="background: var(--c-audio)"><svg><use href="#i-audio"/></svg></span><div><b>Audio</b><small>audio-agent</small></div></div>
-		<div class="tile on" style="--hue: var(--c-slides)"><span class="ic" style="background: var(--c-slides)"><svg><use href="#i-slides"/></svg></span><div><b>Presentaciones</b><small>deck-agent</small></div></div>
+		<div class="tile on" style="--hue: var(--acc)"><span class="ic" style="background: var(--acc)"><svg><use href="#i-slides"/></svg></span><div><b>Presentaciones</b><small>deck-agent</small></div></div>
 		<div class="tile"><span class="ic" style="background: var(--c-docs)"><svg><use href="#i-docs"/></svg></span><div><b>Documentos</b><small>word-agent</small></div></div>
 		<div class="tile"><span class="ic" style="background: var(--c-sheets)"><svg><use href="#i-sheets"/></svg></span><div><b>Planillas</b><small>sheet-agent</small></div></div>
 		<div class="tile"><span class="ic" style="background: var(--c-cad)"><svg><use href="#i-cad"/></svg></span><div><b>CAD</b><small>cad-agent</small></div></div>
 		<div class="tile qa"><span class="ic" style="background: var(--c-qa)"><svg><use href="#i-qa"/></svg></span><div><b>+ Revisor de solo lectura</b><small>qa-agent · revisa antes de entregar</small></div></div>
 	</div>
-	<p class="legal">En desarrollo. Las apps open source se descargan aparte. Claude Code es marca de Anthropic; se nombra solo para indicar compatibilidad.</p>
+	<p class="legal">Las apps open source se descargan aparte. Claude Code es marca de Anthropic; se nombra solo para indicar compatibilidad.</p>
 </section>
 
 <section class="frame s1" data-out="screen-1">
-	<div class="top"><span class="soon">PRÓXIMAMENTE</span><span class="eb"><b>Motor creativo</b> · cómo funciona</span></div>
+	<div class="top"><i class="mk"></i><span class="eb"><b>Motor creativo</b> · cómo funciona</span></div>
 	<h2>Un pedido.<br>El agente justo.</h2>
 	<p class="lead">El router lee tu pedido en español o inglés, elige la categoría, el agente y su skill, y encadena varias apps cuando la tarea las mezcla.</p>
 	<div class="how">
@@ -183,7 +184,7 @@
 		<div class="tc">
 			<div><span class="p">›</span> route <span class="q">"Diseña una presentación de ventas y anima el logo"</span></div>
 			<div>{</div>
-			<div>&nbsp;&nbsp;<span class="k">"categories":</span> [<span class="cat" style="background: var(--c-motion);">"MOTION"</span>, <span class="cat" style="background: var(--c-slides);">"SLIDES"</span>, <span class="cat" style="background: #4a4556;">"MIXED"</span>],</div>
+			<div>&nbsp;&nbsp;<span class="k">"categories":</span> [<span class="cat" style="background: var(--acc);">"MOTION"</span>, <span class="cat" style="background: var(--acc);">"SLIDES"</span>, <span class="cat" style="background: #4a4556;">"MIXED"</span>],</div>
 			<div>&nbsp;&nbsp;<span class="k">"agents":</span> [<span class="q">"motion-agent"</span>, <span class="q">"deck-agent"</span>],</div>
 			<div>&nbsp;&nbsp;<span class="k">"skills":</span> [<span class="q">"motion"</span>, <span class="q">"deck"</span>, <span class="q">"mixed"</span>],</div>
 			<div>&nbsp;&nbsp;<span class="k">"confidence":</span> 1.0,</div>
@@ -193,7 +194,7 @@
 	</div>
 	<div class="more">
 		<div class="h"><span>Más pedidos</span><span>categoría · agente</span></div>
-		<div class="r"><span>Vectoriza este logo y exporta SVG</span><span><span class="cat" style="background: #c99a00;">VECTOR</span>vector-agent</span></div>
+		<div class="r"><span>Vectoriza este logo y exporta SVG</span><span><span class="cat" style="background: var(--tile);">VECTOR</span>vector-agent</span></div>
 		<div class="r"><span>Une estos PDF y rota la página 3</span><span><span class="cat" style="background: var(--c-pdf);">PDF</span>pdf-agent</span></div>
 		<div class="r"><span>Arma una planilla de gastos con gráfico</span><span><span class="cat" style="background: var(--c-sheets);">SHEETS</span>sheet-agent</span></div>
 		<div class="r"><span>Haz el troquel de una caja</span><span><span class="cat" style="background: var(--c-cad);">CAD</span>cad-agent</span></div>
@@ -202,31 +203,31 @@
 </section>
 
 <section class="frame s2" data-out="screen-2">
-	<div class="top"><span class="soon">PRÓXIMAMENTE</span><span class="eb"><b>Motor creativo</b> · panel y entrega</span></div>
+	<div class="top"><i class="mk"></i><span class="eb"><b>Motor creativo</b> · panel y entrega</span></div>
 	<h2>Sin comandos.<br>Con revisión.</h2>
 	<p class="lead">Un panel web local para pedir en lenguaje natural, adjuntar un archivo y descargar el resultado. Antes de entregar, un agente revisor da su veredicto.</p>
 	<div class="feats">
-		<div><span class="ic" style="background: var(--c-layout)"><svg><use href="#i-par"/></svg></span><div><b>Hasta 4 consultas en paralelo</b><span>Con historial por app. Usa tu sesión de Claude Code.</span></div></div>
-		<div><span class="ic" style="background: var(--c-image)"><svg><use href="#i-lock"/></svg></span><div><b>Tus originales, protegidos</b><span>Hooks que impiden sobrescribir archivos de clientes.</span></div></div>
-		<div><span class="ic" style="background: var(--c-sheets)"><svg><use href="#i-dl"/></svg></span><div><b>Apps desde sus releases oficiales</b><span>Doble verificación SHA256 y vuelta atrás.</span></div></div>
+		<div><span class="ic" style="background: var(--tile)"><svg><use href="#i-par"/></svg></span><div><b>Hasta 4 consultas en paralelo</b><span>Con historial por app. Usa tu sesión de Claude Code.</span></div></div>
+		<div><span class="ic" style="background: var(--tile)"><svg><use href="#i-lock"/></svg></span><div><b>Tus originales, protegidos</b><span>Hooks que impiden sobrescribir archivos de clientes.</span></div></div>
+		<div><span class="ic" style="background: var(--tile)"><svg><use href="#i-dl"/></svg></span><div><b>Apps desde sus releases oficiales</b><span>Doble verificación SHA256 y vuelta atrás.</span></div></div>
 	</div>
 	<div class="win">
-		<div class="tb"><i></i><i></i><i></i><span class="url">127.0.0.1:8791</span><span class="tag">CONCEPTO</span></div>
+		<div class="tb"><i></i><i></i><i></i><span class="url">127.0.0.1:8791</span><span class="tag">ILUSTRACIÓN</span></div>
 		<div class="side">
 			<div class="h">Apps</div>
-			<div><i style="background: var(--c-image)"></i>Imagen</div>
-			<div><i style="background: var(--c-photo)"></i>Foto</div>
-			<div class="sel"><i style="background: var(--c-vector)"></i>Vector</div>
-			<div><i style="background: var(--c-video)"></i>Video</div>
-			<div><i style="background: var(--c-motion)"></i>Animación</div>
-			<div><i style="background: var(--c-layout)"></i>Maquetación</div>
-			<div><i style="background: var(--c-pdf)"></i>PDF</div>
-			<div><i style="background: var(--c-ui)"></i>Interfaz</div>
-			<div><i style="background: var(--c-audio)"></i>Audio</div>
-			<div><i style="background: var(--c-slides)"></i>Presentaciones</div>
-			<div><i style="background: var(--c-docs)"></i>Documentos</div>
-			<div><i style="background: var(--c-sheets)"></i>Planillas</div>
-			<div><i style="background: var(--c-cad)"></i>CAD</div>
+			<div><i style="background: var(--dot)"></i>Imagen</div>
+			<div><i style="background: var(--dot)"></i>Foto</div>
+			<div class="sel"><i style="background: var(--acc)"></i>Vector</div>
+			<div><i style="background: var(--dot)"></i>Video</div>
+			<div><i style="background: var(--dot)"></i>Animación</div>
+			<div><i style="background: var(--dot)"></i>Maquetación</div>
+			<div><i style="background: var(--dot)"></i>PDF</div>
+			<div><i style="background: var(--dot)"></i>Interfaz</div>
+			<div><i style="background: var(--dot)"></i>Audio</div>
+			<div><i style="background: var(--dot)"></i>Presentaciones</div>
+			<div><i style="background: var(--dot)"></i>Documentos</div>
+			<div><i style="background: var(--dot)"></i>Planillas</div>
+			<div><i style="background: var(--dot)"></i>CAD</div>
 		</div>
 		<div class="main">
 			<h4>¿Qué quieres crear hoy?</h4>
@@ -240,8 +241,8 @@
 			</div>
 		</div>
 	</div>
-	<div class="verdict"><span class="ic" style="background: #2f9e44"><svg><use href="#i-qa"/></svg></span><div><small>qa-agent · solo lectura</small><b>APTO PARA ENTREGAR</b><em>o NO APTO</em></div></div>
-	<p class="legal">Ilustración del concepto, no una captura. Requiere Windows x64 y Claude Code con sesión iniciada (consume tu plan).</p>
+	<div class="verdict"><span class="ic" style="background: var(--acc)"><svg><use href="#i-qa"/></svg></span><div><small>qa-agent · solo lectura</small><b>APTO PARA ENTREGAR</b><em>o NO APTO</em></div></div>
+	<p class="legal">Ilustración del panel, no una captura. Requiere Windows x64 y Claude Code con sesión iniciada (consume tu plan).</p>
 </section>
 </body>
 </html>

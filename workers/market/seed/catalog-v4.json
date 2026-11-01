@@ -72,7 +72,15 @@
 			"images": [
 				{
 					"src": "/market/static/products/cutpilot/cover.webp",
-					"alt": "CutPilot: edita videos con Claude Code — cortes, subtítulos y versión vertical"
+					"alt": "CutPilot: transcripción con muletillas y retomas tachadas, línea de tiempo con cortes y el video en 16:9, 1:1 y 9:16"
+				},
+				{
+					"src": "/market/static/products/cutpilot/screen-1.webp",
+					"alt": "Cómo funciona CutPilot: copias el video, se limpia y transcribe, Claude propone gráficos, y render con QA de -14 LUFS"
+				},
+				{
+					"src": "/market/static/products/cutpilot/screen-2.webp",
+					"alt": "CutPilot entrega el mismo video en 16:9, 1:1 y 9:16, más .srt, .vtt, EDL, capítulos, hoja de contacto e informe de QA"
 				}
 			]
 		},
