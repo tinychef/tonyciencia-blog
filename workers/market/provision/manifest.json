@@ -2,6 +2,26 @@
 	"$comment": "Archivos entregables con hash fijado. El Worker solo acepta en PUT /market/provision/<slug> un archivo con este SHA-256 y este tamaño exactos (ver src/routes/provision.ts y provision/README.md).",
 	"files": [
 		{
+			"slug": "cutpilot",
+			"sha256": "5519950a7c700412e0648856f123952f6ca002d38d3aae9e6c290ef248ec3d72",
+			"size": 2228760,
+			"fileName": "cutpilot-2.3.zip",
+			"contentType": "application/zip",
+			"activate": true,
+			"repo": "tinychef/estudio-video",
+			"commit": "e2098d1f32196b026a67b98fef5bc980bac26f0a"
+		},
+		{
+			"slug": "motor-creativo-claude-code",
+			"sha256": "41fc0702506092f83e68cf5abee96a34779036859f913cab6c53ca8a7c75b2e3",
+			"size": 2827802,
+			"fileName": "motor-creativo-claude-code-2.2.zip",
+			"contentType": "application/zip",
+			"activate": true,
+			"repo": "tinychef/artcraft-studio-engine",
+			"commit": "0c501571e9318688a84784ff9e5f56406ccad921"
+		},
+		{
 			"slug": "pagespeed-forensics",
 			"sha256": "41483b26b501ff3d51ab06187e299d5fce319c6838d5b0724f9d495fbfd0b66e",
 			"size": 44609,

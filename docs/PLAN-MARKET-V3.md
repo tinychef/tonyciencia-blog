@@ -86,3 +86,16 @@ optimización completa para SEO, Google Merchant Center y Google Shopping. Todo 
   `cd workers/market && pnpm wrangler rollback --env production`.
 - Precios: en `/market/admin` (o una migración con guarda). Las columnas nuevas no molestan al código anterior.
 - Cupón: desactivarlo en Stripe (Products → Coupons) y poner `WELCOME_COUPON_AUTOCREATE: "false"` en `wrangler.jsonc`.
+
+## 5. Lanzamiento de CutPilot y del Motor creativo (pedido: «quita lo de Adobe y publícalos»)
+
+| Producto | Repo / commit del ZIP | Qué cambió en el repo (rama `claude/vigilant-cray-nhhax4`) |
+|---|---|---|
+| **CutPilot** (USD 29.90) | `tinychef/estudio-video@e2098d1` · ZIP 2,2 MB | Sin inyección de metadatos de Adobe ni borrado de C2PA/SynthID (código, herramientas, reglas y skills). Composiciones y herramientas de clientes separadas en `studio/src/clientes/` y `clientes/` (siguen en el repo, fuera del ZIP). Respaldo con el filtro de ffmpeg si falta DeepFilterNet; `tools/descargar_modelos.py`; Chatterbox opcional (`uv sync --group tts`). `LICENSE.md`, `THIRD_PARTY_NOTICES.md`, `INSTALACION.md`. 194 pruebas OK en el paquete limpio (1 falla solo por el ffmpeg 6 de la máquina de prueba). |
+| **Motor creativo para Claude Code** (paga lo que quieras desde $0, sugerido $19) | `tinychef/artcraft-studio-engine@0c50157` · ZIP 2,8 MB | Sin la «Regla de Oro» (firma Adobe + purga de rastros de IA): hook, skill, scripts y textos. Núcleo sin material de clientes (`marcas.example.json`), rutas portables, `actualizar --todas` instala las 13 apps desde sus releases oficiales con SHA256, panel «Studio Motor», `LICENSE.md`, `THIRD_PARTY_NOTICES.md`, `INSTALACION.md`. Router 32/32 y 8/8 pruebas en el paquete limpio. |
+
+Pendientes del dueño:
+1. **Probar cada ZIP de punta a punta en un Windows limpio** (no se pudo aquí: Linux, sin los binarios de Windows y con ffmpeg 6).
+2. **Revisión legal** de los `LICENSE.md` (borradores en lenguaje simple). CutPilot importa `pedalboard` y `piper-tts` (GPL-3.0; no van en el ZIP, los instala `uv`). Verificar si Tony Ciencia LLC necesita licencia de empresa de Remotion.
+3. Hacer merge de las ramas en los repos de producto cuando las pruebes. Después del merge: en el motor, `python artcraft.py sync` (los agentes y perfiles MCP ahora se generan en cada máquina); en el estudio, `uv sync --group tts` si usas Chatterbox.
+4. Avisar a la lista de espera de CutPilot y del Motor creativo (`/market/admin/lista-espera`).
