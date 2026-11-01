@@ -4,7 +4,7 @@ Cada ficha debe parecer la de una tienda digital profesional, no un README. Todo
 
 | Campo | Regla |
 |---|---|
-| Título (H1) | Nombre + resultado concreto + plataforma. ≤ 70 caracteres. Ej.: «SpecReel Stick: videos de muñequitos de palo con Claude Code y Codex» |
+| Título (H1) | Nombre + resultado concreto + plataforma. ≤ 70 caracteres. Ej.: «Stick Sketch: videos de muñequitos de palo con IA para Reels y TikTok» |
 | Tagline | 1 frase del resultado que obtiene el comprador (≤ 140). |
 | Resumen | 1–2 frases para tarjetas y el feed (≤ 220). |
 | Descripción | Secciones `##`: Qué es · Qué problema resuelve · Cómo funciona en 3 pasos · Qué recibes · Para quién es · Requisitos · Notas importantes (limitaciones honestas). Párrafos cortos, listas con `- `. |
