@@ -14,23 +14,21 @@ const homeLabel = locale === "en" ? "Home" : "Inicio";
 ---
 
 <nav aria-label="Breadcrumb" class="breadcrumbs-nav">
-	<ol class="breadcrumbs-list" itemscope itemtype="https://schema.org/BreadcrumbList">
-		<li class="breadcrumbs-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-			<a itemprop="item" href={locale === "en" ? "/en/" : "/"}>
-				<span itemprop="name">{homeLabel}</span>
+	<ol class="breadcrumbs-list">
+		<li class="breadcrumbs-item">
+			<a href={locale === "en" ? "/en/" : "/"}>
+				<span>{homeLabel}</span>
 			</a>
-			<meta itemprop="position" content="1" />
 		</li>
 		{items.map((crumb, idx) => (
-			<li class="breadcrumbs-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+			<li class="breadcrumbs-item">
 				{idx < items.length - 1 ? (
-					<a itemprop="item" href={crumb.url}>
-						<span itemprop="name">{crumb.name}</span>
+					<a href={crumb.url}>
+						<span>{crumb.name}</span>
 					</a>
 				) : (
-					<span itemprop="name" aria-current="page">{crumb.name}</span>
+					<span aria-current="page">{crumb.name}</span>
 				)}
-				<meta itemprop="position" content={String(idx + 2)} />
 			</li>
 		))}
 	</ol>
