@@ -108,7 +108,7 @@ test("flujo completo en modo maqueta", { timeout: 120_000 }, async () => {
 
 	// 6) Enlace del correo con la sesión del comprador → su compra en Mis compras → botón → descarga
 	await page.goto(link);
-	await page.waitForURL(/\/market\/mis-compras#acceso-/);
+	await page.waitForURL(/\/market\/mis-compras\?ver=[0-9a-f-]+#acceso-/);
 	const [dl2] = await Promise.all([page.waitForEvent("download"), item.getByRole("button", { name: "Descargar" }).click()]);
 	assert.equal(dl2.suggestedFilename(), "anuncios-infinitos-PRUEBA.zip");
 

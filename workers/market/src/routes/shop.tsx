@@ -375,10 +375,11 @@ export function registerShop(app: Hono<AppEnv>) {
 		const user = c.get("user");
 		if (!user) return loginRedirect(c, "/market/mis-compras");
 		const items = await listLibrary(c.env.MARKET_DB, user.id);
-		const highlight = c.req.query("listo") ?? null;
+		// «ver»: llegada desde el enlace del correo (resalta la compra, sin mensaje).
+		const highlight = c.req.query("listo") ?? c.req.query("ver") ?? null;
 		const notice = c.req.query("nuevo")
 			? "¡Listo! Ya puedes descargarlo aquí mismo. También te enviamos el enlace por correo."
-			: highlight
+			: c.req.query("listo")
 				? "Ya tenías este producto. Puedes descargarlo aquí."
 				: c.req.query("guardado")
 					? "Preferencia guardada."
