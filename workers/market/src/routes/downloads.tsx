@@ -32,7 +32,7 @@ export function registerDownloads(app: Hono<AppEnv>) {
 				{ href: "/market/mis-compras", label: "Ir a Mis compras" },
 			);
 		}
-		return c.redirect(`/market/mis-compras#acceso-${id}`, 303);
+		return c.redirect(`/market/mis-compras?ver=${id}#acceso-${id}`, 303);
 	});
 
 	/** Única puerta de descarga: el botón de Mis compras (sesión de la cuenta dueña + CSRF). */

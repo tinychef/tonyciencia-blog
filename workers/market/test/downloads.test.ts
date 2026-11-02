@@ -74,7 +74,11 @@ describe("descargas: solo quien tiene el producto", () => {
 		// El dueño con sesión sí llega a su compra.
 		const owner = await call(`/market/descargas/${ent.id}?t=${oldToken}`, { headers: { cookie: s.cookie } });
 		expect(owner.status).toBe(303);
-		expect(owner.headers.get("location")).toBe(`/market/mis-compras#acceso-${ent.id}`);
+		expect(owner.headers.get("location")).toBe(`/market/mis-compras?ver=${ent.id}#acceso-${ent.id}`);
+		// La compra sale resaltada, sin el aviso de «Ya tenías este producto».
+		const page = await (await call(owner.headers.get("location")!, { headers: { cookie: s.cookie } })).text();
+		expect(page).toContain(`id="acceso-${ent.id}" style="border-color: var(--color-success)"`);
+		expect(page).not.toContain("Ya tenías este producto");
 		expect((await one<{ download_count: number }>("SELECT download_count FROM entitlements WHERE id = ?1", ent.id))?.download_count).toBe(0);
 	});
 
