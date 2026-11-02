@@ -1,0 +1,42 @@
+---
+/**
+ * Lo que EmDash aporta al <head>, SIN su SEO base.
+ *
+ * Base.astro ya escribe description, canonical, Open Graph, Twitter y el JSON-LD (SchemaOrg.astro). <EmDashHead>
+ * volvía a escribir lo mismo: descripción, canonical y og:* repetidos, más un segundo BlogPosting y un segundo
+ * WebSite en JSON-LD (Google lo marcaba como artículo duplicado, 2026-11-02). Aquí quedan solo las aportaciones de
+ * plugins (page:metadata), las etiquetas de verificación de la configuración del sitio y los fragmentos de <head> de
+ * plugins de confianza. El favicon del CMS lo resuelve Base.astro.
+ */
+import { getSiteSettings } from "emdash";
+import {
+	type createPublicPageContext,
+	generateSiteSeoContributions,
+	getPageRuntime,
+	renderFragments,
+	renderPageMetadata,
+	resolvePageMetadata,
+} from "emdash/page";
+
+interface Props {
+	page: ReturnType<typeof createPublicPageContext>;
+}
+
+const { page } = Astro.props;
+const runtime = getPageRuntime(Astro.locals as unknown as Record<string, unknown>);
+
+let metadataHtml = "";
+let fragmentsHtml = "";
+if (runtime) {
+	const [siteSettings, pluginContributions, fragments] = await Promise.all([
+		getSiteSettings(),
+		runtime.collectPageMetadata(page),
+		runtime.collectPageFragments(page),
+	]);
+	metadataHtml = renderPageMetadata(resolvePageMetadata([...pluginContributions, ...generateSiteSeoContributions(siteSettings.seo)]));
+	fragmentsHtml = renderFragments(fragments, "head");
+}
+---
+
+<Fragment set:html={metadataHtml} />
+<Fragment set:html={fragmentsHtml} />

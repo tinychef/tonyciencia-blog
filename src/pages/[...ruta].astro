@@ -1,0 +1,55 @@
+---
+/**
+ * Toda ruta que no existe pasa por aquí (las rutas comodín tienen la prioridad más baja en Astro). Antes de responder
+ * 404, redirige con 301 las URL viejas que Google sigue rastreando (Search Console, 2026-11-02: 23 URL con 404):
+ *   - páginas legales y en inglés de la web anterior (LEGACY);
+ *   - artículos que vivían en la raíz, como en WordPress (/<slug>/ → /posts/<slug>), si el artículo existe;
+ *   - /en/<slug> → /en/posts/<slug> (o al artículo en español si no hay versión en inglés).
+ * Si no hay a dónde redirigir, responde 404 con la misma página de siempre.
+ */
+import { getEmDashEntry } from "emdash";
+import NotFoundPage from "../components/pages/NotFoundPage.astro";
+import { getStaticPost } from "../utils/static-posts";
+
+const LEGACY: Record<string, string> = {
+	"/privacy-policy": "/legal/privacidad",
+	"/terms-conditions": "/legal/terminos",
+	"/cookie-policy": "/legal/cookies",
+	// Páginas que solo existen en español.
+	"/en/herramientas": "/herramientas",
+	"/en/empleado-ia": "/empleado-ia",
+	"/en/plantilla-n8n-ycloud-ghl": "/plantilla-n8n-ycloud-ghl",
+};
+const SLUG = /^[a-z0-9][a-z0-9-]{1,150}$/;
+
+const path = Astro.url.pathname.replace(/\/+$/, "") || "/";
+const query = Astro.url.search;
+
+async function postExists(lang: "es" | "en", slug: string): Promise<boolean> {
+	if (getStaticPost(lang, slug)) return true;
+	try {
+		const { entry, fallbackLocale } = await getEmDashEntry("posts", slug, { locale: lang });
+		return !!entry && !fallbackLocale && (((entry.data as { locale?: string }).locale ?? lang) === lang);
+	} catch {
+		return false;
+	}
+}
+
+let target: string | null = LEGACY[path] ?? null;
+if (!target && Astro.request.method === "GET") {
+	const en = /^\/en\/([^/]+)$/.exec(path);
+	const root = /^\/([^/]+)$/.exec(path);
+	if (en && SLUG.test(en[1]!)) {
+		if (await postExists("en", en[1]!)) target = `/en/posts/${en[1]}`;
+		else if (await postExists("es", en[1]!)) target = `/posts/${en[1]}`;
+	} else if (root && SLUG.test(root[1]!) && root[1] !== "en") {
+		if (await postExists("es", root[1]!)) target = `/posts/${root[1]}`;
+		else if (await postExists("en", root[1]!)) target = `/en/posts/${root[1]}`;
+	}
+}
+if (target) return Astro.redirect(`${target}${query}`, 301);
+
+Astro.response.status = 404;
+---
+
+<NotFoundPage />

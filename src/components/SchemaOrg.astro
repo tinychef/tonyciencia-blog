@@ -29,7 +29,9 @@ const SOCIAL_PROFILES = [
 
 const orgSchema = {
 	"@context": "https://schema.org",
-	"@type": ["Organization", "LocalBusiness"],
+	// OnlineBusiness (subtipo de Organization): Tony Ciencia vende y enseña en línea, sin local abierto al público.
+	// Con LocalBusiness, Google pedía teléfono y rango de precios de un negocio físico.
+	"@type": "OnlineBusiness",
 	"@id": `${siteUrl}#organization`,
 	name: "Tony Ciencia LLC",
 	alternateName: "Tony Ciencia",
