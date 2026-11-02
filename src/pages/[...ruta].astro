@@ -25,11 +25,20 @@ const SLUG = /^[a-z0-9][a-z0-9-]{1,150}$/;
 const path = Astro.url.pathname.replace(/\/+$/, "") || "/";
 const query = Astro.url.search;
 
+/**
+ * ¿Existe el artículo en ese idioma? Misma búsqueda que las fichas: /posts/[slug].astro pide el post SIN idioma
+ * (los artículos importados de WordPress no tienen idioma guardado y con `locale: "es"` no aparecían) y descarta los
+ * que son en inglés; /en/posts/[slug].astro pide `locale: "en"` y descarta el respaldo en español.
+ */
 async function postExists(lang: "es" | "en", slug: string): Promise<boolean> {
 	if (getStaticPost(lang, slug)) return true;
 	try {
-		const { entry, fallbackLocale } = await getEmDashEntry("posts", slug, { locale: lang });
-		return !!entry && !fallbackLocale && (((entry.data as { locale?: string }).locale ?? lang) === lang);
+		if (lang === "es") {
+			const { entry } = await getEmDashEntry("posts", slug);
+			return !!entry && (entry.data as { locale?: string }).locale !== "en";
+		}
+		const { entry, fallbackLocale } = await getEmDashEntry("posts", slug, { locale: "en" });
+		return !!entry && !fallbackLocale && ((entry.data as { locale?: string }).locale ?? "en") === "en";
 	} catch {
 		return false;
 	}
