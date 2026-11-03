@@ -4,7 +4,7 @@
   "status": "published",
   "data": {
     "title": "Click-to-WhatsApp Ads: El Formato con Mayor ROI en LATAM en 2026",
-    "excerpt": "Las campañas Click-to-WhatsApp generan los CPL más bajos en Meta en LATAM. Reels → WhatsApp Business → IA cierra el funnel sin landing page. El stack perfecto p...",
+    "excerpt": "Click-to-WhatsApp lleva al cliente de un Reel a un chat de WhatsApp sin landing page. El funnel con IA, los sectores donde rinde más y cómo montarlo.",
     "content": [
       {
         "_type": "block",
@@ -18,13 +18,14 @@
       },
       {
         "_type": "block",
-        "style": "normal",
+        "style": "h2",
         "children": [
           {
             "_type": "span",
             "text": "Por Qué WhatsApp Domina el Funnel en LATAM"
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",
@@ -48,13 +49,14 @@
       },
       {
         "_type": "block",
-        "style": "normal",
+        "style": "h2",
         "children": [
           {
             "_type": "span",
             "text": "El Funnel Completo: Reels → WhatsApp → IA → Venta"
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",
@@ -74,7 +76,9 @@
             "_type": "span",
             "text": "Reels ad (5-15 segundos, UGC, hook fuerte) → botón “Enviar mensaje”."
           }
-        ]
+        ],
+        "listItem": "number",
+        "level": 1
       },
       {
         "_type": "block",
@@ -84,7 +88,9 @@
             "_type": "span",
             "text": "WhatsApp Business con mensaje de bienvenida automatizado y menú de opciones."
           }
-        ]
+        ],
+        "listItem": "number",
+        "level": 1
       },
       {
         "_type": "block",
@@ -94,7 +100,9 @@
             "_type": "span",
             "text": "Bot de IA (vía n8n + Claude API) que califica al lead, responde preguntas frecuentes y agenda visitas o envía cotizaciones."
           }
-        ]
+        ],
+        "listItem": "number",
+        "level": 1
       },
       {
         "_type": "block",
@@ -104,7 +112,9 @@
             "_type": "span",
             "text": "Handoff humano solo para cierres complejos — el 60-70% de los leads se auto-califican antes."
           }
-        ]
+        ],
+        "listItem": "number",
+        "level": 1
       },
       {
         "_type": "block",
@@ -118,13 +128,14 @@
       },
       {
         "_type": "block",
-        "style": "normal",
+        "style": "h2",
         "children": [
           {
             "_type": "span",
             "text": "Los Números que Justifican la Inversión"
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",
@@ -144,7 +155,9 @@
             "_type": "span",
             "text": "CPL 40-60% más bajo que campañas de Lead Generation estándar de Meta."
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
@@ -154,7 +167,9 @@
             "_type": "span",
             "text": "Tasa de respuesta inicial superior al 70% en las primeras 2 horas."
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
@@ -164,17 +179,20 @@
             "_type": "span",
             "text": "Tasa de calificación del lead mejorada por la conversación activa vs. formulario pasivo."
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
-        "style": "normal",
+        "style": "h2",
         "children": [
           {
             "_type": "span",
             "text": "Sectores con Mayor Tracción"
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",
@@ -198,13 +216,14 @@
       },
       {
         "_type": "block",
-        "style": "normal",
+        "style": "h2",
         "children": [
           {
             "_type": "span",
             "text": "Conclusión"
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",

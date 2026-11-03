@@ -4,7 +4,7 @@
   "status": "published",
   "data": {
     "title": "Google AI Max: How to Appear in AI Responses Before Your Competition",
-    "excerpt": "AI Max integrates ads directly inside Google Search AI Overviews. In global beta since February 2026, ads now appear before organic results....",
+    "excerpt": "AI Overviews and AI Max are changing where Google ads appear. What it means for your Search campaigns and how to prepare your ads and landing pages.",
     "content": [
       {
         "_type": "block",
@@ -18,13 +18,14 @@
       },
       {
         "_type": "block",
-        "style": "normal",
+        "style": "h2",
         "children": [
           {
             "_type": "span",
             "text": "What AI Overviews Are and Why They Matter for Ads"
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",
@@ -48,13 +49,14 @@
       },
       {
         "_type": "block",
-        "style": "normal",
+        "style": "h2",
         "children": [
           {
             "_type": "span",
             "text": "Why This Is a Structural Change"
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",
@@ -74,7 +76,9 @@
             "_type": "span",
             "text": "Appear before any organic result."
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
@@ -84,7 +88,9 @@
             "_type": "span",
             "text": "Are contextualized within a response the user perceives as neutral and informative."
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
@@ -94,7 +100,9 @@
             "_type": "span",
             "text": "Compete in an environment where user trust is higher than in traditional ad blocks."
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
@@ -108,13 +116,14 @@
       },
       {
         "_type": "block",
-        "style": "normal",
+        "style": "h2",
         "children": [
           {
             "_type": "span",
             "text": "How to Position for AI Max Now"
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",
@@ -132,9 +141,19 @@
         "children": [
           {
             "_type": "span",
-            "text": "High semantic relevance: ads with messages that answer exactly what the user is asking, not just including keywords."
+            "text": "High semantic relevance:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " ads with messages that answer exactly what the user is asking, not just including keywords.",
+            "marks": []
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
@@ -142,9 +161,19 @@
         "children": [
           {
             "_type": "span",
-            "text": "Quality assets: headlines that work as direct answers to frequent sector questions."
+            "text": "Quality assets:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " headlines that work as direct answers to frequent sector questions.",
+            "marks": []
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
@@ -152,9 +181,19 @@
         "children": [
           {
             "_type": "span",
-            "text": "High-authority landing pages: Google evaluates destination quality more rigorously for AI Max than standard Search."
+            "text": "High-authority landing pages:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Google evaluates destination quality more rigorously for AI Max than standard Search.",
+            "marks": []
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
@@ -162,19 +201,30 @@
         "children": [
           {
             "_type": "span",
-            "text": "Conversion history: accounts with good Quality Score and clean conversion data get priority in beta inventory."
+            "text": "Conversion history:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " accounts with good Quality Score and clean conversion data get priority in beta inventory.",
+            "marks": []
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
-        "style": "normal",
+        "style": "h2",
         "children": [
           {
             "_type": "span",
             "text": "The Risk Nobody Is Naming"
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",
@@ -188,13 +238,14 @@
       },
       {
         "_type": "block",
-        "style": "normal",
+        "style": "h2",
         "children": [
           {
             "_type": "span",
             "text": "Conclusion"
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",
