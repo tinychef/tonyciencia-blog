@@ -227,10 +227,34 @@
             "_type": "span",
             "text": " si no tienes video propio, Google puede generarlos con IA para ampliar tu alcance en YouTube. Reduce la barrera de entrada para e-commerce con catálogos grandes.",
             "marks": []
+          },
+          {
+            "_type": "span",
+            "text": " Si prefieres producirlos tú, revisa nuestras ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "herramientas de IA para videos de marketing",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
           }
         ],
         "listItem": "bullet",
-        "level": 1
+        "level": 1,
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/posts/herramientas-ia-videos-marketing-2026"
+          }
+        ]
       },
       {
         "_type": "block",
@@ -352,6 +376,30 @@
           {
             "_type": "span",
             "text": "Demand Gen no es un reemplazo inferior a las VAC — es un formato más capaz con más complejidad. Los anunciantes que entienden sus diferencias y configuran correctamente están viendo resultados superiores a sus campañas de video anteriores. Los que migraron en piloto automático, no."
+          },
+          {
+            "_type": "span",
+            "text": " Para el resto de tus campañas de Google, mira ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "cómo funcionan AI Max y los anuncios en AI Overviews",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/posts/google-ai-max-ads-ai-overviews-2026-como-aparecer"
           }
         ]
       }

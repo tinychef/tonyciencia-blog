@@ -242,7 +242,27 @@
         "children": [
           {
             "_type": "span",
-            "text": "ActiveCampaign became the first marketing platform listed in Anthropic's official Claude connector directory, added in November 2025. In practice, that means a team already working inside Claude (or ChatGPT, or Cursor, via ActiveCampaign's MCP server) can read and write contacts, automations, deals, and campaigns directly from their AI workspace — no tab-switching into a separate marketing app required. That's a meaningfully different integration model than a vendor bolting a chat widget onto their own dashboard; it puts ActiveCampaign's data and actions inside the tools teams are already using to do the rest of their work."
+            "text": "ActiveCampaign became the first marketing platform listed in Anthropic's official Claude connector directory, added in November 2025. In practice, that means a team already working inside Claude (or ChatGPT, or Cursor, via ActiveCampaign's ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "MCP server",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ") can read and write contacts, automations, deals, and campaigns directly from their AI workspace — no tab-switching into a separate marketing app required. That's a meaningfully different integration model than a vendor bolting a chat widget onto their own dashboard; it puts ActiveCampaign's data and actions inside the tools teams are already using to do the rest of their work.",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/en/posts/n8n-mcp-update-model-context-protocol-2025"
           }
         ]
       },
@@ -273,6 +293,30 @@
           {
             "_type": "span",
             "text": "Worth being honest about this: Active Intelligence is not a \"set it and forget it\" system, and it shouldn't be marketed as one."
+          },
+          {
+            "_type": "span",
+            "text": " For guardrails on any agent, see ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "how to implement AI agents with control",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/en/posts/ai-agents-enterprise-governance-2026"
           }
         ]
       },
@@ -475,6 +519,30 @@
           {
             "_type": "span",
             "text": "It's not a replacement for marketing judgment — the brand voice, the approval checkpoints, and the strategic calls are still yours. But the hours-long task of manually assembling a branching automation workflow is no longer where your time has to go."
+          },
+          {
+            "_type": "span",
+            "text": " If you're still choosing a platform, read our ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "ActiveCampaign vs Brevo vs Kit comparison",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/en/posts/activecampaign-vs-brevo-vs-kit-2026"
           }
         ]
       },

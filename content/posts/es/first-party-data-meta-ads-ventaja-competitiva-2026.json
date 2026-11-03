@@ -234,10 +234,34 @@
           {
             "_type": "span",
             "text": "Conectar CRM directamente a la API si el volumen de datos lo justifica."
+          },
+          {
+            "_type": "span",
+            "text": " Una herramienta como n8n sirve para esa sincronización; empieza por ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "n8n para principiantes",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
           }
         ],
         "listItem": "number",
-        "level": 1
+        "level": 1,
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/posts/n8n-para-principiantes-automatizacion-sin-codigo"
+          }
+        ]
       },
       {
         "_type": "block",
@@ -288,6 +312,30 @@
           {
             "_type": "span",
             "text": "La infraestructura de datos propios ya no es un proyecto de “cuando tengamos tiempo”. Es la base sobre la que se construye cualquier estrategia competitiva de Meta Ads en 2026. Quien la tenga lista gana; quien no, subsidia a quien sí."
+          },
+          {
+            "_type": "span",
+            "text": " La otra mitad es el anuncio: ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "el creativo es el nuevo targeting",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/posts/el-creativo-es-el-nuevo-targeting-2026"
           }
         ]
       }

@@ -144,7 +144,27 @@
         "children": [
           {
             "_type": "span",
-            "text": "Agentes de IA nativos: desde 2024, n8n incluye nodos de IA para conectar GPT-4, Claude o Gemini a tus flujos sin una sola línea de código extra."
+            "text": "Agentes de IA nativos: desde 2024, n8n incluye ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "nodos de IA para conectar GPT-4, Claude o Gemini",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " a tus flujos sin una sola línea de código extra.",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/posts/n8n-mcp-actualizacion-protocolo-contexto-modelo-2025"
           }
         ]
       },
@@ -245,6 +265,30 @@
           {
             "_type": "span",
             "text": "Trigger: email entrante o mensaje de WhatsApp. Acción: n8n clasifica la consulta con GPT-4, genera una respuesta basada en tu base de conocimiento y la envía automáticamente, o la escala a ti si detecta una queja compleja. Reduce el tiempo de respuesta de horas a minutos."
+          },
+          {
+            "_type": "span",
+            "text": " Un ejemplo completo con WhatsApp y Pipedrive está en ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "cómo construir un CRM automatizado",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/posts/crm-automatizado-whatsapp-n8n-pipedrive-2026"
           }
         ]
       },
@@ -315,6 +359,30 @@
           {
             "_type": "span",
             "text": "El flujo de aprendizaje recomendado: empieza con la automatización de captura de leads, es la más sencilla y la que genera ROI más rápido, luego suma una automatización por semana. En un mes tendrás un sistema que trabaja por ti mientras duermes."
+          },
+          {
+            "_type": "span",
+            "text": " Si es tu primera vez, sigue antes nuestra ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "guía de n8n para principiantes",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/posts/n8n-para-principiantes-automatizacion-sin-codigo"
           }
         ]
       },

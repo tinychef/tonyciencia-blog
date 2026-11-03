@@ -343,7 +343,22 @@
         "children": [
           {
             "_type": "span",
-            "text": "Active Intelligence de ActiveCampaign es una categoría distinta de producto. Viene con más de 25 agentes de IA que no solo sugieren, sino que ejecutan: un Agente de Campañas que arma un envío completo a partir de un prompt, un Agente de Automatizaciones que diseña flujos de varios pasos, y un Agente de Insights que lee el desempeño de tu cuenta contra datos de referencia de toda la industria y ajusta la segmentación sin que se lo pidas. ActiveCampaign también se convirtió en la primera plataforma de marketing listada en el directorio oficial de conectores de Claude de Anthropic en noviembre de 2025, algo relevante si tu equipo ya trabaja dentro de Claude o ChatGPT y quiere gestionar campañas desde ahí en lugar de cambiar de pestaña."
+            "text": "Active Intelligence de ActiveCampaign",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " es una categoría distinta de producto. Viene con más de 25 agentes de IA que no solo sugieren, sino que ejecutan: un Agente de Campañas que arma un envío completo a partir de un prompt, un Agente de Automatizaciones que diseña flujos de varios pasos, y un Agente de Insights que lee el desempeño de tu cuenta contra datos de referencia de toda la industria y ajusta la segmentación sin que se lo pidas. ActiveCampaign también se convirtió en la primera plataforma de marketing listada en el directorio oficial de conectores de Claude de Anthropic en noviembre de 2025, algo relevante si tu equipo ya trabaja dentro de Claude o ChatGPT y quiere gestionar campañas desde ahí en lugar de cambiar de pestaña.",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/posts/activecampaign-active-intelligence-marketing-autonomo"
           }
         ]
       },
@@ -488,6 +503,30 @@
           {
             "_type": "span",
             "text": "ActiveCampaign se conecta con más de 950 aplicaciones, incluyendo integraciones nativas y profundas de ecommerce (Shopify, WooCommerce, BigCommerce, Square) con flujos de carrito abandonado y post-compra ya integrados. Brevo tiene alrededor de 66 integraciones y Kit unas 100+, ambos apoyándose en Zapier/Make para todo lo que quede fuera de su lista principal. Si tu stack incluye muchas herramientas especializadas (un CRM, una mesa de ayuda, varias tiendas), la cantidad de conexiones nativas de ActiveCampaign reduce de forma significativa la cantidad de soluciones alternas que tendrás que armar."
+          },
+          {
+            "_type": "span",
+            "text": " Si prefieres armar esas conexiones tú mismo, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "n8n es una alternativa a Zapier y Make",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/posts/n8n-automatizacion-negocios-guia-2026"
           }
         ]
       },
@@ -543,6 +582,30 @@
           {
             "_type": "span",
             "text": "ActiveCampaign agregó mensajería nativa de WhatsApp a mediados de 2025 mediante su adquisición de Hilos, poniéndose a la par de la suite multicanal de Brevo (que lleva más tiempo con WhatsApp, SMS, chat en vivo e inboxes sociales, unificados en una vista de \"Conversaciones\"). Kit no tiene SMS ni WhatsApp nativos: los creadores que lo quieren tienen que agregar una herramienta de terceros. Si la mensajería multicanal desde un solo panel es una prioridad, Brevo sigue teniendo el inbox unificado más maduro; ActiveCampaign se puso al día en cobertura de canales pero la conecta con su motor de automatización, algo que las herramientas de chat de Brevo no hacen con la misma profundidad."
+          },
+          {
+            "_type": "span",
+            "text": " Si quieres automatizar WhatsApp con un CRM, mira ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "cómo construir un CRM automatizado con WhatsApp, n8n y Pipedrive",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/posts/crm-automatizado-whatsapp-n8n-pipedrive-2026"
           }
         ]
       },

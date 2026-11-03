@@ -242,7 +242,27 @@
         "children": [
           {
             "_type": "span",
-            "text": "ActiveCampaign se convirtió en la primera plataforma de marketing listada en el directorio oficial de conectores de Claude de Anthropic, agregada en noviembre de 2025. En la práctica, eso significa que un equipo que ya trabaja dentro de Claude (o ChatGPT, o Cursor, vía el servidor MCP de ActiveCampaign) puede leer y escribir contactos, automatizaciones, negociaciones y campañas directamente desde su espacio de trabajo de IA, sin cambiar de pestaña a una app de marketing separada. Ese es un modelo de integración significativamente distinto al de un proveedor que le pega un widget de chat a su propio panel; pone los datos y las acciones de ActiveCampaign dentro de las herramientas que los equipos ya usan para el resto de su trabajo."
+            "text": "ActiveCampaign se convirtió en la primera plataforma de marketing listada en el directorio oficial de conectores de Claude de Anthropic, agregada en noviembre de 2025. En la práctica, eso significa que un equipo que ya trabaja dentro de Claude (o ChatGPT, o Cursor, vía el ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "servidor MCP de ActiveCampaign",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ") puede leer y escribir contactos, automatizaciones, negociaciones y campañas directamente desde su espacio de trabajo de IA, sin cambiar de pestaña a una app de marketing separada. Ese es un modelo de integración significativamente distinto al de un proveedor que le pega un widget de chat a su propio panel; pone los datos y las acciones de ActiveCampaign dentro de las herramientas que los equipos ya usan para el resto de su trabajo.",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/posts/n8n-mcp-actualizacion-protocolo-contexto-modelo-2025"
           }
         ]
       },
@@ -273,6 +293,30 @@
           {
             "_type": "span",
             "text": "Vale la pena ser honesto en esto: Active Intelligence no es un sistema de \"configúralo y olvídalo\", y no debería venderse como tal."
+          },
+          {
+            "_type": "span",
+            "text": " Para poner límites a cualquier agente, mira ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "cómo implementar agentes de IA con control",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/posts/agentes-ia-gobierno-empresarial-2026"
           }
         ]
       },
@@ -475,6 +519,30 @@
           {
             "_type": "span",
             "text": "No es un reemplazo del criterio de marketing: la voz de marca, los puntos de aprobación y las decisiones estratégicas siguen siendo tuyas. Pero la tarea de horas de armar manualmente un flujo de automatización ramificado ya no tiene que ocupar tu tiempo."
+          },
+          {
+            "_type": "span",
+            "text": " Si todavía estás eligiendo plataforma, revisa nuestra ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "comparativa de ActiveCampaign, Brevo y Kit",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/posts/activecampaign-vs-brevo-vs-kit-comparativa-2026"
           }
         ]
       },

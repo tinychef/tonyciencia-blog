@@ -132,11 +132,51 @@
    {
     "_type": "block",
     "style": "normal",
-    "markDefs": [],
+    "markDefs": [
+     {
+      "_key": "int0",
+      "_type": "link",
+      "href": "/posts/herramientas-ia-videos-marketing-2026"
+     },
+     {
+      "_key": "int1",
+      "_type": "link",
+      "href": "/herramientas"
+     }
+    ],
     "children": [
      {
       "_type": "span",
       "text": "Aquí es donde FocuSee brilla. Sus funciones de IA no son gimmicks; resuelven problemas reales:",
+      "marks": []
+     },
+     {
+      "_type": "span",
+      "text": " Si quieres comparar opciones, revisa nuestra guía de ",
+      "marks": []
+     },
+     {
+      "_type": "span",
+      "text": "herramientas de IA para videos de marketing",
+      "marks": [
+       "int0"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": " o nuestra ",
+      "marks": []
+     },
+     {
+      "_type": "span",
+      "text": "selección de herramientas",
+      "marks": [
+       "int1"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": ".",
       "marks": []
      }
     ]

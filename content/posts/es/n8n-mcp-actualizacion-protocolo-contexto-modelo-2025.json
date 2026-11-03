@@ -158,6 +158,30 @@
           {
             "_type": "span",
             "text": "Esto significa que tu agente de IA en n8n puede acceder a herramientas de GitHub, Slack, bases de datos, APIs propias o cualquier otro servidor MCP del ecosistema, todo desde el mismo workflow."
+          },
+          {
+            "_type": "span",
+            "text": " Antes de dar acceso a tantas herramientas, define límites: lo explicamos en ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "cómo implementar agentes de IA con control",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/posts/agentes-ia-gobierno-empresarial-2026"
           }
         ]
       },
@@ -327,6 +351,30 @@
           {
             "_type": "span",
             "text": "Si ya usas n8n, actualiza a v2.13+ y conecta Claude Desktop hoy mismo. Si aún no usas n8n, este es el mejor momento para empezar: tienes acceso a una plataforma que se puede controlar con lenguaje natural, sin escribir una sola línea de código, en cualquier edición incluyendo la gratuita."
+          },
+          {
+            "_type": "span",
+            "text": " Para empezar, mira ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "las 5 automatizaciones con n8n que recomendamos primero",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/posts/n8n-automatizacion-negocios-guia-2026"
           }
         ]
       },
