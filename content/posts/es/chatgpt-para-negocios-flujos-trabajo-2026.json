@@ -34,7 +34,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "La mayoría de empresarios que dicen usar ChatGPT lo abren, escriben un prompt, copian la respuesta y la pegan. Eso es usar el 5% de su potencial. Los negocios que realmente están ganando con IA no usan ChatGPT como un asistente de escritura: lo integran como motor de decisiones dentro de flujos de trabajo automatizados. Esto es lo que marca la diferencia en 2026."
+            "text": "La mayoría de empresarios que dicen usar ChatGPT lo abren, escriben un prompt, copian la respuesta y la pegan. Eso es aprovechar una parte mínima de su potencial. Los negocios que realmente están ganando con IA no usan ChatGPT como un asistente de escritura: lo integran como motor de decisiones dentro de flujos de trabajo automatizados. Esto es lo que marca la diferencia en 2026."
           }
         ]
       },
@@ -104,7 +104,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Conecta tu email de soporte o WhatsApp Business a GPT-4 con acceso a tu base de conocimiento: FAQ, precios, políticas. El modelo responde el 80% de las preguntas frecuentes en segundos. Solo escala a ti cuando detecta una situación compleja o una queja. Resultado típico: tiempo de respuesta de horas a minutos, satisfacción más 40%."
+            "text": "Conecta tu email de soporte o WhatsApp Business a GPT-4 con acceso a tu base de conocimiento: FAQ, precios, políticas. El modelo puede responder en segundos buena parte de las preguntas frecuentes. Solo escala a ti cuando detecta una situación compleja o una queja. El tiempo de respuesta puede pasar de horas a minutos."
           }
         ]
       },
@@ -124,7 +124,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Defines tu calendario editorial una vez al mes. n8n lee los temas programados, llama a GPT-4 con tu guía de estilo y genera borradores completos de artículos, posts de LinkedIn y scripts de video. Tú revisas y publicas. El tiempo de producción de contenido baja de 4 horas a 45 minutos por pieza."
+            "text": "Defines tu calendario editorial una vez al mes. n8n lee los temas programados, llama a GPT-4 con tu guía de estilo y genera borradores completos de artículos, posts de LinkedIn y scripts de video. Tú revisas y publicas. Tu trabajo pasa de escribir desde cero a revisar y ajustar borradores."
           }
         ]
       },
@@ -257,7 +257,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "No completamente. ChatGPT puede manejar el 80% de las consultas frecuentes (FAQs, precios, políticas), pero las quejas complejas y situaciones emocionales necesitan un humano. La clave está en usar IA para el primer nivel y escalar solo lo necesario."
+            "text": "No completamente. ChatGPT puede manejar buena parte de las consultas frecuentes (FAQs, precios, políticas), pero las quejas complejas y situaciones emocionales necesitan un humano. La clave está en usar IA para el primer nivel y escalar solo lo necesario."
           }
         ]
       },
@@ -277,7 +277,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Para automatizar flujos de trabajo necesitas la API de OpenAI, que tiene costo por uso (GPT-4: ~$0.03 por 1K tokens de entrada). La versión gratuita de ChatGPT no se puede integrar con herramientas externas como n8n."
+            "text": "Para automatizar flujos de trabajo necesitas la API de OpenAI, que se cobra por uso según el modelo (los precios vigentes están en la página de precios de OpenAI). La versión gratuita de ChatGPT no se puede integrar con herramientas externas como n8n."
           }
         ]
       },

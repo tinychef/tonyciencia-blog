@@ -3,152 +3,86 @@
   "slug": "google-ai-max-ads-ai-overviews-2026-como-aparecer",
   "status": "published",
   "data": {
-    "title": "Google AI Max: Cómo Aparecer en las Respuestas de IA Antes que la Competencia",
-    "excerpt": "AI Overviews y AI Max cambian dónde aparecen los anuncios de Google. Qué significa para tus campañas de búsqueda y cómo preparar anuncios y landings.",
+    "title": "AI Max y Anuncios en AI Overviews: Cómo Funciona Cada Uno",
+    "excerpt": "AI Max y los anuncios en AI Overviews son dos cosas distintas en Google Ads. Qué es cada una, dónde funciona y cómo lograr que tus anuncios califiquen.",
     "content": [
       {
         "_type": "block",
         "style": "normal",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "En febrero de 2026, Google lanzó en beta global uno de los cambios más disruptivos en la historia de Google Ads: AI Max, el formato que integra anuncios directamente dentro de las respuestas de IA de Google Search — los llamados AI Overviews. Si antes la lucha era aparecer en el top orgánico o en el primer resultado pagado, ahora hay un nuevo terreno previo a ambos."
-          }
-        ]
-      },
-      {
-        "_type": "block",
-        "style": "h2",
-        "children": [
-          {
-            "_type": "span",
-            "text": "Qué son los AI Overviews y Por Qué Importan para Ads"
-          }
-        ],
-        "markDefs": []
-      },
-      {
-        "_type": "block",
-        "style": "normal",
-        "children": [
-          {
-            "_type": "span",
-            "text": "Los AI Overviews son los resúmenes generados por IA que Google muestra en la parte superior de ciertos resultados de búsqueda antes de los enlaces orgánicos. Ya los has visto: la caja azul con una respuesta sintetizada que responde directamente a la query del usuario."
+            "text": "Actualizado el 3 de noviembre de 2026. La versión anterior de este artículo presentaba AI Max como un formato de anuncios dentro de los AI Overviews lanzado en beta en febrero de 2026. No es así: son dos novedades distintas, con fechas distintas. Lo reescribimos con la documentación oficial de Google.",
+            "marks": [
+              "em"
+            ]
           }
         ]
       },
       {
         "_type": "block",
         "style": "normal",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "Con AI Max, los anuncios aparecen dentro de esos resúmenes — integrados en la respuesta de IA, no como bloques separados de “anuncios”. La distinción de formato cambia radicalmente la experiencia del usuario y, por extensión, el comportamiento de click."
-          }
-        ]
-      },
-      {
-        "_type": "block",
-        "style": "h2",
-        "children": [
+            "text": "Si gestionas campañas en Google Ads, en el último año aparecieron dos nombres que se mezclan con facilidad: ",
+            "marks": []
+          },
           {
             "_type": "span",
-            "text": "Por Qué Esto es un Cambio Estructural"
-          }
-        ],
-        "markDefs": []
-      },
-      {
-        "_type": "block",
-        "style": "normal",
-        "children": [
-          {
-            "_type": "span",
-            "text": "El modelo tradicional de búsqueda pagada asume una SERP con resultados orgánicos y anuncios distinguibles. AI Max colapsa esa distinción. Los anuncios dentro de AI Overviews:"
-          }
-        ]
-      },
-      {
-        "_type": "block",
-        "style": "normal",
-        "children": [
-          {
-            "_type": "span",
-            "text": "Aparecen antes que cualquier resultado orgánico."
-          }
-        ],
-        "listItem": "bullet",
-        "level": 1
-      },
-      {
-        "_type": "block",
-        "style": "normal",
-        "children": [
-          {
-            "_type": "span",
-            "text": "Están contextualizados dentro de una respuesta que el usuario percibe como neutral e informativa."
-          }
-        ],
-        "listItem": "bullet",
-        "level": 1
-      },
-      {
-        "_type": "block",
-        "style": "normal",
-        "children": [
-          {
-            "_type": "span",
-            "text": "Compiten en un entorno donde la confianza del usuario es mayor que en los bloques de anuncios tradicionales."
-          }
-        ],
-        "listItem": "bullet",
-        "level": 1
-      },
-      {
-        "_type": "block",
-        "style": "normal",
-        "children": [
-          {
-            "_type": "span",
-            "text": "Para los anunciantes, esto representa acceso a un inventario con menor competencia inicial y mayor atención del usuario — una combinación que históricamente precede a CPCs más altos una vez que el formato madura."
-          }
-        ]
-      },
-      {
-        "_type": "block",
-        "style": "h2",
-        "children": [
-          {
-            "_type": "span",
-            "text": "Cómo Posicionarse para AI Max Ahora"
-          }
-        ],
-        "markDefs": []
-      },
-      {
-        "_type": "block",
-        "style": "normal",
-        "children": [
-          {
-            "_type": "span",
-            "text": "Las campañas que tienen más posibilidades de aparecer en AI Max comparten características específicas:"
-          }
-        ]
-      },
-      {
-        "_type": "block",
-        "style": "normal",
-        "children": [
-          {
-            "_type": "span",
-            "text": "Alta relevancia semántica:",
+            "text": "AI Max for Search",
             "marks": [
               "strong"
             ]
           },
           {
             "_type": "span",
-            "text": " anuncios con mensajes que responden exactamente lo que el usuario pregunta, no solo que incluyen keywords.",
+            "text": " y los ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "anuncios en AI Overviews",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Uno es un ajuste de tus campañas de búsqueda; el otro es un lugar donde pueden aparecer tus anuncios. Aquí tienes qué es cada uno según Google, dónde está disponible y qué hacer para que tus anuncios califiquen.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Respuesta corta",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "AI Max for Search:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " un conjunto de funciones de segmentación y creatividad que activas dentro de una campaña de búsqueda existente. No es un tipo de campaña nuevo. Google lo presentó el 6 de mayo de 2025.",
             "marks": []
           }
         ],
@@ -158,17 +92,18 @@
       {
         "_type": "block",
         "style": "normal",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "Assets de calidad:",
+            "text": "Anuncios en AI Overviews:",
             "marks": [
               "strong"
             ]
           },
           {
             "_type": "span",
-            "text": " titulares que funcionan como respuestas directas a preguntas frecuentes del sector.",
+            "text": " anuncios que aparecen arriba, abajo o dentro de los resúmenes de IA de la Búsqueda. Llegaron a móviles en Estados Unidos en octubre de 2024 y en 2025 se ampliaron a escritorio y a más países.",
             "marks": []
           }
         ],
@@ -178,17 +113,18 @@
       {
         "_type": "block",
         "style": "normal",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "Landing pages de alta autoridad:",
+            "text": "La relación:",
             "marks": [
               "strong"
             ]
           },
           {
             "_type": "span",
-            "text": " Google evalúa la calidad del destino más rigurosamente para AI Max que para Search estándar.",
+            "text": " AI Max es una de las vías para que una campaña de búsqueda sea elegible para aparecer dentro de los AI Overviews, junto con Performance Max, Shopping y la concordancia amplia.",
             "marks": []
           }
         ],
@@ -198,17 +134,18 @@
       {
         "_type": "block",
         "style": "normal",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "Historial de conversiones:",
+            "text": "Para LATAM:",
             "marks": [
               "strong"
             ]
           },
           {
             "_type": "span",
-            "text": " las cuentas con buen Quality Score y datos de conversión limpios tienen prioridad en el inventario beta.",
+            "text": " según la ayuda de Google, los anuncios dentro de AI Overviews están disponibles en inglés y en mercados que hoy no incluyen países de habla hispana.",
             "marks": []
           }
         ],
@@ -218,115 +155,856 @@
       {
         "_type": "block",
         "style": "h2",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "El Riesgo que Nadie Está Nombrando"
+            "text": "Qué es AI Max for Search",
+            "marks": []
           }
-        ],
-        "markDefs": []
+        ]
       },
       {
         "_type": "block",
         "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://blog.google/products/ads-commerce/google-ai-max-for-search-campaigns/"
+          },
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://support.google.com/google-ads/answer/15910187?hl=en"
+          }
+        ],
         "children": [
           {
             "_type": "span",
-            "text": "AI Max también amenaza a los anunciantes que no actúan: si tu competencia aparece en el AI Overview de tu categoría y tú no, el usuario recibe la respuesta de IA con tu competidor integrado — y puede no llegar a ver tu anuncio en ningún otro formato."
+            "text": "Google presentó AI Max el 6 de mayo de 2025 como un conjunto de funciones de segmentación y creatividad que se activa con un clic dentro de las campañas de búsqueda, con lanzamiento en beta para todos los anunciantes a partir de ese mes (",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Google, 6 de mayo de 2025",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "). La página de ayuda lo describe como una capa de optimización que activas en tus campañas de búsqueda existentes, y aclara que no es un tipo de campaña nuevo (",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Ayuda de Google Ads: AI Max",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ").",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sus piezas principales, según esa página:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Concordancia de términos de búsqueda:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " usa concordancia amplia y tecnología sin palabras clave (a partir de tus recursos y páginas de destino) para llegar a más búsquedas.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Personalización de texto:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " escribe títulos y descripciones a partir de tus anuncios, tus páginas de destino y tus recursos.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Expansión de URL final:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " envía el tráfico a la página de tu sitio que considera más relevante.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Y los controles para acotarlo:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Inclusiones y exclusiones de marca",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", para elegir junto a qué marcas aparecer o no.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Exclusiones de URL",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", para que ciertas páginas no se usen como destino.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ubicaciones de interés",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " por grupo de anuncios, según la intención geográfica de la búsqueda.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Google afirma que los anunciantes que activan AI Max suelen ver un 14 % más de conversiones o de valor de conversión con un CPA o ROAS similar, y un 27 % en campañas que todavía usan sobre todo concordancia exacta y de frase. Son datos internos de Google de 2025 y excluyen a los anunciantes de retail: tómalos como la afirmación de Google, no como un resultado esperable para tu cuenta. La ayuda también advierte que AI Max no será efectivo si la campaña está limitada por presupuesto.",
+            "marks": []
           }
         ]
       },
       {
         "_type": "block",
         "style": "h2",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "Conclusión"
+            "text": "Qué son los anuncios en AI Overviews",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Los AI Overviews son los resúmenes generados con IA que Google muestra en algunas búsquedas. Los anuncios en ese espacio llegaron por etapas:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://blog.google/products/ads-commerce/google-lens-ai-overviews-ads-marketers/"
           }
         ],
-        "markDefs": []
+        "children": [
+          {
+            "_type": "span",
+            "text": "3 de octubre de 2024:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Google anunció que los anuncios en AI Overviews ya estaban disponibles para usuarios de móviles en Estados Unidos, arriba y abajo del resumen, con las campañas existentes de búsqueda con IA, Shopping y Performance Max, sin pasos adicionales (",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Google, 3 de octubre de 2024",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ").",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
       },
       {
         "_type": "block",
         "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://blog.google/products/ads-commerce/google-search-ai-brand-discovery/"
+          }
+        ],
         "children": [
           {
             "_type": "span",
-            "text": "AI Max es el formato más importante que Google ha lanzado desde los Shopping Ads. Estar en beta ahora, entender cómo funciona y optimizar para él es la ventaja de primer movimiento que pocos anunciantes están aprovechando. La ventana de adopción temprana no dura."
+            "text": "21 de mayo de 2025:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " los anuncios de búsqueda y de Shopping en AI Overviews pasaron a escritorio en Estados Unidos, Google anunció la expansión en inglés a países seleccionados para más adelante ese año y empezó a probar anuncios en AI Mode (",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Google, 21 de mayo de 2025",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ").",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://support.google.com/google-ads/answer/16297775?hl=en"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Hoy, la página de ayuda de Google Ads (",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Acerca de los anuncios y AI Overviews",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ") explica las reglas así:",
+            "marks": []
           }
         ]
       },
       {
         "_type": "block",
         "style": "normal",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "🔗 Fuente: MentorCruise — What’s New in Google Ads 2026"
+            "text": "Campañas elegibles:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " las de búsqueda, Shopping y Performance Max son elegibles de forma automática. Dentro de AI Overviews y AI Mode pueden aparecer anuncios de texto y de Shopping.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo se activa cada palabra clave:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " la segmentación con IA, incluida la concordancia amplia, es elegible tanto para la coincidencia contextual (la búsqueda y la respuesta de IA) como para la coincidencia directa con la búsqueda. Las palabras clave de concordancia exacta y de frase solo son elegibles cuando la búsqueda expresa una intención comercial directa, no en preguntas exploratorias más amplias.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Control:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " no puedes segmentar solo para AI Overviews o AI Mode ni excluirte de ellos por separado; sí puedes usar palabras clave negativas y exclusiones de marca.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Medición:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " los resultados se suman a las métricas habituales de la campaña, y las búsquedas que activaron los anuncios aparecen agregadas en el informe de términos de búsqueda.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Mercados:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " en inglés, en Estados Unidos, Australia, Canadá, India, Indonesia (solo AI Overviews), Kenia, Malasia, Nueva Zelanda, Nigeria, Pakistán (solo anuncios de texto), Filipinas y Singapur. Google aclara que la lista puede no ser exhaustiva.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo se relacionan (sin mezclarlos)",
+            "marks": []
           }
         ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "AI Max cambia ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "cómo",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " tu campaña de búsqueda encuentra búsquedas y escribe anuncios. Los AI Overviews son ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "dónde",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " puede aparecer un anuncio. La conexión es que una campaña de búsqueda con AI Max o con concordancia amplia puede competir por coincidencia contextual dentro de los resúmenes, mientras que una campaña solo con concordancia exacta queda limitada a búsquedas con intención comercial directa. Ninguno de los dos te asegura una posición: los anuncios siguen pasando por la subasta.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo preparar tus campañas",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "/posts/seo-2026-ai-overviews-contenido-citable"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Revisa tu mercado e idioma.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Si tus campañas apuntan a países de habla hispana, los anuncios dentro de AI Overviews todavía no figuran en la lista de Google. Tu prioridad está en la Búsqueda clásica y en tu contenido orgánico; sobre lo segundo, mira ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "cómo escribir contenido que citen los AI Overviews",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Prueba AI Max como experimento",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " en una campaña de búsqueda con presupuesto suficiente, y compárala con tu configuración actual.",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Configura los controles antes de activarlo:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " exclusiones de marca, exclusiones de URL y palabras clave negativas.",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Revisa el informe de términos de búsqueda cada semana",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " para ver a qué búsquedas llega la campaña.",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "/posts/google-lens-shopping-ads-canal-ventas-2026"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si vendes productos, cuida tu feed de Merchant Center:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Shopping y Performance Max también son elegibles; en ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Google Lens y Shopping Ads",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " explicamos cómo optimizarlo.",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Fuentes consultadas (3 de noviembre de 2026)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://blog.google/products/ads-commerce/google-ai-max-for-search-campaigns/"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Google: AI Max for Search campaigns (6 de mayo de 2025)",
+            "marks": [
+              "l0"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://support.google.com/google-ads/answer/15910187?hl=en"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ayuda de Google Ads: AI Max for Search campaigns",
+            "marks": [
+              "l0"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://blog.google/products/ads-commerce/google-lens-ai-overviews-ads-marketers/"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Google: anuncios en AI Overviews y en Lens (3 de octubre de 2024)",
+            "marks": [
+              "l0"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://blog.google/products/ads-commerce/google-search-ai-brand-discovery/"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Google: anuncios en AI Overviews en escritorio y pruebas en AI Mode (21 de mayo de 2025)",
+            "marks": [
+              "l0"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://support.google.com/google-ads/answer/16297775?hl=en"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ayuda de Google Ads: Acerca de los anuncios y AI Overviews",
+            "marks": [
+              "l0"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
       }
     ],
-    "key_entities": "Google AI Max, AI Overviews, Google Search, anuncios, IA, beta, resultados de búsqueda, CPC",
+    "key_entities": "Google Ads, AI Max for Search campaigns, AI Overviews, AI Mode, Performance Max, Shopping, concordancia amplia, personalización de texto, expansión de URL final, exclusiones de marca, Google Marketing Live",
     "faq_items": [
       {
         "_type": "block",
         "style": "h3",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "¿Cómo puedo unirme al beta de Google AI Max?"
+            "text": "¿AI Max es lo mismo que los anuncios en AI Overviews?",
+            "marks": []
           }
         ]
       },
       {
         "_type": "block",
         "style": "normal",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "AI Max está en beta global desde febrero 2026. Para acceder, tu cuenta de Google Ads debe tener un historial de campañas de búsqueda activas y un nivel de calidad alto. Contacta a tu representante de Google o solicita acceso desde la interfaz de Google Ads."
+            "text": "No. AI Max for Search es un conjunto de funciones que activas dentro de una campaña de búsqueda para ampliar la concordancia y generar textos. Los anuncios en AI Overviews son una ubicación dentro de los resúmenes de IA de Google. Activar AI Max es una de las formas de que una campaña de búsqueda sea elegible para esa ubicación, pero no la única.",
+            "marks": []
           }
         ]
       },
       {
         "_type": "block",
         "style": "h3",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "¿Los anuncios en AI Overviews tienen el mismo CPC que la búsqueda normal?"
+            "text": "¿Puedo pagar para aparecer solo en los AI Overviews?",
+            "marks": []
           }
         ]
       },
       {
         "_type": "block",
         "style": "normal",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "Los CPCs son comparables pero pueden variar. La ubicación dentro del AI Overview es premium y la intención de compra es alta. En las primeras pruebas, los anunciantes reportan CPCs similares o ligeramente más altos, pero con tasas de conversión superiores."
+            "text": "No. Según la ayuda de Google Ads, no puedes segmentar anuncios exclusivamente a AI Overviews o AI Mode ni excluirte de ellos por separado de la Búsqueda. Puedes controlar dónde aparecen con palabras clave negativas y exclusiones de marca.",
+            "marks": []
           }
         ]
       },
       {
         "_type": "block",
         "style": "h3",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "¿AI Max funciona para todos los sectores?"
+            "text": "¿Los anuncios en AI Overviews están disponibles en español?",
+            "marks": []
           }
         ]
       },
       {
         "_type": "block",
         "style": "normal",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "AI Max funciona mejor en sectores donde Google genera AI Overviews frecuentes: tecnología, salud, finanzas, viajes y e-commerce. Sectores con búsquedas transaccionales directas (como restauración local) pueden tener menos oportunidades de AI Max."
+            "text": "Según la página de ayuda de Google Ads consultada el 3 de noviembre de 2026, los anuncios dentro de AI Overviews y AI Mode están disponibles en inglés en Estados Unidos y en mercados de habla inglesa seleccionados. La lista que publica Google, que aclara que puede no ser exhaustiva, no incluye países de habla hispana.",
+            "marks": []
           }
         ]
       }
@@ -336,10 +1014,19 @@
     "featured_image": {
       "$media": {
         "url": "https://tonyciencia.com/assets/og-default.webp",
-        "alt": "Google AI Max: Cómo Aparecer en las Respuestas de IA Antes que la Competencia — Tony Ciencia",
+        "alt": "AI Max y Anuncios en AI Overviews: Cómo Funciona Cada Uno — Tony Ciencia",
         "filename": "google-ai-max-ads-ai-overviews-2026-como-aparecer.webp"
       }
-    }
+    },
+    "schema_type": "BlogPosting",
+    "keywords": [
+      "Google AI Max",
+      "anuncios en AI Overviews",
+      "AI Max for Search",
+      "Google Ads AI Overviews",
+      "AI Mode anuncios"
+    ],
+    "image_prompt": "Editorial tech thumbnail 16:9: a search results page split in two panels, on the left a campaign settings switch labeled only with an icon, on the right an AI summary box with a small sponsored card inside it, amber (#c8922a) accents on a dark background, retro pixel dot texture, hard 3px corners, solid offset pixel shadows, no text, no logos."
   },
   "bylines": [
     {

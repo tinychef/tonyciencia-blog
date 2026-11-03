@@ -1,0 +1,858 @@
+{
+  "id": "post-claude-spacex-2026",
+  "slug": "acuerdo-anthropic-spacex-colossus-claude-code",
+  "status": "published",
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "ia",
+      "negocios"
+    ],
+    "tag": [
+      "opinion",
+      "caso-de-uso"
+    ]
+  },
+  "data": {
+    "title": "Anthropic y SpaceX: el acuerdo de cómputo de Colossus 1",
+    "excerpt": "Anthropic usará toda la capacidad de Colossus 1, de SpaceX, y duplicó los límites de Claude Code. Qué incluye el acuerdo de mayo de 2026 y qué cambia para ti.",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/assets/og-default.webp",
+        "alt": "Anthropic y SpaceX: el Acuerdo de Cómputo de Colossus 1 — Tony Ciencia",
+        "filename": "claude-spacex-fusion.jpg"
+      }
+    },
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Actualizado el 3 de noviembre de 2026. La versión anterior de este artículo hablaba de una «fusión» entre Claude y SpaceX y de Claude como sistema de IA de las misiones Starship. No encontramos ninguna fuente que lo respalde. Lo que Anthropic y SpaceX anunciaron el 6 de mayo de 2026 fue un acuerdo de capacidad de cómputo, y así lo contamos ahora, con las fuentes enlazadas.",
+            "marks": [
+              "em"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si usas Claude o Claude Code, el acuerdo entre Anthropic y SpaceX te afecta de una forma muy concreta: más margen de uso. No se trata de cohetes ni de una unión de empresas, sino de centros de datos y de cuánta capacidad tiene Anthropic para atender a sus usuarios. Aquí tienes qué se anunció, qué cambió en los límites y qué no dice el acuerdo.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Respuesta corta",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Qué es:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " un acuerdo para que Anthropic use toda la capacidad de cómputo del centro de datos Colossus 1 de SpaceX: más de 300 megavatios y más de 220.000 GPU de NVIDIA.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Qué cambió para los usuarios:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " límites de cinco horas de Claude Code duplicados en Pro, Max, Team y Enterprise por asiento; sin reducción en horas pico para Pro y Max; límites de la API más altos para Claude Opus.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cuánto cuesta:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " según Bloomberg Law, unos 1.250 millones de dólares al mes hasta mayo de 2029.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Qué no es:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " ni fusión ni adquisición. No hay anuncio sobre Claude en Starship ni en misiones a Marte.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Qué anunciaron Anthropic y SpaceX",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://www.anthropic.com/news/higher-limits-spacex"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "El 6 de mayo de 2026, Anthropic publicó que había firmado un acuerdo con SpaceX para usar toda la capacidad de cómputo de su centro de datos ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Colossus 1",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Según la empresa, eso le da acceso a más de 300 megavatios de capacidad nueva, con más de 220.000 GPU de NVIDIA, disponibles en el plazo de un mes (",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Anthropic, 6 de mayo de 2026",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ").",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://engadget.com/2166315/anthropic-is-doubling-claude-code-rate-limits-after-deal-with-spacex"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Colossus 1 era el centro de datos de xAI, la empresa de inteligencia artificial que ahora pertenece a SpaceX (",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Engadget, 6 de mayo de 2026",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ").",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "El anuncio incluye una línea sobre el espacio, y es la que dio pie a confusiones: Anthropic dice que, como parte del acuerdo, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "expresó interés",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " en colaborar con SpaceX para desarrollar varios gigavatios de capacidad de cómputo de IA en órbita. Es una intención, no un proyecto con fechas, y no tiene que ver con pilotar naves.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Qué cambió en Claude y Claude Code",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Anthropic aplicó tres cambios desde el mismo 6 de mayo:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Límites de cinco horas de Claude Code duplicados",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " en los planes Pro, Max, Team y Enterprise por asiento.",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sin reducción en horas pico",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " de Claude Code para las cuentas Pro y Max.",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Límites de la API mucho más altos",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " para los modelos Claude Opus, con una tabla de los nuevos valores en el anuncio.",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "El anuncio no menciona cambios de precio ni cambios para el plan gratuito.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Las condiciones económicas",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://news.bloomberglaw.com/ip-law/anthropic-to-pay-spacex-nearly-45-billion-for-computing-deal"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Las cifras no salieron del anuncio, sino de los documentos que SpaceX presentó para su salida a bolsa. Según Bloomberg Law, Anthropic pagaría ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "1.250 millones de dólares al mes hasta mayo de 2029",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", cerca de 45.000 millones en tres años, con una tarifa reducida mientras la capacidad se habilitaba en mayo y junio de 2026. Cualquiera de las dos partes puede terminar el acuerdo con 90 días de aviso (",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Bloomberg Law, 20 de mayo de 2026",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ").",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Por qué Anthropic necesitaba más cómputo",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "El acuerdo con SpaceX es una pieza más de una estrategia con varios proveedores. En el mismo anuncio, Anthropic enumera otros acuerdos de capacidad:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Amazon:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " hasta 5 gigavatios, con casi 1 gigavatio nuevo antes de fines de 2026.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Google y Broadcom:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " 5 gigavatios que empiezan a entrar en servicio en 2027.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Microsoft y NVIDIA:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " una alianza que incluye 30.000 millones de dólares en capacidad de Azure.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Fluidstack:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " una inversión de 50.000 millones de dólares en infraestructura de IA en Estados Unidos.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Anthropic también aclara que Claude funciona sobre chips de tres familias: AWS Trainium, TPU de Google y GPU de NVIDIA.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Qué significa para ti",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si tienes Pro, Max, Team o Enterprise por asiento:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " tienes el doble de margen en la ventana de cinco horas de Claude Code. En Pro y Max ya no hay recorte en horas pico.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si usas la API con Claude Opus:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " revisa los nuevos límites en la tabla del anuncio y en tu consola antes de ajustar tus flujos.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "/posts/n8n-mcp-actualizacion-protocolo-contexto-modelo-2025"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si conectas Claude a tus automatizaciones",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", por ejemplo con n8n y MCP (lo explicamos en ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "la actualización de n8n con Model Context Protocol",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "), revisa qué parte usa tu suscripción y qué parte usa la API: los cambios no son los mismos para cada una.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "/posts/agentes-ia-gobierno-empresarial-2026"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si estás pensando en llevar agentes de IA a tu empresa",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", más capacidad no reemplaza las reglas de uso: en ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "agentes de IA con control y seguridad",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " repasamos cómo implementarlos.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lo que el acuerdo no dice",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "No hay fusión, adquisición ni participación accionaria anunciada entre Anthropic y SpaceX. El anuncio no menciona Starship, misiones tripuladas ni el uso de Claude en naves. Y la capacidad en órbita es, por ahora, solo un interés expresado por Anthropic.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Fuentes consultadas (3 de noviembre de 2026)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://www.anthropic.com/news/higher-limits-spacex"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Anthropic: Higher usage limits for Claude and a compute deal with SpaceX (6 de mayo de 2026)",
+            "marks": [
+              "l0"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://engadget.com/2166315/anthropic-is-doubling-claude-code-rate-limits-after-deal-with-spacex"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Engadget: Anthropic is doubling Claude Code rate limits after deal with SpaceX (6 de mayo de 2026)",
+            "marks": [
+              "l0"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://news.bloomberglaw.com/ip-law/anthropic-to-pay-spacex-nearly-45-billion-for-computing-deal"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Bloomberg Law: Anthropic to pay SpaceX nearly $45 billion for computing deal (20 de mayo de 2026)",
+            "marks": [
+              "l0"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      }
+    ],
+    "key_entities": "Anthropic, SpaceX, xAI, Colossus 1, Claude, Claude Code, Claude Opus, NVIDIA, Amazon, Google, Broadcom, Microsoft, Fluidstack, Bloomberg Law",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Anthropic se fusionó con SpaceX?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "No. El 6 de mayo de 2026 Anthropic anunció un acuerdo para usar toda la capacidad de cómputo del centro de datos Colossus 1 de SpaceX. No es una fusión ni una adquisición, y el anuncio no menciona el uso de Claude en las misiones de Starship.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué cambió en los límites de Claude Code?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Anthropic duplicó los límites de cinco horas de Claude Code en los planes Pro, Max, Team y Enterprise por asiento, quitó la reducción de límites en horas pico para Pro y Max y subió de forma considerable los límites de la API para los modelos Claude Opus.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Cuánto paga Anthropic a SpaceX por Colossus 1?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Según Bloomberg Law, que cita documentos de la salida a bolsa de SpaceX, Anthropic pagaría 1.250 millones de dólares al mes hasta mayo de 2029, cerca de 45.000 millones en total, y cualquiera de las dos partes puede terminar el acuerdo con 90 días de aviso.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "migration:es:claude-spacex-fusion-mayo-2026",
+    "source": "editorial-migration",
+    "schema_type": "NewsArticle",
+    "keywords": [
+      "Anthropic SpaceX",
+      "Colossus 1",
+      "límites de Claude Code",
+      "acuerdo de cómputo Anthropic",
+      "Claude Pro y Max límites"
+    ],
+    "image_prompt": "Editorial news thumbnail 16:9: rows of GPU server racks in a large data center with a faint rocket silhouette reflected on a glass wall, a code terminal glowing in the foreground, amber (#c8922a) accents on a dark background, retro pixel dot texture, hard 3px corners, solid offset pixel shadows, no text, no logos."
+  },
+  "published_at": "2026-05-06T09:00:00",
+  "locale": "es"
+}

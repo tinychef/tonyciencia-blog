@@ -275,7 +275,22 @@
         "children": [
           {
             "_type": "span",
-            "text": "🔗 Source: WordStream — Top Facebook Ads Trends 2026"
+            "text": "🔗 Source: ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "WordStream — Top Facebook Ads Trends 2026",
+            "marks": [
+              "l0"
+            ]
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://www.wordstream.com/blog/2026-facebook-ads-trends"
           }
         ]
       }
