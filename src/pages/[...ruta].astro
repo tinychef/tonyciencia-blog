@@ -5,7 +5,9 @@
  *   - páginas legales y en inglés de la web anterior (LEGACY);
  *   - artículos que vivían en la raíz, como en WordPress (/<slug>/ → /posts/<slug>), si el artículo existe;
  *   - /en/<slug> → /en/posts/<slug> (o al artículo en español si no hay versión en inglés).
- * Si no hay a dónde redirigir, responde 404 con la misma página de siempre.
+ * Lo que se borró para siempre y no tiene reemplazo (GONE: artículos retirados de la web anterior y rutas de
+ * WordPress) responde 410, que Google retira del índice antes que un 404. Redirigir a un artículo de otro tema
+ * sería un «soft 404». Si no hay a dónde redirigir, responde 404 con la misma página de siempre.
  */
 import { getEmDashEntry } from "emdash";
 import NotFoundPage from "../components/pages/NotFoundPage.astro";
@@ -15,12 +17,29 @@ const LEGACY: Record<string, string> = {
 	"/privacy-policy": "/legal/privacidad",
 	"/terms-conditions": "/legal/terminos",
 	"/cookie-policy": "/legal/cookies",
+	// Páginas de la web anterior (WordPress) con reemplazo directo (Search Console, 2026-11-03).
+	"/about-2": "/about",
+	"/services-2": "/servicios",
+	"/contact": "/contacto",
+	// Mismo tema, ahora solo en inglés.
+	"/trump-anthropic-radical-woke-ban-claude-code-2026": "/en/posts/claude-code-banned-by-trump-executive-order",
 	// Páginas que solo existen en español.
 	"/en/herramientas": "/herramientas",
 	"/en/empleado-ia": "/empleado-ia",
 	"/en/plantilla-n8n-ycloud-ghl": "/plantilla-n8n-ycloud-ghl",
 };
 const SLUG = /^[a-z0-9][a-z0-9-]{1,150}$/;
+
+/** Artículos de la web anterior que se retiraron sin reemplazo (no hay artículo del mismo tema). */
+const GONE = new Set([
+	"/performance-max-45-por-ciento-conversiones-google-ads-2026",
+	"/google-voz-ia-anuncios-sin-permiso-como-desactivar-2026",
+	"/uber-netflix-spotify-salesforce-claude-code-pro",
+	"/uber-netflix-spotify-salesforce-claude-code-production-2026",
+	"/*",
+]);
+/** Rutas de WordPress: el sitio ya no es WordPress. */
+const GONE_PREFIX = /^\/(wp-content|wp-admin|wp-includes|wp-json)(\/|$)|^\/(wp-login\.php|xmlrpc\.php)$/;
 
 const path = Astro.url.pathname.replace(/\/+$/, "") || "/";
 const query = Astro.url.search;
@@ -58,7 +77,13 @@ if (!target && Astro.request.method === "GET") {
 }
 if (target) return Astro.redirect(`${target}${query}`, 301);
 
-Astro.response.status = 404;
+let decoded = path;
+try {
+	decoded = decodeURIComponent(path);
+} catch {
+	/* URL mal codificada: se compara tal cual */
+}
+Astro.response.status = GONE.has(decoded) || GONE_PREFIX.test(path) ? 410 : 404;
 ---
 
 <NotFoundPage />
