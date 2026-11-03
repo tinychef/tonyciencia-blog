@@ -4,7 +4,7 @@
  * `return Astro.redirect()` dentro de un componente no hace nada: las etiquetas inexistentes respondían 200 con la
  * página vacía (auditoría SEO del 2026-11-03).
  */
-import { decodeSlug, getTerm } from "emdash";
+import { decodeSlug, getTerm } from "../../../lib/content";
 import CategoryPage from "../../../components/pages/CategoryPage.astro";
 
 const slug = decodeSlug(Astro.params.slug);

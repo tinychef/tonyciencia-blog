@@ -1,4 +1,4 @@
-name: Validate Seed
+name: Validar contenido
 on:
   pull_request:
     paths:
@@ -33,4 +33,3 @@ jobs:
       - run: pnpm check:seo-i18n
       - run: pnpm typecheck
       - run: pnpm build
-      - run: npx emdash seed seed/seed.json --validate

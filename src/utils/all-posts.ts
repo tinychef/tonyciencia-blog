@@ -6,7 +6,7 @@
  * Antes el RSS y el buscador solo leían el CMS: los artículos que viven en JSON no aparecían (auditoría 2026-11-03,
  * p. ej. /search?q=citable sin resultados y /rss.xml con 13 de 37).
  */
-import { getEmDashCollection } from "emdash";
+import { getEmDashCollection } from "../lib/content";
 import { postSlug } from "./post-slug";
 import { POST_REDIRECTS } from "./post-redirects";
 import { getStaticPosts } from "./static-posts";

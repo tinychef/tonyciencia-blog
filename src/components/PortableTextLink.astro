@@ -8,7 +8,7 @@
  * (src/data/partners.generated.ts + content/affiliates/extra.json) o de una red de
  * afiliación conocida. Se usa en src/pages/posts/[slug].astro y su versión /en.
  */
-import { sanitizeHref } from "emdash";
+import { sanitizeHref } from "../lib/content";
 import { partners } from "../data/partners.generated";
 import extraAffiliates from "../../content/affiliates/extra.json";
 

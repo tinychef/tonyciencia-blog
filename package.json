@@ -16,8 +16,6 @@
     "preview": "astro preview",
     "deploy": "pnpm build && wrangler deploy",
     "typecheck": "astro check",
-    "bootstrap": "pnpm build:seed && emdash init && emdash seed",
-    "seed": "pnpm build:seed && emdash seed",
     "generate:partners": "node scripts/generate-partners-data.mjs",
     "cache:partner-icons": "node scripts/cache-partner-icons.mjs"
   },
@@ -25,11 +23,7 @@
     "@astrojs/cloudflare": "^14.1.0",
     "@astrojs/react": "^6.0.0",
     "@astrojs/sitemap": "^3.7.3",
-    "@emdash-cms/cloudflare": "^0.23.0",
-    "@emdash-cms/plugin-forms": "^0.2.2",
-    "@emdash-cms/plugin-webhook-notifier": "^0.2.0",
     "astro": "^7.0.5",
-    "emdash": "^0.23.0",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
@@ -43,9 +37,5 @@
       "esbuild",
       "workerd"
     ]
-  },
-  "emdash": {
-    "label": "Tony Ciencia",
-    "seed": "seed/seed.json"
   }
 }

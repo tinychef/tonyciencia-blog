@@ -2,7 +2,7 @@
 // Página legal compartida por /legal/[slug] (ES) y /en/legal/[slug] (EN).
 // La resolución (repo primero, EmDash/D1 como respaldo) la hace resolveLegalPage
 // en src/data/legal-page.ts, llamada desde cada página de ruta.
-import { PortableText } from "emdash/ui";
+import PortableText from "../PortableText.astro";
 import PortableTextNone from "../PortableTextNone.astro";
 import Base from "../../layouts/Base.astro";
 import { LEGAL_UPDATED, type LegalDoc } from "../../data/legal";

@@ -69,10 +69,12 @@ function validatePost(post, taxonomiesByName, spanishSlugs) {
 		`Post ${post.slug}: featured_image requerido`,
 	);
 
-	if (post.locale === "en") {
+	// Hay artículos que solo existen en inglés (exportados del CMS el 2026-11-03): translation_of es opcional, pero si
+	// está debe apuntar a un artículo en español que exista.
+	if (post.locale === "en" && post.data.translation_of) {
 		assert(
 			typeof post.data.translation_of === "string" && post.data.translation_of.trim(),
-			`Post ${post.slug}: translation_of requerido para locale en`,
+			`Post ${post.slug}: translation_of debe ser un slug`,
 		);
 		assert(
 			spanishSlugs.has(post.data.translation_of),
