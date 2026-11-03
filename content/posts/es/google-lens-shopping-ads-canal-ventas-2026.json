@@ -112,7 +112,39 @@
         "children": [
           {
             "_type": "span",
-            "text": "Google Lens procesa miles de millones de búsquedas visuales mensuales globalmente. La adopción crece especialmente entre usuarios de 18-35 años que han normalizado el uso de la cámara como motor de búsqueda."
+            "text": "Según Google",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", Lens se usa para cerca de 20.000 millones de búsquedas visuales al mes, y el 20 % de ellas están relacionadas con compras (datos de octubre de 2024). Además, según ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Retail Brew",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", las consultas de Lens están entre las que más crecen en la Búsqueda, y los usuarios de 18 a 24 años son los que más lo usan.",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://blog.google/products/shopping/visual-search-lens-shopping/"
+          },
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://www.retailbrew.com/stories/2024/10/03/google-lens-gets-a-precise-tweak-before-the-holidays-to-push-shopping"
           }
         ]
       },
@@ -122,7 +154,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "En mercados como México, Colombia, Argentina y Chile, la adopción de Lens va detrás del mercado anglosajón pero crece a un ritmo mayor. Los anunciantes que optimicen sus feeds de Shopping para búsqueda visual ahora capturarán ese volumen creciente con menos competencia que enfrentarán en 12 meses."
+            "text": "En mercados como México, Colombia, Argentina y Chile, optimizar desde ahora tus feeds de Shopping para búsqueda visual te deja preparado antes de que lo haga tu competencia."
           }
         ]
       },
@@ -265,7 +297,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Google Lens + Shopping Ads es el canal de e-commerce con mejor ratio oportunidad/competencia de 2026 en LATAM. El momento de optimizar para él es antes de que todos lo hagan — no después."
+            "text": "En nuestra opinión, Google Lens + Shopping Ads es uno de los canales de e-commerce con mejor relación entre oportunidad y competencia en LATAM. El momento de optimizar para él es antes de que todos lo hagan — no después."
           }
         ]
       }
@@ -328,7 +360,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Google Lens está disponible globalmente y los Shopping Ads aparecen en los resultados de Lens donde Google Merchant Center esté activo. En Brasil, México y Colombia ya hay casos exitosos. La ventaja es que la competencia es mínima porque casi nadie optimiza para este canal todavía."
+            "text": "Google anunció en octubre de 2024 que los Shopping Ads aparecerían junto a los resultados de búsqueda visual de Lens, y que las campañas existentes de Shopping, Performance Max y búsqueda con IA son elegibles sin pasos adicionales. No encontramos una lista oficial de países para este formato, así que conviene confirmar en tu cuenta si tus anuncios aparecen ahí."
           }
         ]
       }

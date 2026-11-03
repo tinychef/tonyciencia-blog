@@ -12,7 +12,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "La muerte de las cookies de terceros no afecta a todos los anunciantes por igual. Para los que construyeron infraestructura de datos propios, es una ventaja competitiva creciente. Para los que dependían de datos de terceros sin alternativa, es una crisis. En 2026, la brecha entre ambos grupos se volvió medible y significativa."
+            "text": "La muerte de las cookies de terceros no afecta a todos los anunciantes por igual. Para los que construyeron infraestructura de datos propios, es una ventaja competitiva creciente. Para los que dependían de datos de terceros sin alternativa, es una crisis."
           }
         ]
       },
@@ -81,7 +81,7 @@
           },
           {
             "_type": "span",
-            "text": " envía eventos de conversión directamente desde el servidor, sin depender de la cookie del navegador. Reduce la pérdida de atribución en iOS 14+ de hasta 40%.",
+            "text": " envía eventos de conversión directamente desde el servidor, sin depender de la cookie del navegador.",
             "marks": []
           }
         ],
@@ -234,7 +234,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Un competidor sin CAPI bien configurado ve su atribución degradada en iOS users (que son el segmento de mayor poder adquisitivo en muchos mercados). Su targeting Lookalike se basa en datos incompletos. Sus campañas de retargeting tienen cobertura parcial."
+            "text": "Un competidor sin CAPI bien configurado ve su atribución degradada en usuarios de iOS. Su targeting Lookalike se basa en datos incompletos. Sus campañas de retargeting tienen cobertura parcial."
           }
         ]
       },
@@ -244,7 +244,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "En el mismo mercado, un anunciante con CAPI + CRM integrado tiene visibilidad completa y targeting preciso. La diferencia en ROAS puede ser del 30-50% sobre los mismos productos."
+            "text": "En el mismo mercado, un anunciante con CAPI + CRM integrado tiene visibilidad completa y targeting preciso."
           }
         ]
       },
@@ -313,7 +313,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "CAPI (Conversions API) es la forma de enviar datos de conversión directamente desde tu servidor a Meta, sin depender del navegador. Con la desaparición de cookies de terceros, CAPI es la única forma confiable de tracking. Mejora la atribución hasta un 30%."
+            "text": "CAPI (Conversions API) es la forma de enviar datos de conversión directamente desde tu servidor a Meta, sin depender del navegador. Como no depende del navegador, se ve menos afectada por los bloqueos de cookies y de seguimiento."
           }
         ]
       },
@@ -333,7 +333,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Sube tu lista de clientes (emails, teléfonos) a Meta como Custom Audience. Para automatizarlo, usa n8n para exportar datos de tu CRM y subirlos periódicamente a Meta vía API. Mantén las listas actualizadas cada 2-4 semanas."
+            "text": "Sube tu lista de clientes (emails, teléfonos) a Meta como Custom Audience. Para automatizarlo, usa n8n para exportar datos de tu CRM y subirlos periódicamente a Meta vía API. Mantén las listas actualizadas con regularidad."
           }
         ]
       },
