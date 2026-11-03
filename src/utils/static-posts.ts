@@ -19,6 +19,8 @@ type RawPost = {
 			alt?: string;
 		};
 		translation_of?: string;
+		/** Título para <title> si debe ser distinto del H1 (más corto). */
+		seo_title?: string;
 		schema_type?: string;
 		faq_items?: any[];
 		key_entities?: string;
@@ -30,13 +32,25 @@ type RawPost = {
 const esPosts = import.meta.glob("../../content/posts/es/*.json", { eager: true, import: "default" }) as Record<string, RawPost>;
 const enPosts = import.meta.glob("../../content/posts/en/*.json", { eager: true, import: "default" }) as Record<string, RawPost>;
 
-const tagLabels: Record<string, string> = {
-	"n8n": "n8n",
-	"chatgpt": "ChatGPT",
-	"tutorial": "Tutorial",
-	"opinion": "Opinión",
-	"caso-de-uso": "Caso de Uso",
+/** Nombres visibles de categorías y etiquetas por idioma (antes vivían en D1, algunos sin tildes). */
+export const TAXONOMY_LABELS: Record<"category" | "tag", Record<string, { es: string; en: string }>> = {
+	category: {
+		ia: { es: "Inteligencia artificial", en: "Artificial intelligence" },
+		automatizacion: { es: "Automatización", en: "Automation" },
+		herramientas: { es: "Herramientas", en: "Tools" },
+		negocios: { es: "Negocios", en: "Business" },
+	},
+	tag: {
+		n8n: { es: "n8n", en: "n8n" },
+		chatgpt: { es: "ChatGPT", en: "ChatGPT" },
+		tutorial: { es: "Tutorial", en: "Tutorial" },
+		opinion: { es: "Opinión", en: "Opinion" },
+		"caso-de-uso": { es: "Caso de uso", en: "Use case" },
+		ia: { es: "IA", en: "AI" },
+	},
 };
+
+const label = (taxonomy: "category" | "tag", slug: string, locale: "es" | "en") => TAXONOMY_LABELS[taxonomy][slug]?.[locale] ?? slug;
 
 function normalizeImage(image: RawPost["data"]["featured_image"]) {
 	if (!image) return null;
@@ -69,6 +83,7 @@ export function getStaticPosts(locale: "es" | "en") {
 			data: {
 				id: post.id,
 				title: post.data.title,
+				seoTitle: post.data.seo_title,
 				excerpt: post.data.excerpt,
 				content: post.data.content,
 				featured_image: normalizeImage(post.data.featured_image),
@@ -81,11 +96,13 @@ export function getStaticPosts(locale: "es" | "en") {
 				publishedAt: new Date(post.published_at),
 				updatedAt: new Date(post.published_at),
 				bylines: [],
-				__staticTags: (post.taxonomies?.tag ?? []).map((slug) => ({
-					slug,
-					label: tagLabels[slug] ?? slug,
-				})),
+				locale,
+				__staticTags: (post.taxonomies?.tag ?? []).map((slug) => ({ slug, label: label("tag", slug, locale) })),
 				__staticCategories: post.taxonomies?.category ?? [],
+				terms: {
+					tag: (post.taxonomies?.tag ?? []).map((slug) => ({ slug, label: label("tag", slug, locale) })),
+					category: (post.taxonomies?.category ?? []).map((slug) => ({ slug, label: label("category", slug, locale) })),
+				},
 			},
 		}))
 		.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());

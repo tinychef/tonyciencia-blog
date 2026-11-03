@@ -1,0 +1,44 @@
+---
+/**
+ * Renderiza el contenido de los artículos (Portable Text) sin depender de EmDash.
+ * Soporta lo que usan los JSON de content/posts: bloques normal/h2–h6/blockquote, listas con viñetas o números,
+ * marcas strong/em/code/underline/strike-through y enlaces (PortableTextLink: rel="sponsored" en afiliados).
+ * Cualquier otro tipo de bloque (htmlBlock, embeds) NO se renderiza: no hay HTML crudo en el sitio.
+ */
+import PortableTextSpan from "./PortableTextSpan.astro";
+
+interface Props {
+	value?: any[];
+	/** Compatibilidad con la firma de EmDash; los componentes de marca/tipo ya están fijados aquí. */
+	components?: unknown;
+}
+
+const { value = [] } = Astro.props;
+
+type Group = { kind: "block"; block: any } | { kind: "list"; type: string; items: any[] };
+const groups: Group[] = [];
+for (const b of Array.isArray(value) ? value : []) {
+	if (!b || b._type !== "block" || !Array.isArray(b.children)) continue;
+	if (b.listItem) {
+		const last = groups[groups.length - 1];
+		if (last && last.kind === "list" && last.type === b.listItem) last.items.push(b);
+		else groups.push({ kind: "list", type: b.listItem, items: [b] });
+	} else groups.push({ kind: "block", block: b });
+}
+const TAGS: Record<string, string> = { h1: "h2", h2: "h2", h3: "h3", h4: "h4", h5: "h5", h6: "h6", blockquote: "blockquote" };
+---
+
+{groups.map((g) =>
+	g.kind === "list" ? (
+		g.type === "number" ? (
+			<ol>{g.items.map((item) => <li>{item.children.map((s: any) => <PortableTextSpan span={s} markDefs={item.markDefs ?? []} />)}</li>)}</ol>
+		) : (
+			<ul>{g.items.map((item) => <li>{item.children.map((s: any) => <PortableTextSpan span={s} markDefs={item.markDefs ?? []} />)}</li>)}</ul>
+		)
+	) : (
+		(() => {
+			const Tag = TAGS[g.block.style] ?? "p";
+			return <Tag>{g.block.children.map((s: any) => <PortableTextSpan span={s} markDefs={g.block.markDefs ?? []} />)}</Tag>;
+		})()
+	),
+)}

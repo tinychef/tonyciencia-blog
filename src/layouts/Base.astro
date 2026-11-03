@@ -1,11 +1,5 @@
 ---
-import { getSiteSettings } from "emdash";
-import {
-	EmDashBodyStart,
-	EmDashBodyEnd,
-} from "emdash/ui";
-import SiteHead from "../components/SiteHead.astro";
-import { createPublicPageContext } from "emdash/page";
+import { getSiteSettings } from "../lib/content";
 import { Font } from "astro:assets";
 import { resolveBlogSiteIdentity } from "../utils/site-identity";
 import { getLangFromUrl, getAlternateLocale, getLocalePath, useTranslations } from "../i18n/locales";
@@ -80,21 +74,6 @@ const altUrl = new URL(altPath, Astro.site || Astro.url.origin).href;
 const xDefaultUrl = locale === "en" && hasTranslation ? altUrl : canonicalUrl;
 
 // Build public page context for plugin contributions
-// Contexto para las aportaciones de plugins (SiteHead). El SEO lo escribe este layout: ver SiteHead.astro.
-const pageCtx = createPublicPageContext({
-	Astro,
-	kind: content ? "content" : "custom",
-	pageType: type,
-	title: fullTitle,
-	pageTitle: pageTitle ?? title,
-	description,
-	canonical,
-	image,
-	content,
-	seo: { ogImage: image, robots },
-	articleMeta: { publishedTime, modifiedTime, author },
-	siteName: siteTitle,
-});
 
 
 // Navegación principal (escritorio y menú móvil comparten la lista).
@@ -154,7 +133,6 @@ const homeHref = locale === "en" ? "/en/" : "/";
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<link rel="manifest" href="/site.webmanifest" />
 		<SchemaOrg type={type} title={fullTitle} description={description} url={canonicalUrl} image={image} locale={locale} publishedTime={publishedTime} modifiedTime={modifiedTime} author={author} breadcrumbs={breadcrumbs} schemaType={schemaType} faqItems={faqItems} readingTime={readingTime} />
-		<SiteHead page={pageCtx} />
 		<Analytics />
 		<!-- Miniatura del último video (home). -->
 		<link rel="dns-prefetch" href="https://i.ytimg.com" />
@@ -180,7 +158,6 @@ const homeHref = locale === "en" ? "/en/" : "/";
 	</head>
 	<body>
 		<Analytics part="body" />
-		<EmDashBodyStart page={pageCtx} />
 		<a href="#main-content" class="skip-to-content">{t("nav.skip")}</a>
 		<header class="site-header" data-site-header>
 			<span class="scroll-progress" aria-hidden="true"></span>
@@ -1385,6 +1362,5 @@ const homeHref = locale === "en" ? "/en/" : "/";
 				}, { passive: true });
 			})();
 		</script>
-		<EmDashBodyEnd page={pageCtx} />
 	</body>
 </html>

@@ -1,0 +1,113 @@
+{
+  "id": "d1-export:es:n8n-para-principiantes-automatizacion-sin-codigo",
+  "slug": "n8n-para-principiantes-automatizacion-sin-codigo",
+  "status": "published",
+  "data": {
+    "title": "n8n para Principiantes: Automatizacion Sin Codigo para Emprendedores",
+    "excerpt": "n8n es la herramienta de automatizacion que cada emprendedor hispanohablante deberia conocer. Sin codigo, open-source, con superpoderes.",
+    "content": [
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si eres emprendedor y todavia haces tareas repetitivas manualmente—copiar datos entre plataformas, enviar emails de seguimiento, actualizar hojas de calculo—n8n puede cambiar tu negocio. Es una herramienta de automatizacion open-source que conecta cualquier aplicacion sin necesidad de programar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Que Es n8n y Por Que Usarlo",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "n8n es el equivalente open-source de Zapier, pero con superpoderes: puedes hostearlo tu mismo, conectar APIs personalizadas, y ejecutar logica condicional compleja sin tocar una linea de codigo. La comunidad hispanohablante todavia subestima esta herramienta—y esa es tu ventaja competitiva.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Con n8n puedes automatizar: respuestas automaticas de WhatsApp, sincronizacion de leads de Meta Ads a tu CRM, reportes automaticos de Google Ads, notificaciones en Slack cuando un cliente paga, y decenas de procesos mas que hoy te roban horas cada semana.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tu Primer Workflow en 20 Minutos",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "Empieza con algo simple: cuando alguien llena un formulario de contacto en tu sitio, n8n guarda los datos en una hoja de Google Sheets Y envia una notificacion a tu correo. Este workflow elimina el paso manual de revisar el formulario y copiar datos—y lo configuras en 20 minutos sin escribir codigo.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "text": "El siguiente paso es conectar n8n con IA. Usando el nodo de OpenAI o Claude, puedes hacer que n8n analice automaticamente los mensajes de tus clientes, clasifique su urgencia, y genere una respuesta personalizada. Eso es automatizacion inteligente.",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "external_id": "d1-export:es:n8n-para-principiantes-automatizacion-sin-codigo",
+    "source": "d1-export-2026-11-03",
+    "featured_image": {
+      "$media": {
+        "url": "https://tonyciencia.com/assets/og-default.webp",
+        "alt": "n8n para Principiantes: Automatizacion Sin Codigo para Emprendedores — Tony Ciencia",
+        "filename": "n8n-para-principiantes-automatizacion-sin-codigo.webp"
+      }
+    }
+  },
+  "bylines": [
+    {
+      "byline": "byline-tony"
+    }
+  ],
+  "taxonomies": {
+    "category": [
+      "automatizacion"
+    ],
+    "tag": [
+      "n8n",
+      "tutorial"
+    ]
+  },
+  "published_at": "2025-11-18T10:00:00.000Z",
+  "locale": "es"
+}

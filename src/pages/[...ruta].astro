@@ -9,7 +9,7 @@
  * WordPress) responde 410, que Google retira del índice antes que un 404. Redirigir a un artículo de otro tema
  * sería un «soft 404». Si no hay a dónde redirigir, responde 404 con la misma página de siempre.
  */
-import { getEmDashEntry } from "emdash";
+import { getEmDashEntry } from "../lib/content";
 import NotFoundPage from "../components/pages/NotFoundPage.astro";
 import { getStaticPost } from "../utils/static-posts";
 

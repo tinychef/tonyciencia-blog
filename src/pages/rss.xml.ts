@@ -1,6 +1,6 @@
 import { postSlug } from "../utils/post-slug";
 import type { APIRoute } from "astro";
-import { getSiteSettings } from "emdash";
+import { getSiteSettings } from "../lib/content";
 import { getAllPosts } from "../utils/all-posts";
 import { postTerms } from "../utils/terms";
 

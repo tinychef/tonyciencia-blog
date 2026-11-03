@@ -1,4 +1,4 @@
-import { getEmDashEntry, decodeSlug } from "emdash";
+import { getEmDashEntry, decodeSlug } from "../lib/content";
 import type { AstroGlobal } from "astro";
 import { getLegalDoc, type LegalDoc } from "./legal";
 

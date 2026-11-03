@@ -7,7 +7,7 @@
  * Declarado en public/robots.txt.
  */
 import type { APIRoute } from "astro";
-import { getEmDashCollection } from "emdash";
+import { getEmDashCollection } from "../lib/content";
 import { postSlug } from "../utils/post-slug";
 import { getStaticPosts } from "../utils/static-posts";
 import { POST_REDIRECTS, TRANSLATION_PAIRS_EN_TO_ES } from "../utils/post-redirects";
