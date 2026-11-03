@@ -68,3 +68,29 @@ export function registerContact(app: Hono<AppEnv>) {
 		return done("enviado");
 	});
 }
+
+/**
+ * Boletín del blog: el formulario «Obtén recursos gratuitos» (src/components/EmailCapture.astro) envía JSON aquí.
+ * Mismo origen, campo trampa, 10 altas por IP cada 10 minutos; el correo se guarda una vez (tabla newsletter).
+ */
+const SOURCE_RE = /^[a-z0-9-]{1,32}$/;
+
+export function registerNewsletter(app: Hono<AppEnv>) {
+	app.post("/market/boletin", async (c) => {
+		if (!checkOrigin(c)) return c.json({ ok: false, error: "origin" }, 403);
+		const body = (await c.req.json().catch(() => null)) as Record<string, unknown> | null;
+		if (!body) return c.json({ ok: false, error: "invalid_json" }, 400);
+		if (line(body.website, 200)) return c.json({ ok: true });
+		const email = line(body.email, 254).toLowerCase();
+		if (!EMAIL_RE.test(email)) return c.json({ ok: false, error: "invalid_email" }, 400);
+		const db = c.env.MARKET_DB;
+		if (!(await hit(db, RATE_RULES.newsletter, clientIp(c)))) return c.json({ ok: false, error: "rate_limited" }, 429);
+		const source = typeof body.source === "string" && SOURCE_RE.test(body.source) ? body.source : "home";
+		const lang = body.lang === "en" ? "en" : "es";
+		await db
+			.prepare("INSERT INTO newsletter (email, source, lang, created_at) VALUES (?1, ?2, ?3, ?4) ON CONFLICT(email) DO NOTHING")
+			.bind(email, source, lang, Date.now())
+			.run();
+		return c.json({ ok: true });
+	});
+}

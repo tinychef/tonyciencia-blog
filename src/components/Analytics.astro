@@ -43,7 +43,7 @@ const hasGoogle = !!(gaId || gtmId);
 ) : (
 	<>
 		{hasGoogle && (
-			<script define:vars={{ gaId: gaId ?? "", gtmId: gtmId ?? "" }} is:inline>
+			<script define:vars={{ gaId: gaId ?? "", gtmId: gtmId ?? "" }} is:inline nonce={Astro.locals.cspNonce}>
 				window.dataLayer = window.dataLayer || [];
 				function gtag() { dataLayer.push(arguments); }
 				// @ts-ignore
@@ -100,10 +100,10 @@ const hasGoogle = !!(gaId || gtmId);
 				}
 			</script>
 		)}
-		{gaId && <script async is:inline src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>}
+		{gaId && <script async is:inline nonce={Astro.locals.cspNonce} src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>}
 
 		{metaPixelId && (
-			<script define:vars={{ metaPixelId }} is:inline>
+			<script define:vars={{ metaPixelId }} is:inline nonce={Astro.locals.cspNonce}>
 				!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 				n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
 				n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;
@@ -119,7 +119,7 @@ const hasGoogle = !!(gaId || gtmId);
 		)}
 
 		{(hasGoogle || metaPixelId) && (
-			<script define:vars={{ hasGoogle, hasMeta: !!metaPixelId }} is:inline>
+			<script define:vars={{ hasGoogle, hasMeta: !!metaPixelId }} is:inline nonce={Astro.locals.cspNonce}>
 				function applyConsent(value) {
 					const granted = value === "accepted";
 					if (hasGoogle && window.gtag) {

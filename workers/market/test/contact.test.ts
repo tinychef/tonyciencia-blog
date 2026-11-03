@@ -36,3 +36,24 @@ describe("formulario de contacto del blog (POST /market/contacto)", () => {
 		expect((await send({ name: "Ana", email: "ana@example.com", message: "sexto mensaje" }, BASE, ip)).headers.get("location")).toBe("/contacto?error=1#formulario");
 	});
 });
+
+describe("boletín del blog (POST /market/boletin)", () => {
+	const post = (body: unknown, origin = BASE, ip = `10.8.${Math.floor(Math.random() * 250)}.${Math.floor(Math.random() * 250)}`) =>
+		call("/market/boletin", { method: "POST", headers: { origin, "content-type": "application/json", "cf-connecting-ip": ip }, body: JSON.stringify(body) });
+
+	it("guarda el correo una vez, con origen e idioma", async () => {
+		const email = `lector-${uid()}@example.com`;
+		expect((await post({ email: email.toUpperCase(), source: "home", lang: "en" })).status).toBe(200);
+		expect((await post({ email, source: "otra" })).status).toBe(200);
+		const row = await env.MARKET_DB.prepare("SELECT source, lang FROM newsletter WHERE email = ?1").bind(email).first<{ source: string; lang: string }>();
+		expect(row).toEqual({ source: "home", lang: "en" });
+	});
+
+	it("rechaza otro origen, correos inválidos y respeta el campo trampa", async () => {
+		expect((await post({ email: `x-${uid()}@example.com` }, "https://evil.example")).status).toBe(403);
+		expect((await post({ email: "no-es-correo" })).status).toBe(400);
+		const email = `bot-${uid()}@example.com`;
+		expect((await post({ email, website: "spam" })).status).toBe(200);
+		expect(await count("SELECT COUNT(*) AS n FROM newsletter WHERE email = ?1", email)).toBe(0);
+	});
+});

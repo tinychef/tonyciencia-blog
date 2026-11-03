@@ -136,7 +136,7 @@ const homeHref = locale === "en" ? "/en/" : "/";
 		<Analytics />
 		<!-- Miniatura del último video (home). -->
 		<link rel="dns-prefetch" href="https://i.ytimg.com" />
-		<script is:inline type="speculationrules" set:html={JSON.stringify({
+		<script is:inline nonce={Astro.locals.cspNonce} type="speculationrules" set:html={JSON.stringify({
 			prerender: [{
 				where: { href_matches: "/posts/*" },
 				eagerness: "moderate"
@@ -145,7 +145,7 @@ const homeHref = locale === "en" ? "/en/" : "/";
 				eagerness: "moderate"
 			}]
 		})} />
-		<script is:inline>
+		<script is:inline nonce={Astro.locals.cspNonce}>
 			// Apply theme immediately to prevent flash — oscuro por defecto;
 			// claro solo si el visitante lo eligió con el toggle (cookie "scheme").
 			// La cookie vieja "theme" se ignora: la versión anterior la escribía en
