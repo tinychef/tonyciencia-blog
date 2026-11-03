@@ -60,4 +60,6 @@ export default defineConfig({
 		},
 	],
 	devToolbar: { enabled: false },
+	// Los scripts de componentes salen siempre como archivos /_astro/*.js (no inline): la CSP solo permite 'self' + nonce.
+	vite: { build: { assetsInlineLimit: 0 } },
 });

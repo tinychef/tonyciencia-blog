@@ -14,7 +14,7 @@ const COPY = {
 		label: "Tu email",
 		submit: "Recibir",
 		sending: "Enviando...",
-		done: "Listo — revisa tu correo.",
+		done: "Listo. Te escribiremos cuando publiquemos recursos nuevos.",
 		error: "Algo falló. Intenta de nuevo en un momento.",
 	},
 	en: {
@@ -24,7 +24,7 @@ const COPY = {
 		label: "Your email",
 		submit: "Send me",
 		sending: "Sending...",
-		done: "Done — check your inbox.",
+		done: "Done. We'll email you when we publish new resources.",
 		error: "Something went wrong. Please try again in a moment.",
 	},
 };
@@ -45,7 +45,9 @@ const description = Astro.props.description ?? copy.description;
 		data-sending={copy.sending}
 		data-done={copy.done}
 		data-error={copy.error}
+		data-lang={locale}
 	>
+		<input type="text" name="website" class="capture-trap" tabindex="-1" autocomplete="off" aria-hidden="true" />
 		<input type="email" name="email" required placeholder={copy.placeholder} aria-label={copy.label} class="capture-input" />
 		<button type="submit" class="tc-btn tc-btn--primary capture-submit">{copy.submit}</button>
 	</form>
@@ -53,7 +55,8 @@ const description = Astro.props.description ?? copy.description;
 </div>
 
 <script>
-	const CAPTURE_ENDPOINT = "https://tonyciencia-email-capture.antonioduquejuliao.workers.dev";
+	// El Worker del market guarda la suscripción (POST /market/boletin, mismo origen; workers/market/src/routes/contact.ts).
+	const CAPTURE_ENDPOINT = "/market/boletin";
 
 	document.querySelectorAll<HTMLFormElement>(".capture-form").forEach((form) => {
 		form.addEventListener("submit", async (e) => {
@@ -71,7 +74,12 @@ const description = Astro.props.description ?? copy.description;
 				const res = await fetch(CAPTURE_ENDPOINT, {
 					method: "POST",
 					headers: { "Content-Type": "application/json" },
-					body: JSON.stringify({ email, source: form.dataset.source ?? "home" }),
+					body: JSON.stringify({
+						email,
+						source: form.dataset.source ?? "home",
+						lang: form.dataset.lang ?? "es",
+						website: form.querySelector<HTMLInputElement>(".capture-trap")?.value ?? "",
+					}),
 				});
 				if (!res.ok) throw new Error("request_failed");
 				status.textContent = form.dataset.done ?? "";
@@ -152,4 +160,5 @@ const description = Astro.props.description ?? copy.description;
 			flex-direction: column;
 		}
 	}
+	.capture-trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 </style>

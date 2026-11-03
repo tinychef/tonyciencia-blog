@@ -98,7 +98,7 @@ const pad = (n: number) => String(n).padStart(2, "0");
 															height="20"
 															loading="lazy"
 															decoding="async"
-															onerror="this.style.visibility='hidden'"
+															data-hide-on-error="visibility"
 														/>
 														<span>{partner.name}</span>
 													</a>
@@ -121,6 +121,15 @@ const pad = (n: number) => String(n).padStart(2, "0");
 </section>
 
 <script>
+	// Logos que no cargan se ocultan (antes con onerror inline, que la CSP bloquea).
+	document.querySelectorAll<HTMLImageElement>("img[data-hide-on-error]").forEach((img) => {
+		const hide = () => {
+			if (img.dataset.hideOnError === "display") img.style.display = "none";
+			else img.style.visibility = "hidden";
+		};
+		if (img.complete && img.naturalWidth === 0) hide();
+		else img.addEventListener("error", hide, { once: true });
+	});
 	function initToolsStack(section: HTMLElement) {
 		const track = section.querySelector<HTMLElement>(".tools-stack__track");
 		const pin = section.querySelector<HTMLElement>(".tools-stack__pin");

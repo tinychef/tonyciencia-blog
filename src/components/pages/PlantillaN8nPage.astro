@@ -235,7 +235,7 @@ const benefitIcons = [
 
 </Base>
 
-<script is:inline define:vars={{ WORKER_URL }}>
+<script is:inline nonce={Astro.locals.cspNonce} define:vars={{ WORKER_URL }}>
   // Inyectar timestamp al cargar la página
   const tField = document.getElementById("_t");
   if (tField) tField.value = String(Date.now());

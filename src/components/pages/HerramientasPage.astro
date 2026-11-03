@@ -63,7 +63,7 @@ const description = `Catálogo completo de ${partners.length} herramientas de IA
 								height="32"
 								loading="lazy"
 								decoding="async"
-								onerror="this.style.display='none'"
+								data-hide-on-error="display"
 							/>
 						</div>
 						<div class="partner-info">
@@ -79,6 +79,15 @@ const description = `Catálogo completo de ${partners.length} herramientas de IA
 </Base>
 
 <script>
+	// Logos que no cargan se ocultan (antes con onerror inline, que la CSP bloquea).
+	document.querySelectorAll<HTMLImageElement>("img[data-hide-on-error]").forEach((img) => {
+		const hide = () => {
+			if (img.dataset.hideOnError === "display") img.style.display = "none";
+			else img.style.visibility = "hidden";
+		};
+		if (img.complete && img.naturalWidth === 0) hide();
+		else img.addEventListener("error", hide, { once: true });
+	});
 	const chips = document.querySelectorAll<HTMLButtonElement>(".chip");
 	const cards = document.querySelectorAll<HTMLAnchorElement>(".partner-card");
 	const emptyState = document.querySelector<HTMLElement>(".empty-filter-state");

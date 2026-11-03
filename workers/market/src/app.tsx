@@ -6,7 +6,7 @@ import type { Env } from "./env";
 import { sessionMiddleware } from "./lib/session";
 import { registerAdmin } from "./routes/admin";
 import { registerAuth } from "./routes/auth";
-import { registerContact } from "./routes/contact";
+import { registerContact, registerNewsletter } from "./routes/contact";
 import { registerDev } from "./routes/dev";
 import { registerDownloads } from "./routes/downloads";
 import { registerPayments } from "./routes/payments";
@@ -172,6 +172,7 @@ export function createApp() {
 	app.get("/", (c) => c.redirect("/market/", 302));
 	registerShop(app);
 	registerContact(app);
+	registerNewsletter(app);
 	registerAuth(app);
 	registerPayments(app);
 	registerDownloads(app);
