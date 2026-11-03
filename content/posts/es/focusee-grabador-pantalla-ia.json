@@ -29,6 +29,34 @@
   "content": [
    {
     "_type": "block",
+    "style": "normal",
+    "markDefs": [
+     {
+      "_key": "l0",
+      "_type": "link",
+      "href": "/legal/afiliados"
+     }
+    ],
+    "children": [
+     {
+      "_type": "span",
+      "text": "Transparencia: este artículo contiene enlaces de afiliado. Si compras o te registras a través de ellos, Tony Ciencia puede recibir una comisión sin costo extra para ti. No cambia nuestra opinión: solo recomendamos herramientas que revisamos con fuentes oficiales. ",
+      "marks": [
+       "em"
+      ]
+     },
+     {
+      "_type": "span",
+      "text": "Más detalles",
+      "marks": [
+       "em",
+       "l0"
+      ]
+     }
+    ]
+   },
+   {
+    "_type": "block",
     "style": "h2",
     "markDefs": [],
     "children": [
@@ -998,20 +1026,12 @@
    {
     "_type": "block",
     "style": "normal",
-    "markDefs": [
-     {
-      "_key": "l2",
-      "_type": "link",
-      "href": "https://imobie.sjv.io/2axWAQyt?u=https%3A%2F%2Ffocusee.imobie.com%2F"
-     }
-    ],
+    "markDefs": [],
     "children": [
      {
       "_type": "span",
       "text": "Dale una ventaja injusta a tu contenido con FocuSee",
-      "marks": [
-       "l2"
-      ]
+      "marks": []
      },
      {
       "_type": "span",

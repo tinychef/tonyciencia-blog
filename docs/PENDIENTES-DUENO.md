@@ -36,7 +36,7 @@ Actualizado: 2026-11-03.
 11. **Limpieza de Cloudflare (desde el 2026-11-24, si nada falló):** borrar la base D1 `tonyciencia-emdash`, el bucket
     R2 y el KV `SESSION` que quedaron de EmDash (Claude quita antes los bindings de `wrangler.jsonc`). El Worker viejo
     `tonyciencia-email-capture`: exportar primero su KV `LEADS` (correos del boletín de antes) y luego borrarlo.
-12. **Contenido del blog — confirmar 2 cosas:** (a) los artículos de ActiveCampaign dicen «he probado personalmente» y
-    «mi propia configuración»: ¿es experiencia real suya? Si no, se reformulan. (b) Los enlaces
-    `try.activecampaign.com/cbl88pxf0lmx-rvs4jt` (ActiveCampaign) e `imobie.sjv.io/2axWAQyt` (FocuSee) no están en la
-    base de afiliados: si son suyos, Claude los agrega a `content/affiliates/extra.json`; si no, se quitan.
+12. **Contenido del blog — confirmar 1 cosa:** los artículos de ActiveCampaign dicen «he probado personalmente» y
+    «mi propia configuración» (Systeme.io + ActiveCampaign): ¿es experiencia real suya? Si no, se reformulan.
+    (Hecho el 2026-11-03: confirmó que los enlaces de ActiveCampaign y FocuSee son suyos; están en
+    `content/affiliates/extra.json`.)

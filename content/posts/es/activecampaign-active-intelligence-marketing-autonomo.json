@@ -17,8 +17,8 @@
     ]
   },
   "data": {
-    "title": "Llegó el Marketing Autónomo: Dentro de Active Intelligence de ActiveCampaign y sus 25+ Agentes de IA",
-    "excerpt": "Active Intelligence de ActiveCampaign lanza 25+ agentes de IA que construyen, ejecutan y ajustan flujos de marketing por su cuenta. Qué hace realmente, cuáles agentes importan más y dónde todavía necesita un humano.",
+    "title": "Active Intelligence de ActiveCampaign: sus 25+ agentes de IA, a fondo",
+    "excerpt": "Active Intelligence de ActiveCampaign suma más de 25 agentes de IA que crean y ajustan flujos de marketing. Qué hace, qué agentes importan y dónde aún hace falta un humano.",
     "featured_image": {
       "$media": {
         "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop",
@@ -422,27 +422,21 @@
         "children": [
           {
             "_type": "span",
-            "text": "Aquí hablaré desde mi propia configuración en lugar de un caso hipotético. Armo mis funnels en Systeme.io y corro "
+            "text": "Aquí hablaré desde mi propia configuración en lugar de un caso hipotético. Armo mis funnels en Systeme.io y corro ",
+            "marks": []
           },
           {
             "_type": "span",
             "text": "ActiveCampaign",
-            "marks": [
-              "k21"
-            ]
+            "marks": []
           },
           {
             "_type": "span",
-            "text": " detrás como la capa de automatización e IA: ambos se conectan de forma nativa a través del propio panel de Integraciones de Systeme.io (una conexión directa por API key, sin necesidad de Zapier), así que cada contacto y etiqueta creada en un funnel llega a ActiveCampaign en tiempo real. Lo que eso significa en la práctica: no soy yo quien arma manualmente la secuencia de seguimiento cada vez que un funnel nuevo sale en vivo. Le describo al Agente de Automatizaciones el flujo que quiero (serie de bienvenida, ramificación por etiquetas según de qué funnel de Systeme.io vino el contacto) y arma la primera versión del flujo para que yo la revise, en lugar de que yo arrastre condiciones en un lienzo desde cero. El Agente de Insights se queda observando el desempeño de esos flujos en segundo plano, algo que antes era una revisión manual semanal de mi parte y ya no lo es."
+            "text": " detrás como la capa de automatización e IA: ambos se conectan de forma nativa a través del propio panel de Integraciones de Systeme.io (una conexión directa por API key, sin necesidad de Zapier), así que cada contacto y etiqueta creada en un funnel llega a ActiveCampaign en tiempo real. Lo que eso significa en la práctica: no soy yo quien arma manualmente la secuencia de seguimiento cada vez que un funnel nuevo sale en vivo. Le describo al Agente de Automatizaciones el flujo que quiero (serie de bienvenida, ramificación por etiquetas según de qué funnel de Systeme.io vino el contacto) y arma la primera versión del flujo para que yo la revise, en lugar de que yo arrastre condiciones en un lienzo desde cero. El Agente de Insights se queda observando el desempeño de esos flujos en segundo plano, algo que antes era una revisión manual semanal de mi parte y ya no lo es.",
+            "marks": []
           }
         ],
-        "markDefs": [
-          {
-            "_key": "k21",
-            "_type": "link",
-            "href": "https://try.activecampaign.com/cbl88pxf0lmx-rvs4jt"
-          }
-        ]
+        "markDefs": []
       },
       {
         "_type": "block",

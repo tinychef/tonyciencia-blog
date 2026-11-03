@@ -17,8 +17,8 @@
     ]
   },
   "data": {
-    "title": "ActiveCampaign vs Brevo vs Kit (2026): ¿Cuál Plataforma de Email Marketing Gana Realmente?",
-    "excerpt": "ActiveCampaign, Brevo y Kit son los tres nombres que aparecen en cada comparativa de email marketing de 2026. Aquí está el desglose honesto de precios, automatización, entregabilidad y dónde cada una realmente gana.",
+    "title": "ActiveCampaign vs Brevo vs Kit (2026): cuál gana en email marketing",
+    "excerpt": "Comparativa honesta de ActiveCampaign, Brevo y Kit en 2026: precios, automatización, entregabilidad y en qué caso gana realmente cada una de las tres.",
     "featured_image": {
       "$media": {
         "url": "https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?w=1200&h=800&fit=crop",
@@ -543,27 +543,21 @@
           },
           {
             "_type": "span",
-            "text": "yo uso "
+            "text": "yo uso ",
+            "marks": []
           },
           {
             "_type": "span",
             "text": "ActiveCampaign",
-            "marks": [
-              "k9"
-            ]
+            "marks": []
           },
           {
             "_type": "span",
-            "text": " junto con Systeme.io como mi constructor de funnels y checkout, y ambos se conectan de forma nativa, sin Zapier ni Make de por medio. Es una conexión directa por API key desde el propio panel de Ajustes > Integraciones de Systeme.io: cada contacto y etiqueta creada dentro de un funnel de Systeme.io se sincroniza directo con ActiveCampaign, donde ocurre la automatización real y el seguimiento impulsado por IA. Para cualquiera que arme funnels en Systeme.io y quiera profundidad real de automatización encima, esta es la primera integración que recomendaría: es la razón por la que no tuve que migrar mi constructor de funnels solo para obtener el motor de automatización de ActiveCampaign."
+            "text": " junto con Systeme.io como mi constructor de funnels y checkout, y ambos se conectan de forma nativa, sin Zapier ni Make de por medio. Es una conexión directa por API key desde el propio panel de Ajustes > Integraciones de Systeme.io: cada contacto y etiqueta creada dentro de un funnel de Systeme.io se sincroniza directo con ActiveCampaign, donde ocurre la automatización real y el seguimiento impulsado por IA. Para cualquiera que arme funnels en Systeme.io y quiera profundidad real de automatización encima, esta es la primera integración que recomendaría: es la razón por la que no tuve que migrar mi constructor de funnels solo para obtener el motor de automatización de ActiveCampaign.",
+            "marks": []
           }
         ],
-        "markDefs": [
-          {
-            "_key": "k9",
-            "_type": "link",
-            "href": "https://try.activecampaign.com/cbl88pxf0lmx-rvs4jt"
-          }
-        ]
+        "markDefs": []
       },
       {
         "_type": "block",
