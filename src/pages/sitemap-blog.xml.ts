@@ -10,7 +10,7 @@ import type { APIRoute } from "astro";
 import { getEmDashCollection } from "emdash";
 import { postSlug } from "../utils/post-slug";
 import { getStaticPosts } from "../utils/static-posts";
-import { POST_REDIRECTS } from "../utils/post-redirects";
+import { POST_REDIRECTS, TRANSLATION_PAIRS_EN_TO_ES } from "../utils/post-redirects";
 
 type Lang = "es" | "en";
 interface Item {
@@ -60,7 +60,10 @@ export const GET: APIRoute = async ({ site, url }) => {
 
 	// Pares de traducción: un post en inglés con translation_of = slug de un post en español publicado.
 	const enOf = new Map<string, string>();
-	for (const p of en.values()) if (p.translationOf && es.has(p.translationOf)) enOf.set(p.translationOf, p.slug);
+	for (const p of en.values()) {
+		p.translationOf ??= TRANSLATION_PAIRS_EN_TO_ES[p.slug];
+		if (p.translationOf && es.has(p.translationOf)) enOf.set(p.translationOf, p.slug);
+	}
 
 	const alternates = (esSlug: string, enSlug: string) =>
 		[

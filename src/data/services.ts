@@ -7,6 +7,8 @@ type Localized<T> = Record<Locale, T>;
 export interface Service {
 	id: string;
 	name: string;
+	/** Nombre en inglés si cambia (los nombres de marca se quedan igual). */
+	nameEn?: string;
 	href: string;
 	/** Una línea: qué resuelve. Home. */
 	summary: Localized<string>;
@@ -103,6 +105,7 @@ export const services: Service[] = [
 	{
 		id: "agentes-a-medida",
 		name: "Agentes a medida",
+		nameEn: "Custom AI agents",
 		// Vive en el market (mismo dominio): se abre en la misma pestaña.
 		href: "/market/agentes-para-empresas",
 		summary: {
@@ -133,3 +136,8 @@ export const services: Service[] = [
 
 /** Los servicios con href interno (p. ej. /market/…) se abren en la misma pestaña. */
 export const isExternalService = (s: Pick<Service, "href">) => /^https?:\/\//.test(s.href);
+
+/** Nombre visible del servicio según el idioma. */
+export function serviceName(service: Service, locale: string): string {
+	return locale === "en" ? (service.nameEn ?? service.name) : service.name;
+}

@@ -1,6 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
-import { partners } from "../../data/partners.generated";
+import { partners } from "../../data/partners";
 import { partnerIcon } from "../../data/partner-icons.generated";
 
 const categories = [...new Set(partners.map((p) => p.category))].sort((a, b) => a.localeCompare(b, "es"));
@@ -245,7 +245,8 @@ const description = `Catálogo completo de ${partners.length} herramientas de IA
 	}
 
 	@media (max-width: 640px) {
-		.catalog-grid { grid-template-columns: 1fr 1fr; }
+		/* minmax(0, 1fr): sin esto cada columna crecía hasta el nombre más largo y la página medía 1064 px a 390 px. */
+		.catalog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 		.hero-stats { gap: var(--spacing-5); }
 	}
 </style>

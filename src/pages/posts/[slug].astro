@@ -1,5 +1,5 @@
 ---
-import { POST_REDIRECTS } from "../../utils/post-redirects";
+import { POST_REDIRECTS, TRANSLATION_PAIRS } from "../../utils/post-redirects";
 import { postSlug } from "../../utils/post-slug";
 import {
 	getEmDashEntry,
@@ -210,7 +210,11 @@ const faqItems = extractFaqItems(post.data.faq_items);
 const staticTranslation = getStaticPosts("en").find((candidate) => candidate.data.translation_of === slug);
 const cmsTranslation = await cmsTranslationPromise;
 const translatedPost = cmsTranslation ?? staticTranslation;
-const alternatePath = translatedPost ? `/en/posts/${postSlug(translatedPost.id)}` : undefined;
+const alternatePath = translatedPost
+	? `/en/posts/${postSlug(translatedPost.id)}`
+	: TRANSLATION_PAIRS[slug]
+		? `/en/posts/${TRANSLATION_PAIRS[slug]}`
+		: undefined;
 
 // Fetch tags for related posts (bylines are already hydrated by getEmDashCollection)
 const otherPostsWithTags = await Promise.all(

@@ -51,4 +51,25 @@ const { title, variant = "card" } = Astro.props;
 	.title-render--hero .title-render-text {
 		font-size: clamp(1.5rem, 4vw, 2.75rem);
 	}
+
+	/* En celular el título se salía por la derecha (417 px de texto en una caja de 358 px, auditoría 2026-11-03):
+	   el texto puede partirse, la caja crece con el título y la letra baja un poco. */
+	.title-render-text {
+		min-width: 0;
+		overflow-wrap: anywhere;
+		hyphens: auto;
+	}
+
+	@media (max-width: 640px) {
+		.title-render--hero {
+			aspect-ratio: auto;
+			min-height: 180px;
+			padding: var(--spacing-5);
+		}
+
+		.title-render--hero .title-render-text {
+			font-size: 1.35rem;
+			max-width: 100%;
+		}
+	}
 </style>
