@@ -17,8 +17,8 @@
     ]
   },
   "data": {
-    "title": "ActiveCampaign vs Brevo vs Kit (2026): Which Email Marketing Platform Actually Wins?",
-    "excerpt": "ActiveCampaign, Brevo, and Kit are the three names that keep showing up in every 2026 email marketing comparison. Here's the honest breakdown on pricing, automation, deliverability, and where each one genuinely wins.",
+    "title": "ActiveCampaign vs Brevo vs Kit (2026): Which One Actually Wins?",
+    "excerpt": "An honest 2026 comparison of ActiveCampaign, Brevo and Kit: pricing, automation, deliverability and the cases where each email platform genuinely wins.",
     "featured_image": {
       "$media": {
         "url": "https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?w=1200&h=800&fit=crop",
@@ -543,27 +543,21 @@
           },
           {
             "_type": "span",
-            "text": "I run "
+            "text": "I run ",
+            "marks": []
           },
           {
             "_type": "span",
             "text": "ActiveCampaign",
-            "marks": [
-              "k2"
-            ]
+            "marks": []
           },
           {
             "_type": "span",
-            "text": " alongside Systeme.io as my funnel/checkout builder, and the two connect natively — no Zapier or Make in between. It's a straight API key connection under Systeme.io's own Settings > Integrations panel: every contact and tag created inside a Systeme.io funnel syncs directly into ActiveCampaign, where the actual automation and AI-driven follow-up happens. For anyone building funnels in Systeme.io and wanting real automation depth on top, this is the one integration I'd point to first — it's the reason I didn't need to migrate my funnel builder just to get ActiveCampaign's automation engine."
+            "text": " alongside Systeme.io as my funnel/checkout builder, and the two connect natively — no Zapier or Make in between. It's a straight API key connection under Systeme.io's own Settings > Integrations panel: every contact and tag created inside a Systeme.io funnel syncs directly into ActiveCampaign, where the actual automation and AI-driven follow-up happens. For anyone building funnels in Systeme.io and wanting real automation depth on top, this is the one integration I'd point to first — it's the reason I didn't need to migrate my funnel builder just to get ActiveCampaign's automation engine.",
+            "marks": []
           }
         ],
-        "markDefs": [
-          {
-            "_key": "k2",
-            "_type": "link",
-            "href": "https://try.activecampaign.com/cbl88pxf0lmx-rvs4jt"
-          }
-        ]
+        "markDefs": []
       },
       {
         "_type": "block",

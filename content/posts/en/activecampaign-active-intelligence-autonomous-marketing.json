@@ -17,8 +17,8 @@
     ]
   },
   "data": {
-    "title": "Autonomous Marketing Has Arrived: Inside ActiveCampaign's Active Intelligence and Its 25+ AI Agents",
-    "excerpt": "ActiveCampaign's Active Intelligence ships 25+ AI agents that build, run, and adjust marketing workflows on their own. Here's what it actually does, which agents matter most, and where it still needs a human.",
+    "title": "ActiveCampaign Active Intelligence: Inside Its 25+ AI Agents",
+    "excerpt": "ActiveCampaign's Active Intelligence adds 25+ AI agents that build and adjust marketing workflows. What it does, which agents matter and where it still needs a human.",
     "featured_image": {
       "$media": {
         "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop",
@@ -422,27 +422,21 @@
         "children": [
           {
             "_type": "span",
-            "text": "Here's where I'll speak from my own setup rather than a hypothetical. I build my funnels in Systeme.io and run "
+            "text": "Here's where I'll speak from my own setup rather than a hypothetical. I build my funnels in Systeme.io and run ",
+            "marks": []
           },
           {
             "_type": "span",
             "text": "ActiveCampaign",
-            "marks": [
-              "k16"
-            ]
+            "marks": []
           },
           {
             "_type": "span",
-            "text": " behind it as the automation and AI layer — the two connect natively through Systeme.io's own Integrations panel (a direct API key connection, no Zapier needed), so every contact and tag created in a funnel lands in ActiveCampaign in real time. What that means in practice: I'm not the one manually building the follow-up sequence every time a new funnel goes live. I describe the flow I want to the Automations Agent — welcome series, tag-based branching depending on which Systeme.io funnel the contact came from — and it assembles the first version of the workflow for me to review, instead of me dragging conditions onto a canvas from scratch. The Insights Agent then keeps watching performance on those flows in the background, which is the part that used to be a weekly manual check on my end and now isn't."
+            "text": " behind it as the automation and AI layer — the two connect natively through Systeme.io's own Integrations panel (a direct API key connection, no Zapier needed), so every contact and tag created in a funnel lands in ActiveCampaign in real time. What that means in practice: I'm not the one manually building the follow-up sequence every time a new funnel goes live. I describe the flow I want to the Automations Agent — welcome series, tag-based branching depending on which Systeme.io funnel the contact came from — and it assembles the first version of the workflow for me to review, instead of me dragging conditions onto a canvas from scratch. The Insights Agent then keeps watching performance on those flows in the background, which is the part that used to be a weekly manual check on my end and now isn't.",
+            "marks": []
           }
         ],
-        "markDefs": [
-          {
-            "_key": "k16",
-            "_type": "link",
-            "href": "https://try.activecampaign.com/cbl88pxf0lmx-rvs4jt"
-          }
-        ]
+        "markDefs": []
       },
       {
         "_type": "block",
