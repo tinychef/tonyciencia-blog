@@ -386,8 +386,9 @@ export function validatePost(file, options = {}) {
 		if (faq.some((b) => (b.markDefs ?? []).length)) warnings.push("faq_items con enlaces: el JSON-LD solo usa el texto");
 		stats.faq = pairs;
 		if (pairs < LIMITS.faqRecommended) warnings.push(`${pairs} preguntas en faq_items (recomendado ≥ ${LIMITS.faqRecommended})`);
-		const visible = content.some((b) => b.style === "h2" && /preguntas frecuentes|faq|frequently asked/i.test(blockText(b)));
-		if (pairs > 0 && !visible) warnings.push("faq_items no aparece como sección visible en el contenido (Google pide que el FAQ marcado sea visible)");
+		// La página del post ya muestra faq_items como sección visible: repetirlo en el cuerpo lo duplica.
+		const duplicated = content.some((b) => b.style === "h2" && /preguntas frecuentes|faq|frequently asked/i.test(blockText(b)));
+		if (pairs > 0 && duplicated) warnings.push("el cuerpo repite el FAQ: la plantilla ya muestra faq_items; quita esa sección del contenido");
 	}
 
 	// --- SEO auxiliar ---

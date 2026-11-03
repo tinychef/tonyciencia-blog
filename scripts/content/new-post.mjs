@@ -9,12 +9,12 @@
 //   title, slug, excerpt, locale (es|en), status (draft|published), published_at,
 //   category: [..], tag: [..], keywords: [..], key_entities (texto o lista),
 //   featured_image: { url, alt, filename }, image_prompt, schema_type,
-//   faq: [{ q, a }], faq_in_content (true por defecto), translation_of (obligatorio en en),
+//   faq: [{ q, a }], faq_in_content (false por defecto: la página del post ya muestra faq_items), translation_of (obligatorio en en),
 //   external_id, source, id, byline
 //
 // Cuerpo Markdown admitido: ## H2, ### H3, párrafos, listas "-"/"*" y "1." (anidadas con 2+ espacios),
 // > cita, **negrita**, *cursiva*/_cursiva_, `código`, [texto](url). Los comentarios <!-- --> se ignoran,
-// salvo una línea "<!-- faq -->", que marca dónde va la sección visible "Preguntas frecuentes" (por defecto, al final).
+// salvo una línea "<!-- faq -->", que marca dónde va el FAQ si se pide copiarlo al cuerpo (faq_in_content: true).
 // No admitido (falla con mensaje): # H1 (el título ya es el H1), imágenes ![](), tablas, HTML.
 import fs from "node:fs";
 import path from "node:path";
@@ -543,12 +543,12 @@ export function buildPost(meta, body, { affiliates = loadAffiliates() } = {}) {
 	}
 
 	const faqItems = faqToBlocks(meta.faq);
-	const faqInContent = meta.faq_in_content !== false;
+	// La página del post ya muestra faq_items como sección visible ("Preguntas frecuentes"): solo se copia al cuerpo si se pide.
+	const faqInContent = meta.faq_in_content === true;
 	const alreadyHasFaq = [...content, ...tail].some(
 		(block) => block.style === "h2" && /preguntas frecuentes|faq|frequently asked/i.test(blockText(block)),
 	);
 	if (faqItems.length && faqInContent && !alreadyHasFaq) {
-		// Google exige que el FAQ marcado en JSON-LD también sea visible en la página.
 		content.push({ _type: "block", style: "h2", markDefs: [], children: [{ _type: "span", text: FAQ_HEADING[locale], marks: [] }] });
 		content.push(...structuredClone(faqItems));
 		notes.push(`FAQ visible añadido ${hasFaqMarker ? "en <!-- faq -->" : "al final del contenido"} (${faqItems.length / 2} preguntas)`);
