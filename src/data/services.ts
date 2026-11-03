@@ -76,7 +76,7 @@ export const services: Service[] = [
 	},
 	{
 		id: "anuncios-infinitos",
-		name: "Anuncios Infinitos",
+		name: "Anuncios Automáticos",
 		href: "https://adsinfinitos.tonyciencia.com",
 		summary: {
 			es: "Estrategia y creativos para tus anuncios, generados con IA.",
@@ -98,7 +98,7 @@ export const services: Service[] = [
 				"Launch-ready creatives and copy",
 			],
 		},
-		cta: { es: "Probar Anuncios Infinitos", en: "Try Anuncios Infinitos" },
+		cta: { es: "Probar Anuncios Automáticos", en: "Try Automatic Ads" },
 	},
 	{
 		id: "agentes-a-medida",
