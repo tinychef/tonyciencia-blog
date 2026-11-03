@@ -4,15 +4,16 @@
   "status": "published",
   "data": {
     "title": "Performance Max vs Search Campaigns: The 2026 Guide",
-    "excerpt": "Performance Max vs Search: the 2026 guide to knowing which campaign type wins in your specific situation and when to run both together.",
+    "excerpt": "Performance Max vs Search in 2026: how Google decides which one serves, what changed in PMax reporting, and a simple way to run both without overlap.",
     "content": [
       {
         "_type": "block",
         "style": "normal",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "Google's Performance Max has matured. When it launched, it was a black box that made veteran PPC managers nervous. By 2026, it has proven itself in specific scenarios while Search campaigns remain irreplaceable in others. The answer is not either/or—it is knowing when to use which.",
+            "text": "When Performance Max launched, many PPC managers treated it as a black box that ate their brand traffic. By 2026 the picture is clearer: Google has spelled out how it chooses between the two campaign types and has opened up much of the reporting. The answer isn't \"one or the other\"; it's knowing which job each one does and setting rules so they don't fight over the same searches.",
             "marks": []
           }
         ]
@@ -20,10 +21,11 @@
       {
         "_type": "block",
         "style": "h2",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "Where Performance Max Wins",
+            "text": "The short answer",
             "marks": []
           }
         ]
@@ -31,10 +33,74 @@
       {
         "_type": "block",
         "style": "normal",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "PMax excels at finding incremental conversions across Google's full inventory: Search, Display, YouTube, Gmail, Maps, Discover. For e-commerce brands with strong product feeds and clear ROAS targets, PMax typically delivers 15-25% more conversions at similar efficiency.",
+            "text": "Use Search",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " to protect your brand terms and the high-intent queries where you need to see and control exactly what triggers each click.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Use Performance Max",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " when you have conversion goals and good assets (or a Merchant Center feed) and want to reach people across YouTube, Display, Search, Discover, Gmail and Maps from one campaign.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Run both",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " when you can afford it, with exact match keywords in Search, negative keywords in Performance Max and a weekly look at the search terms report.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How Google decides between Search and Performance Max",
             "marks": []
           }
         ]
@@ -42,10 +108,90 @@
       {
         "_type": "block",
         "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://support.google.com/google-ads/answer/10724817?hl=en"
+          }
+        ],
         "children": [
           {
             "_type": "span",
-            "text": "The key to successful PMax is asset quality. Mediocre images and weak copy will produce mediocre results. The algorithm amplifies what works—give it great assets and it will find buyers; give it weak assets and it will waste budget.",
+            "text": "Performance Max is, in Google's words, \"a goal-based campaign type that allows you to access all Google Ads inventory\" from a single campaign. The overlap with Search is handled by a priority rule that Google documents in its Help Center (",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Google Ads Help: About Performance Max campaigns",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "):",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Exact match wins.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Search campaigns with an exact match keyword are prioritized over Performance Max when the query matches that keyword exactly.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Search themes are not exact match.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " The search themes you add to Performance Max carry the same priority as phrase and broad match keywords.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What it means in practice:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " if a query matters to you, put it in a Search campaign as exact match. Everything you leave to phrase match, broad match or search themes is territory both campaign types can compete for.",
             "marks": []
           }
         ]
@@ -53,10 +199,11 @@
       {
         "_type": "block",
         "style": "h2",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "Where Search Still Dominates",
+            "text": "What changed: Performance Max is less of a black box",
             "marks": []
           }
         ]
@@ -64,10 +211,29 @@
       {
         "_type": "block",
         "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://support.google.com/google-ads/answer/16451273?hl=en"
+          }
+        ],
         "children": [
           {
             "_type": "span",
-            "text": "For high-intent, high-competition keywords—legal services, financial products, B2B software—Search campaigns with exact and phrase match give you control that PMax cannot provide. When a click costs $40, you need to know exactly what triggered it and whether it aligns with your offer.",
+            "text": "In a Help Center update from August 7, 2025, Google listed the visibility and control features now available in Performance Max (",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Google Ads Help: More visibility and control in Performance Max",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "):",
             "marks": []
           }
         ]
@@ -75,13 +241,734 @@
       {
         "_type": "block",
         "style": "normal",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "The winning strategy: run PMax for your top products and let it find incremental volume. Use Search to defend your brand terms and capture highest-intent queries. Review Search Terms insights weekly and add negatives aggressively to prevent PMax from cannibalizing your best Search traffic.",
+            "text": "Campaign-level negative keywords",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " for all Performance Max campaigns, applying to Search and Shopping inventory, plus the option to apply negative keyword lists.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Search terms reporting",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " for all Performance Max campaigns, also through the API.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Channel performance report",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", launched in beta at Google Marketing Live, to see results by surface.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Full asset stats",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " with conversions, cost and clicks, and the option to see and remove assets created with text customization and final URL expansion.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "More search themes:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " up to 50 per asset group, up from 25.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Device and age targeting",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " fully available, with gender controls in beta.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Many of the old arguments for keeping Performance Max away from your account were about not seeing search terms or not being able to exclude them. Those arguments are now weaker.",
             "marks": []
           }
         ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The middle ground: AI Max for Search campaigns",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://blog.google/products/ads-commerce/google-ai-max-for-search-campaigns/"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "In May 2025 Google introduced ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "AI Max for Search campaigns",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", a one-click suite of targeting and creative features that you turn on inside a Search campaign (",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Google, May 6, 2025",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "). It uses your keywords, assets and landing pages to match more queries and to generate ad text, while you keep the reporting and structure of Search.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Google says advertisers who activate it typically see 14% more conversions or conversion value at a similar CPA or ROAS, and 27% for campaigns still running mostly exact and phrase match keywords. Those figures come from Google's internal data and exclude retail advertisers, so treat them as Google's claim, not a benchmark for your account. For a lead generation business that wants more reach without giving up Search, AI Max is worth testing before jumping to Performance Max.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "When each one fits",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Performance Max fits when",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "/en/posts/google-lens-shopping-ads-sales-channel-2026"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "You sell products with a ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Merchant Center feed",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "; our guide to ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Google Lens and Shopping Ads",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " covers why feed quality matters.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "You have ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "reliable conversion tracking",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " and a CPA or ROAS target.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "You can supply ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "good text, images and video",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". The campaign builds ads from your assets, so weak assets produce weak ads.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Search fits when",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Clicks are expensive.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " In categories like legal services or B2B software, you want to know exactly which query triggered each click.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "You need to defend your brand",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " with full control over copy and landing pages.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Your budget is small.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " A tight Search campaign on a few high-intent terms is easier to read than a campaign spread across six channels.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How to run both without overlap",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Move your brand and best-converting queries to Search as exact match",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " so they take priority.",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Add negative keywords in Performance Max",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " for brand terms you want Search to own and for irrelevant queries.",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Review the search terms report weekly",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " in both campaign types and move valuable queries into Search.",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Check the channel performance report",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " to see where Performance Max spends: if most of it goes to one surface, decide whether that's what you want.",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Judge by business results",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", ideally new customers and profit, not only by the conversions each campaign reports.",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Common mistakes",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Leaving brand terms open",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " so Performance Max reports \"conversions\" from people who were already looking for you.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Feeding Performance Max poor assets",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " and blaming the format.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Running Performance Max without conversion tracking",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " you trust.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "/en/posts/demand-gen-replaced-video-action-campaigns-guide-2026"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Forgetting the rest of the funnel:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " video prospecting on YouTube now runs through Demand Gen; see ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "our Demand Gen guide",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Conclusion",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Performance Max and Search are not rivals so much as tools with different jobs. Use Search where control matters, Performance Max where reach and automation pay off, and the 2025 controls (exact match priority, negative keywords, search terms and channel reports) to keep them from stepping on each other. Start by auditing your brand terms this week: it's the fastest way to find overlap.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sources consulted (November 3, 2026)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://support.google.com/google-ads/answer/10724817?hl=en"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Google Ads Help: About Performance Max campaigns",
+            "marks": [
+              "l0"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://support.google.com/google-ads/answer/16451273?hl=en"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Google Ads Help: Visibility and control features in Performance Max (August 7, 2025)",
+            "marks": [
+              "l0"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://blog.google/products/ads-commerce/google-ai-max-for-search-campaigns/"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Google: AI Max for Search campaigns (May 6, 2025)",
+            "marks": [
+              "l0"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
       }
     ],
     "external_id": "d1-export:en:performance-max-vs-search-2026",
@@ -92,7 +979,91 @@
         "alt": "Performance Max vs Search Campaigns: The 2026 Guide — Tony Ciencia",
         "filename": "performance-max-vs-search-2026.webp"
       }
-    }
+    },
+    "schema_type": "BlogPosting",
+    "key_entities": "Google Ads, Performance Max, Search campaigns, exact match, search themes, negative keywords, search terms report, channel performance report, AI Max for Search campaigns, Merchant Center, YouTube, Gmail, Discover, Maps",
+    "keywords": [
+      "Performance Max vs Search",
+      "Performance Max 2026",
+      "Google Ads Search campaigns",
+      "PMax negative keywords",
+      "AI Max for Search"
+    ],
+    "image_prompt": "Editorial tech thumbnail 16:9: two campaign paths splitting from a single search bar, one a precise narrow lane (Search) and one a wide multi-lane highway across YouTube, Maps, Gmail and Display icons (Performance Max), amber (#c8922a) accents on a dark background, retro pixel dot texture, hard 3px corners, solid offset pixel shadows, no text, no logos.",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Does Performance Max cannibalize Search campaigns?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "It can overlap. Google prioritizes a Search campaign when the query is identical to one of its exact match keywords; otherwise Performance Max can compete for the same searches. Keep your key terms as exact match in Search and use negative keywords in Performance Max.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Can I add negative keywords to Performance Max?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Yes. In 2025 Google rolled out campaign-level negative keywords to all Performance Max campaigns, applying to Search and Shopping inventory, and added the option to apply negative keyword lists.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What is AI Max for Search campaigns?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "It's a one-click suite of targeting and creative features that Google launched in beta in May 2025 inside Search campaigns. It expands matching beyond your keywords and generates ad text from your landing pages, while you keep a Search campaign structure.",
+            "marks": []
+          }
+        ]
+      }
+    ]
   },
   "bylines": [
     {

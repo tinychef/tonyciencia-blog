@@ -4,15 +4,16 @@
   "status": "published",
   "data": {
     "title": "Meta Advantage+: When the Algorithm Knows Better Than You",
-    "excerpt": "Meta Advantage+ gives control to the algorithm—and early adopters are seeing 20-32% lower cost per purchase. Here is when to trust it.",
+    "excerpt": "Meta Advantage+ hands targeting, placements and budget to the algorithm. What Meta's own data shows, where it falls short, and when to keep manual control.",
     "content": [
       {
         "_type": "block",
         "style": "normal",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "Meta Advantage+ Shopping Campaigns launched with skepticism from most performance marketers. Giving control to the algorithm felt like a step backward. A year later, the results speak for themselves: brands that adopted Advantage+ early are seeing 20-32% lower cost per purchase compared to manual campaigns.",
+            "text": "Handing your budget to an algorithm feels like losing control, and for years most performance marketers resisted it. By 2026 the question has changed. Meta keeps pushing Advantage+ deeper into sales and leads campaigns, so the real decision is when to trust it and when to hold some control back. This guide covers what Advantage+ automates, what the numbers say (and who publishes them) and a simple way to test it on your own account.",
             "marks": []
           }
         ]
@@ -20,10 +21,11 @@
       {
         "_type": "block",
         "style": "h2",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "What Advantage+ Actually Does",
+            "text": "The short answer: when to trust Advantage+",
             "marks": []
           }
         ]
@@ -31,10 +33,74 @@
       {
         "_type": "block",
         "style": "normal",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "Unlike traditional campaigns where you define the audience, Advantage+ uses machine learning to find buyers across Meta's entire inventory—Facebook, Instagram, Reels, Messenger, Audience Network—with a single budget. It adjusts placement, creative, and audience in real time.",
+            "text": "Trust it",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " when you have a clear conversion event, enough conversions each week for the system to learn, a broad market and several distinct creative concepts.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Hold some control",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " when your buyer pool is tiny (niche B2B), your volume is low, legal rules limit who you can reach, or most of your \"results\" come from people who already bought.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Always",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " measure cost per new customer, not just blended ROAS, and send conversions through the Conversions API.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What Advantage+ actually automates",
             "marks": []
           }
         ]
@@ -42,10 +108,284 @@
       {
         "_type": "block",
         "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://engineering.fb.com/2024/12/02/production-engineering/meta-andromeda-advantage-automation-next-gen-personalized-ads-retrieval-engine/"
+          }
+        ],
         "children": [
           {
             "_type": "span",
-            "text": "The key insight is that Meta has more data than any single advertiser. It sees patterns across millions of accounts. When you fight the algorithm, you are fighting with one hand tied behind your back.",
+            "text": "In Meta's own words, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Advantage+ automates budget allocation, audience targeting and bid adjustments",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Behind it sits Andromeda, the retrieval engine Meta described in December 2024: it narrows tens of millions of candidate ads to a few thousand per person before ranking picks the winner (",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Meta Engineering, December 2, 2024",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "). The more creative you feed it, the more options it has to match.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://www.socialmediatoday.com/news/meta-advantage-plus-ad-updates-february-2025/739472/"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "In February 2025, Meta pushed the automation further (",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Social Media Today, February 6, 2025",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "):",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Advantage+ shopping campaigns became Advantage+ sales campaigns",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", to reflect that they're not only for e-commerce.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Advantage+ expanded to leads campaigns",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", with full campaign automation.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "A streamlined setup",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " started testing, where you no longer choose between a manual campaign and an Advantage+ campaign up front. Campaigns show an \"Advantage+ on\" label when Advantage+ audience, placements and campaign budget are all active.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Opportunity Score",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", a 0–100 rating of how well a campaign is set up, with recommendations.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What the numbers say, and who says them",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Most performance figures for Advantage+ come from Meta itself. Treat them as averages from Meta's own tests, not as a forecast for your account:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Leads:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " in early testing, leads campaigns with Advantage+ turned on had a 10% lower cost per qualified lead, according to Meta as reported by Social Media Today.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Opportunity Score:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " advertisers who adopted its recommendations saw a 5% median decrease in cost per result, again from Meta's early tests.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Advantage+ creative:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " advertisers who hadn't used it before and turned on its AI-driven features saw a 22% increase in ROAS, per the Andromeda post. Meta doesn't share the period or the baseline.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://www.wickedreports.com/blog/meta-advantage-research-results"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The independent picture is more mixed. Wicked Reports analyzed 55,661 Meta campaigns and found that the ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "average cost per new customer on Advantage+ went from $257 in May 2024 to $528 in May 2025",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", while manual campaigns acquired customers more cheaply than the year before (",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Wicked Reports, June 10, 2025",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "). The study has real limits: it rests mainly on one month, the method is thinly documented and the company sells attribution software. Still, it points at the classic risk of automated campaigns: they can look great on ROAS by reaching people who were going to buy anyway.",
             "marks": []
           }
         ]
@@ -53,10 +393,11 @@
       {
         "_type": "block",
         "style": "h2",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "When to Trust, When to Override",
+            "text": "When the algorithm knows better",
             "marks": []
           }
         ]
@@ -64,13 +405,488 @@
       {
         "_type": "block",
         "style": "normal",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "Advantage+ works best for e-commerce with clear conversion events. It struggles when your product has a very narrow ideal customer (B2B enterprise, hyper-niche products). In those cases, a hybrid approach—Advantage+ for top-of-funnel, manual campaigns for retargeting—tends to outperform either alone.",
+            "text": "Advantage+ tends to earn its keep when:",
             "marks": []
           }
         ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The conversion is clear and frequent.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " A purchase or a qualified lead that happens many times a week gives the system something to learn from.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The market is broad.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Consumer products, local services in big cities and online courses have plenty of people to find.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "/en/posts/creative-is-the-new-targeting-2026"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "You supply real creative variety.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Different personas, motives and formats give the system more ways to match; see ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "why creative is the new targeting",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "/en/posts/first-party-data-meta-ads-competitive-advantage-2026"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Your data is clean.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Pixel plus Conversions API, with deduplication, as explained in ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "our first-party data guide",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "When to keep (some) manual control",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Very narrow buyers.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " If only a few thousand companies can buy from you, broad delivery wastes budget while it learns.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Low volume.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " With a handful of conversions a month, there isn't enough signal for automation to beat your judgment.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Hard restrictions.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Regulated categories, specific regions or age limits need controls you set yourself.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Existing customers inflating results.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " If you want new buyers, exclude current customers and check what share of conversions are repeat purchases.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "/en/posts/click-to-whatsapp-ads-highest-roi-latam-2026"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Messaging funnels.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " For campaigns that send people to WhatsApp, lead quality depends on the conversation, not only on delivery; our guide to ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Click-to-WhatsApp ads",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " covers that setup.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "A simple test plan for your account",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Fix measurement first:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " pixel and Conversions API sending the same purchase or lead event, deduplicated.",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pick one offer",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " and run your best manual campaign against an Advantage+ campaign with the same budget and the same creative concepts.",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Give it time:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " let both run long enough to leave the learning phase before judging.",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Compare cost per new customer",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", not only ROAS. Pull the split between new and returning buyers from your store or CRM.",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Keep the winner and repeat the test",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " every quarter, because Meta keeps changing the product.",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Conclusion",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Advantage+ is no longer a side experiment; it's where Meta is steering sales and leads campaigns. The algorithm does know some things better than you, especially who responds to which creative across Facebook, Instagram and Reels. What it doesn't know is your margin, your repeat-purchase rate or which customers you actually want. Feed it clean data and distinct creative, then hold it accountable on new customers.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sources consulted (November 3, 2026)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://engineering.fb.com/2024/12/02/production-engineering/meta-andromeda-advantage-automation-next-gen-personalized-ads-retrieval-engine/"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Meta Engineering: Meta Andromeda and Advantage+ automation",
+            "marks": [
+              "l0"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://www.socialmediatoday.com/news/meta-advantage-plus-ad-updates-february-2025/739472/"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Social Media Today: Meta's February 2025 Advantage+ updates",
+            "marks": [
+              "l0"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://www.wickedreports.com/blog/meta-advantage-research-results"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Wicked Reports: Meta Advantage+ vs manual, 55,661 campaigns",
+            "marks": [
+              "l0"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
       }
     ],
     "external_id": "d1-export:en:meta-advantage-plus-when-algorithm-knows-better",
@@ -81,7 +897,91 @@
         "alt": "Meta Advantage+: When the Algorithm Knows Better Than You — Tony Ciencia",
         "filename": "meta-advantage-plus-when-algorithm-knows-better.webp"
       }
-    }
+    },
+    "schema_type": "BlogPosting",
+    "key_entities": "Meta Advantage+, Advantage+ sales campaigns, Advantage+ shopping campaigns, Advantage+ leads campaigns, Advantage+ creative, Opportunity Score, Meta Andromeda, Conversions API, Wicked Reports, Social Media Today",
+    "keywords": [
+      "Meta Advantage+",
+      "Advantage+ sales campaigns",
+      "Advantage+ vs manual campaigns",
+      "Meta Ads automation",
+      "Advantage+ leads campaigns"
+    ],
+    "image_prompt": "Editorial tech thumbnail 16:9: a marketer's hand letting go of a control lever while an automated dashboard redistributes budget across Facebook, Instagram and Reels placements, amber (#c8922a) accents on a dark background, retro pixel dot texture, hard 3px corners, solid offset pixel shadows, no text, no logos.",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Is Advantage+ better than manual Meta campaigns?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Not always. Meta's own tests report lower costs with Advantage+ features turned on, but independent data has shown new-customer costs rising on Advantage+ campaigns. The only reliable answer for your account is a side-by-side test measured on cost per new customer.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "What happened to Advantage+ shopping campaigns?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "In February 2025 Meta renamed Advantage+ shopping campaigns to Advantage+ sales campaigns and extended the same automation to leads campaigns, while testing a simpler setup that no longer asks you to choose between manual and Advantage+ at the start.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Do I still need audiences with Advantage+?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "You need fewer of them. Keep hard limits where the law or your business requires them, exclude existing customers when you want new buyers, and upload customer lists so the system learns from real purchases. Interest stacking adds little.",
+            "marks": []
+          }
+        ]
+      }
+    ]
   },
   "bylines": [
     {

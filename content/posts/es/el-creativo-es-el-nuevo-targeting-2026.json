@@ -4,15 +4,16 @@
   "status": "published",
   "data": {
     "title": "El Creativo Es el Nuevo Targeting: Estrategia de Meta Ads para 2026",
-    "excerpt": "El playbook de audiencias ha muerto. En 2026, el algoritmo de Meta encuentra tu audiencia segun tu creativo. Aqui como adaptarte.",
+    "excerpt": "En Meta Ads, el creativo ya hace buena parte de la segmentación. Qué cambió con Advantage+ y Andromeda, y cómo crear anuncios distintos que sí escalan.",
     "content": [
       {
         "_type": "block",
         "style": "normal",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "En 2026, el antiguo manual de publicidad en Meta ha muerto. El enfoque centrado en audiencias—donde construias meticulosamente audiencias personalizadas, lookalikes y stacks de intereses—ha sido reemplazado por algo mas fundamental: la excelencia creativa.",
+            "text": "Si todavía pasas horas armando audiencias por intereses y lookalikes, estás puliendo la palanca que Meta ya no te deja mover. En 2026, el sistema de Meta decide a quién mostrar cada anuncio y lo decide, en buena parte, leyendo el propio anuncio. Esta guía explica qué cambió, qué dicen las fuentes (incluida la que no le da la razón a Meta) y cómo organizar tu producción de creativos para que el algoritmo encuentre a tu cliente.",
             "marks": []
           }
         ]
@@ -20,10 +21,11 @@
       {
         "_type": "block",
         "style": "h2",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "Por Que el Creativo Lidera Ahora",
+            "text": "Respuesta corta: qué cambia en tu forma de trabajar",
             "marks": []
           }
         ]
@@ -31,10 +33,95 @@
       {
         "_type": "block",
         "style": "normal",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "Meta Advantage+ ha cambiado fundamentalmente como se distribuyen los anuncios. El algoritmo ahora encuentra tu audiencia basandose en tu senal creativa. Eso significa que un video o imagen de alto rendimiento hace el trabajo de targeting por ti.",
+            "text": "Audiencias:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " amplias y con pocos límites. Restringe solo donde hay una razón legal o de negocio: país, edad mínima, exclusión de clientes actuales.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Creativos:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " varios conceptos de verdad distintos, no diez versiones del mismo anuncio. Cada concepto le habla a un tipo de cliente o a una situación concreta.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Medición:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " compara conceptos, no anuncios sueltos, y dale al sistema datos limpios (píxel más Conversions API).",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tiempo:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " mueve horas de \"buscar intereses\" a \"entender clientes y escribir ángulos\".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Qué cambió en Meta: Advantage+ y Andromeda",
             "marks": []
           }
         ]
@@ -42,10 +129,84 @@
       {
         "_type": "block",
         "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://engineering.fb.com/2024/12/02/production-engineering/meta-andromeda-advantage-automation-next-gen-personalized-ads-retrieval-engine/"
+          }
+        ],
         "children": [
           {
             "_type": "span",
-            "text": "Las marcas que estan ganando en este entorno tienen una cosa en comun: prueban creativos sin descanso. No solo testean titulos A/B, sino angulos emocionales, formatos y hooks fundamentalmente distintos. Tratan su cuenta de anuncios como una empresa de medios.",
+            "text": "El sistema de anuncios de Meta trabaja por etapas. En diciembre de 2024, el equipo de ingeniería de Meta explicó cómo funciona ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Andromeda",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", su motor de recuperación de anuncios: en esa etapa el sistema pasa de \"decenas de millones\" de anuncios candidatos a unos pocos miles relevantes para cada persona, y después los modelos de ranking eligen cuál se muestra. Meta reporta una mejora del 6 % en recall y del 8 % en calidad de anuncios en segmentos seleccionados (",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Meta Engineering, 2 de diciembre de 2024",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ").",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "En el mismo artículo, Meta describe que ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Advantage+ automatiza la asignación del presupuesto, la segmentación de audiencia y los ajustes de puja",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", y anticipa que la cantidad de creativos en sus sistemas va a crecer mucho. Parte de ese crecimiento viene de sus propias herramientas de IA generativa: según Meta, más de un millón de anunciantes las usaron para crear más de 15 millones de anuncios en un mes.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La consecuencia práctica:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " si el sistema puede evaluar muchos más anuncios para cada persona, el anuncio se convierte en la señal. Lo que muestra, cómo habla y a quién retrata le dicen al algoritmo con quién probar. Un video sobre \"recuperar tus noches libres\" para dueños de restaurantes atrae respuestas distintas a las de uno sobre \"el regalo perfecto para mamá\", aunque vendas lo mismo. El sistema aprende quién responde a cada uno y busca más personas parecidas.",
             "marks": []
           }
         ]
@@ -53,10 +214,11 @@
       {
         "_type": "block",
         "style": "h2",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "Que Significa Esto para Tu Presupuesto",
+            "text": "Diversificar no es hacer variaciones",
             "marks": []
           }
         ]
@@ -64,13 +226,611 @@
       {
         "_type": "block",
         "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://www.jonloomer.com/meta-andromeda-creative-diversification/"
+          }
+        ],
         "children": [
           {
             "_type": "span",
-            "text": "Si gastas mas en investigacion de audiencias que en produccion creativa, tu asignacion de presupuesto esta equivocada. El playbook 2026 es: 20% en audiencia/estrategia, 80% en iteracion creativa. Un gran creativo a escala supera al targeting perfecto con anuncios mediocres.",
+            "text": "Jon Loomer, consultor especializado en Meta Ads, resume la recomendación oficial de Meta así: ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "la diversificación creativa ayuda a los anunciantes a obtener los mejores resultados",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Pero aclara dos cosas que suelen olvidarse: dos imágenes muy parecidas no cuentan como diversas, y \"más no es necesariamente mejor\"; su consejo es empezar con pocas opciones que sean realmente distintas y ampliar cuando veas resultados (",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Jon Loomer, 20 de octubre de 2025",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ").",
             "marks": []
           }
         ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Una variación",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " mantiene el mensaje y cambia el color, el fondo o el titular. Para el sistema es casi el mismo anuncio.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Un concepto distinto",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " cambia a quién le hablas, qué problema tocas, qué prueba muestras o en qué formato lo cuentas.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Un marco simple: persona, motivo y formato",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Arma cada concepto combinando tres decisiones:",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Persona:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " un perfil real de cliente. En una academia online podrían ser quien quiere cambiar de trabajo, el dueño de pyme que quiere capacitar a su equipo y el estudiante que busca una certificación.",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Motivo:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " el dolor o deseo concreto que lo mueve: tiempo, dinero, estatus, miedo a quedarse atrás.",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Formato:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " video vertical con una persona hablando, imagen estática con una prueba, carrusel paso a paso o demostración del producto.",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Con tres personas y dos motivos ya tienes seis conceptos de partida, y todos salen de lo que sabes de tus clientes, no de una lista de intereses.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo repartir tu tiempo (sin fórmula mágica)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "No hay un porcentaje oficial que diga cuánto invertir en creativos y cuánto en audiencias. Lo que sí cambia es ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "dónde pones las horas",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ":",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Investigación de clientes:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " reseñas, preguntas que llegan por WhatsApp, objeciones que escuchas en ventas. De ahí salen los motivos.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Producción por lotes:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " graba o diseña varios conceptos de una vez, con la misma persona o el mismo set, para bajar el costo por pieza.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lanzamiento simple:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " agrupa los conceptos en una campaña con audiencia amplia en vez de repartir poco presupuesto entre muchos conjuntos de anuncios; cada conjunto necesita datos para aprender.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Lectura con paciencia:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " juzga un concepto cuando tenga datos suficientes, no a las 48 horas.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Errores comunes",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Llamar \"test\" a 20 versiones del mismo video",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " con distinto texto superpuesto.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Restringir la audiencia \"por si acaso\"",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " y después culpar al algoritmo por no escalar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "/posts/first-party-data-meta-ads-ventaja-competitiva-2026"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Darle al sistema una señal pobre.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Sin Conversions API, Meta aprende con datos incompletos; lo explicamos en ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "la guía de datos propios para Meta Ads",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://www.wickedreports.com/blog/meta-advantage-research-results"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Creer que la automatización siempre gana.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " La evidencia no es unánime: un análisis de Wicked Reports sobre 55.661 campañas encontró que el costo por cliente nuevo en Advantage+ pasó de 257 a 528 USD entre mayo de 2024 y mayo de 2025 (",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Wicked Reports, 10 de junio de 2025",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "). Es una empresa que vende software de atribución y el método está poco detallado, pero el aviso vale: mide clientes nuevos, no solo ROAS.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cómo producir más conceptos sin un equipo grande",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "/posts/herramientas-ia-videos-marketing-2026"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "No necesitas un estudio. Con un teléfono, buena luz y herramientas de IA para editar y subtitular puedes sacar varios conceptos por semana; en nuestra guía de ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "herramientas de IA para videos de marketing",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " comparamos cuál usar en cada etapa.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "/market/producto/anuncios-infinitos"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si lo que te frena es la parte estratégica (a quién hablarle y con qué ángulo), ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Anuncios Automáticos",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " es un producto de Tony Ciencia: un agente que investiga tu negocio y tu competencia, define perfiles de cliente y te entrega prompts y textos de anuncios para Meta, Google, TikTok y LinkedIn. No genera las imágenes ni los videos: eso lo haces después con tu herramienta de generación.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Conclusión: tu siguiente paso",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Esta semana, escribe tres perfiles de cliente y dos motivos para cada uno. Produce seis conceptos con formatos distintos, lánzalos en una campaña con audiencia amplia y espera a tener datos antes de apagar nada. Si tu medición todavía depende solo del píxel, empieza por ahí: el mejor creativo no sirve si el sistema no ve quién compra.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Fuentes consultadas (3 de noviembre de 2026)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://engineering.fb.com/2024/12/02/production-engineering/meta-andromeda-advantage-automation-next-gen-personalized-ads-retrieval-engine/"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Meta Engineering: Meta Andromeda, el motor de recuperación de anuncios detrás de Advantage+",
+            "marks": [
+              "l0"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://www.jonloomer.com/meta-andromeda-creative-diversification/"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Jon Loomer: Meta Andromeda y la diversificación creativa",
+            "marks": [
+              "l0"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://www.wickedreports.com/blog/meta-advantage-research-results"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Wicked Reports: análisis de 55.661 campañas de Meta Advantage+",
+            "marks": [
+              "l0"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
       }
     ],
     "external_id": "d1-export:es:el-creativo-es-el-nuevo-targeting-2026",
@@ -81,7 +841,92 @@
         "alt": "El Creativo Es el Nuevo Targeting: Estrategia de Meta Ads para 2026 — Tony Ciencia",
         "filename": "el-creativo-es-el-nuevo-targeting-2026.webp"
       }
-    }
+    },
+    "schema_type": "BlogPosting",
+    "key_entities": "Meta Ads, Meta Advantage+, Advantage+ audience, Advantage+ creative, Meta Andromeda, Facebook, Instagram, Reels, Conversions API, diversificación creativa, Jon Loomer, Wicked Reports, Anuncios Automáticos, Tony Ciencia",
+    "keywords": [
+      "el creativo es el nuevo targeting",
+      "Meta Ads 2026",
+      "diversificación creativa",
+      "Advantage+",
+      "Meta Andromeda",
+      "creativos para Meta Ads"
+    ],
+    "image_prompt": "Editorial tech thumbnail 16:9: a grid of very different ad creatives (vertical video, product photo, carousel, testimonial card) feeding into a single funnel that points to many different people silhouettes, amber (#c8922a) accents on a dark background, retro pixel dot texture, hard 3px corners, solid offset pixel shadows, no text, no logos.",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Qué significa que el creativo es el nuevo targeting?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Que en Meta Ads la segmentación la hace cada vez más el sistema con IA y que el contenido del anuncio es la señal más fuerte que controlas para orientar a quién llega. Tú defines los límites y los conceptos; Advantage+ busca a las personas que responden a cada uno.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Cuántos creativos necesito por campaña?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Meta no publica una cifra única, y las recomendaciones de 10 o más anuncios que circulan vienen de agencias y consultores. Importa más que sean conceptos distintos que la cantidad: un negocio pequeño puede empezar con pocos conceptos bien diferenciados y sumar más a medida que tenga resultados.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Ya no sirven las audiencias personalizadas ni los lookalikes?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Siguen siendo útiles para excluir a tus clientes actuales y como datos para el sistema, sobre todo si subes listas de clientes y envías conversiones por la Conversions API. Lo que perdió peso es apilar intereses para adivinar quién es tu cliente.",
+            "marks": []
+          }
+        ]
+      }
+    ]
   },
   "bylines": [
     {
