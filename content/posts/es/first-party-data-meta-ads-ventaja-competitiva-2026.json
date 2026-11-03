@@ -12,9 +12,11 @@
         "children": [
           {
             "_type": "span",
-            "text": "La muerte de las cookies de terceros no afecta a todos los anunciantes por igual. Para los que construyeron infraestructura de datos propios, es una ventaja competitiva creciente. Para los que dependían de datos de terceros sin alternativa, es una crisis."
+            "text": "La pérdida de señales de seguimiento no afecta a todos los anunciantes por igual. Para los que construyeron infraestructura de datos propios, es una ventaja competitiva creciente. Para los que dependían de datos de terceros sin alternativa, es un problema serio.",
+            "marks": []
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",
@@ -33,7 +35,27 @@
         "children": [
           {
             "_type": "span",
-            "text": "Con las cookies de terceros desapareciendo progresivamente de Chrome y Safari, el targeting basado en comportamiento de navegación externo se degrada. Meta, que históricamente usaba datos de terceros para enriquecer sus audiencias, ahora depende más del Pixel propio y de los datos que le proveen los anunciantes."
+            "text": "Safari y Firefox restringen las cookies de terceros por defecto, en iOS el seguimiento entre apps requiere permiso del usuario y los bloqueadores de anuncios cortan parte del Pixel. Chrome, en cambio, sigue permitiéndolas: en abril de 2025 Google ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "decidió mantener la elección actual del usuario",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " en lugar de retirarlas. Aun así, el targeting basado en navegación externa pierde precisión, y Meta depende cada vez más del Pixel propio y de los datos que le envían los anunciantes.",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://privacysandbox.google.com/blog/privacy-sandbox-next-steps"
           }
         ]
       },
@@ -266,31 +288,6 @@
           {
             "_type": "span",
             "text": "La infraestructura de datos propios ya no es un proyecto de “cuando tengamos tiempo”. Es la base sobre la que se construye cualquier estrategia competitiva de Meta Ads en 2026. Quien la tenga lista gana; quien no, subsidia a quien sí."
-          }
-        ]
-      },
-      {
-        "_type": "block",
-        "style": "normal",
-        "children": [
-          {
-            "_type": "span",
-            "text": "🔗 Fuente: ",
-            "marks": []
-          },
-          {
-            "_type": "span",
-            "text": "WordStream — Top Facebook Ads Trends 2026",
-            "marks": [
-              "l0"
-            ]
-          }
-        ],
-        "markDefs": [
-          {
-            "_key": "l0",
-            "_type": "link",
-            "href": "https://www.wordstream.com/blog/2026-facebook-ads-trends"
           }
         ]
       }

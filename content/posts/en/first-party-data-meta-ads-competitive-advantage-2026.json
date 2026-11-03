@@ -4,7 +4,7 @@
   "status": "published",
   "data": {
     "title": "First-Party Data in Meta Ads: The Real Competitive Advantage of 2026",
-    "excerpt": "As third-party cookies fade, first-party data is the edge in Meta Ads. How to combine the Conversions API with CRM-based Custom Audiences in 2026.",
+    "excerpt": "As browsers and iOS limit tracking, first-party data is the edge in Meta Ads. How to combine the Conversions API with CRM-based Custom Audiences.",
     "content": [
       {
         "_type": "block",
@@ -12,9 +12,11 @@
         "children": [
           {
             "_type": "span",
-            "text": "The death of third-party cookies doesn’t affect all advertisers equally. For those who built first-party data infrastructure, it’s a growing competitive advantage. For those who depended on third-party data without an alternative, it’s a crisis."
+            "text": "Signal loss doesn’t affect all advertisers equally. For those who built first-party data infrastructure, it’s a growing competitive advantage. For those who depended on third-party data without an alternative, it’s a serious problem.",
+            "marks": []
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",
@@ -33,7 +35,27 @@
         "children": [
           {
             "_type": "span",
-            "text": "With third-party cookies progressively disappearing from Chrome and Safari, targeting based on external browsing behavior degrades. Meta, which historically used third-party data to enrich its audiences, now depends more on the first-party Pixel and data advertisers provide."
+            "text": "Safari and Firefox restrict third-party cookies by default, iOS requires user permission for cross-app tracking, and ad blockers cut off part of the Pixel. Chrome still allows them: in April 2025 Google ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "decided to keep its current user choice approach",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " instead of phasing them out. Even so, targeting based on external browsing behavior loses precision, and Meta relies more and more on the first-party Pixel and the data advertisers send it.",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://privacysandbox.google.com/blog/privacy-sandbox-next-steps"
           }
         ]
       },
@@ -266,31 +288,6 @@
           {
             "_type": "span",
             "text": "First-party data infrastructure is no longer a “when we have time” project. It’s the foundation on which any competitive Meta Ads strategy in 2026 is built. Those who have it ready win; those who don’t subsidize those who do."
-          }
-        ]
-      },
-      {
-        "_type": "block",
-        "style": "normal",
-        "children": [
-          {
-            "_type": "span",
-            "text": "🔗 Source: ",
-            "marks": []
-          },
-          {
-            "_type": "span",
-            "text": "WordStream — Top Facebook Ads Trends 2026",
-            "marks": [
-              "l0"
-            ]
-          }
-        ],
-        "markDefs": [
-          {
-            "_key": "l0",
-            "_type": "link",
-            "href": "https://www.wordstream.com/blog/2026-facebook-ads-trends"
           }
         ]
       }
