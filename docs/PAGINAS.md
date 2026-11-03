@@ -42,7 +42,7 @@ Lista al 2026-11-01, sacada de los sitemaps en producción y de `content/posts/`
 ## Artículos en español
 
 - https://tonyciencia.com/posts/chatgpt-para-negocios-flujos-trabajo-2026 — ChatGPT para Negocios: 7 Flujos de Trabajo que Puedes Automatizar Hoy
-- https://tonyciencia.com/posts/claude-spacex-fusion-mayo-2026 — Claude se Fusiona con SpaceX: Lo que Significa para el Futuro de la IA Espacial
+- https://tonyciencia.com/posts/acuerdo-anthropic-spacex-colossus-claude-code — Anthropic y SpaceX: el acuerdo de cómputo de Colossus 1 (antes /posts/claude-spacex-fusion-mayo-2026, 301)
 - https://tonyciencia.com/posts/click-to-whatsapp-ads-mayor-roi-latam-2026 — Click-to-WhatsApp Ads: El Formato con Mayor ROI en LATAM en 2026
 - https://tonyciencia.com/posts/crm-automatizado-whatsapp-n8n-pipedrive-2026 — Como Construir un CRM Automatizado con WhatsApp + n8n + Pipedrive
 - https://tonyciencia.com/posts/demand-gen-reemplazo-vac
@@ -77,7 +77,7 @@ Lista al 2026-11-01, sacada de los sitemaps en producción y de `content/posts/`
 - https://tonyciencia.com/en/posts/activecampaign-active-intelligence-autonomous-marketing — Autonomous Marketing Has Arrived: Inside ActiveCampaign's Active Intelligence and Its 25+ AI Agents †
 - https://tonyciencia.com/en/posts/activecampaign-vs-brevo-vs-kit-2026 — ActiveCampaign vs Brevo vs Kit (2026): Which Email Marketing Platform Actually Wins? †
 - https://tonyciencia.com/en/posts/ai-agents-enterprise-governance-2026 — Enterprise AI Agents in 2026: How to Implement Them with Control, Safety, and ROI †
-- https://tonyciencia.com/en/posts/claude-spacex-merger-may-2026 — Claude Merges with SpaceX: What It Means for the Future of Space AI †
+- https://tonyciencia.com/en/posts/anthropic-spacex-colossus-deal-claude-code — Anthropic and SpaceX: the Colossus 1 Compute Deal Explained † (antes /en/posts/claude-spacex-merger-may-2026, 301)
 - https://tonyciencia.com/en/posts/n8n-ai-automation-business-operations-2026 — n8n and AI Automation: A Simple Architecture for Business Operations †
 - https://tonyciencia.com/en/posts/n8n-mcp-update-model-context-protocol-2025 — n8n and MCP: The Update That Connects Your Workflows to Any AI in the World †
 - https://tonyciencia.com/en/posts/seo-2026-ai-overviews-citable-content — SEO 2026: How to Write Citable Content for AI Overviews, AI Mode, and Generative Search †
