@@ -98,11 +98,26 @@
         "children": [
           {
             "_type": "span",
-            "text": "AI bot (via n8n + Claude API) that qualifies leads, answers FAQs, and schedules visits or sends quotes."
+            "text": "AI bot (via n8n + Claude API)",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " that qualifies leads, answers FAQs, and schedules visits or sends quotes.",
+            "marks": []
           }
         ],
         "listItem": "number",
-        "level": 1
+        "level": 1,
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/en/posts/n8n-ai-automation-business-operations-2026"
+          }
+        ]
       },
       {
         "_type": "block",
@@ -232,6 +247,30 @@
           {
             "_type": "span",
             "text": "Click-to-WhatsApp with AI automation is the most powerful combination of Meta Ads + technology available in LATAM today. 24/7 coverage without a team, and the communication channel your customers already prefer. If you don’t have this funnel set up, your local competition probably does."
+          },
+          {
+            "_type": "span",
+            "text": " And since the entry ad is a Reel, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "your creative decides who it reaches",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/en/posts/creative-is-the-new-targeting-2026"
           }
         ]
       }

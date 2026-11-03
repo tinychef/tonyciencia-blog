@@ -339,12 +339,26 @@
         "children": [
           {
             "_type": "span",
-            "text": "Optimiza para AI Overviews: estructura tu contenido con respuestas directas a preguntas concretas y usa datos verificables.",
+            "text": "Optimiza para AI Overviews",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": estructura tu contenido con respuestas directas a preguntas concretas y usa datos verificables.",
             "marks": []
           }
         ],
         "listItem": "bullet",
-        "level": 1
+        "level": 1,
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/posts/seo-2026-ai-overviews-contenido-citable"
+          }
+        ]
       },
       {
         "_type": "block",
@@ -387,8 +401,27 @@
         "children": [
           {
             "_type": "span",
-            "text": "En Tony Ciencia llevamos meses ayudando a emprendedores a adaptar su presencia digital a este nuevo paradigma: contenido con propósito, automatización inteligente y construcción de autoridad real. Si quieres un diagnóstico de cómo está posicionada tu web, agenda una llamada gratuita con nuestro equipo.",
+            "text": "En Tony Ciencia llevamos meses ",
             "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "ayudando a emprendedores a adaptar su presencia digital",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " a este nuevo paradigma: contenido con propósito, automatización inteligente y construcción de autoridad real. Si quieres un diagnóstico de cómo está posicionada tu web, agenda una llamada gratuita con nuestro equipo.",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/servicios"
           }
         ]
       }

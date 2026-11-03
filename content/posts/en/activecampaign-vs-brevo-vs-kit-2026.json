@@ -343,7 +343,22 @@
         "children": [
           {
             "_type": "span",
-            "text": "ActiveCampaign's Active Intelligence is a different category of product. It ships with more than 25 AI agents that don't just suggest — they execute: a Campaigns Agent that builds a full send from a prompt, an Automations Agent that designs multi-step workflows, and an Insights Agent that reads your account's performance against industry-wide benchmark data and adjusts targeting without being asked. ActiveCampaign also became the first marketing platform listed in Anthropic's official Claude connector directory in November 2025, which matters if your team is already working inside Claude or ChatGPT and wants to manage campaigns from there instead of switching tabs."
+            "text": "ActiveCampaign's Active Intelligence",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " is a different category of product. It ships with more than 25 AI agents that don't just suggest — they execute: a Campaigns Agent that builds a full send from a prompt, an Automations Agent that designs multi-step workflows, and an Insights Agent that reads your account's performance against industry-wide benchmark data and adjusts targeting without being asked. ActiveCampaign also became the first marketing platform listed in Anthropic's official Claude connector directory in November 2025, which matters if your team is already working inside Claude or ChatGPT and wants to manage campaigns from there instead of switching tabs.",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/en/posts/activecampaign-active-intelligence-autonomous-marketing"
           }
         ]
       },
@@ -488,6 +503,30 @@
           {
             "_type": "span",
             "text": "ActiveCampaign connects to 950+ apps, including deep, native ecommerce integrations (Shopify, WooCommerce, BigCommerce, Square) with abandoned cart and post-purchase flows built in. Brevo sits around 66 integrations, and Kit around 100+, both leaning on Zapier/Make for anything outside their core list. If your stack includes a lot of specialized tools — a CRM, a help desk, multiple storefronts — ActiveCampaign's native connection count meaningfully reduces the number of workarounds you'll need to build."
+          },
+          {
+            "_type": "span",
+            "text": " If you'd rather build those connections yourself, see ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "how to use n8n and AI for business operations",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/en/posts/n8n-ai-automation-business-operations-2026"
           }
         ]
       },
@@ -543,6 +582,30 @@
           {
             "_type": "span",
             "text": "ActiveCampaign added native WhatsApp messaging in mid-2025 through its acquisition of Hilos, putting it on par with Brevo's multichannel suite (which has had WhatsApp, SMS, live chat, and social inboxes for longer, unified in one \"Conversations\" view). Kit has no native SMS or WhatsApp — creators who want it have to bolt on a third-party tool. If multichannel messaging from one dashboard is a priority, Brevo still has the most mature unified inbox; ActiveCampaign has caught up on channel coverage but ties it back into its automation engine, which Brevo's chat tools don't do as deeply."
+          },
+          {
+            "_type": "span",
+            "text": " If your WhatsApp leads come from ads, our guide to ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Click-to-WhatsApp ads in LATAM",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " covers the funnel.",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/en/posts/click-to-whatsapp-ads-highest-roi-latam-2026"
           }
         ]
       },

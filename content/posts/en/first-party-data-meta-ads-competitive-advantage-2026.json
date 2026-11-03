@@ -66,6 +66,30 @@
           {
             "_type": "span",
             "text": "The result: an advertiser with good first-party data infrastructure can do targeting that competitors without that data simply cannot replicate. It’s not a budget advantage — it’s an information advantage."
+          },
+          {
+            "_type": "span",
+            "text": " It also matters for automated campaigns like ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Meta Advantage+",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/en/posts/meta-advantage-plus-when-algorithm-knows-better"
           }
         ]
       },
@@ -234,10 +258,34 @@
           {
             "_type": "span",
             "text": "Connect CRM directly to the API if data volume justifies it."
+          },
+          {
+            "_type": "span",
+            "text": " Tools like n8n can handle that sync; see ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "n8n and AI for business operations",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
           }
         ],
         "listItem": "number",
-        "level": 1
+        "level": 1,
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/en/posts/n8n-ai-automation-business-operations-2026"
+          }
+        ]
       },
       {
         "_type": "block",
@@ -288,6 +336,30 @@
           {
             "_type": "span",
             "text": "First-party data infrastructure is no longer a “when we have time” project. It’s the foundation on which any competitive Meta Ads strategy in 2026 is built. Those who have it ready win; those who don’t subsidize those who do."
+          },
+          {
+            "_type": "span",
+            "text": " The other half is the ad itself: ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "creative is the new targeting",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/en/posts/creative-is-the-new-targeting-2026"
           }
         ]
       }

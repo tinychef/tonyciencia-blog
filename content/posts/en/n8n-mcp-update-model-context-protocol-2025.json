@@ -139,6 +139,30 @@
           {
             "_type": "span",
             "text": "The MCP Client Tool node works in reverse: it turns n8n into an MCP client. From inside a workflow with an AI Agent node, you can connect to any external MCP server and use all its available tools, or just the ones you select."
+          },
+          {
+            "_type": "span",
+            "text": " Before giving an agent that many tools, set limits; see ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "how to implement AI agents with control",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/en/posts/ai-agents-enterprise-governance-2026"
           }
         ]
       },
@@ -288,6 +312,30 @@
           {
             "_type": "span",
             "text": "If you already use n8n, update to v2.13+ and connect Claude Desktop today. If you don't use n8n yet, this is the best time to start: you get access to a platform that can be controlled with natural language, without writing a single line of code, in any edition including the free one."
+          },
+          {
+            "_type": "span",
+            "text": " For the bigger picture, see ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "n8n and AI automation for business operations",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/en/posts/n8n-ai-automation-business-operations-2026"
           }
         ]
       },

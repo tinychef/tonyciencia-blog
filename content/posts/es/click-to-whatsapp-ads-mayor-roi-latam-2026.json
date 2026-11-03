@@ -98,11 +98,26 @@
         "children": [
           {
             "_type": "span",
-            "text": "Bot de IA (vía n8n + Claude API) que califica al lead, responde preguntas frecuentes y agenda visitas o envía cotizaciones."
+            "text": "Bot de IA (vía n8n + Claude API)",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " que califica al lead, responde preguntas frecuentes y agenda visitas o envía cotizaciones.",
+            "marks": []
           }
         ],
         "listItem": "number",
-        "level": 1
+        "level": 1,
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/posts/crm-automatizado-whatsapp-n8n-pipedrive-2026"
+          }
+        ]
       },
       {
         "_type": "block",
@@ -123,6 +138,30 @@
           {
             "_type": "span",
             "text": "Este funnel elimina la landing page, reduce el time-to-first-response a segundos y permite operar 24/7 sin equipo de ventas permanente."
+          },
+          {
+            "_type": "span",
+            "text": " Si quieres un punto de partida, la ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "plantilla gratuita de n8n, yCloud y Go High Level",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " de Tony Ciencia conecta WhatsApp con tu CRM.",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/plantilla-n8n-ycloud-ghl"
           }
         ]
       },
@@ -232,6 +271,30 @@
           {
             "_type": "span",
             "text": "Click-to-WhatsApp con automatización de IA es la combinación más poderosa de Meta Ads + tecnología disponible en LATAM hoy. Atención 24/7 sin equipo y el canal de comunicación que tus clientes ya prefieren. Si no tienes este funnel montado, tu competencia local probablemente sí."
+          },
+          {
+            "_type": "span",
+            "text": " Y como el anuncio de entrada es un Reel, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "el creativo define a quién le llega",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/posts/el-creativo-es-el-nuevo-targeting-2026"
           }
         ]
       }

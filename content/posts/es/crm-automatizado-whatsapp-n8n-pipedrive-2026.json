@@ -55,6 +55,30 @@
           {
             "_type": "span",
             "text": "El objetivo es que cada mensaje de WhatsApp que recibas dispare una serie de acciones automáticas: crear o actualizar el contacto en Pipedrive, registrar el mensaje como actividad, asignar una etapa del pipeline y, si usas IA, generar una respuesta sugerida. Sin intervención manual hasta que el lead esté listo para cerrar."
+          },
+          {
+            "_type": "span",
+            "text": " Si los leads llegan desde anuncios, combínalo con ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "campañas Click-to-WhatsApp en Meta Ads",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/posts/click-to-whatsapp-ads-mayor-roi-latam-2026"
           }
         ]
       },
@@ -77,6 +101,30 @@
           {
             "_type": "span",
             "text": "WhatsApp Business API: necesitas una cuenta de WhatsApp Business API (Meta Cloud API gratuita) o un proveedor como Wati.io o 360dialog."
+          },
+          {
+            "_type": "span",
+            "text": " Si usas yCloud y Go High Level en lugar de Pipedrive, Tony Ciencia tiene una ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "plantilla gratuita de n8n para conectar WhatsApp con tu CRM",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/plantilla-n8n-ycloud-ghl"
           }
         ]
       },
@@ -88,7 +136,27 @@
         "children": [
           {
             "_type": "span",
-            "text": "n8n: el orquestador. Puedes hospedarlo tú mismo o usar n8n Cloud."
+            "text": "n8n: el orquestador. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Puedes hospedarlo tú mismo o usar n8n Cloud",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/posts/n8n-para-principiantes-automatizacion-sin-codigo"
           }
         ]
       },

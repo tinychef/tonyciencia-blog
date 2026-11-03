@@ -227,10 +227,34 @@
             "_type": "span",
             "text": " if you don’t have your own video, Google can generate videos with AI to extend your reach on YouTube. Reduces the entry barrier for e-commerce with large catalogs.",
             "marks": []
+          },
+          {
+            "_type": "span",
+            "text": " If you sell products, also see ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Google Lens and Shopping Ads",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
           }
         ],
         "listItem": "bullet",
-        "level": 1
+        "level": 1,
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/en/posts/google-lens-shopping-ads-sales-channel-2026"
+          }
+        ]
       },
       {
         "_type": "block",
@@ -352,6 +376,30 @@
           {
             "_type": "span",
             "text": "Demand Gen isn’t an inferior replacement for VACs — it’s a more capable format with more complexity. Advertisers who understand its differences and configure correctly are seeing results superior to their previous video campaigns. Those who migrated on autopilot are not."
+          },
+          {
+            "_type": "span",
+            "text": " To see how it fits with your other Google campaigns, read ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Performance Max vs Search",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/en/posts/performance-max-vs-search-2026"
           }
         ]
       }

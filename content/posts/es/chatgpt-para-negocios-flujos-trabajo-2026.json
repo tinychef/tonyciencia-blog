@@ -54,7 +54,27 @@
         "children": [
           {
             "_type": "span",
-            "text": "Usar ChatGPT manualmente tiene tres problemas críticos: no escala porque sigues siendo el cuello de botella, no tiene memoria de tu negocio porque cada conversación empieza desde cero, y no está conectado a tus sistemas de datos. La solución es conectar la API de OpenAI a tus herramientas existentes a través de un orquestador como n8n."
+            "text": "Usar ChatGPT manualmente tiene tres problemas críticos: no escala porque sigues siendo el cuello de botella, no tiene memoria de tu negocio porque cada conversación empieza desde cero, y no está conectado a tus sistemas de datos. La solución es conectar la API de OpenAI a tus herramientas existentes a través de ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "un orquestador como n8n",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/posts/n8n-para-principiantes-automatizacion-sin-codigo"
           }
         ]
       },
@@ -85,6 +105,30 @@
           {
             "_type": "span",
             "text": "Cuando un lead llena tu formulario, n8n envía sus respuestas a GPT-4 con un prompt que incluye tu perfil de cliente ideal. La IA asigna una puntuación del 1 al 10, identifica el pain point principal y sugiere el primer mensaje de seguimiento. Solo ves los leads calificados; el resto se nutren en automático."
+          },
+          {
+            "_type": "span",
+            "text": " Un ejemplo completo con WhatsApp está en ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "cómo construir un CRM automatizado con n8n y Pipedrive",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/posts/crm-automatizado-whatsapp-n8n-pipedrive-2026"
           }
         ]
       },
@@ -105,6 +149,30 @@
           {
             "_type": "span",
             "text": "Conecta tu email de soporte o WhatsApp Business a GPT-4 con acceso a tu base de conocimiento: FAQ, precios, políticas. El modelo puede responder en segundos buena parte de las preguntas frecuentes. Solo escala a ti cuando detecta una situación compleja o una queja. El tiempo de respuesta puede pasar de horas a minutos."
+          },
+          {
+            "_type": "span",
+            "text": " Si prefieres que lo montemos por ti, el ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Empleado de IA",
+            "marks": [
+              "int0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " es el servicio de atención al cliente con IA de Tony Ciencia.",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "int0",
+            "_type": "link",
+            "href": "/empleado-ia"
           }
         ]
       },
