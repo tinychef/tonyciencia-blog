@@ -12,7 +12,22 @@
         "children": [
           {
             "_type": "span",
-            "text": "En julio de 2025, Google forzó la migración de todas las Video Action Campaigns (VAC) a Demand Gen. En 2026, miles de anunciantes aún no entienden completamente el nuevo formato — algunos porque migraron sin revisar la configuración, otros porque entraron directamente a Demand Gen sin el contexto de lo que reemplaza. Esta es la guía que necesitas."
+            "text": "Según la ayuda de Google Ads",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", Google dejó de permitir crear Video Action Campaigns (VAC) en abril de 2025, empezó a migrarlas automáticamente a Demand Gen en julio de 2025 y fijó abril de 2026 como plazo para las últimas. En 2026, todavía hay anunciantes que no entienden del todo el nuevo formato — algunos porque migraron sin revisar la configuración, otros porque entraron directamente a Demand Gen sin el contexto de lo que reemplaza. Esta es la guía que necesitas.",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://support.google.com/google-ads/answer/15110871?hl=es"
           }
         ]
       },
@@ -49,7 +64,7 @@
           },
           {
             "_type": "span",
-            "text": " incluye YouTube (Shorts, In-Stream, In-Feed), Gmail y Discover — no solo YouTube como las VAC.",
+            "text": " incluye YouTube (Shorts, In-Stream, In-Feed), Discover, Gmail y la Red de Display de Google — no solo YouTube como las VAC.",
             "marks": []
           }
         ],
@@ -133,7 +148,27 @@
         "children": [
           {
             "_type": "span",
-            "text": "Las tres adiciones más importantes de Demand Gen en 2026:"
+            "text": "Tres funciones que Google sumó a Demand Gen en 2025, según su ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "resumen de novedades del año",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ":",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://support.google.com/google-ads/answer/16756291?hl=es"
           }
         ]
       },
@@ -163,14 +198,14 @@
         "children": [
           {
             "_type": "span",
-            "text": "New Customer Only mode:",
+            "text": "Objetivo de adquisición de nuevos clientes:",
             "marks": [
               "strong"
             ]
           },
           {
             "_type": "span",
-            "text": " excluye automáticamente a clientes existentes, forzando la campaña a enfocarse solo en prospecting puro. Crítico para quien tiene listas de CRM actualizadas.",
+            "text": " según Google, optimiza la campaña para atraer clientes nuevos o de alto valor. Útil si tienes listas de CRM actualizadas.",
             "marks": []
           }
         ],
@@ -183,14 +218,14 @@
         "children": [
           {
             "_type": "span",
-            "text": "Video generation con IA:",
+            "text": "Videos generados automáticamente:",
             "marks": [
               "strong"
             ]
           },
           {
             "_type": "span",
-            "text": " si no tienes video propio, Demand Gen puede generar assets de video desde imágenes del producto. Reduce la barrera de entrada para e-commerce con catálogos grandes.",
+            "text": " si no tienes video propio, Google puede generarlos con IA para ampliar tu alcance en YouTube. Reduce la barrera de entrada para e-commerce con catálogos grandes.",
             "marks": []
           }
         ],
@@ -295,7 +330,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "La configuración óptima combina: señales de audiencia basadas en Customer Match, creativos mixtos (video + imagen), objetivo de conversión con suficientes datos históricos, y New Customer Only activado si el remarketing se gestiona en campañas separadas."
+            "text": "La configuración óptima combina: señales de audiencia basadas en Customer Match, creativos mixtos (video + imagen), objetivo de conversión con suficientes datos históricos, y el objetivo de adquisición de nuevos clientes si el remarketing se gestiona en campañas separadas."
           }
         ]
       },
@@ -339,7 +374,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Sí, Google forzó la migración automática en julio 2025. Sin embargo, la migración no siempre transfirió correctamente las audiencias y configuraciones. Es fundamental revisar cada campaña migrada manualmente."
+            "text": "Sí, si no las migraste tú. Según la ayuda de Google Ads, Google empezó a migrarlas automáticamente en julio de 2025 y fijó abril de 2026 como plazo para las últimas. La migración automática usa algunos ajustes por defecto y ciertas funciones no se trasladan, así que conviene revisar cada campaña migrada."
           }
         ]
       },

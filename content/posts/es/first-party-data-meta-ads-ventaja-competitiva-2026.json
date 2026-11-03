@@ -12,9 +12,11 @@
         "children": [
           {
             "_type": "span",
-            "text": "La muerte de las cookies de terceros no afecta a todos los anunciantes por igual. Para los que construyeron infraestructura de datos propios, es una ventaja competitiva creciente. Para los que dependían de datos de terceros sin alternativa, es una crisis. En 2026, la brecha entre ambos grupos se volvió medible y significativa."
+            "text": "La pérdida de señales de seguimiento no afecta a todos los anunciantes por igual. Para los que construyeron infraestructura de datos propios, es una ventaja competitiva creciente. Para los que dependían de datos de terceros sin alternativa, es un problema serio.",
+            "marks": []
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",
@@ -33,7 +35,27 @@
         "children": [
           {
             "_type": "span",
-            "text": "Con las cookies de terceros desapareciendo progresivamente de Chrome y Safari, el targeting basado en comportamiento de navegación externo se degrada. Meta, que históricamente usaba datos de terceros para enriquecer sus audiencias, ahora depende más del Pixel propio y de los datos que le proveen los anunciantes."
+            "text": "Safari y Firefox restringen las cookies de terceros por defecto, en iOS el seguimiento entre apps requiere permiso del usuario y los bloqueadores de anuncios cortan parte del Pixel. Chrome, en cambio, sigue permitiéndolas: en abril de 2025 Google ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "decidió mantener la elección actual del usuario",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " en lugar de retirarlas. Aun así, el targeting basado en navegación externa pierde precisión, y Meta depende cada vez más del Pixel propio y de los datos que le envían los anunciantes.",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://privacysandbox.google.com/blog/privacy-sandbox-next-steps"
           }
         ]
       },
@@ -81,7 +103,7 @@
           },
           {
             "_type": "span",
-            "text": " envía eventos de conversión directamente desde el servidor, sin depender de la cookie del navegador. Reduce la pérdida de atribución en iOS 14+ de hasta 40%.",
+            "text": " envía eventos de conversión directamente desde el servidor, sin depender de la cookie del navegador.",
             "marks": []
           }
         ],
@@ -234,7 +256,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Un competidor sin CAPI bien configurado ve su atribución degradada en iOS users (que son el segmento de mayor poder adquisitivo en muchos mercados). Su targeting Lookalike se basa en datos incompletos. Sus campañas de retargeting tienen cobertura parcial."
+            "text": "Un competidor sin CAPI bien configurado ve su atribución degradada en usuarios de iOS. Su targeting Lookalike se basa en datos incompletos. Sus campañas de retargeting tienen cobertura parcial."
           }
         ]
       },
@@ -244,7 +266,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "En el mismo mercado, un anunciante con CAPI + CRM integrado tiene visibilidad completa y targeting preciso. La diferencia en ROAS puede ser del 30-50% sobre los mismos productos."
+            "text": "En el mismo mercado, un anunciante con CAPI + CRM integrado tiene visibilidad completa y targeting preciso."
           }
         ]
       },
@@ -268,31 +290,6 @@
             "text": "La infraestructura de datos propios ya no es un proyecto de “cuando tengamos tiempo”. Es la base sobre la que se construye cualquier estrategia competitiva de Meta Ads en 2026. Quien la tenga lista gana; quien no, subsidia a quien sí."
           }
         ]
-      },
-      {
-        "_type": "block",
-        "style": "normal",
-        "children": [
-          {
-            "_type": "span",
-            "text": "🔗 Fuente: ",
-            "marks": []
-          },
-          {
-            "_type": "span",
-            "text": "WordStream — Top Facebook Ads Trends 2026",
-            "marks": [
-              "l0"
-            ]
-          }
-        ],
-        "markDefs": [
-          {
-            "_key": "l0",
-            "_type": "link",
-            "href": "https://www.wordstream.com/blog/2026-facebook-ads-trends"
-          }
-        ]
       }
     ],
     "key_entities": "First-party data, Meta Ads, CAPI, Custom Audiences, Pixel, cookies, targeting, CRM, audiencias",
@@ -313,7 +310,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "CAPI (Conversions API) es la forma de enviar datos de conversión directamente desde tu servidor a Meta, sin depender del navegador. Con la desaparición de cookies de terceros, CAPI es la única forma confiable de tracking. Mejora la atribución hasta un 30%."
+            "text": "CAPI (Conversions API) es la forma de enviar datos de conversión directamente desde tu servidor a Meta, sin depender del navegador. Como no depende del navegador, se ve menos afectada por los bloqueos de cookies y de seguimiento."
           }
         ]
       },
@@ -333,7 +330,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Sube tu lista de clientes (emails, teléfonos) a Meta como Custom Audience. Para automatizarlo, usa n8n para exportar datos de tu CRM y subirlos periódicamente a Meta vía API. Mantén las listas actualizadas cada 2-4 semanas."
+            "text": "Sube tu lista de clientes (emails, teléfonos) a Meta como Custom Audience. Para automatizarlo, usa n8n para exportar datos de tu CRM y subirlos periódicamente a Meta vía API. Mantén las listas actualizadas con regularidad."
           }
         ]
       },
