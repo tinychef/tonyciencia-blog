@@ -1,6 +1,6 @@
 ---
 import { postSlug } from "../../utils/post-slug";
-import { getEmDashCollection } from "emdash";
+import { getAllPosts } from "../../utils/all-posts";
 import Base from "../../layouts/Base.astro";
 import PostCard from "../../components/PostCard.astro";
 import { getReadingTime, extractText } from "../../utils/reading-time";
@@ -11,8 +11,8 @@ const t = useTranslations(locale);
 
 const query = Astro.url.searchParams.get("q")?.trim() || "";
 
-const { entries: posts, cacheHint } = await getEmDashCollection("posts", { locale });
-Astro.cache.set(cacheHint);
+// Artículos del CMS y de content/posts (antes solo los del CMS: /search?q=citable no encontraba nada).
+const posts = await getAllPosts(locale === "en" ? "en" : "es");
 
 // Simple search: match query against title, excerpt, and content
 function matchesQuery(post: (typeof posts)[0], q: string): boolean {

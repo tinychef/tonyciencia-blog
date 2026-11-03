@@ -31,6 +31,7 @@ const postsRoute = locale === "en" ? "/en/posts" : "/posts";
 ---
 
 <Base
+	robots={posts.length === 0 ? "noindex, follow" : undefined}
 	title={`${term.label} — ${t("tag.label")}`}
 	description={`${t("tag.label")}: ${term.label}`}
 	breadcrumbs={[

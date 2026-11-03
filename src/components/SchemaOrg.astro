@@ -122,9 +122,8 @@ const authorPerson = {
 function buildArticleSchema() {
 	if (type !== "article") return null;
 
-	const baseType = effectiveSchemaType === "HowTo" ? "HowTo"
-		: effectiveSchemaType === "LearningResource" ? "LearningResource"
-		: "BlogPosting";
+	// HowTo exige pasos (step) que los artículos no declaran: se publican como BlogPosting (auditoría 2026-11-03).
+	const baseType = effectiveSchemaType === "LearningResource" ? "LearningResource" : "BlogPosting";
 
 	const schema: Record<string, unknown> = {
 		"@context": "https://schema.org",

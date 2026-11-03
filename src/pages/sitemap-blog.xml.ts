@@ -10,6 +10,7 @@ import type { APIRoute } from "astro";
 import { getEmDashCollection } from "emdash";
 import { postSlug } from "../utils/post-slug";
 import { getStaticPosts } from "../utils/static-posts";
+import { POST_REDIRECTS } from "../utils/post-redirects";
 
 type Lang = "es" | "en";
 interface Item {
@@ -48,6 +49,7 @@ async function collect(lang: Lang, now: number): Promise<Map<string, Item>> {
 	} catch {
 		// Si el CMS no responde, el sitemap sale igual con los posts estáticos.
 	}
+	for (const slug of Object.keys(POST_REDIRECTS[lang])) out.delete(slug);
 	return out;
 }
 

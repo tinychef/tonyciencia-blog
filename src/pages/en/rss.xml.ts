@@ -1,6 +1,7 @@
 import { postSlug } from "../../utils/post-slug";
 import type { APIRoute } from "astro";
-import { getEmDashCollection, getSiteSettings } from "emdash";
+import { getSiteSettings } from "emdash";
+import { getAllPosts } from "../../utils/all-posts";
 import { postTerms } from "../../utils/terms";
 import { resolveBlogSiteIdentity } from "../../utils/site-identity";
 
@@ -8,11 +9,7 @@ export const GET: APIRoute = async ({ url }) => {
 	const siteUrl = url.origin;
 	const { siteTitle, siteTagline } = resolveBlogSiteIdentity(await getSiteSettings());
 
-	const { entries: posts } = await getEmDashCollection("posts", {
-		orderBy: { published_at: "desc" },
-		limit: 20,
-		locale: "en",
-	});
+	const posts = (await getAllPosts("en")).slice(0, 20) as any[];
 
 	const itemsWithMeta = await Promise.all(
 		posts

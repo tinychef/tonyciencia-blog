@@ -8,7 +8,10 @@ import { defineMiddleware } from "astro:middleware";
  *    ese admin (el contenido llega por git: content/posts/**.json), así que TODO /_emdash queda cerrado (404),
  *    salvo los archivos de medios que los artículos muestran. Vale también para el dominio workers.dev, que sirve
  *    este mismo Worker. Esto corre después del middleware de EmDash y antes de cualquier ruta.
- * 2. Cabeceras de seguridad en todas las respuestas del blog (las del market las pone su propio Worker) y sin
+ * 2. Una sola URL por página: /about/ y /about respondían 200 con canonicals distintos (el sitemap listaba /about/ y
+ *    el menú enlaza /about). Las rutas con barra final redirigen 301 a la versión sin barra, salvo la portada en
+ *    inglés, cuya forma canónica es /en/ (y /en redirige a /en/).
+ * 3. Cabeceras de seguridad en todas las respuestas del blog (las del market las pone su propio Worker) y sin
  *    Server-Timing (exponía tiempos y número de consultas a la base).
  */
 const MEDIA_FILE = /^\/_emdash\/api\/media\/file\/[A-Za-z0-9._-]+$/;
@@ -20,8 +23,22 @@ function blocked(pathname: string, method: string): boolean {
 	return !((method === "GET" || method === "HEAD") && MEDIA_FILE.test(pathname));
 }
 
+const NO_SLASH_SKIP = /^\/(_emdash|_astro|_image|market|cdn-cgi)(\/|$)/;
+
+function slashRedirect(url: URL): string | null {
+	const { pathname, search } = url;
+	if (pathname === "/en") return `/en/${search}`;
+	if (pathname === "/" || pathname === "/en/" || !pathname.endsWith("/") || NO_SLASH_SKIP.test(pathname)) return null;
+	const clean = pathname.replace(/\/+$/, "");
+	return clean ? `${clean}${search}` : null;
+}
+
 export const onRequest = defineMiddleware(async (context, next) => {
 	const { pathname } = context.url;
+	if (context.request.method === "GET" || context.request.method === "HEAD") {
+		const target = slashRedirect(context.url);
+		if (target) return context.redirect(target, 301);
+	}
 	if (blocked(pathname, context.request.method)) {
 		return new Response("Not found", {
 			status: 404,

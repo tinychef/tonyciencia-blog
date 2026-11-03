@@ -25,6 +25,19 @@ export default defineConfig({
 	integrations: [
 		react(),
 		sitemap({
+			// Una URL por página: sin barra final (la portada inglesa es /en/) y sin el buscador, que robots.txt bloquea.
+			filter: (page) => !/\/(en\/)?(search|category|tag)\/?$/.test(page),
+			serialize: (item) => {
+				const u = new URL(item.url);
+				if (u.pathname !== "/" && u.pathname !== "/en/") u.pathname = u.pathname.replace(/\/+$/, "");
+				item.url = u.href;
+				for (const link of item.links ?? []) {
+					const l = new URL(link.url);
+					if (l.pathname !== "/" && l.pathname !== "/en/") l.pathname = l.pathname.replace(/\/+$/, "");
+					link.url = l.href;
+				}
+				return item;
+			},
 			i18n: {
 				defaultLocale: "es",
 				locales: {
