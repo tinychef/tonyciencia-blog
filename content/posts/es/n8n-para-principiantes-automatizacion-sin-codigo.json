@@ -3,16 +3,64 @@
   "slug": "n8n-para-principiantes-automatizacion-sin-codigo",
   "status": "published",
   "data": {
-    "title": "n8n para Principiantes: Automatizacion Sin Codigo para Emprendedores",
-    "excerpt": "n8n es la herramienta de automatizacion que cada emprendedor hispanohablante deberia conocer. Sin codigo, open-source, con superpoderes.",
+    "title": "n8n para Principiantes: Automatización Sin Código para Emprendedores",
+    "excerpt": "n8n para principiantes: qué es, cuánto cuesta, si conviene Cloud o tu propio servidor y cómo armar tu primer flujo paso a paso, sin saber programar.",
     "content": [
       {
         "_type": "block",
         "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "/legal/afiliados"
+          }
+        ],
         "children": [
           {
             "_type": "span",
-            "text": "Si eres emprendedor y todavia haces tareas repetitivas manualmente—copiar datos entre plataformas, enviar emails de seguimiento, actualizar hojas de calculo—n8n puede cambiar tu negocio. Es una herramienta de automatizacion open-source que conecta cualquier aplicacion sin necesidad de programar.",
+            "text": "Transparencia: este artículo contiene enlaces de afiliado. Si te registras en n8n a través de ellos, Tony Ciencia puede recibir una comisión sin costo extra para ti. No cambia lo que recomendamos: los precios y condiciones salen de la documentación oficial de n8n. ",
+            "marks": [
+              "em"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "Más detalles",
+            "marks": [
+              "em",
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": [
+              "em"
+            ]
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Si todavía copias datos de un formulario a una planilla, reenvías correos a mano o actualizas tu CRM al final del día, estás haciendo trabajo que una máquina puede hacer. ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "n8n para principiantes",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " se resume en esto: una herramienta visual para conectar tus aplicaciones y que las tareas repetitivas ocurran solas. En esta guía verás qué es, cuánto cuesta de verdad, qué opción elegir para empezar y cómo armar tu primer flujo en una tarde.",
             "marks": []
           }
         ]
@@ -20,10 +68,11 @@
       {
         "_type": "block",
         "style": "h2",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "Que Es n8n y Por Que Usarlo",
+            "text": "Respuesta corta: ¿n8n es para ti?",
             "marks": []
           }
         ]
@@ -31,10 +80,95 @@
       {
         "_type": "block",
         "style": "normal",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "n8n es el equivalente open-source de Zapier, pero con superpoderes: puedes hostearlo tu mismo, conectar APIs personalizadas, y ejecutar logica condicional compleja sin tocar una linea de codigo. La comunidad hispanohablante todavia subestima esta herramienta—y esa es tu ventaja competitiva.",
+            "text": "Sí, si",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " repites las mismas tareas entre dos o más herramientas cada semana y quieres controlar tus flujos sin pagar por cada automatización que agregas.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Sí, si",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " te interesa combinar automatización con IA (clasificar mensajes, resumir correos) más adelante.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Quizás no, si",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " solo necesitas una o dos automatizaciones simples y no quieres aprender nada nuevo: una herramienta más guiada puede bastarte.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Para empezar:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " usa n8n Cloud y deja el servidor propio para cuando ya sepas qué quieres automatizar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Qué es n8n (y qué no es)",
             "marks": []
           }
         ]
@@ -42,10 +176,77 @@
       {
         "_type": "block",
         "style": "normal",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "Con n8n puedes automatizar: respuestas automaticas de WhatsApp, sincronizacion de leads de Meta Ads a tu CRM, reportes automaticos de Google Ads, notificaciones en Slack cuando un cliente paga, y decenas de procesos mas que hoy te roban horas cada semana.",
+            "text": "n8n es una plataforma de automatización de flujos de trabajo. Cada flujo (workflow) se arma en un lienzo visual con ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "nodos",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ": uno recibe un evento, otros transforman los datos y otros los envían a otra aplicación. No escribes código para lo básico; configuras cada nodo con formularios.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://docs.n8n.io/n8n-community-license/sustainable-use-license"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Un punto que muchas guías repiten mal: ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "n8n no es open source en sentido estricto",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Usa un modelo llamado fair-code, con la ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Sustainable Use License",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Según su documentación, puedes usar y modificar el software para fines internos de tu negocio o para uso personal, y ofrecer servicios de consultoría construyendo flujos para clientes. Lo que no puedes, sin un acuerdo comercial aparte, es ofrecer n8n a tus clientes para que conecten sus cuentas y armen sus propios flujos. La propia n8n aclara que, justamente por esas limitaciones de uso, no se presenta como open source (",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "documentación de la licencia de n8n",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ").",
             "marks": []
           }
         ]
@@ -53,10 +254,11 @@
       {
         "_type": "block",
         "style": "h2",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "Tu Primer Workflow en 20 Minutos",
+            "text": "Cloud o tu propio servidor: cuánto cuesta empezar",
             "marks": []
           }
         ]
@@ -64,10 +266,29 @@
       {
         "_type": "block",
         "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://docs.n8n.io/choose-n8n/"
+          }
+        ],
         "children": [
           {
             "_type": "span",
-            "text": "Empieza con algo simple: cuando alguien llena un formulario de contacto en tu sitio, n8n guarda los datos en una hoja de Google Sheets Y envia una notificacion a tu correo. Este workflow elimina el paso manual de revisar el formulario y copiar datos—y lo configuras en 20 minutos sin escribir codigo.",
+            "text": "n8n ofrece dos caminos (",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "documentación de n8n: elige cómo usarlo",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": "):",
             "marks": []
           }
         ]
@@ -75,13 +296,770 @@
       {
         "_type": "block",
         "style": "normal",
+        "markDefs": [],
         "children": [
           {
             "_type": "span",
-            "text": "El siguiente paso es conectar n8n con IA. Usando el nodo de OpenAI o Claude, puedes hacer que n8n analice automaticamente los mensajes de tus clientes, clasifique su urgencia, y genere una respuesta personalizada. Eso es automatizacion inteligente.",
+            "text": "n8n Cloud:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " n8n lo aloja y lo mantiene por ti. Empiezas en minutos y no tocas servidores.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Autoalojado (Community Edition):",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " lo instalas en tu propio servidor. Es gratis e incluye casi todas las funciones, pero requiere conocimientos técnicos para instalarlo y configurarlo, y tú respondes por actualizaciones, copias de seguridad y seguridad.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://n8n.io/pricing/"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Precios de n8n Cloud según su ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "página de precios",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", consultada el 3 de noviembre de 2026 (en euros, pago anual):",
             "marks": []
           }
         ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Starter:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " 20 € al mes, 2.500 ejecuciones al mes.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pro:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " 50 € al mes, 10.000 ejecuciones al mes.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Prueba:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " sin tarjeta de crédito, con 1.000 ejecuciones.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://n8n.partnerlinks.io/8qtvuqc23ra6"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Nuestra recomendación para principiantes:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " aprende en Cloud. Pelearte con un servidor el primer día es la forma más rápida de abandonar. Si quieres probarlo, puedes ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "crear tu cuenta de n8n Cloud",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " y armar el flujo de esta guía dentro de la prueba.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Conceptos básicos en cinco minutos",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Workflow:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " el flujo completo, de principio a fin.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Trigger (disparador):",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " el nodo que lo pone en marcha: un formulario enviado, un correo recibido, una hora del día.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Nodo:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " cada paso del flujo, ya sea una aplicación (Google Sheets, Gmail, tu CRM) o una función (filtrar, unir, decidir).",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Ejecución:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " cada vez que el flujo corre. Los planes de Cloud se miden en ejecuciones al mes, así que un flujo que corre cada minuto gasta mucho más que uno que corre una vez al día.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Credenciales:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " los accesos a tus aplicaciones. Se guardan una vez y los nodos las reutilizan.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Tu primer flujo: formulario, planilla y aviso por correo",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "El objetivo: cuando alguien llena tu formulario de contacto, sus datos quedan en una hoja de Google Sheets y tú recibes un correo de aviso. Sin copiar ni pegar.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Crea un workflow nuevo",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " y agrega el nodo ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "n8n Form Trigger",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Este nodo crea un formulario web y arranca el flujo cada vez que alguien lo envía. Agrega los campos: nombre, correo y mensaje.",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Agrega el nodo de Google Sheets",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ", conecta tu cuenta de Google y elige la operación para agregar una fila en tu planilla de contactos. Asigna cada campo del formulario a su columna.",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Agrega el nodo de Gmail",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " (o el de tu proveedor de correo) y arma el aviso: \"Nuevo contacto: nombre, correo, mensaje\".",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Prueba el flujo",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " enviando el formulario tú mismo. Revisa que la fila aparezca en la planilla y que llegue el correo.",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Actívalo",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " y comparte el enlace del formulario o insértalo en tu sitio.",
+            "marks": []
+          }
+        ],
+        "listItem": "number",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "/posts/crm-automatizado-whatsapp-n8n-pipedrive-2026"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Con eso ya tienes un sistema que trabaja solo cada vez que llega un contacto, y la base para conectar después tu CRM o WhatsApp, como mostramos en ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "cómo construir un CRM automatizado con WhatsApp, n8n y Pipedrive",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ".",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "El siguiente nivel: sumar IA sin perder el control",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "/posts/automatizacion-n8n-ia-operaciones-2026"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Cuando tu primer flujo funcione, puedes agregar un nodo de IA entre el formulario y la planilla para que clasifique cada mensaje (consulta, presupuesto, reclamo) y te avise solo de los urgentes. La regla que recomendamos: ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "la IA propone y una persona decide",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " en todo lo que llegue a un cliente. En ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "automatización con n8n e IA en operaciones",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " hay más ejemplos de cómo combinarlas.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Errores comunes de principiante",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Automatizar un proceso que no entiendes.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Si no puedes describirlo en pasos en un papel, n8n no lo va a arreglar.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "No probar con datos reales.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Un campo vacío o un correo mal escrito rompe flujos que parecían perfectos.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Olvidar los errores.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Revisa el historial de ejecuciones al menos la primera semana.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Disparadores demasiado frecuentes.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Revisar algo cada minuto cuando bastaría una vez por hora consume ejecuciones sin necesidad.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Saltar al servidor propio demasiado pronto.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " El ahorro no compensa si pierdes un fin de semana configurándolo.",
+            "marks": []
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Conclusión: tu siguiente paso",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "/posts/n8n-automatizacion-negocios-guia-2026"
+          },
+          {
+            "_key": "l1",
+            "_type": "link",
+            "href": "https://n8n.partnerlinks.io/8qtvuqc23ra6"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Elige una tarea que repites cada semana, dibújala en tres o cuatro pasos y constrúyela en n8n Cloud siguiendo el flujo de esta guía. Cuando la tengas funcionando, sigue con ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "las 5 automatizaciones que recomendamos implementar primero",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": ". Si decides quedarte, ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "puedes contratar el plan de n8n Cloud que te convenga",
+            "marks": [
+              "l1"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " o pasar a la Community Edition cuando tengas a alguien que mantenga el servidor.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h2",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Fuentes consultadas (3 de noviembre de 2026)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://n8n.io/pricing/"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "n8n: página de precios",
+            "marks": [
+              "l0"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://docs.n8n.io/choose-n8n/"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Documentación de n8n: elige cómo usar n8n (Cloud o autoalojado)",
+            "marks": [
+              "l0"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://docs.n8n.io/n8n-community-license/sustainable-use-license"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Documentación de n8n: Sustainable Use License",
+            "marks": [
+              "l0"
+            ]
+          }
+        ],
+        "listItem": "bullet",
+        "level": 1
       }
     ],
     "external_id": "d1-export:es:n8n-para-principiantes-automatizacion-sin-codigo",
@@ -89,10 +1067,95 @@
     "featured_image": {
       "$media": {
         "url": "https://tonyciencia.com/assets/og-default.webp",
-        "alt": "n8n para Principiantes: Automatizacion Sin Codigo para Emprendedores — Tony Ciencia",
+        "alt": "n8n para Principiantes: Automatización Sin Código para Emprendedores — Tony Ciencia",
         "filename": "n8n-para-principiantes-automatizacion-sin-codigo.webp"
       }
-    }
+    },
+    "schema_type": "HowTo",
+    "key_entities": "n8n, n8n Cloud, Community Edition, Sustainable Use License, fair-code, Form Trigger, Google Sheets, Gmail, workflow, nodo, trigger, ejecución, automatización sin código",
+    "keywords": [
+      "n8n para principiantes",
+      "automatización sin código",
+      "qué es n8n",
+      "n8n precio",
+      "n8n Cloud o autoalojado",
+      "primer workflow en n8n"
+    ],
+    "image_prompt": "Editorial tech thumbnail 16:9: a simple three-node automation workflow on a canvas (web form, spreadsheet, email) connected by lines, a beginner's hand dragging the first node, amber (#c8922a) accents on a dark background, retro pixel dot texture, hard 3px corners, solid offset pixel shadows, no text, no logos.",
+    "faq_items": [
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿n8n es gratis?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "La Community Edition, que instalas en tu propio servidor, es gratuita; pagas el servidor y te encargas de mantenerla. n8n Cloud es de pago: el plan Starter cuesta 20 euros al mes en pago anual, con 2.500 ejecuciones al mes, según su página de precios consultada el 3 de noviembre de 2026.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿n8n es open source?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "No en sentido estricto. n8n usa un modelo fair-code con la Sustainable Use License: puedes ver el código, usarlo gratis para fines internos de tu negocio o personales y modificarlo, pero la licencia limita algunos usos comerciales. La propia n8n explica que por eso no se llama open source.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "h3",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "¿Necesito saber programar para usar n8n?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "No para empezar. Los flujos se arman conectando nodos en un lienzo visual y configurando cada uno con formularios. Saber un poco de JavaScript ayuda en flujos avanzados, porque n8n permite agregar código cuando una integración no existe.",
+            "marks": []
+          }
+        ]
+      }
+    ]
   },
   "bylines": [
     {
