@@ -2,6 +2,9 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Al empezar una sesión
+- Lee `docs/PENDIENTES-DUENO.md` y recuérdale al dueño, en pocas líneas y en español, lo que siga pendiente de su parte.
+
 ## Comandos esenciales
 
 ```bash
