@@ -33,3 +33,6 @@ Actualizado: 2026-11-03.
 8. **Licencias:** que un abogado revise los LICENSE.md de SpecReel, Stick, Edit Pro (CutPilot) y Creative Factory.
 9. **Oferta de Stick Sketch:** desde el 2026-12-01 se puede poner la oferta de USD 36.90 → 12 (regla de 30 días).
 10. **ADS ULTIMATE:** no se vende mientras sea una copia de AutoFlow (hace falta permiso o reescritura).
+11. **Limpieza de Cloudflare (desde el 2026-11-24, si nada falló):** borrar la base D1 `tonyciencia-emdash`, el bucket
+    R2 y el KV `SESSION` que quedaron de EmDash (Claude quita antes los bindings de `wrangler.jsonc`). El Worker viejo
+    `tonyciencia-email-capture`: exportar primero su KV `LEADS` (correos del boletín de antes) y luego borrarlo.

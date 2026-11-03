@@ -970,7 +970,8 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 							<div class="mk-thumbs" role="tablist" aria-label={tr("Imágenes del producto")}>
 								{images.map((img, i) => (
 									<a href={`#imagen-${i + 1}`} class={`mk-thumb ${i === 0 ? "is-active" : ""}`} data-thumb={String(i)} role="tab" aria-selected={i === 0 ? "true" : "false"} aria-label={`${lang === "en" ? "View image" : "Ver imagen"} ${i + 1}: ${img.alt}`}>
-										<img src={img.src} alt="" width="160" height="100" loading="lazy" decoding="async" />
+										{/* Miniatura de 160 px: la portada en su versión de 800 px (la de 1600 pesaba ~150 KB de más). */}
+										<img src={cover800(img.src) ?? img.src} alt="" width="160" height="100" loading="lazy" decoding="async" />
 									</a>
 								))}
 							</div>
