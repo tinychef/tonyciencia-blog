@@ -19,7 +19,7 @@
   },
   "data": {
     "title": "n8n: La Herramienta de Automatización que Todo Emprendedor Debería Usar en 2026",
-    "excerpt": "n8n es la alternativa open-source a Zapier que te permite conectar más de 400 aplicaciones y construir flujos de trabajo automatizados sin límites. Guía práctica para empezar desde cero.",
+    "excerpt": "n8n es la alternativa fair-code a Zapier que te permite conectar más de 400 aplicaciones y construir flujos de trabajo automatizados sin límites. Guía práctica para empezar desde cero.",
     "featured_image": {
       "$media": {
         "url": "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=1200&h=800&fit=crop",
@@ -54,7 +54,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "n8n es una plataforma de automatización de flujos de trabajo (workflow automation) de código abierto. A diferencia de Zapier o Make, n8n te permite hospedarlo en tu propio servidor, lo que significa cero límites de ejecución, control total de tus datos y un costo mensual fijo sin importar cuántas automatizaciones ejecutes."
+            "text": "n8n es una plataforma de automatización de flujos de trabajo (workflow automation) con el código fuente a la vista, bajo un modelo fair-code. A diferencia de Zapier o Make, n8n te permite hospedarlo en tu propio servidor, lo que significa cero límites de ejecución, control total de tus datos y un costo mensual fijo sin importar cuántas automatizaciones ejecutes."
           }
         ]
       },
@@ -76,7 +76,27 @@
         "children": [
           {
             "_type": "span",
-            "text": "Open-source: puedes ver, modificar y extender el código fuente libremente."
+            "text": "Fair-code: puedes ver y modificar el código fuente y usarlo gratis para fines internos de tu negocio; la ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "Sustainable Use License",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " limita algunos usos comerciales, como ofrecer n8n a tus clientes para que armen sus propios flujos.",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://docs.n8n.io/n8n-community-license/sustainable-use-license"
           }
         ]
       },
@@ -264,7 +284,27 @@
         "children": [
           {
             "_type": "span",
-            "text": "La forma más rápida de probar n8n sin configurar nada es n8n Cloud, tienen una prueba gratuita de 14 días con acceso completo. Para producción, recomiendo hospedarlo en Railway o Render con un plan de 5-7 USD al mes que te dará recursos suficientes para cientos de automatizaciones diarias."
+            "text": "La forma más rápida de probar n8n sin configurar nada es n8n Cloud: su prueba gratuita no pide tarjeta de crédito e incluye 1.000 ejecuciones, según su ",
+            "marks": []
+          },
+          {
+            "_type": "span",
+            "text": "página de precios",
+            "marks": [
+              "l0"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " (consultada el 3 de noviembre de 2026). Para producción, recomiendo hospedarlo en Railway o Render con un plan de 5-7 USD al mes que te dará recursos suficientes para cientos de automatizaciones diarias.",
+            "marks": []
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "l0",
+            "_type": "link",
+            "href": "https://n8n.io/pricing/"
           }
         ]
       },
@@ -299,7 +339,7 @@
         ]
       }
     ],
-    "key_entities": "n8n, automatización, workflow, emprendedores, open-source, Zapier, Make, CRM, leads, WhatsApp, Stripe",
+    "key_entities": "n8n, automatización, workflow, emprendedores, fair-code, Sustainable Use License, Zapier, Make, CRM, leads, WhatsApp, Stripe",
     "faq_items": [
       {
         "_type": "block",
@@ -337,7 +377,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "n8n es gratuito si lo auto-hospedas en tu propio servidor (VPS de 5-7 USD/mes). n8n Cloud tiene planes desde 20 USD/mes. Comparado con Zapier que cobra por ejecución, n8n es significativamente más económico para alto volumen."
+            "text": "n8n es gratuito si lo auto-hospedas en tu propio servidor (VPS de 5-7 USD/mes). n8n Cloud tiene planes desde 20 euros al mes en pago anual (plan Starter, con 2.500 ejecuciones al mes, según su página de precios consultada el 3 de noviembre de 2026). Comparado con Zapier que cobra por ejecución, n8n es significativamente más económico para alto volumen."
           }
         ]
       },
