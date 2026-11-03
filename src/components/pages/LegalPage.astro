@@ -3,6 +3,7 @@
 // La resolución (repo primero, EmDash/D1 como respaldo) la hace resolveLegalPage
 // en src/data/legal-page.ts, llamada desde cada página de ruta.
 import { PortableText } from "emdash/ui";
+import PortableTextNone from "../PortableTextNone.astro";
 import Base from "../../layouts/Base.astro";
 import { LEGAL_UPDATED, type LegalDoc } from "../../data/legal";
 
@@ -57,7 +58,7 @@ const formatted = updated
 			</div>
 		) : (
 			<div class="legal-body">
-				<PortableText value={cmsPage.data.content} />
+				<PortableText value={cmsPage.data.content} components={{ types: { htmlBlock: PortableTextNone } }} />
 			</div>
 		)}
 	</article>

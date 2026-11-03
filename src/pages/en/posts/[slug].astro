@@ -1,4 +1,5 @@
 ---
+import { POST_REDIRECTS } from "../../../utils/post-redirects";
 import { postSlug } from "../../../utils/post-slug";
 import {
 	getEmDashEntry,
@@ -9,14 +10,13 @@ import {
 } from "emdash";
 import {
 	PortableText,
-	Comments,
-	CommentForm,
 } from "emdash/ui";
 import Base from "../../../layouts/Base.astro";
 import PostCard from "../../../components/PostCard.astro";
 import PostTitleCard from "../../../components/PostTitleCard.astro";
 import AuthorBio from "../../../components/AuthorBio.astro";
 import ArticleMeta from "../../../components/ArticleMeta.astro";
+import PortableTextNone from "../../../components/PortableTextNone.astro";
 import PortableTextLink from "../../../components/PortableTextLink.astro";
 import { getReadingTime } from "../../../utils/reading-time";
 import { resolveBlogSiteIdentity } from "../../../utils/site-identity";
@@ -30,8 +30,9 @@ const t = useTranslations(locale);
 const slug = decodeSlug(Astro.params.slug);
 
 if (!slug) {
-	return Astro.redirect("/en/404");
+	return Astro.rewrite("/en/404");
 }
+if (POST_REDIRECTS.en[slug]) return Astro.redirect(`/en/posts/${POST_REDIRECTS.en[slug]}`, 301);
 
 // Solo artículos en inglés: emdash cae al español si no hay versión "en" (fallbackLocale),
 // y eso mostraba artículos en español bajo /en/posts.
@@ -44,7 +45,8 @@ const isStaticPost = !cmsPost && !!staticPost;
 if (!post) {
 	// Existe solo en español → a su URL en español; si no existe en ningún idioma, al 404 en inglés.
 	const spanish = cmsHit ?? getStaticPost("es", slug) ?? (await getEmDashEntry("posts", slug, { locale: "es" })).entry;
-	return Astro.redirect(spanish ? `/posts/${slug}` : "/en/404");
+	if (spanish) return Astro.redirect(`/posts/${slug}`, 301);
+	return Astro.rewrite("/en/404");
 }
 
 Astro.cache.set(cacheHint);
@@ -322,18 +324,24 @@ const publishDate =
 				</header>
 
 				<div class="article-content">
-					<PortableText value={post.data.content} components={{ mark: { link: PortableTextLink } }} />
+					<PortableText value={post.data.content} components={{ mark: { link: PortableTextLink }, types: { htmlBlock: PortableTextNone } }} />
 				</div>
+
+				{faqItems.length > 0 && (
+					<section class="article-faq" aria-labelledby="faq-title">
+						<h2 id="faq-title">Frequently asked questions</h2>
+						{faqItems.map((item) => (
+							<details class="faq-item">
+								<summary>{item.question}</summary>
+								<p>{item.answer}</p>
+							</details>
+						))}
+					</section>
+				)}
 
 				<ArticleMeta publishedTime={post.data.publishedAt?.toISOString() ?? null} modifiedTime={post.data.updatedAt.toISOString()} readingTime={readingTime} locale={locale} />
 				<AuthorBio bylines={bylines} locale={locale} />
 
-				{!isStaticPost && (
-					<div class="article-comments">
-						<Comments collection="posts" contentId={post.data.id} threaded />
-						<CommentForm collection="posts" contentId={post.data.id} />
-					</div>
-				)}
 			</div>
 
 			<aside class="article-sidebar">
@@ -1070,4 +1078,9 @@ const publishDate =
 			grid-template-columns: 1fr;
 		}
 	}
+	.article-faq { margin: var(--spacing-10, 2.5rem) 0 var(--spacing-6, 1.5rem); }
+	.article-faq h2 { font-size: var(--font-size-2xl, 1.5rem); margin: 0 0 var(--spacing-4, 1rem); }
+	.faq-item { border: 2px solid var(--color-border, #ddd); border-radius: var(--radius, 3px); padding: 0.75rem 1rem; margin: 0 0 0.75rem; }
+	.faq-item summary { cursor: pointer; font-weight: 700; }
+	.faq-item p { margin: 0.5rem 0 0; }
 </style>

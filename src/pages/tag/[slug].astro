@@ -1,4 +1,15 @@
 ---
+/**
+ * Un término que no existe debe responder 404. La comprobación vive aquí y no en TagPage.astro porque un
+ * `return Astro.redirect()` dentro de un componente no hace nada: las etiquetas inexistentes respondían 200 con la
+ * página vacía (auditoría SEO del 2026-11-03).
+ */
+import { decodeSlug, getTerm } from "emdash";
 import TagPage from "../../components/pages/TagPage.astro";
+
+const slug = decodeSlug(Astro.params.slug);
+const term = slug ? await getTerm("tag", slug) : null;
+if (!term) return Astro.rewrite("/404");
 ---
+
 <TagPage />

@@ -11,6 +11,16 @@ const title = locale === "en" ? "Contact — Tony Ciencia" : "Contacto — Tony 
 const description = locale === "en" 
 	? "Talk to Tony Ciencia. Book a free call or write to us directly to automate your business with AI."
 	: "Habla con Tony Ciencia. Agenda una llamada gratuita o escríbenos directamente para automatizar tu negocio con IA.";
+
+// Resultado del envío (src/pages/api/contacto.ts redirige aquí con ?enviado=1, ?datos=1 o ?error=1).
+const q = Astro.url.searchParams;
+const notice = q.has("enviado")
+	? { ok: true, text: locale === "en" ? "Message sent. We will reply to your email soon." : "Mensaje enviado. Te responderemos a tu correo pronto." }
+	: q.has("datos")
+		? { ok: false, text: locale === "en" ? "Please check your name, email and message and try again." : "Revisa tu nombre, tu correo y el mensaje, e inténtalo de nuevo." }
+		: q.has("error")
+			? { ok: false, text: locale === "en" ? "We couldn't send your message. Please write to business@tonyciencia.com." : "No pudimos enviar tu mensaje. Escríbenos a business@tonyciencia.com." }
+			: null;
 ---
 
 <Base title={title} description={description}>
@@ -35,18 +45,24 @@ const description = locale === "en"
 		<div class="contact-main-inner">
 
 			<!-- Formulario -->
-			<div class="contact-form-wrap">
+			<div class="contact-form-wrap" id="formulario">
 				<h2 class="form-title">{t("contact.form.title")}</h2>
 				<p class="form-sub">{t("contact.form.sub")}</p>
-				<form class="contact-form" method="POST" action="/_emdash/api/forms/contact" novalidate>
+				{notice && <p class={`form-notice ${notice.ok ? "form-notice--ok" : "form-notice--error"}`} role="status">{notice.text}</p>}
+				<form class="contact-form" method="POST" action="/api/contacto">
+					<input type="hidden" name="lang" value={locale} />
+					<div class="form-trap" aria-hidden="true">
+						<label for="website">Website</label>
+						<input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+					</div>
 					<div class="form-row">
 						<div class="form-field">
 							<label for="name" class="form-label">{t("contact.form.name")}</label>
-							<input type="text" id="name" name="name" class="form-input" placeholder={t("contact.form.namePlaceholder")} required autocomplete="name" />
+							<input type="text" id="name" name="name" class="form-input" placeholder={t("contact.form.namePlaceholder")} required maxlength="100" autocomplete="name" />
 						</div>
 						<div class="form-field">
 							<label for="email" class="form-label">{t("contact.form.email")}</label>
-							<input type="email" id="email" name="email" class="form-input" placeholder={t("contact.form.emailPlaceholder")} required autocomplete="email" />
+							<input type="email" id="email" name="email" class="form-input" placeholder={t("contact.form.emailPlaceholder")} required maxlength="254" autocomplete="email" />
 						</div>
 					</div>
 					<div class="form-field">
@@ -62,7 +78,7 @@ const description = locale === "en"
 					</div>
 					<div class="form-field">
 						<label for="message" class="form-label">{t("contact.form.message")}</label>
-						<textarea id="message" name="message" class="form-input form-textarea" placeholder={t("contact.form.messagePlaceholder")} rows="5" required></textarea>
+						<textarea id="message" name="message" class="form-input form-textarea" placeholder={t("contact.form.messagePlaceholder")} rows="5" required minlength="5" maxlength="5000"></textarea>
 					</div>
 					<button type="submit" class="btn-submit">
 						{t("contact.form.submit")}
@@ -179,4 +195,14 @@ const description = locale === "en"
 	
 	@media (max-width: 900px) { .contact-main-inner { grid-template-columns: 1fr; } .contact-info { position: static; } }
 	@media (max-width: 640px) { .form-row { grid-template-columns: 1fr; } .btn-submit { align-self: stretch; } }
+	.form-notice {
+		margin: 0 0 var(--spacing-4, 1rem);
+		padding: 0.75rem 1rem;
+		border: 2px solid currentColor;
+		border-radius: var(--radius, 3px);
+		font-weight: 600;
+	}
+	.form-notice--ok { color: var(--color-success, #1a7f37); }
+	.form-notice--error { color: var(--color-error, #b42318); }
+	.form-trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 </style>

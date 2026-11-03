@@ -1,4 +1,5 @@
 ---
+import { POST_REDIRECTS } from "../../utils/post-redirects";
 import { postSlug } from "../../utils/post-slug";
 import {
 	getEmDashEntry,
@@ -9,14 +10,13 @@ import {
 } from "emdash";
 import {
 	PortableText,
-	Comments,
-	CommentForm,
 } from "emdash/ui";
 import Base from "../../layouts/Base.astro";
 import PostCard from "../../components/PostCard.astro";
 import PostTitleCard from "../../components/PostTitleCard.astro";
 import AuthorBio from "../../components/AuthorBio.astro";
 import ArticleMeta from "../../components/ArticleMeta.astro";
+import PortableTextNone from "../../components/PortableTextNone.astro";
 import PortableTextLink from "../../components/PortableTextLink.astro";
 import { getReadingTime } from "../../utils/reading-time";
 import { resolveBlogSiteIdentity } from "../../utils/site-identity";
@@ -30,8 +30,10 @@ const t = useTranslations(locale);
 const slug = decodeSlug(Astro.params.slug);
 
 if (!slug) {
-	return Astro.redirect("/404");
+	return Astro.rewrite("/404");
 }
+// Artículos duplicados: 301 al que queda (src/utils/post-redirects.ts).
+if (POST_REDIRECTS.es[slug]) return Astro.redirect(`/posts/${POST_REDIRECTS.es[slug]}`, 301);
 
 const { entry: cmsPost, cacheHint } = await getEmDashEntry("posts", slug);
 const staticPost = cmsPost ? null : getStaticPost("es", slug);
@@ -39,7 +41,7 @@ const post = (cmsPost ?? staticPost) as any;
 const isStaticPost = !cmsPost && !!staticPost;
 
 if (!post) {
-	return Astro.redirect("/404");
+	return Astro.rewrite("/404");
 }
 
 // Un artículo en inglés no se sirve bajo /posts: va a su URL en inglés.
@@ -380,18 +382,24 @@ const publishDate =
 				</header>
 
 				<div class="article-content">
-					<PortableText value={post.data.content} components={{ mark: { link: PortableTextLink } }} />
+					<PortableText value={post.data.content} components={{ mark: { link: PortableTextLink }, types: { htmlBlock: PortableTextNone } }} />
 				</div>
+
+				{faqItems.length > 0 && (
+					<section class="article-faq" aria-labelledby="faq-title">
+						<h2 id="faq-title">Preguntas frecuentes</h2>
+						{faqItems.map((item) => (
+							<details class="faq-item">
+								<summary>{item.question}</summary>
+								<p>{item.answer}</p>
+							</details>
+						))}
+					</section>
+				)}
 
 				<ArticleMeta publishedTime={post.data.publishedAt?.toISOString() ?? null} modifiedTime={post.data.updatedAt.toISOString()} readingTime={readingTime} locale={locale} />
 				<AuthorBio bylines={bylines} locale={locale} />
 
-				{!isStaticPost && (
-					<div class="article-comments">
-						<Comments collection="posts" contentId={post.data.id} threaded />
-						<CommentForm collection="posts" contentId={post.data.id} />
-					</div>
-				)}
 			</div>
 
 			{/* Right gutter: TOC + Sidebar widgets */}
@@ -1450,4 +1458,9 @@ const publishDate =
 			display: block;
 		}
 	}
+	.article-faq { margin: var(--spacing-10, 2.5rem) 0 var(--spacing-6, 1.5rem); }
+	.article-faq h2 { font-size: var(--font-size-2xl, 1.5rem); margin: 0 0 var(--spacing-4, 1rem); }
+	.faq-item { border: 2px solid var(--color-border, #ddd); border-radius: var(--radius, 3px); padding: 0.75rem 1rem; margin: 0 0 0.75rem; }
+	.faq-item summary { cursor: pointer; font-weight: 700; }
+	.faq-item p { margin: 0.5rem 0 0; }
 </style>

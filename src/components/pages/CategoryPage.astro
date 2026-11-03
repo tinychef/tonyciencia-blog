@@ -30,7 +30,7 @@ const filteredPosts = posts.map((post) => ({ post, tags: postTags(post) }));
 const postsRoute = locale === "en" ? "/en/posts" : "/posts";
 ---
 
-<Base title={`${term.label} — ${t("category.label")}`} description={`${t("category.label")}: ${term.label}`} breadcrumbs={[
+<Base robots={posts.length === 0 ? "noindex, follow" : undefined} title={`${term.label} — ${t("category.label")}`} description={`${t("category.label")}: ${term.label}`} breadcrumbs={[
 	{ name: "Blog", url: postsRoute },
 	{ name: term.label, url: `${locale === "en" ? "/en/category" : "/category"}/${term.slug}` },
 ]}>

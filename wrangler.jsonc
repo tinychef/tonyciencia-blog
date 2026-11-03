@@ -28,4 +28,6 @@
 	"images": {
 		"binding": "IMAGES",
 	},
+	// Formulario de contacto: Cloudflare Email Sending, el mismo servicio del market (src/pages/api/contacto.ts).
+	"send_email": [{ "name": "EMAIL" }],
 }

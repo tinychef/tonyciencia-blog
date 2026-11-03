@@ -15,9 +15,10 @@ const { entries: cmsPosts, cacheHint } = await getEmDashCollection("posts", { lo
 Astro.cache.set(cacheHint);
 
 const staticPosts = getStaticPosts("en");
-const cmsSlugs = new Set(cmsPosts.map((post) => post.id));
-// Los slugs con "/" (p. ej. "en/…", cargados así en el CMS) no tienen ruta: se omiten hasta corregirlos en el admin.
-const posts = [...staticPosts.filter((post) => !cmsSlugs.has(post.id)), ...cmsPosts.filter((post) => !post.id.includes("/"))] as any[];
+const cmsSlugs = new Set(cmsPosts.map((post) => postSlug(post.id)));
+// Algunos posts del CMS se guardaron con el slug "en/<slug>": su URL es /en/posts/<slug> (PostCard usa postSlug).
+// Antes se descartaban y 4 artículos en inglés quedaban sin ningún enlace interno.
+const posts = [...staticPosts.filter((post) => !cmsSlugs.has(post.id)), ...cmsPosts.filter((post) => !postSlug(post.id).includes("/"))] as any[];
 
 const sortedPosts = posts.toSorted((a, b) => {
 	const dateA = a.data.publishedAt?.getTime() ?? 0;

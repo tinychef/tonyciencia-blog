@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Allow: /_emdash/api/media/file/
 Disallow: /_emdash/
 Disallow: /search
 Disallow: /en/search

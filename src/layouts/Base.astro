@@ -61,7 +61,9 @@ const {
 } = Astro.props;
 const { siteTitle, siteFavicon } = resolveBlogSiteIdentity(await getSiteSettings());
 // If title already includes site title (from getSeoMeta), use as-is
-const fullTitle = title.includes(siteTitle) ? title : `${title} — ${siteTitle}`;
+// Algunos títulos del CMS ya traen «| Tony Ciencia» y getSeoMeta lo vuelve a sumar: se deja una sola vez.
+const dedupedTitle = title.replace(/(\s*[|—–-]\s*Tony Ciencia)(?:\s*[|—–-]\s*Tony Ciencia)+\s*$/i, "$1");
+const fullTitle = dedupedTitle.includes(siteTitle) ? dedupedTitle : `${dedupedTitle} — ${siteTitle}`;
 
 // i18n
 const locale = getLangFromUrl(Astro.url);
@@ -121,6 +123,7 @@ const homeHref = locale === "en" ? "/en/" : "/";
 		{description && <meta name="description" content={description} />}
 		<meta name="author" content="Antonio Duque — Tony Ciencia" />
 		<link rel="canonical" href={canonicalUrl} />
+		{robots && <meta name="robots" content={robots} />}
 		<link rel="alternate" hreflang={locale} href={canonicalUrl} />
 		{hasTranslation && <link rel="alternate" hreflang={altLocale} href={altUrl} />}
 		<link rel="alternate" hreflang="x-default" href={xDefaultUrl} />

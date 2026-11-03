@@ -94,6 +94,9 @@ export function registerShop(app: Hono<AppEnv>) {
 				image: products.find((p) => p.images[0])?.images[0]?.src,
 				imageAlt: products.find((p) => p.images[0])?.images[0]?.alt,
 				alternates: { es: storeRoot("es"), en: storeRoot("en") },
+				// Búsquedas, filtros y orden: «noindex, follow». Cada ficha enlaza 7 búsquedas y Google rastreaba cientos de
+				// variantes del catálogo con contenido repetido (auditoría SEO del 2026-11-03).
+				noindex: !!(query || category || filter || c.req.query("orden")),
 				jsonLd: [...catalogJsonLd(origin, products, lang), faqJsonLd(storeFaq(products.some((p) => p.availability === "coming_soon"), lang))],
 				dataLayer: listed.length ? [viewItemListEvent(listed)] : undefined,
 			},
@@ -408,7 +411,15 @@ export function registerShop(app: Hono<AppEnv>) {
 		if (!doc) return renderMessage(c, 404, "Página no encontrada", "Revisa el enlace.");
 		return render(
 			c,
-			{ title: doc.title, path: `/market/legal/${key}` },
+			{
+				title: doc.title,
+				path: `/market/legal/${key}`,
+				description: {
+					terminos: "Términos y condiciones de compra de Market Tony (Tony Ciencia LLC): licencia de uso, pagos, descargas y responsabilidades.",
+					privacidad: "Política de privacidad de Market Tony: qué datos guardamos (correo y nombre), para qué, cookies, y cómo pedir su eliminación.",
+					reembolsos: "Política de reembolsos de Market Tony: reembolso dentro de los 14 días si aún no descargaste el producto o si el archivo falla.",
+				}[key],
+			},
 			<LegalPage doc={doc} showDraftNote={c.get("config").mode === "mock"} />,
 		);
 	});
