@@ -12,7 +12,9 @@ import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
 
 const TO = "business@tonyciencia.com";
-const FROM = { email: "market@tonyciencia.com", name: "Tony Ciencia (web)" };
+// Misma forma que el market, que ya envía en producción (workers/market/src/adapters/email/cloudflare.ts):
+// remitente { email, name } del dominio verificado y respuesta como correo simple.
+const FROM = { email: "market@tonyciencia.com", name: "Tony Ciencia" };
 const SUBJECTS: Record<string, string> = {
 	automatizacion: "Automatización con IA",
 	"agentes-ia": "Agentes IA",
@@ -73,14 +75,15 @@ export const POST: APIRoute = async ({ request, url, redirect, clientAddress }) 
 		await bindings.EMAIL.send({
 			to: TO,
 			from: FROM,
-			replyTo: { email, name },
+			replyTo: email,
 			subject: `[Contacto web] ${topic} — ${name}`,
 			text,
 			html,
 		});
 		return done("enviado");
 	} catch (err) {
-		console.error("[contacto] no se pudo enviar:", err instanceof Error ? err.message : err);
+		const code = typeof (err as { code?: unknown })?.code === "string" ? (err as { code: string }).code : "E_UNKNOWN";
+		console.error(`[contacto] no se pudo enviar (${code}):`, err instanceof Error ? err.message : err);
 		return done("error");
 	}
 };

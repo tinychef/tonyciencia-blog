@@ -1,5 +1,5 @@
 ---
-import { POST_REDIRECTS } from "../../../utils/post-redirects";
+import { POST_REDIRECTS, TRANSLATION_PAIRS_EN_TO_ES } from "../../../utils/post-redirects";
 import { postSlug } from "../../../utils/post-slug";
 import {
 	getEmDashEntry,
@@ -79,7 +79,7 @@ const bylines = post.data.bylines ?? [];
 
 const readingTime = getReadingTime(post.data.content as any);
 
-const translationSlug = post.data.translation_of ?? getStaticPost("en", slug)?.data.translation_of;
+const translationSlug = post.data.translation_of ?? getStaticPost("en", slug)?.data.translation_of ?? TRANSLATION_PAIRS_EN_TO_ES[slug];
 
 // Get other posts for "More posts" section
 // Strategy: shared categories first, then shared tags, then recent posts.

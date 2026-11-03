@@ -1,7 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
 import { getLangFromUrl } from "../../i18n/locales";
-import { isExternalService, services } from "../../data/services";
+import { isExternalService, serviceName, services } from "../../data/services";
 
 const locale = getLangFromUrl(Astro.url);
 
@@ -59,7 +59,7 @@ const COPY = {
 				)}
 				<header class="svc-head">
 					<span class="svc-index">{String(index + 1).padStart(2, "0")}</span>
-					<h2>{service.name}</h2>
+					<h2>{serviceName(service, locale)}</h2>
 					<p class="svc-summary">{service.summary[locale]}</p>
 				</header>
 

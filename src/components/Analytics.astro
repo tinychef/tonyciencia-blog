@@ -70,17 +70,33 @@ const hasGoogle = !!(gaId || gtmId);
 					gtag("config", gaId);
 				}
 				if (gtmId) {
-					// Google Tag Manager (official snippet, after the consent defaults).
-					(function (w, d, s, l, i) {
-						w[l] = w[l] || [];
-						w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-						var f = d.getElementsByTagName(s)[0],
-							j = d.createElement(s),
-							dl = l != "dataLayer" ? "&l=" + l : "";
-						j.async = true;
-						j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-						f.parentNode.insertBefore(j, f);
-					})(window, document, "script", "dataLayer", gtmId);
+					// Google Tag Manager (official snippet, after the consent defaults), cargado DESPUÉS de que la página
+					// terminó de cargar: en celular GTM + GA4 sumaban 0,4–1 s de bloqueo del hilo principal en plena carga
+					// (TBT de 1,78 s en la portada, auditoría 2026-11-03). Los eventos que se empujen antes esperan en dataLayer.
+					var loadGtm = function () {
+						if (window.__tcGtmLoaded) return;
+						window.__tcGtmLoaded = true;
+						(function (w, d, s, l, i) {
+							w[l] = w[l] || [];
+							w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+							var f = d.getElementsByTagName(s)[0],
+								j = d.createElement(s),
+								dl = l != "dataLayer" ? "&l=" + l : "";
+							j.async = true;
+							j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+							f.parentNode.insertBefore(j, f);
+						})(window, document, "script", "dataLayer", gtmId);
+					};
+					var whenIdle = function () {
+						if ("requestIdleCallback" in window) window.requestIdleCallback(loadGtm, { timeout: 3000 });
+						else setTimeout(loadGtm, 1500);
+					};
+					if (document.readyState === "complete") whenIdle();
+					else window.addEventListener("load", whenIdle, { once: true });
+					// Si la persona interactúa antes, se carga en ese momento.
+					["pointerdown", "keydown", "scroll"].forEach(function (ev) {
+						window.addEventListener(ev, loadGtm, { once: true, passive: true });
+					});
 				}
 			</script>
 		)}

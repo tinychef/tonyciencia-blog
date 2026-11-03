@@ -6,8 +6,8 @@ import ToolsStack from "../../components/ToolsStack.astro";
 import EmailCapture from "../../components/EmailCapture.astro";
 import { resolveBlogSiteIdentity } from "../../utils/site-identity";
 import { getStaticPosts } from "../../utils/static-posts";
-import { partners } from "../../data/partners.generated";
-import { isExternalService, services } from "../../data/services";
+import { partners } from "../../data/partners";
+import { isExternalService, serviceName, services } from "../../data/services";
 import { getLatestVideo, YOUTUBE_CHANNEL_URL } from "../../utils/youtube";
 
 // Home bilingüe: / (es) y /en (en) comparten diseño; solo cambian los textos.
@@ -208,7 +208,7 @@ const toolRows = CURATED_CATEGORIES.map((category, index) => ({
 						>
 							<span class="line-index">{String(index + 1).padStart(2, "0")}</span>
 							<span class="line-main">
-								<strong>{service.name}</strong>
+								<strong>{serviceName(service, locale)}</strong>
 								<span>{service.summary[locale]}</span>
 							</span>
 							{service.id === "merkhify" && (
