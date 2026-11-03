@@ -5,8 +5,12 @@
 export const POST_REDIRECTS: Record<"es" | "en", Record<string, string>> = {
 	es: {
 		"demand-gen-reemplazo-vac": "demand-gen-reemplazo-video-action-campaigns-guia-2026",
+		// 2026-11-03: no hubo fusión; el artículo se reescribió sobre el acuerdo de cómputo real (Colossus 1).
+		"claude-spacex-fusion-mayo-2026": "acuerdo-anthropic-spacex-colossus-claude-code",
 	},
-	en: {},
+	en: {
+		"claude-spacex-merger-may-2026": "anthropic-spacex-colossus-deal-claude-code",
+	},
 };
 
 /**
