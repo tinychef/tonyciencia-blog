@@ -37,11 +37,13 @@ export const POST: APIRoute = async ({ request, url, redirect, clientAddress }) 
 	const form = await request.formData().catch(() => null);
 	const lang = form?.get("lang") === "en" ? "en" : "es";
 	const back = lang === "en" ? "/en/contact" : "/contacto";
-	const done = (state: "enviado" | "error" | "datos") => redirect(`${back}?${state}=1#formulario`, 303);
+	// `codigo` (solo en errores): código corto para diagnosticar sin acceso a los logs; no incluye datos de nadie.
+	const done = (state: "enviado" | "error" | "datos", codigo?: string) =>
+		redirect(`${back}?${state}=1${codigo ? `&codigo=${encodeURIComponent(codigo.slice(0, 40))}` : ""}#formulario`, 303);
 
 	// Mismo origen (los navegadores siempre mandan Origin en un POST de formulario).
 	const origin = request.headers.get("origin");
-	if (!form || (origin && origin !== url.origin)) return done("error");
+	if (!form || (origin && origin !== url.origin)) return done("error", "ORIGEN");
 	// Campo trampa: invisible para personas; los bots lo llenan. Se responde como si se hubiera enviado.
 	if (line(form.get("website"), 200)) return done("enviado");
 
@@ -57,7 +59,7 @@ export const POST: APIRoute = async ({ request, url, redirect, clientAddress }) 
 		if (bindings.SESSION) {
 			const key = `contacto:${ip}`;
 			const count = Number((await bindings.SESSION.get(key)) || "0");
-			if (count >= 5) return done("error");
+			if (count >= 5) return done("error", "LIMITE");
 			await bindings.SESSION.put(key, String(count + 1), { expirationTtl: 600 });
 		}
 	} catch {
@@ -66,7 +68,7 @@ export const POST: APIRoute = async ({ request, url, redirect, clientAddress }) 
 
 	if (!bindings.EMAIL) {
 		console.error("[contacto] falta el binding EMAIL (send_email) en wrangler.jsonc");
-		return done("error");
+		return done("error", "SIN_BINDING");
 	}
 	const topic = SUBJECTS[subjectKey] ?? "Sin tema";
 	const text = [`Nombre: ${name}`, `Correo: ${email}`, `Tema: ${topic}`, `Idioma: ${lang}`, "", message].join("\n");
@@ -84,6 +86,6 @@ export const POST: APIRoute = async ({ request, url, redirect, clientAddress }) 
 	} catch (err) {
 		const code = typeof (err as { code?: unknown })?.code === "string" ? (err as { code: string }).code : "E_UNKNOWN";
 		console.error(`[contacto] no se pudo enviar (${code}):`, err instanceof Error ? err.message : err);
-		return done("error");
+		return done("error", code === "E_UNKNOWN" && err instanceof Error ? err.message.replace(/[^A-Za-z0-9_ .:-]/g, "").slice(0, 40) : code);
 	}
 };
