@@ -21,6 +21,7 @@ export const RATE_RULES = {
 	mockPay: { name: "mock-pay", limit: 30, windowSeconds: 600 },
 	waitlist: { name: "waitlist-ip", limit: 10, windowSeconds: 600 },
 	review: { name: "review-user", limit: 10, windowSeconds: 600 },
+	contact: { name: "contact-ip", limit: 5, windowSeconds: 600 },
 } satisfies Record<string, RateRule>;
 
 /** Devuelve true si la petición está dentro del límite (y la cuenta). */

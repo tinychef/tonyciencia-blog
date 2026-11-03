@@ -12,7 +12,8 @@ const description = locale === "en"
 	? "Talk to Tony Ciencia. Book a free call or write to us directly to automate your business with AI."
 	: "Habla con Tony Ciencia. Agenda una llamada gratuita o escríbenos directamente para automatizar tu negocio con IA.";
 
-// Resultado del envío (src/pages/api/contacto.ts redirige aquí con ?enviado=1, ?datos=1 o ?error=1).
+// Resultado del envío: el formulario va al Worker del market (POST /market/contacto, workers/market/src/routes/contact.ts),
+// que manda el correo con su outbox y vuelve aquí con ?enviado=1, ?datos=1 o ?error=1.
 const q = Astro.url.searchParams;
 const notice = q.has("enviado")
 	? { ok: true, text: locale === "en" ? "Message sent. We will reply to your email soon." : "Mensaje enviado. Te responderemos a tu correo pronto." }
@@ -49,7 +50,7 @@ const notice = q.has("enviado")
 				<h2 class="form-title">{t("contact.form.title")}</h2>
 				<p class="form-sub">{t("contact.form.sub")}</p>
 				{notice && <p class={`form-notice ${notice.ok ? "form-notice--ok" : "form-notice--error"}`} role="status">{notice.text}</p>}
-				<form class="contact-form" method="POST" action="/api/contacto">
+				<form class="contact-form" method="POST" action="/market/contacto">
 					<input type="hidden" name="lang" value={locale} />
 					<div class="form-trap" aria-hidden="true">
 						<label for="website">Website</label>
