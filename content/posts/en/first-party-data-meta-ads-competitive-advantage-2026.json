@@ -4,7 +4,7 @@
   "status": "published",
   "data": {
     "title": "First-Party Data in Meta Ads: The Real Competitive Advantage of 2026",
-    "excerpt": "With cookies disappearing, advertisers with first-party data and properly configured CAPI have a brutal advantage. CRM Custom Audiences = targeting competitors ...",
+    "excerpt": "As third-party cookies fade, first-party data is the edge in Meta Ads. How to combine the Conversions API with CRM-based Custom Audiences in 2026.",
     "content": [
       {
         "_type": "block",
@@ -18,13 +18,14 @@
       },
       {
         "_type": "block",
-        "style": "normal",
+        "style": "h2",
         "children": [
           {
             "_type": "span",
             "text": "Why First-Party Data Is the Advantage of the Year"
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",
@@ -48,13 +49,14 @@
       },
       {
         "_type": "block",
-        "style": "normal",
+        "style": "h2",
         "children": [
           {
             "_type": "span",
             "text": "The Winning Combination: CAPI + Custom Audiences"
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",
@@ -72,9 +74,19 @@
         "children": [
           {
             "_type": "span",
-            "text": "Properly configured Conversions API (CAPI): sends conversion events directly from the server, without depending on browser cookies. Reduces attribution loss on iOS 14+ by up to 40%."
+            "text": "Properly configured Conversions API (CAPI):",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " sends conversion events directly from the server, without depending on browser cookies. Reduces attribution loss on iOS 14+ by up to 40%.",
+            "marks": []
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
@@ -82,9 +94,19 @@
         "children": [
           {
             "_type": "span",
-            "text": "Updated customer lists: regularly uploading the existing customer list allows creating exclusion audiences (not showing them prospecting ads) and high-quality Lookalike Audiences."
+            "text": "Updated customer lists:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " regularly uploading the existing customer list allows creating exclusion audiences (not showing them prospecting ads) and high-quality Lookalike Audiences.",
+            "marks": []
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
@@ -92,9 +114,19 @@
         "children": [
           {
             "_type": "span",
-            "text": "Value-based audiences: segmenting customers by LTV and creating Lookalikes from the highest-value ones produces audiences more likely to convert well."
+            "text": "Value-based audiences:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " segmenting customers by LTV and creating Lookalikes from the highest-value ones produces audiences more likely to convert well.",
+            "marks": []
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
@@ -102,19 +134,30 @@
         "children": [
           {
             "_type": "span",
-            "text": "Custom funnel events: beyond purchase, tracking add-to-cart, checkout start, product view allows optimizing for each funnel stage."
+            "text": "Custom funnel events:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " beyond purchase, tracking add-to-cart, checkout start, product view allows optimizing for each funnel stage.",
+            "marks": []
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
-        "style": "normal",
+        "style": "h2",
         "children": [
           {
             "_type": "span",
             "text": "How to Configure CAPI Correctly"
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",
@@ -134,7 +177,9 @@
             "_type": "span",
             "text": "Implement server-side CAPI for all critical conversion events."
           }
-        ]
+        ],
+        "listItem": "number",
+        "level": 1
       },
       {
         "_type": "block",
@@ -144,7 +189,9 @@
             "_type": "span",
             "text": "Keep the Pixel for discovery events (page views, scrolls)."
           }
-        ]
+        ],
+        "listItem": "number",
+        "level": 1
       },
       {
         "_type": "block",
@@ -154,7 +201,9 @@
             "_type": "span",
             "text": "Verify event deduplication to avoid inflating metrics."
           }
-        ]
+        ],
+        "listItem": "number",
+        "level": 1
       },
       {
         "_type": "block",
@@ -164,17 +213,20 @@
             "_type": "span",
             "text": "Connect CRM directly to the API if data volume justifies it."
           }
-        ]
+        ],
+        "listItem": "number",
+        "level": 1
       },
       {
         "_type": "block",
-        "style": "normal",
+        "style": "h2",
         "children": [
           {
             "_type": "span",
             "text": "The Reality for Competitors Without This Infrastructure"
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",
@@ -198,13 +250,14 @@
       },
       {
         "_type": "block",
-        "style": "normal",
+        "style": "h2",
         "children": [
           {
             "_type": "span",
             "text": "Conclusion"
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",

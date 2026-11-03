@@ -18,8 +18,8 @@
     ]
   },
   "data": {
-    "title": "Como Construir un CRM Automatizado con WhatsApp + n8n + Pipedrive",
-    "excerpt": "La combinacion de WhatsApp Business, n8n y Pipedrive puede crear un sistema de ventas completamente automatizado. Te explico paso a paso como montarlo en menos de un dia.",
+    "title": "Cómo Construir un CRM Automatizado con WhatsApp + n8n + Pipedrive",
+    "excerpt": "La combinación de WhatsApp Business, n8n y Pipedrive puede crear un sistema de ventas completamente automatizado. Te explico paso a paso cómo montarlo en menos de un día.",
     "featured_image": {
       "$media": {
         "url": "https://images.unsplash.com/photo-1611746872915-64382b5c76da?w=1200&h=800&fit=crop",
@@ -34,7 +34,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "En Latinoamerica, WhatsApp no es solo una app de mensajeria: es el canal principal de ventas para la mayoria de negocios. El problema es que gestionar WhatsApp manualmente es un caos: mensajes perdidos, seguimientos olvidados, sin historial de conversaciones y cero visibilidad del pipeline. La solucion es automatizarlo con n8n y conectarlo a un CRM real como Pipedrive."
+            "text": "En Latinoamérica, WhatsApp no es solo una app de mensajería: es el canal principal de ventas para la mayoría de negocios. El problema es que gestionar WhatsApp manualmente es un caos: mensajes perdidos, seguimientos olvidados, sin historial de conversaciones y cero visibilidad del pipeline. La solución es automatizarlo con n8n y conectarlo a un CRM real como Pipedrive."
           }
         ]
       },
@@ -44,7 +44,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "El Sistema Completo: Como Funciona"
+            "text": "El Sistema Completo: Cómo Funciona"
           }
         ]
       },
@@ -54,7 +54,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "El objetivo es que cada mensaje de WhatsApp que recibas dispare una serie de acciones automaticas: crear o actualizar el contacto en Pipedrive, registrar el mensaje como actividad, asignar una etapa del pipeline y, si usas IA, generar una respuesta sugerida. Sin intervencion manual hasta que el lead este listo para cerrar."
+            "text": "El objetivo es que cada mensaje de WhatsApp que recibas dispare una serie de acciones automáticas: crear o actualizar el contacto en Pipedrive, registrar el mensaje como actividad, asignar una etapa del pipeline y, si usas IA, generar una respuesta sugerida. Sin intervención manual hasta que el lead esté listo para cerrar."
           }
         ]
       },
@@ -88,7 +88,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "n8n: el orquestador. Puedes hospedarlo tu mismo o usar n8n Cloud."
+            "text": "n8n: el orquestador. Puedes hospedarlo tú mismo o usar n8n Cloud."
           }
         ]
       },
@@ -100,7 +100,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Pipedrive: el CRM donde vivira toda la informacion de tus leads y clientes. Tiene API robusta y se integra perfectamente con n8n."
+            "text": "Pipedrive: el CRM donde vivirá toda la información de tus leads y clientes. Tiene API robusta y se integra perfectamente con n8n."
           }
         ]
       },
@@ -112,7 +112,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "OpenAI (opcional): para generar respuestas automaticas o clasificar intenciones de los mensajes entrantes."
+            "text": "OpenAI (opcional): para generar respuestas automáticas o clasificar intenciones de los mensajes entrantes."
           }
         ]
       },
@@ -132,7 +132,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Si usas Meta Cloud API directamente, crea un webhook en n8n con el nodo Webhook y registra la URL en el panel de Meta Developers. Cada mensaje entrante de WhatsApp llegara como un POST con el numero del remitente, el texto y metadata. Si usas Wati.io, tienen una integracion nativa con n8n que simplifica este paso considerablemente."
+            "text": "Si usas Meta Cloud API directamente, crea un webhook en n8n con el nodo Webhook y registra la URL en el panel de Meta Developers. Cada mensaje entrante de WhatsApp llegará como un POST con el número del remitente, el texto y metadata. Si usas Wati.io, tienen una integración nativa con n8n que simplifica este paso considerablemente."
           }
         ]
       },
@@ -152,7 +152,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Con el numero de telefono del mensaje, n8n hace una busqueda en Pipedrive via API para ver si el contacto existe. Si existe, actualiza la fecha de ultimo contacto. Si no existe, crea una persona nueva con el numero de WhatsApp y un deal en la etapa Primer contacto de tu pipeline. Todo esto tarda menos de 2 segundos."
+            "text": "Con el número de teléfono del mensaje, n8n hace una búsqueda en Pipedrive vía API para ver si el contacto existe. Si existe, actualiza la fecha de último contacto. Si no existe, crea una persona nueva con el número de WhatsApp y un deal en la etapa Primer contacto de tu pipeline. Todo esto tarda menos de 2 segundos."
           }
         ]
       },
@@ -162,7 +162,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Paso 3: Clasificar la Intencion con IA"
+            "text": "Paso 3: Clasificar la Intención con IA"
           }
         ]
       },
@@ -172,7 +172,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Aqui es donde el sistema se vuelve inteligente. El mensaje del lead se envia a GPT-4 con un prompt que clasifica la intencion en categorias: consulta de precio, queja, solicitud de informacion, cierre listo. Segun la categoria, n8n ejecuta una rama diferente: una respuesta automatica para consultas de precio, una notificacion urgente si es un cierre listo, una tarea en Pipedrive si necesita seguimiento."
+            "text": "Aquí es donde el sistema se vuelve inteligente. El mensaje del lead se envía a GPT-4 con un prompt que clasifica la intención en categorías: consulta de precio, queja, solicitud de información, cierre listo. Según la categoría, n8n ejecuta una rama diferente: una respuesta automática para consultas de precio, una notificación urgente si es un cierre listo, una tarea en Pipedrive si necesita seguimiento."
           }
         ]
       },
@@ -182,7 +182,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Paso 4: Respuestas Automaticas Contextuales"
+            "text": "Paso 4: Respuestas Automáticas Contextuales"
           }
         ]
       },
@@ -192,7 +192,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Para los mensajes de preguntas frecuentes, GPT-4 genera la respuesta usando tu base de conocimiento: precios, servicios, politicas de entrega. n8n envia esa respuesta de vuelta a WhatsApp a traves de la API. Para los mensajes que requieren tu atencion, n8n te envia una notificacion con el contexto completo de la conversacion y un resumen del historial del lead en Pipedrive."
+            "text": "Para los mensajes de preguntas frecuentes, GPT-4 genera la respuesta usando tu base de conocimiento: precios, servicios, políticas de entrega. n8n envía esa respuesta de vuelta a WhatsApp a través de la API. Para los mensajes que requieren tu atención, n8n te envía una notificación con el contexto completo de la conversación y un resumen del historial del lead en Pipedrive."
           }
         ]
       },
@@ -202,7 +202,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Paso 5: Seguimientos Automaticos Programados"
+            "text": "Paso 5: Seguimientos Automáticos Programados"
           }
         ]
       },
@@ -212,7 +212,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Si un lead no responde en 24 horas, n8n puede enviar un mensaje de seguimiento automatico por WhatsApp. Si no responde en 72 horas, envia un segundo seguimiento. Si tampoco responde, actualiza el deal en Pipedrive a Sin respuesta y lo mueve a un pipeline de reactivacion. Nunca mas un lead que se enfria sin seguimiento."
+            "text": "Si un lead no responde en 24 horas, n8n puede enviar un mensaje de seguimiento automático por WhatsApp. Si no responde en 72 horas, envía un segundo seguimiento. Si tampoco responde, actualiza el deal en Pipedrive a Sin respuesta y lo mueve a un pipeline de reactivación. Nunca más un lead que se enfría sin seguimiento."
           }
         ]
       },
@@ -232,7 +232,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Este sistema puede procesar cientos de conversaciones simultaneas sin que tengas que estar presente. Los resultados tipicos: tiempo de respuesta promedio de 3 minutos versus horas antes, tasa de seguimiento del 100% versus 60-70% antes, visibilidad completa del pipeline en Pipedrive, y reduccion del 70% en tiempo dedicado a gestion de WhatsApp."
+            "text": "Este sistema puede procesar cientos de conversaciones simultáneas sin que tengas que estar presente. Los resultados típicos: tiempo de respuesta promedio de 3 minutos versus horas antes, tasa de seguimiento del 100% versus 60-70% antes, visibilidad completa del pipeline en Pipedrive, y reducción del 70% en tiempo dedicado a gestión de WhatsApp."
           }
         ]
       },
@@ -242,7 +242,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Por Donde Empezar?"
+            "text": "¿Por Dónde Empezar?"
           }
         ]
       },
@@ -252,7 +252,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Si nunca has usado n8n o Pipedrive, mi recomendacion es empezar con la prueba gratuita de Pipedrive (14 dias) y n8n Cloud (tambien 14 dias). Conecta WhatsApp con el webhook basico primero sin IA y asegurate de que los contactos se crean correctamente en Pipedrive. Una vez que ese flujo funcione, anade la capa de IA. El sistema completo se puede montar en un fin de semana."
+            "text": "Si nunca has usado n8n o Pipedrive, mi recomendación es empezar con la prueba gratuita de Pipedrive (14 días) y n8n Cloud (también 14 días). Conecta WhatsApp con el webhook básico primero sin IA y asegúrate de que los contactos se crean correctamente en Pipedrive. Una vez que ese flujo funcione, añade la capa de IA. El sistema completo se puede montar en un fin de semana."
           }
         ]
       }

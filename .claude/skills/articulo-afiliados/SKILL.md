@@ -59,8 +59,8 @@ Copia la plantilla `references/plantilla-articulo.md` a `.claude/drafts/<slug>.m
 - ≥ 2 enlaces internos (posts publicados en `content/posts/es`, landings, `/market/...`) y ≥ 2 fuentes externas oficiales.
 - Precios: con moneda, periodo y fecha de consulta; aclara si es precio anual mensualizado o promo.
 - FAQ en el frontmatter (`faq:` con `q`/`a`, 4–6 preguntas reales de búsqueda, respuestas de 2–4 frases sin enlaces).
-  El conversor lo pone en `faq_items` (JSON-LD) **y** como sección visible "Preguntas frecuentes" donde pongas una línea
-  `<!-- faq -->` (si no la pones, al final).
+  El conversor lo pone en `faq_items`: la página del post lo muestra como sección visible "Preguntas frecuentes" y lo
+  marca en el JSON-LD. No repitas el FAQ en el cuerpo (saldría dos veces).
 - Cierra con "Fuentes consultadas (<fecha>)": lista de enlaces oficiales (no de afiliado).
 
 Markdown admitido: `##`, `###`, párrafos, listas `-` y `1.`, `>` cita, `**negrita**`, `*cursiva*`, `[texto](url)`.

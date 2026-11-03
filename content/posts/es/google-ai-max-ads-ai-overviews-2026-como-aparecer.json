@@ -4,7 +4,7 @@
   "status": "published",
   "data": {
     "title": "Google AI Max: Cómo Aparecer en las Respuestas de IA Antes que la Competencia",
-    "excerpt": "AI Max integra anuncios dentro de los AI Overviews de Google Search. En beta global desde febrero 2026, los anuncios aparecen ahora antes de los resultados orgá...",
+    "excerpt": "AI Overviews y AI Max cambian dónde aparecen los anuncios de Google. Qué significa para tus campañas de búsqueda y cómo preparar anuncios y landings.",
     "content": [
       {
         "_type": "block",
@@ -18,13 +18,14 @@
       },
       {
         "_type": "block",
-        "style": "normal",
+        "style": "h2",
         "children": [
           {
             "_type": "span",
             "text": "Qué son los AI Overviews y Por Qué Importan para Ads"
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",
@@ -48,13 +49,14 @@
       },
       {
         "_type": "block",
-        "style": "normal",
+        "style": "h2",
         "children": [
           {
             "_type": "span",
             "text": "Por Qué Esto es un Cambio Estructural"
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",
@@ -74,7 +76,9 @@
             "_type": "span",
             "text": "Aparecen antes que cualquier resultado orgánico."
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
@@ -84,7 +88,9 @@
             "_type": "span",
             "text": "Están contextualizados dentro de una respuesta que el usuario percibe como neutral e informativa."
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
@@ -94,7 +100,9 @@
             "_type": "span",
             "text": "Compiten en un entorno donde la confianza del usuario es mayor que en los bloques de anuncios tradicionales."
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
@@ -108,13 +116,14 @@
       },
       {
         "_type": "block",
-        "style": "normal",
+        "style": "h2",
         "children": [
           {
             "_type": "span",
             "text": "Cómo Posicionarse para AI Max Ahora"
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",
@@ -132,9 +141,19 @@
         "children": [
           {
             "_type": "span",
-            "text": "Alta relevancia semántica: anuncios con mensajes que responden exactamente lo que el usuario pregunta, no solo que incluyen keywords."
+            "text": "Alta relevancia semántica:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " anuncios con mensajes que responden exactamente lo que el usuario pregunta, no solo que incluyen keywords.",
+            "marks": []
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
@@ -142,9 +161,19 @@
         "children": [
           {
             "_type": "span",
-            "text": "Assets de calidad: titulares que funcionan como respuestas directas a preguntas frecuentes del sector."
+            "text": "Assets de calidad:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " titulares que funcionan como respuestas directas a preguntas frecuentes del sector.",
+            "marks": []
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
@@ -152,9 +181,19 @@
         "children": [
           {
             "_type": "span",
-            "text": "Landing pages de alta autoridad: Google evalúa la calidad del destino más rigurosamente para AI Max que para Search estándar."
+            "text": "Landing pages de alta autoridad:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Google evalúa la calidad del destino más rigurosamente para AI Max que para Search estándar.",
+            "marks": []
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
@@ -162,19 +201,30 @@
         "children": [
           {
             "_type": "span",
-            "text": "Historial de conversiones: las cuentas con buen Quality Score y datos de conversión limpios tienen prioridad en el inventario beta."
+            "text": "Historial de conversiones:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " las cuentas con buen Quality Score y datos de conversión limpios tienen prioridad en el inventario beta.",
+            "marks": []
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
-        "style": "normal",
+        "style": "h2",
         "children": [
           {
             "_type": "span",
             "text": "El Riesgo que Nadie Está Nombrando"
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",
@@ -188,13 +238,14 @@
       },
       {
         "_type": "block",
-        "style": "normal",
+        "style": "h2",
         "children": [
           {
             "_type": "span",
             "text": "Conclusión"
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",

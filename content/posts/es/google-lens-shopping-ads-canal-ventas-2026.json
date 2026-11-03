@@ -4,7 +4,7 @@
   "status": "published",
   "data": {
     "title": "Google Lens y Shopping Ads: El Canal de Ventas que Nadie Está Usando en 2026",
-    "excerpt": "Los Shopping Ads aparecen cuando alguien fotografía un producto con Google Lens. Nuevo canal masivo para moda, hogar y productos físicos. Casi nadie en LATAM op...",
+    "excerpt": "Google Lens puede mostrar tus Shopping Ads cuando alguien fotografía un producto. Cómo optimizar tu feed de Merchant Center para la búsqueda visual.",
     "content": [
       {
         "_type": "block",
@@ -18,13 +18,14 @@
       },
       {
         "_type": "block",
-        "style": "normal",
+        "style": "h2",
         "children": [
           {
             "_type": "span",
             "text": "Cómo Funciona Google Lens con Shopping Ads"
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",
@@ -44,7 +45,9 @@
             "_type": "span",
             "text": "El usuario ve un producto en la calle, en una revista, en casa de alguien."
           }
-        ]
+        ],
+        "listItem": "number",
+        "level": 1
       },
       {
         "_type": "block",
@@ -54,7 +57,9 @@
             "_type": "span",
             "text": "Fotografía el producto con Google Lens."
           }
-        ]
+        ],
+        "listItem": "number",
+        "level": 1
       },
       {
         "_type": "block",
@@ -64,7 +69,9 @@
             "_type": "span",
             "text": "Google identifica el objeto y muestra resultados — incluyendo Shopping Ads de vendedores con ese producto."
           }
-        ]
+        ],
+        "listItem": "number",
+        "level": 1
       },
       {
         "_type": "block",
@@ -74,7 +81,9 @@
             "_type": "span",
             "text": "El usuario puede comprar directamente desde la búsqueda visual."
           }
-        ]
+        ],
+        "listItem": "number",
+        "level": 1
       },
       {
         "_type": "block",
@@ -88,13 +97,14 @@
       },
       {
         "_type": "block",
-        "style": "normal",
+        "style": "h2",
         "children": [
           {
             "_type": "span",
             "text": "Por Qué es una Oportunidad Desaprovechada"
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",
@@ -118,13 +128,14 @@
       },
       {
         "_type": "block",
-        "style": "normal",
+        "style": "h2",
         "children": [
           {
             "_type": "span",
             "text": "Cómo Optimizar para Shopping Ads en Google Lens"
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",
@@ -142,9 +153,19 @@
         "children": [
           {
             "_type": "span",
-            "text": "Imágenes de producto de alta calidad: el algoritmo de Lens hace matching visual — imágenes nítidas, en múltiples ángulos, sin fondos que distraigan."
+            "text": "Imágenes de producto de alta calidad:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " el algoritmo de Lens hace matching visual — imágenes nítidas, en múltiples ángulos, sin fondos que distraigan.",
+            "marks": []
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
@@ -152,9 +173,19 @@
         "children": [
           {
             "_type": "span",
-            "text": "Atributos descriptivos completos: color, material, forma, marca — los atributos que facilitan el match visual."
+            "text": "Atributos descriptivos completos:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " color, material, forma, marca — los atributos que facilitan el match visual.",
+            "marks": []
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
@@ -162,9 +193,19 @@
         "children": [
           {
             "_type": "span",
-            "text": "Categorización precisa en el feed: usar las categorías de Google correctas mejora la relevancia del matching."
+            "text": "Categorización precisa en el feed:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " usar las categorías de Google correctas mejora la relevancia del matching.",
+            "marks": []
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
@@ -172,19 +213,30 @@
         "children": [
           {
             "_type": "span",
-            "text": "GTIN/códigos de producto: los productos con identificadores únicos tienen mejor rendimiento en búsqueda visual."
+            "text": "GTIN/códigos de producto:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " los productos con identificadores únicos tienen mejor rendimiento en búsqueda visual.",
+            "marks": []
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
-        "style": "normal",
+        "style": "h2",
         "children": [
           {
             "_type": "span",
             "text": "Las Categorías que Más se Benefician"
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",
@@ -198,13 +250,14 @@
       },
       {
         "_type": "block",
-        "style": "normal",
+        "style": "h2",
         "children": [
           {
             "_type": "span",
             "text": "Conclusión"
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",

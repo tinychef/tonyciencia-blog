@@ -4,7 +4,7 @@
   "status": "published",
   "data": {
     "title": "Demand Gen Replaced Video Action Campaigns: Everything You Need to Know Now",
-    "excerpt": "Google forced migration from VAC to Demand Gen in July 2025. In 2026, Demand Gen has Target CPC, New Customer Only mode and AI video generation. Complete guide....",
+    "excerpt": "Demand Gen replaced Google's Video Action Campaigns. What changed, the new features worth using and the migration mistakes to check in your account.",
     "content": [
       {
         "_type": "block",
@@ -42,9 +42,19 @@
         "children": [
           {
             "_type": "span",
-            "text": "Expanded inventory: includes YouTube (Shorts, In-Stream, In-Feed), Gmail and Discover — not just YouTube like VACs."
+            "text": "Expanded inventory:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " includes YouTube (Shorts, In-Stream, In-Feed), Gmail and Discover — not just YouTube like VACs.",
+            "marks": []
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
@@ -52,9 +62,19 @@
         "children": [
           {
             "_type": "span",
-            "text": "Visual formats: can use images in addition to video — more like intelligent Display than a pure video campaign."
+            "text": "Visual formats:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " can use images in addition to video — more like intelligent Display than a pure video campaign.",
+            "marks": []
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
@@ -62,9 +82,19 @@
         "children": [
           {
             "_type": "span",
-            "text": "AI creative: Demand Gen can generate video variations using AI, directly from the platform."
+            "text": "AI creative:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Demand Gen can generate video variations using AI, directly from the platform.",
+            "marks": []
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
@@ -72,19 +102,30 @@
         "children": [
           {
             "_type": "span",
-            "text": "Improved audience signals: deeper integration with Google Audiences and Customer Match."
+            "text": "Improved audience signals:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " deeper integration with Google Audiences and Customer Match.",
+            "marks": []
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
-        "style": "normal",
+        "style": "h2",
         "children": [
           {
             "_type": "span",
             "text": "New Features That Change Strategy"
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",
@@ -102,9 +143,19 @@
         "children": [
           {
             "_type": "span",
-            "text": "Target CPC bidding: allows setting a target CPC — something VACs didn’t have. Useful for advertisers who need click cost control in quality traffic campaigns."
+            "text": "Target CPC bidding:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " allows setting a target CPC — something VACs didn’t have. Useful for advertisers who need click cost control in quality traffic campaigns.",
+            "marks": []
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
@@ -112,9 +163,19 @@
         "children": [
           {
             "_type": "span",
-            "text": "New Customer Only mode: automatically excludes existing customers, forcing the campaign to focus purely on prospecting. Critical for those with updated CRM lists."
+            "text": "New Customer Only mode:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " automatically excludes existing customers, forcing the campaign to focus purely on prospecting. Critical for those with updated CRM lists.",
+            "marks": []
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
@@ -122,19 +183,30 @@
         "children": [
           {
             "_type": "span",
-            "text": "AI video generation: if you don’t have your own video, Demand Gen can generate video assets from product images. Reduces the entry barrier for e-commerce with large catalogs."
+            "text": "AI video generation:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " if you don’t have your own video, Demand Gen can generate video assets from product images. Reduces the entry barrier for e-commerce with large catalogs.",
+            "marks": []
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
-        "style": "normal",
+        "style": "h2",
         "children": [
           {
             "_type": "span",
             "text": "The Most Common Migration Errors"
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",
@@ -152,9 +224,19 @@
         "children": [
           {
             "_type": "span",
-            "text": "Poorly configured audiences: automatic migration doesn’t always correctly transfer audience signals — verify manually."
+            "text": "Poorly configured audiences:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " automatic migration doesn’t always correctly transfer audience signals — verify manually.",
+            "marks": []
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
@@ -162,9 +244,19 @@
         "children": [
           {
             "_type": "span",
-            "text": "Insufficient budget for expanded inventory: Demand Gen covers more channels, needs more budget to learn correctly."
+            "text": "Insufficient budget for expanded inventory:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " Demand Gen covers more channels, needs more budget to learn correctly.",
+            "marks": []
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
@@ -172,19 +264,30 @@
         "children": [
           {
             "_type": "span",
-            "text": "Video-only creative: not leveraging available images in Demand Gen reduces accessible inventory."
+            "text": "Video-only creative:",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "text": " not leveraging available images in Demand Gen reduces accessible inventory.",
+            "marks": []
           }
-        ]
+        ],
+        "listItem": "bullet",
+        "level": 1
       },
       {
         "_type": "block",
-        "style": "normal",
+        "style": "h2",
         "children": [
           {
             "_type": "span",
             "text": "How to Get the Most from Demand Gen in 2026"
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",
@@ -198,13 +301,14 @@
       },
       {
         "_type": "block",
-        "style": "normal",
+        "style": "h2",
         "children": [
           {
             "_type": "span",
             "text": "Conclusion"
           }
-        ]
+        ],
+        "markDefs": []
       },
       {
         "_type": "block",

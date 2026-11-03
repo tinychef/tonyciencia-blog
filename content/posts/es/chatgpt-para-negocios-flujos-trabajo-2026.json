@@ -19,7 +19,7 @@
   },
   "data": {
     "title": "ChatGPT para Negocios: 7 Flujos de Trabajo que Puedes Automatizar Hoy",
-    "excerpt": "ChatGPT no es solo para escribir emails. En 2026, las empresas que ganan usan IA para automatizar flujos completos de trabajo. Aqui estan los 7 mas rentables.",
+    "excerpt": "ChatGPT no es solo para escribir emails. En 2026, las empresas que ganan usan IA para automatizar flujos completos de trabajo. Aquí están los 7 más rentables.",
     "featured_image": {
       "$media": {
         "url": "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&h=800&fit=crop",
@@ -34,7 +34,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "La mayoria de empresarios que dicen usar ChatGPT lo abren, escriben un prompt, copian la respuesta y la pegan. Eso es usar el 5% de su potencial. Los negocios que realmente estan ganando con IA no usan ChatGPT como un asistente de escritura: lo integran como motor de decisiones dentro de flujos de trabajo automatizados. Esto es lo que marca la diferencia en 2026."
+            "text": "La mayoría de empresarios que dicen usar ChatGPT lo abren, escriben un prompt, copian la respuesta y la pegan. Eso es usar el 5% de su potencial. Los negocios que realmente están ganando con IA no usan ChatGPT como un asistente de escritura: lo integran como motor de decisiones dentro de flujos de trabajo automatizados. Esto es lo que marca la diferencia en 2026."
           }
         ]
       },
@@ -44,7 +44,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Por Que la Mayoria Usa ChatGPT Mal"
+            "text": "Por Qué la Mayoría Usa ChatGPT Mal"
           }
         ]
       },
@@ -54,7 +54,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Usar ChatGPT manualmente tiene tres problemas criticos: no escala porque sigues siendo el cuello de botella, no tiene memoria de tu negocio porque cada conversacion empieza desde cero, y no esta conectado a tus sistemas de datos. La solucion es conectar la API de OpenAI a tus herramientas existentes a traves de un orquestador como n8n."
+            "text": "Usar ChatGPT manualmente tiene tres problemas críticos: no escala porque sigues siendo el cuello de botella, no tiene memoria de tu negocio porque cada conversación empieza desde cero, y no está conectado a tus sistemas de datos. La solución es conectar la API de OpenAI a tus herramientas existentes a través de un orquestador como n8n."
           }
         ]
       },
@@ -74,7 +74,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "1. Calificacion Automatica de Leads"
+            "text": "1. Calificación Automática de Leads"
           }
         ]
       },
@@ -84,7 +84,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Cuando un lead llena tu formulario, n8n envia sus respuestas a GPT-4 con un prompt que incluye tu perfil de cliente ideal. La IA asigna una puntuacion del 1 al 10, identifica el pain point principal y sugiere el primer mensaje de seguimiento. Solo ves los leads calificados; el resto se nutren en automatico."
+            "text": "Cuando un lead llena tu formulario, n8n envía sus respuestas a GPT-4 con un prompt que incluye tu perfil de cliente ideal. La IA asigna una puntuación del 1 al 10, identifica el pain point principal y sugiere el primer mensaje de seguimiento. Solo ves los leads calificados; el resto se nutren en automático."
           }
         ]
       },
@@ -94,7 +94,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "2. Respuestas de Soporte de Primera Linea"
+            "text": "2. Respuestas de Soporte de Primera Línea"
           }
         ]
       },
@@ -104,7 +104,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Conecta tu email de soporte o WhatsApp Business a GPT-4 con acceso a tu base de conocimiento: FAQ, precios, politicas. El modelo responde el 80% de las preguntas frecuentes en segundos. Solo escala a ti cuando detecta una situacion compleja o una queja. Resultado tipico: tiempo de respuesta de horas a minutos, satisfaccion mas 40%."
+            "text": "Conecta tu email de soporte o WhatsApp Business a GPT-4 con acceso a tu base de conocimiento: FAQ, precios, políticas. El modelo responde el 80% de las preguntas frecuentes en segundos. Solo escala a ti cuando detecta una situación compleja o una queja. Resultado típico: tiempo de respuesta de horas a minutos, satisfacción más 40%."
           }
         ]
       },
@@ -114,7 +114,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "3. Generacion de Contenido en Escala"
+            "text": "3. Generación de Contenido en Escala"
           }
         ]
       },
@@ -124,7 +124,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Defines tu calendario editorial una vez al mes. n8n lee los temas programados, llama a GPT-4 con tu guia de estilo y genera borradores completos de articulos, posts de LinkedIn y scripts de video. Tu revisas y publicas. El tiempo de produccion de contenido baja de 4 horas a 45 minutos por pieza."
+            "text": "Defines tu calendario editorial una vez al mes. n8n lee los temas programados, llama a GPT-4 con tu guía de estilo y genera borradores completos de artículos, posts de LinkedIn y scripts de video. Tú revisas y publicas. El tiempo de producción de contenido baja de 4 horas a 45 minutos por pieza."
           }
         ]
       },
@@ -134,7 +134,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "4. Analisis de Competidores Automatico"
+            "text": "4. Análisis de Competidores Automático"
           }
         ]
       },
@@ -144,7 +144,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Cada semana, n8n extrae los ultimos posts de redes sociales y articulos de tus competidores, los envia a GPT-4 y recibe un informe: que temas estan cubriendo, que gaps existen y que oportunidades de posicionamiento no estan explotando. Inteligencia competitiva en piloto automatico."
+            "text": "Cada semana, n8n extrae los últimos posts de redes sociales y artículos de tus competidores, los envía a GPT-4 y recibe un informe: qué temas están cubriendo, qué gaps existen y qué oportunidades de posicionamiento no están explotando. Inteligencia competitiva en piloto automático."
           }
         ]
       },
@@ -154,7 +154,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "5. Personalizacion de Propuestas Comerciales"
+            "text": "5. Personalización de Propuestas Comerciales"
           }
         ]
       },
@@ -164,7 +164,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Cuando un prospecto agenda una llamada de ventas, n8n investiga su empresa usando LinkedIn, la web y noticias recientes, y le pasa el contexto a GPT-4. El modelo genera una propuesta personalizada con los pain points especificos de esa empresa antes de que la reunion empiece. Cierres de venta mas altos, propuestas en minutos."
+            "text": "Cuando un prospecto agenda una llamada de ventas, n8n investiga su empresa usando LinkedIn, la web y noticias recientes, y le pasa el contexto a GPT-4. El modelo genera una propuesta personalizada con los pain points específicos de esa empresa antes de que la reunión empiece. Cierres de venta más altos, propuestas en minutos."
           }
         ]
       },
@@ -174,7 +174,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "6. Moderacion de Comunidad"
+            "text": "6. Moderación de Comunidad"
           }
         ]
       },
@@ -194,7 +194,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "7. Generacion de Reportes Ejecutivos"
+            "text": "7. Generación de Reportes Ejecutivos"
           }
         ]
       },
@@ -204,7 +204,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Conecta tus fuentes de datos (Google Analytics, Stripe, CRM) a GPT-4 via n8n. Cada semana o mes, el sistema genera automaticamente un reporte ejecutivo en lenguaje natural: que funciono, que no funciono, que deberian priorizar la proxima semana. Decisiones mas rapidas basadas en datos reales."
+            "text": "Conecta tus fuentes de datos (Google Analytics, Stripe, CRM) a GPT-4 vía n8n. Cada semana o mes, el sistema genera automáticamente un reporte ejecutivo en lenguaje natural: qué funcionó, qué no funcionó, qué deberían priorizar la próxima semana. Decisiones más rápidas basadas en datos reales."
           }
         ]
       },
@@ -214,7 +214,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Como Implementarlo sin Ser Tecnico"
+            "text": "Cómo Implementarlo sin Ser Técnico"
           }
         ]
       },
@@ -224,7 +224,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "La barrera de entrada es mas baja de lo que parece. n8n tiene nodos nativos para OpenAI que no requieren codigo. El flujo basico es: trigger, nodo OpenAI con tu prompt, accion con la respuesta. La clave esta en el diseno del prompt: cuanto mas contexto especifico de tu negocio incluyas, mas precisas y utiles seran las respuestas."
+            "text": "La barrera de entrada es más baja de lo que parece. n8n tiene nodos nativos para OpenAI que no requieren código. El flujo básico es: trigger, nodo OpenAI con tu prompt, acción con la respuesta. La clave está en el diseño del prompt: cuanto más contexto específico de tu negocio incluyas, más precisas y útiles serán las respuestas."
           }
         ]
       },
@@ -234,7 +234,7 @@
         "children": [
           {
             "_type": "span",
-            "text": "Mi recomendacion: empieza con el flujo de calificacion de leads o el de soporte. Son los que tienen ROI mas rapido y mas claro. Una vez que veas como funciona, el resto de implementaciones se vuelven obvias."
+            "text": "Mi recomendación: empieza con el flujo de calificación de leads o el de soporte. Son los que tienen ROI más rápido y más claro. Una vez que veas cómo funciona, el resto de implementaciones se vuelven obvias."
           }
         ]
       }
