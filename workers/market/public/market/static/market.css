@@ -111,6 +111,7 @@
 .mk-links form { display: inline; }
 .mk-links > a.mk-pill-link {
 	color: var(--color-on-accent); background: var(--color-accent); padding: 8px 16px; border-radius: 999px; font-weight: 600;
+	white-space: nowrap; /* «My purchases» se partía en dos líneas en el celular */
 }
 .mk-links > a.mk-pill-link::after { display: none; }
 .mk-links > a.mk-pill-link:hover { color: var(--color-on-accent); background: var(--color-accent-hover); }
@@ -140,7 +141,15 @@
 	.mk-hide-sm { display: none !important; }
 	.mk-menu { display: block; }
 	.mk-links { gap: var(--spacing-3); }
+	.mk-links > a.mk-pill-link { padding: 7px 12px; }
 }
+@media (max-width: 360px) {
+	.mk-links { gap: var(--spacing-2); }
+	.mk-theme { width: 34px; height: 34px; }
+	.mk-links > a.mk-pill-link { padding: 6px 10px; font-size: 0.8rem; }
+}
+/* En 340 px o menos la etiqueta «Market» no cabe junto a los botones; el logo ya identifica la tienda. */
+@media (max-width: 340px) { .mk-brand-tag { display: none; } }
 
 /* ── Estructura ── */
 .mk-main { min-height: calc(100vh - var(--nav-height) - 260px); padding-block: 0 var(--spacing-16); }
