@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import Turnstile from "../Turnstile.astro";
 import { getLangFromUrl, useTranslations } from "../../i18n/locales";
 
 const locale = getLangFromUrl(Astro.url);
@@ -13,15 +14,17 @@ const description = locale === "en"
 	: "Habla con Tony Ciencia. Agenda una llamada gratuita o escríbenos directamente para automatizar tu negocio con IA.";
 
 // Resultado del envío: el formulario va al Worker del market (POST /market/contacto, workers/market/src/routes/contact.ts),
-// que manda el correo con su outbox y vuelve aquí con ?enviado=1, ?datos=1 o ?error=1.
+// que manda el correo con su outbox y vuelve aquí con ?enviado=1, ?datos=1, ?verificacion=1 (Turnstile) o ?error=1.
 const q = Astro.url.searchParams;
 const notice = q.has("enviado")
 	? { ok: true, text: locale === "en" ? "Message sent. We will reply to your email soon." : "Mensaje enviado. Te responderemos a tu correo pronto." }
 	: q.has("datos")
 		? { ok: false, text: locale === "en" ? "Please check your name, email and message and try again." : "Revisa tu nombre, tu correo y el mensaje, e inténtalo de nuevo." }
-		: q.has("error")
-			? { ok: false, text: locale === "en" ? "We couldn't send your message. Please write to business@tonyciencia.com." : "No pudimos enviar tu mensaje. Escríbenos a business@tonyciencia.com." }
-			: null;
+		: q.has("verificacion")
+			? { ok: false, text: locale === "en" ? "Please complete the anti-bot check and try again." : "Completa la verificación anti-bots e inténtalo de nuevo." }
+			: q.has("error")
+				? { ok: false, text: locale === "en" ? "We couldn't send your message. Please write to business@tonyciencia.com." : "No pudimos enviar tu mensaje. Escríbenos a business@tonyciencia.com." }
+				: null;
 ---
 
 <Base title={title} description={description}>
@@ -81,6 +84,7 @@ const notice = q.has("enviado")
 						<label for="message" class="form-label">{t("contact.form.message")}</label>
 						<textarea id="message" name="message" class="form-input form-textarea" placeholder={t("contact.form.messagePlaceholder")} rows="5" required minlength="5" maxlength="5000"></textarea>
 					</div>
+					<Turnstile action="contact" locale={locale} />
 					<button type="submit" class="btn-submit">
 						{t("contact.form.submit")}
 						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

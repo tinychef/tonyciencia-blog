@@ -22,6 +22,8 @@ export const RATE_RULES = {
 	waitlist: { name: "waitlist-ip", limit: 10, windowSeconds: 600 },
 	review: { name: "review-user", limit: 10, windowSeconds: 600 },
 	contact: { name: "contact-ip", limit: 5, windowSeconds: 600 },
+	/** Tope global de correos de contacto por día (frena una botnet que rota IPs aunque pase los demás filtros). */
+	contactGlobal: { name: "contact-global", limit: 40, windowSeconds: 86_400 },
 	newsletter: { name: "newsletter-ip", limit: 10, windowSeconds: 600 },
 } satisfies Record<string, RateRule>;
 

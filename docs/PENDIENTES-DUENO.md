@@ -27,6 +27,9 @@ Actualizado: 2026-11-04 (con el informe de la extensión del 2026-11-03).
    API Key de Cloudflare y borrar los secretos R2_* del Worker si existen.
 
 ## Esta semana
+0. **Anti-spam del formulario (bot «RobertGab», 2026-11-09):** el PR deja listas las defensas. La heurística y el tope
+   de 40 correos al día funcionan solas al desplegar. Para que Turnstile funcione hace falta crear el widget en
+   Cloudflare, publicar la sitekey y después guardar el secreto, en ese orden (`docs/SEGURIDAD-CONTACTO.md`).
 3. **Search Console:** hacia el 2026-11-10, revisar cómo va la validación del grupo «No encontrada (404)» (iniciada el
    2026-11-02; quedaban 23 URL, casi todas viejas de WordPress que ahora dan 301 o 410).
 4. **Correo de prueba del formulario de contacto:** confirmar que llegó «[Contacto web] Otro — Prueba automatica

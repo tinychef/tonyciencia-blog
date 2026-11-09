@@ -49,6 +49,10 @@ export interface Config {
 	bookingUrl: string | null;
 	/** Contenedor de Google Tag Manager validado ("GTM-…") o null (apagado). */
 	gtmId: string | null;
+	/** Secreto de Turnstile (live). null en live = Turnstile apagado (se avisa en los logs). */
+	turnstileSecret: string | null;
+	/** Hosts aceptados en la respuesta de siteverify. */
+	turnstileHostnames: string[];
 }
 
 /** Formato de un ID de contenedor de Google Tag Manager. */
@@ -180,6 +184,19 @@ export function loadConfig(env: Env): BootResult {
 	const gtmId = GTM_ID_RE.test(gtmRaw) ? gtmRaw : null;
 	if (gtmRaw && !gtmId) console.warn('[market] GTM_ID no tiene el formato "GTM-XXXXXXX": se ignora (GTM queda apagado).');
 
+	const turnstileSecret = env.TURNSTILE_SECRET?.trim() || null;
+	const localHosts = new Set(["localhost", "127.0.0.1"]);
+	let turnstileHostnames = (env.TURNSTILE_HOSTNAMES ?? "")
+		.split(",")
+		.map((s) => s.trim().toLowerCase())
+		.filter(Boolean);
+	if (turnstileHostnames.length === 0 && siteHostname) turnstileHostnames = [siteHostname.toLowerCase()];
+	if (mode === "live") {
+		if (turnstileHostnames.some((h) => localHosts.has(h))) console.warn("[market] TURNSTILE_HOSTNAMES: en live se ignoran localhost y 127.0.0.1.");
+		turnstileHostnames = turnstileHostnames.filter((h) => !localHosts.has(h));
+		if (!turnstileSecret) console.warn("[market] Falta TURNSTILE_SECRET: los formularios del blog no exigen Turnstile (solo filtros y límites).");
+	}
+
 	if (errors.length > 0 || !emailProvider) return { ok: false, errors };
 
 
@@ -214,6 +231,8 @@ export function loadConfig(env: Env): BootResult {
 			welcomePercent: intVar(env.WELCOME_COUPON_PERCENT, 10, 1, 100),
 			bookingUrl,
 			gtmId,
+			turnstileSecret: mode === "live" ? turnstileSecret : null,
+			turnstileHostnames,
 		},
 	};
 }

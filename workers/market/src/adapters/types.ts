@@ -165,3 +165,12 @@ export class EmailSendError extends Error {
 		super(message);
 	}
 }
+
+/** Resultado de verificar un token de Cloudflare Turnstile en el servidor. */
+export type TurnstileResult = { ok: true } | { ok: false; reason: string };
+
+/** Verifica el token de Turnstile que manda un formulario del blog (contacto, boletín). */
+export interface TurnstileVerifier {
+	readonly name: "mock" | "cloudflare";
+	verify(token: unknown, expectedAction: string, remoteIp: string | null): Promise<TurnstileResult>;
+}

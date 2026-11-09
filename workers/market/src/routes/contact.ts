@@ -1,6 +1,7 @@
 import type { Hono } from "hono";
-import { clientIp, deps, type AppEnv } from "../context";
+import { clientIp, deps, type AppEnv, type Ctx } from "../context";
 import { hit, RATE_RULES } from "../lib/ratelimit";
+import { spamReason } from "../lib/spam";
 import { checkOrigin } from "../lib/session";
 import { esc } from "../services/email-templates";
 import { outboxInsert, sendOne } from "../services/outbox";
@@ -11,7 +12,9 @@ import { outboxInsert, sendOne } from "../services/outbox";
  * mismo envío falla con E_SENDER_DOMAIN_NOT_AVAILABLE. Mismo origen (tonyciencia.com), así que el formulario del blog
  * hace POST aquí y vuelve a /contacto con el resultado.
  *
- * Defensas: Origin del sitio, campo trampa, límites de longitud y 5 envíos por IP cada 10 minutos.
+ * Defensas, en orden: Origin del sitio, campo trampa, límites de longitud, Cloudflare Turnstile (campo
+ * cf-turnstile-response, acción "contact"), filtros de contenido (src/lib/spam.ts), 5 envíos por IP cada 10 minutos y
+ * un tope global diario. Lo que cae en el campo trampa o en los filtros se responde como enviado (el bot no aprende nada).
  */
 const SUBJECTS: Record<string, string> = {
 	automatizacion: "Automatización con IA",
@@ -24,12 +27,22 @@ const EMAIL_RE = /^[^\s@<>"]{1,64}@[^\s@<>"]{1,190}\.[A-Za-z]{2,24}$/;
 const line = (v: unknown, max: number) =>
 	typeof v === "string" ? v.replace(/[\r\n\t]+/g, " ").trim().slice(0, max) : "";
 
+/** Verifica Turnstile si está configurado. Sin verificador (live sin TURNSTILE_SECRET) deja pasar: lo avisa loadConfig. */
+async function turnstileOk(c: Ctx, token: unknown, action: "contact" | "newsletter"): Promise<boolean> {
+	const verifier = c.get("adapters").turnstile;
+	if (!verifier) return true;
+	const ip = clientIp(c);
+	const result = await verifier.verify(token, action, ip === "local" ? null : ip);
+	if (!result.ok) console.warn(`[${action}] Turnstile rechazó el envío: ${result.reason}`);
+	return result.ok;
+}
+
 export function registerContact(app: Hono<AppEnv>) {
 	app.post("/market/contacto", async (c) => {
 		const form = await c.req.formData().catch(() => null);
 		const lang = form?.get("lang") === "en" ? "en" : "es";
 		const back = lang === "en" ? "/en/contact" : "/contacto";
-		const done = (state: "enviado" | "error" | "datos") => c.redirect(`${back}?${state}=1#formulario`, 303);
+		const done = (state: "enviado" | "error" | "datos" | "verificacion") => c.redirect(`${back}?${state}=1#formulario`, 303);
 
 		if (!form || !checkOrigin(c)) return done("error");
 		// Campo trampa: las personas no lo ven; los bots lo llenan. Se responde como si se hubiera enviado.
@@ -42,8 +55,19 @@ export function registerContact(app: Hono<AppEnv>) {
 		const message = typeof rawMessage === "string" ? rawMessage.trim().slice(0, 5000) : "";
 		if (!name || !EMAIL_RE.test(email) || message.length < 5) return done("datos");
 
+		if (!(await turnstileOk(c, form.get("cf-turnstile-response"), "contact"))) return done("verificacion");
+		const spam = spamReason({ name, email, message });
+		if (spam) {
+			console.warn(`[contacto] descartado por filtro: ${spam}`);
+			return done("enviado");
+		}
+
 		const db = c.env.MARKET_DB;
 		if (!(await hit(db, RATE_RULES.contact, clientIp(c)))) return done("error");
+		if (!(await hit(db, RATE_RULES.contactGlobal, "global"))) {
+			console.warn("[contacto] tope global diario alcanzado: no se envía");
+			return done("error");
+		}
 
 		const config = c.get("config");
 		const id = crypto.randomUUID();
@@ -71,7 +95,8 @@ export function registerContact(app: Hono<AppEnv>) {
 
 /**
  * Boletín del blog: el formulario «Obtén recursos gratuitos» (src/components/EmailCapture.astro) envía JSON aquí.
- * Mismo origen, campo trampa, 10 altas por IP cada 10 minutos; el correo se guarda una vez (tabla newsletter).
+ * Mismo origen, campo trampa, Turnstile (acción "newsletter"), 10 altas por IP cada 10 minutos; el correo se guarda
+ * una vez (tabla newsletter).
  */
 const SOURCE_RE = /^[a-z0-9-]{1,32}$/;
 
@@ -83,6 +108,7 @@ export function registerNewsletter(app: Hono<AppEnv>) {
 		if (line(body.website, 200)) return c.json({ ok: true });
 		const email = line(body.email, 254).toLowerCase();
 		if (!EMAIL_RE.test(email)) return c.json({ ok: false, error: "invalid_email" }, 400);
+		if (!(await turnstileOk(c, body["cf-turnstile-response"], "newsletter"))) return c.json({ ok: false, error: "turnstile" }, 403);
 		const db = c.env.MARKET_DB;
 		if (!(await hit(db, RATE_RULES.newsletter, clientIp(c)))) return c.json({ ok: false, error: "rate_limited" }, 429);
 		const source = typeof body.source === "string" && SOURCE_RE.test(body.source) ? body.source : "home";
