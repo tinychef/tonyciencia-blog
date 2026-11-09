@@ -6,4 +6,4 @@
  *
  * Vacía = el widget no se dibuja (y el market, sin secreto, no lo exige).
  */
-export const TURNSTILE_SITEKEY = "";
+export const TURNSTILE_SITEKEY = "0x4AAAAAAF6ZBbUPpS35xc4I";
