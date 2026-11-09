@@ -69,6 +69,7 @@ pnpm post:check <archivo> # revisión editorial de un post JSON
 
 ### Formulario de contacto
 - `/contacto` y `/en/contact` envían a `POST /market/contacto` (Worker del market, `workers/market/src/routes/contact.ts`), que manda el correo con su outbox a `ADMIN_COPY_EMAIL`. Desde el Worker del blog, Cloudflare Email Sending responde `E_SENDER_DOMAIN_NOT_AVAILABLE`.
+- **Anti-spam (2026-11-09, tras el bot «RobertGab»)**: contacto y boletín usan Cloudflare Turnstile (sitekey en `src/data/turnstile.ts`, componente `src/components/Turnstile.astro`, secreto `TURNSTILE_SECRET` solo en el Worker del market). Además hay una heurística de firmas de bot (`workers/market/src/lib/spam.ts`, descarte silencioso), el límite por IP y un tope global de 40 mensajes al día. Para activarlo, primero se publica la sitekey y después se guarda el secreto; ver `docs/SEGURIDAD-CONTACTO.md`.
 
 ### Favicon
 - Set completo en `public/` (`favicon.ico`, `favicon-16x16.png`, `favicon-32x32.png`, `apple-touch-icon.png`, `icon-192.png`, `icon-512.png`, `site.webmanifest`), generado desde `src/assets/brand/logo-tonyciencia-negro-source.png`

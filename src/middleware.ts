@@ -40,12 +40,12 @@ function cspFor(nonce: string): string {
 	const google = "https://www.googletagmanager.com https://*.googletagmanager.com https://www.google-analytics.com";
 	return [
 		"default-src 'self'",
-		`script-src 'self' 'nonce-${nonce}' ${google} https://connect.facebook.net`,
+		`script-src 'self' 'nonce-${nonce}' ${google} https://connect.facebook.net https://challenges.cloudflare.com`,
 		"style-src 'self' 'unsafe-inline'",
 		"img-src 'self' data: blob: https:",
 		"font-src 'self' data:",
 		"connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://www.google.com https://stats.g.doubleclick.net https://www.facebook.com https://connect.facebook.net https://resend-contact-worker.antonioduquejuliao.workers.dev",
-		"frame-src https://www.youtube-nocookie.com https://www.youtube.com https://www.googletagmanager.com",
+		"frame-src https://www.youtube-nocookie.com https://www.youtube.com https://www.googletagmanager.com https://challenges.cloudflare.com",
 		"media-src 'self' https:",
 		"form-action 'self'",
 		"frame-ancestors 'self'",

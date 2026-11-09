@@ -1,0 +1,40 @@
+---
+/**
+ * Widget de Cloudflare Turnstile dentro de un <form>: agrega el campo oculto `cf-turnstile-response`, que el Worker
+ * del market verifica con siteverify (acción y host). Modo «interaction-only»: casi nadie ve nada; solo aparece si
+ * Cloudflare necesita que la persona haga clic. Sin sitekey (src/data/turnstile.ts) no se dibuja.
+ */
+import { TURNSTILE_SITEKEY } from "../data/turnstile";
+
+interface Props {
+	action: "contact" | "newsletter";
+	locale?: "es" | "en";
+}
+
+const { action, locale = "es" } = Astro.props;
+---
+
+{TURNSTILE_SITEKEY && (
+	<>
+		<div
+			class="cf-turnstile"
+			data-sitekey={TURNSTILE_SITEKEY}
+			data-action={action}
+			data-language={locale}
+			data-appearance="interaction-only"
+			data-size="flexible"
+		></div>
+		<script is:inline nonce={Astro.locals.cspNonce}>
+			(function () {
+				// Una sola carga de api.js aunque haya varios formularios en la página.
+				if (document.querySelector("script[data-tc-turnstile]")) return;
+				var s = document.createElement("script");
+				s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
+				s.async = true;
+				s.defer = true;
+				s.setAttribute("data-tc-turnstile", "");
+				document.head.appendChild(s);
+			})();
+		</script>
+	</>
+)}

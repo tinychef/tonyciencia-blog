@@ -9,7 +9,9 @@ import { MockPaymentProvider } from "./payments/mock";
 import { StripePaymentProvider } from "./payments/stripe";
 import { MockFileStorage } from "./storage/mock";
 import { R2FileStorage } from "./storage/r2";
-import type { AuthProvider, EmailSender, FileStorage, PaymentProvider } from "./types";
+import { CloudflareTurnstileVerifier } from "./turnstile/cloudflare";
+import { MockTurnstileVerifier } from "./turnstile/mock";
+import type { AuthProvider, EmailSender, FileStorage, PaymentProvider, TurnstileVerifier } from "./types";
 
 export interface Adapters {
 	auth: AuthProvider;
@@ -18,6 +20,8 @@ export interface Adapters {
 	email: EmailSender;
 	/** Proveedor de respaldo (solo live, si EMAIL_FALLBACK_PROVIDER=resend). */
 	emailFallback: EmailSender | null;
+	/** Verificador de Turnstile. null = live sin TURNSTILE_SECRET (los formularios no lo exigen). */
+	turnstile: TurnstileVerifier | null;
 }
 
 /** Único lugar donde MODE decide qué implementación se usa. */
@@ -30,6 +34,7 @@ export function createAdapters(config: Config, env: Env): Adapters {
 			storage: new MockFileStorage(env.MARKET_DB, config.sessionSecret, config.origin),
 			email: new MockEmailSender(env.MARKET_DB),
 			emailFallback: null,
+			turnstile: new MockTurnstileVerifier(),
 		};
 	}
 	const email =
@@ -46,5 +51,6 @@ export function createAdapters(config: Config, env: Env): Adapters {
 		email,
 		emailFallback:
 			config.emailFallback === "resend" && config.emailProvider !== "resend" ? new ResendEmailSender(config.resendApiKey!) : null,
+		turnstile: config.turnstileSecret ? new CloudflareTurnstileVerifier(config.turnstileSecret, new Set(config.turnstileHostnames)) : null,
 	};
 }

@@ -31,6 +31,11 @@ export interface Env {
 	 * carga gtm.js.
 	 */
 	GTM_ID?: string;
+	/**
+	 * Hosts desde los que vale un token de Turnstile (separados por coma). Vacío = el host de SITE_URL. En live nunca
+	 * cuentan localhost ni 127.0.0.1.
+	 */
+	TURNSTILE_HOSTNAMES?: string;
 
 	// ── Secretos ──
 	STRIPE_SECRET_KEY?: string;
@@ -43,6 +48,8 @@ export interface Env {
 	LOGIN_ONLY_ADMIN?: string;
 	ADMIN_COPY_EMAIL?: string;
 	RESEND_API_KEY?: string;
+	/** Clave secreta del widget de Cloudflare Turnstile (formularios de contacto y boletín del blog). */
+	TURNSTILE_SECRET?: string;
 
 	// ── Bindings ──
 	MARKET_DB: D1Database;

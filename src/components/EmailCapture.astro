@@ -1,4 +1,6 @@
 ---
+import Turnstile from "./Turnstile.astro";
+
 interface Props {
 	locale?: "es" | "en";
 	title?: string;
@@ -16,6 +18,7 @@ const COPY = {
 		sending: "Enviando...",
 		done: "Listo. Te escribiremos cuando publiquemos recursos nuevos.",
 		error: "Algo falló. Intenta de nuevo en un momento.",
+		verify: "Completa la verificación anti-bots e inténtalo de nuevo.",
 	},
 	en: {
 		title: "Get free resources",
@@ -26,6 +29,7 @@ const COPY = {
 		sending: "Sending...",
 		done: "Done. We'll email you when we publish new resources.",
 		error: "Something went wrong. Please try again in a moment.",
+		verify: "Please complete the anti-bot check and try again.",
 	},
 };
 
@@ -45,18 +49,23 @@ const description = Astro.props.description ?? copy.description;
 		data-sending={copy.sending}
 		data-done={copy.done}
 		data-error={copy.error}
+		data-verify={copy.verify}
 		data-lang={locale}
 	>
 		<input type="text" name="website" class="capture-trap" tabindex="-1" autocomplete="off" aria-hidden="true" />
 		<input type="email" name="email" required placeholder={copy.placeholder} aria-label={copy.label} class="capture-input" />
 		<button type="submit" class="tc-btn tc-btn--primary capture-submit">{copy.submit}</button>
+		<Turnstile action="newsletter" locale={locale} />
 	</form>
 	<p class="capture-status" role="status" aria-live="polite"></p>
 </div>
 
 <script>
 	// El Worker del market guarda la suscripción (POST /market/boletin, mismo origen; workers/market/src/routes/contact.ts).
+	// Con Turnstile activo exige el token `cf-turnstile-response` (403 {error:"turnstile"} si falta o no vale).
 	const CAPTURE_ENDPOINT = "/market/boletin";
+
+	type TurnstileApi = { reset: (el: Element) => void };
 
 	document.querySelectorAll<HTMLFormElement>(".capture-form").forEach((form) => {
 		form.addEventListener("submit", async (e) => {
@@ -79,15 +88,24 @@ const description = Astro.props.description ?? copy.description;
 						source: form.dataset.source ?? "home",
 						lang: form.dataset.lang ?? "es",
 						website: form.querySelector<HTMLInputElement>(".capture-trap")?.value ?? "",
+						"cf-turnstile-response": String(new FormData(form).get("cf-turnstile-response") ?? ""),
 					}),
 				});
+				if (res.status === 403) {
+					const body = (await res.json().catch(() => null)) as { error?: string } | null;
+					if (body?.error === "turnstile") throw new Error("turnstile");
+				}
 				if (!res.ok) throw new Error("request_failed");
 				status.textContent = form.dataset.done ?? "";
 				form.reset();
-			} catch {
-				status.textContent = form.dataset.error ?? "";
+			} catch (err) {
+				status.textContent = (err instanceof Error && err.message === "turnstile" ? form.dataset.verify : form.dataset.error) ?? "";
 			} finally {
 				submitBtn.disabled = false;
+				// Cada token de Turnstile sirve una sola vez: se pide otro para el siguiente intento.
+				const widget = form.querySelector(".cf-turnstile");
+				const ts = (window as unknown as { turnstile?: TurnstileApi }).turnstile;
+				if (widget && ts) ts.reset(widget);
 			}
 		});
 	});
@@ -120,6 +138,7 @@ const description = Astro.props.description ?? copy.description;
 
 	.capture-form {
 		display: flex;
+		flex-wrap: wrap;
 		gap: var(--spacing-2);
 		width: 100%;
 		margin-top: var(--spacing-3);
@@ -153,6 +172,11 @@ const description = Astro.props.description ?? copy.description;
 		margin: 0;
 		color: var(--color-text-secondary);
 		font-size: var(--font-size-xs);
+	}
+
+	/* El widget de Turnstile (si aparece) va en su propia fila, debajo del campo y el botón. */
+	.capture-form :global(.cf-turnstile) {
+		flex-basis: 100%;
 	}
 
 	@media (max-width: 480px) {
