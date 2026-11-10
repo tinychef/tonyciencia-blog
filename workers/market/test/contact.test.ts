@@ -2,7 +2,7 @@ import { env } from "cloudflare:test";
 import { describe, expect, it } from "vitest";
 import { MOCK_TURNSTILE_FAIL } from "../src/adapters/turnstile/mock";
 import { hit, RATE_RULES } from "../src/lib/ratelimit";
-import { spamReason } from "../src/lib/spam";
+import { AI_TRAP_FIELD, spamReason, trapReason } from "../src/lib/spam";
 import { BASE, call, count, uid } from "./helpers";
 
 /** Token de Turnstile que la maqueta acepta (cualquiera salvo MOCK_TURNSTILE_FAIL). */
@@ -13,7 +13,7 @@ function send(data: Record<string, string>, origin = BASE, ip = `10.7.${Math.flo
 	return call("/market/contacto", {
 		method: "POST",
 		headers: { origin, "content-type": "application/x-www-form-urlencoded", "cf-connecting-ip": ip },
-		body: new URLSearchParams({ "cf-turnstile-response": TOKEN, ...data }),
+		body: new URLSearchParams({ "cf-turnstile-response": TOKEN, elapsed: "9000", ...data }),
 	});
 }
 
@@ -80,6 +80,31 @@ describe("formulario de contacto del blog (POST /market/contacto)", () => {
 		expect(spamReason({ name: "Ana", email: "a@example.com", message: "hi, I wanted to know your price" })).toBeNull();
 	});
 
+	it("trampas: agente de IA, envío en menos de 3 s o sin pasar por la página → callejón sin salida", async () => {
+		const before = await contactCount();
+		for (const data of <Record<string, string>[]>[
+			{ name: "Ana", email: "ia@example.com", message: `hola ${uid()}`, [AI_TRAP_FIELD]: "AGENTE-IA" },
+			{ name: "Ana", email: "rapido@example.com", message: `hola ${uid()}`, elapsed: "800" },
+			{ name: "Ana", email: "directo@example.com", message: `hola ${uid()}`, elapsed: "" },
+			{ name: "Ana", email: "raro@example.com", message: `hola ${uid()}`, elapsed: "9e9" },
+		]) {
+			expect((await send(data)).headers.get("location")).toBe("/contacto?enviado=1#formulario");
+		}
+		expect(await contactCount()).toBe(before);
+		await send({ name: "Ana", email: "ana@example.com", message: `Hola ${uid()}, quiero información`, elapsed: "3000", [AI_TRAP_FIELD]: "  " });
+		expect(await contactCount()).toBe(before + 1);
+	});
+
+	it("trapReason: motivos y límites por formulario", () => {
+		expect(trapReason("contact", { aiTrap: null, elapsed: "4000" })).toBeNull();
+		expect(trapReason("contact", { aiTrap: "x", elapsed: "4000" })).toBe("ai-trap");
+		expect(trapReason("contact", { aiTrap: null, elapsed: "2999" })).toBe("too-fast");
+		expect(trapReason("contact", { aiTrap: null, elapsed: undefined })).toBe("no-elapsed");
+		expect(trapReason("contact", { aiTrap: null, elapsed: "-5" })).toBe("no-elapsed");
+		expect(trapReason("newsletter", { aiTrap: undefined, elapsed: 1600 })).toBeNull();
+		expect(trapReason("newsletter", { aiTrap: undefined, elapsed: 900 })).toBe("too-fast");
+	});
+
 	// Último del archivo a propósito: agota el tope global del día.
 	it("con el tope global diario agotado no se envía nada", async () => {
 		for (let i = 0; i < RATE_RULES.contactGlobal.limit; i++) await hit(env.MARKET_DB, RATE_RULES.contactGlobal, "global");
@@ -94,7 +119,7 @@ describe("boletín del blog (POST /market/boletin)", () => {
 		call("/market/boletin", {
 			method: "POST",
 			headers: { origin, "content-type": "application/json", "cf-connecting-ip": ip },
-			body: JSON.stringify({ "cf-turnstile-response": TOKEN, ...body }),
+			body: JSON.stringify({ "cf-turnstile-response": TOKEN, elapsed: 6000, ...body }),
 		});
 
 	it("guarda el correo una vez, con origen e idioma", async () => {
@@ -111,6 +136,15 @@ describe("boletín del blog (POST /market/boletin)", () => {
 		const email = `bot-${uid()}@example.com`;
 		expect((await post({ email, website: "spam" })).status).toBe(200);
 		expect(await count("SELECT COUNT(*) AS n FROM newsletter WHERE email = ?1", email)).toBe(0);
+	});
+
+	it("trampas del boletín: responde ok pero no guarda", async () => {
+		for (const extra of [{ [AI_TRAP_FIELD]: "AGENTE-IA" }, { elapsed: 200 }, { elapsed: null }]) {
+			const email = `trampa-${uid()}@example.com`;
+			const res = await post({ email, ...extra });
+			expect(res.status).toBe(200);
+			expect(await count("SELECT COUNT(*) AS n FROM newsletter WHERE email = ?1", email)).toBe(0);
+		}
 	});
 
 	it("sin Turnstile válido responde 403 y no guarda el correo", async () => {

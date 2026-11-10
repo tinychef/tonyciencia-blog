@@ -1,7 +1,7 @@
 import type { Hono } from "hono";
 import { clientIp, deps, type AppEnv, type Ctx } from "../context";
 import { hit, RATE_RULES } from "../lib/ratelimit";
-import { spamReason } from "../lib/spam";
+import { AI_TRAP_FIELD, spamReason, trapReason } from "../lib/spam";
 import { checkOrigin } from "../lib/session";
 import { esc } from "../services/email-templates";
 import { outboxInsert, sendOne } from "../services/outbox";
@@ -13,7 +13,7 @@ import { outboxInsert, sendOne } from "../services/outbox";
  * hace POST aquí y vuelve a /contacto con el resultado.
  *
  * Defensas, en orden: Origin del sitio, campo trampa, límites de longitud, Cloudflare Turnstile (campo
- * cf-turnstile-response, acción "contact"), filtros de contenido (src/lib/spam.ts), 5 envíos por IP cada 10 minutos y
+ * cf-turnstile-response, acción "contact"), trampas de tiempo y de agente de IA, filtros de contenido (src/lib/spam.ts), 5 envíos por IP cada 10 minutos y
  * un tope global diario. Lo que cae en el campo trampa o en los filtros se responde como enviado (el bot no aprende nada).
  */
 const SUBJECTS: Record<string, string> = {
@@ -56,6 +56,12 @@ export function registerContact(app: Hono<AppEnv>) {
 		if (!name || !EMAIL_RE.test(email) || message.length < 5) return done("datos");
 
 		if (!(await turnstileOk(c, form.get("cf-turnstile-response"), "contact"))) return done("verificacion");
+		// Trampas de comportamiento (agente de IA, envío instantáneo o sin pasar por la página): callejón sin salida.
+		const trap = trapReason("contact", { aiTrap: form.get(AI_TRAP_FIELD), elapsed: form.get("elapsed") });
+		if (trap) {
+			console.warn(`[contacto] descartado por trampa: ${trap}`);
+			return done("enviado");
+		}
 		const spam = spamReason({ name, email, message });
 		if (spam) {
 			console.warn(`[contacto] descartado por filtro: ${spam}`);
@@ -109,6 +115,11 @@ export function registerNewsletter(app: Hono<AppEnv>) {
 		const email = line(body.email, 254).toLowerCase();
 		if (!EMAIL_RE.test(email)) return c.json({ ok: false, error: "invalid_email" }, 400);
 		if (!(await turnstileOk(c, body["cf-turnstile-response"], "newsletter"))) return c.json({ ok: false, error: "turnstile" }, 403);
+		const trap = trapReason("newsletter", { aiTrap: body[AI_TRAP_FIELD], elapsed: body.elapsed });
+		if (trap) {
+			console.warn(`[boletin] descartado por trampa: ${trap}`);
+			return c.json({ ok: true });
+		}
 		const db = c.env.MARKET_DB;
 		if (!(await hit(db, RATE_RULES.newsletter, clientIp(c)))) return c.json({ ok: false, error: "rate_limited" }, 429);
 		const source = typeof body.source === "string" && SOURCE_RE.test(body.source) ? body.source : "home";
