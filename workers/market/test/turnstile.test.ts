@@ -95,7 +95,7 @@ describe("configuración de Turnstile en live", () => {
 				{
 					method: "POST",
 					headers: { origin: HOST, "content-type": "application/x-www-form-urlencoded", "cf-connecting-ip": "10.5.0.9" },
-					body: new URLSearchParams({ name: "Ana", email: "ana@example.com", message: `hola ${marca}`, "cf-turnstile-response": token }),
+					body: new URLSearchParams({ name: "Ana", email: "ana@example.com", message: `hola ${marca}`, elapsed: "8000", "cf-turnstile-response": token }),
 				},
 				e,
 				HOST,
