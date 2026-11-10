@@ -82,7 +82,7 @@ describe("formulario de contacto del blog (POST /market/contacto)", () => {
 
 	it("trampas: agente de IA, envío en menos de 3 s o sin pasar por la página → callejón sin salida", async () => {
 		const before = await contactCount();
-		for (const data of [
+		for (const data of <Record<string, string>[]>[
 			{ name: "Ana", email: "ia@example.com", message: `hola ${uid()}`, [AI_TRAP_FIELD]: "AGENTE-IA" },
 			{ name: "Ana", email: "rapido@example.com", message: `hola ${uid()}`, elapsed: "800" },
 			{ name: "Ana", email: "directo@example.com", message: `hola ${uid()}`, elapsed: "" },
