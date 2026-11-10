@@ -5,7 +5,7 @@
 > no aplique. Las indicaciones para la extensión de Chrome están en el historial de la sesión del 2026-11-01/03; si
 > hace falta, redáctalas de nuevo (siempre de solo lectura salvo el cambio pedido, y nunca pegando claves en el chat).
 
-Actualizado: 2026-11-04 (con el informe de la extensión del 2026-11-03).
+Actualizado: 2026-11-09 (anti-spam del formulario terminado).
 
 ## Urgente
 1. **Stripe — verificación vencida desde el 2026-10-31** (cuenta «Merkhify», la misma que cobra el market). Hoy los
@@ -27,9 +27,6 @@ Actualizado: 2026-11-04 (con el informe de la extensión del 2026-11-03).
    API Key de Cloudflare y borrar los secretos R2_* del Worker si existen.
 
 ## Esta semana
-0. **Anti-spam del formulario (bot «RobertGab», 2026-11-09):** el PR deja listas las defensas. La heurística y el tope
-   de 40 correos al día funcionan solas al desplegar. Para que Turnstile funcione hace falta crear el widget en
-   Cloudflare, publicar la sitekey y después guardar el secreto, en ese orden (`docs/SEGURIDAD-CONTACTO.md`).
 3. **Search Console:** hacia el 2026-11-10, revisar cómo va la validación del grupo «No encontrada (404)» (iniciada el
    2026-11-02; quedaban 23 URL, casi todas viejas de WordPress que ahora dan 301 o 410).
 4. **Correo de prueba del formulario de contacto:** confirmar que llegó «[Contacto web] Otro — Prueba automatica
@@ -52,6 +49,9 @@ Actualizado: 2026-11-04 (con el informe de la extensión del 2026-11-03).
     `tonyciencia-email-capture`: exportar primero su KV `LEADS` (correos del boletín de antes) y luego borrarlo.
 
 ## Hecho
+- 2026-11-09: anti-spam de contacto y boletín en producción (bot «RobertGab»): heurística, tope de 40 al día y
+  Turnstile activo (widget «tonyciencia.com formularios», secreto en el Worker del market). Confirmó que un envío real
+  le llega a Gmail. Detalles: `docs/SEGURIDAD-CONTACTO.md`.
 - 2026-11-03: confirmó que los enlaces de afiliado de ActiveCampaign y FocuSee son suyos (están en
   `content/affiliates/extra.json`) y que la experiencia en primera persona de los artículos de ActiveCampaign
   (Systeme.io + ActiveCampaign) es real: se dejan así.
