@@ -96,6 +96,16 @@
 				"empaquetar_distribucion.py"
 			],
 			"activate": true
+		},
+		{
+			"slug": "opus-fable-video-pro",
+			"repo": "tinychef/opus-fable-video-pro",
+			"localPath": "../../../opus-fable-video-pro",
+			"ref": "984c6cf6b76fbb8906b78f6ed08bdbaf52c81940",
+			"prefix": "opus-fable-video-pro/",
+			"fileName": "opus-fable-video-pro-3.0.zip",
+			"exclude": [],
+			"activate": true
 		}
 	]
 }

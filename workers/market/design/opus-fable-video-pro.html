@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Portadas · Opus-Fable Video Pro (en el ZIP: Code Video Studio V3)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Opus-Fable Video Pro (en el ZIP: Code Video Studio V3). Sistema v5, dirección A, como design/stick-sketch.html:
+   grafito #0d0d0f, Inter Tight, un solo verde #30d158, dolor → solución y logos arriba.
+   Todas las imágenes son fotogramas reales de las demos hechas con las skills del paquete (01 TIDES, 02 The Box,
+   03 Desert Bloom, 04 abejas; videos 1080p del dueño, 2026-11-16/17), sin recortes: 16:9 completo.
+   No se usan los videos «1-showreel…5-fight_fable-luego-opus» (720p, no corresponden a las demos de V3).
+   Nombre: «Opus» y «Fable» son modelos de Claude (Anthropic). El logo de Claude va SOLO en la fila de compatibilidad,
+   y la nota de cada portada dice que es un producto independiente, no oficial ni respaldado por Anthropic.
+   Tamaños pensados para la tarjeta en celular (≈360 px, escala 0,225): titular 136 px → 31 px, nombre 72 px → 16 px. */
+:root { --bg: #0d0d0f; --p1: #141417; --p2: #1b1b1f; --line: #2e2e33; --fg: #f5f5f7; --mut: #8e8e96; --dim: #6e6e76; --g: #30d158; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #333; }
+.frame { width: 1600px; height: 1000px; position: relative; overflow: hidden; background: var(--bg); color: var(--fg); font-family: "Inter Tight", system-ui, sans-serif; margin-bottom: 40px; }
+.mono { font-family: "JetBrains Mono", monospace; }
+.dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,.075) 1.6px, transparent 1.6px); background-size: 32px 32px; -webkit-mask: linear-gradient(90deg, transparent 30%, #000 75%); mask: linear-gradient(90deg, transparent 30%, #000 75%); }
+.glow { position: absolute; left: 250px; top: 470px; width: 1100px; height: 620px; border-radius: 50%; background: radial-gradient(closest-side, rgba(48,209,88,.18), rgba(48,209,88,0)); }
+
+/* ── Portadas ── */
+.top { position: absolute; left: 88px; right: 88px; top: 40px; height: 108px; display: flex; align-items: center; justify-content: space-between; }
+.name { font-size: 72px; line-height: 1; font-weight: 800; letter-spacing: -0.03em; word-spacing: 0.1em; white-space: nowrap; }
+.name u { text-decoration: underline; text-decoration-color: #30d158; text-decoration-thickness: 10px; text-underline-offset: 13px; text-decoration-skip-ink: none; }
+.logos { display: flex; align-items: center; gap: 16px; height: 104px; padding: 0 30px; border: 3px solid var(--line); border-radius: 24px; background: #17171a; }
+.logos img { display: block; width: 72px; height: 72px; flex: none; }
+.logos span { font-size: 46px; font-weight: 800; letter-spacing: -0.015em; white-space: nowrap; }
+.pain { position: absolute; left: 88px; top: 176px; font-size: 46px; line-height: 1.1; font-weight: 600; letter-spacing: -0.015em; color: var(--mut); white-space: nowrap; }
+.pain s { text-decoration-thickness: 5px; text-decoration-color: rgba(245,245,247,.55); }
+.pain b { color: var(--fg); font-weight: 700; }
+.h { position: absolute; left: 84px; top: 236px; font-size: 136px; line-height: 0.94; font-weight: 800; letter-spacing: -0.045em; white-space: nowrap; }
+.h b { font-weight: 800; color: var(--g); }
+.out { position: absolute; right: 88px; top: 398px; font-size: 40px; font-weight: 800; letter-spacing: -0.01em; white-space: nowrap; border: 4px solid var(--g); border-radius: 18px; padding: 8px 24px 11px; background: #13281a; }
+.tile { position: absolute; top: 538px; width: 458px; height: 261px; overflow: hidden; border: 4px solid var(--line); border-radius: 22px; background: #000; box-shadow: 0 30px 70px rgba(0,0,0,.6); }
+.pic { position: absolute; left: 0; top: 0; width: 450px; height: 253px; display: block; object-fit: cover; }
+.sprite { background-repeat: no-repeat; background-size: 700% 500%; }
+.cap { position: absolute; left: 12px; bottom: 12px; white-space: nowrap; font-size: 25px; font-weight: 700; letter-spacing: -0.01em; color: var(--fg); background: rgba(13,13,15,.88); border: 2px solid #3a3a40; border-radius: 10px; padding: 3px 13px 6px; }
+.more { position: absolute; left: 88px; right: 88px; top: 836px; font-size: 34px; font-weight: 700; letter-spacing: -0.01em; color: #c9c9cf; white-space: nowrap; }
+.more b { color: var(--g); font-weight: 800; }
+.note { position: absolute; right: 88px; bottom: 14px; font: 500 15px/1.35 "JetBrains Mono", monospace; color: var(--dim); text-align: right; white-space: nowrap; }
+
+/* ── Pantallas ── */
+.eyebrow { position: absolute; left: 88px; top: 72px; display: flex; align-items: center; gap: 14px; font: 600 18px "JetBrains Mono", monospace; text-transform: uppercase; letter-spacing: 0.16em; }
+.eyebrow i { width: 14px; height: 14px; background: var(--g); display: block; }
+.eyebrow span { color: var(--mut); font-weight: 500; }
+h2 { position: absolute; left: 84px; top: 118px; font-size: 80px; line-height: 0.98; font-weight: 800; letter-spacing: -0.04em; }
+h2 b { color: var(--g); font-weight: 800; }
+.lead { position: absolute; font-size: 24px; line-height: 1.45; color: #c4c4ca; }
+.foot { position: absolute; left: 88px; bottom: 30px; font: 500 15px/1.35 "JetBrains Mono", monospace; color: var(--dim); }
+
+/* Pantalla 1: las 7 skills */
+.s1 .lead { left: 900px; top: 132px; width: 610px; }
+.grid4 { position: absolute; left: 88px; top: 330px; display: grid; grid-template-columns: repeat(4, 341px); gap: 20px; }
+.card { border: 3px solid var(--line); border-radius: 18px; background: var(--p1); overflow: hidden; }
+.card img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.card div { padding: 14px 18px 18px; }
+.card b { display: block; font-size: 25px; font-weight: 800; letter-spacing: -0.01em; }
+.card code { display: block; margin-top: 4px; font: 600 15px "JetBrains Mono", monospace; color: var(--g); }
+.card p { margin-top: 8px; font-size: 18px; line-height: 1.38; color: #b4b4bb; }
+.grid3 { position: absolute; left: 88px; top: 720px; display: grid; grid-template-columns: repeat(3, 461px); gap: 20px; }
+.grid3 .card div { padding: 18px 22px; }
+
+/* Pantalla 2: cómo funciona y qué recibes */
+.steps { position: absolute; left: 88px; top: 300px; width: 640px; display: grid; gap: 18px; }
+.step { display: grid; grid-template-columns: 54px 1fr; gap: 18px; align-items: center; }
+.step .n { width: 54px; height: 54px; border-radius: 50%; border: 2px solid #3a3a40; display: grid; place-items: center; font: 700 20px "JetBrains Mono", monospace; }
+.step .n.ck { background: var(--g); border-color: var(--g); color: #0d0d0f; }
+.step b { display: block; font-size: 25px; font-weight: 700; letter-spacing: -0.01em; }
+.step span { display: block; margin-top: 2px; font-size: 18px; color: var(--mut); }
+.shot { position: absolute; left: 790px; top: 118px; width: 722px; border: 3px solid var(--line); border-radius: 20px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,.6); }
+.shot img { display: block; width: 100%; }
+.files { position: absolute; left: 790px; top: 548px; width: 722px; display: flex; flex-wrap: wrap; gap: 10px; }
+.file { border: 2px solid var(--line); border-radius: 8px; padding: 8px 12px; font: 500 17px "JetBrains Mono", monospace; color: #d0d0d6; background: var(--p1); }
+.file b { color: var(--g); font-weight: 700; }
+.req { position: absolute; left: 88px; right: 88px; top: 770px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.req > div { border: 3px solid var(--line); border-radius: 18px; background: var(--p1); padding: 18px 22px; }
+.req .k { font: 600 14px "JetBrains Mono", monospace; text-transform: uppercase; letter-spacing: 0.14em; color: var(--g); }
+.req p { margin-top: 8px; font-size: 19px; line-height: 1.42; color: #d4d4da; }
+</style>
+</head>
+<body>
+
+<!-- portadas: inicio (las genera el script de abajo: ES y EN, fija y animada) -->
+<div id="covers"></div>
+<script>
+(() => {
+	const T = {
+		es: {
+			pain: "<s>Animar a mano.</s> <s>Pagar un estudio.</s> <b>Claude lo hace en código.</b>",
+			h: "Tu video en <b>4K</b>,<br>escrito en código.",
+			out: "MP4 · 30 fps · música", outTop: 262,
+			caps: ["Secuencia de títulos", "Paisaje 2.5D", "Explainer con personajes"],
+			more: "<b>+4 skills:</b> collage editorial · acción 3D · spots de producto · director",
+			note: "Fotogramas reales de las demos hechas con las skills (en el ZIP: Code Video Studio V3).<br>Producto independiente: funciona con Claude, pero no es de Anthropic ni está respaldado por Anthropic.",
+		},
+		en: {
+			pain: "<s>Animating by hand.</s> <s>Hiring a studio.</s> <b>Claude makes it in code.</b>",
+			h: "Your video in <b>4K</b>,<br>written in code.",
+			out: "MP4 · 30 fps · music", outTop: 398,
+			caps: ["Title sequence", "2.5D landscape", "Character explainer"],
+			more: "<b>+4 skills:</b> editorial collage · 3D action · product spots · director",
+			note: "Real frames from the demos made with the skills (Code Video Studio V3 in the ZIP).<br>Independent product: it works with Claude, but it is not made or endorsed by Anthropic.",
+		},
+	};
+	const clips = ["tides", "desierto", "abejas"];
+	const left = [88, 571, 1054];
+	const html = [];
+	for (const lang of ["es", "en"]) {
+		for (const anim of [false, true]) {
+			const t = T[lang];
+			const out = `${lang === "en" ? "en/" : ""}cover${anim ? "-animada" : ""}`;
+			const attrs = anim ? `data-anim="35" data-fps="10" data-width="1600" data-quality="70"` : "data-cpu";
+			const tiles = clips.map((c, i) => `<div class="tile" style="left: ${left[i]}px;">${anim
+				? `<div class="pic sprite" style="background-image: url(assets/opus-fable-video-pro/anim-${c}.webp);"></div>`
+				: `<img class="pic" src="assets/opus-fable-video-pro/escena-${c}.jpg" width="450" height="253" alt="">`}<span class="cap">${t.caps[i]}</span></div>`).join("");
+			html.push(`<section class="frame ofv" data-out="${out}" data-lang="${lang}" ${attrs}>
+	<div class="dots"></div><div class="glow"></div>
+	<div class="top"><div class="name">Opus-Fable <u>Video Pro</u></div><div class="logos"><img src="assets/logos/claude.svg" width="72" height="72" alt=""><span>Claude Code</span></div></div>
+	<p class="pain">${t.pain}</p>
+	<p class="h">${t.h}</p>
+	<p class="out" style="top: ${t.outTop}px;">${t.out}</p>
+	${tiles}
+	<p class="more">${t.more}</p>
+	<p class="note">${t.note}</p>
+</section>`);
+		}
+	}
+	document.getElementById("covers").outerHTML = html.join("\n");
+
+	// Portada animada: cuadro = función pura de t (35 cuadros a 10 fps, 3,5 s en bucle), como en stick-sketch.html.
+	const update = (root, t) => {
+		const k = Math.floor(t * 10 + 1e-6) % 35;
+		root.querySelectorAll(".sprite").forEach((el) => { el.style.backgroundPosition = `${((k % 7) / 6) * 100}% ${(Math.floor(k / 7) / 4) * 100}%`; });
+	};
+	const A = [...document.querySelectorAll("section.ofv[data-anim]")];
+	const first = () => A.forEach((a) => update(a, 0));
+	first(); document.fonts.ready.then(first);
+	window.__frame = (i) => { A.forEach((a) => update(a, i / 10)); return new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))); };
+})();
+</script>
+<!-- portadas: fin -->
+
+<section class="frame s1" data-out="screen-1" data-cpu>
+	<div class="eyebrow"><i></i>Opus-Fable Video Pro <span>· Las 7 skills</span></div>
+	<h2>Siete skills.<br><b>Videos terminados.</b></h2>
+	<p class="lead">Claude diseña la imagen, la anima, compone la música y los efectos, revisa su propio trabajo y entrega un MP4 a 30 fps en 4K (2K si la máquina no da para 4K).</p>
+	<div class="grid4">
+		<div class="card"><img src="assets/opus-fable-video-pro/tides.jpg" alt=""><div><b>Secuencias de títulos</b><code>title-sequence</code><p>Cabeceras, intros de canal, reels y cortinillas, con música propia.</p></div></div>
+		<div class="card"><img src="assets/opus-fable-video-pro/box-precio.jpg" alt=""><div><b>Explainers editoriales</b><code>editorial-collage-explainer</code><p>Collage de papel con mapas y datos reales, para una narración.</p></div></div>
+		<div class="card"><img src="assets/opus-fable-video-pro/desierto.jpg" alt=""><div><b>Paisajes 2.5D</b><code>parallax-landscape-animation</code><p>Profundidad, cámara dirigida, algo que crece y música compuesta.</p></div></div>
+		<div class="card"><img src="assets/opus-fable-video-pro/abejas.jpg" alt=""><div><b>Explainers con personajes</b><code>character-explainer-animation</code><p>Personajes en un mundo ilustrado, sincronizados con la narración.</p></div></div>
+	</div>
+	<div class="grid3">
+		<div class="card"><div><b>Acción 3D</b><code>action-scene-3d</code><p>Peleas, duelos y persecuciones en 3D, a partir de una lámina por personaje.</p></div></div>
+		<div class="card"><div><b>Spots de producto</b><code>product-spot</code><p>Anuncios de 6 a 30 s, con una versión vertical recompuesta para redes.</p></div></div>
+		<div class="card"><div><b>Director de video</b><code>video-director</code><p>Recibe un pedido suelto, elige la skill, escribe el brief y arma la entrega.</p></div></div>
+	</div>
+	<p class="foot">Fotogramas reales de las demos 01–04, hechas con estas skills. Producto independiente: no es de Anthropic ni está respaldado por Anthropic.</p>
+</section>
+
+<section class="frame s2" data-out="screen-2" data-cpu>
+	<div class="eyebrow"><i></i>Opus-Fable Video Pro <span>· Cómo funciona</span></div>
+	<h2>Tú apruebas.<br>Claude <b>renderiza.</b></h2>
+	<div class="steps">
+		<div class="step"><span class="n">1</span><div><b>Eliges la skill</b><span>O se lo pides a video-director y él elige.</span></div></div>
+		<div class="step"><span class="n">2</span><div><b>Preparas lo que haga falta</b><span>Una narración, o una lámina por personaje en 3D.</span></div></div>
+		<div class="step"><span class="n">3</span><div><b>Copias un brief probado</b><span>PROMPTS.md trae uno por skill, en español e inglés.</span></div></div>
+		<div class="step"><span class="n ck">4</span><div><b>Apruebas el cuadro de estilo</b><span>Antes de animar ves una imagen fija del resultado.</span></div></div>
+		<div class="step"><span class="n ck">5</span><div><b>Revisas la entrega</b><span>No la aceptas hasta que el control diga PASS.</span></div></div>
+	</div>
+	<div class="shot"><img src="assets/opus-fable-video-pro/box-mundo.jpg" alt=""></div>
+	<div class="files"><span class="file"><b>final</b>.mp4</span><span class="file">…_<b>preview</b>.mp4</span><span class="file">…_<b>poster</b>.jpg</span><span class="file">…_<b>sheet</b>.jpg</span><span class="file"><b>notes</b>.md</span><span class="file"><b>verify</b>.txt · PASS</span></div>
+	<div class="req">
+		<div><span class="k">Lo que necesita tu equipo</span><p>Node 18+ con Playwright y Chromium · Python 3 con numpy · ffmpeg · faster-whisper (piezas con narración) · three.js (3D) · unos 2,5 GB de RAM libres por render 4K</p></div>
+		<div><span class="k">Medido en 2 núcleos, sin tarjeta gráfica</span><p>Pieza completa: de 30 min a 2 h · render final de 30 s en 4K: unos 20 min · de 150.000 a 400.000 tokens por pieza · 3D sale en 2K</p></div>
+	</div>
+	<p class="foot">Fotograma real de la demo 02 (The Box). Producto independiente: no es de Anthropic ni está respaldado por Anthropic.</p>
+</section>
+</body>
+</html>

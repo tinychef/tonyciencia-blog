@@ -705,3 +705,94 @@ db.exec(sql("0012_edit_pro_desde_cero.sql"));
 	assert.deepEqual(JSON.parse(z15.compat).works, JSON.parse(ss.compat).works);
 	console.log("✓ migración 0015 segura (Stick Sketch: USD 36.90 sin tachado, mismo ZIP, viejo retirado sin borrar, ES + EN, idempotente, guardas)");
 }
+
+// ── 0017: producto nuevo Opus-Fable Video Pro (USD 47 fijo por excepción del dueño, «Próximamente» hasta subir el ZIP) ──
+{
+	const slug = "opus-fable-video-pro";
+	const prev = readdirSync(join(root, "migrations")).filter((f) => f.endsWith(".sql") && f >= "0009" && f < "0017").sort();
+	const base17 = () => {
+		const d = prodDb();
+		for (const f of prev) d.exec(sql(f));
+		return d;
+	};
+	const all = (d) => Object.fromEntries(d.prepare("SELECT * FROM products").all().map((r) => [r.slug, { ...r }]));
+	const len = (s) => [...s].length;
+
+	const db17 = base17();
+	const pre17 = all(db17);
+	assert.ok(!pre17[slug], "antes de la 0017 no existe opus-fable-video-pro");
+	db17.exec(sql("0017_opus_fable_video_pro.sql"));
+	const v17 = all(db17);
+	db17.exec(sql("0017_opus_fable_video_pro.sql"));
+	assert.deepEqual(all(db17), v17, "0017 es idempotente");
+	for (const [s, r] of Object.entries(v17)) if (s !== slug) assert.deepEqual(r, pre17[s], `${s}: sin cambios`);
+
+	const p = v17[slug];
+	// Precio: USD 47 fijo (excepción del dueño a la regla de > USD 77), sin tachado ni ventas de fuera; sin archivo.
+	assert.deepEqual(
+		[p.price_cents, p.price_mode, p.kind, p.currency, p.compare_at_cents, p.sales_offset, p.min_price_cents, p.max_price_cents, p.active],
+		[4700, "fixed", "paid", "usd", null, 0, 0, null, 1],
+	);
+	assert.deepEqual([p.file_key, p.file_name, p.file_size, p.availability], [null, null, null, "coming_soon"]);
+	assert.deepEqual([p.category, p.badge, p.download_limit, p.video_id], ["video", "Versión 3", 5, ""]);
+	const compat = JSON.parse(p.compat);
+	assert.deepEqual(compat.works, ["claude-code", "node", "python", "ffmpeg", "windows", "macos", "linux"]);
+	assert.deepEqual(compat.includes, ["title-sequence", "editorial-collage-explainer", "parallax-landscape-animation", "character-explainer-animation", "action-scene-3d", "product-spot", "video-director"].map((s) => `agent|${s}`));
+
+	// Ficha en español e inglés.
+	const en = JSON.parse(p.i18n).en;
+	assert.deepEqual(Object.keys(en).sort(), [...EN_KEYS].sort(), "i18n.en con todas las claves");
+	const esF = { ...p, highlights: JSON.parse(p.highlights), specs: JSON.parse(p.specs), faq: JSON.parse(p.faq), tags: JSON.parse(p.tags) };
+	const images = JSON.parse(p.images);
+	for (const [lang, f] of [["es", esF], ["en", en]]) {
+		const tag = `${slug} (${lang})`;
+		assert.ok(f.title.startsWith("Opus-Fable Video Pro: "), `${tag}: el nombre encabeza el título`);
+		assert.ok(len(f.title) <= 70, `${tag}: title ≤ 70 (${len(f.title)})`);
+		assert.ok(len(f.tagline) <= 75, `${tag}: tagline ≤ 75 (${len(f.tagline)})`);
+		assert.ok(len(f.summary) <= 220, `${tag}: summary ≤ 220`);
+		assert.ok(len(f.meta_title) <= 60, `${tag}: meta_title ≤ 60 (${len(f.meta_title)})`);
+		assert.ok(len(f.meta_description) >= 120 && len(f.meta_description) <= 160, `${tag}: meta_description 120–160 (${len(f.meta_description)})`);
+		assert.ok(f.highlights.length >= 4 && f.highlights.length <= 6, `${tag}: 4–6 beneficios`);
+		assert.ok(f.faq.length >= 3 && f.faq.every((x) => x.q.endsWith("?") && x.a), `${tag}: FAQ`);
+		assert.ok(f.tags.length >= 5 && f.tags.length <= 7 && new Set(f.tags.map((t) => t.toLowerCase())).size === f.tags.length, `${tag}: 5–7 etiquetas sin repetir`);
+		assert.ok(!/\$\s?\d|\b47\b|USD/.test(f.description), `${tag}: sin precios en la descripción`);
+		assert.ok(!/Code Video Studio/.test([f.title, f.tagline, f.meta_title, f.meta_description, ...f.tags].join(" ")), `${tag}: el nombre interno no aparece como nombre del producto`);
+		assert.ok(!/anthropic/i.test([f.title, f.tagline, f.meta_title, f.meta_description, ...f.tags].join(" ")), `${tag}: Anthropic no aparece como si fuera la marca`);
+		// Cifras de la guía LEEME-PRIMERO (no inventadas): formato, tiempos, tokens, memoria y volumen.
+		for (const n of ["30 fps", "4K", "2K", "2,5 GB|2\\.5 GB", "150[.,]000", "400[.,]000", "−14 LUFS"]) assert.ok(new RegExp(n).test(f.description), `${tag}: la descripción cita «${n}» de la guía`);
+	}
+	assert.equal(count(p.description, "En el ZIP el paquete se llama Code Video Studio V3"), 1);
+	assert.equal(count(en.description, "Inside the ZIP the pack is called Code Video Studio V3"), 1);
+	assert.ok(esF.faq.some((f) => f.q === "¿Por qué el ZIP dice Code Video Studio V3?") && en.faq.some((f) => f.q === "Why does the ZIP say Code Video Studio V3?"));
+	// Producto independiente: la ficha lo dice en la descripción y en la FAQ, en los dos idiomas.
+	assert.equal(count(p.description, "no es un producto oficial de Anthropic ni está respaldado por Anthropic"), 1);
+	assert.equal(count(en.description, "it is not an official Anthropic product and it is not endorsed by Anthropic"), 1);
+	assert.ok(esF.faq[0].q === "¿Es un producto oficial de Anthropic?" && esF.faq[0].a.startsWith("No."));
+	assert.ok(en.faq[0].q === "Is this an official Anthropic product?" && en.faq[0].a.startsWith("No."));
+	assert.ok(p.title.toLowerCase().includes("videos animados con claude") && p.meta_title.toLowerCase().includes("videos animados con claude") && p.meta_description.toLowerCase().includes("videos animados con claude"), "ES: palabra clave");
+	assert.ok(en.meta_title.toLowerCase().includes("animated videos with claude") && en.meta_description.toLowerCase().includes("animated videos with claude"), "EN: palabra clave");
+	assert.deepEqual(esF.specs.map((s) => s.label), ["Versión", "Formato", "Funciona con", "Requisitos", "Sistemas", "Salida", "Idioma", "Licencia"]);
+	assert.equal(en.specs.length, esF.specs.length, "mismas filas en la ficha técnica");
+	assert.equal(en.faq.length, esF.faq.length);
+	assert.equal(en.image_alts.length, images.length, "un ALT en inglés por imagen");
+	for (const h of ["## El problema que resuelve", "## Las 7 skills", "## Cómo funciona, en 5 pasos", "## Qué recibes", "## Para quién es", "## Requisitos", "## Importante"])
+		assert.equal(count(p.description, h), 1, `ES: sección «${h}»`);
+	const visibleEn = [en.title, en.tagline, en.meta_title, en.meta_description, en.description, ...en.highlights, ...en.faq.flatMap((f) => [f.q, f.a]), ...en.tags].join("\n");
+	assert.ok(!/\b(para|con|que|los|las|una|del)\b/.test(visibleEn.replace(/«[^»]*»|"[^"]*"/g, "")), "EN: sin frases en español");
+	// Imágenes: portada + 2 pantallas, todas en disco (y las de la tarjeta, el inglés y Merchant).
+	assert.deepEqual(images.map((i) => i.src), ["cover", "screen-1", "screen-2"].map((f) => `/market/static/products/${slug}/${f}.webp`));
+	assert.ok(images.every((i) => i.alt.length > 20));
+	const pub = join(root, "public", "market", "static", "products", slug);
+	for (const f of ["cover.webp", "cover-800.webp", "cover-animada.webp", "cover-animada-800.webp", "screen-1.webp", "screen-2.webp", "en/cover.webp", "en/cover-800.webp", "en/cover-animada.webp", "en/cover-animada-800.webp", "merchant.jpg"])
+		assert.ok(existsSync(join(pub, f)), `falta public/…/${slug}/${f}`);
+	// El ZIP se sube después por /market/provision: el manifiesto ya conoce su SHA-256.
+	const manifest = JSON.parse(readFileSync(join(root, "provision", "manifest.json"), "utf8")).files;
+	assert.ok(manifest.some((f) => f.slug === slug && f.fileName === "opus-fable-video-pro-3.0.zip" && /^[0-9a-f]{64}$/.test(f.sha256)), "manifiesto: opus-fable-video-pro-3.0.zip con su SHA-256");
+
+	// Guarda: si el slug ya existe (p. ej. creado a mano en el admin), no se pisa.
+	const dbOwn = base17();
+	dbOwn.prepare("INSERT INTO products (id, slug, title, price_cents, currency, kind, active, created_at, updated_at) VALUES ('own', ?, 'Del dueño', 9900, 'usd', 'paid', 1, 1, 1)").run(slug);
+	dbOwn.exec(sql("0017_opus_fable_video_pro.sql"));
+	assert.deepEqual([all(dbOwn)[slug].title, all(dbOwn)[slug].price_cents], ["Del dueño", 9900]);
+	console.log("✓ migración 0017 segura (Opus-Fable Video Pro: USD 47 sin tachado, Próximamente, ES + EN, aviso de independencia, idempotente, guarda)");
+}
