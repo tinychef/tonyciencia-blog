@@ -29,16 +29,20 @@ export const MERCHANT_IMAGES: Readonly<Record<string, readonly string[]>> = {
 	"pagespeed-forensics": ["merchant.jpg"],
 	cutpilot: ["merchant.jpg"],
 	"motor-creativo-claude-code": ["merchant.jpg"],
-	"reel-4k-studio": ["merchant.jpg"],
+	"video-4k-con-claude": ["merchant.jpg"],
 };
 
 /**
  * Productos que cambiaron de slug (rebranding): slug viejo → slug nuevo. El viejo queda retirado (active = 0, conserva
  * sus pedidos y su lista de espera) y su ficha responde 301 a la nueva en el mismo idioma, en vez de ir al catálogo.
  * - specreel-stick → stick-sketch: «SpecReel Stick» pasó a llamarse «Stick Sketch» (migración 0015).
+ * - reel-4k-studio → video-4k-con-claude: «Reel 4K Studio» pasó a llamarse «Video 4K» (migración 0020). Aquí se
+ *   cambió el slug de la MISMA fila (mismo id, pedidos y archivo), así que el viejo ya no existe en la base: la ficha
+ *   redirige igual porque la ruta mira esta lista antes de responder 404.
  */
 export const RENAMED_PRODUCTS: Readonly<Record<string, string>> = {
 	"specreel-stick": "stick-sketch",
+	"reel-4k-studio": "video-4k-con-claude",
 };
 
 /** Rutas públicas de las imágenes de Merchant de un producto (vacío si no tiene). */

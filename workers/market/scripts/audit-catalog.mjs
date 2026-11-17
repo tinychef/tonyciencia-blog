@@ -135,6 +135,8 @@ for (const lang of ["es", "en"]) {
 const RENAMED = [
 	["/market/producto/specreel-stick", "/market/producto/stick-sketch"],
 	["/market/en/product/specreel-stick", "/market/en/product/stick-sketch"],
+	["/market/producto/reel-4k-studio", "/market/producto/video-4k-con-claude"],
+	["/market/en/product/reel-4k-studio", "/market/en/product/video-4k-con-claude"],
 ];
 for (const [from, to] of [["/market/en", "/market/en/"], ...RENAMED]) {
 	const r = await get(from, { head: true });
