@@ -755,3 +755,16 @@ describe("CSP con nonce (scripts que inyecta Cloudflare)", () => {
 		expect(a.match(/script-src[^;]*/)?.[0]).not.toContain("unsafe-inline");
 	});
 });
+
+describe("sin cupones públicos (decisión del dueño, 2026-11-17)", () => {
+	it("la FAQ del cupón de bienvenida solo sale si hay cupón, y ya no se afirma que los tachados se cobraron antes", async () => {
+		const { storeFaq } = await import("../src/views/shop");
+		for (const lang of ["es", "en"] as const) {
+			const sin = storeFaq(true, lang, false).map((f) => f.q).join("\n");
+			const con = storeFaq(true, lang, true).map((f) => f.q).join("\n");
+			expect(sin).not.toMatch(/bienvenida|welcome/i);
+			expect(con).toMatch(/bienvenida|welcome/i);
+			expect(con).not.toMatch(/tachados son reales|crossed-out prices real/i);
+		}
+	});
+});

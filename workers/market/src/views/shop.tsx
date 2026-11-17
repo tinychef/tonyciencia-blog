@@ -567,7 +567,7 @@ export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query, 
 					</div>
 				</div>
 				<div class="mk-faq">
-					{storeFaq(soonCount > 0, lang).map((f) => (
+					{storeFaq(soonCount > 0, lang, !!welcome).map((f) => (
 						<details>
 							<summary>{f.q}</summary>
 							<p>{f.a}</p>
@@ -582,10 +582,13 @@ export const Catalog: FC<CatalogProps> = ({ products, welcome, category, query, 
 const SOON_FAQ_Q = "¿Qué significa «Próximamente»?";
 
 /** Preguntas del catálogo; la de «Próximamente» solo cuando hay productos en esa etapa. */
-export const storeFaq = (hasSoon: boolean, lang: Lang = "es") => {
+export const storeFaq = (hasSoon: boolean, lang: Lang = "es", hasWelcome = false) => {
 	const list = lang === "en" ? STORE_FAQ_EN : STORE_FAQ;
-	return hasSoon ? list : list.filter((f) => f.q !== SOON_FAQ_Q && f.q !== SOON_FAQ_Q_EN);
+	return list.filter((f) => (hasSoon || (f.q !== SOON_FAQ_Q && f.q !== SOON_FAQ_Q_EN)) && (hasWelcome || (f.q !== WELCOME_FAQ_Q && f.q !== WELCOME_FAQ_Q_EN)));
 };
+
+const WELCOME_FAQ_Q = "¿Cómo funciona el cupón de bienvenida?";
+const WELCOME_FAQ_Q_EN = "How does the welcome coupon work?";
 
 const SOON_FAQ_Q_EN = "What does “Coming soon” mean?";
 
@@ -597,8 +600,7 @@ export const STORE_FAQ_EN = [
 		q: "What does “pay what you want” mean?",
 		a: "You choose how much to pay, from the minimum shown on the page (sometimes $0) up to $999,999.99 USD, the most Stripe allows. Enter $0 to download it for free; card payments start at $0.50.",
 	},
-	{ q: "Are the crossed-out prices real?", a: "Yes. We only cross out a price when the product was actually sold at that price before the sale." },
-	{ q: "How does the welcome coupon work?", a: "It's a discount on your first paid purchase at Market Tony, on fixed-price products. Enter the code on the product page before paying; it's applied at Stripe's secure checkout." },
+	{ q: WELCOME_FAQ_Q_EN, a: "It's a discount on your first paid purchase at Market Tony, on fixed-price products. Enter the code on the product page before paying; it's applied at Stripe's secure checkout." },
 	{ q: "Can I get a refund?", a: "Yes, within 14 days of purchase if you haven't downloaded the product yet, or if the file is damaged. Details in the refund policy." },
 	{ q: "Are the products in English?", a: "Most tools are built for Spanish-speaking creators: guides and agent output are in Spanish unless the product page says otherwise. Each page lists its languages." },
 	{ q: SOON_FAQ_Q_EN, a: "These tools are still in development. You can't buy them yet: leave your email under “Notify me” and we'll write on launch day." },
@@ -612,8 +614,7 @@ export const STORE_FAQ = [
 		q: "¿Qué significa «paga lo que quieras»?",
 		a: "Tú eliges cuánto pagar, desde el mínimo que indica la ficha (a veces $0) hasta $999,999.99 USD, el máximo que permite Stripe. Con $0 lo descargas gratis; los pagos con tarjeta empiezan en $0.50.",
 	},
-	{ q: "¿Los precios tachados son reales?", a: "Sí. Solo tachamos un precio cuando el producto se vendió de verdad a ese precio antes de la oferta." },
-	{ q: "¿Cómo funciona el cupón de bienvenida?", a: "Es un descuento para tu primera compra pagada en Market Tony, en productos de precio fijo. Escribe el código en la ficha antes de pagar; se aplica en el checkout seguro de Stripe." },
+	{ q: WELCOME_FAQ_Q, a: "Es un descuento para tu primera compra pagada en Market Tony, en productos de precio fijo. Escribe el código en la ficha antes de pagar; se aplica en el checkout seguro de Stripe." },
 	{ q: "¿Puedo pedir un reembolso?", a: "Sí, dentro de los 14 días posteriores a la compra si todavía no descargaste el producto, o si el archivo está dañado. Detalles en la política de reembolsos." },
 	{ q: SOON_FAQ_Q, a: "Son herramientas en desarrollo. No se pueden comprar todavía: deja tu correo en «Avísame» y te escribimos el día del lanzamiento." },
 ];
@@ -634,6 +635,8 @@ export interface ProductViewProps {
 	maxSales: number;
 	welcome: WelcomeOffer | null;
 	userEmail: string | null;
+	/** Campo «¿Tienes un cupón?»: solo el admin (decisión del dueño, 2026-11-17: sin cupones públicos). */
+	showCoupon?: boolean;
 	/** Monto elegido antes de entrar (?monto= en la URL), ya validado contra los límites del producto. */
 	pwywInitial?: number | null;
 }
@@ -744,7 +747,7 @@ const PwywForm: FC<{ product: Product; csrf: string | null; mode: "mock" | "live
 	);
 };
 
-const BuyActions: FC<ProductViewProps> = ({ product, loggedIn, owned, csrf, mode, welcome, userEmail, pwywInitial }) => {
+const BuyActions: FC<ProductViewProps> = ({ product, loggedIn, owned, csrf, mode, welcome, userEmail, pwywInitial, showCoupon }) => {
 	const tr = useT();
 	const lang = useLang();
 	const path = productUrl(product.slug, lang);
@@ -822,26 +825,28 @@ const BuyActions: FC<ProductViewProps> = ({ product, loggedIn, owned, csrf, mode
 	return (
 		<form method="post" action={`${productUrl(product.slug)}/comprar`} data-checkout>
 			<CsrfField csrf={csrf} />
-			<details class="mk-coupon" open={welcome ? true : undefined}>
-				<summary>{tr("¿Tienes un cupón?")}</summary>
-				<div class="mk-field">
-					<label for="cupon" class="mk-visually-hidden">
-						{tr("Código de cupón")}
-					</label>
-					<input
-						id="cupon"
-						type="text"
-						name="cupon"
-						maxlength={64}
-						autocomplete="off"
-						autocapitalize="characters"
-						spellcheck={false}
-						placeholder={welcome ? welcome.code : tr("Código (opcional)")}
-						data-coupon-input
-					/>
-					<span class="mk-hint">{welcome ? (lang === "en" ? `Use ${welcome.code} on your first purchase. ` : `Usa ${welcome.code} en tu primera compra. `) : ""}{tr("El descuento se aplica al pagar con Stripe.")}</span>
-				</div>
-			</details>
+			{(showCoupon || welcome) && (
+				<details class="mk-coupon" open={welcome ? true : undefined}>
+					<summary>{tr("¿Tienes un cupón?")}</summary>
+					<div class="mk-field">
+						<label for="cupon" class="mk-visually-hidden">
+							{tr("Código de cupón")}
+						</label>
+						<input
+							id="cupon"
+							type="text"
+							name="cupon"
+							maxlength={64}
+							autocomplete="off"
+							autocapitalize="characters"
+							spellcheck={false}
+							placeholder={welcome ? welcome.code : tr("Código (opcional)")}
+							data-coupon-input
+						/>
+						<span class="mk-hint">{welcome ? (lang === "en" ? `Use ${welcome.code} on your first purchase. ` : `Usa ${welcome.code} en tu primera compra. `) : ""}{tr("El descuento se aplica al pagar con Stripe.")}</span>
+					</div>
+				</details>
+			)}
 			<button type="submit" class="tc-btn tc-btn--primary mk-btn-block mk-btn-glow">
 				{tr("Comprar ahora")} · {formatPrice(product.price_cents, product.currency)}
 			</button>

@@ -142,8 +142,9 @@
 				// "true": el dueño aprobó cobrar de verdad con la clave sk_live (2026-10-29).
 				"ALLOW_LIVE_PAYMENTS": "true",
 				"DOWNLOAD_URL_TTL_SECONDS": "120",
-				"WELCOME_COUPON": "TONYCIENCIA",
-				"WELCOME_COUPON_AUTOCREATE": "true",
+				// Sin cupón de bienvenida (decisión del dueño, 2026-11-17: todo a USD 1.10 con 47 tachado, sin cupones).
+				"WELCOME_COUPON": "",
+				"WELCOME_COUPON_AUTOCREATE": "false",
 				"WELCOME_COUPON_PERCENT": "10",
 				"BOOKING_URL": "",
 				"GTM_ID": "GTM-M7CP7J73",

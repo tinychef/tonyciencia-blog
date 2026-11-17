@@ -97,7 +97,7 @@ export function registerShop(app: Hono<AppEnv>) {
 				// Búsquedas, filtros y orden: «noindex, follow». Cada ficha enlaza 7 búsquedas y Google rastreaba cientos de
 				// variantes del catálogo con contenido repetido (auditoría SEO del 2026-11-03).
 				noindex: !!(query || category || filter || c.req.query("orden")),
-				jsonLd: [...catalogJsonLd(origin, products, lang), faqJsonLd(storeFaq(products.some((p) => p.availability === "coming_soon"), lang))],
+				jsonLd: [...catalogJsonLd(origin, products, lang), faqJsonLd(storeFaq(products.some((p) => p.availability === "coming_soon"), lang, !!c.get("welcome")))],
 				dataLayer: listed.length ? [viewItemListEvent(listed)] : undefined,
 			},
 			<Catalog products={products} welcome={c.get("welcome")} category={category} query={query} sort={sort} filter={filter} />,
@@ -201,6 +201,7 @@ export function registerShop(app: Hono<AppEnv>) {
 				maxSales={Math.max(0, ...all.map((p) => p.stats.sales))}
 				welcome={c.get("welcome")}
 				userEmail={user?.email ?? null}
+				showCoupon={c.get("isAdmin")}
 				pwywInitial={(() => {
 					if (!isPwyw(product)) return null;
 					const check = checkBuyerAmount(product, c.req.query("monto"));
