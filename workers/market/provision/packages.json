@@ -96,6 +96,16 @@
 				"empaquetar_distribucion.py"
 			],
 			"activate": true
+		},
+		{
+			"slug": "reel-4k-studio",
+			"repo": "tinychef/reel-4k-studio",
+			"localPath": "../../../reel-4k-studio",
+			"ref": "984c6cf6b76fbb8906b78f6ed08bdbaf52c81940",
+			"prefix": "reel-4k-studio/",
+			"fileName": "reel-4k-studio-3.0.zip",
+			"exclude": [],
+			"activate": true
 		}
 	]
 }

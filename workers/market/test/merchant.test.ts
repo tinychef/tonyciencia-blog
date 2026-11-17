@@ -42,7 +42,7 @@ describe("imágenes de Merchant Center", () => {
 		const assets = (env as unknown as { ASSETS: Fetcher }).ASSETS;
 		// Control: un archivo que no existe da 404 (si no, la prueba no probaría nada).
 		expect((await assets.fetch(`${ORIGIN}/market/static/products/specreel/no-existe.jpg`)).status).toBe(404);
-		expect(Object.keys(MERCHANT_IMAGES)).toHaveLength(6);
+		expect(Object.keys(MERCHANT_IMAGES)).toHaveLength(7);
 		const missing: string[] = [];
 		for (const [slug, files] of Object.entries(MERCHANT_IMAGES)) {
 			expect(files[0], slug).toBe("merchant.jpg");

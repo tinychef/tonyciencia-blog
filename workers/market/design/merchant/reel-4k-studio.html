@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="und">
+<head>
+<meta charset="utf-8">
+<title>Merchant · Reel 4K Studio (en el ZIP: Code Video Studio V3)</title>
+<style>
+/* Imagen de Google Merchant: sin texto promocional, sin logos ni marcas de agua. Solo fotogramas reales de las demos
+   hechas con las skills del paquete (01 TIDES, 02 The Box, 03 Desert Bloom, 04 abejas), en 16:9 sin recortar. */
+:root { --bg: #0d0d0f; --line: #2e2e33; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #333; }
+.m { width: 1500px; height: 1500px; position: relative; overflow: hidden; background: var(--bg); margin-bottom: 40px; }
+.dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,.06) 1.6px, transparent 1.6px); background-size: 32px 32px; }
+.grid { position: absolute; left: 70px; top: 93px; width: 1360px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.grid div { border: 3px solid var(--line); border-radius: 22px; overflow: hidden; background: #000; box-shadow: 0 30px 70px rgba(0,0,0,.55); }
+.grid .big { grid-column: 1 / -1; border-radius: 30px; }
+.grid img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+</style>
+</head>
+<body>
+<section class="m" data-out="merchant">
+	<div class="dots"></div>
+	<div class="grid">
+		<div class="big"><img src="../assets/reel-4k-studio/desierto.jpg" alt=""></div>
+		<div><img src="../assets/reel-4k-studio/tides.jpg" alt=""></div>
+		<div><img src="../assets/reel-4k-studio/box-mapa.jpg" alt=""></div>
+		<div><img src="../assets/reel-4k-studio/abejas.jpg" alt=""></div>
+		<div><img src="../assets/reel-4k-studio/desierto-zorro.jpg" alt=""></div>
+		<div><img src="../assets/reel-4k-studio/box-mundo.jpg" alt=""></div>
+		<div><img src="../assets/reel-4k-studio/abejas-panal.jpg" alt=""></div>
+	</div>
+</section>
+</body>
+</html>
