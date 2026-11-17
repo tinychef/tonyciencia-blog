@@ -948,3 +948,37 @@ db.exec(sql("0012_edit_pro_desde_cero.sql"));
 	assert.deepEqual(all(dbG), preG, "0020 no pisa un video-4k-con-claude creado a mano");
 	console.log("✓ migración 0020 segura (Reel 4K Studio → Video 4K: misma fila con slug nuevo, redes, estilos, aviso de independencia, idempotente, guarda)");
 }
+
+// ── 0021: precio fijo → USD 1.10 con USD 47 tachado, salvo Anuncios Automáticos y los gratis (dueño, 2026-11-17) ──
+{
+	const prev = readdirSync(join(root, "migrations")).filter((f) => f.endsWith(".sql") && f >= "0009" && f < "0021").sort();
+	const all = (d) => Object.fromEntries(d.prepare("SELECT * FROM products").all().map((r) => [r.slug, { ...r }]));
+	const M = "0021_todos_a_1_10.sql";
+	const SLUGS = ["specreel", "stick-sketch", "video-4k-con-claude"];
+	const base = () => {
+		const d = prodDb();
+		for (const f of prev) d.exec(sql(f));
+		// Estado de producción después de la 0020.
+		d.exec("UPDATE products SET price_mode = 'fixed', price_cents = 4700, compare_at_cents = NULL WHERE slug IN ('specreel', 'stick-sketch', 'video-4k-con-claude')");
+		return d;
+	};
+	const db = base();
+	const pre = all(db);
+	db.exec(sql(M));
+	const v = all(db);
+	db.exec(sql(M));
+	assert.deepEqual(all(db), v, "0021 es idempotente");
+	for (const s of SLUGS) {
+		assert.deepEqual([v[s].price_mode, v[s].price_cents, v[s].compare_at_cents], ["fixed", 110, 4700], `${s}: USD 1.10 con 47 tachado`);
+		assert.ok(v[s].price_cents * 0.9 >= 50, `${s}: el cupón de bienvenida no baja del mínimo de Stripe`);
+	}
+	for (const [s, r] of Object.entries(v)) if (!SLUGS.includes(s)) assert.deepEqual(r, pre[s], `${s}: sin cambios`);
+	assert.deepEqual([v["anuncios-infinitos"].price_cents, v["anuncios-infinitos"].compare_at_cents], [3333, 7690], "anuncios-infinitos sigue en 33.33 con 76.90 tachado");
+	// Guarda: un precio puesto a mano en el admin no se toca.
+	const dbG = base();
+	dbG.exec("UPDATE products SET price_cents = 2900 WHERE slug = 'stick-sketch'");
+	const preG = all(dbG);
+	dbG.exec(sql(M));
+	assert.deepEqual(all(dbG)["stick-sketch"], preG["stick-sketch"], "0021 no pisa un precio puesto a mano");
+	console.log("✓ migración 0021 segura (precio fijo a USD 1.10 con 47 tachado; Anuncios y gratis sin cambios; idempotente, guarda)");
+}
