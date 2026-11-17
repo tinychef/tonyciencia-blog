@@ -706,9 +706,9 @@ db.exec(sql("0012_edit_pro_desde_cero.sql"));
 	console.log("✓ migración 0015 segura (Stick Sketch: USD 36.90 sin tachado, mismo ZIP, viejo retirado sin borrar, ES + EN, idempotente, guardas)");
 }
 
-// ── 0017: producto nuevo Opus-Fable Video Pro (USD 47 fijo por excepción del dueño, «Próximamente» hasta subir el ZIP) ──
+// ── 0017: producto nuevo Reel 4K Studio (USD 47 fijo por excepción del dueño, «Próximamente» hasta subir el ZIP) ──
 {
-	const slug = "opus-fable-video-pro";
+	const slug = "reel-4k-studio";
 	const prev = readdirSync(join(root, "migrations")).filter((f) => f.endsWith(".sql") && f >= "0009" && f < "0017").sort();
 	const base17 = () => {
 		const d = prodDb();
@@ -720,10 +720,10 @@ db.exec(sql("0012_edit_pro_desde_cero.sql"));
 
 	const db17 = base17();
 	const pre17 = all(db17);
-	assert.ok(!pre17[slug], "antes de la 0017 no existe opus-fable-video-pro");
-	db17.exec(sql("0017_opus_fable_video_pro.sql"));
+	assert.ok(!pre17[slug], "antes de la 0017 no existe reel-4k-studio");
+	db17.exec(sql("0017_reel_4k_studio.sql"));
 	const v17 = all(db17);
-	db17.exec(sql("0017_opus_fable_video_pro.sql"));
+	db17.exec(sql("0017_reel_4k_studio.sql"));
 	assert.deepEqual(all(db17), v17, "0017 es idempotente");
 	for (const [s, r] of Object.entries(v17)) if (s !== slug) assert.deepEqual(r, pre17[s], `${s}: sin cambios`);
 
@@ -744,9 +744,11 @@ db.exec(sql("0012_edit_pro_desde_cero.sql"));
 	assert.deepEqual(Object.keys(en).sort(), [...EN_KEYS].sort(), "i18n.en con todas las claves");
 	const esF = { ...p, highlights: JSON.parse(p.highlights), specs: JSON.parse(p.specs), faq: JSON.parse(p.faq), tags: JSON.parse(p.tags) };
 	const images = JSON.parse(p.images);
+	assert.ok(!/opus|fable|youtube/i.test(p.images + (p.i18n ?? "")), "alt de imágenes sin «Opus», «Fable» ni «YouTube»");
 	for (const [lang, f] of [["es", esF], ["en", en]]) {
 		const tag = `${slug} (${lang})`;
-		assert.ok(f.title.startsWith("Opus-Fable Video Pro: "), `${tag}: el nombre encabeza el título`);
+		assert.ok(f.title.startsWith("Reel 4K Studio: "), `${tag}: el nombre encabeza el título`);
+		assert.ok(!/opus|fable|youtube/i.test(JSON.stringify(f)), `${tag}: sin «Opus», «Fable» ni «YouTube» (marcas ajenas; el PDF no habla de YouTube)`);
 		assert.ok(len(f.title) <= 70, `${tag}: title ≤ 70 (${len(f.title)})`);
 		assert.ok(len(f.tagline) <= 75, `${tag}: tagline ≤ 75 (${len(f.tagline)})`);
 		assert.ok(len(f.summary) <= 220, `${tag}: summary ≤ 220`);
@@ -787,12 +789,12 @@ db.exec(sql("0012_edit_pro_desde_cero.sql"));
 		assert.ok(existsSync(join(pub, f)), `falta public/…/${slug}/${f}`);
 	// El ZIP se sube después por /market/provision: el manifiesto ya conoce su SHA-256.
 	const manifest = JSON.parse(readFileSync(join(root, "provision", "manifest.json"), "utf8")).files;
-	assert.ok(manifest.some((f) => f.slug === slug && f.fileName === "opus-fable-video-pro-3.0.zip" && /^[0-9a-f]{64}$/.test(f.sha256)), "manifiesto: opus-fable-video-pro-3.0.zip con su SHA-256");
+	assert.ok(manifest.some((f) => f.slug === slug && f.fileName === "reel-4k-studio-3.0.zip" && /^[0-9a-f]{64}$/.test(f.sha256)), "manifiesto: reel-4k-studio-3.0.zip con su SHA-256");
 
 	// Guarda: si el slug ya existe (p. ej. creado a mano en el admin), no se pisa.
 	const dbOwn = base17();
 	dbOwn.prepare("INSERT INTO products (id, slug, title, price_cents, currency, kind, active, created_at, updated_at) VALUES ('own', ?, 'Del dueño', 9900, 'usd', 'paid', 1, 1, 1)").run(slug);
-	dbOwn.exec(sql("0017_opus_fable_video_pro.sql"));
+	dbOwn.exec(sql("0017_reel_4k_studio.sql"));
 	assert.deepEqual([all(dbOwn)[slug].title, all(dbOwn)[slug].price_cents], ["Del dueño", 9900]);
-	console.log("✓ migración 0017 segura (Opus-Fable Video Pro: USD 47 sin tachado, Próximamente, ES + EN, aviso de independencia, idempotente, guarda)");
+	console.log("✓ migración 0017 segura (Reel 4K Studio: USD 47 sin tachado, Próximamente, ES + EN, aviso de independencia, idempotente, guarda)");
 }

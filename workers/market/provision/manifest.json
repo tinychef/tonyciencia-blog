@@ -22,16 +22,6 @@
 			"commit": "0c501571e9318688a84784ff9e5f56406ccad921"
 		},
 		{
-			"slug": "opus-fable-video-pro",
-			"sha256": "1cfb6c810f676075d0a1b2a438676903a27d921e21025fe4356e43ebae1e1e11",
-			"size": 10614415,
-			"fileName": "opus-fable-video-pro-3.0.zip",
-			"contentType": "application/zip",
-			"activate": true,
-			"repo": "tinychef/opus-fable-video-pro",
-			"commit": "984c6cf6b76fbb8906b78f6ed08bdbaf52c81940"
-		},
-		{
 			"slug": "pagespeed-forensics",
 			"sha256": "41483b26b501ff3d51ab06187e299d5fce319c6838d5b0724f9d495fbfd0b66e",
 			"size": 44609,
@@ -40,6 +30,16 @@
 			"activate": true,
 			"repo": "tinychef/pagespeed-forensics",
 			"commit": "1b6d8c03c4a824ed05ccd3c2413ed450efb4e510"
+		},
+		{
+			"slug": "reel-4k-studio",
+			"sha256": "9402976db8841055393fb48e550c5dc06c65e34049e9ab4b204aaa1101fae96c",
+			"size": 10613935,
+			"fileName": "reel-4k-studio-3.0.zip",
+			"contentType": "application/zip",
+			"activate": true,
+			"repo": "tinychef/reel-4k-studio",
+			"commit": "984c6cf6b76fbb8906b78f6ed08bdbaf52c81940"
 		},
 		{
 			"slug": "stick-sketch",
