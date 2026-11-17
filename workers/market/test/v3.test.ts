@@ -545,10 +545,10 @@ describe("rebranding: SpecReel Stick → Stick Sketch (migración 0015)", () => 
 		expect((await call("/market/provision/specreel-stick", { method: "PUT", body: "x" })).status).toBe(404);
 	});
 
-	it("ficha nueva: USD 36.90 fijo sin precio tachado ni ventas, mismo «Funciona con» y versión en inglés", async () => {
+	it("ficha nueva: USD 47 fijo sin precio tachado (0018) ni ventas, mismo «Funciona con» y versión en inglés", async () => {
 		const p = (await getProductBySlug(env.MARKET_DB, "stick-sketch"))!;
 		const old = (await getProductBySlug(env.MARKET_DB, "specreel-stick", false))!;
-		expect(p).toMatchObject({ price_cents: 3690, price_mode: "fixed", kind: "paid", compare_at_cents: null, sales_offset: 0, category: "video" });
+		expect(p).toMatchObject({ price_cents: 4700, price_mode: "fixed", kind: "paid", compare_at_cents: null, sales_offset: 0, category: "video" });
 		expect(saleInfo(p)).toBeNull();
 		expect(p.compat).toEqual(old.compat);
 		expect(p.file_key).toBe(old.file_key);
@@ -561,7 +561,7 @@ describe("rebranding: SpecReel Stick → Stick Sketch (migración 0015)", () => 
 			const html = await (await call(path)).text();
 			expect(html, path).toContain("Stick Sketch");
 			expect(html, path).toContain("SpecReel Stick"); // nombre dentro del ZIP, dicho en la ficha
-			expect(html, path).not.toContain("mk5-was");
+			expect(html, path).not.toContain("mk3-price-was"); // la oferta de Black Friday es un cupón, no un tachado
 		}
 	});
 });

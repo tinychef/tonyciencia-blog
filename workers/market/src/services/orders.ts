@@ -114,6 +114,10 @@ export async function startCheckout(deps: Deps, user: User, product: Product, op
 		}
 		const resolved = adapters.payments.resolvePromotionCode ? await adapters.payments.resolvePromotionCode(code).catch(() => null) : null;
 		if (!resolved) return { ok: false, reason: "invalid_coupon" };
+		// Un cupón de monto fijo (p. ej. BLACKFRIDAY, USD 45.90 menos) no puede dejar el cobro por debajo del mínimo
+		// de Stripe ni en cero: en un producto más barato que el previsto regalaría el archivo.
+		const afterPct = resolved.percentOff ? Math.round((amountCents * (100 - resolved.percentOff)) / 100) : amountCents;
+		if (afterPct - (resolved.amountOffCents ?? 0) < STRIPE_MIN_CENTS) return { ok: false, reason: "invalid_coupon" };
 		promotionCodeId = resolved.id;
 	}
 

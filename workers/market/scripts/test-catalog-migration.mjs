@@ -798,3 +798,47 @@ db.exec(sql("0012_edit_pro_desde_cero.sql"));
 	assert.deepEqual([all(dbOwn)[slug].title, all(dbOwn)[slug].price_cents], ["Del dueño", 9900]);
 	console.log("✓ migración 0017 segura (Reel 4K Studio: USD 47 sin tachado, Próximamente, ES + EN, aviso de independencia, idempotente, guarda)");
 }
+
+// ── 0018: precio fijo → USD 47 sin tachado; el USD 1.10 de Black Friday va por cupón (pedido del dueño, 2026-11-17) ──
+{
+	const prev = readdirSync(join(root, "migrations")).filter((f) => f.endsWith(".sql") && f >= "0009" && f < "0018").sort();
+	const all = (d) => Object.fromEntries(d.prepare("SELECT * FROM products").all().map((r) => [r.slug, { ...r }]));
+	const price = (r) => [r.price_mode, r.price_cents, r.compare_at_cents, r.min_price_cents];
+	const M = "0018_precio_47_black_friday.sql";
+	const db18 = prodDb();
+	for (const f of prev) db18.exec(sql(f));
+	// Precios de producción del 2026-11-17 (/market/estado.json).
+	const set = db18.prepare("UPDATE products SET price_mode = ?, price_cents = ?, compare_at_cents = ?, min_price_cents = ? WHERE slug = ?");
+	const prod = {
+		"anuncios-infinitos": ["fixed", 3333, 7690, 0],
+		specreel: ["fixed", 1200, 3690, 0],
+		"stick-sketch": ["fixed", 3690, null, 0],
+		"pagespeed-forensics": ["pwyw", 900, null, 0],
+		cutpilot: ["pwyw", 1200, null, 0],
+		"motor-creativo-claude-code": ["pwyw", 1900, null, 0],
+	};
+	for (const [slug, p] of Object.entries(prod)) set.run(...p, slug);
+	const pre18 = all(db18);
+	db18.exec(sql(M));
+	const v18 = all(db18);
+	db18.exec(sql(M));
+	assert.deepEqual(all(db18), v18, "0018 es idempotente");
+	const changed = ["anuncios-infinitos", "specreel", "stick-sketch"];
+	for (const s of changed) assert.deepEqual(price(v18[s]), ["fixed", 4700, null, 0], `${s}: USD 47 sin tachado`);
+	assert.deepEqual(price(v18["reel-4k-studio"]), ["fixed", 4700, null, 0], "reel-4k-studio sigue en USD 47");
+	for (const [s, r] of Object.entries(v18))
+		if (!changed.includes(s)) assert.deepEqual(r, pre18[s], `${s}: fila sin cambios`);
+		else for (const k of Object.keys(r)) if (!["price_cents", "compare_at_cents", "updated_at"].includes(k)) assert.deepEqual(r[k], pre18[s][k], `${s}.${k} sin cambios`);
+	// Ningún producto de pago y precio fijo queda con tachado (la oferta es el cupón, no un «antes»).
+	assert.ok(Object.values(v18).every((r) => r.compare_at_cents === null || r.price_mode !== "fixed" || !r.active), "sin tachados");
+	// Guarda: un producto en pago libre o que el dueño ya puso en USD 47 o más no se toca.
+	const dbG = prodDb();
+	for (const f of prev) dbG.exec(sql(f));
+	dbG.prepare("UPDATE products SET price_mode = 'pwyw', price_cents = 500, compare_at_cents = NULL WHERE slug = 'specreel'").run();
+	dbG.prepare("UPDATE products SET price_mode = 'fixed', price_cents = 9900, compare_at_cents = NULL WHERE slug = 'stick-sketch'").run();
+	const preG = all(dbG);
+	dbG.exec(sql(M));
+	const g = all(dbG);
+	assert.deepEqual([g.specreel, g["stick-sketch"]], [preG.specreel, preG["stick-sketch"]], "0018 no toca pago libre ni precios ≥ USD 47");
+	console.log("✓ migración 0018 segura (precio fijo a USD 47 sin tachado; pago libre sin cambios; idempotente, guardas)");
+}
