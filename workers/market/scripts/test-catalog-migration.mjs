@@ -784,12 +784,7 @@ db.exec(sql("0012_edit_pro_desde_cero.sql"));
 	// Imágenes: portada + 2 pantallas, todas en disco (y las de la tarjeta, el inglés y Merchant).
 	assert.deepEqual(images.map((i) => i.src), ["cover", "screen-1", "screen-2"].map((f) => `/market/static/products/${slug}/${f}.webp`));
 	assert.ok(images.every((i) => i.alt.length > 20));
-	const pub = join(root, "public", "market", "static", "products", slug);
-	for (const f of ["cover.webp", "cover-800.webp", "cover-animada.webp", "cover-animada-800.webp", "screen-1.webp", "screen-2.webp", "en/cover.webp", "en/cover-800.webp", "en/cover-animada.webp", "en/cover-animada-800.webp", "merchant.jpg"])
-		assert.ok(existsSync(join(pub, f)), `falta public/…/${slug}/${f}`);
-	// El ZIP se sube después por /market/provision: el manifiesto ya conoce su SHA-256.
-	const manifest = JSON.parse(readFileSync(join(root, "provision", "manifest.json"), "utf8")).files;
-	assert.ok(manifest.some((f) => f.slug === slug && f.fileName === "reel-4k-studio-3.0.zip" && /^[0-9a-f]{64}$/.test(f.sha256)), "manifiesto: reel-4k-studio-3.0.zip con su SHA-256");
+	// Las imágenes en disco y el manifiesto de provisión se comprueban en el bloque de la 0020 (slug nuevo).
 
 	// Guarda: si el slug ya existe (p. ej. creado a mano en el admin), no se pisa.
 	const dbOwn = base17();
@@ -868,4 +863,88 @@ db.exec(sql("0012_edit_pro_desde_cero.sql"));
 	dbG.exec(sql(M));
 	assert.deepEqual(all(dbG), preG, "0019 no pisa un precio puesto a mano");
 	console.log("✓ migración 0019 segura (Anuncios Automáticos: 33.33 con 76.90 tachado; resto sin cambios; idempotente, guarda)");
+}
+
+// ── 0020: «Reel 4K Studio» pasa a llamarse «Video 4K» (slug video-4k-con-claude; pedido del dueño, 2026-11-17) ──
+{
+	const OLD = "reel-4k-studio";
+	const slug = "video-4k-con-claude";
+	const prev = readdirSync(join(root, "migrations")).filter((f) => f.endsWith(".sql") && f >= "0009" && f < "0020").sort();
+	const base = () => {
+		const d = prodDb();
+		for (const f of prev) d.exec(sql(f));
+		// Estado de producción: el ZIP ya está subido y el producto, a la venta.
+		d.prepare("UPDATE products SET file_key = 'products/reel-4k-studio/9402976db8841055/reel-4k-studio-3.0.zip', file_name = 'reel-4k-studio-3.0.zip', file_size = 10613935, availability = 'available' WHERE slug = ?").run(OLD);
+		return d;
+	};
+	const all = (d) => Object.fromEntries(d.prepare("SELECT * FROM products").all().map((r) => [r.slug, { ...r }]));
+	const len = (s) => [...s].length;
+	const M = "0020_video_4k_con_claude.sql";
+
+	const db = base();
+	const pre = all(db);
+	db.exec(sql(M));
+	const v = all(db);
+	db.exec(sql(M));
+	assert.deepEqual(all(db), v, "0020 es idempotente");
+	assert.ok(!v[OLD] && v[slug], "la fila cambió de slug");
+	for (const [s, r] of Object.entries(v)) if (s !== slug) assert.deepEqual(r, pre[s], `${s}: sin cambios`);
+
+	const a = pre[OLD];
+	const p = v[slug];
+	// Misma fila: id, precio, archivo, disponibilidad, compat, orden, ventas y fecha de creación intactos.
+	for (const k of ["id", "price_cents", "compare_at_cents", "price_mode", "kind", "currency", "file_key", "file_name", "file_size", "availability", "active", "compat", "sort_order", "sales_offset", "created_at", "category", "badge", "accent", "video_id", "download_limit"])
+		assert.deepEqual(p[k], a[k], `0020 no cambia ${k}`);
+
+	const en = JSON.parse(p.i18n).en;
+	assert.deepEqual(Object.keys(en).sort(), [...EN_KEYS].sort(), "i18n.en con todas las claves");
+	const esF = { ...p, highlights: JSON.parse(p.highlights), specs: JSON.parse(p.specs), faq: JSON.parse(p.faq), tags: JSON.parse(p.tags) };
+	assert.ok(!/Reel 4K Studio/.test(JSON.stringify(p)) && !/reel-4k-studio/.test(p.images), "sin rastros del nombre viejo (el archivo sí conserva su nombre)");
+	for (const [lang, f] of [["es", esF], ["en", en]]) {
+		const tag = `${slug} (${lang})`;
+		assert.ok(f.title.startsWith("Video 4K: "), `${tag}: el nombre encabeza el título`);
+		assert.ok(!/por Claude|by Claude/i.test(JSON.stringify(f)), `${tag}: nunca «por Claude» (daría a entender que lo hace Anthropic)`);
+		assert.ok(!/anthropic|claude/i.test(f.title.split(":")[0]), `${tag}: ni Claude ni Anthropic en el nombre`);
+		assert.ok(len(f.title) <= 70 && len(f.tagline) <= 75 && len(f.summary) <= 220 && len(f.meta_title) <= 60, `${tag}: largos`);
+		assert.ok(len(f.meta_description) >= 120 && len(f.meta_description) <= 160, `${tag}: meta_description 120–160`);
+		assert.ok(f.highlights.length >= 4 && f.highlights.length <= 6, `${tag}: 4–6 beneficios`);
+		assert.ok(f.tags.length >= 5 && f.tags.length <= 7 && new Set(f.tags.map((t) => t.toLowerCase())).size === f.tags.length, `${tag}: 5–7 etiquetas sin repetir`);
+		assert.ok(f.faq.length === 9 && f.faq.every((x) => x.q.endsWith("?") && x.a), `${tag}: FAQ con la pregunta de redes al final`);
+		for (const red of ["YouTube", "TikTok", "Instagram", "Facebook"]) assert.ok(f.description.includes(red) && f.highlights.some((h) => h.includes(red)), `${tag}: menciona ${red} (formato para redes)`);
+		assert.ok(/16:9/.test(f.faq.at(-1).a) && /9:16/.test(f.faq.at(-1).a), `${tag}: la FAQ de redes habla de formato`);
+	}
+	// Subtítulo: los estilos de las 7 herramientas.
+	for (const e of ["Intros", "collage editorial", "paisajes", "personajes", "acción 3D", "anuncios"]) assert.ok(p.tagline.includes(e), `ES: el subtítulo cita «${e}»`);
+	for (const e of ["Intros", "editorial collage", "landscapes", "characters", "3D action", "ads"]) assert.ok(en.tagline.includes(e), `EN: el subtítulo cita «${e}»`);
+	// Se mantienen el aviso de producto independiente y el nombre interno del ZIP.
+	assert.equal(count(p.description, "Video 4K es un producto independiente de Tony Ciencia: funciona con Claude, pero no es un producto oficial de Anthropic ni está respaldado por Anthropic."), 1);
+	assert.equal(count(en.description, "Video 4K is an independent product by Tony Ciencia: it works with Claude, but it is not an official Anthropic product and it is not endorsed by Anthropic."), 1);
+	assert.ok(esF.faq[0].q === "¿Es un producto oficial de Anthropic?" && esF.faq[0].a.startsWith("No. Video 4K es un producto independiente"));
+	assert.ok(en.faq[0].q === "Is this an official Anthropic product?" && en.faq[0].a.startsWith("No. Video 4K is an independent product"));
+	assert.equal(count(p.description, "En el ZIP el paquete se llama Code Video Studio V3"), 1);
+	assert.equal(count(en.description, "Inside the ZIP the pack is called Code Video Studio V3"), 1);
+	assert.ok(p.meta_title.toLowerCase().includes("videos animados con claude") && p.meta_description.toLowerCase().includes("videos animados con claude"), "ES: palabra clave");
+	assert.ok(en.meta_title.toLowerCase().includes("animated videos with claude") && en.meta_description.toLowerCase().includes("animated videos with claude"), "EN: palabra clave");
+	const visibleEn = [en.title, en.tagline, en.meta_title, en.meta_description, en.description, ...en.highlights, ...en.faq.flatMap((f) => [f.q, f.a]), ...en.tags].join("\n");
+	assert.ok(!/\b(para|con|que|los|las|una|del)\b/.test(visibleEn.replace(/«[^»]*»|"[^"]*"/g, "")), "EN: sin frases en español");
+	// Imágenes con la ruta nueva, todas en disco (también las de la tarjeta, el inglés y Merchant).
+	const images = JSON.parse(p.images);
+	assert.deepEqual(images.map((i) => i.src), ["cover", "screen-1", "screen-2"].map((f) => `/market/static/products/${slug}/${f}.webp`));
+	assert.equal(en.image_alts.length, images.length);
+	const pub = join(root, "public", "market", "static", "products", slug);
+	for (const f of ["cover.webp", "cover-800.webp", "cover-animada.webp", "cover-animada-800.webp", "screen-1.webp", "screen-2.webp", "en/cover.webp", "en/cover-800.webp", "en/cover-animada.webp", "en/cover-animada-800.webp", "merchant.jpg"])
+		assert.ok(existsSync(join(pub, f)), `falta public/…/${slug}/${f}`);
+	assert.ok(!existsSync(join(root, "public", "market", "static", "products", OLD)), "la carpeta vieja ya no existe");
+	// Provisión: la entrada pasa al slug nuevo con el MISMO ZIP (mismo nombre de archivo y SHA-256).
+	const manifest = JSON.parse(readFileSync(join(root, "provision", "manifest.json"), "utf8")).files;
+	assert.ok(manifest.some((f) => f.slug === slug && f.fileName === "reel-4k-studio-3.0.zip" && f.sha256.startsWith("9402976db8841055")), "manifiesto: mismo ZIP con el slug nuevo");
+	assert.ok(!manifest.some((f) => f.slug === OLD), "manifiesto: sin el slug viejo");
+
+	// Guarda: si alguien ya creó video-4k-con-claude a mano, no se toca nada.
+	const dbG = base();
+	dbG.prepare("INSERT INTO products (id, slug, title, price_cents, currency, kind, active, created_at, updated_at) VALUES ('own', ?, 'Del dueño', 9900, 'usd', 'paid', 1, 1, 1)").run(slug);
+	const preG = all(dbG);
+	dbG.exec(sql(M));
+	assert.deepEqual(all(dbG), preG, "0020 no pisa un video-4k-con-claude creado a mano");
+	console.log("✓ migración 0020 segura (Reel 4K Studio → Video 4K: misma fila con slug nuevo, redes, estilos, aviso de independencia, idempotente, guarda)");
 }

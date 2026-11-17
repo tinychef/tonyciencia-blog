@@ -521,6 +521,26 @@ describe("portadas en inglés", () => {
 	});
 });
 
+describe("rebranding: Reel 4K Studio → Video 4K (migración 0020, misma fila con slug nuevo)", () => {
+	it("el slug viejo ya no existe en la base y aun así su ficha responde 301 a la nueva en su idioma (con su query)", async () => {
+		expect(await getProductBySlug(env.MARKET_DB, "reel-4k-studio", false)).toBeNull();
+		for (const [from, to] of [
+			["/market/producto/reel-4k-studio", "/market/producto/video-4k-con-claude"],
+			["/market/en/product/reel-4k-studio", "/market/en/product/video-4k-con-claude"],
+			["/market/producto/reel-4k-studio?utm_source=fb", "/market/producto/video-4k-con-claude?utm_source=fb"],
+		] as const) {
+			const r = await call(from);
+			expect(r.status, from).toBe(301);
+			expect(r.headers.get("location"), from).toBe(to);
+		}
+		const p = (await getProductBySlug(env.MARKET_DB, "video-4k-con-claude", false))!;
+		expect(p.id).toBe("7ac5e6dd-4f20-46bf-adcf-64345b89ad21");
+		expect(p.title.startsWith("Video 4K: ")).toBe(true);
+		// Un slug que nunca existió sigue dando 404.
+		expect((await call("/market/producto/no-existe-este")).status).toBe(404);
+	});
+});
+
 describe("rebranding: SpecReel Stick → Stick Sketch (migración 0015)", () => {
 	it("la ficha vieja (retirada) responde 301 a la nueva en su idioma (con su query); los demás retirados siguen yendo al catálogo", async () => {
 		expect((await one<{ active: number }>("SELECT active FROM products WHERE slug = 'specreel-stick'"))?.active).toBe(0);

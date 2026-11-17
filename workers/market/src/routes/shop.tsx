@@ -116,12 +116,12 @@ export function registerShop(app: Hono<AppEnv>) {
 		if (base && lang === "en" && !hasEnglish(base)) return c.redirect(productPath(slug, "es"), 302);
 		const product = base ? localize(base, lang) : null;
 		if (!product) {
-			// Un producto retirado (existe pero está inactivo) redirige al catálogo en vez de dar 404; si se retiró por un
-			// cambio de nombre (RENAMED_PRODUCTS), a la ficha nueva en el mismo idioma y con la misma query (UTM).
-			if (await getProductBySlug(db, slug, false)) {
-				const renamed = Object.hasOwn(RENAMED_PRODUCTS, slug) ? RENAMED_PRODUCTS[slug] : undefined;
-				return c.redirect(renamed ? `${productPath(renamed, lang)}${new URL(c.req.url).search}` : storeRoot(lang), 301);
-			}
+			// Un slug viejo por cambio de nombre (RENAMED_PRODUCTS) redirige a la ficha nueva en el mismo idioma y con la
+			// misma query (UTM), exista o no su fila (la 0020 renombró la fila en sitio). Un producto retirado (existe pero
+			// está inactivo) redirige al catálogo en vez de dar 404.
+			const renamed = Object.hasOwn(RENAMED_PRODUCTS, slug) ? RENAMED_PRODUCTS[slug] : undefined;
+			if (renamed) return c.redirect(`${productPath(renamed, lang)}${new URL(c.req.url).search}`, 301);
+			if (await getProductBySlug(db, slug, false)) return c.redirect(storeRoot(lang), 301);
 			return renderMessage(c, 404, "Producto no encontrado", "Este producto no existe o ya no está disponible.");
 		}
 		const user = c.get("user");
