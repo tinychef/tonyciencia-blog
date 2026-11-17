@@ -842,3 +842,30 @@ db.exec(sql("0012_edit_pro_desde_cero.sql"));
 	assert.deepEqual([g.specreel, g["stick-sketch"]], [preG.specreel, preG["stick-sketch"]], "0018 no toca pago libre ni precios ≥ USD 47");
 	console.log("✓ migración 0018 segura (precio fijo a USD 47 sin tachado; pago libre sin cambios; idempotente, guardas)");
 }
+
+// ── 0019: Anuncios Automáticos vuelve a USD 33.33 con 76.90 tachado (corrección del dueño, 2026-11-17) ──
+{
+	const prev = readdirSync(join(root, "migrations")).filter((f) => f.endsWith(".sql") && f >= "0009" && f < "0019").sort();
+	const all = (d) => Object.fromEntries(d.prepare("SELECT * FROM products").all().map((r) => [r.slug, { ...r }]));
+	const M = "0019_anuncios_33.sql";
+	const db19 = prodDb();
+	for (const f of prev) db19.exec(sql(f));
+	// Estado de producción después de la 0018: precio fijo a USD 47 sin tachado.
+	db19.exec("UPDATE products SET price_mode = 'fixed', price_cents = 4700, compare_at_cents = NULL WHERE slug IN ('anuncios-infinitos', 'specreel', 'stick-sketch')");
+	const pre = all(db19);
+	db19.exec(sql(M));
+	const v = all(db19);
+	db19.exec(sql(M));
+	assert.deepEqual(all(db19), v, "0019 es idempotente");
+	const a = v["anuncios-infinitos"];
+	assert.deepEqual([a.price_mode, a.price_cents, a.compare_at_cents], ["fixed", 3333, 7690], "anuncios-infinitos: 33.33 con 76.90 tachado");
+	for (const [s, r] of Object.entries(v)) if (s !== "anuncios-infinitos") assert.deepEqual(r, pre[s], `${s}: sin cambios`);
+	// Guarda: si el dueño ya le cambió el precio en el admin, no se toca.
+	const dbG = prodDb();
+	for (const f of prev) dbG.exec(sql(f));
+	dbG.exec("UPDATE products SET price_mode = 'fixed', price_cents = 2900, compare_at_cents = NULL WHERE slug = 'anuncios-infinitos'");
+	const preG = all(dbG);
+	dbG.exec(sql(M));
+	assert.deepEqual(all(dbG), preG, "0019 no pisa un precio puesto a mano");
+	console.log("✓ migración 0019 segura (Anuncios Automáticos: 33.33 con 76.90 tachado; resto sin cambios; idempotente, guarda)");
+}
