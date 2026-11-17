@@ -22,17 +22,17 @@ const dlOf = (html: string) => {
 
 /** Pone a la venta un producto real del catálogo (en la BD de prueba no tienen archivo) y lo deja como estaba. */
 async function whileAvailable(slug: string, fn: () => Promise<void>) {
-	const before = await one<{ availability: string; active: number; price_mode: string; price_cents: number }>(
-		"SELECT availability, active, price_mode, price_cents FROM products WHERE slug = ?1",
+	const before = await one<{ availability: string; active: number; price_mode: string; price_cents: number; compare_at_cents: number | null }>(
+		"SELECT availability, active, price_mode, price_cents, compare_at_cents FROM products WHERE slug = ?1",
 		slug,
 	);
 	if (!before) throw new Error(`no existe ${slug}`);
-	await env.MARKET_DB.prepare("UPDATE products SET availability = 'available', active = 1, price_mode = 'fixed', price_cents = 1200 WHERE slug = ?1").bind(slug).run();
+	await env.MARKET_DB.prepare("UPDATE products SET availability = 'available', active = 1, price_mode = 'fixed', price_cents = 1200, compare_at_cents = NULL WHERE slug = ?1").bind(slug).run();
 	try {
 		await fn();
 	} finally {
-		await env.MARKET_DB.prepare("UPDATE products SET availability = ?2, active = ?3, price_mode = ?4, price_cents = ?5 WHERE slug = ?1")
-			.bind(slug, before.availability, before.active, before.price_mode, before.price_cents)
+		await env.MARKET_DB.prepare("UPDATE products SET availability = ?2, active = ?3, price_mode = ?4, price_cents = ?5, compare_at_cents = ?6 WHERE slug = ?1")
+			.bind(slug, before.availability, before.active, before.price_mode, before.price_cents, before.compare_at_cents)
 			.run();
 	}
 }

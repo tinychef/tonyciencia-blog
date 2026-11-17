@@ -5,21 +5,13 @@
 > no aplique. Las indicaciones para la extensión de Chrome están en el historial de la sesión del 2026-11-01/03; si
 > hace falta, redáctalas de nuevo (siempre de solo lectura salvo el cambio pedido, y nunca pegando claves en el chat).
 
-Actualizado: 2026-11-09 (anti-spam del formulario terminado).
+Actualizado: 2026-11-17 (Stripe ya cobra; precios del market a USD 1.10).
 
 ## Urgente
-1. **Stripe — verificación vencida desde el 2026-10-31** (cuenta «Merkhify», la misma que cobra el market). Hoy los
-   cobros con tarjeta y los pagos al banco SÍ funcionan; lo pausado es Affirm, Cartes Bancaires y «financial
-   accounts», pero puede escalar. Tres tareas «Past due», ambas fichas («Business details») marcadas Invalid:
-   (a) identidad del representante: Stripe exige que tenga dirección en EE. UU. + falta un documento;
-   (b) dirección de la empresa (Albuquerque) rechazada por ser de agente registrado;
-   (c) dirección del representante (la de Chile) rechazada con el mismo motivo.
-   Qué hacer (él mismo): escribir al soporte de Stripe y preguntar qué aceptan para una LLC de EE. UU. con dueño
-   que vive fuera; según la respuesta, dar una dirección física real de la empresa (no de agente registrado) o
-   nombrar como representante a una persona con domicilio en EE. UU., y subir el documento que pidan.
-   De paso, en «Public details»: agregar un correo de soporte (hoy no hay) y decidir si el nombre público sigue
-   siendo «Merkhify» (es lo que ve quien paga en el market) o pasa a «Tony Ciencia».
-2. **Rotar claves que se pegaron en un chat** (HANDOFF.md), después del punto 1. En vez de volver a usar una clave
+1. ~~**Stripe — verificación vencida desde el 2026-10-31**~~ — **HECHO (2026-11-17, confirmado por el dueño: «ya
+   puede cobrar por Stripe»).** Pendiente menor si no se hizo: en «Public details», correo de soporte y decidir si el
+   nombre público sigue siendo «Merkhify» o pasa a «Tony Ciencia».
+2. **Rotar claves que se pegaron en un chat** (HANDOFF.md) — ya se puede: el punto 1 está resuelto. En vez de volver a usar una clave
    secreta con acceso total, crear una **clave restringida** (rk_live) solo con: Checkout Sessions = Write,
    Coupons = Write, Promotion codes = Write (es todo lo que llama el market), pegarla él en el secreto
    STRIPE_SECRET_KEY del Worker `tonyciencia-market` y luego borrar la clave «MARKETPLACE TONY». La clave

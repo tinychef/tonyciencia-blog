@@ -162,6 +162,43 @@ describe("el precio sale SIEMPRE de la base de datos", () => {
 			expect(calls.some((c) => c.endsWith("/v1/checkout/sessions"))).toBe(false);
 			expect((await one<{ n: number }>("SELECT COUNT(*) AS n FROM orders WHERE user_id = ?1", user.id))?.n).toBe(0);
 		});
+
+		it("cupón de monto fijo (BLACKFRIDAY, USD 45.90 menos): vale en USD 47, pero no deja un cobro bajo el mínimo de Stripe", async () => {
+			const [a, b] = [await createProduct({ priceCents: 4700 }), await createProduct({ priceCents: 1200 })];
+			const p47 = (await getProductBySlug(env.MARKET_DB, a.slug))!;
+			const p12 = (await getProductBySlug(env.MARKET_DB, b.slug))!;
+			const user = await upsertUser(env.MARKET_DB, `bf-${uid()}@example.com`, "Cliente", `test:${uid()}`);
+			const config = loadConfig(env as Env);
+			if (!config.ok) throw new Error("config");
+			const fake = (async (url: string) => {
+				const u = new URL(url);
+				if (u.pathname === "/v1/promotion_codes") return Response.json({ data: [{ id: "promo_bf", active: true, promotion: { type: "coupon", coupon: "c_bf" } }] });
+				if (u.pathname === "/v1/coupons/c_bf") return Response.json({ valid: true, amount_off: 4590, metadata: { market: "true" } });
+				return Response.json({ id: `cs_test_${uid()}`, url: "https://checkout.stripe.com/c/pay/x" });
+			}) as unknown as typeof fetch;
+			const adapters = createAdapters(config.config, env as Env);
+			adapters.payments = make(fake);
+			const deps = { db: env.MARKET_DB, config: config.config, adapters };
+			expect((await startCheckout(deps, user, p47, { couponCode: "BLACKFRIDAY" })).ok).toBe(true); // 47 − 45.90 = 1.10
+			expect(await startCheckout(deps, user, p12, { couponCode: "BLACKFRIDAY" })).toEqual({ ok: false, reason: "invalid_coupon" });
+		});
+
+		it("cupón de 100 % (regalo a propósito) sigue valiendo", async () => {
+			const a = await createProduct({ priceCents: 1200 });
+			const product = (await getProductBySlug(env.MARKET_DB, a.slug))!;
+			const user = await upsertUser(env.MARKET_DB, `regalo-${uid()}@example.com`, "Cliente", `test:${uid()}`);
+			const config = loadConfig(env as Env);
+			if (!config.ok) throw new Error("config");
+			const fake = (async (url: string) => {
+				const u = new URL(url);
+				if (u.pathname === "/v1/promotion_codes") return Response.json({ data: [{ id: "promo_r", active: true, promotion: { type: "coupon", coupon: "c_r" } }] });
+				if (u.pathname === "/v1/coupons/c_r") return Response.json({ valid: true, percent_off: 100, metadata: { market: "true" } });
+				return Response.json({ id: `cs_test_${uid()}`, url: "https://checkout.stripe.com/c/pay/x" });
+			}) as unknown as typeof fetch;
+			const adapters = createAdapters(config.config, env as Env);
+			adapters.payments = make(fake);
+			expect((await startCheckout({ db: env.MARKET_DB, config: config.config, adapters }, user, product, { couponCode: "PRUEBA-MARKET" })).ok).toBe(true);
+		});
 	});
 
 	it("STRIPE_TAX_ENABLED activa automatic_tax (y nada más)", () => {
