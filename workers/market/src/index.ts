@@ -4,6 +4,7 @@ import { app } from "./app";
 import { loadConfig, mockInProductionError } from "./config";
 import type { Env } from "./env";
 import { cleanupRateLimits } from "./lib/ratelimit";
+import { syncMemberships } from "./services/memberships";
 import { processOutbox } from "./services/outbox";
 import { ensureWelcomeCoupon } from "./services/welcome";
 
@@ -18,7 +19,7 @@ if (startupError) throw new Error(`[market] ARRANQUE DENEGADO: ${startupError}`)
 export default {
 	fetch: app.fetch,
 
-	/** Cron (cada 5 min): cupón de bienvenida, reintentos de correo y limpieza. */
+	/** Cron (cada 5 min): cupón de bienvenida, reintentos de correo, accesos de la Membresía Dorada y limpieza. */
 	async scheduled(_controller, env, ctx) {
 		const boot = loadConfig(env);
 		if (!boot.ok) {
@@ -30,6 +31,9 @@ export default {
 			(async () => {
 				await ensureWelcomeCoupon(deps.config, deps.adapters, Date.now(), env.MARKET_DB);
 				const r = await processOutbox(deps);
+				// Productos nuevos (o que pasaron a «Disponible») llegan solos a cada membresía vigente.
+				const granted = await syncMemberships(env.MARKET_DB);
+				if (granted) console.log(`[market] cron: ${granted} accesos nuevos por membresía`);
 				await cleanupRateLimits(env.MARKET_DB);
 				await env.MARKET_DB.prepare("DELETE FROM sessions WHERE expires_at < ?1").bind(Date.now()).run();
 				if (r.processed) console.log(`[market] cron: ${r.processed} correos procesados`);

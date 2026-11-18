@@ -5,6 +5,7 @@ import { adminCopyEmail, deliveryEmail } from "./email-templates";
 import { outboxInsert, type EmailDraft } from "./outbox";
 import { formatPrice } from "../lib/money";
 import { STRIPE_MIN_CENTS, canBeFree, isPwyw, pwywBounds, saleInfo } from "../lib/pricing";
+import { restoreMembershipGrants, revokeMembershipGrants, syncMemberships } from "./memberships";
 import { countOtherWelcomeOrders, countPaidOrders, getActiveEntitlement, getOrder, getUserById, type OrderRow, type Product, type User } from "./repo";
 
 export interface Deps {
@@ -39,6 +40,7 @@ async function deliveryDrafts(
 		libraryUrl: new URL("/market/mis-compras", config.origin).toString(),
 		downloadLimit: opts.product.download_limit,
 		orderId: opts.order.id,
+		membership: opts.product.grants_all === 1,
 	});
 	const copy = adminCopyEmail(rendered, opts.user.email);
 	const kind = opts.order.kind === "paid" ? "purchase" : "free";
@@ -85,6 +87,8 @@ export async function startCheckout(deps: Deps, user: User, product: Product, op
 	const { db, config, adapters } = deps;
 	// "Próximamente": visible en la tienda, pero nunca se cobra (no hay archivo que entregar).
 	if (product.kind !== "paid" || product.active !== 1 || product.availability === "coming_soon") return { ok: false, reason: "not_found" };
+	// Quien tiene la Membresía Dorada ya tiene este producto aunque el cron todavía no se lo haya agregado.
+	await syncMemberships(db, user.id);
 	if (await getActiveEntitlement(db, user.id, product.id)) return { ok: false, reason: "already_owned" };
 
 	const pwyw = isPwyw(product);
@@ -223,6 +227,8 @@ export async function handlePaymentEvent(deps: Deps, event: PaymentEvent): Promi
 				db.prepare("UPDATE entitlements SET revoked_at = ?2, revoked_reason = 'refund' WHERE order_id = ?1 AND revoked_at IS NULL").bind(order.id, now),
 				// Si ya estaba revocado por una disputa, ahora la causa es el reembolso (no se devuelve si se gana la disputa).
 				db.prepare("UPDATE entitlements SET revoked_reason = 'refund' WHERE order_id = ?1 AND revoked_reason = 'dispute'").bind(order.id),
+				// Si era la Membresía Dorada, se van también los productos que dio.
+				...revokeMembershipGrants(db, order.id, "refund", now),
 			]);
 			return finish("reembolsado y acceso revocado", order.id);
 		}
@@ -233,6 +239,7 @@ export async function handlePaymentEvent(deps: Deps, event: PaymentEvent): Promi
 			await db.batch([
 				db.prepare("UPDATE orders SET note = 'Disputa abierta en Stripe', updated_at = ?2 WHERE id = ?1").bind(order.id, now),
 				db.prepare("UPDATE entitlements SET revoked_at = ?2, revoked_reason = 'dispute' WHERE order_id = ?1 AND revoked_at IS NULL").bind(order.id, now),
+				...revokeMembershipGrants(db, order.id, "dispute", now),
 			]);
 			console.warn(`[webhook] disputa abierta en el pedido ${order.id}: acceso suspendido`);
 			return finish("disputa abierta: acceso suspendido", order.id);
@@ -254,7 +261,10 @@ export async function handlePaymentEvent(deps: Deps, event: PaymentEvent): Promi
 						 WHERE order_id = ?1 AND revoked_reason = 'dispute' AND (SELECT status FROM orders WHERE id = ?1) = 'paid'`,
 					)
 					.bind(order.id),
+				restoreMembershipGrants(db, order.id),
 			]);
+			// Membresía: los productos que salieron durante la disputa.
+			await syncMemberships(db, order.user_id, now);
 			return finish("disputa ganada: acceso devuelto", order.id);
 		}
 
@@ -322,10 +332,41 @@ export async function handlePaymentEvent(deps: Deps, event: PaymentEvent): Promi
 					)
 					.bind(entitlementId, user.id, product.id, order.id, product.download_limit, now, existing ? 1 : 0),
 				...drafts.map((d) => outboxInsert(db, crypto.randomUUID(), d, entitlementId, now)),
+				priceRaiseStatement(db, { productId: product.id, orderId: order.id, paidAt: now, duplicate: !!existing, paidCents }),
 			]);
+			// Membresía Dorada: entrega en el acto todos los productos (sin esperar al cron).
+			if (product.grants_all === 1) await syncMemberships(db, user.id, now);
 			return finish(existing ? "pagado (ya tenía acceso)" : "pagado y entregado", order.id);
 		}
 	}
+}
+
+/**
+ * Subida automática por venta (dueño, 2026-11-17): cada venta pagada sube el precio `raise_per_sale_cents`, sin pasar de
+ * `raise_cap_cents` (NULL = sin tope). Cuando el precio nuevo alcanza el tachado, el tachado se quita (dejaría de ser
+ * una rebaja). Solo cuenta una venta real: pedido que ESTE evento acaba de pasar a pagado (mismo paid_at), cobro mayor
+ * que 0 y sin acceso previo (las compras duplicadas no suben). Va en el mismo lote atómico que marca el pedido pagado,
+ * así que un evento repetido no sube dos veces. Los reembolsos no bajan el precio.
+ */
+export function priceRaiseStatement(
+	db: D1Database,
+	o: { productId: string; orderId: string; paidAt: number; duplicate: boolean; paidCents: number },
+): D1PreparedStatement {
+	return db
+		.prepare(
+			`UPDATE products SET
+			   price_cents = MIN(price_cents + raise_per_sale_cents, COALESCE(raise_cap_cents, 99999999)),
+			   compare_at_cents = CASE
+			     WHEN compare_at_cents IS NOT NULL
+			      AND MIN(price_cents + raise_per_sale_cents, COALESCE(raise_cap_cents, 99999999)) >= compare_at_cents THEN NULL
+			     ELSE compare_at_cents END,
+			   updated_at = ?3
+			 WHERE id = ?1 AND raise_per_sale_cents > 0 AND kind = 'paid' AND price_mode = 'fixed' AND COALESCE(grants_all, 0) = 0
+			   AND price_cents < COALESCE(raise_cap_cents, 99999999)
+			   AND ?4 = 0 AND ?5 > 0
+			   AND EXISTS (SELECT 1 FROM orders WHERE id = ?2 AND product_id = ?1 AND status = 'paid' AND paid_at = ?3)`,
+		)
+		.bind(o.productId, o.orderId, o.paidAt, o.duplicate ? 1 : 0, o.paidCents);
 }
 
 async function findOrderForSession(db: D1Database, orderId: string | null, sessionId: string): Promise<OrderRow | null> {

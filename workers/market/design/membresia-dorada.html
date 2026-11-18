@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Portadas · Membresía Dorada</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+/* Membresía Dorada (slug membresia-dorada, 2026-11-17). Sistema v5 (grafito #0d0d0f, Inter Tight, dolor → solución)
+   con un solo acento dorado #d4a017. El boleto dorado es genérico, al estilo de Tony Ciencia: NO usa nombres,
+   tipografías, textos ni diseño de ninguna película o marca de chocolates (decisión tomada para no rozar marcas ajenas).
+   Las miniaturas son las portadas reales de los productos que incluye hoy (public/market/static/products/<slug>/).
+   No se hornea precio ni cantidad de productos en la portada: cambian con el tiempo (la ficha muestra la lista al día).
+   Animación (36 cuadros a 12 fps, 3 s en bucle, función pura del cuadro): el boleto flota, un brillo lo cruza y
+   centellean unos destellos. */
+:root { --bg: #0d0d0f; --p1: #141417; --line: #2e2e33; --fg: #f5f5f7; --mut: #8e8e96; --dim: #6e6e76; --g: #f2c94c; --g2: #d4a017; --g3: #8a6410; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #333; }
+.frame { width: 1600px; height: 1000px; position: relative; overflow: hidden; background: var(--bg); color: var(--fg); font-family: "Inter Tight", system-ui, sans-serif; margin-bottom: 40px; }
+.dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,.07) 1.6px, transparent 1.6px); background-size: 32px 32px; -webkit-mask: linear-gradient(90deg, transparent 25%, #000 70%); mask: linear-gradient(90deg, transparent 25%, #000 70%); }
+.glow { position: absolute; left: 640px; top: 40px; width: 1000px; height: 720px; border-radius: 50%; background: radial-gradient(closest-side, rgba(242,201,76,.20), rgba(242,201,76,0)); }
+
+/* ── Portadas ── */
+.top { position: absolute; left: 88px; right: 88px; top: 40px; height: 108px; display: flex; align-items: center; justify-content: space-between; }
+.name { font-size: 72px; line-height: 1; font-weight: 800; letter-spacing: -0.03em; white-space: nowrap; }
+.name u { text-decoration: underline; text-decoration-color: var(--g2); text-decoration-thickness: 10px; text-underline-offset: 13px; text-decoration-skip-ink: none; }
+.pill { height: 84px; display: flex; align-items: center; padding: 0 30px; border: 3px solid var(--g2); border-radius: 18px; background: #1a160b; font-size: 38px; font-weight: 800; letter-spacing: -0.01em; color: var(--g); white-space: nowrap; }
+.pain { position: absolute; left: 88px; top: 176px; font-size: 44px; line-height: 1.1; font-weight: 600; letter-spacing: -0.015em; color: var(--mut); white-space: nowrap; }
+.pain s { text-decoration-thickness: 5px; text-decoration-color: rgba(245,245,247,.55); }
+.pain b { color: var(--fg); font-weight: 700; }
+.h { position: absolute; left: 84px; top: 262px; font-size: 112px; line-height: 0.96; font-weight: 800; letter-spacing: -0.045em; white-space: nowrap; }
+.h b { font-weight: 800; color: var(--g); }
+
+/* Boleto: el contenedor .tk se mueve (flota); .tk-in lleva la forma, el brillo y el texto. */
+.tk { position: absolute; left: 790px; top: 252px; width: 720px; height: 360px; transform-origin: 50% 50%; }
+.tk-shadow { position: absolute; left: 30px; right: 30px; bottom: -34px; height: 50px; border-radius: 50%; background: radial-gradient(closest-side, rgba(0,0,0,.65), rgba(0,0,0,0)); }
+.tk-in { position: absolute; inset: 0; border-radius: 18px; overflow: hidden;
+	background: linear-gradient(135deg, #fff1b8 0%, #f2c94c 18%, #d4a017 42%, #f7dc7a 58%, #b8860b 80%, #f2c94c 100%);
+	/* muescas de boleto a los lados y en la línea del talón */
+	-webkit-mask: radial-gradient(circle 26px at 0 50%, transparent 25px, #000 26px) left / 51% 100% no-repeat, radial-gradient(circle 26px at 100% 50%, transparent 25px, #000 26px) right / 51% 100% no-repeat;
+	mask: radial-gradient(circle 26px at 0 50%, transparent 25px, #000 26px) left / 51% 100% no-repeat, radial-gradient(circle 26px at 100% 50%, transparent 25px, #000 26px) right / 51% 100% no-repeat;
+	box-shadow: 0 40px 90px rgba(0,0,0,.55); }
+.tk-grain { position: absolute; inset: 0; background-image: repeating-linear-gradient(115deg, rgba(255,255,255,.07) 0 2px, rgba(0,0,0,0) 2px 7px); mix-blend-mode: overlay; }
+.tk-frame { position: absolute; left: 22px; top: 22px; bottom: 22px; right: 182px; border: 3px solid rgba(90,62,8,.75); border-radius: 10px; }
+.tk-frame::after { content: ""; position: absolute; inset: 8px; border: 1.5px solid rgba(90,62,8,.55); border-radius: 6px; }
+.tk-cut { position: absolute; top: 18px; bottom: 18px; right: 160px; border-left: 4px dashed rgba(90,62,8,.6); }
+.tk-body { position: absolute; left: 22px; top: 22px; bottom: 22px; right: 182px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #3d2a04; }
+.tk-kick { font: 700 17px "JetBrains Mono", monospace; letter-spacing: 0.32em; text-transform: uppercase; color: #5a3e08; }
+.tk-title { margin-top: 10px; font: 900 64px/0.98 "Playfair Display", Georgia, serif; letter-spacing: 0.01em; color: #3d2a04; text-shadow: 0 2px 0 rgba(255,240,190,.55); }
+.tk-rule { margin: 16px 0 12px; width: 300px; height: 3px; background: linear-gradient(90deg, rgba(90,62,8,0), rgba(90,62,8,.8), rgba(90,62,8,0)); }
+.tk-sub { font: 800 23px "Inter Tight", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #4a3306; }
+.tk-stub { position: absolute; right: 0; top: 0; bottom: 0; width: 160px; display: grid; place-items: center; }
+.tk-stub span { transform: rotate(90deg); white-space: nowrap; font: 700 22px "JetBrains Mono", monospace; letter-spacing: 0.22em; text-transform: uppercase; color: #5a3e08; }
+.tk-star { position: absolute; left: 40px; top: 40px; width: 34px; height: 34px; }
+.tk-star.r { left: auto; right: 210px; }
+.tk-star.b { top: auto; bottom: 40px; }
+.tk-shine { position: absolute; top: -40%; width: 180px; height: 180%; transform: rotate(20deg); background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.75), rgba(255,255,255,0)); mix-blend-mode: soft-light; }
+.tk-shine2 { position: absolute; top: -40%; width: 60px; height: 180%; transform: rotate(20deg); background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.55), rgba(255,255,255,0)); }
+.spark { position: absolute; width: 46px; height: 46px; margin: -23px 0 0 -23px; }
+.spark svg { width: 100%; height: 100%; display: block; }
+
+.inc { position: absolute; left: 88px; top: 664px; font: 600 18px "JetBrains Mono", monospace; text-transform: uppercase; letter-spacing: 0.16em; color: var(--g); }
+.thumbs { position: absolute; left: 88px; top: 700px; display: flex; gap: 15px; }
+.thumbs img { display: block; width: 190px; height: 119px; object-fit: cover; border: 3px solid var(--line); border-radius: 12px; background: #000; }
+.more { position: absolute; left: 88px; right: 88px; top: 856px; font-size: 34px; font-weight: 700; letter-spacing: -0.01em; color: #c9c9cf; white-space: nowrap; }
+.more b { color: var(--g); font-weight: 800; }
+.note { position: absolute; right: 88px; bottom: 14px; font: 500 15px/1.35 "JetBrains Mono", monospace; color: var(--dim); text-align: right; white-space: nowrap; }
+
+/* ── Pantallas ── */
+.eyebrow { position: absolute; left: 88px; top: 72px; display: flex; align-items: center; gap: 14px; font: 600 18px "JetBrains Mono", monospace; text-transform: uppercase; letter-spacing: 0.16em; }
+.eyebrow i { width: 14px; height: 14px; background: var(--g2); display: block; }
+.eyebrow span { color: var(--mut); font-weight: 500; }
+h2 { position: absolute; left: 84px; top: 118px; font-size: 80px; line-height: 0.98; font-weight: 800; letter-spacing: -0.04em; }
+h2 b { color: var(--g); font-weight: 800; }
+.lead { position: absolute; font-size: 24px; line-height: 1.45; color: #c4c4ca; }
+.foot { position: absolute; left: 88px; bottom: 30px; font: 500 15px/1.35 "JetBrains Mono", monospace; color: var(--dim); }
+
+.s1 .lead { left: 900px; top: 132px; width: 610px; }
+.pgrid { position: absolute; left: 88px; top: 330px; display: grid; grid-template-columns: repeat(4, 341px); gap: 22px 20px; }
+.pc { border: 3px solid var(--line); border-radius: 16px; background: var(--p1); overflow: hidden; }
+.pc img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.pc b { display: block; padding: 12px 16px 14px; font-size: 23px; font-weight: 800; letter-spacing: -0.01em; }
+.pc.next { border: 3px dashed var(--g2); background: #17140a; display: grid; place-items: center; text-align: center; padding: 20px; }
+.pc.next b { padding: 0; font-size: 30px; color: var(--g); }
+.pc.next p { margin-top: 8px; font-size: 19px; line-height: 1.35; color: #c9c9cf; }
+
+.steps { position: absolute; left: 88px; top: 312px; width: 660px; display: grid; gap: 22px; }
+.step { display: grid; grid-template-columns: 54px 1fr; gap: 18px; align-items: center; }
+.step .n { width: 54px; height: 54px; border-radius: 50%; border: 2px solid #3a3a40; display: grid; place-items: center; font: 700 20px "JetBrains Mono", monospace; }
+.step .n.ck { background: var(--g2); border-color: var(--g2); color: #0d0d0f; }
+.step b { display: block; font-size: 26px; font-weight: 700; letter-spacing: -0.01em; }
+.step span { display: block; margin-top: 3px; font-size: 19px; color: var(--mut); }
+.s2 .tk { left: 820px; top: 210px; width: 690px; height: 345px; transform: rotate(-4deg); }
+.s2 .tk-shine { left: 330px; }
+.s2 .tk-shine2 { left: 480px; }
+.req { position: absolute; left: 88px; right: 88px; top: 770px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.req > div { border: 3px solid var(--line); border-radius: 18px; background: var(--p1); padding: 18px 22px; }
+.req .k { font: 600 14px "JetBrains Mono", monospace; text-transform: uppercase; letter-spacing: 0.14em; color: var(--g); }
+.req p { margin-top: 8px; font-size: 19px; line-height: 1.42; color: #d4d4da; }
+</style>
+</head>
+<body>
+
+<!-- portadas: inicio (las genera el script de abajo: ES y EN, fija y animada) -->
+<div id="covers"></div>
+<script>
+const SLUGS = ["anuncios-infinitos", "specreel", "stick-sketch", "video-4k-con-claude", "pagespeed-forensics", "cutpilot", "motor-creativo-claude-code"];
+const NAMES = ["Anuncios Automáticos", "Motion 3D Video", "Stick Sketch", "Video 4K", "PageSpeed Forensics", "Edit Pro para YouTube", "Creative Factory"];
+const cover = (s, w) => `../public/market/static/products/${s}/cover${w ? "-800" : ""}.webp`;
+const STAR = (fill) => `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="${fill}" d="M12 0c.9 6.4 5.1 10.6 12 12-6.9 1.4-11.1 5.6-12 12-.9-6.4-5.1-10.6-12-12C6.9 10.6 11.1 6.4 12 0z"/></svg>`;
+const ticket = (t) => `<div class="tk"><div class="tk-shadow"></div><div class="tk-in">
+	<div class="tk-grain"></div><div class="tk-frame"></div><div class="tk-cut"></div>
+	<span class="tk-star">${STAR("rgba(90,62,8,.7)")}</span><span class="tk-star r">${STAR("rgba(90,62,8,.7)")}</span>
+	<span class="tk-star b">${STAR("rgba(90,62,8,.7)")}</span><span class="tk-star r b">${STAR("rgba(90,62,8,.7)")}</span>
+	<div class="tk-body"><p class="tk-kick">Market Tony</p><p class="tk-title">${t.tk}</p><div class="tk-rule"></div><p class="tk-sub">${t.tkSub}</p></div>
+	<div class="tk-stub"><span>${t.stub}</span></div>
+	<div class="tk-shine"></div><div class="tk-shine2"></div>
+</div></div>`;
+// Destellos alrededor del boleto: posición (px en el cuadro), tamaño y fase.
+const SPARKS = [[808, 236, 1.0, 0.0], [1490, 262, 0.8, 0.35], [1530, 560, 1.1, 0.6], [770, 600, 0.7, 0.15], [1180, 214, 0.6, 0.8], [1000, 640, 0.9, 0.45], [1555, 410, 0.55, 0.9]];
+const T = {
+	es: {
+		name: "Membresía <u>Dorada</u>",
+		pill: "Acceso de por vida",
+		pain: "<s>Comprar uno por uno.</s> <s>Pagar cada novedad.</s> <b>Todo, para siempre.</b>",
+		h: "Todo Market<br>Tony, hoy y<br>lo que <b>venga</b>.",
+		tk: "Membresía<br>Dorada",
+		tkSub: "Acceso total · de por vida",
+		stub: "Todo incluido",
+		inc: "Incluye hoy",
+		more: "<b>+ cada producto nuevo que salga</b> · sin pagar más · un solo pago",
+		note: "Portadas reales de los productos que incluye hoy. «De por vida»: mientras Market Tony exista.",
+	},
+	en: {
+		name: "Golden <u>Membership</u>",
+		pill: "Lifetime access",
+		pain: "<s>Buying one by one.</s> <s>Paying for every release.</s> <b>Everything, forever.</b>",
+		h: "All of Market<br>Tony, today and<br>what <b>comes next</b>.",
+		tk: "Golden<br>Membership",
+		tkSub: "Full access · for life",
+		stub: "All included",
+		inc: "Included today",
+		more: "<b>+ every new product released</b> · no extra cost · one payment",
+		note: "Real covers of the products included today. \"Lifetime\": for as long as Market Tony exists.",
+	},
+};
+(() => {
+	const html = [];
+	for (const lang of ["es", "en"]) {
+		for (const anim of [false, true]) {
+			const t = T[lang];
+			const out = `${lang === "en" ? "en/" : ""}cover${anim ? "-animada" : ""}`;
+			const attrs = anim ? `data-anim="36" data-fps="12" data-width="1600" data-quality="72"` : "data-cpu";
+			const sparks = SPARKS.map(([x, y, s]) => `<span class="spark" style="left:${x}px;top:${y}px">${STAR("#ffe9a3")}</span>`).join("");
+			html.push(`<section class="frame ofv" data-out="${out}" data-lang="${lang}" ${attrs}>
+	<div class="dots"></div><div class="glow"></div>
+	<div class="top"><div class="name">${t.name}</div><div class="pill">${t.pill}</div></div>
+	<p class="pain">${t.pain}</p>
+	<p class="h">${t.h}</p>
+	${ticket(t)}
+	${sparks}
+	<p class="inc">${t.inc}</p>
+	<div class="thumbs">${SLUGS.map((s) => `<img src="${cover(s, true)}" alt="">`).join("")}</div>
+	<p class="more">${t.more}</p>
+	<p class="note">${t.note}</p>
+</section>`);
+		}
+	}
+	document.getElementById("covers").outerHTML = html.join("\n");
+
+	// Cuadro = función pura de p (0..1 en el bucle de 3 s).
+	const update = (root, p) => {
+		const tau = Math.PI * 2;
+		const tk = root.querySelector(".tk");
+		if (tk) tk.style.transform = `translateY(${(Math.sin(p * tau) * 10).toFixed(2)}px) rotate(${(-5 + Math.sin(p * tau + 0.8) * 1.2).toFixed(3)}deg)`;
+		// Brillo: cruza el boleto en la primera mitad del bucle y descansa fuera en la segunda.
+		const q = Math.min(1, p / 0.55);
+		const x = -260 + q * (720 + 420);
+		root.querySelectorAll(".tk-shine").forEach((el) => { el.style.left = `${x}px`; });
+		root.querySelectorAll(".tk-shine2").forEach((el) => { el.style.left = `${x + 150}px`; });
+		root.querySelectorAll(".spark").forEach((el, i) => {
+			const [, , s, ph] = SPARKS[i];
+			const v = Math.max(0, Math.sin((p + ph) * tau));
+			el.style.opacity = (0.15 + 0.85 * v).toFixed(3);
+			el.style.transform = `scale(${(s * (0.35 + 0.75 * v)).toFixed(3)}) rotate(${((p + ph) * 90).toFixed(1)}deg)`;
+		});
+	};
+	const A = [...document.querySelectorAll("section.ofv[data-anim]")];
+	const S = [...document.querySelectorAll("section.ofv:not([data-anim])")];
+	const first = () => { A.forEach((a) => update(a, 0)); S.forEach((s) => update(s, 0.3)); };
+	first(); document.fonts.ready.then(first);
+	window.__frame = (i) => { A.forEach((a) => update(a, i / 36)); return new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))); };
+})();
+</script>
+<!-- portadas: fin -->
+
+<section class="frame s1" data-out="screen-1" data-cpu>
+	<div class="dots"></div>
+	<div class="eyebrow"><i></i>Membresía Dorada <span>· Incluye hoy</span></div>
+	<h2>Todo el catálogo.<br><b>Y lo que salga.</b></h2>
+	<p class="lead">Una sola compra te da acceso a todos los productos de Market Tony que están a la venta, y a cada producto nuevo que se publique después.</p>
+	<div class="pgrid" id="s1-grid"></div>
+	<p class="foot">Productos a la venta en noviembre de 2026. La lista al día está en la ficha de la membresía.</p>
+</section>
+
+<section class="frame s2" data-out="screen-2" data-cpu>
+	<div class="dots"></div><div class="glow"></div>
+	<div class="eyebrow"><i></i>Membresía Dorada <span>· Cómo funciona</span></div>
+	<h2>Pagas una vez.<br><b>Lo tienes todo.</b></h2>
+	<div class="steps">
+		<div class="step"><span class="n">1</span><div><b>Compras la membresía</b><span>Un solo pago con Stripe. Sin mensualidades.</span></div></div>
+		<div class="step"><span class="n">2</span><div><b>Entras con tu cuenta de Google</b><span>La misma con la que pagaste: es la única con acceso.</span></div></div>
+		<div class="step"><span class="n ck">3</span><div><b>Todo está en Mis compras</b><span>Cada producto, listo para descargar.</span></div></div>
+		<div class="step"><span class="n ck">4</span><div><b>Sale algo nuevo: ya es tuyo</b><span>Se agrega solo a tu cuenta en unos minutos.</span></div></div>
+	</div>
+	<div id="s2-ticket"></div>
+	<div class="req">
+		<div><span class="k">«De por vida»</span><p>Mientras Market Tony exista. Si algún día la tienda cerrara, te avisamos por correo con tiempo para que descargues lo tuyo.</p></div>
+		<div><span class="k">Lo que no incluye</span><p>Servicios y asesorías a medida, ni las cuentas o suscripciones de terceros que necesite cada producto.</p></div>
+	</div>
+	<p class="foot">Market Tony · Tony Ciencia LLC</p>
+</section>
+<script>
+// Pantallas (solo español, como el resto del catálogo): van al final porque sus secciones están debajo del primer script.
+document.getElementById("s1-grid").innerHTML =
+	SLUGS.map((s, i) => `<div class="pc"><img src="${cover(s, false)}" alt=""><b>${NAMES[i]}</b></div>`).join("") +
+	`<div class="pc next"><div><b>+ lo que venga</b><p>Cada producto nuevo se agrega solo a tu cuenta.</p></div></div>`;
+document.getElementById("s2-ticket").outerHTML = ticket(T.es);
+</script>
+</body>
+</html>

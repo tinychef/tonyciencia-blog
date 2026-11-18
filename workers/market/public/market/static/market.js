@@ -492,6 +492,7 @@
 				t.setAttribute("aria-selected", String(j === idx));
 			});
 			thumbs[idx]?.scrollIntoView({ block: "nearest", inline: "nearest", behavior: reduced ? "auto" : "smooth" });
+			gallery.dispatchEvent(new CustomEvent("mk:slide"));
 		};
 		thumbs.forEach((t, j) =>
 			t.addEventListener("click", (e) => {
@@ -507,12 +508,159 @@
 		});
 		let startX = null;
 		const main = $(".mk-gallery2-main", gallery);
-		main?.addEventListener("touchstart", (e) => (startX = e.touches[0].clientX), { passive: true });
+		// Sobre el boleto, arrastrar de lado lo inclina (no cambia de imagen: para eso están las flechas).
+		main?.addEventListener("touchstart", (e) => (startX = e.target.closest("[data-holo]") ? null : e.touches[0].clientX), { passive: true });
 		main?.addEventListener("touchend", (e) => {
 			if (startX === null) return;
 			const dx = e.changedTouches[0].clientX - startX;
 			if (Math.abs(dx) > 40) show(idx + (dx < 0 ? 1 : -1));
 			startX = null;
+		});
+	}
+
+	// ── Membresía Dorada: boleto holográfico con física de papel ──
+	// Resortes amortiguados: el mouse, el dedo o la inclinación del teléfono marcan el ángulo objetivo y el boleto llega
+	// con inercia y un poco de rebote; el scroll le da golpecitos, como a un papel suelto. La luz (brillo, lámina
+	// iridiscente, purpurina) sale del ángulo, así que también se mueve con el scroll. Solo anima mientras se ve.
+	const holo = $("[data-holo]");
+	if (holo && !reduced) {
+		const clamp = (n, a, b) => Math.max(a, Math.min(b, n));
+		const KEYS = ["rx", "ry", "rz", "ty", "sk"];
+		const s = { rx: -5, ry: 9, rz: -1.5, ty: 0, sk: 0 }; // estado
+		const v = { rx: 0, ry: 0, rz: 0, ty: 0, sk: 0 }; // velocidad
+		const t = { rx: 0, ry: 0, rz: 0, ty: 0, sk: 0 }; // objetivo
+		const K = { rx: 0.05, ry: 0.05, rz: 0.035, ty: 0.05, sk: 0.045 }; // rigidez: baja = más «papel»
+		const DAMP = 0.87;
+		let aim = null; // puntero o dedo: x, y entre -0.5 y 0.5
+		let tilt = null; // inclinación del teléfono
+		let inView = false;
+		let intro = true;
+		let raf = 0;
+		const put = (k, val) => holo.style.setProperty(k, val);
+		const render = () => {
+			put("--rx", `${s.rx.toFixed(2)}deg`);
+			put("--ry", `${s.ry.toFixed(2)}deg`);
+			put("--rz", `${s.rz.toFixed(2)}deg`);
+			put("--ty", `${s.ty.toFixed(1)}px`);
+			put("--sk", `${s.sk.toFixed(2)}deg`);
+			const gx = clamp(50 + s.ry * 2.6, 0, 100);
+			const gy = clamp(50 - s.rx * 3.2, 0, 100);
+			put("--mx", `${gx.toFixed(1)}%`);
+			put("--my", `${gy.toFixed(1)}%`);
+			put("--px", `${(50 + (gx - 50) * 0.9).toFixed(1)}%`);
+			put("--py", `${(50 + (gy - 50) * 0.9).toFixed(1)}%`);
+			put("--hyp", clamp(Math.hypot(gx - 50, gy - 50) / 50, 0, 1).toFixed(3));
+			// La curva: aparece con el golpe del scroll y se va con él.
+			put("--ba", clamp(Math.abs(v.rx) * 0.22 + Math.abs(s.sk) * 0.14, 0, 0.75).toFixed(3));
+			put("--bx", `${clamp(50 + s.sk * 9 + s.ry, 10, 90).toFixed(1)}%`);
+		};
+		const step = (now) => {
+			raf = 0;
+			if (!inView || document.hidden || !holo.classList.contains("is-active")) return;
+			const a = aim || tilt;
+			if (a) {
+				t.rx = -a.y * 26;
+				t.ry = a.x * 34;
+				t.rz = -a.x * 2.5;
+				t.ty = -4;
+			} else {
+				// En reposo flota solo, como si lo moviera el aire.
+				t.rx = Math.sin(now / 1900) * 4 - 2;
+				t.ry = Math.sin(now / 2600) * 11 + 3;
+				t.rz = Math.sin(now / 3100) * 1.6;
+				t.ty = Math.sin(now / 1500) * 5;
+			}
+			t.sk = 0;
+			for (const k of KEYS) {
+				v[k] = (v[k] + (t[k] - s[k]) * K[k]) * DAMP;
+				s[k] += v[k];
+			}
+			render();
+			raf = requestAnimationFrame(step);
+		};
+		const wake = () => {
+			if (!raf && inView && !document.hidden) raf = requestAnimationFrame(step);
+		};
+		// Entrada: el boleto llega girando y se acomoda con rebote.
+		const enter = () => {
+			if (!intro) return;
+			intro = false;
+			Object.assign(s, { rx: 22, ry: -80, rz: 6, ty: 40, sk: 0 });
+		};
+		if ("IntersectionObserver" in window) {
+			new IntersectionObserver(([en]) => {
+				inView = en.isIntersecting;
+				if (inView) {
+					enter();
+					wake();
+				}
+			}, { threshold: 0.15 }).observe(holo);
+		} else {
+			inView = true;
+			wake();
+		}
+		document.addEventListener("visibilitychange", wake);
+		gallery?.addEventListener("mk:slide", wake);
+
+		const aimAt = (e) => {
+			const r = holo.getBoundingClientRect();
+			aim = { x: clamp((e.clientX - r.left) / r.width - 0.5, -0.5, 0.5), y: clamp((e.clientY - r.top) / r.height - 0.5, -0.5, 0.5) };
+			wake();
+		};
+		holo.addEventListener("pointermove", aimAt);
+		holo.addEventListener("pointerdown", aimAt);
+		const release = () => (aim = null);
+		holo.addEventListener("pointerleave", release);
+		holo.addEventListener("pointercancel", release);
+		holo.addEventListener("pointerup", (e) => e.pointerType !== "mouse" && release());
+
+		// Scroll: cada movimiento de la página empuja el boleto, que aletea y vuelve a su sitio.
+		let lastY = window.scrollY;
+		let flip = 1;
+		window.addEventListener(
+			"scroll",
+			() => {
+				const dy = clamp(window.scrollY - lastY, -70, 70);
+				lastY = window.scrollY;
+				if (!inView || !dy) return;
+				flip = -flip;
+				v.rx += dy * 0.085;
+				v.sk += dy * 0.03;
+				v.ty += dy * 0.16;
+				v.rz += Math.abs(dy) * 0.012 * flip;
+				wake();
+			},
+			{ passive: true },
+		);
+
+		// Teléfono: inclinarlo mueve el boleto (Android; iOS pide permiso y ahí se queda con el dedo y el scroll).
+		if (!finePointer && "DeviceOrientationEvent" in window) {
+			let base = null;
+			window.addEventListener(
+				"deviceorientation",
+				(e) => {
+					if (e.beta == null || e.gamma == null) return;
+					if (!base) base = { b: e.beta, g: e.gamma };
+					// El «centro» sigue despacio a la mano, para que sostenerlo torcido no lo deje torcido.
+					base.b += (e.beta - base.b) * 0.02;
+					base.g += (e.gamma - base.g) * 0.02;
+					tilt = { x: clamp((e.gamma - base.g) / 40, -0.5, 0.5), y: clamp((base.b - e.beta) / 40, -0.5, 0.5) };
+					wake();
+				},
+				{ passive: true },
+			);
+		}
+	}
+
+	// Tarjeta de la membresía en el catálogo: la lámina y el brillo siguen al mouse.
+	if (finePointer && !reduced) {
+		$$("[data-holo-card]").forEach((cover) => {
+			const card = cover.closest(".mk5-card") || cover;
+			card.addEventListener("pointermove", (e) => {
+				const r = cover.getBoundingClientRect();
+				cover.style.setProperty("--mx", `${(((e.clientX - r.left) / r.width) * 100).toFixed(1)}%`);
+				cover.style.setProperty("--my", `${(((e.clientY - r.top) / r.height) * 100).toFixed(1)}%`);
+			});
 		});
 	}
 

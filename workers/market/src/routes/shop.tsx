@@ -6,6 +6,7 @@ import { checkCsrf } from "../lib/session";
 import { cleanText, isSlug, normalizeEmail, parseIntInRange, safeNextPath } from "../lib/validate";
 import { dispatchByOrder } from "../services/outbox";
 import { claimFreeProduct, startCheckout, type Deps } from "../services/orders";
+import { syncMemberships } from "../services/memberships";
 import { viewItemEvent, viewItemListEvent } from "../lib/analytics";
 import { CATEGORIES, categoryLabel, pickRelated, publicName, RENAMED_PRODUCTS, seoDescription, seoTitle } from "../lib/catalog";
 import { formatPrice } from "../lib/money";
@@ -125,6 +126,8 @@ export function registerShop(app: Hono<AppEnv>) {
 			return renderMessage(c, 404, "Producto no encontrado", "Este producto no existe o ya no está disponible.");
 		}
 		const user = c.get("user");
+		// Con membresía, la ficha de un producto nuevo ya dice «Ya lo tienes» (el cron lo daría en ≤ 5 min).
+		if (user && product.grants_all !== 1) await syncMemberships(db, user.id);
 		const [owned, reviews, breakdown, all] = await Promise.all([
 			user ? getActiveEntitlement(db, user.id, product.id).then(Boolean) : Promise.resolve(false),
 			listPublishedReviews(db, product.id),
@@ -158,7 +161,17 @@ export function registerShop(app: Hono<AppEnv>) {
 		const flash = montoMsg ?? (aviso && Object.hasOwn(AVISOS, aviso) ? tr(AVISOS[aviso]!) : null);
 		const notice =
 			aviso === "lista-ok" ? tr("¡Listo! Te avisaremos por correo el día del lanzamiento.") : aviso === "resena-ok" ? tr("¡Gracias por tu reseña!") : null;
-		const related = pickRelated(all, product.id).map((p) => localize(p, lang));
+		const related = product.grants_all === 1 ? [] : pickRelated(all, product.id).map((p) => localize(p, lang));
+		// Membresía: lo que incluye hoy (todo lo demás que está a la venta), con su nombre corto y su enlace.
+		const included =
+			product.grants_all === 1
+				? all
+						.filter((p) => p.id !== product.id && p.grants_all !== 1 && p.availability === "available")
+						.map((p) => {
+							const l = lang === "en" && hasEnglish(p) ? localize(p, "en") : localize(p, "es");
+							return { title: l.title.split(":")[0]!.trim(), href: productPath(p.slug, lang === "en" && hasEnglish(p) ? "en" : "es"), cover: l.images[0]?.src ?? null };
+						})
+				: [];
 		const origin = c.get("config").origin;
 		const path = productPath(product.slug, lang);
 		const cat = categoryLabelIn(lang, product.category, categoryLabel(product.category));
@@ -198,6 +211,7 @@ export function registerShop(app: Hono<AppEnv>) {
 				reviews={reviews}
 				breakdown={breakdown}
 				related={related}
+				included={included}
 				maxSales={Math.max(0, ...all.map((p) => p.stats.sales))}
 				welcome={c.get("welcome")}
 				userEmail={user?.email ?? null}
@@ -378,6 +392,7 @@ export function registerShop(app: Hono<AppEnv>) {
 	app.get("/market/mis-compras", async (c) => {
 		const user = c.get("user");
 		if (!user) return loginRedirect(c, "/market/mis-compras");
+		await syncMemberships(c.env.MARKET_DB, user.id);
 		const items = await listLibrary(c.env.MARKET_DB, user.id);
 		// «ver»: llegada desde el enlace del correo (resalta la compra, sin mensaje).
 		const highlight = c.req.query("listo") ?? c.req.query("ver") ?? null;

@@ -77,7 +77,7 @@ pnpm post:check <archivo> # revisión editorial de un post JSON
 
 ## Market Tony (`workers/market/`)
 
-Worker de Cloudflare separado del blog (Hono + D1 + R2), con su propio `package.json` y `wrangler.jsonc`; no se despliega con `pnpm deploy` del blog. Reglas duras (precios, descargas, migraciones, deploy): **`workers/market/CLAUDE.md`** — léelo antes de tocar el Market. Precio de lanzamiento: más de USD 77 salvo excepciones explícitas del dueño (Stick Sketch USD 36.90; Video 4K —antes Reel 4K Studio— USD 47, migraciones `0017` y `0020`).
+Worker de Cloudflare separado del blog (Hono + D1 + R2), con su propio `package.json` y `wrangler.jsonc`; no se despliega con `pnpm deploy` del blog. Reglas duras (precios, descargas, migraciones, deploy): **`workers/market/CLAUDE.md`** — léelo antes de tocar el Market. Precio de lanzamiento: más de USD 77 salvo excepciones explícitas del dueño (Stick Sketch USD 36.90; Video 4K —antes Reel 4K Studio— USD 47, migraciones `0017` y `0020`). Membresía Dorada (USD 100, acceso a todo, `0023`) y subida automática de USD 1 por venta hasta 47 en los productos de 1.10: detalle en `workers/market/CLAUDE.md`.
 
 ## Cuidar el contexto (la sesión se bloquea si se llena)
 

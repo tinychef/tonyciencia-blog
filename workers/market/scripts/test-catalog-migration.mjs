@@ -982,3 +982,90 @@ db.exec(sql("0012_edit_pro_desde_cero.sql"));
 	assert.deepEqual(all(dbG)["stick-sketch"], preG["stick-sketch"], "0021 no pisa un precio puesto a mano");
 	console.log("✓ migración 0021 segura (precio fijo a USD 1.10 con 47 tachado; Anuncios y gratis sin cambios; idempotente, guarda)");
 }
+
+// ── 0022 (columnas) y 0023: Membresía Dorada + subida de USD 1 por venta con tope en USD 47 (dueño, 2026-11-17) ──
+{
+	const slug = "membresia-dorada";
+	const prev = readdirSync(join(root, "migrations")).filter((f) => f.endsWith(".sql") && f >= "0009" && f < "0022").sort();
+	const all = (d) => Object.fromEntries(d.prepare("SELECT * FROM products").all().map((r) => [r.slug, { ...r }]));
+	const len = (s) => [...s].length;
+	const M = "0023_membresia_dorada.sql";
+	const RAISE = ["specreel", "stick-sketch", "video-4k-con-claude"];
+	const base = () => {
+		const d = prodDb();
+		for (const f of prev) d.exec(sql(f));
+		// Estado de producción después de la 0021.
+		d.exec("UPDATE products SET price_mode = 'fixed', price_cents = 110, compare_at_cents = 4700 WHERE slug IN ('specreel', 'stick-sketch', 'video-4k-con-claude')");
+		d.exec(sql("0022_membresia_y_subida.sql"));
+		return d;
+	};
+
+	// 0022: columnas nuevas con valores por defecto que no cambian nada.
+	const db = base();
+	const cols = (t) => db.prepare(`PRAGMA table_info(${t})`).all().map((c) => c.name);
+	for (const c of ["raise_per_sale_cents", "raise_cap_cents", "grants_all"]) assert.ok(cols("products").includes(c), `products.${c}`);
+	assert.ok(cols("orders").includes("membership_order_id"), "orders.membership_order_id");
+	assert.ok(db.prepare("SELECT * FROM products").all().every((r) => r.grants_all === 0 && r.raise_per_sale_cents === 0 && r.raise_cap_cents === null), "0022 no activa nada por sí sola");
+
+	const pre = all(db);
+	assert.ok(!pre[slug], "antes de la 0023 no existe la membresía");
+	db.exec(sql(M));
+	const v = all(db);
+	db.exec(sql(M));
+	assert.deepEqual(all(db), v, "0023 es idempotente");
+
+	// Subida por venta: solo los tres de USD 1.10, tope en el precio tachado (47). El resto, sin cambios.
+	for (const s of RAISE) {
+		assert.deepEqual([v[s].raise_per_sale_cents, v[s].raise_cap_cents, v[s].price_cents, v[s].compare_at_cents], [100, 4700, 110, 4700], `${s}: +USD 1 por venta hasta 47`);
+		const { updated_at, raise_per_sale_cents, raise_cap_cents, ...rest } = v[s];
+		const { updated_at: u0, raise_per_sale_cents: r0, raise_cap_cents: c0, ...rest0 } = pre[s];
+		assert.deepEqual(rest, rest0, `${s}: solo cambia la configuración de subida`);
+	}
+	for (const [s, r] of Object.entries(v)) if (s !== slug && !RAISE.includes(s)) assert.deepEqual(r, pre[s], `${s}: sin cambios`);
+	assert.deepEqual([v["anuncios-infinitos"].price_cents, v["anuncios-infinitos"].compare_at_cents, v["anuncios-infinitos"].raise_per_sale_cents], [3333, 7690, 0], "Anuncios Automáticos: 33.33 con 76.90 tachado y sin subida");
+
+	// La membresía: USD 100 fijo sin tachado, sin archivo, da acceso a todo, primera del catálogo.
+	const p = v[slug];
+	assert.deepEqual(
+		[p.price_cents, p.price_mode, p.kind, p.currency, p.compare_at_cents, p.sales_offset, p.active, p.availability, p.grants_all, p.raise_per_sale_cents, p.sort_order],
+		[10000, "fixed", "paid", "usd", null, 0, 1, "available", 1, 0, -1],
+	);
+	assert.deepEqual([p.file_key, p.file_name, p.file_size], [null, null, null], "sin archivo propio");
+	const en = JSON.parse(p.i18n).en;
+	assert.deepEqual(Object.keys(en).sort(), [...EN_KEYS].sort(), "i18n.en con todas las claves");
+	const esF = { ...p, highlights: JSON.parse(p.highlights), specs: JSON.parse(p.specs), faq: JSON.parse(p.faq), tags: JSON.parse(p.tags) };
+	for (const [lang, f] of [["es", esF], ["en", en]]) {
+		const tag = `${slug} (${lang})`;
+		assert.ok(len(f.title) <= 70, `${tag}: title ≤ 70 (${len(f.title)})`);
+		assert.ok(len(f.tagline) <= 75, `${tag}: tagline ≤ 75 (${len(f.tagline)})`);
+		assert.ok(len(f.summary) <= 220, `${tag}: summary ≤ 220`);
+		assert.ok(len(f.meta_title) <= 60, `${tag}: meta_title ≤ 60 (${len(f.meta_title)})`);
+		assert.ok(len(f.meta_description) >= 120 && len(f.meta_description) <= 160, `${tag}: meta_description 120–160 (${len(f.meta_description)})`);
+		assert.ok(f.highlights.length >= 4 && f.highlights.length <= 6, `${tag}: 4–6 beneficios`);
+		assert.ok(f.faq.length >= 3 && f.faq.every((x) => x.q.endsWith("?") && x.a), `${tag}: FAQ`);
+		assert.ok(f.tags.length >= 5 && f.tags.length <= 7 && new Set(f.tags.map((t) => t.toLowerCase())).size === f.tags.length, `${tag}: 5–7 etiquetas sin repetir`);
+		// Diseño genérico de boleto dorado: nada de la película ni de sus personajes (marca ajena).
+		assert.ok(!/wonka|willy|charlie|chocola|oompa/i.test(JSON.stringify(f) + p.images), `${tag}: sin referencias a la película`);
+	}
+	assert.equal(en.faq.length, esF.faq.length);
+	assert.equal(en.specs.length, esF.specs.length);
+	const images = JSON.parse(p.images);
+	assert.equal(en.image_alts.length, images.length, "un ALT en inglés por imagen");
+	// Imágenes en disco: portada, pantallas, versiones de 800 px y animadas, inglés y Merchant.
+	const dir = join(root, "public", "market", "static", "products", slug);
+	for (const i of images) assert.ok(existsSync(join(root, "public", i.src.replace(/^\//, ""))), `existe ${i.src}`);
+	for (const f of ["cover-800.webp", "cover-animada.webp", "cover-animada-800.webp", "merchant.jpg", "en/cover.webp", "en/cover-800.webp", "en/cover-animada.webp", "en/cover-animada-800.webp"])
+		assert.ok(existsSync(join(dir, f)), `existe ${slug}/${f}`);
+
+	// Guardas: un slug creado a mano no se pisa, y una subida ya configurada (o un precio en pago libre) tampoco.
+	const dbG = base();
+	dbG.prepare("INSERT INTO products (id, slug, title, price_cents, currency, kind, active, created_at, updated_at) VALUES ('own', ?, 'Del dueño', 9900, 'usd', 'paid', 1, 1, 1)").run(slug);
+	dbG.exec("UPDATE products SET raise_per_sale_cents = 50, raise_cap_cents = NULL WHERE slug = 'specreel'");
+	dbG.exec("UPDATE products SET price_mode = 'pwyw' WHERE slug = 'stick-sketch'");
+	dbG.exec(sql(M));
+	const g = all(dbG);
+	assert.deepEqual([g[slug].title, g[slug].price_cents, g[slug].grants_all], ["Del dueño", 9900, 0], "no pisa un membresia-dorada creado a mano");
+	assert.deepEqual([g.specreel.raise_per_sale_cents, g.specreel.raise_cap_cents], [50, null], "no pisa una subida configurada a mano");
+	assert.equal(g["stick-sketch"].raise_per_sale_cents, 0, "un producto pasado a pago libre no sube");
+	console.log("✓ migraciones 0022 y 0023 seguras (columnas, Membresía Dorada USD 100 ES + EN, subida +1 hasta 47 solo en los tres de 1.10, idempotente, guardas)");
+}

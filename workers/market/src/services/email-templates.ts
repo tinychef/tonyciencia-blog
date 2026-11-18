@@ -22,6 +22,8 @@ interface DeliveryData {
 	libraryUrl: string;
 	downloadLimit: number;
 	orderId: string;
+	/** Membresía Dorada: no tiene archivo propio, da acceso a todo (el botón lleva a Mis compras). */
+	membership?: boolean;
 }
 
 function shell(title: string, inner: string): string {
@@ -38,6 +40,7 @@ function shell(title: string, inner: string): string {
 
 /** Correo al cliente con el ENLACE firmado (nunca adjunto). */
 export function deliveryEmail(d: DeliveryData): RenderedEmail {
+	if (d.membership) return membershipEmail(d);
 	const paid = d.kind === "paid";
 	const subject = paid ? `Tu compra: ${d.productTitle}` : `Tu descarga gratis: ${d.productTitle}`;
 	const hello = d.buyerName ? `Hola, ${d.buyerName}:` : "Hola:";
@@ -65,6 +68,39 @@ export function deliveryEmail(d: DeliveryData): RenderedEmail {
 		"",
 		`Para descargar, entra con tu cuenta de Google ${d.accountEmail}: es la única que tiene acceso a esta compra. Puedes descargar hasta ${d.downloadLimit} veces.`,
 		`También puedes volver a descargarlo desde Mis compras: ${d.libraryUrl}`,
+		"",
+		`Referencia del pedido: ${d.orderId}`,
+		"Tony Ciencia LLC · tonyciencia.com",
+	].join("\n");
+	return { subject, html, text };
+}
+
+/** Compra de la Membresía Dorada: no hay un archivo que descargar, el acceso es a todo lo de Mis compras. */
+function membershipEmail(d: DeliveryData): RenderedEmail {
+	const subject = `Tu ${d.productTitle.split(":")[0]!.trim()} está activa`;
+	const hello = d.buyerName ? `Hola, ${d.buyerName}:` : "Hola:";
+	const price = formatPrice(d.amountCents, d.currency);
+	const html = shell(
+		subject,
+		`<h1 style="margin:8px 0 16px;font-size:22px;line-height:1.25">${esc(subject)}</h1>
+<p style="margin:0 0 12px;font-size:16px;line-height:1.6">${esc(hello)}</p>
+<p style="margin:0 0 12px;font-size:16px;line-height:1.6">Gracias por tu compra de <strong>${esc(d.productTitle)}</strong> (${esc(price)}).</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.6">Ya tienes todos los productos de Market Tony en tu cuenta, y los que salgan después se agregan solos, sin pagar nada más.</p>
+<p style="margin:0 0 24px"><a href="${esc(d.libraryUrl)}" style="display:inline-block;background:#1d1d1f;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 22px;border-radius:999px">Ver mis productos</a></p>
+<p style="margin:0 0 8px;font-size:14px;line-height:1.6;color:#515154">Para descargar, entra con tu cuenta de Google <strong>${esc(d.accountEmail)}</strong>: es la única que tiene acceso a la membresía.</p>
+<p style="margin:16px 0 0;font-size:12px;line-height:1.6;color:#6e6e73">Referencia del pedido: ${esc(d.orderId)}</p>`,
+	);
+	const text = [
+		subject,
+		"",
+		hello,
+		"",
+		`Gracias por tu compra de ${d.productTitle} (${price}).`,
+		"Ya tienes todos los productos de Market Tony en tu cuenta, y los que salgan después se agregan solos, sin pagar nada más.",
+		"",
+		`Ver mis productos: ${d.libraryUrl}`,
+		"",
+		`Para descargar, entra con tu cuenta de Google ${d.accountEmail}: es la única que tiene acceso a la membresía.`,
 		"",
 		`Referencia del pedido: ${d.orderId}`,
 		"Tony Ciencia LLC · tonyciencia.com",

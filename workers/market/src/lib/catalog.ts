@@ -30,6 +30,7 @@ export const MERCHANT_IMAGES: Readonly<Record<string, readonly string[]>> = {
 	cutpilot: ["merchant.jpg"],
 	"motor-creativo-claude-code": ["merchant.jpg"],
 	"video-4k-con-claude": ["merchant.jpg"],
+	"membresia-dorada": ["merchant.jpg"],
 };
 
 /**

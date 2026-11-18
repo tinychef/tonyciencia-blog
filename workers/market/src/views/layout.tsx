@@ -68,7 +68,7 @@ function dataLayerScript(events: object[]) {
 	return raw(`<script type="application/json" data-dl>${safeJson(events)}</script>`);
 }
 
-const STATIC_VERSION = "14";
+const STATIC_VERSION = "15";
 
 export const Layout: FC<LayoutProps> = ({ meta, config, user, isAdmin, csrf, theme, welcome, lang = "es", children }) => {
 	const tr = (es: string) => t(lang, es);
