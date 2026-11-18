@@ -48,6 +48,13 @@ export interface ProductRow {
 	compat: string;
 	// ── Versión en inglés (migración 0011; filas anteriores no la traen) ──
 	i18n?: string;
+	// ── Membresía y subida por venta (migración 0022; filas de pruebas anteriores no las traen) ──
+	/** 1 = membresía: da acceso a todos los demás productos activos y a la venta (src/services/memberships.ts). */
+	grants_all?: number;
+	/** Centavos que sube el precio con cada venta pagada (0 = no sube). */
+	raise_per_sale_cents?: number;
+	/** Precio máximo al que llega la subida (NULL = sin tope). */
+	raise_cap_cents?: number | null;
 }
 
 export interface ProductSpec {
@@ -104,6 +111,8 @@ export interface OrderRow {
 	created_at: number;
 	updated_at: number;
 	paid_at: number | null;
+	/** Pedidos de USD 0 que crea la Membresía Dorada: el pedido pagado de la membresía (migración 0022). */
+	membership_order_id?: string | null;
 }
 
 export interface EntitlementRow {
@@ -158,6 +167,9 @@ const toProduct = (r: ProductRow): Product => ({
 	price_mode: r.price_mode === "pwyw" && r.kind === "paid" ? "pwyw" : "fixed",
 	min_price_cents: r.min_price_cents ?? 0,
 	max_price_cents: r.max_price_cents ?? null,
+	grants_all: r.grants_all ?? 0,
+	raise_per_sale_cents: r.raise_per_sale_cents ?? 0,
+	raise_cap_cents: r.raise_cap_cents ?? null,
 	compat: parseCompat(r.compat),
 	i18n: parseI18n(r.i18n),
 	images: parseImages(r.images),
@@ -329,24 +341,28 @@ export interface LibraryItem {
 	title: string;
 	kind: "paid" | "free";
 	file_key: string | null;
+	/** 1 si este acceso ES la membresía (no tiene archivo: da acceso a todo). */
+	grants_all: number;
 	order_id: string;
 	amount_cents: number;
 	currency: string;
+	/** 'membership' si el acceso lo dio la Membresía Dorada. */
+	provider: string;
 }
 
 export async function listLibrary(db: D1Database, userId: string): Promise<LibraryItem[]> {
 	const { results } = await db
 		.prepare(
 			`SELECT e.id AS entitlement_id, e.download_limit, e.download_count, e.revoked_at, e.created_at,
-			        p.id AS product_id, p.slug, p.title, p.kind, p.file_key,
-			        o.id AS order_id, o.amount_cents, o.currency,
+			        p.id AS product_id, p.slug, p.title, p.kind, p.file_key, p.grants_all,
+			        o.id AS order_id, o.amount_cents, o.currency, o.provider,
 			        r.rating AS my_rating, r.body AS my_review
 			 FROM entitlements e
 			 JOIN products p ON p.id = e.product_id
 			 JOIN orders o ON o.id = e.order_id
 			 LEFT JOIN reviews r ON r.product_id = e.product_id AND r.user_id = e.user_id
 			 WHERE e.user_id = ?1
-			 ORDER BY e.created_at DESC`,
+			 ORDER BY p.grants_all DESC, e.created_at DESC`,
 		)
 		.bind(userId)
 		.all<LibraryItem>();
@@ -376,7 +392,7 @@ export interface ReviewRow {
 export async function listPublishedReviews(db: D1Database, productId: string, limit = 30): Promise<ReviewRow[]> {
 	const { results } = await db
 		.prepare(
-			`SELECT r.*, (SELECT o.kind FROM entitlements e JOIN orders o ON o.id = e.order_id
+			`SELECT r.*, (SELECT CASE WHEN o.provider = 'membership' THEN 'paid' ELSE o.kind END FROM entitlements e JOIN orders o ON o.id = e.order_id
 			              WHERE e.product_id = r.product_id AND e.user_id = r.user_id AND e.revoked_at IS NULL LIMIT 1) AS order_kind
 			 FROM reviews r WHERE r.product_id = ?1 AND ${REVIEW_VISIBLE} ORDER BY r.created_at DESC LIMIT ?2`,
 		)

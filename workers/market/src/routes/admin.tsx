@@ -380,7 +380,8 @@ export function registerAdmin(app: Hono<AppEnv>) {
 		const product = isId(id) ? await getProductById(c.env.MARKET_DB, id) : null;
 		if (!product) return renderMessage(c, 404, "Producto no encontrado", "Vuelve al listado.", { href: "/market/admin", label: "Volver" });
 		const activate = c.req.param("accion") === "activar";
-		if (activate && !product.file_key && product.availability !== "coming_soon") {
+		// La membresía no tiene archivo propio: entrega accesos a los demás productos.
+		if (activate && !product.file_key && product.availability !== "coming_soon" && product.grants_all !== 1) {
 			return renderMessage(c, 409, "Falta el archivo", "No se puede activar un producto sin archivo entregable. Súbelo desde «Editar».", {
 				href: `/market/admin/productos/${product.id}`,
 				label: "Editar producto",

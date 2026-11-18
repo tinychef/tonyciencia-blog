@@ -72,17 +72,24 @@ export const LibraryPage: FC<LibraryProps> = ({ user, items, csrf, highlight, no
 			<ul class="mk-list">
 				{items.map((it) => {
 					const left = Math.max(0, it.download_limit - it.download_count);
+					const membership = it.grants_all === 1;
+					const viaMembership = it.provider === "membership";
 					const unavailable = !!it.revoked_at || !it.file_key;
 					return (
 						<li class="tc-card mk-item" id={`acceso-${it.entitlement_id}`} style={highlight === it.entitlement_id ? "border-color: var(--color-success)" : undefined}>
 							<div>
 								<h2>{it.title}</h2>
 								<p class="mk-muted">
-									{it.kind === "free" ? "Gratis" : formatPrice(it.amount_cents, it.currency)} · {new Date(it.created_at).toLocaleDateString("es")} ·{" "}
-									{it.revoked_at ? "Acceso revocado" : `Te quedan ${left} de ${it.download_limit} descargas`}
+									{viaMembership ? "Incluido en tu Membresía Dorada" : it.kind === "free" ? "Gratis" : formatPrice(it.amount_cents, it.currency)} ·{" "}
+									{new Date(it.created_at).toLocaleDateString("es")} ·{" "}
+									{it.revoked_at
+										? "Acceso revocado"
+										: membership
+											? "Membresía activa: acceso a todos los productos, también a los que salgan"
+											: `Te quedan ${left} de ${it.download_limit} descargas`}
 								</p>
 							</div>
-							{unavailable ? (
+							{membership && !it.revoked_at ? null : unavailable ? (
 								<span class="mk-muted">{it.revoked_at ? "No disponible" : "Archivo pendiente"}</span>
 							) : (
 								<form method="post" action={`/market/descargas/${it.entitlement_id}`}>

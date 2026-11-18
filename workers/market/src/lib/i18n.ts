@@ -22,7 +22,7 @@ export const storeRoot = (lang: Lang) => (lang === "en" ? "/market/en/" : "/mark
 export const productPath = (slug: string, lang: Lang) => (lang === "en" ? `/market/en/product/${slug}` : `/market/producto/${slug}`);
 
 /** Productos con portada en inglés en public/market/static/products/<slug>/en/. */
-export const EN_COVERS = new Set(["anuncios-infinitos", "specreel", "stick-sketch", "pagespeed-forensics", "cutpilot", "motor-creativo-claude-code", "video-4k-con-claude"]);
+export const EN_COVERS = new Set(["anuncios-infinitos", "specreel", "stick-sketch", "pagespeed-forensics", "cutpilot", "motor-creativo-claude-code", "video-4k-con-claude", "membresia-dorada"]);
 
 export interface ProductLocale {
 	title?: string;
@@ -287,6 +287,9 @@ const EN: Record<string, string> = {
 	"Ya es tuyo.": "It's yours.",
 	"Puedes descargarlo cuando quieras desde Mis compras.": "Download it anytime from My purchases.",
 	"Ir a Mis compras": "Go to My purchases",
+	"Tu membresía está activa: todos los productos, y los que salgan, están en Mis compras.": "Your membership is active: every product, and every new one, is in My purchases.",
+	"Incluye hoy": "Included today",
+	"Y cada producto nuevo que salga en Market Tony, sin pagar más.": "Plus every new product released on Market Tony, at no extra cost.",
 	"Descargar gratis": "Download for free",
 	"Aún no hay reseñas. Las reseñas solo las pueden dejar personas que tienen el producto, desde":
 		"No reviews yet. Only people who own the product can leave one, from",
@@ -338,8 +341,9 @@ const CATEGORY_EN: Record<string, string> = {
 };
 export const categoryLabelIn = (lang: Lang, slug: string, es: string | null) => (lang === "en" ? (CATEGORY_EN[slug] ?? es) : es);
 
-/** Etiqueta manual del admin (columna `badge`): por ahora solo «Versión X» tiene traducción automática. */
-export const badgeLabelIn = (lang: Lang, label: string) => (lang === "en" ? label.replace(/^Versión(?=\s)/, "Version") : label);
+/** Etiqueta manual del admin (columna `badge`): traducción automática de «Versión X» y de las etiquetas fijas de BADGE_EN. */
+const BADGE_EN: Record<string, string> = { "Acceso de por vida": "Lifetime access" };
+export const badgeLabelIn = (lang: Lang, label: string) => (lang === "en" ? (BADGE_EN[label] ?? label.replace(/^Versión(?=\s)/, "Version")) : label);
 
 /** «10 % de descuento» / «10% off», para el cupón de bienvenida. Vacío si no hay cifra. */
 export function offerPhrase(lang: Lang, offer: { percentOff: number | null; amountOffText: string | null }): string {

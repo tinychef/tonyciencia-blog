@@ -192,7 +192,7 @@ const searchText = (p: ShopProduct) => [p.title, p.tagline, p.summary, ...p.tags
  * La tarjeta carga primero la portada fija (rápida, buena para el LCP) y market.js la cambia por la animada cuando la
  * tarjeta entra en pantalla, salvo con «reducir movimiento» o ahorro de datos.
  */
-export const ANIMATED_COVERS = new Set(["anuncios-infinitos", "specreel", "stick-sketch", "pagespeed-forensics", "cutpilot", "motor-creativo-claude-code", "video-4k-con-claude"]);
+export const ANIMATED_COVERS = new Set(["anuncios-infinitos", "specreel", "stick-sketch", "pagespeed-forensics", "cutpilot", "motor-creativo-claude-code", "video-4k-con-claude", "membresia-dorada"]);
 
 /**
  * Versión liviana (800 px) de una portada del market: products/<slug>/[en/]cover.webp → cover-800.webp.
@@ -275,7 +275,13 @@ export const ProductCard: FC<{ p: ShopProduct; maxSales: number; welcome: Welcom
 			hidden={hidden ? true : undefined}
 		>
 			<article class={`mk5-card ${soon ? "is-soon" : ""}`}>
-				<div class="mk5-cover">
+				<div class={`mk5-cover${p.grants_all === 1 ? " mk5-cover--holo" : ""}`} data-holo-card={p.grants_all === 1 ? true : undefined}>
+					{p.grants_all === 1 && (
+						<>
+							<span class="mk5-holo-foil" aria-hidden="true"></span>
+							<span class="mk5-holo-glare" aria-hidden="true"></span>
+						</>
+					)}
 					{cover ? (
 						<img
 							src={cover.src}
@@ -632,6 +638,8 @@ export interface ProductViewProps {
 	reviews: ReviewRow[];
 	breakdown: Record<number, number>;
 	related: ShopProduct[];
+	/** Membresía (grants_all): los productos que incluye hoy, ya con nombre corto y enlace en el idioma de la ficha. */
+	included?: { title: string; href: string; cover: string | null }[];
 	maxSales: number;
 	welcome: WelcomeOffer | null;
 	userEmail: string | null;
@@ -770,7 +778,8 @@ const BuyActions: FC<ProductViewProps> = ({ product, loggedIn, owned, csrf, mode
 		return (
 			<>
 				<p class="mk-alert mk-alert--ok" style="margin-bottom: var(--spacing-4)">
-					<strong>{tr("Ya es tuyo.")}</strong> {tr("Puedes descargarlo cuando quieras desde Mis compras.")}
+					<strong>{tr("Ya es tuyo.")}</strong>{" "}
+					{product.grants_all === 1 ? tr("Tu membresía está activa: todos los productos, y los que salgan, están en Mis compras.") : tr("Puedes descargarlo cuando quieras desde Mis compras.")}
 				</p>
 				<a class="tc-btn tc-btn--primary mk-btn-block" href="/market/mis-compras">
 					{tr("Ir a Mis compras")}
@@ -907,14 +916,96 @@ const BuybarPrice: FC<{ product: Product }> = ({ product }) => {
 	);
 };
 
+/** Destellos alrededor del boleto: posición (%), tamaño (px) y retraso del parpadeo (s). Fijos: nada aleatorio en el SSR. */
+const HOLO_SPARKS: [number, number, number, number][] = [
+	[9, 18, 14, 0],
+	[88, 12, 10, 0.7],
+	[94, 64, 16, 1.4],
+	[6, 78, 11, 2.1],
+	[52, 6, 8, 1.1],
+	[70, 92, 12, 2.6],
+	[24, 93, 9, 0.4],
+	[97, 36, 7, 1.8],
+];
+
+/**
+ * Membresía Dorada: el boleto de la galería es HTML vivo, no una imagen. Lámina iridiscente, brillo que sigue al
+ * mouse y física de papel (mouse, scroll e inclinación del teléfono) en market.js; sin JS queda quieto y se ve igual.
+ */
+const GoldTicket: FC<{ title: string; active: boolean }> = ({ title, active }) => {
+	const lang = useLang();
+	const en = lang === "en";
+	const name = title.split(":")[0]!.trim();
+	const words = name.split(/\s+/);
+	return (
+		<div
+			class={`mk-holo-slide${active ? " is-active" : ""}`}
+			data-slide="0"
+			id="imagen-1"
+			data-holo
+			role="img"
+			aria-label={en ? `${name}: golden ticket with lifetime access to every Market Tony product` : `${name}: boleto dorado con acceso de por vida a todos los productos de Market Tony`}
+		>
+			<div class="mk-holo-stage" aria-hidden="true">
+				<div class="mk-holo-rays"></div>
+				<div class="mk-holo-floor"></div>
+				<div class="mk-holo">
+					<div class="mk-holo-aura"></div>
+					<div class="mk-holo-card">
+						<div class="mk-holo-base"></div>
+						<div class="mk-holo-etch"></div>
+						<div class="mk-holo-foil"></div>
+						<div class="mk-holo-irid"></div>
+						<div class="mk-holo-content">
+							<div class="mk-holo-main">
+								<span class="mk-holo-kick">Market Tony</span>
+								<strong class="mk-holo-title">
+									{words[0]}
+									{words.length > 1 && (
+										<>
+											<br />
+											{words.slice(1).join(" ")}
+										</>
+									)}
+								</strong>
+								<span class="mk-holo-sub">{en ? "Full access · for life" : "Acceso total · de por vida"}</span>
+							</div>
+							<div class="mk-holo-stub">
+								<svg class="mk-holo-star" viewBox="0 0 40 40" width="40" height="40">
+									<path d="M20 1c1.6 10.6 8.4 17.4 19 19-10.6 1.6-17.4 8.4-19 19C18.4 28.4 11.6 21.6 1 20 11.6 18.4 18.4 11.6 20 1Z" />
+								</svg>
+								<span class="mk-holo-stub-txt">{en ? "All included" : "Todo incluido"}</span>
+								<span class="mk-holo-inf">∞</span>
+							</div>
+						</div>
+						<div class="mk-holo-glitter"></div>
+						<div class="mk-holo-shade"></div>
+						<div class="mk-holo-glare"></div>
+					</div>
+				</div>
+				{HOLO_SPARKS.map(([x, y, s, d]) => (
+					<span class="mk-holo-spark" style={`left:${x}%;top:${y}%;--s:${s}px;--d:${d}s`}></span>
+				))}
+				<p class="mk-holo-hint">
+					<span class="mk-holo-hint-fine">{en ? "Move your mouse over the ticket" : "Pasa el mouse por el boleto"}</span>
+					<span class="mk-holo-hint-touch">{en ? "Tilt your phone or drag the ticket" : "Inclina el teléfono o arrastra el boleto"}</span>
+				</p>
+			</div>
+		</div>
+	);
+};
+
 export const ProductPage: FC<ProductViewProps> = (props) => {
-	const { product, flash, notice, reviews, breakdown, related, maxSales, welcome } = props;
+	const { product, flash, notice, reviews, breakdown, related, included = [], maxSales, welcome } = props;
 	const lang = useLang();
 	const tr = useT();
 	const cat = categoryLabelIn(lang, product.category, categoryLabel(product.category));
 	const soon = product.availability === "coming_soon";
 	const images = product.images;
 	const sale = saleInfo(product);
+	// Membresía: el boleto vivo es la primera diapositiva y las imágenes van detrás.
+	const holo = product.grants_all === 1 ? 1 : 0;
+	const slides = images.length + holo;
 	return (
 		<div class="mk-product-page" style={product.accent ? `--accent: ${product.accent}` : undefined}>
 			<div class="mk-product-glow" aria-hidden="true"></div>
@@ -938,8 +1029,9 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 				)}
 				<div class="mk-product2">
 					<div class="mk-gallery2" data-gallery>
-						<div class="mk-gallery2-main">
-							{images.length > 0 ? (
+						<div class={`mk-gallery2-main${holo ? " has-holo" : ""}`}>
+							{holo ? <GoldTicket title={product.title} active /> : null}
+							{slides > 0 ? (
 								images.map((img, i) => (
 									<img
 										src={img.src}
@@ -947,20 +1039,20 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 										width="1600"
 										height="1000"
 										// La principal (LCP) en 800 o 1600 px según el hueco; las del admin no tienen versión de 800.
-										srcset={i === 0 && cover800(img.src) ? `${cover800(img.src)} 800w, ${img.src} 1600w` : undefined}
-										sizes={i === 0 && cover800(img.src) ? "(min-width: 921px) 55vw, 100vw" : undefined}
-										loading={i === 0 ? "eager" : "lazy"}
-										fetchpriority={i === 0 ? "high" : undefined}
-										decoding={i === 0 ? undefined : "async"}
-										data-slide={String(i)}
-										class={i === 0 ? "is-active" : undefined}
-										id={`imagen-${i + 1}`}
+										srcset={i === 0 && !holo && cover800(img.src) ? `${cover800(img.src)} 800w, ${img.src} 1600w` : undefined}
+										sizes={i === 0 && !holo && cover800(img.src) ? "(min-width: 921px) 55vw, 100vw" : undefined}
+										loading={i === 0 && !holo ? "eager" : "lazy"}
+										fetchpriority={i === 0 && !holo ? "high" : undefined}
+										decoding={i === 0 && !holo ? undefined : "async"}
+										data-slide={String(i + holo)}
+										class={i === 0 && !holo ? "is-active" : undefined}
+										id={`imagen-${i + 1 + holo}`}
 									/>
 								))
 							) : (
 								<div class="mk-gallery2-empty" aria-hidden="true"></div>
 							)}
-							{images.length > 1 && (
+							{slides > 1 && (
 								<>
 									<button type="button" class="mk-gal-nav mk-gal-prev" aria-label={tr("Imagen anterior")} data-gal-prev>
 										‹
@@ -971,10 +1063,15 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 								</>
 							)}
 						</div>
-						{images.length > 1 && (
+						{slides > 1 && (
 							<div class="mk-thumbs" role="tablist" aria-label={tr("Imágenes del producto")}>
+								{holo ? (
+									<a href="#imagen-1" class="mk-thumb mk-thumb--holo is-active" data-thumb="0" role="tab" aria-selected="true" aria-label={lang === "en" ? "View the golden ticket" : "Ver el boleto dorado"}>
+										<span class="mk-thumb-ticket" aria-hidden="true"></span>
+									</a>
+								) : null}
 								{images.map((img, i) => (
-									<a href={`#imagen-${i + 1}`} class={`mk-thumb ${i === 0 ? "is-active" : ""}`} data-thumb={String(i)} role="tab" aria-selected={i === 0 ? "true" : "false"} aria-label={`${lang === "en" ? "View image" : "Ver imagen"} ${i + 1}: ${img.alt}`}>
+									<a href={`#imagen-${i + 1 + holo}`} class={`mk-thumb ${i === 0 && !holo ? "is-active" : ""}`} data-thumb={String(i + holo)} role="tab" aria-selected={i === 0 && !holo ? "true" : "false"} aria-label={`${lang === "en" ? "View image" : "Ver imagen"} ${i + 1 + holo}: ${img.alt}`}>
 										{/* Miniatura de 160 px: la portada en su versión de 800 px (la de 1600 pesaba ~150 KB de más). */}
 										<img src={cover800(img.src) ?? img.src} alt="" width="160" height="100" loading="lazy" decoding="async" />
 									</a>
@@ -1070,6 +1167,24 @@ export const ProductPage: FC<ProductViewProps> = (props) => {
 										</span>
 									</a>
 								</div>
+							</section>
+						)}
+						{included.length > 0 && (
+							<section class="mk-block" id="incluye" aria-labelledby="incluye-t">
+								<h2 class="mk-block-title" id="incluye-t">
+									{tr("Incluye hoy")}
+								</h2>
+								<ul class="mk-included">
+									{included.map((it) => (
+										<li>
+											<a href={it.href}>
+												{it.cover && <img src={cover800(it.cover) ?? it.cover} alt="" width="160" height="100" loading="lazy" decoding="async" />}
+												<span>{it.title}</span>
+											</a>
+										</li>
+									))}
+								</ul>
+								<p class="mk-muted">{tr("Y cada producto nuevo que salga en Market Tony, sin pagar más.")}</p>
 							</section>
 						)}
 						<section class="mk-block mk-description" id="descripcion" aria-labelledby="descripcion-t">
