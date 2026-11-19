@@ -565,10 +565,10 @@ describe("rebranding: SpecReel Stick → Stick Sketch (migración 0015)", () => 
 		expect((await call("/market/provision/specreel-stick", { method: "PUT", body: "x" })).status).toBe(404);
 	});
 
-	it("ficha nueva: USD 1.10 con 47 tachado (0021), sin ventas, mismo «Funciona con» y versión en inglés", async () => {
+	it("ficha nueva: USD 7 con 47 tachado (0024), sin ventas, mismo «Funciona con» y versión en inglés", async () => {
 		const p = (await getProductBySlug(env.MARKET_DB, "stick-sketch"))!;
 		const old = (await getProductBySlug(env.MARKET_DB, "specreel-stick", false))!;
-		expect(p).toMatchObject({ price_cents: 110, price_mode: "fixed", kind: "paid", compare_at_cents: 4700, sales_offset: 0, category: "video" });
+		expect(p).toMatchObject({ price_cents: 700, price_mode: "fixed", kind: "paid", compare_at_cents: 4700, sales_offset: 0, category: "video" });
 		expect(saleInfo(p)).not.toBeNull();
 		expect(p.compat).toEqual(old.compat);
 		expect(p.file_key).toBe(old.file_key);
@@ -757,6 +757,19 @@ describe("CSP con nonce (scripts que inyecta Cloudflare)", () => {
 });
 
 describe("sin cupones públicos (decisión del dueño, 2026-11-17)", () => {
+	it("quien no es admin no puede usar un código aunque mande el campo a mano (p. ej. un cupón del 100 %)", async () => {
+		const p = await createProduct({ priceCents: 700 });
+		const s = await loginMock(`sin-cupon-${uid()}@maqueta.test`);
+		const res = await postForm(`/market/producto/${p.slug}/comprar`, s, { cupon: "REGALO-TOTAL" });
+		expect(res.headers.get("location")).toMatch(/\/market\/maqueta\/pago\//);
+		const o = await one<{ coupon_code: string | null; amount_cents: number }>(
+			"SELECT o.coupon_code, o.amount_cents FROM orders o JOIN users u ON u.id = o.user_id WHERE u.email = ?1 AND o.product_id = ?2",
+			s.email,
+			p.id,
+		);
+		expect(o).toEqual({ coupon_code: null, amount_cents: 700 });
+	});
+
 	it("la FAQ del cupón de bienvenida solo sale si hay cupón, y ya no se afirma que los tachados se cobraron antes", async () => {
 		const { storeFaq } = await import("../src/views/shop");
 		for (const lang of ["es", "en"] as const) {
