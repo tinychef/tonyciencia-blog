@@ -354,8 +354,12 @@ export function registerShop(app: Hono<AppEnv>) {
 		}
 
 		// Único dato opcional en precio fijo: el código de cupón (se valida en el servidor).
+		// Sin cupones públicos (2026-11-17): solo el admin puede usar códigos (p. ej. uno de prueba del 100 % sin límite de usos);
+		// a los demás solo se les acepta el cupón de bienvenida, si está configurado. Ocultar el campo no basta.
 		const rawCoupon = form?.get("cupon");
-		const coupon = typeof rawCoupon === "string" ? rawCoupon.trim().slice(0, 64) : "";
+		const typed = typeof rawCoupon === "string" ? rawCoupon.trim().slice(0, 64) : "";
+		const welcome = c.get("config").welcomeCoupon;
+		const coupon = c.get("isAdmin") || (welcome && typed.toUpperCase() === welcome.toUpperCase()) ? typed : "";
 		const result = await startCheckout(d, user, product, { couponCode: coupon || null, amountCents });
 		if (result.ok) return c.redirect(result.redirectUrl, 303);
 		if (result.reason === "already_owned") return c.redirect("/market/mis-compras", 303);

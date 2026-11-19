@@ -1069,3 +1069,43 @@ db.exec(sql("0012_edit_pro_desde_cero.sql"));
 	assert.equal(g["stick-sketch"].raise_per_sale_cents, 0, "un producto pasado a pago libre no sube");
 	console.log("✓ migraciones 0022 y 0023 seguras (columnas, Membresía Dorada USD 100 ES + EN, subida +1 hasta 47 solo en los tres de 1.10, idempotente, guardas)");
 }
+
+// ── 0024: fin de la subida por venta; specreel, stick-sketch y video 4K a USD 7 con 47 tachado (dueño, 2026-11-19) ──
+{
+	const prev = readdirSync(join(root, "migrations")).filter((f) => f.endsWith(".sql") && f >= "0009" && f < "0024").sort();
+	const all = (d) => Object.fromEntries(d.prepare("SELECT * FROM products").all().map((r) => [r.slug, { ...r }]));
+	const M = "0024_precio_7_sin_subida.sql";
+	const SLUGS = ["specreel", "stick-sketch", "video-4k-con-claude"];
+	const base = () => {
+		const d = prodDb();
+		for (const f of prev.filter((f) => f < "0021")) d.exec(sql(f));
+		// Estado de producción después de la 0020 → 0021 → 0022/0023.
+		d.exec("UPDATE products SET price_mode = 'fixed', price_cents = 4700, compare_at_cents = NULL WHERE slug IN ('specreel', 'stick-sketch', 'video-4k-con-claude')");
+		for (const f of prev.filter((f) => f >= "0021")) d.exec(sql(f));
+		return d;
+	};
+	const db = base();
+	db.exec("UPDATE products SET price_cents = 310 WHERE slug = 'video-4k-con-claude'"); // ya subió dos veces
+	const pre = all(db);
+	for (const s of SLUGS) assert.equal(pre[s].raise_per_sale_cents, 100, `${s}: antes de la 0024 está en el plan de subida`);
+	db.exec(sql(M));
+	const v = all(db);
+	db.exec(sql(M));
+	assert.deepEqual(all(db), v, "0024 es idempotente");
+	for (const s of SLUGS) {
+		assert.deepEqual([v[s].price_mode, v[s].price_cents, v[s].compare_at_cents], ["fixed", 700, 4700], `${s}: USD 7 con 47 tachado`);
+		const { updated_at, price_cents, raise_per_sale_cents, raise_cap_cents, ...rest } = v[s];
+		const { updated_at: u0, price_cents: p0, raise_per_sale_cents: r0, raise_cap_cents: c0, ...rest0 } = pre[s];
+		assert.deepEqual(rest, rest0, `${s}: solo cambia el precio y la subida`);
+	}
+	assert.ok(Object.values(v).every((r) => r.raise_per_sale_cents === 0 && r.raise_cap_cents === null), "nadie sube de precio por venta");
+	for (const [s, r] of Object.entries(v)) if (!SLUGS.includes(s)) assert.deepEqual(r, pre[s], `${s}: sin cambios`);
+	assert.deepEqual([v["anuncios-infinitos"].price_cents, v["anuncios-infinitos"].compare_at_cents], [3333, 7690], "Anuncios Automáticos sigue en 33.33 con 76.90 tachado");
+	assert.equal(v["membresia-dorada"].price_cents, 10000, "la Membresía Dorada sigue en USD 100");
+	// Guarda: un precio puesto a mano fuera del plan de subida no se toca.
+	const dbG = base();
+	dbG.exec("UPDATE products SET price_cents = 2900, raise_per_sale_cents = 0 WHERE slug = 'stick-sketch'");
+	dbG.exec(sql(M));
+	assert.equal(all(dbG)["stick-sketch"].price_cents, 2900, "0024 no pisa un precio puesto a mano");
+	console.log("✓ migración 0024 segura (USD 7 con 47 tachado en los tres; subida apagada; Anuncios, gratis y membresía sin cambios; idempotente, guarda)");
+}
